@@ -1,4 +1,8 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.ie.webdriver import WebDriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class LoginPage:
@@ -26,3 +30,29 @@ class LoginPage:
 
     def submit_login(self):
         self.driver.find_element(*self.LOGIN_BTN).click()
+
+#    def is_logged (self):
+#        try:
+#            self.driver.find_element(*self.SIGN_OUT_BTN)
+#            return True
+#        except NoSuchElementException
+#            return False
+
+    def is_logged(self):
+        try:
+            WebDriverWait(self.driver, timeout=5).until(
+                EC.visibility_of_element_located(self.SIGN_OUT_BTN)
+            )
+            return True
+        except TimeoutError:
+            return False
+
+    def get_alert_text (self):
+        alert = WebDriverWait(self.driver, timeout=5).until(
+            EC.alert_is_present()
+        )
+
+        return alert.text
+
+    def accept_alert(self):
+        self.driver.switch_to.alert.accept()
