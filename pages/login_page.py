@@ -14,8 +14,6 @@ class LoginPage:
     REGISTRATION_BTN = (By.CSS_SELECTOR, "button[name='registration']")
     SIGN_OUT_BTN = (By.XPATH, "//*[text()='Sign Out']")
 
-    # Новый локатор для сообщения "Registration failed with code 409"
-    ERROR_MESSAGE_DIV = (By.XPATH, "//div[contains(@style, 'color: red')]")
 
     def __init__(self, driver):
         self.driver = driver
@@ -55,9 +53,4 @@ class LoginPage:
     def accept_alert(self):
         self.driver.switch_to.alert.accept()
 
-    # Новый метод для чтения красного текста ошибки со страницы
-    def get_error_message_text(self):
-        error_element = WebDriverWait(self.driver, timeout=5).until(
-            EC.visibility_of_element_located(self.ERROR_MESSAGE_DIV)
-        )
-        return error_element.text
+
