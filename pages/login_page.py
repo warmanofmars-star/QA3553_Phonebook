@@ -1,22 +1,22 @@
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
 class LoginPage:
+    PAGE_URL = "https://telranedu.web.app/login"
+
     LOGIN_NAV_LINK = (By.CSS_SELECTOR, "[href='/login']")
     EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='email']")
     PASSWORD_INPUT = (By.CSS_SELECTOR, "input[name='password']")
     LOGIN_BTN = (By.XPATH, "//button[text()='Login']")
-
-    # Локатор для кнопки регистрации (по атрибуту name)
     REGISTRATION_BTN = (By.CSS_SELECTOR, "button[name='registration']")
     SIGN_OUT_BTN = (By.XPATH, "//*[text()='Sign Out']")
 
-
     def __init__(self, driver):
         self.driver = driver
+
+    def open(self):
+        self.driver.get(self.PAGE_URL)
 
     def open_login_form(self):
         self.driver.find_element(*self.LOGIN_NAV_LINK).click()
@@ -52,5 +52,3 @@ class LoginPage:
 
     def accept_alert(self):
         self.driver.switch_to.alert.accept()
-
-
