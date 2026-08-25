@@ -1,8 +1,14 @@
 import random
 import string
 import time
-from models.user import User
+from faker import Faker
 
+# Импортируем наши модели
+from models.user import User
+from models.contact import Contact
+
+# Инициализируем Faker один раз для всего файла
+fake = Faker('en_US')
 
 class UserGenerator:
 
@@ -45,3 +51,21 @@ class UserGenerator:
     def get_user_with_invalid_password(cls):
         """Возвращает объект User с валидным email и коротким невалидным паролем"""
         return User(email=cls.generate_valid_email(), password="123")
+
+
+# ==========================================
+# ГЕНЕРАТОР ДЛЯ КОНТАКТОВ (Faker + Unique + Numerify)
+# ==========================================
+class ContactGenerator:
+
+    @classmethod
+    def get_random_contact(cls):
+        """Возвращает объект Contact с уникальными случайными данными"""
+        return Contact(
+            name=fake.unique.first_name(),
+            last_name=fake.unique.last_name(),
+            phone=fake.numerify(text="05########"),
+            email=fake.unique.email(),
+            address=fake.address().replace('\n', ' '),
+            description=fake.sentence(nb_words=5)
+        )

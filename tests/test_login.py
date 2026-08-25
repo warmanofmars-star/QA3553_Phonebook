@@ -5,8 +5,8 @@ from data.data_generator import UserGenerator
 # ТЕСТОВЫЕ ДАННЫЕ ДЛЯ АВТОРИЗАЦИИ (LOGIN)
 # ==========================================
 # Для тестов логина нам нужен пользователь, который уже точно есть в базе
-EXISTING_EMAIL = "margo@gmail.com"
-VALID_PASSWORD = "Mmar123456$"
+EXISTING_EMAIL = "warman.of.mars.2@gmail.com"
+VALID_PASSWORD = "Wwar123456$"
 
 INVALID_EMAIL_FORMAT = "margogmail.com"
 INVALID_PASSWORD_FORMAT = "12345"
