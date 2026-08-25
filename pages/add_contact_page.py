@@ -5,10 +5,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from models.contact import Contact
 
-class ContactPage(BasePage): # Наследуемся от BasePage
+
+class ContactPage(BasePage):
     PAGE_URL = "https://telranedu.web.app/add"
 
-    ADD_NAV_LINK = (By.CSS_SELECTOR, "[href='/add']")
+    ADD_NAV_LINK = (By.CSS_SELECTOR, "a[href='/add']")
+    ACTIVE_ADD_NAV_LINK = (By.CSS_SELECTOR, "a[href='/add'].active")  # Активная вкладка
+
     NAME_INPUT = (By.CSS_SELECTOR, "input[placeholder='Name']")
     LAST_NAME_INPUT = (By.CSS_SELECTOR, "input[placeholder='Last Name']")
     PHONE_INPUT = (By.CSS_SELECTOR, "input[placeholder='Phone']")
@@ -20,8 +23,11 @@ class ContactPage(BasePage): # Наследуемся от BasePage
     def open(self):
         self.driver.get(self.PAGE_URL)
 
-    def click_add_link(self):
-        self.click(self.ADD_NAV_LINK)
+    def is_add_tab_active(self):
+        try:
+            return self.find(self.ACTIVE_ADD_NAV_LINK).is_displayed()
+        except Exception:
+            return False
 
     def fill_name(self, name):
         self.fill(self.NAME_INPUT, name)
@@ -58,7 +64,3 @@ class ContactPage(BasePage): # Наследуемся от BasePage
             EC.presence_of_element_located(locator)
         )
         return element.is_displayed()
-
-    def open_contact_details(self, phone):
-        locator = (By.XPATH, f"//h3[text()='{phone}']")
-        self.click(locator) # Тут тоже можно использовать метод click!
