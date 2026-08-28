@@ -64,6 +64,8 @@ def test_add_contact_negative(authenticated_driver, name, last_name, phone, emai
 @pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
 def test_add_contact_duplicate_phone(authenticated_driver):
 
+    contact_page = ContactPage(authenticated_driver)
+
     # --- ШАГ 1: Создаем первый уникальный контакт ---
     contact_page.open()
     first_contact = ContactGenerator.get_random_contact()
