@@ -3,7 +3,7 @@ from models.contact import Contact
 from pages.add_contact_page import ContactPage
 from data.data_generator import ContactGenerator
 from selenium.common.exceptions import TimeoutException
-from data.test_data import NEGATIVE_CONTACT_DATA
+from data.test_data import load_contact_data_from_csv
 
 
 # ==========================================
@@ -30,15 +30,23 @@ def test_add_contact_success_all_fields(authenticated_driver):
 
 
 # ==========================================
-# НЕГАТИВНЫЕ ТЕСТЫ (Проверка валидации полей из ТЗ)
+# НЕГАТИВНЫЕ ТЕСТЫ (Данные берутся из CSV)
 # ==========================================
 
-@pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error", NEGATIVE_CONTACT_DATA)
+# Вместо жестко прописанного списка мы просто вызываем функцию!
+@pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error", load_contact_data_from_csv())
 def test_add_contact_negative(authenticated_driver, name, last_name, phone, email, address, description, expected_error):
     contact_page = ContactPage(authenticated_driver)
     contact_page.open()
 
-    invalid_contact = Contact(name, last_name, phone, email, address, description)
+    invalid_contact = Contact(
+        name=name,
+        last_name=last_name,
+        phone=phone,
+        email=email,
+        address=address,
+        description=description
+    )
 
     contact_page.fill_contact_form(invalid_contact)
     contact_page.submit_contact()

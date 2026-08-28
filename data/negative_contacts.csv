@@ -1,0 +1,9 @@
+name,last_name,phone,email,address,description,expected_error
+,Ivanov,0501234567,test@mail.com,Tel Aviv,desc,Name cannot be empty!
+Ivan,,0501234567,test@mail.com,Tel Aviv,desc,Last Name cannot be empty!
+Ivan,Ivanov,,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!"
+Ivan,Ivanov,0501234567,,Tel Aviv,desc,Email not valid: должно иметь формат адреса электронной почты
+Ivan,Ivanov,0501234567,test@mail.com,,desc,Address cannot be empty!
+Ivan,Ivanov,0501234567,not-an-email,Tel Aviv,desc,Email not valid: должно иметь формат адреса электронной почты
+Ivan,Ivanov,abcdefghij,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!"
+Ivan,Ivanov,050123,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!"
