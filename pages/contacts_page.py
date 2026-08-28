@@ -57,3 +57,13 @@ class ContactsPage(BasePage):
         """Проверяет, что карточка с указанным телефоном исчезла со страницы"""
         locator = (By.XPATH, f"//h3[text()='{phone}']")
         return self.is_disappeared(locator)
+
+    #Метод, который "читает" тест из правой панели (для тестирования самой странницы контактов)
+    def get_contact_details_text(self):
+        """Возвращает весь текст из правой панели деталей контакта"""
+        # Локатор правой карточки, в которой появляются данные
+        locator = (By.CLASS_NAME, "contact-item-detailed_card__50dTS")
+
+        # Ждем, пока карточка прогрузится, и забираем ее текст
+        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
+        return self.find(locator).text
