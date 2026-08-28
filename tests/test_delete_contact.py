@@ -1,6 +1,6 @@
 from models.contact import Contact
 from pages.add_contact_page import ContactPage
-from pages.contacts_page import ContactListPage
+from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
 
 
@@ -24,13 +24,13 @@ def test_delete_contact(authenticated_driver):
     # ==========================================
     # ШАГ ТЕСТА: Удаляем созданный контакт
     # ==========================================
-    contacts_page = ContactListPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
 
     # 1. Открываем страницу контактов (хотя мы уже на ней, это хорошая практика)
     contacts_page.open()
 
     # 2. Кликаем по карточке с нашим уникальным телефоном
-    contacts_page.click_contact_by_phone(contact.phone)
+    contacts_page.open_contact_details(contact.phone)
 
     # 3. Нажимаем кнопку Remove
     contacts_page.click_remove_button()
