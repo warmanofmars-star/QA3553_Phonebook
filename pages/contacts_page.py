@@ -5,6 +5,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.base_page import BasePage
 
+from selenium.webdriver.common.keys import Keys
+import platform
+
 
 class ContactsPage(BasePage):
     PAGE_URL = "https://telranedu.web.app/contacts"
@@ -67,3 +70,59 @@ class ContactsPage(BasePage):
         # Ждем, пока карточка прогрузится, и забираем ее текст
         WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(locator))
         return self.find(locator).text
+
+    #
+    #здесь уже идет работа с редактированием карточки контакта
+    #
+
+    def click_edit_button(self):
+        """Нажимает кнопку Edit в деталях контакта"""
+        locator = (By.XPATH, "//button[text()='Edit']")
+        WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(locator))
+        self.click(locator)
+
+    def clear_and_fill_input(self, locator, text):
+        """Выделяет весь текст в поле и заменяет его на новый (надежно для React)"""
+        element = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(locator))
+        cmd_ctrl = Keys.COMMAND if platform.system() == 'Darwin' else Keys.CONTROL
+        element.send_keys(cmd_ctrl + "a")
+        element.send_keys(Keys.BACKSPACE)
+        element.send_keys(text)
+
+    def edit_contact_form(self, updated_contact):
+        """Заполняет форму редактирования переданными данными"""
+        locators = {
+            "name": (By.CSS_SELECTOR, "input[placeholder='Name']"),
+            "last_name": (By.CSS_SELECTOR, "input[placeholder='Last Name']"),
+            "phone": (By.CSS_SELECTOR, "input[placeholder='Phone']"),
+            "email": (By.CSS_SELECTOR, "input[placeholder='email']"),
+            "address": (By.CSS_SELECTOR, "input[placeholder='Address']"),
+            "description": (By.CSS_SELECTOR, "input[placeholder='desc']")
+        }
+
+        # Заполняем только те поля, которые переданы (не None)
+        if updated_contact.name is not None:
+            self.clear_and_fill_input(locators["name"], updated_contact.name)
+        if updated_contact.last_name is not None:
+            self.clear_and_fill_input(locators["last_name"], updated_contact.last_name)
+        if updated_contact.phone is not None:
+            self.clear_and_fill_input(locators["phone"], updated_contact.phone)
+        if updated_contact.email is not None:
+            self.clear_and_fill_input(locators["email"], updated_contact.email)
+        if updated_contact.address is not None:
+            self.clear_and_fill_input(locators["address"], updated_contact.address)
+        if updated_contact.description is not None:
+            self.clear_and_fill_input(locators["description"], updated_contact.description)
+
+    def click_save_edit_button(self):
+        """Нажимает кнопку Save при редактировании"""
+        locator = (By.XPATH, "//button[text()='Save']")
+        self.click(locator)
+
+    def is_edit_form_open(self):
+        """Проверяет, осталась ли открытой форма редактирования (по наличию инпутов)"""
+        locator = (By.CSS_SELECTOR, "input[placeholder='Name']")
+        # Используем встроенный метод драйвера find_elements.
+        # Если инпут есть на странице, вернется список элементов (длина > 0).
+        elements = self.driver.find_elements(*locator)
+        return len(elements) > 0

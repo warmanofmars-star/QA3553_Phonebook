@@ -58,14 +58,20 @@ class UserGenerator:
 # ==========================================
 class ContactGenerator:
 
-    @classmethod
-    def get_random_contact(cls):
-        """Возвращает объект Contact с уникальными случайными данными"""
-        return Contact(
-            name=fake.unique.first_name(),
-            last_name=fake.unique.last_name(),
-            phone=fake.numerify(text="05########"),
-            email=fake.unique.email(),
-            address=fake.address().replace('\n', ' '),
-            description=fake.sentence(nb_words=5)
-        )
+    @staticmethod
+    def get_random_contact(**overrides) -> Contact:
+        """Генерирует случайный контакт. Позволяет переопределять любые поля через **overrides"""
+        data = {
+            "name": fake.first_name(),
+            "last_name": fake.last_name(),
+            "phone": fake.unique.numerify("05########"),
+            "email": fake.unique.email(),
+            "address": fake.address(),
+            "description": fake.sentence()
+        }
+
+        # Обновляем словарь нашими значениями, если они были переданы
+        data.update(overrides)
+
+        # Распаковываем словарь в объект Contact
+        return Contact(**data)
