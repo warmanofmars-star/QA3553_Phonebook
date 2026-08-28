@@ -6,7 +6,7 @@ from models.contact import Contact
 
 
 # ==========================================
-# ПОЗИТИВНЫЕ ТЕСТЫ (TC-021 - TC-027)
+# ПОЗИТИВНЫЕ ТЕСТЫ
 # ==========================================
 def test_edit_contact_positive(authenticated_driver):
     add_page = ContactPage(authenticated_driver)
@@ -29,21 +29,20 @@ def test_edit_contact_positive(authenticated_driver):
     contacts_page.click_save_edit_button()  # Сохраняем
 
     # 4. ПРОВЕРКА
-    # Ждем, пока старая карточка пропадет и появится новая (по новому телефону)
     assert contacts_page.contact_card_visible(new_contact.phone), "Измененный контакт не появился в списке слева!"
 
-    # Открываем измененную карточку и проверяем текст справа
     contacts_page.open_contact_details(new_contact.phone)
     details_text = contacts_page.get_contact_details_text()
 
-    assert new_contact.name in details_text, "Новое имя не сохранилось!"
-    assert new_contact.last_name in details_text, "Новая фамилия не сохранилась!"
+    assert new_contact.name in details_text, "Новое имя не сохранилось в деталях!"
+    assert new_contact.last_name in details_text, "Новая фамилия не сохранилась в деталях!"
+    assert new_contact.email in details_text, "Новый email не сохранился в деталях!"
 
 
 # ==========================================
-# НЕГАТИВНЫЕ ТЕСТЫ (TC-035)
+# НЕГАТИВНЫЕ ТЕСТЫ: Дубликаты (TC-034, TC-035)
 # ==========================================
-@pytest.mark.xfail(reason="BUG: Система позволяет редактировать телефон на уже существующий дубликат")
+@pytest.mark.xfail(reason="BUG: Фронтенд позволяет редактировать телефон на уже существующий дубликат")
 def test_edit_contact_duplicate_phone(authenticated_driver):
     add_page = ContactPage(authenticated_driver)
     contacts_page = ContactsPage(authenticated_driver)
@@ -65,14 +64,12 @@ def test_edit_contact_duplicate_phone(authenticated_driver):
     contacts_page.open_contact_details(contact_2.phone)
     contacts_page.click_edit_button()
 
-    # Вот тут срабатывает магия **overrides, мы переопределяем только телефон!
+    # Переопределяем только телефон через kwargs генератора
     duplicate_data = ContactGenerator.get_random_contact(phone=contact_1.phone)
     contacts_page.edit_contact_form(duplicate_data)
     contacts_page.click_save_edit_button()
 
     # 3. ПРОВЕРКА
-    # По требованиям (T83, F13) система не должна сохранять такой контакт.
-    # Значит, форма редактирования должна остаться открытой (или должна быть ошибка).
     assert contacts_page.is_edit_form_open(), "Баг: Система сохранила дубликат при редактировании и закрыла форму!"
 
 
@@ -90,22 +87,19 @@ def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear
     add_page.open()
     add_page.fill_contact_form(contact)
     add_page.submit_contact()
-    contacts_page.contact_card_visible(contact.phone)  # Ждем авто-редирект
+    contacts_page.contact_card_visible(contact.phone)
 
     # 2. Открываем созданную карточку и жмем Edit
     contacts_page.open_contact_details(contact.phone)
     contacts_page.click_edit_button()
 
     # 3. ШАГ ТЕСТА: Очищаем ТОЛЬКО ОДНО обязательное поле
-    # Создаем объект Contact, где все поля None (наш метод edit_contact_form их пропустит)
+    # noinspection PyTypeChecker
     empty_update = Contact(name=None, last_name=None, phone=None, email=None, address=None, description=None)
-
-    # Динамически устанавливаем нужному полю значение пустой строки ""
     setattr(empty_update, field_to_clear, "")
 
-    # Передаем это в форму. Метод сотрет только то поле, которое мы передали как ""
     contacts_page.edit_contact_form(empty_update)
     contacts_page.click_save_edit_button()
 
-    # 4. ПРОВЕРКА: Кнопка Save не должна сработать, форма должна остаться открытой
-    assert contacts_page.is_edit_form_open(), f"БАГ (F10-F14): Система сохранила контакт с пустым полем '{field_to_clear}'!"
+    # 4. ПРОВЕРКА: Форма должна остаться открытой (система не должна принимать пустые значения)
+    assert contacts_page.is_edit_form_open(), f"БАГ: Система сохранила контакт с пустым полем '{field_to_clear}'!"
