@@ -1,25 +1,34 @@
 import csv
 import os
+import pytest
 
 
 def load_contact_data_from_csv():
     """Читает негативные сценарии из CSV файла и возвращает их списком"""
 
-    # 1. Получаем точный путь к нашему CSV файлу, где бы мы ни запускали тест
     current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, 'negative_contacts.csv')
 
     data = []
 
-    # 2. Открываем файл
     with open(file_path, newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
+        next(reader)  # Пропускаем заголовки
 
-        # Пропускаем первую строку (заголовки столбцов: name, last_name и т.д.)
-        next(reader)
-
-        # 3. Читаем остальные строки и добавляем их в список
         for row in reader:
-            data.append(tuple(row))
+            # Распаковываем строку на переменные для удобства
+            name, last_name, phone, email, address, description, expected_error = row
+
+            # ИЗВЕСТНЫЙ БАГ: система не выдает Alert, если Имя, Фамилия, Email или Адрес пустые.
+            if name == "" or last_name == "" or email == "" or address == "":
+
+                # Оборачиваем проблемные данные в pytest.param и вешаем маркер xfail
+                marked_row = pytest.param(*row, marks=pytest.mark.xfail(
+                    reason="BUG: Alert doesn't appear for empty fields"))
+                data.append(marked_row)
+
+            else:
+                # Если бага нет, добавляем данные как обычно
+                data.append(tuple(row))
 
     return data

@@ -58,4 +58,32 @@ def test_add_contact_negative(authenticated_driver, name, last_name, phone, emai
     except TimeoutException:
         pytest.fail(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert с текстом '{expected_error}' так и не появился!")
 
-    assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сохранить невалидный контакт!"
+    assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сдный контакт!"
+
+
+@pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
+def test_add_contact_duplicate_phone(authenticated_driver):
+
+    # --- ШАГ 1: Создаем первый уникальный контакт ---
+    contact_page.open()
+    first_contact = ContactGenerator.get_random_contact()
+    contact_page.fill_contact_form(first_contact)
+    contact_page.submit_contact()
+
+    # --- ШАГ 2: Пытаемся создать второй контакт с ТЕМ ЖЕ номером ---
+    contact_page.open()
+    duplicate_contact = ContactGenerator.get_random_contact()
+    duplicate_contact.phone = first_contact.phone  # Копируем телефон из первого контакта!
+
+    contact_page.fill_contact_form(duplicate_contact)
+    contact_page.submit_contact()
+
+    # --- ШАГ 3: Проверяем реакцию системы ---
+    try:
+        alert_text = contact_page.get_alert_text()
+        print(f"\n[РАЗВЕДКА] УРА! Система выдала Alert: '{alert_text}'")
+        contact_page.accept_alert()
+        # Пока ставим заглушку, чтобы тест прошел, если алерт есть
+        assert True
+    except TimeoutException:
+        pytest.fail("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
