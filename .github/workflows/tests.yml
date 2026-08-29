@@ -17,7 +17,7 @@ jobs:
           python-version: '3.12' # Версия питона
 
       - name: Устанавливаем браузер Edge (для Headless режима)
-        uses: browser-actions/setup-edge@v3
+        uses: browser-actions/setup-edge@v1
 
       - name: Устанавливаем библиотеки (requirements)
         run: |
