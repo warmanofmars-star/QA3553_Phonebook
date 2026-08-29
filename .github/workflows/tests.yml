@@ -1,0 +1,37 @@
+name: Phonebook UI Tests
+
+on:
+  workflow_dispatch: # Эта строчка создает кнопку "Запустить вручную" на GitHub
+
+jobs:
+  test:
+    runs-on: ubuntu-latest # Виртуальная машина на Linux
+
+    steps:
+      - name: Скачиваем код проекта
+        uses: actions/checkout@v4
+
+      - name: Устанавливаем Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' # Версия питона
+
+      - name: Устанавливаем браузер Edge (для Headless режима)
+        uses: browser-actions/setup-edge@v3
+
+      - name: Устанавливаем библиотеки (requirements)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Запускаем автотесты
+        run: pytest tests/ --html=report.html
+        continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
+
+      - name: Отправляем отчет в Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: "🤖 Шеф, автотесты Phonebook завершены! Отчет прикреплен ниже 👇"
+          document: report.html # Имя файла, который нужно отправить
