@@ -1,12 +1,18 @@
 from pages.login_page import LoginPage
 from data.data_generator import UserGenerator
+import os
+from dotenv import load_dotenv
 
 # ==========================================
 # ТЕСТОВЫЕ ДАННЫЕ ДЛЯ АВТОРИЗАЦИИ (LOGIN)
 # ==========================================
 # Для тестов логина нам нужен пользователь, который уже точно есть в базе
-EXISTING_EMAIL = "warman.of.mars.2@gmail.com"
-VALID_PASSWORD = "Wwar123456$"
+# Загружаем переменные из файла .env
+load_dotenv()
+
+# Достаем значения из переменных окружения
+EXISTING_EMAIL = os.getenv("USER_EMAIL")
+VALID_PASSWORD = os.getenv("USER_PASSWORD")
 
 INVALID_EMAIL_FORMAT = "margogmail.com"
 INVALID_PASSWORD_FORMAT = "12345"

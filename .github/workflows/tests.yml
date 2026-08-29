@@ -25,6 +25,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Запускаем автотесты
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
         run: pytest tests/ --html=report.html
         continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
 
