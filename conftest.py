@@ -11,6 +11,11 @@ from tests.test_login import VALID_PASSWORD, EXISTING_EMAIL
 def driver():
     options = Options()
 
+    # Принудительно устанавливаем английский язык для браузера
+    options.add_argument('--lang=en-US')
+    # Дополнительная настройка преференций (для надежности в Edge/Chrome)
+    options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
+
     # Проверяем, запускаются ли тесты на сервере GitHub Actions
     if os.environ.get('CI') == 'true':
         options.add_argument('--headless')  # Включаем фоновый режим
