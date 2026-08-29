@@ -12,7 +12,7 @@ class LoginPage(BasePage):
     PASSWORD_INPUT = (By.CSS_SELECTOR, "input[name='password']")
     LOGIN_BTN = (By.XPATH, "//button[text()='Login']")
     REGISTRATION_BTN = (By.CSS_SELECTOR, "button[name='registration']")
-    SIGN_OUT_BTN = (By.XPATH, "//*[text()='Sign Out']")
+
 
     def open(self):
         self.driver.get(self.PAGE_URL)
@@ -40,6 +40,12 @@ class LoginPage(BasePage):
             return True
         except TimeoutError:
             return False
+
+    def is_login_button_visible(self):
+        """Проверяет, видна ли кнопка Login под формой"""
+        elements = self.driver.find_elements(*self.LOGIN_BTN)
+        return len(elements) > 0
+
 
     def get_alert_text(self):
         alert = WebDriverWait(self.driver, timeout=5).until(

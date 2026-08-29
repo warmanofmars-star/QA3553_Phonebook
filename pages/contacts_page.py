@@ -112,3 +112,5 @@ class ContactsPage(BasePage):
         """Проверяет, осталась ли открытой форма редактирования (по наличию инпута 'Name')"""
         elements = self.driver.find_elements(*self.EDIT_FORM_LOCATORS["name"])
         return len(elements) > 0
+
+
