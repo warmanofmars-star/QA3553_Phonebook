@@ -1,5 +1,6 @@
 import os
 import pytest
+import allure
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 
@@ -72,12 +73,21 @@ def pytest_runtest_makereport(item, call):
             test_name = item.name.replace("/", "_").replace("::", "_")
             screenshot_path = os.path.join(screenshots_dir, f"{test_name}.png")
 
-            # Делаем скриншот
+            # Делаем физический скриншот (для истории и pytest-html)
             driver.save_screenshot(screenshot_path)
 
-            # Прикрепляем скриншот к pytest-html отчету
+            # === НОВЫЙ БЛОК ДЛЯ ALLURE ===
+            # Прикрепляем скриншот прямо в Allure-отчет в виде байтов
+            allure.attach(
+                driver.get_screenshot_as_png(),
+                name=f"Скриншот ошибки: {test_name}",
+                attachment_type=allure.attachment_type.PNG
+            )
+            # =============================
+
+            # Прикрепляем скриншот к pytest-html отчету (оставляем как было)
             pytest_html = item.config.pluginmanager.getplugin('html')
             if pytest_html:
-                extras = getattr(report, 'extra', [])
+                extras = getattr(report, 'extras', [])
                 extras.append(pytest_html.extras.image(screenshot_path))
                 report.extras = extras
