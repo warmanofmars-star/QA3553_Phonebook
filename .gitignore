@@ -218,5 +218,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Скрываем переменные окружения
-.env
+# Скриншоты упавших тестов
+screenshots/

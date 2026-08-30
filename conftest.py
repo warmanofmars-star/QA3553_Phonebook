@@ -49,3 +49,37 @@ def authenticated_driver(driver):
     login_page.is_logged()
 
     return driver
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    """
+    Хук, который вызывается после каждой фазы теста (setup, call, teardown).
+    Если тест падает, он делает скриншот и прикрепляет его к HTML-отчету.
+    """
+    outcome = yield
+    report = outcome.get_result()
+
+    # Проверяем, что тест упал именно на этапе выполнения (call), а не при настройке
+    if report.when == 'call' and report.failed:
+        # Пытаемся получить webdriver из фикстур теста (наших driver или authenticated_driver)
+        driver = item.funcargs.get('driver') or item.funcargs.get('authenticated_driver')
+
+        if driver:
+            # Создаем папку screenshots в корне проекта, если её нет
+            screenshots_dir = os.path.join(os.path.dirname(__file__), "screenshots")
+            os.makedirs(screenshots_dir, exist_ok=True)
+
+            # Формируем имя скриншота из названия упавшего теста
+            test_name = item.name.replace("/", "_").replace("::", "_")
+            screenshot_path = os.path.join(screenshots_dir, f"{test_name}.png")
+
+            # Делаем скриншот
+            driver.save_screenshot(screenshot_path)
+
+            # Прикрепляем скриншот к pytest-html отчету
+            pytest_html = item.config.pluginmanager.getplugin('html')
+            if pytest_html:
+                extra = getattr(report, 'extra', [])
+                extra.append(pytest_html.extras.image(screenshot_path))
+                report.extra = extra
