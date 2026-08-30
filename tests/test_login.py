@@ -11,10 +11,6 @@ import os
 EXISTING_EMAIL = os.getenv("USER_EMAIL")
 VALID_PASSWORD = os.getenv("USER_PASSWORD")
 
-INVALID_EMAIL_FORMAT = "margogmail.com"
-INVALID_PASSWORD_FORMAT = "12345"
-
-
 # ==========================================
 # ТЕСТЫ НА АВТОРИЗАЦИЮ (LOGIN)
 # ==========================================
@@ -36,8 +32,11 @@ def test_login_with_wrong_email(driver):
     login_page = LoginPage(driver)
     login_page.open()
 
-    login_page.fill_email(INVALID_EMAIL_FORMAT)
-    login_page.fill_password(VALID_PASSWORD)
+    # Запрашиваем юзера с битым email из генератора
+    bad_email_user = UserGenerator.get_user_with_invalid_email()
+
+    login_page.fill_email(bad_email_user.email)
+    login_page.fill_password(bad_email_user.password)
     login_page.submit_login()
 
     assert "Wrong email or password" in login_page.get_alert_text()
@@ -49,8 +48,12 @@ def test_login_with_wrong_password(driver):
     login_page = LoginPage(driver)
     login_page.open()
 
+    # Запрашиваем юзера с битым паролем из генератора
+    bad_password_user = UserGenerator.get_user_with_invalid_password()
+
+    # Используем валидный email (из .env) и невалидный сгенерированный пароль
     login_page.fill_email(EXISTING_EMAIL)
-    login_page.fill_password(INVALID_PASSWORD_FORMAT)
+    login_page.fill_password(bad_password_user.password)
     login_page.submit_login()
 
     assert "Wrong email or password" in login_page.get_alert_text()
