@@ -3,6 +3,10 @@ import pytest
 import allure
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
+from dotenv import load_dotenv
+
+# Загружаем переменные из .env
+load_dotenv()
 
 from pages.login_page import LoginPage
 from tests.test_login import VALID_PASSWORD, EXISTING_EMAIL
@@ -16,9 +20,11 @@ def driver():
     options.add_argument('--lang=en-US')
     # Дополнительная настройка преференций (для надежности в Edge/Chrome)
     options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
+    # Читаем наш флаг из .env
+    is_headless = os.getenv('HEADLESS_MODE') == 'true'
 
-    # Проверяем, запускаются ли тесты на сервере GitHub Actions
-    if os.environ.get('CI') == 'true':
+    # Включаем Headless, если мы на GitHub Actions (CI) ИЛИ если включили флаг локально
+    if os.environ.get('CI') == 'true' or is_headless:
         options.add_argument('--disable-gpu') # Отключение видеокарты
         options.add_argument('--headless')  # Включаем фоновый режим
         options.add_argument('--no-sandbox')  # Обязательно для Linux-серверов
@@ -28,8 +34,8 @@ def driver():
     # Передаем опции в драйвер
     driver = webdriver.Edge(options=options)
 
-    # Максимизируем окно только при локальном запуске (с UI)
-    if os.environ.get('CI') != 'true':
+    # Максимизируем окно только если Headless выключен
+    if not (os.environ.get('CI') == 'true' or is_headless):
         driver.maximize_window()
 
     # Устанавливаем жесткий лимит на загрузку страницы (30 секунд)
