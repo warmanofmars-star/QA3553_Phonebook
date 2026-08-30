@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 
 from pages.base_page import BasePage
+from pages.locators import ContactFormLocators
 
 
 class ContactsPage(BasePage):
@@ -23,24 +24,13 @@ class ContactsPage(BasePage):
     EDIT_BTN = (By.XPATH, "//button[text()='Edit']")
     SAVE_BTN = (By.XPATH, "//button[text()='Save']")
 
-    # Словарь локаторов полей для формы редактирования
-    # Ключи строго совпадают с названиями атрибутов в классе Contact
-    EDIT_FORM_LOCATORS = {
-        "name": (By.CSS_SELECTOR, "input[placeholder='Name']"),
-        "last_name": (By.CSS_SELECTOR, "input[placeholder='Last Name']"),
-        "phone": (By.CSS_SELECTOR, "input[placeholder='Phone']"),
-        "email": (By.CSS_SELECTOR, "input[placeholder='email']"),
-        "address": (By.CSS_SELECTOR, "input[placeholder='Address']"),
-        "description": (By.CSS_SELECTOR, "input[placeholder='desc']")
-    }
-
     # ==========================================
     # БАЗОВЫЕ МЕТОДЫ (Список контактов)
     # ==========================================
     def open_contact_list(self):
         """Открывает список контактов через клик по верхнему меню"""
         self.click(self.CONTACT_NAV_LINK)
-        WebDriverWait(self.driver, 5).until(EC.url_contains("/contacts"))
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.url_contains("/contacts"))
         time.sleep(1)
 
     def contact_cards_count(self, phone):
@@ -96,7 +86,7 @@ class ContactsPage(BasePage):
     def edit_contact_form(self, updated_contact):
         """Оптимизированный метод заполнения формы.
         Динамически читает данные из объекта Contact и заполняет форму"""
-        for attr_name, locator in self.EDIT_FORM_LOCATORS.items():
+        for attr_name, locator in ContactFormLocators.FIELDS.items():
             value = getattr(updated_contact, attr_name, None)
             if value is not None:
                 self.clear_and_fill_input(locator, value)
@@ -107,7 +97,7 @@ class ContactsPage(BasePage):
 
     def is_edit_form_open(self):
         """Проверяет, осталась ли открытой форма редактирования (по наличию инпута 'Name')"""
-        elements = self.driver.find_elements(*self.EDIT_FORM_LOCATORS["name"])
+        elements = self.driver.find_elements(*ContactFormLocators.FIELDS["name"])
         return len(elements) > 0
 
 
