@@ -26,7 +26,8 @@ jobs:
 
       - name: Запускаем автотесты
         env:
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          BASE_URL: "https://telranedu.web.app"          # Несекретная настройка — пишем открыто
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}          # Секреты — тянем из сейфа GitHub
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
         run: pytest tests/ --html=report.html
         continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
