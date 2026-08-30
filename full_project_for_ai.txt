@@ -1,0 +1,1218 @@
+
+
+============================================================
+📄 FILE: .\.env
+============================================================
+
+USER_EMAIL=warman.of.mars.2@gmail.com
+USER_PASSWORD=Wwar123456$
+BASE_URL=https://telranedu.web.app
+
+============================================================
+📄 FILE: .\conftest.py
+============================================================
+
+import os
+import pytest
+from selenium import webdriver
+from selenium.webdriver.edge.options import Options
+
+from pages.login_page import LoginPage
+from tests.test_login import VALID_PASSWORD, EXISTING_EMAIL
+
+
+@pytest.fixture
+def driver():
+    options = Options()
+
+    # Принудительно устанавливаем английский язык для браузера
+    options.add_argument('--lang=en-US')
+    # Дополнительная настройка преференций (для надежности в Edge/Chrome)
+    options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
+
+    # Проверяем, запускаются ли тесты на сервере GitHub Actions
+    if os.environ.get('CI') == 'true':
+        options.add_argument('--headless')  # Включаем фоновый режим
+        options.add_argument('--no-sandbox')  # Обязательно для Linux-серверов
+        options.add_argument('--disable-dev-shm-usage')  # Обход проблемы с памятью на серверах
+        options.add_argument('--window-size=1920,1080')  # Задаем размер экрана "вслепую"
+
+    # Передаем опции в драйвер
+    driver = webdriver.Edge(options=options)
+
+    # Максимизируем окно только при локальном запуске (с UI)
+    if os.environ.get('CI') != 'true':
+        driver.maximize_window()
+
+    yield driver  # Передаем драйвер в тест
+    driver.quit()
+
+
+@pytest.fixture
+def authenticated_driver(driver):
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    login_page.fill_email(EXISTING_EMAIL)
+    login_page.fill_password(VALID_PASSWORD)
+    login_page.submit_login()
+
+    # Ждем, пока авторизация действительно завершится
+    login_page.is_logged()
+
+    return driver
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    """
+    Хук, который вызывается после каждой фазы теста (setup, call, teardown).
+    Если тест падает, он делает скриншот и прикрепляет его к HTML-отчету.
+    """
+    outcome = yield
+    report = outcome.get_result()
+
+    # Проверяем, что тест упал именно на этапе выполнения (call), а не при настройке
+    if report.when == 'call' and report.failed:
+        # Пытаемся получить webdriver из фикстур теста (наших driver или authenticated_driver)
+        driver = item.funcargs.get('driver') or item.funcargs.get('authenticated_driver')
+
+        if driver:
+            # Создаем папку screenshots в корне проекта, если её нет
+            screenshots_dir = os.path.join(os.path.dirname(__file__), "screenshots")
+            os.makedirs(screenshots_dir, exist_ok=True)
+
+            # Формируем имя скриншота из названия упавшего теста
+            test_name = item.name.replace("/", "_").replace("::", "_")
+            screenshot_path = os.path.join(screenshots_dir, f"{test_name}.png")
+
+            # Делаем скриншот
+            driver.save_screenshot(screenshot_path)
+
+            # Прикрепляем скриншот к pytest-html отчету
+            pytest_html = item.config.pluginmanager.getplugin('html')
+            if pytest_html:
+                extras = getattr(report, 'extra', [])
+                extras.append(pytest_html.extras.image(screenshot_path))
+                report.extras = extras
+
+============================================================
+📄 FILE: .\merge_code.py
+============================================================
+
+import os
+
+# Исключаем мусорные папки
+IGNORE_DIRS = ['.venv', '.git', '__pycache__', '.pytest_cache', 'assets', 'screenshots']
+
+with open('full_project_for_ai.txt', 'w', encoding='utf-8') as outfile:
+    for root, dirs, files in os.walk('.'):
+        # Убираем ненужные папки из обхода
+        dirs[:] = [d for d in dirs if d not in IGNORE_DIRS]
+
+        for file in files:
+            # Берем только код, конфиги и ридми
+            if file.endswith(('.py', '.yml', '.env', '.md')):
+                filepath = os.path.join(root, file)
+
+                outfile.write(f"\n\n{'=' * 60}\n")
+                outfile.write(f"📄 FILE: {filepath}\n")
+                outfile.write(f"{'=' * 60}\n\n")
+
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as infile:
+                        outfile.write(infile.read())
+                except Exception as e:
+                    outfile.write(f"Ошибка чтения файла: {e}\n")
+
+print("Готово! Файл full_project_for_ai.txt создан.")
+
+============================================================
+📄 FILE: .\README.md
+============================================================
+
+# 📖 Phonebook UI Auto-tests
+
+[![Phonebook UI Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)
+
+UI Automation testing project for the "Phonebook" web application. 
+Developed using **Python**, **Selenium WebDriver**, and **Pytest** following the **Page Object Model (POM)** design pattern.
+
+## 🛠 Technologies & Tools
+* **Language:** Python 3.12+
+* **Core Framework:** Selenium WebDriver 4+
+* **Test Runner:** Pytest
+* **Design Pattern:** Page Object Model (POM)
+* **Test Data:** Faker (dynamic generation of names, phones, emails)
+* **Reporting:** pytest-html
+* **CI/CD:** GitHub Actions (with Headless browser execution)
+* **Notifications:** Telegram Bot API
+
+## 📋 Test Coverage
+The project includes both positive and negative scenarios covering the core CRUD operations and security features:
+* **Authentication:** User Login, Registration, Logout & Security redirects.
+* **Contacts Management:** 
+  * Creating new contacts.
+  * Editing existing contacts (with dynamic field updates).
+  * Deleting contacts.
+* **Bug Tracking:** Known frontend bugs (e.g., lack of required fields validation during editing, saving duplicates) are isolated and documented using `@pytest.mark.xfail`.
+
+## 🏗 Project Structure
+```text
+QA3553_Phonebook/
+├── .github/workflows/    # CI/CD pipeline configuration (tests.yml)
+├── data/                 # Data generators and static files (Faker, CSV)
+├── models/               # Data models (Contact, User)
+├── pages/                # Page Object classes (base_page, login_page, contacts_page)
+├── tests/                # Test suites (test_login, test_add, test_edit, test_logout)
+├── conftest.py           # Pytest fixtures and WebDriver setup (UI & Headless modes)
+├── requirements.txt      # Project dependencies
+└── README.md             # Project documentation
+
+============================================================
+📄 FILE: .\.github\workflows\tests.yml
+============================================================
+
+name: Phonebook UI Tests
+
+on:
+  workflow_dispatch: # Эта строчка создает кнопку "Запустить вручную" на GitHub
+
+jobs:
+  test:
+    runs-on: ubuntu-latest # Виртуальная машина на Linux
+
+    steps:
+      - name: Скачиваем код проекта
+        uses: actions/checkout@v4
+
+      - name: Устанавливаем Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12' # Версия питона
+
+      - name: Устанавливаем браузер Edge (для Headless режима)
+        uses: browser-actions/setup-edge@v1
+
+      - name: Устанавливаем библиотеки (requirements)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Запускаем автотесты
+        env:
+          BASE_URL: "https://telranedu.web.app"          # Несекретная настройка — пишем открыто
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}          # Секреты — тянем из сейфа GitHub
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+        run: pytest tests/ --html=report.html
+        continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
+
+      - name: Отправляем отчет в Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: "🤖 Шеф, автотесты Phonebook завершены! Отчет прикреплен ниже 👇"
+          document: report.html # Имя файла, который нужно отправить
+
+============================================================
+📄 FILE: .\data\data_generator.py
+============================================================
+
+import random
+import string
+import time
+from faker import Faker
+
+# Импортируем наши модели
+from models.user import User
+from models.contact import Contact
+
+# Инициализируем Faker один раз для всего файла
+fake = Faker('en_US')
+
+class UserGenerator:
+
+    @staticmethod
+    def generate_valid_password():
+        """Генерирует валидный пароль: 8-15 символов, 1 заглавная, 1 строчная, 1 цифра, 1 спецсимвол"""
+        upper = random.choice(string.ascii_uppercase)
+        lower = random.choice(string.ascii_lowercase)
+        digit = random.choice(string.digits)
+        special = random.choice("@$#^&*!")
+
+        length = random.randint(8, 15)
+        rest_length = length - 4
+        all_chars = string.ascii_letters + string.digits + "@$#^&*!"
+        rest = ''.join(random.choices(all_chars, k=rest_length))
+
+        password_list = list(upper + lower + digit + special + rest)
+        random.shuffle(password_list)
+
+        return ''.join(password_list)
+
+    @staticmethod
+    def generate_valid_email():
+        """Генерирует уникальный валидный email"""
+        prefix_length = random.randint(5, 10)
+        prefix = ''.join(random.choices(string.ascii_lowercase, k=prefix_length))
+        return f"{prefix}_{int(time.time())}@gmail.com"
+
+    @classmethod
+    def get_valid_user(cls):
+        """Возвращает объект User с полностью валидными данными"""
+        return User(email=cls.generate_valid_email(), password=cls.generate_valid_password())
+
+    @classmethod
+    def get_user_with_invalid_email(cls):
+        """Возвращает объект User с невалидным email и валидным паролем"""
+        return User(email="invalid_email.com", password=cls.generate_valid_password())
+
+    @classmethod
+    def get_user_with_invalid_password(cls):
+        """Возвращает объект User с валидным email и коротким невалидным паролем"""
+        return User(email=cls.generate_valid_email(), password="123")
+
+
+# ==========================================
+# ГЕНЕРАТОР ДЛЯ КОНТАКТОВ (Faker + Unique + Numerify)
+# ==========================================
+class ContactGenerator:
+
+    @staticmethod
+    def get_random_contact(**overrides) -> Contact:
+        """Генерирует случайный контакт. Позволяет переопределять любые поля через **overrides"""
+        data = {
+            "name": fake.first_name(),
+            "last_name": fake.last_name(),
+            "phone": fake.unique.numerify("05########"),
+            "email": fake.unique.email(),
+            "address": fake.address(),
+            "description": fake.sentence()
+        }
+
+        # Обновляем словарь нашими значениями, если они были переданы
+        data.update(overrides)
+
+        # Распаковываем словарь в объект Contact
+        return Contact(**data)
+
+============================================================
+📄 FILE: .\data\test_data.py
+============================================================
+
+import csv
+import os
+import pytest
+
+
+def load_contact_data_from_csv():
+    """Читает негативные сценарии из CSV файла и возвращает их списком"""
+
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(current_dir, 'negative_contacts.csv')
+
+    data = []
+
+    with open(file_path, newline='', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        next(reader)  # Пропускаем заголовки
+
+        for row in reader:
+            # Распаковываем строку на переменные для удобства
+            name, last_name, phone, email, address, description, expected_error = row
+
+            # ИЗВЕСТНЫЙ БАГ: система не выдает Alert, если Имя, Фамилия, Email или Адрес пустые.
+            if name == "" or last_name == "" or email == "" or address == "":
+
+                # Оборачиваем проблемные данные в pytest.param и вешаем маркер xfail
+                marked_row = pytest.param(*row, marks=pytest.mark.xfail(
+                    reason="BUG: Alert doesn't appear for empty fields"))
+                data.append(marked_row)
+
+            else:
+                # Если бага нет, добавляем данные как обычно
+                data.append(tuple(row))
+
+    return data
+
+============================================================
+📄 FILE: .\data\__init__.py
+============================================================
+
+
+
+============================================================
+📄 FILE: .\models\contact.py
+============================================================
+
+from dataclasses import dataclass
+
+@dataclass
+class Contact:
+    name: str
+    last_name: str
+    phone: str
+    email: str
+    address: str
+    description: str = "" # Согласно спецификации (T46), это поле необязательное
+
+============================================================
+📄 FILE: .\models\user.py
+============================================================
+
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    email: str
+    password: str
+
+============================================================
+📄 FILE: .\models\__init__.py
+============================================================
+
+
+
+============================================================
+📄 FILE: .\pages\add_contact_page.py
+============================================================
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from pages.base_page import BasePage
+from models.contact import Contact
+from pages.locators import ContactFormLocators
+
+
+class ContactPage(BasePage):
+    ENDPOINT = "/add"
+
+    ADD_NAV_LINK = (By.CSS_SELECTOR, "a[href='/add']")
+    ACTIVE_ADD_NAV_LINK = (By.CSS_SELECTOR, "a[href='/add'].active")  # Активная вкладка
+    SAVE_BTN = (By.XPATH, "//button[b[text()='Save']]")
+
+    def fill_contact_form(self, contact: Contact):
+        """Оптимизированный метод заполнения формы"""
+        for attr_name, locator in ContactFormLocators.FIELDS.items():
+            # Достаем значение из объекта Contact (например, contact.name)
+            value = getattr(contact, attr_name, None)
+            if value is not None:
+                self.fill(locator, value)  # Используем метод fill из BasePage
+
+
+    def is_add_tab_active(self):
+        try:
+            return self.find(self.ACTIVE_ADD_NAV_LINK).is_displayed()
+        except Exception:
+            return False
+
+
+    def submit_contact(self):
+        self.click(self.SAVE_BTN)
+
+    def is_contact_card_visible(self, phone):
+        locator = (By.XPATH, f"//h3[text()='{phone}']")
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.presence_of_element_located(locator)
+        )
+        return element.is_displayed()
+
+============================================================
+📄 FILE: .\pages\base_page.py
+============================================================
+
+import os
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from dotenv import load_dotenv  # <--- Добавляем импорт
+
+# Загружаем переменные из .env сразу при чтении этого файла
+load_dotenv()
+
+class BasePage:
+    # Базовый URL берем из .env
+    BASE_URL = os.getenv("BASE_URL")
+    # Эндпоинт по умолчанию пустой (переопределим в наследниках)
+    ENDPOINT = ""
+
+    DEFAULT_TIMEOUT = 5
+
+    def __init__(self, driver, endpoint=""):
+        self.driver = driver
+
+    def open(self):
+        """Универсальный метод открытия страницы"""
+        # Склеиваем корень сайта и конкретный эндпоинт страницы
+        self.driver.get(f"{self.BASE_URL}{self.ENDPOINT}")
+
+    def find(self, locator):
+        return self.driver.find_element(*locator)
+
+    def click(self, locator):
+        self.find(locator).click()
+
+    def fill(self, locator, value):
+        self.find(locator).clear()
+        self.find(locator).send_keys(value)
+
+    # ==========================================
+    # ОБЩИЕ ЭЛЕМЕНТЫ НАВИГАЦИИ (HEADER)
+    # ==========================================
+    SIGN_OUT_BTN = (By.XPATH, "//button[text()='Sign Out']")
+
+    def click_sign_out_button(self):
+        """Кликает по кнопке Sign Out в верхнем общем меню (доступно с любой страницы)"""
+        # Ждем, пока кнопка появится и станет кликабельной, затем кликаем
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(self.SIGN_OUT_BTN))
+        element.click()
+
+    # Универсальные методы работы с алертами для всех страниц
+    def get_alert_text(self):
+        alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.alert_is_present()
+        )
+        return alert.text
+
+    def accept_alert(self):
+        alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.alert_is_present()
+        )
+        alert.accept()
+
+    def is_disappeared(self, locator):
+        """Ждет, пока элемент не исчезнет со страницы. Возвращает True, если исчез."""
+        try:
+            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+                EC.invisibility_of_element_located(locator)
+            )
+            return True
+        except TimeoutException:
+            return False
+
+============================================================
+📄 FILE: .\pages\contacts_page.py
+============================================================
+
+import time
+import platform
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+
+from pages.base_page import BasePage
+from pages.locators import ContactFormLocators
+
+
+class ContactsPage(BasePage):
+    ENDPOINT = "/contacts"
+
+    # ==========================================
+    # ЛОКАТОРЫ
+    # ==========================================
+    CONTACT_NAV_LINK = (By.CSS_SELECTOR, "[href='/contacts']")
+    CONTACT_CARDS = (By.CLASS_NAME, "contact-item_card__2SOIM")
+    CONTACT_DETAILS_CARD = (By.CLASS_NAME, "contact-item-detailed_card__50dTS")
+
+    # Кнопки
+    REMOVE_BTN = (By.XPATH, "//button[text()='Remove']")
+    EDIT_BTN = (By.XPATH, "//button[text()='Edit']")
+    SAVE_BTN = (By.XPATH, "//button[text()='Save']")
+
+    # ==========================================
+    # БАЗОВЫЕ МЕТОДЫ (Список контактов)
+    # ==========================================
+    def open_contact_list(self):
+        """Открывает список контактов через клик по верхнему меню"""
+        self.click(self.CONTACT_NAV_LINK)
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.url_contains("/contacts"))
+        time.sleep(1)
+
+    def contact_cards_count(self, phone):
+        """Считает количество карточек с заданным номером телефона"""
+        return len(self.driver.find_elements(By.XPATH, f"//h3[text()='{phone}']"))
+
+    def open_contact_details(self, phone):
+        """Кликает по карточке (по номеру телефона), чтобы открыть детали"""
+        locator = (By.XPATH, f"//h3[text()='{phone}']/..")
+
+        # Явно ждем, пока карточка не только появится в DOM, но и станет кликабельной
+        card = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.element_to_be_clickable(locator)
+        )
+        card.click()
+
+    def contact_card_visible(self, phone):
+        """Ждет появления карточки в DOM и проверяет её видимость"""
+        locator = (By.XPATH, f"//h3[text()='{phone}']")
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.presence_of_element_located(locator))
+        return element.is_displayed()
+
+    # ==========================================
+    # МЕТОДЫ УДАЛЕНИЯ
+    # ==========================================
+
+    def click_remove_button(self):
+        """Кликает на кнопку Remove в правой панели"""
+        self.click(self.REMOVE_BTN)
+
+    def is_contact_deleted(self, phone):
+        """Проверяет, что карточка с указанным телефоном исчезла со страницы"""
+        locator = (By.XPATH, f"//h3[text()='{phone}']")
+        return self.is_disappeared(locator)
+
+    # ==========================================
+    # МЕТОДЫ РЕДАКТИРОВАНИЯ
+    # ==========================================
+    def get_contact_details_text(self):
+        """Возвращает весь текст из правой панели деталей контакта"""
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.presence_of_element_located(self.CONTACT_DETAILS_CARD))
+        return self.find(self.CONTACT_DETAILS_CARD).text
+
+    def click_edit_button(self):
+        """Кликает по кнопке Edit в правой панели"""
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(self.EDIT_BTN))
+        self.click(self.EDIT_BTN)
+
+    def clear_and_fill_input(self, locator, text):
+        """Надежно очищает поле в React-приложении и вводит новый текст"""
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(locator))
+        cmd_ctrl = Keys.COMMAND if platform.system() == 'Darwin' else Keys.CONTROL
+        element.send_keys(cmd_ctrl + "a")
+        element.send_keys(Keys.BACKSPACE)
+        element.send_keys(text)
+
+    def edit_contact_form(self, updated_contact):
+        """Оптимизированный метод заполнения формы.
+        Динамически читает данные из объекта Contact и заполняет форму"""
+        for attr_name, locator in ContactFormLocators.FIELDS.items():
+            value = getattr(updated_contact, attr_name, None)
+            if value is not None:
+                self.clear_and_fill_input(locator, value)
+
+    def click_save_edit_button(self):
+        """Кликает по кнопке Save в режиме редактирования"""
+        self.click(self.SAVE_BTN)
+
+    def is_edit_form_open(self):
+        """Проверяет, осталась ли открытой форма редактирования (по наличию инпута 'Name')"""
+        elements = self.driver.find_elements(*ContactFormLocators.FIELDS["name"])
+        return len(elements) > 0
+
+
+
+
+============================================================
+📄 FILE: .\pages\locators.py
+============================================================
+
+from selenium.webdriver.common.by import By
+
+
+class ContactFormLocators:
+    """Общие локаторы для формы контакта (создание и редактирование)"""
+
+    FIELDS = {
+        "name": (By.CSS_SELECTOR, "input[placeholder='Name']"),
+        "last_name": (By.CSS_SELECTOR, "input[placeholder='Last Name']"),
+        "phone": (By.CSS_SELECTOR, "input[placeholder='Phone']"),
+        "email": (By.CSS_SELECTOR, "input[placeholder='email']"),
+        "address": (By.CSS_SELECTOR, "input[placeholder='Address']"),
+        # Используем *= (содержит), чтобы покрыть и 'desc' и 'description'
+        "description": (By.CSS_SELECTOR, "input[placeholder*='desc']")
+    }
+
+============================================================
+📄 FILE: .\pages\login_page.py
+============================================================
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from pages.base_page import BasePage
+
+class LoginPage(BasePage):
+    ENDPOINT = "/login"
+
+    LOGIN_NAV_LINK = (By.CSS_SELECTOR, "[href='/login']")
+    EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='email']")
+    PASSWORD_INPUT = (By.CSS_SELECTOR, "input[name='password']")
+    LOGIN_BTN = (By.XPATH, "//button[text()='Login']")
+    REGISTRATION_BTN = (By.CSS_SELECTOR, "button[name='registration']")
+
+
+    def open_login_form(self):
+        self.click(self.LOGIN_NAV_LINK) # Используем метод click из BasePage
+
+    def fill_password(self, password):
+        self.fill(self.PASSWORD_INPUT, password) # Используем метод fill из BasePage
+
+    def fill_email(self, email):
+        self.fill(self.EMAIL_INPUT, email) # Убрали лишний self, добавили self. к локатору
+
+    def submit_login(self):
+        self.click(self.LOGIN_BTN)
+
+    def submit_registration(self):
+        self.click(self.REGISTRATION_BTN)
+
+    def is_logged(self):
+        try:
+            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+                EC.visibility_of_element_located(self.SIGN_OUT_BTN)
+            )
+            return True
+        except TimeoutError:
+            return False
+
+    def is_login_button_visible(self):
+        """Проверяет, видна ли кнопка Login под формой"""
+        elements = self.driver.find_elements(*self.LOGIN_BTN)
+        return len(elements) > 0
+
+
+    def get_alert_text(self):
+        alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.alert_is_present()
+        )
+        return alert.text
+
+    def accept_alert(self):
+        self.driver.switch_to.alert.accept()
+
+============================================================
+📄 FILE: .\pages\__init__.py
+============================================================
+
+
+
+============================================================
+📄 FILE: .\tests\test_add_contact.py
+============================================================
+
+import pytest
+from models.contact import Contact
+from pages.add_contact_page import ContactPage
+from data.data_generator import ContactGenerator
+from selenium.common.exceptions import TimeoutException
+from data.test_data import load_contact_data_from_csv
+
+
+# ==========================================
+# ПОЗИТИВНЫЕ ТЕСТЫ
+# ==========================================
+def test_add_contact_success_all_fields(authenticated_driver):
+    # 1. Инициализируем страницу
+    contact_page = ContactPage(authenticated_driver)
+
+    # 2. Открываем форму добавления контакта
+    contact_page.open()
+
+    # 3. Генерируем уникальные тестовые данные через Faker
+    contact = ContactGenerator.get_random_contact()
+
+    # 4. Заполняем форму и сохраняем
+    contact_page.fill_contact_form(contact)
+    contact_page.submit_contact()
+
+    # 5. ПРОВЕРКА: убеждаемся, что карточка с нужным телефоном появилась в списке.
+    # Если метод is_contact_card_visible вернет False, тест упадет с понятным текстом.
+    assert contact_page.is_contact_card_visible(contact.phone), \
+        f"Ошибка: Карточка контакта с телефоном {contact.phone} не появилась в списке!"
+
+
+# ==========================================
+# НЕГАТИВНЫЕ ТЕСТЫ (Данные берутся из CSV)
+# ==========================================
+
+# Вместо жестко прописанного списка мы просто вызываем функцию!
+@pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error", load_contact_data_from_csv())
+def test_add_contact_negative(authenticated_driver, name, last_name, phone, email, address, description, expected_error):
+    contact_page = ContactPage(authenticated_driver)
+    contact_page.open()
+
+    invalid_contact = Contact(
+        name=name,
+        last_name=last_name,
+        phone=phone,
+        email=email,
+        address=address,
+        description=description
+    )
+
+    contact_page.fill_contact_form(invalid_contact)
+    contact_page.submit_contact()
+
+    try:
+        alert_text = contact_page.get_alert_text()
+        assert expected_error in alert_text, f"Ожидалась ошибка '{expected_error}', но получено: '{alert_text}'"
+        contact_page.accept_alert()
+    except TimeoutException:
+        pytest.fail(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert с текстом '{expected_error}' так и не появился!")
+
+    assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сдный контакт!"
+
+
+@pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
+def test_add_contact_duplicate_phone(authenticated_driver):
+
+    contact_page = ContactPage(authenticated_driver)
+
+    # --- ШАГ 1: Создаем первый уникальный контакт ---
+    contact_page.open()
+    first_contact = ContactGenerator.get_random_contact()
+    contact_page.fill_contact_form(first_contact)
+    contact_page.submit_contact()
+
+    # --- ШАГ 2: Пытаемся создать второй контакт с ТЕМ ЖЕ номером ---
+    contact_page.open()
+    duplicate_contact = ContactGenerator.get_random_contact()
+    duplicate_contact.phone = first_contact.phone  # Копируем телефон из первого контакта!
+
+    contact_page.fill_contact_form(duplicate_contact)
+    contact_page.submit_contact()
+
+    # --- ШАГ 3: Проверяем реакцию системы ---
+    try:
+        alert_text = contact_page.get_alert_text()
+        print(f"\n[РАЗВЕДКА] УРА! Система выдала Alert: '{alert_text}'")
+        contact_page.accept_alert()
+        # Пока ставим заглушку, чтобы тест прошел, если алерт есть
+        assert True
+    except TimeoutException:
+        pytest.fail("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
+
+============================================================
+📄 FILE: .\tests\test_contacts_page.py
+============================================================
+
+import pytest
+from pages.add_contact_page import ContactPage
+from pages.contacts_page import ContactsPage
+from data.data_generator import ContactGenerator
+
+
+# ==========================================
+# ТЕСТ 1: Отображение созданного контакта
+# ==========================================
+def test_contact_is_visible_in_list(authenticated_driver):
+    add_page = ContactPage(authenticated_driver)
+    contact = ContactGenerator.get_random_contact()
+
+    add_page.open()
+    add_page.fill_contact_form(contact)
+    add_page.submit_contact()
+
+    # МЫ БОЛЬШЕ НЕ КЛИКАЕМ НА ВКЛАДКУ CONTACTS
+    # Приложение само делает редирект. Просто ждем появления карточки.
+    contacts_page = ContactsPage(authenticated_driver)
+    assert contacts_page.contact_card_visible(contact.phone), \
+        f"Ошибка: Контакт с телефоном {contact.phone} не найден в списке!"
+
+
+# ==========================================
+# ТЕСТ 2: Подтверждение бага с дубликатами
+# ==========================================
+@pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты, и они ОБА появляются в списке")
+def test_duplicate_contact_cards_count(authenticated_driver):
+    add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    contact = ContactGenerator.get_random_contact()
+
+    # Создаем ПЕРВЫЙ контакт
+    add_page.open()
+    add_page.fill_contact_form(contact)
+    add_page.submit_contact()
+
+    # Обязательно ждем окончания авто-редиректа, чтобы данные точно ушли в базу
+    contacts_page.contact_card_visible(contact.phone)
+
+    # Создаем ВТОРОЙ контакт с ТЕМИ ЖЕ данными
+    add_page.open()
+    add_page.fill_contact_form(contact)
+    add_page.submit_contact()
+
+    # Снова ждем авто-редирект
+    contacts_page.contact_card_visible(contact.phone)
+
+    # Теперь считаем карточки. Если баг на месте, их будет 2!
+    count = contacts_page.contact_cards_count(contact.phone)
+    assert count == 1, f"Ожидалась 1 карточка, но найдено {count}. Интерфейс отрисовал дубликат!"
+
+
+# ==========================================
+# ТЕСТ 3: Открытие деталей контакта (Правая панель)
+# ==========================================
+def test_open_contact_details(authenticated_driver):
+    add_page = ContactPage(authenticated_driver)
+    contact = ContactGenerator.get_random_contact()
+
+    add_page.open()
+    add_page.fill_contact_form(contact)
+    add_page.submit_contact()
+
+    contacts_page = ContactsPage(authenticated_driver)
+    # Ждем авто-редирект
+    contacts_page.contact_card_visible(contact.phone)
+
+    # Кликаем по созданной карточке
+    contacts_page.open_contact_details(contact.phone)
+
+    # Читаем текст из появившейся правой панели
+    details_text = contacts_page.get_contact_details_text()
+
+    # Проверка: Убеждаемся, что имя, фамилия и почта есть в этом тексте
+    assert contact.name in details_text, f"Имя '{contact.name}' не найдено в деталях карточки!"
+    assert contact.last_name in details_text, f"Фамилия '{contact.last_name}' не найдена в деталях!"
+    assert contact.email in details_text, f"Email '{contact.email}' не найден в деталях!"
+
+============================================================
+📄 FILE: .\tests\test_delete_contact.py
+============================================================
+
+from models.contact import Contact
+from pages.add_contact_page import ContactPage
+from pages.contacts_page import ContactsPage
+from data.data_generator import ContactGenerator
+
+
+def test_delete_contact(authenticated_driver):
+    # ==========================================
+    # ПРЕДУСЛОВИЕ: Создаем контакт для удаления
+    # ==========================================
+    add_page = ContactPage(authenticated_driver)
+    add_page.open()
+
+    # Генерируем тестовые данные
+    contact = ContactGenerator.get_random_contact()
+
+    # Сохраняем контакт
+    add_page.fill_contact_form(contact)
+    add_page.submit_contact()
+
+    # Убеждаемся, что контакт успешно создался (иначе нет смысла проверять удаление)
+    assert add_page.is_contact_card_visible(contact.phone), "Предусловие сломалось: контакт не создался!"
+
+    # ==========================================
+    # ШАГ ТЕСТА: Удаляем созданный контакт
+    # ==========================================
+    contacts_page = ContactsPage(authenticated_driver)
+
+    # 1. Открываем страницу контактов (хотя мы уже на ней, это хорошая практика)
+    contacts_page.open()
+
+    # 2. Кликаем по карточке с нашим уникальным телефоном
+    contacts_page.open_contact_details(contact.phone)
+
+    # 3. Нажимаем кнопку Remove
+    contacts_page.click_remove_button()
+
+    # ==========================================
+    # ПРОВЕРКА: Контакт исчез
+    # ==========================================
+    assert contacts_page.is_contact_deleted(contact.phone), \
+        f"Ошибка: Карточка с телефоном {contact.phone} не удалилась из списка!"
+
+============================================================
+📄 FILE: .\tests\test_edit_contact.py
+============================================================
+
+import pytest
+from pages.add_contact_page import ContactPage
+from pages.contacts_page import ContactsPage
+from data.data_generator import ContactGenerator
+from models.contact import Contact
+
+
+# ==========================================
+# ПОЗИТИВНЫЕ ТЕСТЫ
+# ==========================================
+def test_edit_contact_positive(authenticated_driver):
+    add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    # 1. ПРЕДУСЛОВИЕ: Создаем исходный контакт
+    old_contact = ContactGenerator.get_random_contact()
+    add_page.open()
+    add_page.fill_contact_form(old_contact)
+    add_page.submit_contact()
+    contacts_page.contact_card_visible(old_contact.phone)  # Ждем авто-редирект
+
+    # 2. Подготовка: Генерируем новые данные для замены
+    new_contact = ContactGenerator.get_random_contact()
+
+    # 3. ШАГИ ТЕСТА
+    contacts_page.open_contact_details(old_contact.phone)  # Открываем старую карточку
+    contacts_page.click_edit_button()  # Жмем Edit
+    contacts_page.edit_contact_form(new_contact)  # Вводим новые данные
+    contacts_page.click_save_edit_button()  # Сохраняем
+
+    # 4. ПРОВЕРКА
+    assert contacts_page.contact_card_visible(new_contact.phone), "Измененный контакт не появился в списке слева!"
+
+    contacts_page.open_contact_details(new_contact.phone)
+    details_text = contacts_page.get_contact_details_text()
+
+    assert new_contact.name in details_text, "Новое имя не сохранилось в деталях!"
+    assert new_contact.last_name in details_text, "Новая фамилия не сохранилась в деталях!"
+    assert new_contact.email in details_text, "Новый email не сохранился в деталях!"
+
+
+# ==========================================
+# НЕГАТИВНЫЕ ТЕСТЫ: Дубликаты (TC-034, TC-035)
+# ==========================================
+@pytest.mark.xfail(reason="BUG: Фронтенд позволяет редактировать телефон на уже существующий дубликат")
+def test_edit_contact_duplicate_phone(authenticated_driver):
+    add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    # 1. ПРЕДУСЛОВИЕ: Создаем ДВА разных контакта
+    contact_1 = ContactGenerator.get_random_contact()
+    add_page.open()
+    add_page.fill_contact_form(contact_1)
+    add_page.submit_contact()
+    contacts_page.contact_card_visible(contact_1.phone)
+
+    contact_2 = ContactGenerator.get_random_contact()
+    add_page.open()
+    add_page.fill_contact_form(contact_2)
+    add_page.submit_contact()
+    contacts_page.contact_card_visible(contact_2.phone)
+
+    # 2. ШАГИ ТЕСТА: Редактируем Контакт 2, подсовывая ему телефон от Контакта 1
+    contacts_page.open_contact_details(contact_2.phone)
+    contacts_page.click_edit_button()
+
+    # Переопределяем только телефон через kwargs генератора
+    duplicate_data = ContactGenerator.get_random_contact(phone=contact_1.phone)
+    contacts_page.edit_contact_form(duplicate_data)
+    contacts_page.click_save_edit_button()
+
+    # 3. ПРОВЕРКА
+    assert contacts_page.is_edit_form_open(), "Баг: Система сохранила дубликат при редактировании и закрыла форму!"
+
+
+# ==========================================
+# НЕГАТИВНЫЕ ТЕСТЫ: Очистка обязательных полей (TC-028 - TC-033)
+# ==========================================
+@pytest.mark.xfail(reason="BUG: Фронтенд позволяет сохранять контакт с пустыми обязательными полями при редактировании")
+@pytest.mark.parametrize("field_to_clear", ["name", "last_name", "phone", "email", "address"])
+def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear):
+    add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    # 1. ПРЕДУСЛОВИЕ: Создаем валидный контакт
+    contact = ContactGenerator.get_random_contact()
+    add_page.open()
+    add_page.fill_contact_form(contact)
+    add_page.submit_contact()
+    contacts_page.contact_card_visible(contact.phone)
+
+    # 2. Открываем созданную карточку и жмем Edit
+    contacts_page.open_contact_details(contact.phone)
+    contacts_page.click_edit_button()
+
+    # 3. ШАГ ТЕСТА: Очищаем ТОЛЬКО ОДНО обязательное поле
+    # noinspection PyTypeChecker
+    empty_update = Contact(name=None, last_name=None, phone=None, email=None, address=None, description=None)
+    setattr(empty_update, field_to_clear, "")
+
+    contacts_page.edit_contact_form(empty_update)
+    contacts_page.click_save_edit_button()
+
+    # 4. ПРОВЕРКА: Форма должна остаться открытой (система не должна принимать пустые значения)
+    assert contacts_page.is_edit_form_open(), f"БАГ: Система сохранила контакт с пустым полем '{field_to_clear}'!"
+
+============================================================
+📄 FILE: .\tests\test_login.py
+============================================================
+
+from pages.login_page import LoginPage
+from data.data_generator import UserGenerator
+import os
+
+
+# ==========================================
+# ТЕСТОВЫЕ ДАННЫЕ ДЛЯ АВТОРИЗАЦИИ (LOGIN)
+# ==========================================
+# Для тестов логина нам нужен пользователь, который уже точно есть в базе
+# Достаем значения из переменных окружения
+EXISTING_EMAIL = os.getenv("USER_EMAIL")
+VALID_PASSWORD = os.getenv("USER_PASSWORD")
+
+# ==========================================
+# ТЕСТЫ НА АВТОРИЗАЦИЮ (LOGIN)
+# ==========================================
+
+def test_login_success(driver):
+    """Позитивный тест: Успешная авторизация с валидными данными"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    login_page.fill_email(EXISTING_EMAIL)
+    login_page.fill_password(VALID_PASSWORD)
+    login_page.submit_login()
+
+    assert login_page.is_logged()
+
+
+def test_login_with_wrong_email(driver):
+    """Негативный тест: Авторизация с неверным форматом email"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    # Запрашиваем юзера с битым email из генератора
+    bad_email_user = UserGenerator.get_user_with_invalid_email()
+
+    login_page.fill_email(bad_email_user.email)
+    login_page.fill_password(bad_email_user.password)
+    login_page.submit_login()
+
+    assert "Wrong email or password" in login_page.get_alert_text()
+    login_page.accept_alert()
+
+
+def test_login_with_wrong_password(driver):
+    """Негативный тест: Авторизация с неверным форматом пароля"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    # Запрашиваем юзера с битым паролем из генератора
+    bad_password_user = UserGenerator.get_user_with_invalid_password()
+
+    # Используем валидный email (из .env) и невалидный сгенерированный пароль
+    login_page.fill_email(EXISTING_EMAIL)
+    login_page.fill_password(bad_password_user.password)
+    login_page.submit_login()
+
+    assert "Wrong email or password" in login_page.get_alert_text()
+    login_page.accept_alert()
+
+
+def test_login_unregistered_user(driver):
+    """Негативный тест: Авторизация несуществующего пользователя"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    # Запрашиваем уникального пользователя из генератора (его точно нет в базе)
+    unregistered_user = UserGenerator.get_valid_user()
+
+    login_page.fill_email(unregistered_user.email)
+    login_page.fill_password(unregistered_user.password)
+    login_page.submit_login()
+
+    assert "Wrong email or password" in login_page.get_alert_text()
+    login_page.accept_alert()
+
+
+# ==========================================
+# ТЕСТЫ НА РЕГИСТРАЦИЮ (REGISTRATION)
+# ==========================================
+
+def test_registration_success(driver):
+    """Позитивный тест: Успешная регистрация нового пользователя"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    # Получаем абсолютно нового уникального пользователя
+    user = UserGenerator.get_valid_user()
+
+    login_page.fill_email(user.email)
+    login_page.fill_password(user.password)
+    login_page.submit_registration()
+
+    # Проверяем, что после регистрации мы успешно авторизованы
+    assert login_page.is_logged()
+
+
+def test_registration_existing_user_alert(driver):
+    """Негативный тест: Регистрация с уже существующим email в базе"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    # Используем данные пользователя, который уже зарегистрирован
+    login_page.fill_email(EXISTING_EMAIL)
+    login_page.fill_password(VALID_PASSWORD)
+    login_page.submit_registration()
+
+    assert "User already exist" in login_page.get_alert_text()
+    login_page.accept_alert()
+
+
+def test_registration_invalid_email_format(driver):
+    """Негативный тест: Регистрация с невалидным email + ВАЛИДНЫМ паролем"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    # Получаем пользователя с испорченным email из генератора
+    bad_email_user = UserGenerator.get_user_with_invalid_email()
+
+    login_page.fill_email(bad_email_user.email)
+    login_page.fill_password(bad_email_user.password)
+    login_page.submit_registration()
+
+    assert "Wrong email or password format" in login_page.get_alert_text()
+    login_page.accept_alert()
+
+
+def test_registration_invalid_password_format(driver):
+    """Негативный тест: Регистрация с ВАЛИДНЫМ (уникальным) email + невалидным паролем"""
+    login_page = LoginPage(driver)
+    login_page.open()
+
+    # Получаем пользователя с испорченным паролем из генератора
+    bad_password_user = UserGenerator.get_user_with_invalid_password()
+
+    login_page.fill_email(bad_password_user.email)
+    login_page.fill_password(bad_password_user.password)
+    login_page.submit_registration()
+
+    assert "Wrong email or password format" in login_page.get_alert_text()
+    login_page.accept_alert()
+
+============================================================
+📄 FILE: .\tests\test_logout.py
+============================================================
+
+import pytest
+from pages.contacts_page import ContactsPage
+from pages.login_page import LoginPage
+
+
+class TestLogout:
+
+    def test_logout_success(self, authenticated_driver):
+        """Проверка: Авторизованный пользователь может успешно выйти из системы."""
+        contacts_page = ContactsPage(authenticated_driver)
+        login_page = LoginPage(authenticated_driver)
+
+        # 1. Нажимаем Sign Out (метод подтянется из BasePage!)
+        contacts_page.click_sign_out_button()
+
+        # 2. Проверяем, что нас выкинуло на страницу логина
+        assert login_page.is_login_button_visible(), "Ошибка: Кнопка Login не появилась после выхода из системы!"
+
+    def test_logout_security_redirect(self, driver):
+        """Проверка безопасности: Неавторизованный пользователь не может открыть страницу /contacts."""
+        # Передаем driver (без авторизации!), а не authenticated_driver
+        contacts_page = ContactsPage(driver)
+        login_page = LoginPage(driver)
+
+        # 1. Пытаемся напрямую перейти по URL /contacts
+        contacts_page.open()
+
+        # 2. Система должна автоматически перенаправить нас на страницу логина
+        assert login_page.is_login_button_visible(), "УЯЗВИМОСТЬ: Система пустила анонима на страницу контактов!"
+
+============================================================
+📄 FILE: .\tests\__init__.py
+============================================================
+
