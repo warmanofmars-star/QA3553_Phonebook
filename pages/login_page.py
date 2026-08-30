@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 
 class LoginPage(BasePage):
-    PAGE_URL = "https://telranedu.web.app/login"
+    ENDPOINT = "/login"
 
     LOGIN_NAV_LINK = (By.CSS_SELECTOR, "[href='/login']")
     EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='email']")
@@ -13,9 +13,6 @@ class LoginPage(BasePage):
     LOGIN_BTN = (By.XPATH, "//button[text()='Login']")
     REGISTRATION_BTN = (By.CSS_SELECTOR, "button[name='registration']")
 
-
-    def open(self):
-        self.driver.get(self.PAGE_URL)
 
     def open_login_form(self):
         self.click(self.LOGIN_NAV_LINK) # Используем метод click из BasePage
@@ -34,7 +31,7 @@ class LoginPage(BasePage):
 
     def is_logged(self):
         try:
-            WebDriverWait(self.driver, timeout=5).until(
+            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
                 EC.visibility_of_element_located(self.SIGN_OUT_BTN)
             )
             return True
@@ -48,7 +45,7 @@ class LoginPage(BasePage):
 
 
     def get_alert_text(self):
-        alert = WebDriverWait(self.driver, timeout=5).until(
+        alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
             EC.alert_is_present()
         )
         return alert.text

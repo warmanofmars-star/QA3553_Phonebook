@@ -9,7 +9,7 @@ from pages.base_page import BasePage
 
 
 class ContactsPage(BasePage):
-    PAGE_URL = "https://telranedu.web.app/contacts"
+    ENDPOINT = "/contacts"
 
     # ==========================================
     # ЛОКАТОРЫ
@@ -55,16 +55,13 @@ class ContactsPage(BasePage):
     def contact_card_visible(self, phone):
         """Ждет появления карточки в DOM и проверяет её видимость"""
         locator = (By.XPATH, f"//h3[text()='{phone}']")
-        element = WebDriverWait(self.driver, 5).until(
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
             EC.presence_of_element_located(locator))
         return element.is_displayed()
 
     # ==========================================
     # МЕТОДЫ УДАЛЕНИЯ
     # ==========================================
-    def open(self):
-        """Открывает страницу напрямую по URL (наш быстрый метод)"""
-        self.driver.get(self.PAGE_URL)
 
     def click_remove_button(self):
         """Кликает на кнопку Remove в правой панели"""
@@ -80,17 +77,17 @@ class ContactsPage(BasePage):
     # ==========================================
     def get_contact_details_text(self):
         """Возвращает весь текст из правой панели деталей контакта"""
-        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located(self.CONTACT_DETAILS_CARD))
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.presence_of_element_located(self.CONTACT_DETAILS_CARD))
         return self.find(self.CONTACT_DETAILS_CARD).text
 
     def click_edit_button(self):
         """Кликает по кнопке Edit в правой панели"""
-        WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(self.EDIT_BTN))
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(self.EDIT_BTN))
         self.click(self.EDIT_BTN)
 
     def clear_and_fill_input(self, locator, text):
         """Надежно очищает поле в React-приложении и вводит новый текст"""
-        element = WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable(locator))
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(locator))
         cmd_ctrl = Keys.COMMAND if platform.system() == 'Darwin' else Keys.CONTROL
         element.send_keys(cmd_ctrl + "a")
         element.send_keys(Keys.BACKSPACE)

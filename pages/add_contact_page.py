@@ -7,7 +7,7 @@ from models.contact import Contact
 
 
 class ContactPage(BasePage):
-    PAGE_URL = "https://telranedu.web.app/add"
+    ENDPOINT = "/add"
 
     ADD_NAV_LINK = (By.CSS_SELECTOR, "a[href='/add']")
     ACTIVE_ADD_NAV_LINK = (By.CSS_SELECTOR, "a[href='/add'].active")  # Активная вкладка
@@ -20,8 +20,6 @@ class ContactPage(BasePage):
     DESCRIPTION_INPUT = (By.CSS_SELECTOR, "input[placeholder='description']")
     SAVE_BTN = (By.XPATH, "//button[b[text()='Save']]")
 
-    def open(self):
-        self.driver.get(self.PAGE_URL)
 
     def is_add_tab_active(self):
         try:
@@ -60,7 +58,7 @@ class ContactPage(BasePage):
 
     def is_contact_card_visible(self, phone):
         locator = (By.XPATH, f"//h3[text()='{phone}']")
-        element = WebDriverWait(self.driver, 5).until(
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
             EC.presence_of_element_located(locator)
         )
         return element.is_displayed()
