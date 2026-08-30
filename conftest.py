@@ -30,8 +30,6 @@ def driver():
     if os.environ.get('CI') != 'true':
         driver.maximize_window()
 
-    driver.implicitly_wait(5)
-
     yield driver  # Передаем драйвер в тест
     driver.quit()
 
