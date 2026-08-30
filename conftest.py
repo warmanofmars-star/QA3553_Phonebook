@@ -58,40 +58,23 @@ def authenticated_driver(driver):
 def pytest_runtest_makereport(item, call):
     """
     Хук, который вызывается после каждой фазы теста (setup, call, teardown).
-    Если тест падает, он делает скриншот и прикрепляет его к отчету.
+    Если тест падает, он делает скриншот экрана и прикрепляет его к Allure-отчету.
     """
     outcome = yield
     report = outcome.get_result()
 
     # Проверяем, что тест упал именно на этапе выполнения (call), а не при настройке
     if report.when == 'call' and report.failed:
-        # Пытаемся получить webdriver из фикстур теста (наших driver или authenticated_driver)
+        # Пытаемся получить webdriver из фикстур теста
         driver = item.funcargs.get('driver') or item.funcargs.get('authenticated_driver')
 
         if driver:
-            # Создаем папку screenshots в корне проекта, если её нет
-            screenshots_dir = os.path.join(os.path.dirname(__file__), "screenshots")
-            os.makedirs(screenshots_dir, exist_ok=True)
-
-            # Формируем имя скриншота из названия упавшего теста
+            # Формируем читаемое имя для скриншота из названия теста
             test_name = item.name.replace("/", "_").replace("::", "_")
-            screenshot_path = os.path.join(screenshots_dir, f"{test_name}.png")
 
-            # Делаем физический скриншот (для истории и pytest-html)
-            driver.save_screenshot(screenshot_path)
-
-            # === НОВЫЙ БЛОК ДЛЯ ALLURE ===
-            # Прикрепляем скриншот прямо в Allure-отчет в виде байтов
+            # Прикрепляем скриншот напрямую в Allure (без сохранения на жесткий диск)
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name=f"Скриншот ошибки: {test_name}",
                 attachment_type=allure.attachment_type.PNG
             )
-            # =============================
-
-            # Прикрепляем скриншот к pytest-html отчету (оставляем как было)
-            pytest_html = item.config.pluginmanager.getplugin('html')
-            if pytest_html:
-                extras = getattr(report, 'extras', [])
-                extras.append(pytest_html.extras.image(screenshot_path))
-                report.extras = extras

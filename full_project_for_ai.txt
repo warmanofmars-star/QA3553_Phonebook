@@ -33,6 +33,7 @@ def driver():
 
     # Проверяем, запускаются ли тесты на сервере GitHub Actions
     if os.environ.get('CI') == 'true':
+        options.add_argument('--disable-gpu') # Отключение видеокарты
         options.add_argument('--headless')  # Включаем фоновый режим
         options.add_argument('--no-sandbox')  # Обязательно для Linux-серверов
         options.add_argument('--disable-dev-shm-usage')  # Обход проблемы с памятью на серверах
@@ -44,6 +45,9 @@ def driver():
     # Максимизируем окно только при локальном запуске (с UI)
     if os.environ.get('CI') != 'true':
         driver.maximize_window()
+
+    # Устанавливаем жесткий лимит на загрузку страницы (30 секунд)
+    driver.set_page_load_timeout(30)
 
     yield driver  # Передаем драйвер в тест
     driver.quit()
@@ -68,43 +72,26 @@ def authenticated_driver(driver):
 def pytest_runtest_makereport(item, call):
     """
     Хук, который вызывается после каждой фазы теста (setup, call, teardown).
-    Если тест падает, он делает скриншот и прикрепляет его к HTML-отчету.
+    Если тест падает, он делает скриншот экрана и прикрепляет его к Allure-отчету.
     """
     outcome = yield
     report = outcome.get_result()
 
     # Проверяем, что тест упал именно на этапе выполнения (call), а не при настройке
     if report.when == 'call' and report.failed:
-        # Пытаемся получить webdriver из фикстур теста (наших driver или authenticated_driver)
+        # Пытаемся получить webdriver из фикстур теста
         driver = item.funcargs.get('driver') or item.funcargs.get('authenticated_driver')
 
         if driver:
-            # Создаем папку screenshots в корне проекта, если её нет
-            screenshots_dir = os.path.join(os.path.dirname(__file__), "screenshots")
-            os.makedirs(screenshots_dir, exist_ok=True)
-
-            # Формируем имя скриншота из названия упавшего теста
+            # Формируем читаемое имя для скриншота из названия теста
             test_name = item.name.replace("/", "_").replace("::", "_")
-            screenshot_path = os.path.join(screenshots_dir, f"{test_name}.png")
 
-            # Делаем физический скриншот (для истории и pytest-html)
-            driver.save_screenshot(screenshot_path)
-
-            # === НОВЫЙ БЛОК ДЛЯ ALLURE ===
-            # Прикрепляем скриншот прямо в Allure-отчет в виде байтов
+            # Прикрепляем скриншот напрямую в Allure (без сохранения на жесткий диск)
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name=f"Скриншот ошибки: {test_name}",
                 attachment_type=allure.attachment_type.PNG
             )
-            # =============================
-
-            # Прикрепляем скриншот к pytest-html отчету (оставляем как было)
-            pytest_html = item.config.pluginmanager.getplugin('html')
-            if pytest_html:
-                extras = getattr(report, 'extras', [])
-                extras.append(pytest_html.extras.image(screenshot_path))
-                report.extras = extras
 
 ============================================================
 📄 FILE: .\merge_code.py
@@ -144,6 +131,7 @@ print("Готово! Файл full_project_for_ai.txt создан.")
 # 📖 Phonebook UI Auto-tests
 
 [![Phonebook UI Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)
+📊 **Live Allure Report:** [View Dashboard](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI Automation testing project for the "Phonebook" web application. 
 Developed using **Python**, **Selenium WebDriver**, and **Pytest** following the **Page Object Model (POM)** design pattern.
@@ -214,16 +202,39 @@ jobs:
           BASE_URL: "https://telranedu.web.app"          # Несекретная настройка — пишем открыто
           USER_EMAIL: ${{ secrets.USER_EMAIL }}          # Секреты — тянем из сейфа GitHub
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        run: pytest tests/ --html=report.html
+        # Добавили флаги для перезапуска упавших тестов (2 попытки с паузой в 2 секунды)
+        run: pytest tests/ --reruns 2 --reruns-delay 2 --alluredir=allure-results
         continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
 
-      - name: Отправляем отчет в Telegram
-        uses: appleboy/telegram-action@master
+      - name: Генерируем Allure отчет
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        id: allure-report
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: "🤖 Шеф, автотесты Phonebook завершены! Отчет прикреплен ниже 👇"
-          document: report.html # Имя файла, который нужно отправить
+          allure_results: allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+
+      - name: Публикуем отчет на GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Этот токен GitHub выдает сам, создавать секрет НЕ НУЖНО!
+          publish_branch: gh-pages
+          publish_dir: allure-history
+
+      - name: Отправляем уведомление в Telegram
+        uses: appleboy/telegram-action@master
+        if: always()
+        with:
+            to: ${{ secrets.TELEGRAM_TO }}
+            token: ${{ secrets.TELEGRAM_TOKEN }}
+            # Меняем текст сообщения, теперь отправляем просто ссылку на сайт!
+            message: |
+              🤖 Автотесты Phonebook завершены!
+              📊 Посмотреть Allure-отчет можно по ссылке:
+              👉 https://warmanofmars-star.github.io/QA3553_Phonebook/
 
 ============================================================
 📄 FILE: .\data\data_generator.py
