@@ -220,3 +220,6 @@ __marimo__/
 
 # Скриншоты упавших тестов
 screenshots/
+
+#allure
+allure-results/
