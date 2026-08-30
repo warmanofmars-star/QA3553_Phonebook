@@ -38,10 +38,10 @@ jobs:
         if: always()
         id: allure-report
         with:
-          allure-results: allure-results
-          gh-pages: gh-pages
-          allure-report: allure-report
-          allure-history: allure-history
+          allure-results: allure_results
+          gh-pages: gh_pages
+          allure-report: allure_report
+          allure-history: allure_history
 
       - name: Публикуем отчет на GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
