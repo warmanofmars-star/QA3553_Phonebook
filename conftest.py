@@ -80,6 +80,6 @@ def pytest_runtest_makereport(item, call):
             # Прикрепляем скриншот к pytest-html отчету
             pytest_html = item.config.pluginmanager.getplugin('html')
             if pytest_html:
-                extra = getattr(report, 'extra', [])
-                extra.append(pytest_html.extras.image(screenshot_path))
-                report.extra = extra
+                extras = getattr(report, 'extra', [])
+                extras.append(pytest_html.extras.image(screenshot_path))
+                report.extras = extras
