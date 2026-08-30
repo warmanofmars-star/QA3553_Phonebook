@@ -39,7 +39,12 @@ class ContactsPage(BasePage):
 
     def open_contact_details(self, phone):
         """Кликает по карточке (по номеру телефона), чтобы открыть детали"""
-        card = self.driver.find_element(By.XPATH, f"//h3[text()='{phone}']/..")
+        locator = (By.XPATH, f"//h3[text()='{phone}']/..")
+
+        # Явно ждем, пока карточка не только появится в DOM, но и станет кликабельной
+        card = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.element_to_be_clickable(locator)
+        )
         card.click()
 
     def contact_card_visible(self, phone):
