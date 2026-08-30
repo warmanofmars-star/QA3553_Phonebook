@@ -19,6 +19,7 @@ def driver():
 
     # Проверяем, запускаются ли тесты на сервере GitHub Actions
     if os.environ.get('CI') == 'true':
+        options.add_argument('--disable-gpu') # Отключение видеокарты
         options.add_argument('--headless')  # Включаем фоновый режим
         options.add_argument('--no-sandbox')  # Обязательно для Linux-серверов
         options.add_argument('--disable-dev-shm-usage')  # Обход проблемы с памятью на серверах
@@ -30,6 +31,9 @@ def driver():
     # Максимизируем окно только при локальном запуске (с UI)
     if os.environ.get('CI') != 'true':
         driver.maximize_window()
+
+    # Устанавливаем жесткий лимит на загрузку страницы (30 секунд)
+    driver.set_page_load_timeout(30)
 
     yield driver  # Передаем драйвер в тест
     driver.quit()
@@ -54,7 +58,7 @@ def authenticated_driver(driver):
 def pytest_runtest_makereport(item, call):
     """
     Хук, который вызывается после каждой фазы теста (setup, call, teardown).
-    Если тест падает, он делает скриншот и прикрепляет его к HTML-отчету.
+    Если тест падает, он делает скриншот и прикрепляет его к отчету.
     """
     outcome = yield
     report = outcome.get_result()
