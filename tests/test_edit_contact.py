@@ -1,4 +1,5 @@
 import pytest
+import allure
 from pages.add_contact_page import ContactPage
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
@@ -8,6 +9,7 @@ from models.contact import Contact
 # ==========================================
 # ПОЗИТИВНЫЕ ТЕСТЫ
 # ==========================================
+@allure.severity(allure.severity_level.CRITICAL)
 def test_edit_contact_positive(authenticated_driver):
     add_page = ContactPage(authenticated_driver)
     contacts_page = ContactsPage(authenticated_driver)
@@ -42,6 +44,7 @@ def test_edit_contact_positive(authenticated_driver):
 # ==========================================
 # НЕГАТИВНЫЕ ТЕСТЫ: Дубликаты (TC-034, TC-035)
 # ==========================================
+@allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Фронтенд позволяет редактировать телефон на уже существующий дубликат")
 def test_edit_contact_duplicate_phone(authenticated_driver):
     add_page = ContactPage(authenticated_driver)
@@ -76,6 +79,7 @@ def test_edit_contact_duplicate_phone(authenticated_driver):
 # ==========================================
 # НЕГАТИВНЫЕ ТЕСТЫ: Очистка обязательных полей (TC-028 - TC-033)
 # ==========================================
+@allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Фронтенд позволяет сохранять контакт с пустыми обязательными полями при редактировании")
 @pytest.mark.parametrize("field_to_clear", ["name", "last_name", "phone", "email", "address"])
 def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear):
@@ -94,9 +98,7 @@ def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear
     contacts_page.click_edit_button()
 
     # 3. ШАГ ТЕСТА: Очищаем ТОЛЬКО ОДНО обязательное поле
-    # noinspection PyTypeChecker
-    empty_update = Contact(name=None, last_name=None, phone=None, email=None, address=None, description=None)
-    setattr(empty_update, field_to_clear, "")
+    empty_update = Contact(**{field_to_clear: ""})
 
     contacts_page.edit_contact_form(empty_update)
     contacts_page.click_save_edit_button()

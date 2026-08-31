@@ -1,7 +1,7 @@
 from pages.login_page import LoginPage
 from data.data_generator import UserGenerator
 import os
-
+import allure
 
 # ==========================================
 # ТЕСТОВЫЕ ДАННЫЕ ДЛЯ АВТОРИЗАЦИИ (LOGIN)
@@ -15,6 +15,7 @@ VALID_PASSWORD = os.getenv("USER_PASSWORD")
 # ТЕСТЫ НА АВТОРИЗАЦИЮ (LOGIN)
 # ==========================================
 
+@allure.severity(allure.severity_level.BLOCKER)
 def test_login_success(driver):
     """Позитивный тест: Успешная авторизация с валидными данными"""
     login_page = LoginPage(driver)
@@ -27,6 +28,7 @@ def test_login_success(driver):
     assert login_page.is_logged()
 
 
+@allure.severity(allure.severity_level.NORMAL)
 def test_login_with_wrong_email(driver):
     """Негативный тест: Авторизация с неверным форматом email"""
     login_page = LoginPage(driver)
@@ -43,6 +45,7 @@ def test_login_with_wrong_email(driver):
     login_page.accept_alert()
 
 
+@allure.severity(allure.severity_level.NORMAL)
 def test_login_with_wrong_password(driver):
     """Негативный тест: Авторизация с неверным форматом пароля"""
     login_page = LoginPage(driver)
@@ -60,6 +63,7 @@ def test_login_with_wrong_password(driver):
     login_page.accept_alert()
 
 
+@allure.severity(allure.severity_level.NORMAL)
 def test_login_unregistered_user(driver):
     """Негативный тест: Авторизация несуществующего пользователя"""
     login_page = LoginPage(driver)
@@ -80,6 +84,7 @@ def test_login_unregistered_user(driver):
 # ТЕСТЫ НА РЕГИСТРАЦИЮ (REGISTRATION)
 # ==========================================
 
+@allure.severity(allure.severity_level.BLOCKER)
 def test_registration_success(driver):
     """Позитивный тест: Успешная регистрация нового пользователя"""
     login_page = LoginPage(driver)
@@ -96,6 +101,7 @@ def test_registration_success(driver):
     assert login_page.is_logged()
 
 
+@allure.severity(allure.severity_level.NORMAL)
 def test_registration_existing_user_alert(driver):
     """Негативный тест: Регистрация с уже существующим email в базе"""
     login_page = LoginPage(driver)
@@ -110,6 +116,7 @@ def test_registration_existing_user_alert(driver):
     login_page.accept_alert()
 
 
+@allure.severity(allure.severity_level.NORMAL)
 def test_registration_invalid_email_format(driver):
     """Негативный тест: Регистрация с невалидным email + ВАЛИДНЫМ паролем"""
     login_page = LoginPage(driver)
@@ -126,6 +133,7 @@ def test_registration_invalid_email_format(driver):
     login_page.accept_alert()
 
 
+@allure.severity(allure.severity_level.NORMAL)
 def test_registration_invalid_password_format(driver):
     """Негативный тест: Регистрация с ВАЛИДНЫМ (уникальным) email + невалидным паролем"""
     login_page = LoginPage(driver)

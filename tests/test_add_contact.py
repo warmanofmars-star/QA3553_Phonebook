@@ -1,4 +1,5 @@
 import pytest
+import allure
 from models.contact import Contact
 from pages.add_contact_page import ContactPage
 from data.data_generator import ContactGenerator
@@ -9,6 +10,7 @@ from data.test_data import load_contact_data_from_csv
 # ==========================================
 # ПОЗИТИВНЫЕ ТЕСТЫ
 # ==========================================
+@allure.severity(allure.severity_level.CRITICAL)
 def test_add_contact_success_all_fields(authenticated_driver):
     # 1. Инициализируем страницу
     contact_page = ContactPage(authenticated_driver)
@@ -33,7 +35,8 @@ def test_add_contact_success_all_fields(authenticated_driver):
 # НЕГАТИВНЫЕ ТЕСТЫ (Данные берутся из CSV)
 # ==========================================
 
-# Вместо жестко прописанного списка мы просто вызываем функцию!
+@allure.severity(allure.severity_level.NORMAL)
+# Вместо жестко прописанного списка мы просто вызываем функцию! (CSV)
 @pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error", load_contact_data_from_csv())
 def test_add_contact_negative(authenticated_driver, name, last_name, phone, email, address, description, expected_error):
     contact_page = ContactPage(authenticated_driver)
@@ -61,6 +64,7 @@ def test_add_contact_negative(authenticated_driver, name, last_name, phone, emai
     assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сдный контакт!"
 
 
+@allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
 def test_add_contact_duplicate_phone(authenticated_driver):
 

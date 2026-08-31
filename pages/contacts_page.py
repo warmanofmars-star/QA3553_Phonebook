@@ -1,4 +1,3 @@
-import time
 import platform
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -31,7 +30,7 @@ class ContactsPage(BasePage):
         """Открывает список контактов через клик по верхнему меню"""
         self.click(self.CONTACT_NAV_LINK)
         WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.url_contains("/contacts"))
-        time.sleep(1)
+
 
     def contact_cards_count(self, phone):
         """Считает количество карточек с заданным номером телефона"""

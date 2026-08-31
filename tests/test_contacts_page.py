@@ -1,4 +1,5 @@
 import pytest
+import allure
 from pages.add_contact_page import ContactPage
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
@@ -7,6 +8,7 @@ from data.data_generator import ContactGenerator
 # ==========================================
 # ТЕСТ 1: Отображение созданного контакта
 # ==========================================
+@allure.severity(allure.severity_level.CRITICAL)
 def test_contact_is_visible_in_list(authenticated_driver):
     add_page = ContactPage(authenticated_driver)
     contact = ContactGenerator.get_random_contact()
@@ -56,6 +58,7 @@ def test_duplicate_contact_cards_count(authenticated_driver):
 # ==========================================
 # ТЕСТ 3: Открытие деталей контакта (Правая панель)
 # ==========================================
+@allure.severity(allure.severity_level.CRITICAL)
 def test_open_contact_details(authenticated_driver):
     add_page = ContactPage(authenticated_driver)
     contact = ContactGenerator.get_random_contact()

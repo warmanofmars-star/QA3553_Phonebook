@@ -1,9 +1,9 @@
-from models.contact import Contact
+import allure
 from pages.add_contact_page import ContactPage
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
 
-
+@allure.severity(allure.severity_level.CRITICAL)
 def test_delete_contact(authenticated_driver):
     # ==========================================
     # ПРЕДУСЛОВИЕ: Создаем контакт для удаления
