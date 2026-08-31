@@ -378,12 +378,12 @@ from dataclasses import dataclass
 
 @dataclass
 class Contact:
-    name: str
-    last_name: str
-    phone: str
-    email: str
-    address: str
-    description: str = "" # Согласно спецификации (T46), это поле необязательное
+    name: str = None
+    last_name: str = None
+    phone: str = None
+    email: str = None
+    address: str = None
+    description: str = None # Согласно спецификации (T46), это поле необязательное
 
 ============================================================
 📄 FILE: .\models\user.py
@@ -526,7 +526,6 @@ class BasePage:
 📄 FILE: .\pages\contacts_page.py
 ============================================================
 
-import time
 import platform
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -559,7 +558,7 @@ class ContactsPage(BasePage):
         """Открывает список контактов через клик по верхнему меню"""
         self.click(self.CONTACT_NAV_LINK)
         WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.url_contains("/contacts"))
-        time.sleep(1)
+
 
     def contact_cards_count(self, phone):
         """Считает количество карточек с заданным номером телефона"""
@@ -1060,9 +1059,7 @@ def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear
     contacts_page.click_edit_button()
 
     # 3. ШАГ ТЕСТА: Очищаем ТОЛЬКО ОДНО обязательное поле
-    # noinspection PyTypeChecker
-    empty_update = Contact(name=None, last_name=None, phone=None, email=None, address=None, description=None)
-    setattr(empty_update, field_to_clear, "")
+    empty_update = Contact(**{field_to_clear: ""})
 
     contacts_page.edit_contact_form(empty_update)
     contacts_page.click_save_edit_button()
@@ -1229,7 +1226,6 @@ def test_registration_invalid_password_format(driver):
 📄 FILE: .\tests\test_logout.py
 ============================================================
 
-import pytest
 import allure
 from pages.contacts_page import ContactsPage
 from pages.login_page import LoginPage
