@@ -101,6 +101,90 @@ def pytest_runtest_makereport(item, call):
             )
 
 ============================================================
+📄 FILE: .\make_readme.py
+============================================================
+
+import os
+
+# Собираем тройные кавычки динамически, чтобы парсер чата не сошел с ума
+TICK = "`" * 3
+
+lines = [
+    "# 📖 Phonebook UI Auto-tests\n\n",
+    "[![Phonebook UI Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)\n",
+    "📊 **Live Allure Report:** [View Dashboard](https://warmanofmars-star.github.io/QA3553_Phonebook/)\n\n",
+    "UI Automation testing project for the \"Phonebook\" web application.\n",
+    "Developed using **Python**, **Selenium WebDriver**, and **Pytest** following the **Page Object Model (POM)** design pattern.\n\n",
+    "## 🛠 Technologies & Tools\n",
+    "* **Language:** Python 3.12+\n",
+    "* **Core Framework:** Selenium WebDriver 4+\n",
+    "* **Test Runner:** Pytest (with `pytest-rerunfailures` for flaky tests)\n",
+    "* **Design Pattern:** Page Object Model (POM)\n",
+    "* **Test Data:** Faker (dynamic generation of names, phones, emails)\n",
+    "* **Reporting:** Allure Report (Tests categorized by Severity: BLOCKER, CRITICAL, NORMAL)\n",
+    "* **CI/CD:** GitHub Actions (Automated runs with Headless browser execution)\n",
+    "* **Notifications:** Telegram Bot API\n",
+    "* **Security:** `python-dotenv` for managing sensitive credentials\n\n",
+    "## 🚀 Quick Start (Local Execution)\n\n",
+    "### 1. Clone and Setup\n",
+    f"{TICK}bash\n",
+    "git clone [https://github.com/warmanofmars-star/QA3553_Phonebook.git](https://github.com/warmanofmars-star/QA3553_Phonebook.git)\n",
+    "cd QA3553_Phonebook\n",
+    "python -m venv .venv\n",
+    "source .venv/Scripts/activate  # For Windows: .venv\\Scripts\\activate\n",
+    "pip install -r requirements.txt\n",
+    f"{TICK}\n\n",
+    "### 2. Environment Variables (.env)\n",
+    "The project uses hidden credentials. Create a `.env` file in the root directory and add your valid test user credentials:\n",
+    f"{TICK}env\n",
+    "HEADLESS_MODE=false\n",
+    "USER_EMAIL=your_valid_email@gmail.com\n",
+    "USER_PASSWORD=Your_Valid_Password123$\n",
+    "BASE_URL=[https://telranedu.web.app](https://telranedu.web.app)\n",
+    f"{TICK}\n",
+    "*💡 **Note:** Set `HEADLESS_MODE=true` if you want to run tests in the background without opening the browser window.*\n\n",
+    "### 3. Run Tests & View Report\n",
+    "Run the test suite with 2 retries for flaky tests and generate the Allure results:\n",
+    f"{TICK}bash\n",
+    "pytest tests/ --reruns 2 --reruns-delay 2 --alluredir=allure-results\n",
+    f"{TICK}\n",
+    "Serve the Allure report in your browser:\n",
+    f"{TICK}bash\n",
+    "allure serve allure-results\n",
+    f"{TICK}\n\n",
+    "## ☁️ CI/CD & Remote Execution\n",
+    "This project is fully integrated with **GitHub Actions**. \n",
+    "* On every manual trigger (`workflow_dispatch`), the pipeline spins up an Ubuntu runner, installs Microsoft Edge, and executes the test suite in Headless mode.\n",
+    "* It securely accesses credentials via **GitHub Secrets**.\n",
+    "* Upon completion, it automatically generates an Allure report, deploys it to **GitHub Pages**, and sends a notification with the link to Telegram.\n\n",
+    "## 📋 Test Coverage\n",
+    "The project includes both positive and negative scenarios covering the core CRUD operations and security features:\n",
+    "* **Authentication:** User Login, Registration, Logout & Security redirects.\n",
+    "* **Contacts Management:** \n",
+    "  * Creating new contacts.\n",
+    "  * Editing existing contacts (with dynamic field updates).\n",
+    "  * Deleting contacts.\n",
+    "* **Bug Tracking:** Known frontend bugs (e.g., lack of required fields validation during editing, saving duplicates) are isolated and documented using `@pytest.mark.xfail`.\n\n",
+    "## 🏗 Project Structure\n",
+    f"{TICK}text\n",
+    "QA3553_Phonebook/\n",
+    "├── .github/workflows/    # CI/CD pipeline configuration (tests.yml)\n",
+    "├── data/                 # Data generators and static files (Faker, CSV)\n",
+    "├── models/               # Data models (Contact, User)\n",
+    "├── pages/                # Page Object classes (base_page, login_page, contacts_page)\n",
+    "├── tests/                # Test suites (test_login, test_add, test_edit, test_logout)\n",
+    "├── conftest.py           # Pytest fixtures and WebDriver setup (UI & Headless modes)\n",
+    "├── requirements.txt      # Project dependencies\n",
+    "└── README.md             # Project documentation\n",
+    f"{TICK}\n"
+]
+
+with open("README.md", "w", encoding="utf-8") as f:
+    f.writelines(lines)
+
+print("✅ Файл README.md успешно перезаписан! Можно пушить.")
+
+============================================================
 📄 FILE: .\merge_code.py
 ============================================================
 
@@ -131,6 +215,7 @@ with open('full_project_for_ai.txt', 'w', encoding='utf-8') as outfile:
 
 print("Готово! Файл full_project_for_ai.txt создан.")
 
+
 ============================================================
 📄 FILE: .\README.md
 ============================================================
@@ -140,18 +225,56 @@ print("Готово! Файл full_project_for_ai.txt создан.")
 [![Phonebook UI Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)
 📊 **Live Allure Report:** [View Dashboard](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
-UI Automation testing project for the "Phonebook" web application. 
+UI Automation testing project for the "Phonebook" web application.
 Developed using **Python**, **Selenium WebDriver**, and **Pytest** following the **Page Object Model (POM)** design pattern.
 
 ## 🛠 Technologies & Tools
 * **Language:** Python 3.12+
 * **Core Framework:** Selenium WebDriver 4+
-* **Test Runner:** Pytest
+* **Test Runner:** Pytest (with `pytest-rerunfailures` for flaky tests)
 * **Design Pattern:** Page Object Model (POM)
 * **Test Data:** Faker (dynamic generation of names, phones, emails)
-* **Reporting:** pytest-html
-* **CI/CD:** GitHub Actions (with Headless browser execution)
+* **Reporting:** Allure Report (Tests categorized by Severity: BLOCKER, CRITICAL, NORMAL)
+* **CI/CD:** GitHub Actions (Automated runs with Headless browser execution)
 * **Notifications:** Telegram Bot API
+* **Security:** `python-dotenv` for managing sensitive credentials
+
+## 🚀 Quick Start (Local Execution)
+
+### 1. Clone and Setup
+```bash
+git clone [https://github.com/warmanofmars-star/QA3553_Phonebook.git](https://github.com/warmanofmars-star/QA3553_Phonebook.git)
+cd QA3553_Phonebook
+python -m venv .venv
+source .venv/Scripts/activate  # For Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 2. Environment Variables (.env)
+The project uses hidden credentials. Create a `.env` file in the root directory and add your valid test user credentials:
+```env
+HEADLESS_MODE=false
+USER_EMAIL=your_valid_email@gmail.com
+USER_PASSWORD=Your_Valid_Password123$
+BASE_URL=[https://telranedu.web.app](https://telranedu.web.app)
+```
+*💡 **Note:** Set `HEADLESS_MODE=true` if you want to run tests in the background without opening the browser window.*
+
+### 3. Run Tests & View Report
+Run the test suite with 2 retries for flaky tests and generate the Allure results:
+```bash
+pytest tests/ --reruns 2 --reruns-delay 2 --alluredir=allure-results
+```
+Serve the Allure report in your browser:
+```bash
+allure serve allure-results
+```
+
+## ☁️ CI/CD & Remote Execution
+This project is fully integrated with **GitHub Actions**. 
+* On every manual trigger (`workflow_dispatch`), the pipeline spins up an Ubuntu runner, installs Microsoft Edge, and executes the test suite in Headless mode.
+* It securely accesses credentials via **GitHub Secrets**.
+* Upon completion, it automatically generates an Allure report, deploys it to **GitHub Pages**, and sends a notification with the link to Telegram.
 
 ## 📋 Test Coverage
 The project includes both positive and negative scenarios covering the core CRUD operations and security features:
@@ -173,6 +296,8 @@ QA3553_Phonebook/
 ├── conftest.py           # Pytest fixtures and WebDriver setup (UI & Headless modes)
 ├── requirements.txt      # Project dependencies
 └── README.md             # Project documentation
+```
+
 
 ============================================================
 📄 FILE: .\.github\workflows\tests.yml
