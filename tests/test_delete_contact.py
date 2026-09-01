@@ -1,4 +1,6 @@
+import os
 import allure
+import pytest
 from pages.add_contact_page import ContactPage
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
@@ -40,3 +42,38 @@ def test_delete_contact(authenticated_driver):
     # ==========================================
     assert contacts_page.is_contact_deleted(contact.phone), \
         f"Ошибка: Карточка с телефоном {contact.phone} не удалилась из списка!"
+
+#здесь у нас будет метод удаления всех контактов
+# Читаем наш рубильник из .env
+ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
+
+@allure.severity(allure.severity_level.CRITICAL)
+# Если рубильник выключен, Pytest пропустит этот тест и напишет причину
+@pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
+def test_delete_all_contacts(authenticated_driver):
+    """Проверка полного очищения списка контактов"""
+    add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    # ==========================================
+    # ПРЕДУСЛОВИЕ: Создаем 2 контакта (если список пуст)
+    # ==========================================
+    for _ in range(2):
+        add_page.open()
+        contact = ContactGenerator.get_random_contact()
+        add_page.fill_contact_form(contact)
+        add_page.submit_contact()
+
+        # Обязательно ждем редирект и появление карточки, чтобы данные ушли в базу
+        contacts_page.contact_card_visible(contact.phone)
+
+    # ==========================================
+    # ШАГИ ТЕСТА: Запускаем "пылесос"
+    # ==========================================
+    contacts_page.delete_all_contacts()
+
+    # ==========================================
+    # ПРОВЕРКА: Список должен быть абсолютно пуст
+    # ==========================================
+    final_count = contacts_page.get_all_contacts_count()
+    assert final_count == 0, f"Ошибка: Ожидалось 0 контактов, но осталось {final_count}!"

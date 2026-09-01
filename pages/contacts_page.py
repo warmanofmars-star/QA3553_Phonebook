@@ -66,6 +66,37 @@ class ContactsPage(BasePage):
         locator = (By.XPATH, f"//h3[text()='{phone}']")
         return self.is_disappeared(locator)
 
+    def get_all_contacts_count(self):
+        """Возвращает общее количество контактов в левом списке"""
+        # find_elements возвращает список. Если элементов нет - вернет пустой список []
+        return len(self.driver.find_elements(*self.CONTACT_CARDS))
+
+    def delete_all_contacts(self):
+        """Удаляет все контакты по одному, избегая ошибки устаревших элементов (StaleElementReference)"""
+        while True:
+            # Каждый раз заново ищем все карточки на странице
+            cards = self.driver.find_elements(*self.CONTACT_CARDS)
+
+            # Если карточек больше нет — прерываем цикл (работа сделана)
+            if not cards:
+                break
+
+            current_count = len(cards)
+
+            # Кликаем всегда по первой карточке в списке
+            cards[0].click()
+
+            # Ждем появления кнопки Remove и кликаем её
+            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+                EC.element_to_be_clickable(self.REMOVE_BTN)
+            ).click()
+
+            # САМОЕ ВАЖНОЕ: Ждем, пока общее количество карточек не уменьшится на 1
+            # Только после этого идем на следующий круг цикла
+            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+                lambda driver: len(driver.find_elements(*self.CONTACT_CARDS)) < current_count
+            )
+
     # ==========================================
     # МЕТОДЫ РЕДАКТИРОВАНИЯ
     # ==========================================
