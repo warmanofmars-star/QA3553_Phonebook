@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from pages.login_page import LoginPage
-from tests.test_login import VALID_PASSWORD, EXISTING_EMAIL
 
 
 @pytest.fixture
@@ -50,8 +49,9 @@ def authenticated_driver(driver):
     login_page = LoginPage(driver)
     login_page.open()
 
-    login_page.fill_email(EXISTING_EMAIL)
-    login_page.fill_password(VALID_PASSWORD)
+    # Берем данные напрямую из .env, не обращаясь к файлу тестов
+    login_page.fill_email(os.getenv("USER_EMAIL"))
+    login_page.fill_password(os.getenv("USER_PASSWORD"))
     login_page.submit_login()
 
     # Ждем, пока авторизация действительно завершится
