@@ -43,32 +43,19 @@ def test_delete_contact(authenticated_driver):
     assert contacts_page.is_contact_deleted(contact.phone), \
         f"Ошибка: Карточка с телефоном {contact.phone} не удалилась из списка!"
 
-#здесь у нас будет метод удаления всех контактов
+
+#здесь у нас будет метод удаления всех контактов (пылесос с тумблером)
 # Читаем наш рубильник из .env
 ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
 
 @allure.severity(allure.severity_level.CRITICAL)
-# Если рубильник выключен, Pytest пропустит этот тест и напишет причину
 @pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
 def test_delete_all_contacts(authenticated_driver):
-    """Проверка полного очищения списка контактов"""
-    add_page = ContactPage(authenticated_driver)
+    """Скрипт-утилита: Полное очищение списка контактов"""
     contacts_page = ContactsPage(authenticated_driver)
 
     # ==========================================
-    # ПРЕДУСЛОВИЕ: Создаем 2 контакта (если список пуст)
-    # ==========================================
-    for _ in range(2):
-        add_page.open()
-        contact = ContactGenerator.get_random_contact()
-        add_page.fill_contact_form(contact)
-        add_page.submit_contact()
-
-        # Обязательно ждем редирект и появление карточки, чтобы данные ушли в базу
-        contacts_page.contact_card_visible(contact.phone)
-
-    # ==========================================
-    # ШАГИ ТЕСТА: Запускаем "пылесос"
+    # ШАГ ТЕСТА: Запускаем "пылесос"
     # ==========================================
     contacts_page.delete_all_contacts()
 
@@ -77,3 +64,33 @@ def test_delete_all_contacts(authenticated_driver):
     # ==========================================
     final_count = contacts_page.get_all_contacts_count()
     assert final_count == 0, f"Ошибка: Ожидалось 0 контактов, но осталось {final_count}!"
+
+
+#здесь у нас метод удаления всех созданных временных контактов для проверки метода
+@allure.severity(allure.severity_level.CRITICAL)
+def test_delete_multiple_contacts(authenticated_driver):
+    """Проверка последовательного удаления нескольких конкретных контактов"""
+    add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    phones_to_delete = []
+
+    # Создаем 2 контакта и запоминаем их номера
+    for _ in range(2):
+        add_page.open()
+        contact = ContactGenerator.get_random_contact()
+        add_page.fill_contact_form(contact)
+        add_page.submit_contact()
+        contacts_page.contact_card_visible(contact.phone)
+        phones_to_delete.append(contact.phone)
+
+    # Запоминаем общее количество контактов ДО удаления
+    initial_count = contacts_page.get_all_contacts_count()
+
+    # Точечно удаляем только созданные контакты
+    contacts_page.delete_specific_contacts(phones_to_delete)
+
+    # Общее количество должно уменьшиться ровно на 2
+    final_count = contacts_page.get_all_contacts_count()
+    assert final_count == initial_count - 2, \
+    f"Ошибка: Ожидалось {initial_count - 2} контактов, но осталось {final_count}!"

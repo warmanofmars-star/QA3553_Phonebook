@@ -97,6 +97,13 @@ class ContactsPage(BasePage):
                 lambda driver: len(driver.find_elements(*self.CONTACT_CARDS)) < current_count
             )
 
+    def delete_specific_contacts(self, phone_numbers: list):
+        """Удаляет только те контакты, телефоны которых переданы в списке"""
+        for phone in phone_numbers:
+            self.open_contact_details(phone)
+            self.click_remove_button()
+            self.is_contact_deleted(phone)
+
     # ==========================================
     # МЕТОДЫ РЕДАКТИРОВАНИЯ
     # ==========================================
