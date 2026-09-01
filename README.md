@@ -38,6 +38,7 @@ USER_PASSWORD=Your_Valid_Password123$
 BASE_URL=(https://telranedu.web.app)
 ```
 *💡 **Note:** Set `HEADLESS_MODE=true` if you want to run tests in the background without opening the browser window.*
+*💡 **Note:** Set `ALLOW_MASS_DELETE=false` if you want to delete all contacts in contacts page
 
 ### 3. Run Tests & View Report
 Run the test suite with 2 retries for flaky tests and generate the Allure results:
