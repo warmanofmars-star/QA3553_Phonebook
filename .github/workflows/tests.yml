@@ -2,6 +2,12 @@ name: Phonebook UI Tests
 
 on:
   workflow_dispatch: # Эта строчка создает кнопку "Запустить вручную" на GitHub
+      inputs:
+        allow_mass_delete:
+          description: 'Включить полное удаление всех контактов (DANGER!)'
+          required: false
+          type: boolean
+          default: false
 
 jobs:
   test:
@@ -29,6 +35,7 @@ jobs:
           BASE_URL: "https://telranedu.web.app"          # Несекретная настройка — пишем открыто
           USER_EMAIL: ${{ secrets.USER_EMAIL }}          # Секреты — тянем из сейфа GitHub
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
+          ALLOW_MASS_DELETE: ${{ github.event.inputs.allow_mass_delete }} #пылесос
         # Добавили флаги для перезапуска упавших тестов (2 попытки с паузой в 2 секунды)
         run: pytest tests/ --reruns 2 --reruns-delay 2 --alluredir=allure-results
         continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
