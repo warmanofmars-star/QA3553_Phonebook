@@ -21,7 +21,7 @@ Developed using **Python**, **Selenium WebDriver**, and **Pytest** following the
 
 ### 1. Clone and Setup
 ```bash
-git clone [https://github.com/warmanofmars-star/QA3553_Phonebook.git](https://github.com/warmanofmars-star/QA3553_Phonebook.git)
+git clone (https://github.com/warmanofmars-star/QA3553_Phonebook.git)
 cd QA3553_Phonebook
 python -m venv .venv
 source .venv/Scripts/activate  # For Windows: .venv\Scripts\activate
@@ -31,17 +31,18 @@ pip install -r requirements.txt
 ### 2. Environment Variables (.env)
 The project uses hidden credentials. Create a `.env` file in the root directory and add your valid test user credentials:
 ```env
-HEADLESS_MODE=false
+ALLOW_MASS_DELETE=false
+HEADLESS_MODE=true
 USER_EMAIL=your_valid_email@gmail.com
 USER_PASSWORD=Your_Valid_Password123$
-BASE_URL=[https://telranedu.web.app](https://telranedu.web.app)
+BASE_URL=(https://telranedu.web.app)
 ```
 *💡 **Note:** Set `HEADLESS_MODE=true` if you want to run tests in the background without opening the browser window.*
 
 ### 3. Run Tests & View Report
 Run the test suite with 2 retries for flaky tests and generate the Allure results:
 ```bash
-pytest tests/ --reruns 2 --reruns-delay 2 --alluredir=allure-results
+pytest tests/ --clean-alluredir --reruns 2 --reruns-delay 2 --alluredir=allure-results
 ```
 Serve the Allure report in your browser:
 ```bash
