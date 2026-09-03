@@ -1,7 +1,7 @@
 import allure
 import os
-import requests
 import pytest
+from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
 
 API_URL = os.getenv("API_URL")
@@ -38,7 +38,7 @@ def test_api_add_contact(api_token):
     # ==========================================
     # ШАГ 3: Отправляем запрос на создание
     # ==========================================
-    response = requests.post(f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
+    response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
 
     # ==========================================
     # ПРОВЕРКИ
@@ -68,7 +68,7 @@ def test_api_add_contact_missing_required_field(api_token):
         "description": contact.description
     }
 
-    response = requests.post(f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
+    response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
 
     # По спецификации Swagger сервер должен отбить запрос со статусом 400 (Bad Request)
     assert response.status_code == 400, f"БАГ БЭКЕНДА: Сервер принял контакт без имени! Статус: {response.status_code}"
@@ -94,11 +94,11 @@ def test_api_add_contact_duplicate(api_token):
     }
 
     # 1. Создаем оригинальный контакт
-    res_first = requests.post(f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    res_first = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
     assert res_first.status_code == 200, "Предусловие сломалось: первый контакт не создался"
 
     # 2. Пытаемся закинуть ТОТ ЖЕ САМЫЙ payload второй раз
-    res_second = requests.post(f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    res_second = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
 
     # По Swagger сервер должен выдать ошибку 409 (Conflict) - Duplicate contact fields
     assert res_second.status_code == 409, f"БАГ БЭКЕНДА: Сервер позволил создать дубликат! Статус: {res_second.status_code}"

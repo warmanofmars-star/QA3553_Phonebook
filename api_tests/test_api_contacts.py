@@ -1,6 +1,6 @@
 import allure
 import os
-import requests
+from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
 from dotenv import load_dotenv
 
@@ -26,11 +26,11 @@ def test_api_get_all_contacts(api_token):
         "address": contact.address,
         "description": contact.description
     }
-    requests.post(f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    make_api_request("POST",f"{API_URL}/v1/contacts", json=payload, headers=headers)
 
     # 2. ШАГ ТЕСТА: Отправляем GET-запрос на получение всех контактов
     # Обрати внимание: для GET-запроса не нужно тело (json), только заголовки!
-    response = requests.get(f"{API_URL}/v1/contacts", headers=headers)
+    response = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
 
     assert response.status_code == 200, f"Ошибка при получении контактов: {response.text}"
 
@@ -63,10 +63,10 @@ def test_api_update_contact(api_token):
         "address": contact.address,
         "description": contact.description
     }
-    requests.post(f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
 
     # 2. РАЗВЕДКА: Делаем GET-запрос, чтобы найти ID этого контакта
-    response_get = requests.get(f"{API_URL}/v1/contacts", headers=headers)
+    response_get = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_list = response_get.json().get("contacts", [])
 
     # Ищем контакт по нашему уникальному телефону и забираем его id
@@ -91,11 +91,11 @@ def test_api_update_contact(api_token):
     }
 
     # Отправляем PUT-запрос
-    response_put = requests.put(f"{API_URL}/v1/contacts", json=updated_payload, headers=headers)
+    response_put = make_api_request("PUT", f"{API_URL}/v1/contacts", json=updated_payload, headers=headers)
     assert response_put.status_code == 200, f"Ошибка обновления: {response.text}"
 
     # 4. ПРОВЕРКА: Снова делаем GET и проверяем, что имя реально изменилось
-    response_check = requests.get(f"{API_URL}/v1/contacts", headers=headers)
+    response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_list_after = response_check.json().get("contacts", [])
 
     updated_name_in_db = None

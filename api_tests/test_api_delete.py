@@ -1,7 +1,7 @@
 import allure
 import pytest
 import os
-import requests
+from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
 from dotenv import load_dotenv
 
@@ -28,9 +28,9 @@ def test_api_delete_contact(api_token):
         "address": contact.address,
         "description": contact.description
     }
-    requests.post(f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
 
-    response_get = requests.get(f"{API_URL}/v1/contacts", headers=headers)
+    response_get = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_list = response_get.json().get("contacts", [])
 
     target_id = None
@@ -43,11 +43,11 @@ def test_api_delete_contact(api_token):
 
     # 2. ШАГ ТЕСТА: Удаляем контакт по ID
     # Обрати внимание на URL: мы передаем target_id прямо в адресную строку
-    response_delete = requests.delete(f"{API_URL}/v1/contacts/{target_id}", headers=headers)
+    response_delete = make_api_request("DELETE", f"{API_URL}/v1/contacts/{target_id}", headers=headers)
     assert response_delete.status_code == 200, f"Ошибка удаления: {response_delete.text}"
 
     # 3. ПРОВЕРКА: Убеждаемся, что контакт реально исчез из базы
-    response_check = requests.get(f"{API_URL}/v1/contacts", headers=headers)
+    response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_after = response_check.json().get("contacts", [])
 
     # Собираем список всех ID, которые остались в базе
@@ -66,11 +66,11 @@ def test_api_clear_all_contacts(api_token):
     headers = {"Authorization": f"Bearer {api_token}"}
 
     # 1. ШАГ ТЕСТА: Вызываем эндпоинт полной очистки
-    response_clear = requests.delete(f"{API_URL}/v1/contacts/clear", headers=headers)
+    response_clear = make_api_request("DELETE", f"{API_URL}/v1/contacts/clear", headers=headers)
     assert response_clear.status_code == 200, f"Ошибка массового удаления: {response_clear.text}"
 
     # 2. ПРОВЕРКА: Запрашиваем список и убеждаемся, что он абсолютно пуст
-    response_check = requests.get(f"{API_URL}/v1/contacts", headers=headers)
+    response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_after = response_check.json().get("contacts", [])
 
     assert len(contacts_after) == 0, f"БАГ: База не пуста! Осталось {len(contacts_after)} контактов."

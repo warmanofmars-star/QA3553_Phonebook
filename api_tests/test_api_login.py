@@ -1,6 +1,6 @@
 import allure
 import os
-import requests
+from utils.api_helper import make_api_request
 from dotenv import load_dotenv
 
 # Загружаем переменные окружения
@@ -29,7 +29,7 @@ def test_api_login_success():
     }
 
     # 3. Делаем POST-запрос
-    response = requests.post(endpoint, json=payload)
+    response = make_api_request("POST", endpoint, json=payload)
 
     # 4. Проверяем, что сервер ответил статусом 200 (OK)
     assert response.status_code == 200, f"Ошибка авторизации! Сервер вернул: {response.text}"
