@@ -16,7 +16,7 @@ class BasePage:
 
     DEFAULT_TIMEOUT = 5
 
-    def __init__(self, driver, endpoint=""):
+    def __init__(self, driver):
         self.driver = driver
 
     def open(self):

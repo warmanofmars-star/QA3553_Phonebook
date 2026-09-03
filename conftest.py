@@ -1,6 +1,7 @@
 import os
 import pytest
 import allure
+import requests
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from dotenv import load_dotenv
@@ -84,3 +85,22 @@ def pytest_runtest_makereport(item, call):
                 name=f"Скриншот ошибки: {test_name}",
                 attachment_type=allure.attachment_type.PNG
             )
+
+#здесь мы получим токен авторизации для API-тестов и будем вызывать его
+@pytest.fixture(scope="session")
+def api_token():
+    """Получает токен авторизации один раз для всех API-тестов"""
+    api_url = os.getenv("API_URL")
+
+    login_payload = {
+        "username": os.getenv("USER_EMAIL"),
+        "password": os.getenv("USER_PASSWORD")
+    }
+
+    response = requests.post(f"{api_url}/v1/user/login/usernamepassword", json=login_payload)
+
+    # Жесткая проверка, чтобы тесты даже не начинались, если бэкенд лежит
+    assert response.status_code == 200, "КРИТИЧЕСКАЯ ОШИБКА: Не удалось получить API токен!"
+
+    # Возвращаем сам токен (строку)
+    return response.json().get("token")
