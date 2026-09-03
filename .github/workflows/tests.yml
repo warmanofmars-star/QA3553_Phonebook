@@ -33,11 +33,12 @@ jobs:
       - name: Запускаем автотесты
         env:
           BASE_URL: "https://telranedu.web.app"          # Несекретная настройка — пишем открыто
+          API_URL: "https://contactapp-telran-backend.herokuapp.com" # ДОБАВИЛИ URL БЭКЕНДА
           USER_EMAIL: ${{ secrets.USER_EMAIL }}          # Секреты — тянем из сейфа GitHub
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
           ALLOW_MASS_DELETE: ${{ github.event.inputs.allow_mass_delete }} #пылесос
-        # Добавили флаги для перезапуска упавших тестов (2 попытки с паузой в 2 секунды)
-        run: pytest tests/ --reruns 2 --reruns-delay 2 --alluredir=allure-results
+        # Изменили команду: теперь запускаем обе папки и добавили --clean-alluredir на всякий случай
+        run: pytest tests/ api_tests/ --clean-alluredir --reruns 2 --reruns-delay 2 --alluredir=allure-results
         continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
 
       - name: Генерируем Allure отчет
