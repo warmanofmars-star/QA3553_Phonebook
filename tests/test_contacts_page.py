@@ -27,6 +27,7 @@ def test_contact_is_visible_in_list(authenticated_driver):
 # ==========================================
 # ТЕСТ 2: Подтверждение бага с дубликатами
 # ==========================================
+@allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты, и они ОБА появляются в списке")
 def test_duplicate_contact_cards_count(authenticated_driver):
     add_page = ContactPage(authenticated_driver)
