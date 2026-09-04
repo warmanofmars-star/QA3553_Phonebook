@@ -1,4 +1,5 @@
 import platform
+from models.contact import Contact
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -142,4 +143,25 @@ class ContactsPage(BasePage):
         elements = self.driver.find_elements(*ContactFormLocators.FIELDS["name"])
         return len(elements) > 0
 
+    def get_contact_data_from_form(self) -> Contact:
+        """
+        МЕГА-ПРОФЕССИОНАЛЬНЫЙ ПОДХОД:
+        Читаем значения из конкретных полей формы, чтобы убедиться,
+        что данные не 'съехали' в чужие инпуты.
+        """
+        # Ждем, пока форма точно появится
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.presence_of_element_located(ContactFormLocators.FIELDS["name"])
+        )
 
+        # Вытаскиваем текст из атрибута 'value' каждого конкретного инпута
+        name = self.find(ContactFormLocators.FIELDS["name"]).get_attribute("value")
+        last_name = self.find(ContactFormLocators.FIELDS["last_name"]).get_attribute("value")
+        phone = self.find(ContactFormLocators.FIELDS["phone"]).get_attribute("value")
+        email = self.find(ContactFormLocators.FIELDS["email"]).get_attribute("value")
+        address = self.find(ContactFormLocators.FIELDS["address"]).get_attribute("value")
+        description = self.find(ContactFormLocators.FIELDS["description"]).get_attribute("value")
+
+        # Возвращаем эти данные в виде красивого объекта Contact
+        return Contact(name=name, last_name=last_name, phone=phone, email=email, address=address,
+                       description=description)

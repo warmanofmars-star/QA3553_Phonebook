@@ -1041,6 +1041,7 @@ class BasePage:
 ============================================================
 
 import platform
+from models.contact import Contact
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -1184,8 +1185,28 @@ class ContactsPage(BasePage):
         elements = self.driver.find_elements(*ContactFormLocators.FIELDS["name"])
         return len(elements) > 0
 
+    def get_contact_data_from_form(self) -> Contact:
+        """
+        МЕГА-ПРОФЕССИОНАЛЬНЫЙ ПОДХОД:
+        Читаем значения из конкретных полей формы, чтобы убедиться,
+        что данные не 'съехали' в чужие инпуты.
+        """
+        # Ждем, пока форма точно появится
+        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.presence_of_element_located(ContactFormLocators.FIELDS["name"])
+        )
 
+        # Вытаскиваем текст из атрибута 'value' каждого конкретного инпута
+        name = self.find(ContactFormLocators.FIELDS["name"]).get_attribute("value")
+        last_name = self.find(ContactFormLocators.FIELDS["last_name"]).get_attribute("value")
+        phone = self.find(ContactFormLocators.FIELDS["phone"]).get_attribute("value")
+        email = self.find(ContactFormLocators.FIELDS["email"]).get_attribute("value")
+        address = self.find(ContactFormLocators.FIELDS["address"]).get_attribute("value")
+        description = self.find(ContactFormLocators.FIELDS["description"]).get_attribute("value")
 
+        # Возвращаем эти данные в виде красивого объекта Contact
+        return Contact(name=name, last_name=last_name, phone=phone, email=email, address=address,
+                       description=description)
 
 ============================================================
 📄 FILE: .\pages\locators.py
@@ -1601,12 +1622,17 @@ def test_edit_contact_positive(authenticated_driver):
     # 4. ПРОВЕРКА
     assert contacts_page.contact_card_visible(new_contact.phone), "Измененный контакт не появился в списке слева!"
 
+    # Снова открываем детали и жмем Edit, чтобы увидеть форму с сохраненными данными
     contacts_page.open_contact_details(new_contact.phone)
-    details_text = contacts_page.get_contact_details_text()
+    contacts_page.click_edit_button()
 
-    assert new_contact.name in details_text, "Новое имя не сохранилось в деталях!"
-    assert new_contact.last_name in details_text, "Новая фамилия не сохранилась в деталях!"
-    assert new_contact.email in details_text, "Новый email не сохранился в деталях!"
+    # Забираем данные ТОЧНО из своих полей!
+    saved_contact = contacts_page.get_contact_data_from_form()
+
+    # Точечные жесткие проверки (Строгое равенство!)
+    assert saved_contact.name == new_contact.name, f"Баг маппинга! Имя съехало. Ожидали {new_contact.name}, получили {saved_contact.name}"
+    assert saved_contact.last_name == new_contact.last_name, "Баг маппинга! Фамилия сохранилась не туда!"
+    assert saved_contact.email == new_contact.email, "Баг маппинга! Email сохранился не туда!"
 
 
 # ==========================================

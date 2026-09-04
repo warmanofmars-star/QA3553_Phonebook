@@ -33,12 +33,17 @@ def test_edit_contact_positive(authenticated_driver):
     # 4. ПРОВЕРКА
     assert contacts_page.contact_card_visible(new_contact.phone), "Измененный контакт не появился в списке слева!"
 
+    # Снова открываем детали и жмем Edit, чтобы увидеть форму с сохраненными данными
     contacts_page.open_contact_details(new_contact.phone)
-    details_text = contacts_page.get_contact_details_text()
+    contacts_page.click_edit_button()
 
-    assert new_contact.name in details_text, "Новое имя не сохранилось в деталях!"
-    assert new_contact.last_name in details_text, "Новая фамилия не сохранилась в деталях!"
-    assert new_contact.email in details_text, "Новый email не сохранился в деталях!"
+    # Забираем данные ТОЧНО из своих полей!
+    saved_contact = contacts_page.get_contact_data_from_form()
+
+    # Точечные жесткие проверки (Строгое равенство!)
+    assert saved_contact.name == new_contact.name, f"Баг маппинга! Имя съехало. Ожидали {new_contact.name}, получили {saved_contact.name}"
+    assert saved_contact.last_name == new_contact.last_name, "Баг маппинга! Фамилия сохранилась не туда!"
+    assert saved_contact.email == new_contact.email, "Баг маппинга! Email сохранился не туда!"
 
 
 # ==========================================
