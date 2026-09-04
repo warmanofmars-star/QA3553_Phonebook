@@ -223,3 +223,6 @@ screenshots/
 
 #allure
 allure-results/
+
+#test logs
+logs/

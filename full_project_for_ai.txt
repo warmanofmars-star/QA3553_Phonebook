@@ -971,34 +971,38 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from dotenv import load_dotenv  # <--- Добавляем импорт
+from dotenv import load_dotenv
+from utils.logger import get_logger
 
-# Загружаем переменные из .env сразу при чтении этого файла
 load_dotenv()
 
 class BasePage:
-    # Базовый URL берем из .env
     BASE_URL = os.getenv("BASE_URL")
-    # Эндпоинт по умолчанию пустой (переопределим в наследниках)
     ENDPOINT = ""
-
     DEFAULT_TIMEOUT = 5
 
     def __init__(self, driver):
         self.driver = driver
+        # Подключаем наш логгер с пометкой UI
+        self.logger = get_logger("UI")
 
     def open(self):
-        """Универсальный метод открытия страницы"""
-        # Склеиваем корень сайта и конкретный эндпоинт страницы
-        self.driver.get(f"{self.BASE_URL}{self.ENDPOINT}")
+        url = f"{self.BASE_URL}{self.ENDPOINT}"
+        self.logger.info(f"Открываем страницу: {url}")
+        self.driver.get(url)
 
     def find(self, locator):
+        # Исключительно для отладки, обычно поиск элемента не логируют, чтобы не засорять эфир,
+        # но мы оставим, чтобы видеть каждый шаг.
+        self.logger.info(f"Ищем элемент: {locator}")
         return self.driver.find_element(*locator)
 
     def click(self, locator):
+        self.logger.info(f"Клик по элементу: {locator}")
         self.find(locator).click()
 
     def fill(self, locator, value):
+        self.logger.info(f"Ввод данных в поле: {locator}")
         self.find(locator).clear()
         self.find(locator).send_keys(value)
 
@@ -1008,32 +1012,42 @@ class BasePage:
     SIGN_OUT_BTN = (By.XPATH, "//button[text()='Sign Out']")
 
     def click_sign_out_button(self):
-        """Кликает по кнопке Sign Out в верхнем общем меню (доступно с любой страницы)"""
-        # Ждем, пока кнопка появится и станет кликабельной, затем кликаем
-        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(self.SIGN_OUT_BTN))
+        self.logger.info("Нажимаем кнопку 'Sign Out'")
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.element_to_be_clickable(self.SIGN_OUT_BTN)
+        )
         element.click()
 
-    # Универсальные методы работы с алертами для всех страниц
+    # ==========================================
+    # УНИВЕРСАЛЬНЫЕ МЕТОДЫ (ALERTS & WAITS)
+    # ==========================================
     def get_alert_text(self):
+        self.logger.info("Ожидаем появления Alert и читаем его текст")
         alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
             EC.alert_is_present()
         )
-        return alert.text
+        text = alert.text
+        self.logger.info(f"Прочитан текст Alert: '{text}'")
+        return text
 
     def accept_alert(self):
+        self.logger.info("Подтверждаем (Accept) Alert")
         alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
             EC.alert_is_present()
         )
         alert.accept()
 
     def is_disappeared(self, locator):
-        """Ждет, пока элемент не исчезнет со страницы. Возвращает True, если исчез."""
+        self.logger.info(f"Ожидаем исчезновения элемента: {locator}")
         try:
             WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
                 EC.invisibility_of_element_located(locator)
             )
+            self.logger.info("Элемент успешно исчез со страницы")
             return True
         except TimeoutException:
+            # Используем warning, чтобы сообщение подсветилось желтым
+            self.logger.warning(f"Элемент НЕ исчез в течение {self.DEFAULT_TIMEOUT} секунд!")
             return False
 
 ============================================================
@@ -1304,6 +1318,10 @@ from pages.add_contact_page import ContactPage
 from data.data_generator import ContactGenerator
 from selenium.common.exceptions import TimeoutException
 from data.test_data import load_contact_data_from_csv
+from utils.logger import get_logger
+
+# Создаем логгер для тестов
+logger = get_logger("TEST")
 
 
 # ==========================================
@@ -1311,23 +1329,31 @@ from data.test_data import load_contact_data_from_csv
 # ==========================================
 @allure.severity(allure.severity_level.CRITICAL)
 def test_add_contact_success_all_fields(authenticated_driver):
+    logger.info("--- ЗАПУСК ТЕСТА: test_add_contact_success_all_fields ---")
+
     # 1. Инициализируем страницу
     contact_page = ContactPage(authenticated_driver)
 
     # 2. Открываем форму добавления контакта
+    logger.info("ШАГ 1: Открываем страницу добавления контакта (вкладка ADD)")
     contact_page.open()
 
     # 3. Генерируем уникальные тестовые данные через Faker
+    logger.info("ПОДГОТОВКА: Генерируем уникальные тестовые данные нового контакта")
     contact = ContactGenerator.get_random_contact()
 
     # 4. Заполняем форму и сохраняем
+    logger.info(f"ШАГ 2: Заполняем форму данными: {contact.name} {contact.last_name}")
     contact_page.fill_contact_form(contact)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Save")
     contact_page.submit_contact()
 
     # 5. ПРОВЕРКА: убеждаемся, что карточка с нужным телефоном появилась в списке.
-    # Если метод is_contact_card_visible вернет False, тест упадет с понятным текстом.
+    logger.info(f"ПРОВЕРКА: Убеждаемся, что карточка с телефоном {contact.phone} появилась в списке")
     assert contact_page.is_contact_card_visible(contact.phone), \
         f"Ошибка: Карточка контакта с телефоном {contact.phone} не появилась в списке!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 # ==========================================
@@ -1335,12 +1361,17 @@ def test_add_contact_success_all_fields(authenticated_driver):
 # ==========================================
 
 @allure.severity(allure.severity_level.NORMAL)
-# Вместо жестко прописанного списка мы просто вызываем функцию! (CSV)
-@pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error", load_contact_data_from_csv())
-def test_add_contact_negative(authenticated_driver, name, last_name, phone, email, address, description, expected_error):
+@pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error",
+                         load_contact_data_from_csv())
+def test_add_contact_negative(authenticated_driver, name, last_name, phone, email, address, description,
+                              expected_error):
+    logger.info(f"--- ЗАПУСК ТЕСТА: test_add_contact_negative (Данные: phone='{phone}', email='{email}') ---")
+
     contact_page = ContactPage(authenticated_driver)
+    logger.info("ШАГ 1: Открываем страницу добавления контакта")
     contact_page.open()
 
+    logger.info("ПОДГОТОВКА: Формируем модель контакта с невалидными данными из CSV")
     invalid_contact = Contact(
         name=name,
         last_name=last_name,
@@ -1350,32 +1381,41 @@ def test_add_contact_negative(authenticated_driver, name, last_name, phone, emai
         description=description
     )
 
+    logger.info("ШАГ 2: Заполняем форму и нажимаем Save")
     contact_page.fill_contact_form(invalid_contact)
     contact_page.submit_contact()
 
     try:
+        logger.info(f"ПРОВЕРКА 1: Ожидаем появление Alert с текстом: '{expected_error}'")
         alert_text = contact_page.get_alert_text()
         assert expected_error in alert_text, f"Ожидалась ошибка '{expected_error}', но получено: '{alert_text}'"
+
+        logger.info(f"Успешно получен ожидаемый Alert: '{alert_text}'")
         contact_page.accept_alert()
     except TimeoutException:
+        logger.error(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert '{expected_error}' так и не появился!")
         pytest.fail(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert с текстом '{expected_error}' так и не появился!")
 
-    assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сдный контакт!"
+    logger.info("ПРОВЕРКА 2: Вкладка ADD должна оставаться активной")
+    assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сохранить невалидный контакт!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
 def test_add_contact_duplicate_phone(authenticated_driver):
-
+    logger.info("--- ЗАПУСК ТЕСТА: test_add_contact_duplicate_phone ---")
     contact_page = ContactPage(authenticated_driver)
 
     # --- ШАГ 1: Создаем первый уникальный контакт ---
+    logger.info("ШАГ 1: Создаем первый оригинальный контакт")
     contact_page.open()
     first_contact = ContactGenerator.get_random_contact()
     contact_page.fill_contact_form(first_contact)
     contact_page.submit_contact()
 
     # --- ШАГ 2: Пытаемся создать второй контакт с ТЕМ ЖЕ номером ---
+    logger.info(f"ШАГ 2: Пытаемся создать дубликат с ТЕМ ЖЕ номером телефона: {first_contact.phone}")
     contact_page.open()
     duplicate_contact = ContactGenerator.get_random_contact()
     duplicate_contact.phone = first_contact.phone  # Копируем телефон из первого контакта!
@@ -1384,13 +1424,15 @@ def test_add_contact_duplicate_phone(authenticated_driver):
     contact_page.submit_contact()
 
     # --- ШАГ 3: Проверяем реакцию системы ---
+    logger.info("ПРОВЕРКА: Ожидаем появление Alert об ошибке дубликата")
     try:
         alert_text = contact_page.get_alert_text()
-        print(f"\n[РАЗВЕДКА] УРА! Система выдала Alert: '{alert_text}'")
+        logger.warning(f"[РАЗВЕДКА] УРА! Система выдала Alert: '{alert_text}'")
         contact_page.accept_alert()
         # Пока ставим заглушку, чтобы тест прошел, если алерт есть
         assert True
     except TimeoutException:
+        logger.error("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
         pytest.fail("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
 
 ============================================================
@@ -1402,6 +1444,10 @@ import allure
 from pages.add_contact_page import ContactPage
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
+from utils.logger import get_logger
+
+# Создаем логгер для тестов
+logger = get_logger("TEST")
 
 
 # ==========================================
@@ -1409,18 +1455,26 @@ from data.data_generator import ContactGenerator
 # ==========================================
 @allure.severity(allure.severity_level.CRITICAL)
 def test_contact_is_visible_in_list(authenticated_driver):
+    logger.info("--- ЗАПУСК ТЕСТА: test_contact_is_visible_in_list ---")
     add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    logger.info("ПОДГОТОВКА: Генерируем уникальные данные контакта")
     contact = ContactGenerator.get_random_contact()
 
+    logger.info("ШАГ 1: Открываем страницу добавления контакта")
     add_page.open()
+
+    logger.info(f"ШАГ 2: Заполняем форму и сохраняем контакт: {contact.name} {contact.last_name}")
     add_page.fill_contact_form(contact)
     add_page.submit_contact()
 
     # МЫ БОЛЬШЕ НЕ КЛИКАЕМ НА ВКЛАДКУ CONTACTS
     # Приложение само делает редирект. Просто ждем появления карточки.
-    contacts_page = ContactsPage(authenticated_driver)
+    logger.info(f"ПРОВЕРКА: Ожидаем авто-редирект и появление карточки с телефоном {contact.phone}")
     assert contacts_page.contact_card_visible(contact.phone), \
         f"Ошибка: Контакт с телефоном {contact.phone} не найден в списке!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 # ==========================================
@@ -1429,30 +1483,42 @@ def test_contact_is_visible_in_list(authenticated_driver):
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты, и они ОБА появляются в списке")
 def test_duplicate_contact_cards_count(authenticated_driver):
+    logger.info("--- ЗАПУСК ТЕСТА: test_duplicate_contact_cards_count ---")
     add_page = ContactPage(authenticated_driver)
     contacts_page = ContactsPage(authenticated_driver)
 
+    logger.info("ПОДГОТОВКА: Генерируем данные для оригинального контакта")
     contact = ContactGenerator.get_random_contact()
 
     # Создаем ПЕРВЫЙ контакт
+    logger.info("ШАГ 1: Открываем форму и создаем ПЕРВЫЙ (оригинальный) контакт")
     add_page.open()
     add_page.fill_contact_form(contact)
     add_page.submit_contact()
 
     # Обязательно ждем окончания авто-редиректа, чтобы данные точно ушли в базу
+    logger.info("ШАГ 2: Ждем окончания авто-редиректа (убеждаемся, что первый контакт в списке)")
     contacts_page.contact_card_visible(contact.phone)
 
     # Создаем ВТОРОЙ контакт с ТЕМИ ЖЕ данными
+    logger.info(f"ШАГ 3: Снова открываем форму и создаем ВТОРОЙ контакт (дубликат) с телефоном: {contact.phone}")
     add_page.open()
     add_page.fill_contact_form(contact)
     add_page.submit_contact()
 
     # Снова ждем авто-редирект
+    logger.info("ШАГ 4: Снова ждем авто-редирект")
     contacts_page.contact_card_visible(contact.phone)
 
     # Теперь считаем карточки. Если баг на месте, их будет 2!
+    logger.info("ПРОВЕРКА: Считаем карточки. Ожидаем 1, но из-за бага ожидаем падение (xfail)")
     count = contacts_page.contact_cards_count(contact.phone)
+
+    if count > 1:
+        logger.error(f"БАГ ПРИЛОЖЕНИЯ: Найдено {count} карточки. Интерфейс отрисовал дубликат!")
+
     assert count == 1, f"Ожидалась 1 карточка, но найдено {count}. Интерфейс отрисовал дубликат!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Баг починили?) ---")
 
 
 # ==========================================
@@ -1460,27 +1526,36 @@ def test_duplicate_contact_cards_count(authenticated_driver):
 # ==========================================
 @allure.severity(allure.severity_level.CRITICAL)
 def test_open_contact_details(authenticated_driver):
+    logger.info("--- ЗАПУСК ТЕСТА: test_open_contact_details ---")
     add_page = ContactPage(authenticated_driver)
+    contacts_page = ContactsPage(authenticated_driver)
+
+    logger.info("ПОДГОТОВКА: Генерируем уникальные данные контакта")
     contact = ContactGenerator.get_random_contact()
 
+    logger.info("ШАГ 1: Открываем страницу добавления и сохраняем новый контакт")
     add_page.open()
     add_page.fill_contact_form(contact)
     add_page.submit_contact()
 
-    contacts_page = ContactsPage(authenticated_driver)
     # Ждем авто-редирект
+    logger.info("ШАГ 2: Ждем авто-редирект в список контактов")
     contacts_page.contact_card_visible(contact.phone)
 
     # Кликаем по созданной карточке
+    logger.info(f"ШАГ 3: Кликаем по созданной карточке с телефоном: {contact.phone}")
     contacts_page.open_contact_details(contact.phone)
 
     # Читаем текст из появившейся правой панели
+    logger.info("ШАГ 4: Читаем текст из появившейся правой панели деталей контакта")
     details_text = contacts_page.get_contact_details_text()
 
     # Проверка: Убеждаемся, что имя, фамилия и почта есть в этом тексте
+    logger.info("ПРОВЕРКА: Убеждаемся, что Имя, Фамилия и Email корректно отображаются в деталях")
     assert contact.name in details_text, f"Имя '{contact.name}' не найдено в деталях карточки!"
     assert contact.last_name in details_text, f"Фамилия '{contact.last_name}' не найдена в деталях!"
     assert contact.email in details_text, f"Email '{contact.email}' не найден в деталях!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 ============================================================
 📄 FILE: .\tests\test_delete_contact.py
@@ -1492,12 +1567,20 @@ import pytest
 from pages.add_contact_page import ContactPage
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
+from utils.logger import get_logger
+
+# Создаем логгер для тестов
+logger = get_logger("TEST")
+
 
 @allure.severity(allure.severity_level.CRITICAL)
 def test_delete_contact(authenticated_driver):
+    logger.info("--- ЗАПУСК ТЕСТА: test_delete_contact ---")
+
     # ==========================================
     # ПРЕДУСЛОВИЕ: Создаем контакт для удаления
     # ==========================================
+    logger.info("ПОДГОТОВКА: Открываем форму и генерируем контакт для удаления")
     add_page = ContactPage(authenticated_driver)
     add_page.open()
 
@@ -1505,10 +1588,12 @@ def test_delete_contact(authenticated_driver):
     contact = ContactGenerator.get_random_contact()
 
     # Сохраняем контакт
+    logger.info(f"ПОДГОТОВКА: Сохраняем контакт с телефоном: {contact.phone}")
     add_page.fill_contact_form(contact)
     add_page.submit_contact()
 
     # Убеждаемся, что контакт успешно создался (иначе нет смысла проверять удаление)
+    logger.info("ПОДГОТОВКА: Убеждаемся, что контакт успешно появился в списке")
     assert add_page.is_contact_card_visible(contact.phone), "Предусловие сломалось: контакт не создался!"
 
     # ==========================================
@@ -1517,71 +1602,91 @@ def test_delete_contact(authenticated_driver):
     contacts_page = ContactsPage(authenticated_driver)
 
     # 1. Открываем страницу контактов (хотя мы уже на ней, это хорошая практика)
+    logger.info("ШАГ 1: Открываем страницу со списком контактов")
     contacts_page.open()
 
     # 2. Кликаем по карточке с нашим уникальным телефоном
+    logger.info(f"ШАГ 2: Кликаем по карточке контакта ({contact.phone}) для открытия деталей")
     contacts_page.open_contact_details(contact.phone)
 
     # 3. Нажимаем кнопку Remove
+    logger.info("ШАГ 3: Нажимаем кнопку Remove (Удалить)")
     contacts_page.click_remove_button()
 
     # ==========================================
     # ПРОВЕРКА: Контакт исчез
     # ==========================================
+    logger.info(f"ПРОВЕРКА: Убеждаемся, что карточка с телефоном {contact.phone} полностью исчезла из списка")
     assert contacts_page.is_contact_deleted(contact.phone), \
         f"Ошибка: Карточка с телефоном {contact.phone} не удалилась из списка!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
-#здесь у нас будет метод удаления всех контактов (пылесос с тумблером)
+# здесь у нас будет метод удаления всех контактов (пылесос с тумблером)
 # Читаем наш рубильник из .env
 ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
+
 
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
 def test_delete_all_contacts(authenticated_driver):
     """Скрипт-утилита: Полное очищение списка контактов"""
+    logger.info("--- ЗАПУСК ТЕСТА-УТИЛИТЫ: test_delete_all_contacts ---")
+    logger.warning("ВНИМАНИЕ: Активирован 'пылесос' — начато массовое удаление всех контактов из базы!")
     contacts_page = ContactsPage(authenticated_driver)
 
     # ==========================================
     # ШАГ ТЕСТА: Запускаем "пылесос"
     # ==========================================
+    logger.info("ШАГ 1: Запускаем цикл удаления...")
     contacts_page.delete_all_contacts()
 
     # ==========================================
     # ПРОВЕРКА: Список должен быть абсолютно пуст
     # ==========================================
     final_count = contacts_page.get_all_contacts_count()
+    logger.info(f"ПРОВЕРКА: Проверяем, что список абсолютно пуст. Найдено контактов: {final_count}")
+
     assert final_count == 0, f"Ошибка: Ожидалось 0 контактов, но осталось {final_count}!"
+    logger.info("--- ТЕСТ-УТИЛИТА УСПЕШНО ЗАВЕРШЕНА ---")
 
 
-#здесь у нас метод удаления всех созданных временных контактов для проверки метода
+# здесь у нас метод удаления всех созданных временных контактов для проверки метода
 @allure.severity(allure.severity_level.CRITICAL)
 def test_delete_multiple_contacts(authenticated_driver):
     """Проверка последовательного удаления нескольких конкретных контактов"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_delete_multiple_contacts ---")
     add_page = ContactPage(authenticated_driver)
     contacts_page = ContactsPage(authenticated_driver)
 
     phones_to_delete = []
 
     # Создаем 2 контакта и запоминаем их номера
-    for _ in range(2):
+    logger.info("ПОДГОТОВКА: Запускаем цикл создания 2 временных контактов")
+    for i in range(2):
         add_page.open()
         contact = ContactGenerator.get_random_contact()
         add_page.fill_contact_form(contact)
         add_page.submit_contact()
         contacts_page.contact_card_visible(contact.phone)
         phones_to_delete.append(contact.phone)
+        logger.info(f"  -> Создан временный контакт №{i + 1} с телефоном: {contact.phone}")
 
     # Запоминаем общее количество контактов ДО удаления
     initial_count = contacts_page.get_all_contacts_count()
+    logger.info(f"ПОДГОТОВКА: Запоминаем общее количество контактов ДО удаления: {initial_count}")
 
     # Точечно удаляем только созданные контакты
+    logger.info(f"ШАГ 1: Запускаем точечное удаление по собранному списку: {phones_to_delete}")
     contacts_page.delete_specific_contacts(phones_to_delete)
 
     # Общее количество должно уменьшиться ровно на 2
     final_count = contacts_page.get_all_contacts_count()
+    logger.info(f"ПРОВЕРКА: Общее количество должно уменьшиться ровно на 2. Текущее количество: {final_count}")
+
     assert final_count == initial_count - 2, \
-    f"Ошибка: Ожидалось {initial_count - 2} контактов, но осталось {final_count}!"
+        f"Ошибка: Ожидалось {initial_count - 2} контактов, но осталось {final_count}!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 ============================================================
 📄 FILE: .\tests\test_edit_contact.py
@@ -1593,6 +1698,10 @@ from pages.add_contact_page import ContactPage
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
 from models.contact import Contact
+from utils.logger import get_logger
+
+# Создаем логгер для тестов
+logger = get_logger("TEST")
 
 
 # ==========================================
@@ -1600,10 +1709,12 @@ from models.contact import Contact
 # ==========================================
 @allure.severity(allure.severity_level.CRITICAL)
 def test_edit_contact_positive(authenticated_driver):
+    logger.info("--- ЗАПУСК ТЕСТА: test_edit_contact_positive ---")
     add_page = ContactPage(authenticated_driver)
     contacts_page = ContactsPage(authenticated_driver)
 
     # 1. ПРЕДУСЛОВИЕ: Создаем исходный контакт
+    logger.info("ПОДГОТОВКА: Создаем исходный (старый) контакт")
     old_contact = ContactGenerator.get_random_contact()
     add_page.open()
     add_page.fill_contact_form(old_contact)
@@ -1611,28 +1722,37 @@ def test_edit_contact_positive(authenticated_driver):
     contacts_page.contact_card_visible(old_contact.phone)  # Ждем авто-редирект
 
     # 2. Подготовка: Генерируем новые данные для замены
+    logger.info("ПОДГОТОВКА: Генерируем новые данные для замены")
     new_contact = ContactGenerator.get_random_contact()
 
     # 3. ШАГИ ТЕСТА
+    logger.info(f"ШАГ 1: Открываем карточку старого контакта (тел: {old_contact.phone}) и жмем Edit")
     contacts_page.open_contact_details(old_contact.phone)  # Открываем старую карточку
     contacts_page.click_edit_button()  # Жмем Edit
+
+    logger.info(f"ШАГ 2: Вводим новые данные (имя: {new_contact.name}) и сохраняем")
     contacts_page.edit_contact_form(new_contact)  # Вводим новые данные
     contacts_page.click_save_edit_button()  # Сохраняем
 
     # 4. ПРОВЕРКА
+    logger.info("ПРОВЕРКА 1: Убеждаемся, что измененный контакт появился в списке слева")
     assert contacts_page.contact_card_visible(new_contact.phone), "Измененный контакт не появился в списке слева!"
 
     # Снова открываем детали и жмем Edit, чтобы увидеть форму с сохраненными данными
+    logger.info("ШАГ 3: Снова открываем детали измененного контакта и жмем Edit для строгой проверки полей")
     contacts_page.open_contact_details(new_contact.phone)
     contacts_page.click_edit_button()
 
     # Забираем данные ТОЧНО из своих полей!
+    logger.info("ШАГ 4: Считываем сохраненные значения прямо из инпутов формы (Senior подход)")
     saved_contact = contacts_page.get_contact_data_from_form()
 
     # Точечные жесткие проверки (Строгое равенство!)
+    logger.info("ПРОВЕРКА 2: Строго сравниваем сохраненные данные с теми, что мы отправляли")
     assert saved_contact.name == new_contact.name, f"Баг маппинга! Имя съехало. Ожидали {new_contact.name}, получили {saved_contact.name}"
     assert saved_contact.last_name == new_contact.last_name, "Баг маппинга! Фамилия сохранилась не туда!"
     assert saved_contact.email == new_contact.email, "Баг маппинга! Email сохранился не туда!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 # ==========================================
@@ -1641,16 +1761,19 @@ def test_edit_contact_positive(authenticated_driver):
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Фронтенд позволяет редактировать телефон на уже существующий дубликат")
 def test_edit_contact_duplicate_phone(authenticated_driver):
+    logger.info("--- ЗАПУСК ТЕСТА: test_edit_contact_duplicate_phone ---")
     add_page = ContactPage(authenticated_driver)
     contacts_page = ContactsPage(authenticated_driver)
 
     # 1. ПРЕДУСЛОВИЕ: Создаем ДВА разных контакта
+    logger.info("ПОДГОТОВКА: Создаем Контакт №1")
     contact_1 = ContactGenerator.get_random_contact()
     add_page.open()
     add_page.fill_contact_form(contact_1)
     add_page.submit_contact()
     contacts_page.contact_card_visible(contact_1.phone)
 
+    logger.info("ПОДГОТОВКА: Создаем Контакт №2")
     contact_2 = ContactGenerator.get_random_contact()
     add_page.open()
     add_page.fill_contact_form(contact_2)
@@ -1658,6 +1781,8 @@ def test_edit_contact_duplicate_phone(authenticated_driver):
     contacts_page.contact_card_visible(contact_2.phone)
 
     # 2. ШАГИ ТЕСТА: Редактируем Контакт 2, подсовывая ему телефон от Контакта 1
+    logger.info(
+        f"ШАГ 1: Открываем Контакт №2 и пытаемся изменить его телефон на телефон Контакта №1 ({contact_1.phone})")
     contacts_page.open_contact_details(contact_2.phone)
     contacts_page.click_edit_button()
 
@@ -1667,7 +1792,14 @@ def test_edit_contact_duplicate_phone(authenticated_driver):
     contacts_page.click_save_edit_button()
 
     # 3. ПРОВЕРКА
-    assert contacts_page.is_edit_form_open(), "Баг: Система сохранила дубликат при редактировании и закрыла форму!"
+    logger.info("ПРОВЕРКА: Форма редактирования должна остаться открытой (ошибка дубликата)")
+    is_open = contacts_page.is_edit_form_open()
+
+    if not is_open:
+        logger.error("БАГ ПРИЛОЖЕНИЯ: Система сохранила дубликат при редактировании и закрыла форму!")
+
+    assert is_open, "Баг: Система сохранила дубликат при редактировании и закрыла форму!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Баг починили?) ---")
 
 
 # ==========================================
@@ -1677,10 +1809,12 @@ def test_edit_contact_duplicate_phone(authenticated_driver):
 @pytest.mark.xfail(reason="BUG: Фронтенд позволяет сохранять контакт с пустыми обязательными полями при редактировании")
 @pytest.mark.parametrize("field_to_clear", ["name", "last_name", "phone", "email", "address"])
 def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear):
+    logger.info(f"--- ЗАПУСК ТЕСТА: test_edit_contact_clear_required_fields (Поле для очистки: '{field_to_clear}') ---")
     add_page = ContactPage(authenticated_driver)
     contacts_page = ContactsPage(authenticated_driver)
 
     # 1. ПРЕДУСЛОВИЕ: Создаем валидный контакт
+    logger.info("ПОДГОТОВКА: Создаем валидный контакт для последующего редактирования")
     contact = ContactGenerator.get_random_contact()
     add_page.open()
     add_page.fill_contact_form(contact)
@@ -1688,26 +1822,39 @@ def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear
     contacts_page.contact_card_visible(contact.phone)
 
     # 2. Открываем созданную карточку и жмем Edit
+    logger.info("ШАГ 1: Открываем созданную карточку и переходим в режим редактирования")
     contacts_page.open_contact_details(contact.phone)
     contacts_page.click_edit_button()
 
     # 3. ШАГ ТЕСТА: Очищаем ТОЛЬКО ОДНО обязательное поле
+    logger.info(f"ШАГ 2: Очищаем обязательное поле '{field_to_clear}' и нажимаем Save")
     empty_update = Contact(**{field_to_clear: ""})
 
     contacts_page.edit_contact_form(empty_update)
     contacts_page.click_save_edit_button()
 
     # 4. ПРОВЕРКА: Форма должна остаться открытой (система не должна принимать пустые значения)
-    assert contacts_page.is_edit_form_open(), f"БАГ: Система сохранила контакт с пустым полем '{field_to_clear}'!"
+    logger.info("ПРОВЕРКА: Форма редактирования должна остаться открытой (сохранение невалидного контакта запрещено)")
+    is_open = contacts_page.is_edit_form_open()
+
+    if not is_open:
+        logger.error(f"БАГ ПРИЛОЖЕНИЯ: Система сохранила контакт с пустым полем '{field_to_clear}'!")
+
+    assert is_open, f"БАГ: Система сохранила контакт с пустым полем '{field_to_clear}'!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Баг починили?) ---")
 
 ============================================================
 📄 FILE: .\tests\test_login.py
 ============================================================
 
-from pages.login_page import LoginPage
-from data.data_generator import UserGenerator
 import os
 import allure
+from pages.login_page import LoginPage
+from data.data_generator import UserGenerator
+from utils.logger import get_logger
+
+# Создаем логгер для тестов
+logger = get_logger("TEST")
 
 # ==========================================
 # ТЕСТОВЫЕ ДАННЫЕ ДЛЯ АВТОРИЗАЦИИ (LOGIN)
@@ -1717,6 +1864,7 @@ import allure
 EXISTING_EMAIL = os.getenv("USER_EMAIL")
 VALID_PASSWORD = os.getenv("USER_PASSWORD")
 
+
 # ==========================================
 # ТЕСТЫ НА АВТОРИЗАЦИЮ (LOGIN)
 # ==========================================
@@ -1724,66 +1872,101 @@ VALID_PASSWORD = os.getenv("USER_PASSWORD")
 @allure.severity(allure.severity_level.BLOCKER)
 def test_login_success(driver):
     """Позитивный тест: Успешная авторизация с валидными данными"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_login_success ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
+    logger.info(f"ШАГ 2: Заполняем валидные данные пользователя: {EXISTING_EMAIL}")
     login_page.fill_email(EXISTING_EMAIL)
     login_page.fill_password(VALID_PASSWORD)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Login")
     login_page.submit_login()
 
-    assert login_page.is_logged()
+    logger.info("ПРОВЕРКА: Убеждаемся, что авторизация прошла успешно (появилась кнопка Sign Out)")
+    assert login_page.is_logged(), "Ошибка: Пользователь не авторизовался!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 @allure.severity(allure.severity_level.NORMAL)
 def test_login_with_wrong_email(driver):
     """Негативный тест: Авторизация с неверным форматом email"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_login_with_wrong_email ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
     # Запрашиваем юзера с битым email из генератора
+    logger.info("ПОДГОТОВКА: Генерируем пользователя с невалидным email")
     bad_email_user = UserGenerator.get_user_with_invalid_email()
 
+    logger.info(f"ШАГ 2: Вводим невалидный email: {bad_email_user.email}")
     login_page.fill_email(bad_email_user.email)
     login_page.fill_password(bad_email_user.password)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Login")
     login_page.submit_login()
 
-    assert "Wrong email or password" in login_page.get_alert_text()
+    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'")
+    assert "Wrong email or password" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом email!"
     login_page.accept_alert()
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 @allure.severity(allure.severity_level.NORMAL)
 def test_login_with_wrong_password(driver):
     """Негативный тест: Авторизация с неверным форматом пароля"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_login_with_wrong_password ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
     # Запрашиваем юзера с битым паролем из генератора
+    logger.info("ПОДГОТОВКА: Генерируем пользователя с невалидным password")
     bad_password_user = UserGenerator.get_user_with_invalid_password()
 
     # Используем валидный email (из .env) и невалидный сгенерированный пароль
+    logger.info(f"ШАГ 2: Вводим валидный email и невалидный password: {bad_password_user.password}")
     login_page.fill_email(EXISTING_EMAIL)
     login_page.fill_password(bad_password_user.password)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Login")
     login_page.submit_login()
 
-    assert "Wrong email or password" in login_page.get_alert_text()
+    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'")
+    assert "Wrong email or password" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом пароле!"
     login_page.accept_alert()
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 @allure.severity(allure.severity_level.NORMAL)
 def test_login_unregistered_user(driver):
     """Негативный тест: Авторизация несуществующего пользователя"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_login_unregistered_user ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
     # Запрашиваем уникального пользователя из генератора (его точно нет в базе)
+    logger.info("ПОДГОТОВКА: Запрашиваем уникального пользователя из генератора (его точно нет в базе)")
     unregistered_user = UserGenerator.get_valid_user()
 
+    logger.info(f"ШАГ 2: Авторизуемся под несуществующим юзером: {unregistered_user.email}")
     login_page.fill_email(unregistered_user.email)
     login_page.fill_password(unregistered_user.password)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Login")
     login_page.submit_login()
 
-    assert "Wrong email or password" in login_page.get_alert_text()
+    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'")
+    assert "Wrong email or password" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при несуществующем юзере!"
     login_page.accept_alert()
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 # ==========================================
@@ -1793,67 +1976,102 @@ def test_login_unregistered_user(driver):
 @allure.severity(allure.severity_level.BLOCKER)
 def test_registration_success(driver):
     """Позитивный тест: Успешная регистрация нового пользователя"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_registration_success ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
     # Получаем абсолютно нового уникального пользователя
+    logger.info("ПОДГОТОВКА: Получаем абсолютно нового уникального пользователя")
     user = UserGenerator.get_valid_user()
 
+    logger.info(f"ШАГ 2: Регистрируем нового юзера: {user.email}")
     login_page.fill_email(user.email)
     login_page.fill_password(user.password)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Registration")
     login_page.submit_registration()
 
     # Проверяем, что после регистрации мы успешно авторизованы
-    assert login_page.is_logged()
+    logger.info("ПРОВЕРКА: Убеждаемся, что после регистрации мы успешно авторизованы")
+    assert login_page.is_logged(), "Ошибка: Пользователь не авторизовался после регистрации!"
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 @allure.severity(allure.severity_level.NORMAL)
 def test_registration_existing_user_alert(driver):
     """Негативный тест: Регистрация с уже существующим email в базе"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_registration_existing_user_alert ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
     # Используем данные пользователя, который уже зарегистрирован
+    logger.info(f"ПОДГОТОВКА/ШАГ 2: Вводим данные УЖЕ зарегистрированного пользователя: {EXISTING_EMAIL}")
     login_page.fill_email(EXISTING_EMAIL)
     login_page.fill_password(VALID_PASSWORD)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Registration")
     login_page.submit_registration()
 
-    assert "User already exist" in login_page.get_alert_text()
+    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'User already exist'")
+    assert "User already exist" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при дубликате пользователя!"
     login_page.accept_alert()
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 @allure.severity(allure.severity_level.NORMAL)
 def test_registration_invalid_email_format(driver):
     """Негативный тест: Регистрация с невалидным email + ВАЛИДНЫМ паролем"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_registration_invalid_email_format ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
     # Получаем пользователя с испорченным email из генератора
+    logger.info("ПОДГОТОВКА: Получаем пользователя с испорченным email из генератора")
     bad_email_user = UserGenerator.get_user_with_invalid_email()
 
+    logger.info(f"ШАГ 2: Вводим невалидный email: {bad_email_user.email}")
     login_page.fill_email(bad_email_user.email)
     login_page.fill_password(bad_email_user.password)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Registration")
     login_page.submit_registration()
 
-    assert "Wrong email or password format" in login_page.get_alert_text()
+    logger.info("ПРОВЕРКА: Ожидаем Alert 'Wrong email or password format'")
+    assert "Wrong email or password format" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом email!"
     login_page.accept_alert()
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 @allure.severity(allure.severity_level.NORMAL)
 def test_registration_invalid_password_format(driver):
     """Негативный тест: Регистрация с ВАЛИДНЫМ (уникальным) email + невалидным паролем"""
+    logger.info("--- ЗАПУСК ТЕСТА: test_registration_invalid_password_format ---")
     login_page = LoginPage(driver)
+
+    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
     # Получаем пользователя с испорченным паролем из генератора
+    logger.info("ПОДГОТОВКА: Получаем пользователя с испорченным паролем из генератора")
     bad_password_user = UserGenerator.get_user_with_invalid_password()
 
+    logger.info(f"ШАГ 2: Вводим невалидный пароль (email валидный): {bad_password_user.password}")
     login_page.fill_email(bad_password_user.email)
     login_page.fill_password(bad_password_user.password)
+
+    logger.info("ШАГ 3: Нажимаем кнопку Registration")
     login_page.submit_registration()
 
-    assert "Wrong email or password format" in login_page.get_alert_text()
+    logger.info("ПРОВЕРКА: Ожидаем Alert 'Wrong email or password format'")
+    assert "Wrong email or password format" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом пароле!"
     login_page.accept_alert()
+    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 ============================================================
 📄 FILE: .\tests\test_logout.py
@@ -1862,6 +2080,10 @@ def test_registration_invalid_password_format(driver):
 import allure
 from pages.contacts_page import ContactsPage
 from pages.login_page import LoginPage
+from utils.logger import get_logger
+
+# Создаем логгер для тестов
+logger = get_logger("TEST")
 
 
 class TestLogout:
@@ -1869,27 +2091,41 @@ class TestLogout:
     @allure.severity(allure.severity_level.CRITICAL)
     def test_logout_success(self, authenticated_driver):
         """Проверка: Авторизованный пользователь может успешно выйти из системы."""
+        logger.info("--- ЗАПУСК ТЕСТА: test_logout_success ---")
         contacts_page = ContactsPage(authenticated_driver)
         login_page = LoginPage(authenticated_driver)
 
+        logger.info("ПОДГОТОВКА: Тест запущен под АВТОРИЗОВАННЫМ пользователем (сработала фикстура)")
+
         # 1. Нажимаем Sign Out (метод подтянется из BasePage!)
+        logger.info("ШАГ 1: Нажимаем кнопку 'Sign Out' в навигационном меню")
         contacts_page.click_sign_out_button()
 
         # 2. Проверяем, что нас выкинуло на страницу логина
+        logger.info("ПРОВЕРКА: Убеждаемся, что система разлогинила пользователя и появилась кнопка Login")
         assert login_page.is_login_button_visible(), "Ошибка: Кнопка Login не появилась после выхода из системы!"
+        logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
     @allure.severity(allure.severity_level.CRITICAL)
     def test_logout_security_redirect(self, driver):
         """Проверка безопасности: Неавторизованный пользователь не может открыть страницу /contacts."""
+        logger.info("--- ЗАПУСК ТЕСТА: test_logout_security_redirect ---")
+
         # Передаем driver (без авторизации!), а не authenticated_driver
         contacts_page = ContactsPage(driver)
         login_page = LoginPage(driver)
 
+        logger.info("ПОДГОТОВКА: Тест запущен под АНОНИМНЫМ пользователем (чистый driver)")
+
         # 1. Пытаемся напрямую перейти по URL /contacts
+        logger.info("ШАГ 1: Пытаемся напрямую (в обход авторизации) открыть защищенный URL /contacts")
         contacts_page.open()
 
         # 2. Система должна автоматически перенаправить нас на страницу логина
+        logger.info(
+            "ПРОВЕРКА: Ожидаем принудительный редирект. Убеждаемся, что мы на странице авторизации (видна кнопка Login)")
         assert login_page.is_login_button_visible(), "УЯЗВИМОСТЬ: Система пустила анонима на страницу контактов!"
+        logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Уязвимость не обнаружена) ---")
 
 ============================================================
 📄 FILE: .\tests\__init__.py
@@ -1956,6 +2192,76 @@ def make_api_request(method, url, **kwargs):
         )
 
         return response
+
+============================================================
+📄 FILE: .\utils\logger.py
+============================================================
+
+import logging
+import os
+import sys
+
+
+class ColoredFormatter(logging.Formatter):
+    """Кастомный класс для раскрашивания логов в терминале с помощью ANSI-кодов"""
+
+    GREEN = "\x1b[32;20m"
+    YELLOW = "\x1b[33;20m"
+    RED = "\x1b[31;20m"
+    BOLD_RED = "\x1b[31;1m"
+    RESET = "\x1b[0m"
+
+    FORMAT_TEMPLATE = "[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s"
+
+    FORMATS = {
+        logging.DEBUG: FORMAT_TEMPLATE,
+        logging.INFO: GREEN + FORMAT_TEMPLATE + RESET,
+        logging.WARNING: YELLOW + FORMAT_TEMPLATE + RESET,
+        logging.ERROR: RED + FORMAT_TEMPLATE + RESET,
+        logging.CRITICAL: BOLD_RED + FORMAT_TEMPLATE + RESET
+    }
+
+    def format(self, record):
+        log_fmt = self.FORMATS.get(record.levelno)
+        formatter = logging.Formatter(log_fmt, datefmt='%Y-%m-%d %H:%M:%S')
+        return formatter.format(record)
+
+
+def get_logger(name="PhonebookQA"):
+    logger = logging.getLogger(name)
+
+    # ИСПРАВЛЕНИЕ ЗДЕСЬ: проверяем именно список handlers нашего логгера
+    if logger.handlers:
+        return logger
+
+    logger.setLevel(logging.INFO)
+
+    # 1. ЗАЩИТА ОТ PYTEST: Запрещаем Pytest перехватывать и прятать наши логи (тумблер)
+    logger.propagate = True
+
+    # 2. ФАЙЛОВАЯ СИСТЕМА: Создаем папку logs, если ее еще нет
+    if not os.path.exists("logs"):
+        os.makedirs("logs")
+
+    # 3. ОБРАБОТЧИК ДЛЯ КОНСОЛИ (Цветной)
+    # Явно указываем sys.stdout, чтобы логи пробивались через настройки Pytest
+    console_handler = logging.StreamHandler(sys.stdout)
+    console_handler.setFormatter(ColoredFormatter())
+
+    # 4. ОБРАБОТЧИК ДЛЯ ФАЙЛА (Чистый текст, без иероглифов цвета)
+    file_formatter = logging.Formatter(
+        fmt='[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    # Записываем в файл logs/test.log
+    file_handler = logging.FileHandler("logs/test.log", encoding='utf-8')
+    file_handler.setFormatter(file_formatter)
+
+    # Подключаем оба обработчика
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    return logger
 
 ============================================================
 📄 FILE: .\utils\__init__.py
