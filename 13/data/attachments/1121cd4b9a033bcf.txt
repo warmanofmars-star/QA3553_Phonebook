@@ -1,0 +1,40 @@
+[32;20m[2026-09-04 13:06:20] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:06:20] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:20] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:20] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_edit_contact_clear_required_fields (Поле для очистки: 'name') ---[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [TEST] - ПОДГОТОВКА: Создаем валидный контакт для последующего редактирования[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:21] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [TEST] - ШАГ 1: Открываем созданную карточку и переходим в режим редактирования[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Edit']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Edit']")[0m
+[32;20m[2026-09-04 13:06:22] [INFO] [TEST] - ШАГ 2: Очищаем обязательное поле 'name' и нажимаем Save[0m
+[32;20m[2026-09-04 13:06:23] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Save']")[0m
+[32;20m[2026-09-04 13:06:23] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Save']")[0m
+[32;20m[2026-09-04 13:06:23] [INFO] [TEST] - ПРОВЕРКА: Форма редактирования должна остаться открытой (сохранение невалидного контакта запрещено)[0m
+[31;20m[2026-09-04 13:06:23] [ERROR] [TEST] - БАГ ПРИЛОЖЕНИЯ: Система сохранила контакт с пустым полем 'name'![0m

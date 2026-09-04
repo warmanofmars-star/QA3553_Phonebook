@@ -1,0 +1,11 @@
+Status Code: 400
+
+{
+    "timestamp": "2026-09-04T13:06:48",
+    "status": 400,
+    "error": "Bad Request",
+    "message": {
+        "name": "must not be blank"
+    },
+    "path": "/v1/contacts"
+}

@@ -1,0 +1,15 @@
+INFO     TEST:test_login.py:156 --- ЗАПУСК ТЕСТА: test_registration_existing_user_alert ---
+INFO     TEST:test_login.py:159 ШАГ 1: Открываем страницу авторизации
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     TEST:test_login.py:163 ПОДГОТОВКА/ШАГ 2: Вводим данные УЖЕ зарегистрированного пользователя: warman.of.mars.2@gmail.com
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     TEST:test_login.py:167 ШАГ 3: Нажимаем кнопку Registration
+INFO     UI:base_page.py:33 Клик по элементу: ('css selector', "button[name='registration']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "button[name='registration']")
+INFO     TEST:test_login.py:170 ПРОВЕРКА: Ожидаем Alert с текстом 'User already exist'
+INFO     TEST:test_login.py:173 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

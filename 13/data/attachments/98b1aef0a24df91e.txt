@@ -1,0 +1,16 @@
+[32;20m[2026-09-04 13:06:43] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_registration_invalid_email_format ---[0m
+[32;20m[2026-09-04 13:06:43] [INFO] [TEST] - ШАГ 1: Открываем страницу авторизации[0m
+[32;20m[2026-09-04 13:06:43] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:06:43] [INFO] [TEST] - ПОДГОТОВКА: Получаем пользователя с испорченным email из генератора[0m
+[32;20m[2026-09-04 13:06:43] [INFO] [TEST] - ШАГ 2: Вводим невалидный email: invalid_email.com[0m
+[32;20m[2026-09-04 13:06:43] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [TEST] - ШАГ 3: Нажимаем кнопку Registration[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [UI] - Клик по элементу: ('css selector', "button[name='registration']")[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [UI] - Ищем элемент: ('css selector', "button[name='registration']")[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [TEST] - ПРОВЕРКА: Ожидаем Alert 'Wrong email or password format'[0m
+[32;20m[2026-09-04 13:06:44] [INFO] [TEST] - --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---[0m

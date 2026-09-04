@@ -1,0 +1,15 @@
+[32;20m[2026-09-04 13:06:42] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_registration_existing_user_alert ---[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [TEST] - ШАГ 1: Открываем страницу авторизации[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [TEST] - ПОДГОТОВКА/ШАГ 2: Вводим данные УЖЕ зарегистрированного пользователя: warman.of.mars.2@gmail.com[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [TEST] - ШАГ 3: Нажимаем кнопку Registration[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Клик по элементу: ('css selector', "button[name='registration']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [UI] - Ищем элемент: ('css selector', "button[name='registration']")[0m
+[32;20m[2026-09-04 13:06:42] [INFO] [TEST] - ПРОВЕРКА: Ожидаем Alert с текстом 'User already exist'[0m
+[32;20m[2026-09-04 13:06:43] [INFO] [TEST] - --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---[0m

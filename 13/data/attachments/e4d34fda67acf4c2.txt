@@ -1,0 +1,37 @@
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[text()='Login']")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[text()='Login']")
+INFO     TEST:test_add_contact.py:55 --- ЗАПУСК ТЕСТА: test_add_contact_negative (Данные: phone='0501234567', email='') ---
+INFO     TEST:test_add_contact.py:58 ШАГ 1: Открываем страницу добавления контакта
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/add
+INFO     TEST:test_add_contact.py:61 ПОДГОТОВКА: Формируем модель контакта с невалидными данными из CSV
+INFO     TEST:test_add_contact.py:71 ШАГ 2: Заполняем форму и нажимаем Save
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[b[text()='Save']]")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[b[text()='Save']]")
+INFO     TEST:test_add_contact.py:76 ПРОВЕРКА 1: Ожидаем появление Alert с текстом: 'Email not valid: must be a well-formed email address'
+INFO     UI:base_page.py:57 Ожидаем появления Alert и читаем его текст
+ERROR    TEST:test_add_contact.py:83 БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert 'Email not valid: must be a well-formed email address' так и не появился!

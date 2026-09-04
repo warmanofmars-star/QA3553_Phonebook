@@ -1,0 +1,1 @@
+[32;20m[2026-09-04 13:04:30] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m

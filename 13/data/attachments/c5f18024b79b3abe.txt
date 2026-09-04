@@ -1,0 +1,16 @@
+INFO     TEST:test_login.py:100 --- ЗАПУСК ТЕСТА: test_login_unregistered_user ---
+INFO     TEST:test_login.py:103 ШАГ 1: Открываем страницу авторизации
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     TEST:test_login.py:107 ПОДГОТОВКА: Запрашиваем уникального пользователя из генератора (его точно нет в базе)
+INFO     TEST:test_login.py:110 ШАГ 2: Авторизуемся под несуществующим юзером: nfvdusehna_1788527199@gmail.com
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     TEST:test_login.py:114 ШАГ 3: Нажимаем кнопку Login
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[text()='Login']")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[text()='Login']")
+INFO     TEST:test_login.py:117 ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'
+INFO     TEST:test_login.py:120 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

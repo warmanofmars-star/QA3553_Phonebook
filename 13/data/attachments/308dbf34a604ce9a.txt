@@ -1,0 +1,59 @@
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:05:57] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_duplicate_contact_cards_count ---[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [TEST] - ПОДГОТОВКА: Генерируем данные для оригинального контакта[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [TEST] - ШАГ 1: Открываем форму и создаем ПЕРВЫЙ (оригинальный) контакт[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:05:58] [INFO] [TEST] - ШАГ 2: Ждем окончания авто-редиректа (убеждаемся, что первый контакт в списке)[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [TEST] - ШАГ 3: Снова открываем форму и создаем ВТОРОЙ контакт (дубликат) с телефоном: 0569090662[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:05:59] [INFO] [TEST] - ШАГ 4: Снова ждем авто-редирект[0m
+[32;20m[2026-09-04 13:06:00] [INFO] [TEST] - ПРОВЕРКА: Считаем карточки. Ожидаем 1, но из-за бага ожидаем падение (xfail)[0m
+[31;20m[2026-09-04 13:06:00] [ERROR] [TEST] - БАГ ПРИЛОЖЕНИЯ: Найдено 2 карточки. Интерфейс отрисовал дубликат![0m

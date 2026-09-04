@@ -1,0 +1,16 @@
+INFO     TEST:test_login.py:130 --- ЗАПУСК ТЕСТА: test_registration_success ---
+INFO     TEST:test_login.py:133 ШАГ 1: Открываем страницу авторизации
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     TEST:test_login.py:137 ПОДГОТОВКА: Получаем абсолютно нового уникального пользователя
+INFO     TEST:test_login.py:140 ШАГ 2: Регистрируем нового юзера: qhznrpdtbs_1788527201@gmail.com
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     TEST:test_login.py:144 ШАГ 3: Нажимаем кнопку Registration
+INFO     UI:base_page.py:33 Клик по элементу: ('css selector', "button[name='registration']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "button[name='registration']")
+INFO     TEST:test_login.py:148 ПРОВЕРКА: Убеждаемся, что после регистрации мы успешно авторизованы
+INFO     TEST:test_login.py:150 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

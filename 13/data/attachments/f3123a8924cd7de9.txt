@@ -1,0 +1,42 @@
+[32;20m[2026-09-04 13:05:41] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_add_contact_negative (Данные: phone='abcdefghij', email='test@mail.com') ---[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [TEST] - ШАГ 1: Открываем страницу добавления контакта[0m
+[32;20m[2026-09-04 13:05:42] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [TEST] - ПОДГОТОВКА: Формируем модель контакта с невалидными данными из CSV[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [TEST] - ШАГ 2: Заполняем форму и нажимаем Save[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [TEST] - ПРОВЕРКА 1: Ожидаем появление Alert с текстом: 'Phone not valid: Phone number must contain only digits! And length min 10, max 15!'[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ожидаем появления Alert и читаем его текст[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Прочитан текст Alert: ' Phone not valid: Phone number must contain only digits! And length min 10, max 15!'[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [TEST] - Успешно получен ожидаемый Alert: ' Phone not valid: Phone number must contain only digits! And length min 10, max 15!'[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Подтверждаем (Accept) Alert[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [TEST] - ПРОВЕРКА 2: Вкладка ADD должна оставаться активной[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [UI] - Ищем элемент: ('css selector', "a[href='/add'].active")[0m
+[32;20m[2026-09-04 13:05:43] [INFO] [TEST] - --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---[0m

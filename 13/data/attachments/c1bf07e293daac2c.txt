@@ -1,0 +1,44 @@
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[text()='Login']")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[text()='Login']")
+INFO     TEST:test_delete_contact.py:15 --- ЗАПУСК ТЕСТА: test_delete_contact ---
+INFO     TEST:test_delete_contact.py:20 ПОДГОТОВКА: Открываем форму и генерируем контакт для удаления
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/add
+INFO     TEST:test_delete_contact.py:28 ПОДГОТОВКА: Сохраняем контакт с телефоном: 0538954593
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[b[text()='Save']]")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[b[text()='Save']]")
+INFO     TEST:test_delete_contact.py:33 ПОДГОТОВКА: Убеждаемся, что контакт успешно появился в списке
+INFO     TEST:test_delete_contact.py:42 ШАГ 1: Открываем страницу со списком контактов
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/contacts
+INFO     TEST:test_delete_contact.py:46 ШАГ 2: Кликаем по карточке контакта (0538954593) для открытия деталей
+INFO     TEST:test_delete_contact.py:50 ШАГ 3: Нажимаем кнопку Remove (Удалить)
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[text()='Remove']")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[text()='Remove']")
+INFO     TEST:test_delete_contact.py:56 ПРОВЕРКА: Убеждаемся, что карточка с телефоном 0538954593 полностью исчезла из списка
+INFO     UI:base_page.py:73 Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0538954593']")
+INFO     UI:base_page.py:78 Элемент успешно исчез со страницы
+INFO     TEST:test_delete_contact.py:59 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

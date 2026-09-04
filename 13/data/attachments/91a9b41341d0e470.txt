@@ -1,0 +1,67 @@
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:07] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_delete_multiple_contacts ---[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [TEST] - ПОДГОТОВКА: Запускаем цикл создания 2 временных контактов[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:08] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [TEST] -   -> Создан временный контакт №1 с телефоном: 0522131560[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:09] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:10] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:10] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:10] [INFO] [TEST] -   -> Создан временный контакт №2 с телефоном: 0512794789[0m
+[32;20m[2026-09-04 13:06:10] [INFO] [TEST] - ПОДГОТОВКА: Запоминаем общее количество контактов ДО удаления: 52[0m
+[32;20m[2026-09-04 13:06:10] [INFO] [TEST] - ШАГ 1: Запускаем точечное удаление по собранному списку: ['0522131560', '0512794789'][0m
+[32;20m[2026-09-04 13:06:10] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Remove']")[0m
+[32;20m[2026-09-04 13:06:10] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Remove']")[0m
+[32;20m[2026-09-04 13:06:10] [INFO] [UI] - Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0522131560']")[0m
+[32;20m[2026-09-04 13:06:11] [INFO] [UI] - Элемент успешно исчез со страницы[0m
+[32;20m[2026-09-04 13:06:11] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Remove']")[0m
+[32;20m[2026-09-04 13:06:11] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Remove']")[0m
+[32;20m[2026-09-04 13:06:11] [INFO] [UI] - Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0512794789']")[0m
+[32;20m[2026-09-04 13:06:11] [INFO] [UI] - Элемент успешно исчез со страницы[0m
+[32;20m[2026-09-04 13:06:11] [INFO] [TEST] - ПРОВЕРКА: Общее количество должно уменьшиться ровно на 2. Текущее количество: 50[0m
+[32;20m[2026-09-04 13:06:11] [INFO] [TEST] - --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---[0m

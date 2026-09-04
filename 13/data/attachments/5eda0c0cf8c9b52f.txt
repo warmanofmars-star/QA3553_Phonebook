@@ -1,0 +1,44 @@
+[32;20m[2026-09-04 13:06:03] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:06:03] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:03] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:03] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:03] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:03] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:03] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_delete_contact ---[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [TEST] - ПОДГОТОВКА: Открываем форму и генерируем контакт для удаления[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [TEST] - ПОДГОТОВКА: Сохраняем контакт с телефоном: 0538954593[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:04] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [TEST] - ПОДГОТОВКА: Убеждаемся, что контакт успешно появился в списке[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [TEST] - ШАГ 1: Открываем страницу со списком контактов[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/contacts[0m
+[32;20m[2026-09-04 13:06:05] [INFO] [TEST] - ШАГ 2: Кликаем по карточке контакта (0538954593) для открытия деталей[0m
+[32;20m[2026-09-04 13:06:06] [INFO] [TEST] - ШАГ 3: Нажимаем кнопку Remove (Удалить)[0m
+[32;20m[2026-09-04 13:06:06] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Remove']")[0m
+[32;20m[2026-09-04 13:06:06] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Remove']")[0m
+[32;20m[2026-09-04 13:06:06] [INFO] [TEST] - ПРОВЕРКА: Убеждаемся, что карточка с телефоном 0538954593 полностью исчезла из списка[0m
+[32;20m[2026-09-04 13:06:06] [INFO] [UI] - Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0538954593']")[0m
+[32;20m[2026-09-04 13:06:06] [INFO] [UI] - Элемент успешно исчез со страницы[0m
+[32;20m[2026-09-04 13:06:06] [INFO] [TEST] - --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---[0m

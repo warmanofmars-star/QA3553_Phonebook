@@ -1,0 +1,1 @@
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login

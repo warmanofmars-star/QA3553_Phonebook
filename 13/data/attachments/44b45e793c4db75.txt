@@ -1,0 +1,16 @@
+INFO     TEST:test_login.py:205 --- ЗАПУСК ТЕСТА: test_registration_invalid_password_format ---
+INFO     TEST:test_login.py:208 ШАГ 1: Открываем страницу авторизации
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     TEST:test_login.py:212 ПОДГОТОВКА: Получаем пользователя с испорченным паролем из генератора
+INFO     TEST:test_login.py:215 ШАГ 2: Вводим невалидный пароль (email валидный): 123
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     TEST:test_login.py:219 ШАГ 3: Нажимаем кнопку Registration
+INFO     UI:base_page.py:33 Клик по элементу: ('css selector', "button[name='registration']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "button[name='registration']")
+INFO     TEST:test_login.py:222 ПРОВЕРКА: Ожидаем Alert 'Wrong email or password format'
+INFO     TEST:test_login.py:225 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

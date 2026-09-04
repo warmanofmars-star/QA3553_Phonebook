@@ -1,0 +1,52 @@
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:12] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_edit_contact_positive ---[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [TEST] - ПОДГОТОВКА: Создаем исходный (старый) контакт[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/add[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Клик по элементу: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:13] [INFO] [UI] - Ищем элемент: ('xpath', "//button[b[text()='Save']]")[0m
+[32;20m[2026-09-04 13:06:14] [INFO] [TEST] - ПОДГОТОВКА: Генерируем новые данные для замены[0m
+[32;20m[2026-09-04 13:06:14] [INFO] [TEST] - ШАГ 1: Открываем карточку старого контакта (тел: 0583055230) и жмем Edit[0m
+[32;20m[2026-09-04 13:06:14] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Edit']")[0m
+[32;20m[2026-09-04 13:06:14] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Edit']")[0m
+[32;20m[2026-09-04 13:06:14] [INFO] [TEST] - ШАГ 2: Вводим новые данные (имя: Lisa) и сохраняем[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Save']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Save']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [TEST] - ПРОВЕРКА 1: Убеждаемся, что измененный контакт появился в списке слева[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [TEST] - ШАГ 3: Снова открываем детали измененного контакта и жмем Edit для строгой проверки полей[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Edit']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Edit']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [TEST] - ШАГ 4: Считываем сохраненные значения прямо из инпутов формы (Senior подход)[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Name']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Last Name']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Phone']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='email']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder='Address']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [UI] - Ищем элемент: ('css selector', "input[placeholder*='desc']")[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [TEST] - ПРОВЕРКА 2: Строго сравниваем сохраненные данные с теми, что мы отправляли[0m
+[32;20m[2026-09-04 13:06:15] [INFO] [TEST] - --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---[0m

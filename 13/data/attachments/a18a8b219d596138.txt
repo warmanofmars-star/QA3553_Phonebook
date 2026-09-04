@@ -1,0 +1,6 @@
+INFO     TEST:test_logout.py:33 --- ЗАПУСК ТЕСТА: test_logout_security_redirect ---
+INFO     TEST:test_logout.py:39 ПОДГОТОВКА: Тест запущен под АНОНИМНЫМ пользователем (чистый driver)
+INFO     TEST:test_logout.py:42 ШАГ 1: Пытаемся напрямую (в обход авторизации) открыть защищенный URL /contacts
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/contacts
+INFO     TEST:test_logout.py:46 ПРОВЕРКА: Ожидаем принудительный редирект. Убеждаемся, что мы на странице авторизации (видна кнопка Login)
+INFO     TEST:test_logout.py:49 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Уязвимость не обнаружена) ---

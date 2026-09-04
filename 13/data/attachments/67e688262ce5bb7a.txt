@@ -1,0 +1,15 @@
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[text()='Login']")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[text()='Login']")
+INFO     TEST:test_logout.py:15 --- ЗАПУСК ТЕСТА: test_logout_success ---
+INFO     TEST:test_logout.py:19 ПОДГОТОВКА: Тест запущен под АВТОРИЗОВАННЫМ пользователем (сработала фикстура)
+INFO     TEST:test_logout.py:22 ШАГ 1: Нажимаем кнопку 'Sign Out' в навигационном меню
+INFO     UI:base_page.py:47 Нажимаем кнопку 'Sign Out'
+INFO     TEST:test_logout.py:26 ПРОВЕРКА: Убеждаемся, что система разлогинила пользователя и появилась кнопка Login
+INFO     TEST:test_logout.py:28 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

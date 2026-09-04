@@ -1,0 +1,16 @@
+[32;20m[2026-09-04 13:06:37] [INFO] [TEST] - --- ЗАПУСК ТЕСТА: test_login_with_wrong_password ---[0m
+[32;20m[2026-09-04 13:06:37] [INFO] [TEST] - ШАГ 1: Открываем страницу авторизации[0m
+[32;20m[2026-09-04 13:06:37] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [TEST] - ПОДГОТОВКА: Генерируем пользователя с невалидным password[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [TEST] - ШАГ 2: Вводим валидный email и невалидный password: 123[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='email']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Ввод данных в поле: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Ищем элемент: ('css selector', "input[name='password']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [TEST] - ШАГ 3: Нажимаем кнопку Login[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Клик по элементу: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [UI] - Ищем элемент: ('xpath', "//button[text()='Login']")[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [TEST] - ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'[0m
+[32;20m[2026-09-04 13:06:38] [INFO] [TEST] - --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---[0m

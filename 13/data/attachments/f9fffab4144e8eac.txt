@@ -1,0 +1,39 @@
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[text()='Login']")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[text()='Login']")
+INFO     TEST:test_contacts_page.py:88 --- ЗАПУСК ТЕСТА: test_open_contact_details ---
+INFO     TEST:test_contacts_page.py:92 ПОДГОТОВКА: Генерируем уникальные данные контакта
+INFO     TEST:test_contacts_page.py:95 ШАГ 1: Открываем страницу добавления и сохраняем новый контакт
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/add
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Name']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Last Name']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Phone']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder='Address']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[placeholder*='desc']")
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[b[text()='Save']]")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[b[text()='Save']]")
+INFO     TEST:test_contacts_page.py:101 ШАГ 2: Ждем авто-редирект в список контактов
+INFO     TEST:test_contacts_page.py:105 ШАГ 3: Кликаем по созданной карточке с телефоном: 0513388950
+INFO     TEST:test_contacts_page.py:109 ШАГ 4: Читаем текст из появившейся правой панели деталей контакта
+INFO     UI:base_page.py:29 Ищем элемент: ('class name', 'contact-item-detailed_card__50dTS')
+INFO     TEST:test_contacts_page.py:113 ПРОВЕРКА: Убеждаемся, что Имя, Фамилия и Email корректно отображаются в деталях
+INFO     TEST:test_contacts_page.py:117 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

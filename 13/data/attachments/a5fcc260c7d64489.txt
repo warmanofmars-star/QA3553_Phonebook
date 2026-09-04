@@ -1,0 +1,16 @@
+INFO     TEST:test_login.py:73 --- ЗАПУСК ТЕСТА: test_login_with_wrong_password ---
+INFO     TEST:test_login.py:76 ШАГ 1: Открываем страницу авторизации
+INFO     UI:base_page.py:23 Открываем страницу: https://telranedu.web.app/login
+INFO     TEST:test_login.py:80 ПОДГОТОВКА: Генерируем пользователя с невалидным password
+INFO     TEST:test_login.py:84 ШАГ 2: Вводим валидный email и невалидный password: 123
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='email']")
+INFO     UI:base_page.py:37 Ввод данных в поле: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     UI:base_page.py:29 Ищем элемент: ('css selector', "input[name='password']")
+INFO     TEST:test_login.py:88 ШАГ 3: Нажимаем кнопку Login
+INFO     UI:base_page.py:33 Клик по элементу: ('xpath', "//button[text()='Login']")
+INFO     UI:base_page.py:29 Ищем элемент: ('xpath', "//button[text()='Login']")
+INFO     TEST:test_login.py:91 ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'
+INFO     TEST:test_login.py:94 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---
