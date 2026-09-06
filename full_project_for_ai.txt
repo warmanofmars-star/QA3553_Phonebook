@@ -360,14 +360,14 @@ jobs:
 
       - name: Запускаем автотесты
         env:
-          BASE_URL: "https://telranedu.web.app"          # Несекретная настройка — пишем открыто
-          API_URL: "https://contactapp-telran-backend.herokuapp.com" # ДОБАВИЛИ URL БЭКЕНДА
-          USER_EMAIL: ${{ secrets.USER_EMAIL }}          # Секреты — тянем из сейфа GitHub
+          BASE_URL: "https://telranedu.web.app"
+          API_URL: "https://contactapp-telran-backend.herokuapp.com"
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-          ALLOW_MASS_DELETE: ${{ github.event.inputs.allow_mass_delete }} #пылесос
-        # Изменили команду: теперь запускаем обе папки и добавили --clean-alluredir на всякий случай
-        run: pytest tests/ api_tests/ --clean-alluredir --reruns 2 --reruns-delay 2 --alluredir=allure-results
-        continue-on-error: true # ВАЖНО: продолжаем работу, даже если тесты упадут, чтобы отправить отчет!
+          ALLOW_MASS_DELETE: ${{ github.event.inputs.allow_mass_delete }}
+        # ДОБАВИЛИ -n auto В КОМАНДУ ЗАПУСКА 👇
+        run: pytest tests/ api_tests/ -n auto --clean-alluredir --reruns 2 --reruns-delay 2 --alluredir=allure-results
+        continue-on-error: true
 
       - name: Генерируем Allure отчет
         uses: simple-elf/allure-report-action@master
@@ -386,6 +386,19 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Этот токен GitHub выдает сам, создавать секрет НЕ НУЖНО!
           publish_branch: gh-pages
           publish_dir: allure-history
+
+
+           # ==========================================
+            # 🚀 ПРОДВИНУТЫЙ ВАРИАНТ: СОХРАНЕНИЕ ЛОГОВ
+            # ==========================================
+      - name: Upload Test Logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pytest-test-logs         # Имя архива, который можно будет скачать
+          path: logs/                    # Путь к нашей папке с логами
+          retention-days: 7              # Сколько дней хранить архив на сервере GitHub
+
 
       - name: Отправляем уведомление в Telegram
         uses: appleboy/telegram-action@master
