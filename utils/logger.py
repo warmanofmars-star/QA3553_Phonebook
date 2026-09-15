@@ -37,7 +37,7 @@ def get_logger(name="PhonebookQA"):
 
     logger.setLevel(logging.INFO)
 
-    # 1. ЗАЩИТА ОТ PYTEST: Запрещаем Pytest перехватывать и прятать наши логи (тумблер)
+    # 1. ЗАЩИТА ОТ PYTEST (тумблер)
     logger.propagate = True
 
     # 2. ФАЙЛОВАЯ СИСТЕМА: Создаем папку logs, если ее еще нет

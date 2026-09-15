@@ -425,49 +425,23 @@ from data.data_generator import ContactGenerator
 API_URL = os.getenv("API_URL")
 
 
-@allure.epic("API Testing") # Глобальный раздел в отчете
-@allure.feature("Contacts CRUD") # Подраздел
-@allure.story("Create Contact") # Название фичи
-@allure.severity(allure.severity_level.CRITICAL) # Серьезность
-# Пробрасываем нашу новую фикстуру в скобки
+@allure.epic("API Testing")
+@allure.feature("Contacts CRUD")
+@allure.story("Create Contact")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_api_add_contact(api_token):
-    # ==========================================
-    # ШАГ 1: Подготавливаем Заголовки (Headers)
-    # ==========================================
-    # Используем готовый токен из фикстуры!
-    headers = {
-        "Authorization": f"Bearer {api_token}"
-    }
-
-    # ==========================================
-    # ШАГ 2: Генерируем данные и форматируем под API
-    # ==========================================
+    headers = {"Authorization": f"Bearer {api_token}"}
     contact = ContactGenerator.get_random_contact()
 
-    contact_payload = {
-        "name": contact.name,
-        "lastName": contact.last_name,
-        "phone": contact.phone,
-        "email": contact.email,
-        "address": contact.address,
-        "description": contact.description
-    }
+    # Супер-коротко: берем payload прямо из модели!
+    contact_payload = contact.to_api_payload()
 
-    # ==========================================
-    # ШАГ 3: Отправляем запрос на создание
-    # ==========================================
     response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
-
-    # ==========================================
-    # ПРОВЕРКИ
-    # ==========================================
     assert response.status_code == 200, f"Ошибка! Сервер вернул: {response.text}"
-
     print(f"\n[УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
 
 
-
-#Негативные тесты
+# Негативные тесты
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Create Contact without Name")
@@ -477,18 +451,11 @@ def test_api_add_contact_missing_required_field(api_token):
     headers = {"Authorization": f"Bearer {api_token}"}
     contact = ContactGenerator.get_random_contact()
 
-    # Собираем payload, но СПЕЦИАЛЬНО "забываем" передать поле name
-    contact_payload = {
-        "lastName": contact.last_name,
-        "phone": contact.phone,
-        "email": contact.email,
-        "address": contact.address,
-        "description": contact.description
-    }
+    # Берем полный payload и точечно удаляем из него ключ "name"
+    contact_payload = contact.to_api_payload()
+    del contact_payload["name"]
 
     response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
-
-    # По спецификации Swagger сервер должен отбить запрос со статусом 400 (Bad Request)
     assert response.status_code == 400, f"БАГ БЭКЕНДА: Сервер принял контакт без имени! Статус: {response.status_code}"
 
 
@@ -501,15 +468,7 @@ def test_api_add_contact_duplicate(api_token):
     """Негативный тест: Попытка создать дубликат контакта"""
     headers = {"Authorization": f"Bearer {api_token}"}
     contact = ContactGenerator.get_random_contact()
-
-    payload = {
-        "name": contact.name,
-        "lastName": contact.last_name,
-        "phone": contact.phone,
-        "email": contact.email,
-        "address": contact.address,
-        "description": contact.description
-    }
+    payload = contact.to_api_payload()
 
     # 1. Создаем оригинальный контакт
     res_first = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
@@ -517,8 +476,6 @@ def test_api_add_contact_duplicate(api_token):
 
     # 2. Пытаемся закинуть ТОТ ЖЕ САМЫЙ payload второй раз
     res_second = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
-
-    # По Swagger сервер должен выдать ошибку 409 (Conflict) - Duplicate contact fields
     assert res_second.status_code == 409, f"БАГ БЭКЕНДА: Сервер позволил создать дубликат! Статус: {res_second.status_code}"
 
 ============================================================
@@ -534,69 +491,45 @@ from dotenv import load_dotenv
 load_dotenv()
 API_URL = os.getenv("API_URL")
 
-
-@allure.epic("API Testing") # Глобальный раздел в отчете
-@allure.feature("Contacts CRUD") # Подраздел
-@allure.story("Get All Contact") # Название фичи
-@allure.severity(allure.severity_level.CRITICAL) # Серьезность
+@allure.epic("API Testing")
+@allure.feature("Contacts CRUD")
+@allure.story("Get All Contact")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_api_get_all_contacts(api_token):
     """Тест получения списка контактов (Read)"""
     headers = {"Authorization": f"Bearer {api_token}"}
 
     # 1. ПРЕДУСЛОВИЕ: Создаем уникальный контакт
     contact = ContactGenerator.get_random_contact()
-    payload = {
-        "name": contact.name,
-        "lastName": contact.last_name,
-        "phone": contact.phone,
-        "email": contact.email,
-        "address": contact.address,
-        "description": contact.description
-    }
-    make_api_request("POST",f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(), headers=headers)
 
-    # 2. ШАГ ТЕСТА: Отправляем GET-запрос на получение всех контактов
-    # Обрати внимание: для GET-запроса не нужно тело (json), только заголовки!
+    # 2. ШАГ ТЕСТА: Отправляем GET-запрос
     response = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
-
     assert response.status_code == 200, f"Ошибка при получении контактов: {response.text}"
 
-    # 3. Парсим ответ: сервер возвращает словарь {"contacts": [список контактов]}
-    # Метод .get("contacts", []) вернет пустой список, если ключа вдруг не окажется
     contacts_list = response.json().get("contacts", [])
-
-    # 4. ПРОВЕРКА: Ищем наш уникальный телефон в полученном списке
-    # Вытаскиваем все телефоны в один список с помощью генератора
     all_phones = [c.get("phone") for c in contacts_list]
 
     assert contact.phone in all_phones, f"Созданный контакт с телефоном {contact.phone} не найден в базе!"
     print(f"\n[GET УСПЕХ] Контакт успешно найден в списке из {len(contacts_list)} записей.")
 
-@allure.epic("API Testing") # Глобальный раздел в отчете
-@allure.feature("Contacts CRUD") # Подраздел
-@allure.story("Update Contact") # Название фичи
-@allure.severity(allure.severity_level.CRITICAL) # Серьезность
+
+@allure.epic("API Testing")
+@allure.feature("Contacts CRUD")
+@allure.story("Update Contact")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_api_update_contact(api_token):
     """Тест обновления существующего контакта (Update)"""
     headers = {"Authorization": f"Bearer {api_token}"}
 
     # 1. ПРЕДУСЛОВИЕ: Создаем контакт
     contact = ContactGenerator.get_random_contact()
-    payload = {
-        "name": contact.name,
-        "lastName": contact.last_name,
-        "phone": contact.phone,
-        "email": contact.email,
-        "address": contact.address,
-        "description": contact.description
-    }
-    make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(), headers=headers)
 
-    # 2. РАЗВЕДКА: Делаем GET-запрос, чтобы найти ID этого контакта
+    # 2. РАЗВЕДКА: Ищем ID
     response_get = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_list = response_get.json().get("contacts", [])
 
-    # Ищем контакт по нашему уникальному телефону и забираем его id
     target_id = None
     for c in contacts_list:
         if c.get("phone") == contact.phone:
@@ -606,22 +539,15 @@ def test_api_update_contact(api_token):
     assert target_id is not None, "Не удалось найти ID созданного контакта!"
 
     # 3. ШАГ ТЕСТА: Подготавливаем новые данные для обновления
-    # Меняем имя и описание, остальное оставляем старым
-    updated_payload = {
-        "id": target_id,  # КРИТИЧЕСКИ ВАЖНОЕ ПОЛЕ ДЛЯ PUT
-        "name": "API_UPDATED_NAME",  # Изменили
-        "lastName": contact.last_name,
-        "phone": contact.phone,
-        "email": contact.email,
-        "address": contact.address,
-        "description": "This contact was updated via API"  # Изменили
-    }
+    updated_payload = contact.to_api_payload()
+    updated_payload["id"] = target_id  # Добавляем обязательный ID
+    updated_payload["name"] = "API_UPDATED_NAME"  # Меняем имя
+    updated_payload["description"] = "This contact was updated via API" # Меняем описание
 
-    # Отправляем PUT-запрос
     response_put = make_api_request("PUT", f"{API_URL}/v1/contacts", json=updated_payload, headers=headers)
-    assert response_put.status_code == 200, f"Ошибка обновления: {response.text}"
+    assert response_put.status_code == 200, f"Ошибка обновления: {response_put.text}"
 
-    # 4. ПРОВЕРКА: Снова делаем GET и проверяем, что имя реально изменилось
+    # 4. ПРОВЕРКА: Снова делаем GET
     response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_list_after = response_check.json().get("contacts", [])
 
@@ -647,28 +573,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 API_URL = os.getenv("API_URL")
-# Читаем состояние тумблера из .env
 ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
 
-@allure.epic("API Testing") # Глобальный раздел в отчете
-@allure.feature("Contacts CRUD") # Подраздел
-@allure.story("Delete Contact") # Название фичи
-@allure.severity(allure.severity_level.CRITICAL) # Серьезность
+
+@allure.epic("API Testing")
+@allure.feature("Contacts CRUD")
+@allure.story("Delete Contact")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_api_delete_contact(api_token):
     """Тест удаления конкретного контакта (Delete)"""
     headers = {"Authorization": f"Bearer {api_token}"}
 
     # 1. ПРЕДУСЛОВИЕ: Создаем контакт и узнаем его ID
     contact = ContactGenerator.get_random_contact()
-    payload = {
-        "name": contact.name,
-        "lastName": contact.last_name,
-        "phone": contact.phone,
-        "email": contact.email,
-        "address": contact.address,
-        "description": contact.description
-    }
-    make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(), headers=headers)
 
     response_get = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_list = response_get.json().get("contacts", [])
@@ -682,34 +600,30 @@ def test_api_delete_contact(api_token):
     assert target_id is not None, "Не удалось найти ID созданного контакта!"
 
     # 2. ШАГ ТЕСТА: Удаляем контакт по ID
-    # Обрати внимание на URL: мы передаем target_id прямо в адресную строку
     response_delete = make_api_request("DELETE", f"{API_URL}/v1/contacts/{target_id}", headers=headers)
     assert response_delete.status_code == 200, f"Ошибка удаления: {response_delete.text}"
 
     # 3. ПРОВЕРКА: Убеждаемся, что контакт реально исчез из базы
     response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_after = response_check.json().get("contacts", [])
-
-    # Собираем список всех ID, которые остались в базе
     ids_after = [c.get("id") for c in contacts_after]
 
     assert target_id not in ids_after, "БАГ: Контакт не удалился из базы данных!"
     print(f"\n[DELETE УСПЕХ] Контакт {target_id} успешно удален!")
 
-@allure.epic("API Testing") # Глобальный раздел в отчете
-@allure.feature("Contacts CRUD") # Подраздел
-@allure.story("Delete All Contacts") # Название фичи
-@allure.severity(allure.severity_level.CRITICAL) # Серьезность
+
+@allure.epic("API Testing")
+@allure.feature("Contacts CRUD")
+@allure.story("Delete All Contacts")
+@allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
 def test_api_clear_all_contacts(api_token):
     """Тест массового удаления контактов (Пылесос)"""
     headers = {"Authorization": f"Bearer {api_token}"}
 
-    # 1. ШАГ ТЕСТА: Вызываем эндпоинт полной очистки
     response_clear = make_api_request("DELETE", f"{API_URL}/v1/contacts/clear", headers=headers)
     assert response_clear.status_code == 200, f"Ошибка массового удаления: {response_clear.text}"
 
-    # 2. ПРОВЕРКА: Запрашиваем список и убеждаемся, что он абсолютно пуст
     response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_after = response_check.json().get("contacts", [])
 
@@ -911,6 +825,20 @@ class Contact:
     email: str = None
     address: str = None
     description: str = None # Согласно спецификации (T46), это поле необязательное
+
+    def to_api_payload(self) -> dict:
+        """
+        Превращает объект Contact в словарь формата JSON для отправки на API.
+        Автоматически маппит python-свойство 'last_name' в API-ключ 'lastName'.
+        """
+        return {
+            "name": self.name,
+            "lastName": self.last_name,
+            "phone": self.phone,
+            "email": self.email,
+            "address": self.address,
+            "description": self.description
+        }
 
 ============================================================
 📄 FILE: .\models\user.py
@@ -1862,6 +1790,7 @@ def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear
 
 import os
 import allure
+import pytest
 from pages.login_page import LoginPage
 from data.data_generator import UserGenerator
 from utils.logger import get_logger
@@ -1903,83 +1832,44 @@ def test_login_success(driver):
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
+#НЕГАТИВНЫЕ СЦЕНАРИИ
+# Заранее генерируем данные для негативных сценариев
+bad_email_user = UserGenerator.get_user_with_invalid_email()
+bad_password_user = UserGenerator.get_user_with_invalid_password()
+unregistered_user = UserGenerator.get_valid_user()
+valid_user = UserGenerator.get_valid_user()
+
+
 @allure.severity(allure.severity_level.NORMAL)
-def test_login_with_wrong_email(driver):
-    """Негативный тест: Авторизация с неверным форматом email"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_login_with_wrong_email ---")
+@pytest.mark.parametrize("email, password, scenario_name", [
+    (bad_email_user.email, bad_email_user.password, "Невалидный формат email"),
+    (EXISTING_EMAIL, bad_password_user.password, "Валидный email, но невалидный пароль"),
+    (unregistered_user.email, unregistered_user.password, "Несуществующий пользователь")
+])
+
+
+def test_login_negative(driver, email, password, scenario_name):
+    """Негативные тесты: Авторизация с неверными данными"""
+    logger.info(f"--- ЗАПУСК ТЕСТА: test_login_negative ---")
+    logger.info(f"СЦЕНАРИЙ: {scenario_name}")
+
     login_page = LoginPage(driver)
 
     logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
-    # Запрашиваем юзера с битым email из генератора
-    logger.info("ПОДГОТОВКА: Генерируем пользователя с невалидным email")
-    bad_email_user = UserGenerator.get_user_with_invalid_email()
-
-    logger.info(f"ШАГ 2: Вводим невалидный email: {bad_email_user.email}")
-    login_page.fill_email(bad_email_user.email)
-    login_page.fill_password(bad_email_user.password)
+    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '{password}'")
+    login_page.fill_email(email)
+    login_page.fill_password(password)
 
     logger.info("ШАГ 3: Нажимаем кнопку Login")
     login_page.submit_login()
 
     logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'")
-    assert "Wrong email or password" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом email!"
+    assert "Wrong email or password" in login_page.get_alert_text(), f"Ошибка: Неверный текст Alert при сценарии '{scenario_name}'!"
     login_page.accept_alert()
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
-
-@allure.severity(allure.severity_level.NORMAL)
-def test_login_with_wrong_password(driver):
-    """Негативный тест: Авторизация с неверным форматом пароля"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_login_with_wrong_password ---")
-    login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации")
-    login_page.open()
-
-    # Запрашиваем юзера с битым паролем из генератора
-    logger.info("ПОДГОТОВКА: Генерируем пользователя с невалидным password")
-    bad_password_user = UserGenerator.get_user_with_invalid_password()
-
-    # Используем валидный email (из .env) и невалидный сгенерированный пароль
-    logger.info(f"ШАГ 2: Вводим валидный email и невалидный password: {bad_password_user.password}")
-    login_page.fill_email(EXISTING_EMAIL)
-    login_page.fill_password(bad_password_user.password)
-
-    logger.info("ШАГ 3: Нажимаем кнопку Login")
-    login_page.submit_login()
-
-    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'")
-    assert "Wrong email or password" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом пароле!"
-    login_page.accept_alert()
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
-
-
-@allure.severity(allure.severity_level.NORMAL)
-def test_login_unregistered_user(driver):
-    """Негативный тест: Авторизация несуществующего пользователя"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_login_unregistered_user ---")
-    login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации")
-    login_page.open()
-
-    # Запрашиваем уникального пользователя из генератора (его точно нет в базе)
-    logger.info("ПОДГОТОВКА: Запрашиваем уникального пользователя из генератора (его точно нет в базе)")
-    unregistered_user = UserGenerator.get_valid_user()
-
-    logger.info(f"ШАГ 2: Авторизуемся под несуществующим юзером: {unregistered_user.email}")
-    login_page.fill_email(unregistered_user.email)
-    login_page.fill_password(unregistered_user.password)
-
-    logger.info("ШАГ 3: Нажимаем кнопку Login")
-    login_page.submit_login()
-
-    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'")
-    assert "Wrong email or password" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при несуществующем юзере!"
-    login_page.accept_alert()
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
 # ==========================================
@@ -2012,77 +1902,41 @@ def test_registration_success(driver):
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
+#НЕГАТИВНЫЕ СЦЕНАРИИ
 @allure.severity(allure.severity_level.NORMAL)
-def test_registration_existing_user_alert(driver):
-    """Негативный тест: Регистрация с уже существующим email в базе"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_registration_existing_user_alert ---")
+@pytest.mark.parametrize("email, password, expected_alert, scenario_name", [
+    # 1. Сценарий: Пользователь уже существует (используем EXISTING_EMAIL из окружения)
+    (EXISTING_EMAIL, valid_user.password, "User already exist", "Регистрация уже существующего пользователя"),
+
+    # 2. Сценарий: Сломанный email (формат)
+    (bad_email_user.email, bad_email_user.password, "Wrong email or password format", "Невалидный формат email"),
+
+    # 3. Сценарий: Сломанный пароль (короткий)
+    (valid_user.email, bad_password_user.password, "Wrong email or password format", "Невалидный формат пароля")
+])
+def test_registration_negative(driver, email, password, expected_alert, scenario_name):
+    """Негативные тесты: Регистрация с неверными данными или существующим email"""
+    logger.info(f"--- ЗАПУСК ТЕСТА: test_registration_negative ---")
+    logger.info(f"СЦЕНАРИЙ: {scenario_name}")
+
     login_page = LoginPage(driver)
 
-    logger.info("ШАГ 1: Открываем страницу авторизации")
+    logger.info("ШАГ 1: Открываем страницу авторизации/регистрации")
     login_page.open()
 
-    # Используем данные пользователя, который уже зарегистрирован
-    logger.info(f"ПОДГОТОВКА/ШАГ 2: Вводим данные УЖЕ зарегистрированного пользователя: {EXISTING_EMAIL}")
-    login_page.fill_email(EXISTING_EMAIL)
-    login_page.fill_password(VALID_PASSWORD)
+    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '{password}'")
+    login_page.fill_email(email)
+    login_page.fill_password(password)
 
     logger.info("ШАГ 3: Нажимаем кнопку Registration")
     login_page.submit_registration()
 
-    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'User already exist'")
-    assert "User already exist" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при дубликате пользователя!"
-    login_page.accept_alert()
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    logger.info(f"ПРОВЕРКА: Ожидаем Alert с текстом '{expected_alert}'")
+    actual_alert_text = login_page.get_alert_text()
 
+    assert expected_alert in actual_alert_text, \
+        f"Ошибка при сценарии '{scenario_name}': Ожидали '{expected_alert}', но получили '{actual_alert_text}'!"
 
-@allure.severity(allure.severity_level.NORMAL)
-def test_registration_invalid_email_format(driver):
-    """Негативный тест: Регистрация с невалидным email + ВАЛИДНЫМ паролем"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_registration_invalid_email_format ---")
-    login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации")
-    login_page.open()
-
-    # Получаем пользователя с испорченным email из генератора
-    logger.info("ПОДГОТОВКА: Получаем пользователя с испорченным email из генератора")
-    bad_email_user = UserGenerator.get_user_with_invalid_email()
-
-    logger.info(f"ШАГ 2: Вводим невалидный email: {bad_email_user.email}")
-    login_page.fill_email(bad_email_user.email)
-    login_page.fill_password(bad_email_user.password)
-
-    logger.info("ШАГ 3: Нажимаем кнопку Registration")
-    login_page.submit_registration()
-
-    logger.info("ПРОВЕРКА: Ожидаем Alert 'Wrong email or password format'")
-    assert "Wrong email or password format" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом email!"
-    login_page.accept_alert()
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
-
-
-@allure.severity(allure.severity_level.NORMAL)
-def test_registration_invalid_password_format(driver):
-    """Негативный тест: Регистрация с ВАЛИДНЫМ (уникальным) email + невалидным паролем"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_registration_invalid_password_format ---")
-    login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации")
-    login_page.open()
-
-    # Получаем пользователя с испорченным паролем из генератора
-    logger.info("ПОДГОТОВКА: Получаем пользователя с испорченным паролем из генератора")
-    bad_password_user = UserGenerator.get_user_with_invalid_password()
-
-    logger.info(f"ШАГ 2: Вводим невалидный пароль (email валидный): {bad_password_user.password}")
-    login_page.fill_email(bad_password_user.email)
-    login_page.fill_password(bad_password_user.password)
-
-    logger.info("ШАГ 3: Нажимаем кнопку Registration")
-    login_page.submit_registration()
-
-    logger.info("ПРОВЕРКА: Ожидаем Alert 'Wrong email or password format'")
-    assert "Wrong email or password format" in login_page.get_alert_text(), "Ошибка: Неверный текст Alert при плохом пароле!"
     login_page.accept_alert()
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
@@ -2249,7 +2103,7 @@ def get_logger(name="PhonebookQA"):
 
     logger.setLevel(logging.INFO)
 
-    # 1. ЗАЩИТА ОТ PYTEST: Запрещаем Pytest перехватывать и прятать наши логи (тумблер)
+    # 1. ЗАЩИТА ОТ PYTEST (тумблер)
     logger.propagate = True
 
     # 2. ФАЙЛОВАЯ СИСТЕМА: Создаем папку logs, если ее еще нет
