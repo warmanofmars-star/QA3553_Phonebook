@@ -56,6 +56,14 @@ def get_logger(name="PhonebookQA"):
     logger.setLevel(logging.INFO)
     logger.propagate = False
 
+    # ==========================================
+    # 🔇 ГЛУШИЛКИ ДЛЯ ЧУЖИХ ЛОГОВ
+    # ==========================================
+    # Принудительно затыкаем внутренний спам Selenium и urllib3,
+    # разрешая им говорить только об ошибках (WARNING и выше)
+    logging.getLogger("selenium").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
+
     if not os.path.exists("logs"):
         os.makedirs("logs")
 

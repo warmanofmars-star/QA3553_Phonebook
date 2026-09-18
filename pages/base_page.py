@@ -24,17 +24,12 @@ class BasePage:
         self.driver.get(url)
 
     def find(self, locator):
-        # Исключительно для отладки, обычно поиск элемента не логируют, чтобы не засорять эфир,
-        # но мы оставим, чтобы видеть каждый шаг.
-        self.logger.info(f"Ищем элемент: {locator}")
         return self.driver.find_element(*locator)
 
     def click(self, locator):
-        self.logger.info(f"Клик по элементу: {locator}")
         self.find(locator).click()
 
     def fill(self, locator, value):
-        self.logger.info(f"Ввод данных в поле: {locator}")
         self.find(locator).clear()
         self.find(locator).send_keys(value)
 

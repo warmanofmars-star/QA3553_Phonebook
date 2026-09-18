@@ -5,6 +5,8 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from dotenv import load_dotenv
+from selenium.webdriver.support.events import EventFiringWebDriver
+from utils.listener import PhonebookListener
 
 # Загружаем переменные из .env
 load_dotenv()
@@ -41,8 +43,11 @@ def driver():
     # Устанавливаем жесткий лимит на загрузку страницы (30 секунд)
     driver.set_page_load_timeout(30)
 
-    yield driver  # Передаем драйвер в тест
-    driver.quit()
+    # === НАДЕВАЕМ ШПИОНА НА ДРАЙВЕР ПЕРЕД ВЫДАЧЕЙ ===
+    decorated_driver = EventFiringWebDriver(driver, PhonebookListener())
+
+    yield decorated_driver  # Передаем ОБЕРНУТЫЙ драйвер в тесты
+    decorated_driver.quit()  # В конце убиваем именно обернутый драйвер
 
 
 @pytest.fixture
