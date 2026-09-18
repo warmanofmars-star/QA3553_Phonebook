@@ -1,11 +1,12 @@
 import logging
 import os
 import sys
+import glob
+from datetime import datetime
 
 
 class ColoredFormatter(logging.Formatter):
     """Кастомный класс для раскрашивания логов в терминале с помощью ANSI-кодов"""
-
     GREEN = "\x1b[32;20m"
     YELLOW = "\x1b[33;20m"
     RED = "\x1b[31;20m"
@@ -28,37 +29,55 @@ class ColoredFormatter(logging.Formatter):
         return formatter.format(record)
 
 
+def clean_old_logs(log_dir="logs", keep_last=5):
+    """Удаляет старые файлы логов, оставляя только N самых свежих."""
+    if not os.path.exists(log_dir):
+        return
+
+    # Ищем все .log файлы и сортируем их по времени изменения (самые старые в начале)
+    files = glob.glob(os.path.join(log_dir, "*.log"))
+    files.sort(key=os.path.getmtime)
+
+    # Удаляем файлы, пока их количество не станет равным keep_last
+    while len(files) > keep_last:
+        oldest_file = files.pop(0)
+        try:
+            os.remove(oldest_file)
+        except OSError:
+            pass
+
+
 def get_logger(name="PhonebookQA"):
     logger = logging.getLogger(name)
 
-    # ИСПРАВЛЕНИЕ ЗДЕСЬ: проверяем именно список handlers нашего логгера
     if logger.handlers:
         return logger
 
     logger.setLevel(logging.INFO)
+    logger.propagate = False
 
-    # 1. ЗАЩИТА ОТ PYTEST (тумблер)
-    logger.propagate = True
-
-    # 2. ФАЙЛОВАЯ СИСТЕМА: Создаем папку logs, если ее еще нет
     if not os.path.exists("logs"):
         os.makedirs("logs")
 
-    # 3. ОБРАБОТЧИК ДЛЯ КОНСОЛИ (Цветной)
-    # Явно указываем sys.stdout, чтобы логи пробивались через настройки Pytest
+    # 1. Запускаем "пылесос" перед созданием нового файла
+    clean_old_logs("logs", keep_last=5)
+
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(ColoredFormatter())
 
-    # 4. ОБРАБОТЧИК ДЛЯ ФАЙЛА (Чистый текст, без иероглифов цвета)
+    # 2. Генерируем уникальное имя файла с точным временем запуска
+    current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_filename = f"logs/run_{current_time}.log"
+
     file_formatter = logging.Formatter(
         fmt='[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
     )
-    # Записываем в файл logs/test.log
-    file_handler = logging.FileHandler("logs/test.log", encoding='utf-8')
+
+    # 3. Подключаем обычный FileHandler (файл создастся с нуля)
+    file_handler = logging.FileHandler(log_filename, encoding='utf-8')
     file_handler.setFormatter(file_formatter)
 
-    # Подключаем оба обработчика
     logger.addHandler(console_handler)
     logger.addHandler(file_handler)
 
