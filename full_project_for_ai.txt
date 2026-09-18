@@ -22,6 +22,8 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from dotenv import load_dotenv
+from selenium.webdriver.support.events import EventFiringWebDriver
+from utils.listener import PhonebookListener
 
 # Загружаем переменные из .env
 load_dotenv()
@@ -58,8 +60,11 @@ def driver():
     # Устанавливаем жесткий лимит на загрузку страницы (30 секунд)
     driver.set_page_load_timeout(30)
 
-    yield driver  # Передаем драйвер в тест
-    driver.quit()
+    # === НАДЕВАЕМ ШПИОНА НА ДРАЙВЕР ПЕРЕД ВЫДАЧЕЙ ===
+    decorated_driver = EventFiringWebDriver(driver, PhonebookListener())
+
+    yield decorated_driver  # Передаем ОБЕРНУТЫЙ драйвер в тесты
+    decorated_driver.quit()  # В конце убиваем именно обернутый драйвер
 
 
 @pytest.fixture
@@ -933,17 +938,12 @@ class BasePage:
         self.driver.get(url)
 
     def find(self, locator):
-        # Исключительно для отладки, обычно поиск элемента не логируют, чтобы не засорять эфир,
-        # но мы оставим, чтобы видеть каждый шаг.
-        self.logger.info(f"Ищем элемент: {locator}")
         return self.driver.find_element(*locator)
 
     def click(self, locator):
-        self.logger.info(f"Клик по элементу: {locator}")
         self.find(locator).click()
 
     def fill(self, locator, value):
-        self.logger.info(f"Ввод данных в поле: {locator}")
         self.find(locator).clear()
         self.find(locator).send_keys(value)
 
@@ -2061,6 +2061,46 @@ def make_api_request(method, url, **kwargs):
         return response
 
 ============================================================
+📄 FILE: .\utils\listener.py
+============================================================
+
+from selenium.webdriver.support.abstract_event_listener import AbstractEventListener
+from selenium.common.exceptions import WebDriverException, NoSuchElementException  # <-- Добавили точечный импорт
+from utils.logger import get_logger
+
+class PhonebookListener(AbstractEventListener):
+    def __init__(self):
+        # Подключаем наш фирменный логгер с пометкой UI
+        self.logger = get_logger("UI")
+
+    def before_navigate_to(self, url, driver):
+        self.logger.info(f"Переход по ссылке: {url}")
+
+    def before_find(self, by, value, driver):
+        # Логируем поиск элементов
+        self.logger.info(f"Поиск элемента -> By: {by}, Value: '{value}'")
+
+    def before_click(self, element, driver):
+        # Пытаемся достать текст кнопки или ссылки, по которой кликаем, для красоты логов
+        try:
+            element_text = element.text
+            tag_name = element.tag_name
+            self.logger.info(f"Клик по элементу <{tag_name}> с текстом: '{element_text}'")
+        except WebDriverException:  # <-- Теперь ловим только ошибки Selenium!
+            self.logger.info("Клик по элементу (текст недоступен)")
+
+    def before_change_value_of(self, element, driver):
+        self.logger.info("Ввод данных в поле формы...")
+
+    def on_exception(self, exception, driver):
+        # Игнорируем штатные ошибки поиска, которые возникают во время работы WebDriverWait
+        if isinstance(exception, NoSuchElementException):
+            return
+
+        # Все остальные реальные ошибки логируем красным
+        self.logger.error(f"ПЕРЕХВАТ ОШИБКИ WEBDRIVER: {exception}")
+
+============================================================
 📄 FILE: .\utils\logger.py
 ============================================================
 
@@ -2121,6 +2161,14 @@ def get_logger(name="PhonebookQA"):
 
     logger.setLevel(logging.INFO)
     logger.propagate = False
+
+    # ==========================================
+    # 🔇 ГЛУШИЛКИ ДЛЯ ЧУЖИХ ЛОГОВ
+    # ==========================================
+    # Принудительно затыкаем внутренний спам Selenium и urllib3,
+    # разрешая им говорить только об ошибках (WARNING и выше)
+    logging.getLogger("selenium").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
 
     if not os.path.exists("logs"):
         os.makedirs("logs")
