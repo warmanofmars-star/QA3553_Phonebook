@@ -3,7 +3,8 @@ import pytest
 import allure
 import requests
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 from dotenv import load_dotenv
 from selenium.webdriver.support.events import EventFiringWebDriver
 from utils.listener import PhonebookListener
@@ -16,35 +17,49 @@ from pages.login_page import LoginPage
 
 @pytest.fixture
 def driver():
-    options = Options()
+    # Читаем флаги
+    is_headless = os.getenv('HEADLESS_MODE', 'false').lower() == 'true'
+    is_ci = os.environ.get('CI') == 'true'
 
-    # Принудительно устанавливаем английский язык для браузера
-    options.add_argument('--lang=en-US')
-    # Дополнительная настройка преференций (для надежности в Edge/Chrome)
-    options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
-    # Читаем наш флаг из .env
-    is_headless = os.getenv('HEADLESS_MODE') == 'true'
+    if is_ci:
+        # ПРОФЕССИОНАЛЬНЫЙ CI-ПОДХОД: Строго Google Chrome для Linux-сервера (GitHub Actions)
+        options = ChromeOptions()
+        options.add_argument('--headless=new') # Современный headless для Chrome
+        options.add_argument('--window-size=1920,1080')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-gpu')
+        driver_instance = webdriver.Chrome(options=options)
 
-    # Включаем Headless, если мы на GitHub Actions (CI) ИЛИ если включили флаг локально
-    if os.environ.get('CI') == 'true' or is_headless:
-        options.add_argument('--disable-gpu') # Отключение видеокарты
-        options.add_argument('--headless')  # Включаем фоновый режим
-        options.add_argument('--no-sandbox')  # Обязательно для Linux-серверов
-        options.add_argument('--disable-dev-shm-usage')  # Обход проблемы с памятью на серверах
-        options.add_argument('--window-size=1920,1080')  # Задаем размер экрана "вслепую"
+    else:
+        # ЛОКАЛЬНАЯ РАЗРАБОТКА: Каскадный поиск браузера (Chrome -> Edge)
+        try:
+            # Попытка №1: Пытаемся поднять Chrome, чтобы зеркалировать CI-окружение
+            options = ChromeOptions()
+            if is_headless:
+                options.add_argument('--headless=new')
+            options.add_argument('--window-size=1920,1080')
+            driver_instance = webdriver.Chrome(options=options)
 
-    # Передаем опции в драйвер
-    driver = webdriver.Edge(options=options)
+        except Exception as e:
+            # Попытка №2: Если Chrome нет, делаем мягкий фоллбэк на Edge
+            print(f"\n[WARNING] Chrome не запустился. Причина: {e}")
+            print("[INFO] Выполняем каскадное переключение на Microsoft Edge...")
 
-    # Максимизируем окно только если Headless выключен
-    if not (os.environ.get('CI') == 'true' or is_headless):
-        driver.maximize_window()
+            options = EdgeOptions()
+            if is_headless:
+                options.add_argument('--headless')
+            options.add_argument('--window-size=1920,1080')
+            driver_instance = webdriver.Edge(options=options)
+
+        if not is_headless:
+            driver_instance.maximize_window()
 
     # Устанавливаем жесткий лимит на загрузку страницы (30 секунд)
-    driver.set_page_load_timeout(30)
+    driver_instance.set_page_load_timeout(30)
 
     # === НАДЕВАЕМ ШПИОНА НА ДРАЙВЕР ПЕРЕД ВЫДАЧЕЙ ===
-    decorated_driver = EventFiringWebDriver(driver, PhonebookListener())
+    decorated_driver = EventFiringWebDriver(driver_instance, PhonebookListener())
 
     yield decorated_driver  # Передаем ОБЕРНУТЫЙ драйвер в тесты
     decorated_driver.quit()  # В конце убиваем именно обернутый драйвер

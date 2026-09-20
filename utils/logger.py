@@ -73,9 +73,9 @@ def get_logger(name="PhonebookQA"):
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(ColoredFormatter())
 
-    # 2. Генерируем уникальное имя файла с точным временем запуска
+    # 2. Формируем имя файла: Время + PID процесса для безопасной параллельной работы
     current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_filename = f"logs/run_{current_time}.log"
+    log_filename = f"logs/run_{current_time}_pid{os.getpid()}.log"
 
     file_formatter = logging.Formatter(
         fmt='[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s',

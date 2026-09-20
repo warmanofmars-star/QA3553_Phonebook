@@ -18,7 +18,8 @@ class LoginPage(BasePage):
         self.click(self.LOGIN_NAV_LINK) # Используем метод click из BasePage
 
     def fill_password(self, password):
-        self.fill(self.PASSWORD_INPUT, password) # Используем метод fill из BasePage
+        # Используем метод fill из BasePage с включенной маскировкой
+        self.fill(self.PASSWORD_INPUT, password, is_secret=True)
 
     def fill_email(self, email):
         self.fill(self.EMAIL_INPUT, email) # Убрали лишний self, добавили self. к локатору

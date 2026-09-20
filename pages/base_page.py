@@ -1,4 +1,5 @@
 import os
+import allure
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -29,9 +30,17 @@ class BasePage:
     def click(self, locator):
         self.find(locator).click()
 
-    def fill(self, locator, value):
-        self.find(locator).clear()
-        self.find(locator).send_keys(value)
+    def fill(self, locator, value, is_secret=False):
+        """
+        Вводит текст в поле.
+        Если is_secret=True, пароль в отчетах Allure будет заменен на звездочки.
+        """
+        display_value = "********" if is_secret else value
+
+        # Оборачиваем действие в шаг Allure для красивого отчета
+        with allure.step(f"Ввод текста '{display_value}' в поле {locator}"):
+            self.find(locator).clear()
+            self.find(locator).send_keys(value)  # А вот в браузер летит настоящий пароль!
 
     # ==========================================
     # ОБЩИЕ ЭЛЕМЕНТЫ НАВИГАЦИИ (HEADER)
