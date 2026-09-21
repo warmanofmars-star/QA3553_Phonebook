@@ -150,73 +150,85 @@ def api_token():
 TICK = "`" * 3
 
 lines = [
-    "# 📖 Phonebook UI Auto-tests\n\n",
+    "# 📖 Phonebook Hybrid Test Automation Framework\n\n",
     "[![Phonebook UI Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)\n",
     "📊 **Live Allure Report:** [View Dashboard](https://warmanofmars-star.github.io/QA3553_Phonebook/)\n\n",
-    "UI Automation testing project for the \"Phonebook\" web application.\n",
-    "Developed using **Python**, **Selenium WebDriver**, and **Pytest** following the **Page Object Model (POM)** design pattern.\n\n",
+    "Robust, production-ready hybrid test automation framework for the \"Phonebook\" web application.\n",
+    "This project demonstrates a **Senior-level approach** to QA automation, combining classic UI testing, API integration, and modern tools to ensure fast, stable, and secure test execution.\n\n",
     "## 🛠 Technologies & Tools\n",
     "* **Language:** Python 3.12+\n",
-    "* **Core Framework:** Selenium WebDriver 4+\n",
-    "* **Test Runner:** Pytest (with `pytest-rerunfailures` for flaky tests)\n",
+    "* **UI Frameworks:** Selenium WebDriver 4+, Playwright (Sync API)\n",
+    "* **API Testing:** Requests\n",
+    "* **Test Runner:** Pytest (with `pytest-xdist` for parallel execution)\n",
     "* **Design Pattern:** Page Object Model (POM)\n",
     "* **Test Data:** Faker (dynamic generation of names, phones, emails)\n",
-    "* **Reporting:** Allure Report (Tests categorized by Severity: BLOCKER, CRITICAL, NORMAL)\n",
+    "* **Reporting:** Allure Report (with secure data masking)\n",
     "* **CI/CD:** GitHub Actions (Automated runs with Headless browser execution)\n",
     "* **Notifications:** Telegram Bot API\n",
     "* **Security:** `python-dotenv` for managing sensitive credentials\n\n",
-    "## 🚀 Quick Start (Local Execution)\n\n",
+    "## 🚀 Key Architectural Features\n\n",
+    "* **Hybrid Testing Approach (API + UI):** Tests use API calls to set up preconditions (e.g., creating a contact) and teardown data, drastically reducing UI test execution time and ensuring test isolation.\n",
+    "* **Dual Framework Support:** Implemented primarily using **Selenium** with an integrated **Playwright** module to demonstrate modern tool capabilities and auto-waiting concepts.\n",
+    "* **Smart Browser Cascading:** The framework automatically detects the environment. It runs headless Google Chrome in CI/CD (GitHub Actions) for consistency, but gracefully falls back to Microsoft Edge for local execution if Chrome is unavailable.\n",
+    "* **Security & Log Masking:** Sensitive data (passwords, auth tokens) are strictly masked (********) in all console outputs, test logs, and Allure step reports.\n",
+    "* **Thread-Safe Custom Logging:** Features a proprietary logging utility with dual-stream outputs. It provides real-time, ANSI-colored console logs for local debugging and simultaneously writes clean, thread-safe logs to individual files via Process IDs (`PID`), ensuring stable log capture during parallel execution (`pytest-xdist`).\n",
+    "* **Advanced Data Modeling:** Implements Python `@dataclass` for representing test entities, allowing for clean object instantiation and dynamic payload overriding.\n\n",
+    "## ⚙️ Setup & Installation\n\n",
     "### 1. Clone and Setup\n",
     f"{TICK}bash\n",
-    "git clone [https://github.com/warmanofmars-star/QA3553_Phonebook.git](https://github.com/warmanofmars-star/QA3553_Phonebook.git)\n",
+    "git clone https://github.com/warmanofmars-star/QA3553_Phonebook.git\n",
     "cd QA3553_Phonebook\n",
     "python -m venv .venv\n",
     "source .venv/Scripts/activate  # For Windows: .venv\\Scripts\\activate\n",
     "pip install -r requirements.txt\n",
+    "playwright install chromium\n",
     f"{TICK}\n\n",
     "### 2. Environment Variables (.env)\n",
-    "The project uses hidden credentials. Create a `.env` file in the root directory and add your valid test user credentials:\n",
+    "Create a `.env` file in the root directory and add your valid test user credentials:\n",
     f"{TICK}env\n",
     "HEADLESS_MODE=false\n",
+    "ALLOW_MASS_DELETE=false\n",
     "USER_EMAIL=your_valid_email@gmail.com\n",
     "USER_PASSWORD=Your_Valid_Password123$\n",
-    "BASE_URL=[https://telranedu.web.app](https://telranedu.web.app)\n",
-    f"{TICK}\n",
-    "*💡 **Note:** Set `HEADLESS_MODE=true` if you want to run tests in the background without opening the browser window.*\n\n",
-    "### 3. Run Tests & View Report\n",
-    "Run the test suite with 2 retries for flaky tests and generate the Allure results:\n",
+    "BASE_URL=https://telranedu.web.app\n",
+    "API_URL=https://contactapp-telran-backend.herokuapp.com\n",
+    f"{TICK}\n\n",
+    "## 🏃‍♂️ How to Run Tests\n\n",
+    "**Run all hybrid tests (Selenium UI + API) in parallel:**\n",
     f"{TICK}bash\n",
-    "pytest tests/ --reruns 2 --reruns-delay 2 --alluredir=allure-results\n",
-    f"{TICK}\n",
-    "Serve the Allure report in your browser:\n",
+    "pytest tests/ -n auto --clean-alluredir --alluredir=allure-results\n",
+    f"{TICK}\n\n",
+    "**Run modern Playwright tests (headed mode for debugging):**\n",
+    f"{TICK}bash\n",
+    "pytest tests/test_playwright_login.py -s --headed\n",
+    f"{TICK}\n\n",
+    "**Generate and view Allure Report locally:**\n",
     f"{TICK}bash\n",
     "allure serve allure-results\n",
     f"{TICK}\n\n",
     "## ☁️ CI/CD & Remote Execution\n",
     "This project is fully integrated with **GitHub Actions**. \n",
-    "* On every manual trigger (`workflow_dispatch`), the pipeline spins up an Ubuntu runner, installs Microsoft Edge, and executes the test suite in Headless mode.\n",
+    "* On every manual trigger (`workflow_dispatch`), the pipeline spins up an Ubuntu runner, installs Chrome, and executes the test suite in parallel Headless mode.\n",
     "* It securely accesses credentials via **GitHub Secrets**.\n",
-    "* Upon completion, it automatically generates an Allure report, deploys it to **GitHub Pages**, and sends a notification with the link to Telegram.\n\n",
-    "## 📋 Test Coverage\n",
-    "The project includes both positive and negative scenarios covering the core CRUD operations and security features:\n",
-    "* **Authentication:** User Login, Registration, Logout & Security redirects.\n",
-    "* **Contacts Management:** \n",
-    "  * Creating new contacts.\n",
-    "  * Editing existing contacts (with dynamic field updates).\n",
-    "  * Deleting contacts.\n",
-    "* **Bug Tracking:** Known frontend bugs (e.g., lack of required fields validation during editing, saving duplicates) are isolated and documented using `@pytest.mark.xfail`.\n\n",
+    "* Automatically uploads Log archives as workflow artifacts.\n",
+    "* Generates an Allure report, deploys it to **GitHub Pages**, and sends a notification with the link to Telegram.\n\n",
     "## 🏗 Project Structure\n",
     f"{TICK}text\n",
     "QA3553_Phonebook/\n",
     "├── .github/workflows/    # CI/CD pipeline configuration (tests.yml)\n",
-    "├── data/                 # Data generators and static files (Faker, CSV)\n",
+    "├── api_tests/            # Pure API test suites\n",
+    "├── data/                 # Test data generators (Faker, DataClasses)\n",
     "├── models/               # Data models (Contact, User)\n",
-    "├── pages/                # Page Object classes (base_page, login_page, contacts_page)\n",
-    "├── tests/                # Test suites (test_login, test_add, test_edit, test_logout)\n",
-    "├── conftest.py           # Pytest fixtures and WebDriver setup (UI & Headless modes)\n",
+    "├── pages/                # Page Object classes (Selenium BasePage & Playwright PwBasePage)\n",
+    "├── tests/                # Hybrid and UI Test suites\n",
+    "├── utils/                # Custom logger, WebDriver listener, API helpers\n",
+    "├── logs/                 # Auto-rotating, thread-safe local log files\n",
+    "├── conftest.py           # Pytest fixtures, Smart Browser Cascading, API Setup\n",
     "├── requirements.txt      # Project dependencies\n",
     "└── README.md             # Project documentation\n",
-    f"{TICK}\n"
+    f"{TICK}\n\n",
+    "---\n",
+    "*Author: Maksim Vinogradov*\n"
 ]
 
 with open("README.md", "w", encoding="utf-8") as f:
@@ -260,86 +272,100 @@ print("Готово! Файл full_project_for_ai.txt создан.")
 📄 FILE: .\README.md
 ============================================================
 
-# 📖 Phonebook UI Auto-tests
+# 📖 Phonebook Hybrid Test Automation Framework
 
 [![Phonebook UI Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)
 📊 **Live Allure Report:** [View Dashboard](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
-UI Automation testing project for the "Phonebook" web application.
-Developed using **Python**, **Selenium WebDriver**, and **Pytest** following the **Page Object Model (POM)** design pattern.
+Robust, production-ready hybrid test automation framework for the "Phonebook" web application.
+This project demonstrates a **Senior-level approach** to QA automation, combining classic UI testing, API integration, and modern tools to ensure fast, stable, and secure test execution.
 
 ## 🛠 Technologies & Tools
 * **Language:** Python 3.12+
-* **Core Framework:** Selenium WebDriver 4+
-* **Test Runner:** Pytest (with `pytest-rerunfailures` for flaky tests)
+* **UI Frameworks:** Selenium WebDriver 4+, Playwright (Sync API)
+* **API Testing:** Requests
+* **Test Runner:** Pytest (with `pytest-xdist` for parallel execution)
 * **Design Pattern:** Page Object Model (POM)
 * **Test Data:** Faker (dynamic generation of names, phones, emails)
-* **Reporting:** Allure Report (Tests categorized by Severity: BLOCKER, CRITICAL, NORMAL)
+* **Reporting:** Allure Report (with secure data masking)
 * **CI/CD:** GitHub Actions (Automated runs with Headless browser execution)
 * **Notifications:** Telegram Bot API
 * **Security:** `python-dotenv` for managing sensitive credentials
 
-## 🚀 Quick Start (Local Execution)
+## 🚀 Key Architectural Features
+
+* **Hybrid Testing Approach (API + UI):** Tests use API calls to set up preconditions (e.g., creating a contact) and teardown data, drastically reducing UI test execution time and ensuring test isolation.
+* **Dual Framework Support:** Implemented primarily using **Selenium** with an integrated **Playwright** module to demonstrate modern tool capabilities and auto-waiting concepts.
+* **Smart Browser Cascading:** The framework automatically detects the environment. It runs headless Google Chrome in CI/CD (GitHub Actions) for consistency, but gracefully falls back to Microsoft Edge for local execution if Chrome is unavailable.
+* **Security & Log Masking:** Sensitive data (passwords, auth tokens) are strictly masked (********) in all console outputs, test logs, and Allure step reports.
+* **Thread-Safe Custom Logging:** Features a proprietary logging utility with dual-stream outputs. It provides real-time, ANSI-colored console logs for local debugging and simultaneously writes clean, thread-safe logs to individual files via Process IDs (`PID`), ensuring stable log capture during parallel execution (`pytest-xdist`).
+* **Advanced Data Modeling:** Implements Python `@dataclass` for representing test entities, allowing for clean object instantiation and dynamic payload overriding.
+
+## ⚙️ Setup & Installation
 
 ### 1. Clone and Setup
 ```bash
-git clone (https://github.com/warmanofmars-star/QA3553_Phonebook.git)
+git clone https://github.com/warmanofmars-star/QA3553_Phonebook.git
 cd QA3553_Phonebook
 python -m venv .venv
 source .venv/Scripts/activate  # For Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+playwright install chromium
 ```
 
 ### 2. Environment Variables (.env)
-The project uses hidden credentials. Create a `.env` file in the root directory and add your valid test user credentials:
+Create a `.env` file in the root directory and add your valid test user credentials:
 ```env
+HEADLESS_MODE=false
 ALLOW_MASS_DELETE=false
-HEADLESS_MODE=true
 USER_EMAIL=your_valid_email@gmail.com
 USER_PASSWORD=Your_Valid_Password123$
-BASE_URL=(https://telranedu.web.app)
+BASE_URL=https://telranedu.web.app
+API_URL=https://contactapp-telran-backend.herokuapp.com
 ```
-*💡 **Note:** Set `HEADLESS_MODE=true` if you want to run tests in the background without opening the browser window.*
 
-*💡 **Note:** Set `ALLOW_MASS_DELETE=true` if you want to delete all contacts in contacts page*
+## 🏃‍♂️ How to Run Tests
 
-### 3. Run Tests & View Report
-Run the test suite with 2 retries for flaky tests and generate the Allure results:
+**Run all hybrid tests (Selenium UI + API) in parallel:**
 ```bash
-pytest tests/ --clean-alluredir --reruns 2 --reruns-delay 2 --alluredir=allure-results
+pytest tests/ -n auto --clean-alluredir --alluredir=allure-results
 ```
-Serve the Allure report in your browser:
+
+**Run modern Playwright tests (headed mode for debugging):**
+```bash
+pytest tests/test_playwright_login.py -s --headed
+```
+
+**Generate and view Allure Report locally:**
 ```bash
 allure serve allure-results
 ```
 
 ## ☁️ CI/CD & Remote Execution
 This project is fully integrated with **GitHub Actions**. 
-* On every manual trigger (`workflow_dispatch`), the pipeline spins up an Ubuntu runner, installs Microsoft Edge, and executes the test suite in Headless mode.
+* On every manual trigger (`workflow_dispatch`), the pipeline spins up an Ubuntu runner, installs Chrome, and executes the test suite in parallel Headless mode.
 * It securely accesses credentials via **GitHub Secrets**.
-* Upon completion, it automatically generates an Allure report, deploys it to **GitHub Pages**, and sends a notification with the link to Telegram.
-
-## 📋 Test Coverage
-The project includes both positive and negative scenarios covering the core CRUD operations and security features:
-* **Authentication:** User Login, Registration, Logout & Security redirects.
-* **Contacts Management:** 
-  * Creating new contacts.
-  * Editing existing contacts (with dynamic field updates).
-  * Deleting contacts.
-* **Bug Tracking:** Known frontend bugs (e.g., lack of required fields validation during editing, saving duplicates) are isolated and documented using `@pytest.mark.xfail`.
+* Automatically uploads Log archives as workflow artifacts.
+* Generates an Allure report, deploys it to **GitHub Pages**, and sends a notification with the link to Telegram.
 
 ## 🏗 Project Structure
 ```text
 QA3553_Phonebook/
 ├── .github/workflows/    # CI/CD pipeline configuration (tests.yml)
-├── data/                 # Data generators and static files (Faker, CSV)
+├── api_tests/            # Pure API test suites
+├── data/                 # Test data generators (Faker, DataClasses)
 ├── models/               # Data models (Contact, User)
-├── pages/                # Page Object classes (base_page, login_page, contacts_page)
-├── tests/                # Test suites (test_login, test_add, test_edit, test_logout)
-├── conftest.py           # Pytest fixtures and WebDriver setup (UI & Headless modes)
+├── pages/                # Page Object classes (Selenium BasePage & Playwright PwBasePage)
+├── tests/                # Hybrid and UI Test suites
+├── utils/                # Custom logger, WebDriver listener, API helpers
+├── logs/                 # Auto-rotating, thread-safe local log files
+├── conftest.py           # Pytest fixtures, Smart Browser Cascading, API Setup
 ├── requirements.txt      # Project dependencies
 └── README.md             # Project documentation
 ```
+
+---
+*Author: Maksim Vinogradov*
 
 
 ============================================================
@@ -966,10 +992,11 @@ class BasePage:
         """
         display_value = "********" if is_secret else value
 
-        # Оборачиваем действие в шаг Allure для красивого отчета
         with allure.step(f"Ввод текста '{display_value}' в поле {locator}"):
-            self.find(locator).clear()
-            self.find(locator).send_keys(value)  # А вот в браузер летит настоящий пароль!
+            # Ищем элемент ровно ОДИН раз и сохраняем его в память
+            element = self.find(locator)
+            element.clear()
+            element.send_keys(value)
 
     # ==========================================
     # ОБЩИЕ ЭЛЕМЕНТЫ НАВИГАЦИИ (HEADER)
@@ -1266,6 +1293,96 @@ class LoginPage(BasePage):
 
     def accept_alert(self):
         self.driver.switch_to.alert.accept()
+
+============================================================
+📄 FILE: .\pages\pw_base_page.py
+============================================================
+
+import allure
+from playwright.sync_api import Page, Locator
+from utils.logger import get_logger
+
+
+class PwBasePage:
+    def __init__(self, page: Page):
+        self.page = page
+        self.base_url = "https://telranedu.web.app"
+        self.expect_timeout = 10000
+
+        # Подключаем логгер с уникальным именем для Playwright
+        self.logger = get_logger("PW")
+
+    def open_url(self, path: str = ""):
+        url = f"{self.base_url}{path}"
+        self.logger.info(f"Переход по ссылке: {url}")
+
+        with allure.step(f"Открытие URL: {url}"):
+            self.page.goto(url)
+
+    def fill(self, locator: Locator, value: str, is_secret: bool = False):
+        """Универсальный метод ввода с логированием и маскировкой Allure"""
+        display_value = "********" if is_secret else value
+
+        self.logger.info("Ввод данных в поле формы...")
+        with allure.step(f"Ввод текста '{display_value}'"):
+            locator.fill(value)
+
+    def click(self, locator: Locator, element_name: str = "Элемент"):
+        """Универсальный клик с логированием"""
+        self.logger.info(f"Клик по элементу: '{element_name}'")
+
+        with allure.step(f"Клик по элементу: {element_name}"):
+            locator.click()
+
+============================================================
+📄 FILE: .\pages\pw_login_page.py
+============================================================
+
+import allure
+from playwright.sync_api import Page, expect
+from pages.pw_base_page import PwBasePage
+
+
+class PwLoginPage(PwBasePage):
+    def __init__(self, page: Page):
+        super().__init__(page)
+        self.endpoint = "/login"
+
+        # --- ЛОКАТОРЫ PLAYWRIGHT ---
+        self.email_input = page.locator("input[name='email']")
+        self.password_input = page.locator("input[name='password']")
+        self.login_btn = page.locator("button", has_text="Login")
+        self.sign_out_btn = page.locator("button", has_text="Sign Out")
+
+    # --- ДЕЙСТВИЯ ---
+    def open(self):
+        self.open_url(self.endpoint)
+
+    def fill_email(self, email: str):
+        # Используем наш умный метод fill из PwBasePage
+        self.fill(self.email_input, email)
+
+    def fill_password(self, password: str):
+        # Передаем флаг is_secret, и пароль замаскируется и в логах, и в Allure!
+        self.fill(self.password_input, password, is_secret=True)
+
+    def submit_login(self):
+        # Передаем имя элемента для красивых логов
+        self.click(self.login_btn, "Login")
+
+    def login(self, email, password):
+        self.fill_email(email)
+        self.fill_password(password)
+        self.submit_login()
+
+    # --- ПРОВЕРКИ (ASSERTS) ---
+    def check_sign_out_visible(self):
+        self.logger.info("Проверка: Ожидаем появление кнопки Sign Out...")
+
+        with allure.step("Проверка успешной авторизации (появление кнопки Sign Out)"):
+            expect(self.sign_out_btn).to_be_visible(timeout=self.expect_timeout)
+
+        self.logger.info("Проверка пройдена: кнопка Sign Out появилась!")
 
 ============================================================
 📄 FILE: .\pages\__init__.py
@@ -2011,6 +2128,33 @@ class TestLogout:
             "ПРОВЕРКА: Ожидаем принудительный редирект. Убеждаемся, что мы на странице авторизации (видна кнопка Login)")
         assert login_page.is_login_button_visible(), "УЯЗВИМОСТЬ: Система пустила анонима на страницу контактов!"
         logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Уязвимость не обнаружена) ---")
+
+============================================================
+📄 FILE: .\tests\test_playwright_login.py
+============================================================
+
+import os
+import allure
+from playwright.sync_api import Page
+from pages.pw_login_page import PwLoginPage
+
+VALID_EMAIL = os.getenv("USER_EMAIL")
+VALID_PASSWORD = os.getenv("USER_PASSWORD")
+
+@allure.epic("Playwright Testing")
+@allure.feature("Login")
+@allure.story("Positive Login (Playwright + POM)")
+@allure.severity(allure.severity_level.BLOCKER)
+def test_pw_login_success(page: Page): # <--- Берем встроенную фикстуру page
+    # 1. Инициализируем Page Object
+    pw_login_page = PwLoginPage(page)
+
+    # 2. Открываем страницу и логинимся
+    pw_login_page.open()
+    pw_login_page.login(VALID_EMAIL, VALID_PASSWORD)
+
+    # 3. Проверяем результат встроенным expect()
+    pw_login_page.check_sign_out_visible()
 
 ============================================================
 📄 FILE: .\tests\__init__.py

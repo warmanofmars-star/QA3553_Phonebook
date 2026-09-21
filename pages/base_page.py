@@ -37,10 +37,11 @@ class BasePage:
         """
         display_value = "********" if is_secret else value
 
-        # Оборачиваем действие в шаг Allure для красивого отчета
         with allure.step(f"Ввод текста '{display_value}' в поле {locator}"):
-            self.find(locator).clear()
-            self.find(locator).send_keys(value)  # А вот в браузер летит настоящий пароль!
+            # Ищем элемент ровно ОДИН раз и сохраняем его в память
+            element = self.find(locator)
+            element.clear()
+            element.send_keys(value)
 
     # ==========================================
     # ОБЩИЕ ЭЛЕМЕНТЫ НАВИГАЦИИ (HEADER)
