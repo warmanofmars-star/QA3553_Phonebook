@@ -42,26 +42,28 @@ def test_login_success(driver):
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
-#НЕГАТИВНЫЕ СЦЕНАРИИ
-# Заранее генерируем данные для негативных сценариев
-bad_email_user = UserGenerator.get_user_with_invalid_email()
-bad_password_user = UserGenerator.get_user_with_invalid_password()
-unregistered_user = UserGenerator.get_valid_user()
-valid_user = UserGenerator.get_valid_user()
-
-
+# НЕГАТИВНЫЕ СЦЕНАРИИ
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("email, password, scenario_name", [
-    (bad_email_user.email, bad_email_user.password, "Невалидный формат email"),
-    (EXISTING_EMAIL, bad_password_user.password, "Валидный email, но невалидный пароль"),
-    (unregistered_user.email, unregistered_user.password, "Несуществующий пользователь")
+@pytest.mark.parametrize("scenario_key, scenario_name", [
+    ("invalid_email", "Невалидный формат email"),
+    ("invalid_password", "Валидный email, но невалидный пароль"),
+    ("unregistered", "Несуществующий пользователь")
 ])
-
-
-def test_login_negative(driver, email, password, scenario_name):
+def test_login_negative(driver, scenario_key, scenario_name):
     """Негативные тесты: Авторизация с неверными данными"""
     logger.info(f"--- ЗАПУСК ТЕСТА: test_login_negative ---")
     logger.info(f"СЦЕНАРИЙ: {scenario_name}")
+
+    # 🛠 Генерируем данные внутри теста на основе ключа сценария
+    if scenario_key == "invalid_email":
+        user = UserGenerator.get_user_with_invalid_email()
+        email, password = user.email, user.password
+    elif scenario_key == "invalid_password":
+        email = EXISTING_EMAIL
+        password = UserGenerator.get_user_with_invalid_password().password
+    elif scenario_key == "unregistered":
+        user = UserGenerator.get_valid_user()
+        email, password = user.email, user.password
 
     login_page = LoginPage(driver)
 
@@ -79,7 +81,6 @@ def test_login_negative(driver, email, password, scenario_name):
     assert "Wrong email or password" in login_page.get_alert_text(), f"Ошибка: Неверный текст Alert при сценарии '{scenario_name}'!"
     login_page.accept_alert()
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
-
 
 
 # ==========================================
@@ -112,22 +113,28 @@ def test_registration_success(driver):
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
-#НЕГАТИВНЫЕ СЦЕНАРИИ
+# НЕГАТИВНЫЕ СЦЕНАРИИ
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("email, password, expected_alert, scenario_name", [
-    # 1. Сценарий: Пользователь уже существует (используем EXISTING_EMAIL из окружения)
-    (EXISTING_EMAIL, valid_user.password, "User already exist", "Регистрация уже существующего пользователя"),
-
-    # 2. Сценарий: Сломанный email (формат)
-    (bad_email_user.email, bad_email_user.password, "Wrong email or password format", "Невалидный формат email"),
-
-    # 3. Сценарий: Сломанный пароль (короткий)
-    (valid_user.email, bad_password_user.password, "Wrong email or password format", "Невалидный формат пароля")
+@pytest.mark.parametrize("scenario_key, expected_alert, scenario_name", [
+    ("existing_user", "User already exist", "Регистрация уже существующего пользователя"),
+    ("invalid_email", "Wrong email or password format", "Невалидный формат email"),
+    ("invalid_password", "Wrong email or password format", "Невалидный формат пароля")
 ])
-def test_registration_negative(driver, email, password, expected_alert, scenario_name):
+def test_registration_negative(driver, scenario_key, expected_alert, scenario_name):
     """Негативные тесты: Регистрация с неверными данными или существующим email"""
     logger.info(f"--- ЗАПУСК ТЕСТА: test_registration_negative ---")
     logger.info(f"СЦЕНАРИЙ: {scenario_name}")
+
+    # 🛠 Генерируем данные внутри теста на основе ключа сценария
+    if scenario_key == "existing_user":
+        email = EXISTING_EMAIL
+        password = UserGenerator.get_valid_user().password
+    elif scenario_key == "invalid_email":
+        user = UserGenerator.get_user_with_invalid_email()
+        email, password = user.email, user.password
+    elif scenario_key == "invalid_password":
+        email = UserGenerator.get_valid_user().email
+        password = UserGenerator.get_user_with_invalid_password().password
 
     login_page = LoginPage(driver)
 
