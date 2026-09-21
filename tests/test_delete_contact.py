@@ -82,6 +82,9 @@ def test_delete_multiple_contacts(authenticated_driver, api_token):
 
     phones_to_delete = []
 
+    # ==========================================
+    # ПРЕДУСЛОВИЕ ЧЕРЕЗ API
+    # ==========================================
     with allure.step("API PRECONDITION: Создаем 2 временных контакта через бэкенд"):
         headers = {"Authorization": f"Bearer {api_token}"}
 
@@ -94,6 +97,9 @@ def test_delete_multiple_contacts(authenticated_driver, api_token):
             phones_to_delete.append(contact.phone)
             logger.info(f"  -> API создал временный контакт №{i + 1} с телефоном: {contact.phone}")
 
+    # ==========================================
+    # ШАГИ ТЕСТА ЧЕРЕЗ UI
+    # ==========================================
     with allure.step(f"UI SCENARIO: Точечное удаление контактов из списка: {phones_to_delete}"):
         contacts_page.open()
 
@@ -103,17 +109,18 @@ def test_delete_multiple_contacts(authenticated_driver, api_token):
             message="Список контактов так и не загрузился!"
         )
 
+        # Убеждаемся, что наши карточки подгрузились
         contacts_page.contact_card_visible(phones_to_delete[0])
 
-        initial_count = contacts_page.get_all_contacts_count()
-        logger.info(f"ПОДГОТОВКА: Запоминаем количество контактов ДО удаления: {initial_count}")
-
+        # Удаляем контакты селениумом (без подсчета общего количества)
         contacts_page.delete_specific_contacts(phones_to_delete)
 
-    with allure.step("UI ASSERT: Проверяем, что общее количество уменьшилось ровно на 2"):
-        final_count = contacts_page.get_all_contacts_count()
-        logger.info(f"ПРОВЕРКА: Количество ПОСЛЕ удаления: {final_count}")
+    # ==========================================
+    # ПРОВЕРКА
+    # ==========================================
+    with allure.step("UI ASSERT: Проверяем, что удаленные контакты больше не отображаются"):
+        for phone in phones_to_delete:
+            assert contacts_page.is_contact_deleted(phone), \
+                f"Ошибка: Карточка с телефоном {phone} не удалилась из списка!"
 
-        assert final_count == initial_count - 2, \
-            f"Ошибка: Ожидалось {initial_count - 2} контактов, но осталось {final_count}!"
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
