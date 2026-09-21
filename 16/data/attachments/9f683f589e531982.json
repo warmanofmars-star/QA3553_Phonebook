@@ -1,0 +1,9 @@
+{
+    "name": "API_UPDATED_NAME",
+    "lastName": "Smith",
+    "phone": "0590813009",
+    "email": "josephfigueroa@example.net",
+    "address": "8537 Troy Mountains Suite 282\nSouth Matthew, NJ 13981",
+    "description": "This contact was updated via API",
+    "id": "3ec188ea-c13a-47a8-8051-1db7e2c329e2"
+}

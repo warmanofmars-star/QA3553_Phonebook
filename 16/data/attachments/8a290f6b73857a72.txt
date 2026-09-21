@@ -1,0 +1,43 @@
+INFO     UI:base_page.py:24 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/login
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='email']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='password']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Login']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Login'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     TEST:test_delete_contact.py:80 --- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_multiple_contacts ---
+INFO     TEST:test_delete_contact.py:95   -> API создал временный контакт №1 с телефоном: 0591690430
+INFO     TEST:test_delete_contact.py:95   -> API создал временный контакт №2 с телефоном: 0590646796
+INFO     UI:base_page.py:24 Открываем страницу: https://telranedu.web.app/contacts
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/contacts
+INFO     TEST:test_delete_contact.py:100 СИНХРОНИЗАЦИЯ: Ждем, пока React отрисует массив карточек в DOM
+INFO     UI:listener.py:15 Поиск элемента -> By: class name, Value: 'contact-item_card__2SOIM'
+INFO     UI:listener.py:15 Поиск элемента -> By: class name, Value: 'contact-item_card__2SOIM'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0591690430']'
+INFO     UI:listener.py:15 Поиск элемента -> By: class name, Value: 'contact-item_card__2SOIM'
+INFO     TEST:test_delete_contact.py:109 ПОДГОТОВКА: Запоминаем количество контактов ДО удаления: 115
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0591690430']/..'
+INFO     UI:listener.py:22 Клик по элементу <div> с текстом: 'Hector
+0591690430'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Remove']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Remove'
+INFO     UI:base_page.py:78 Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0591690430']")
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0591690430']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0591690430']'
+INFO     UI:base_page.py:83 Элемент успешно исчез со страницы
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0590646796']/..'
+INFO     UI:listener.py:22 Клик по элементу <div> с текстом: 'Russell
+0590646796'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Remove']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Remove'
+INFO     UI:base_page.py:78 Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0590646796']")
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0590646796']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0590646796']'
+INFO     UI:base_page.py:83 Элемент успешно исчез со страницы
+INFO     UI:listener.py:15 Поиск элемента -> By: class name, Value: 'contact-item_card__2SOIM'
+INFO     TEST:test_delete_contact.py:115 ПРОВЕРКА: Количество ПОСЛЕ удаления: 115

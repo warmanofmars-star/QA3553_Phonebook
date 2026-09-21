@@ -1,0 +1,20 @@
+INFO     TEST:test_login.py:93 --- ЗАПУСК ТЕСТА: test_registration_success ---
+INFO     TEST:test_login.py:96 ШАГ 1: Открываем страницу авторизации
+INFO     UI:base_page.py:24 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/login
+INFO     TEST:test_login.py:100 ПОДГОТОВКА: Получаем абсолютно нового уникального пользователя
+INFO     TEST:test_login.py:103 ШАГ 2: Регистрируем нового юзера: gcgixzja_1789976454@gmail.com
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='email']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='password']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     TEST:test_login.py:107 ШАГ 3: Нажимаем кнопку Registration
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'button[name='registration']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Registration'
+INFO     TEST:test_login.py:111 ПРОВЕРКА: Убеждаемся, что после регистрации мы успешно авторизованы
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     TEST:test_login.py:113 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---
