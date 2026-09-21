@@ -14,6 +14,10 @@ logger = get_logger("TEST")
 # ==========================================
 # ПОЗИТИВНЫЕ ТЕСТЫ
 # ==========================================
+
+@allure.epic("UI Testing")
+@allure.feature("Contacts Management")
+@allure.story("Test Add Contact Success All Fields")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_add_contact_success_all_fields(authenticated_driver):
     logger.info("--- ЗАПУСК ТЕСТА: test_add_contact_success_all_fields ---")
@@ -47,6 +51,9 @@ def test_add_contact_success_all_fields(authenticated_driver):
 # НЕГАТИВНЫЕ ТЕСТЫ (Данные берутся из CSV)
 # ==========================================
 
+@allure.epic("UI Testing")
+@allure.feature("Contacts Management")
+@allure.story("Negative Add Contact")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error",
                          load_contact_data_from_csv())
@@ -88,6 +95,9 @@ def test_add_contact_negative(authenticated_driver, name, last_name, phone, emai
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
+@allure.epic("UI Testing")
+@allure.feature("Contacts Management")
+@allure.story("Test Add contact: Duplicate Phone")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
 def test_add_contact_duplicate_phone(authenticated_driver):

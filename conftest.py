@@ -124,3 +124,9 @@ def api_token():
 
     # Возвращаем сам токен (строку)
     return response.json().get("token")
+
+def pytest_make_parametrize_id(val):
+    """
+    Хук Pytest: запрещает экранировать кириллицу в ID параметризованных тестов.
+    """
+    return str(val)
