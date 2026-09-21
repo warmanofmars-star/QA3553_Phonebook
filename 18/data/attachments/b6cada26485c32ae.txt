@@ -1,0 +1,17 @@
+INFO     TEST:test_login.py:54 --- ЗАПУСК ТЕСТА: test_login_negative ---
+INFO     TEST:test_login.py:55 СЦЕНАРИЙ: Невалидный формат email
+INFO     TEST:test_login.py:70 ШАГ 1: Открываем страницу авторизации
+INFO     UI:base_page.py:24 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/login
+INFO     TEST:test_login.py:73 ШАГ 2: Вводим данные -> Email: 'invalid_email.com', Password: '8bpP4#oi1&J2aF'
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='email']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='password']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     TEST:test_login.py:77 ШАГ 3: Нажимаем кнопку Login
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Login']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Login'
+INFO     TEST:test_login.py:80 ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'
+INFO     TEST:test_login.py:83 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---
