@@ -1,7 +1,9 @@
 import allure
 import os
+import pytest
 from utils.api_helper import make_api_request
 from dotenv import load_dotenv
+from utils.logger import get_logger
 
 # Загружаем переменные окружения
 load_dotenv()
@@ -10,6 +12,8 @@ load_dotenv()
 API_URL = os.getenv("API_URL")
 USER_EMAIL = os.getenv("USER_EMAIL")
 USER_PASSWORD = os.getenv("USER_PASSWORD")
+
+logger = get_logger("API")
 
 
 @allure.epic("API Testing") # Глобальный раздел в отчете
@@ -31,13 +35,10 @@ def test_api_login_success():
     # 3. Делаем POST-запрос
     response = make_api_request("POST", endpoint, json=payload)
 
-    # 4. Проверяем, что сервер ответил статусом 200 (OK)
-    assert response.status_code == 200, f"Ошибка авторизации! Сервер вернул: {response.text}"
-
-    # 5. Достаем токен из ответа
-    token = response.json().get("token")
-
-    # Проверяем, что токен не пустой
-    assert token is not None, "Токен не пришел в ответе!"
-
-    print(f"\n[УСПЕХ] Сервер выдал токен: {token[:15]}... (скрыто для безопасности)")
+    if response.status_code == 200:
+        token = response.json().get("token")
+        assert token is not None, "Токен не пришел в ответе!"
+        logger.info(f"[LOGIN УСПЕХ] Сервер выдал токен: {token[:15]}... (скрыто для безопасности)")
+    else:
+        logger.error(f"[LOGIN ОШИБКА] Сбой авторизации: {response.status_code} - {response.text}")
+        pytest.fail("API не смог авторизовать пользователя")

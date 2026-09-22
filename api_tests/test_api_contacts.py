@@ -1,11 +1,19 @@
 import allure
 import os
+import pytest
 from utils.api_helper import make_api_request
+from utils.logger import get_logger
 from data.data_generator import ContactGenerator
 from dotenv import load_dotenv
 
+from jsonschema import validate, ValidationError
+from schemas.contact_schemas import GET_CONTACTS_RESPONSE_SCHEMA
+
 load_dotenv()
 API_URL = os.getenv("API_URL")
+
+# Подключаем логгер для API
+logger = get_logger("API")
 
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
@@ -23,8 +31,21 @@ def test_api_get_all_contacts(api_token):
     response = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     assert response.status_code == 200, f"Ошибка при получении контактов: {response.text}"
 
+    # ==========================================
+    # 🛠 СТРОГАЯ ВАЛИДАЦИЯ КОНТРАКТА (JSON SCHEMA)
+    # ==========================================
+    try:
+        validate(instance=response.json(), schema=GET_CONTACTS_RESPONSE_SCHEMA)
+        logger.info("Контракт API (JSON Schema) успешно провалидирован!")
+    except ValidationError as e:
+        pytest.fail(f"Бэкенд нарушил контракт Swagger!\nОшибка структуры: {e.message}")
+
+    # ==========================================
+    # 🎯 БИЗНЕС-ПРОВЕРКА (Наличие конкретных данных)
+    # ==========================================
     contacts_list = response.json().get("contacts", [])
     all_phones = [c.get("phone") for c in contacts_list]
+
 
     assert contact.phone in all_phones, f"Созданный контакт с телефоном {contact.phone} не найден в базе!"
     print(f"\n[GET УСПЕХ] Контакт успешно найден в списке из {len(contacts_list)} записей.")

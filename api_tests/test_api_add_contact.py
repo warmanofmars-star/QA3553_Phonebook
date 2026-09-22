@@ -3,8 +3,10 @@ import os
 import pytest
 from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
+from utils.logger import get_logger
 
 API_URL = os.getenv("API_URL")
+logger = get_logger("API")
 
 
 @allure.epic("API Testing")
@@ -19,8 +21,12 @@ def test_api_add_contact(api_token):
     contact_payload = contact.to_api_payload()
 
     response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
-    assert response.status_code == 200, f"Ошибка! Сервер вернул: {response.text}"
-    print(f"\n[УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
+
+    if response.status_code == 200:
+        logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
+    else:
+        logger.error(f"[POST ОШИБКА] Сервер вернул: {response.status_code} - {response.text}")
+        pytest.fail("API не смог создать контакт")
 
 
 # Негативные тесты
@@ -38,7 +44,12 @@ def test_api_add_contact_missing_required_field(api_token):
     del contact_payload["name"]
 
     response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
-    assert response.status_code == 400, f"БАГ БЭКЕНДА: Сервер принял контакт без имени! Статус: {response.status_code}"
+
+    if response.status_code == 400:
+        logger.info("[POST УСПЕХ (Негативный)] Сервер корректно отклонил контакт без имени (400 Bad Request)")
+    else:
+        logger.error(f"[POST БАГ] Сервер принял невалидный контакт! Статус: {response.status_code} - {response.text}")
+        pytest.fail("БАГ БЭКЕНДА: Сервер принял контакт без имени!")
 
 
 @allure.epic("API Testing")
@@ -58,4 +69,10 @@ def test_api_add_contact_duplicate(api_token):
 
     # 2. Пытаемся закинуть ТОТ ЖЕ САМЫЙ payload второй раз
     res_second = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
-    assert res_second.status_code == 409, f"БАГ БЭКЕНДА: Сервер позволил создать дубликат! Статус: {res_second.status_code}"
+
+    if res_second.status_code == 409:
+        logger.info("[POST УСПЕХ (Негативный)] Сервер корректно заблокировал дубликат (409 Conflict)")
+    else:
+        logger.error(
+            f"[POST БАГ] Сервер позволил создать дубликат! Статус: {res_second.status_code} - {res_second.text}")
+        pytest.fail("БАГ БЭКЕНДА: Сервер позволил создать дубликат!")

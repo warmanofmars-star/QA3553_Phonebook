@@ -10,6 +10,7 @@ USER_EMAIL=warman.of.mars.2@gmail.com
 USER_PASSWORD=Wwar123456$
 BASE_URL=https://telranedu.web.app
 API_URL=https://contactapp-telran-backend.herokuapp.com
+PW_TIMEOUT=10000
 
 ============================================================
 📄 FILE: .\conftest.py
@@ -474,8 +475,10 @@ import os
 import pytest
 from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
+from utils.logger import get_logger
 
 API_URL = os.getenv("API_URL")
+logger = get_logger("API")
 
 
 @allure.epic("API Testing")
@@ -490,8 +493,12 @@ def test_api_add_contact(api_token):
     contact_payload = contact.to_api_payload()
 
     response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
-    assert response.status_code == 200, f"Ошибка! Сервер вернул: {response.text}"
-    print(f"\n[УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
+
+    if response.status_code == 200:
+        logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
+    else:
+        logger.error(f"[POST ОШИБКА] Сервер вернул: {response.status_code} - {response.text}")
+        pytest.fail("API не смог создать контакт")
 
 
 # Негативные тесты
@@ -509,7 +516,12 @@ def test_api_add_contact_missing_required_field(api_token):
     del contact_payload["name"]
 
     response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
-    assert response.status_code == 400, f"БАГ БЭКЕНДА: Сервер принял контакт без имени! Статус: {response.status_code}"
+
+    if response.status_code == 400:
+        logger.info("[POST УСПЕХ (Негативный)] Сервер корректно отклонил контакт без имени (400 Bad Request)")
+    else:
+        logger.error(f"[POST БАГ] Сервер принял невалидный контакт! Статус: {response.status_code} - {response.text}")
+        pytest.fail("БАГ БЭКЕНДА: Сервер принял контакт без имени!")
 
 
 @allure.epic("API Testing")
@@ -529,7 +541,13 @@ def test_api_add_contact_duplicate(api_token):
 
     # 2. Пытаемся закинуть ТОТ ЖЕ САМЫЙ payload второй раз
     res_second = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
-    assert res_second.status_code == 409, f"БАГ БЭКЕНДА: Сервер позволил создать дубликат! Статус: {res_second.status_code}"
+
+    if res_second.status_code == 409:
+        logger.info("[POST УСПЕХ (Негативный)] Сервер корректно заблокировал дубликат (409 Conflict)")
+    else:
+        logger.error(
+            f"[POST БАГ] Сервер позволил создать дубликат! Статус: {res_second.status_code} - {res_second.text}")
+        pytest.fail("БАГ БЭКЕНДА: Сервер позволил создать дубликат!")
 
 ============================================================
 📄 FILE: .\api_tests\test_api_contacts.py
@@ -537,12 +555,20 @@ def test_api_add_contact_duplicate(api_token):
 
 import allure
 import os
+import pytest
 from utils.api_helper import make_api_request
+from utils.logger import get_logger
 from data.data_generator import ContactGenerator
 from dotenv import load_dotenv
 
+from jsonschema import validate, ValidationError
+from schemas.contact_schemas import GET_CONTACTS_RESPONSE_SCHEMA
+
 load_dotenv()
 API_URL = os.getenv("API_URL")
+
+# Подключаем логгер для API
+logger = get_logger("API")
 
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
@@ -560,8 +586,21 @@ def test_api_get_all_contacts(api_token):
     response = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     assert response.status_code == 200, f"Ошибка при получении контактов: {response.text}"
 
+    # ==========================================
+    # 🛠 СТРОГАЯ ВАЛИДАЦИЯ КОНТРАКТА (JSON SCHEMA)
+    # ==========================================
+    try:
+        validate(instance=response.json(), schema=GET_CONTACTS_RESPONSE_SCHEMA)
+        logger.info("Контракт API (JSON Schema) успешно провалидирован!")
+    except ValidationError as e:
+        pytest.fail(f"Бэкенд нарушил контракт Swagger!\nОшибка структуры: {e.message}")
+
+    # ==========================================
+    # 🎯 БИЗНЕС-ПРОВЕРКА (Наличие конкретных данных)
+    # ==========================================
     contacts_list = response.json().get("contacts", [])
     all_phones = [c.get("phone") for c in contacts_list]
+
 
     assert contact.phone in all_phones, f"Созданный контакт с телефоном {contact.phone} не найден в базе!"
     print(f"\n[GET УСПЕХ] Контакт успешно найден в списке из {len(contacts_list)} записей.")
@@ -623,10 +662,12 @@ import os
 from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
 from dotenv import load_dotenv
+from utils.logger import get_logger
 
 load_dotenv()
 API_URL = os.getenv("API_URL")
 ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
+logger = get_logger("API")
 
 
 @allure.epic("API Testing")
@@ -654,7 +695,12 @@ def test_api_delete_contact(api_token):
 
     # 2. ШАГ ТЕСТА: Удаляем контакт по ID
     response_delete = make_api_request("DELETE", f"{API_URL}/v1/contacts/{target_id}", headers=headers)
-    assert response_delete.status_code == 200, f"Ошибка удаления: {response_delete.text}"
+
+    if response_delete.status_code == 200:
+        logger.info(f"[DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)")
+    else:
+        logger.error(f"[DELETE ОШИБКА] Сбой при удалении: {response_delete.status_code} - {response_delete.text}")
+        pytest.fail("API не смог удалить контакт")
 
     # 3. ПРОВЕРКА: Убеждаемся, что контакт реально исчез из базы
     response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
@@ -662,7 +708,7 @@ def test_api_delete_contact(api_token):
     ids_after = [c.get("id") for c in contacts_after]
 
     assert target_id not in ids_after, "БАГ: Контакт не удалился из базы данных!"
-    print(f"\n[DELETE УСПЕХ] Контакт {target_id} успешно удален!")
+    logger.info(f"[DELETE ПРОВЕРКА] Контакт {target_id} действительно исчез из базы!")
 
 
 @allure.epic("API Testing")
@@ -675,13 +721,17 @@ def test_api_clear_all_contacts(api_token):
     headers = {"Authorization": f"Bearer {api_token}"}
 
     response_clear = make_api_request("DELETE", f"{API_URL}/v1/contacts/clear", headers=headers)
-    assert response_clear.status_code == 200, f"Ошибка массового удаления: {response_clear.text}"
+    if response_clear.status_code == 200:
+        logger.info("[CLEAR УСПЕХ] Запрос на массовое очищение выполнен")
+    else:
+        logger.error(f"[CLEAR ОШИБКА] Сбой массового удаления: {response_clear.status_code} - {response_clear.text}")
+        pytest.fail("API не смог очистить базу")
 
     response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
     contacts_after = response_check.json().get("contacts", [])
 
     assert len(contacts_after) == 0, f"БАГ: База не пуста! Осталось {len(contacts_after)} контактов."
-    print(f"\n[CLEAR УСПЕХ] Все 127+ контактов стерты в порошок. База девственно чиста!")
+    logger.info("[CLEAR ПРОВЕРКА] Все контакты стерты в порошок. База девственно чиста!")
 
 ============================================================
 📄 FILE: .\api_tests\test_api_login.py
@@ -689,8 +739,10 @@ def test_api_clear_all_contacts(api_token):
 
 import allure
 import os
+import pytest
 from utils.api_helper import make_api_request
 from dotenv import load_dotenv
+from utils.logger import get_logger
 
 # Загружаем переменные окружения
 load_dotenv()
@@ -699,6 +751,8 @@ load_dotenv()
 API_URL = os.getenv("API_URL")
 USER_EMAIL = os.getenv("USER_EMAIL")
 USER_PASSWORD = os.getenv("USER_PASSWORD")
+
+logger = get_logger("API")
 
 
 @allure.epic("API Testing") # Глобальный раздел в отчете
@@ -720,16 +774,13 @@ def test_api_login_success():
     # 3. Делаем POST-запрос
     response = make_api_request("POST", endpoint, json=payload)
 
-    # 4. Проверяем, что сервер ответил статусом 200 (OK)
-    assert response.status_code == 200, f"Ошибка авторизации! Сервер вернул: {response.text}"
-
-    # 5. Достаем токен из ответа
-    token = response.json().get("token")
-
-    # Проверяем, что токен не пустой
-    assert token is not None, "Токен не пришел в ответе!"
-
-    print(f"\n[УСПЕХ] Сервер выдал токен: {token[:15]}... (скрыто для безопасности)")
+    if response.status_code == 200:
+        token = response.json().get("token")
+        assert token is not None, "Токен не пришел в ответе!"
+        logger.info(f"[LOGIN УСПЕХ] Сервер выдал токен: {token[:15]}... (скрыто для безопасности)")
+    else:
+        logger.error(f"[LOGIN ОШИБКА] Сбой авторизации: {response.status_code} - {response.text}")
+        pytest.fail("API не смог авторизовать пользователя")
 
 ============================================================
 📄 FILE: .\api_tests\__init__.py
@@ -968,6 +1019,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 from utils.logger import get_logger
+from selenium.webdriver.remote.webelement import WebElement
 
 load_dotenv()
 
@@ -986,10 +1038,10 @@ class BasePage:
         self.logger.info(f"Открываем страницу: {url}")
         self.driver.get(url)
 
-    def find(self, locator):
+    def find(self, locator: tuple[str, str]) -> WebElement:
         return self.driver.find_element(*locator)
 
-    def click(self, locator):
+    def click(self, locator: tuple[str, str]) -> None:
         self.find(locator).click()
 
     def fill(self, locator, value, is_secret=False):
@@ -1306,6 +1358,7 @@ class LoginPage(BasePage):
 ============================================================
 
 import allure
+import os
 from playwright.sync_api import Page, Locator
 from utils.logger import get_logger
 
@@ -1314,7 +1367,10 @@ class PwBasePage:
     def __init__(self, page: Page):
         self.page = page
         self.base_url = "https://telranedu.web.app"
-        self.expect_timeout = 10000
+
+        # Динамический парсинг переменной из .env с фоллбэком
+        pw_timeout = os.getenv("PW_TIMEOUT", "10000")
+        self.expect_timeout = int(pw_timeout)
 
         # Подключаем логгер с уникальным именем для Playwright
         self.logger = get_logger("PW")
@@ -1393,6 +1449,48 @@ class PwLoginPage(PwBasePage):
 
 ============================================================
 📄 FILE: .\pages\__init__.py
+============================================================
+
+
+
+============================================================
+📄 FILE: .\schemas\contact_schemas.py
+============================================================
+
+# schemas/contact_schemas.py
+
+# Схема полностью скопирована из Swagger (ContactDto),
+# включая найденную недоработку с отсутствием phone и email в массиве required.
+CONTACT_OBJECT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "lastName": {"type": "string"},
+        "email": {"type": "string"},
+        "phone": {
+            "type": "string",
+            "pattern": "^\\d{10,15}$" # Жесткая проверка из Swagger
+        },
+        "address": {"type": "string"},
+        "description": {"type": "string"}
+    },
+    # Swagger указывает обязательными только эти 3 поля!
+    "required": ["address", "lastName", "name"]
+}
+
+GET_CONTACTS_RESPONSE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "contacts": {
+            "type": "array",
+            "items": CONTACT_OBJECT_SCHEMA
+        }
+    }
+}
+
+============================================================
+📄 FILE: .\schemas\__init__.py
 ============================================================
 
 

@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 from utils.logger import get_logger
+from selenium.webdriver.remote.webelement import WebElement
 
 load_dotenv()
 
@@ -24,10 +25,10 @@ class BasePage:
         self.logger.info(f"Открываем страницу: {url}")
         self.driver.get(url)
 
-    def find(self, locator):
+    def find(self, locator: tuple[str, str]) -> WebElement:
         return self.driver.find_element(*locator)
 
-    def click(self, locator):
+    def click(self, locator: tuple[str, str]) -> None:
         self.find(locator).click()
 
     def fill(self, locator, value, is_secret=False):
