@@ -1,0 +1,1 @@
+ERROR    API:test_api_add_contact.py:76 [POST БАГ] Сервер позволил создать дубликат! Статус: 200 - {"message":"Contact was added! ID: b586105e-e6b5-49df-a7c4-4ea347067a5b"}

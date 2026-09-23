@@ -1,0 +1,1 @@
+INFO     API:test_api_add_contact.py:49 [POST УСПЕХ (Негативный)] Сервер корректно отклонил контакт без имени (400 Bad Request)

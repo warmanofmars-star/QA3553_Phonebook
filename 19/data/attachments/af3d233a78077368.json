@@ -1,0 +1,9 @@
+{
+    "name": "API_UPDATED_NAME",
+    "lastName": "Lewis",
+    "phone": "0537229882",
+    "email": "hgates@example.org",
+    "address": "42686 Benitez Trail\nWest Carolyn, IN 40615",
+    "description": "This contact was updated via API",
+    "id": "d7442c0a-b7d3-463f-a953-0501a2529b72"
+}

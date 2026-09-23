@@ -1,0 +1,2 @@
+INFO     API:test_api_delete.py:42 [DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)
+INFO     API:test_api_delete.py:53 [DELETE ПРОВЕРКА] Контакт b64abf07-ff82-455a-b173-e36481d2c613 действительно исчез из базы!

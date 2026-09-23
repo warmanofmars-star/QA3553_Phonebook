@@ -1,0 +1,29 @@
+INFO     UI:base_page.py:25 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/login
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='email']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='password']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Login']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Login'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     TEST:test_delete_contact.py:22 --- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_contact ---
+INFO     TEST:test_delete_contact.py:30 API успешно создал контакт с телефоном: 0575790599
+INFO     UI:base_page.py:25 Открываем страницу: https://telranedu.web.app/contacts
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/contacts
+INFO     TEST:test_delete_contact.py:37 ШАГ 1: Кликаем по карточке контакта (0575790599)
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0575790599']/..'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0575790599']/..'
+INFO     UI:listener.py:22 Клик по элементу <div> с текстом: 'Nicole
+0575790599'
+INFO     TEST:test_delete_contact.py:39 ШАГ 2: Нажимаем кнопку Remove
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Remove']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Remove'
+INFO     UI:base_page.py:79 Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0575790599']")
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0575790599']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0575790599']'
+INFO     UI:base_page.py:84 Элемент успешно исчез со страницы
+INFO     TEST:test_delete_contact.py:45 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---

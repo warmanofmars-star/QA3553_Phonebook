@@ -1,0 +1,1 @@
+INFO     API:test_api_login.py:41 [LOGIN УСПЕХ] Сервер выдал токен: eyJhbGciOiJIUzI... (скрыто для безопасности)
