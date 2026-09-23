@@ -1,6 +1,8 @@
 import random
 import string
 import time
+import os
+import json
 from faker import Faker
 
 # Импортируем наши модели
@@ -51,6 +53,22 @@ class UserGenerator:
     def get_user_with_invalid_password(cls):
         """Возвращает объект User с валидным email и коротким невалидным паролем"""
         return User(email=cls.generate_valid_email(), password="123")
+
+    @staticmethod
+    def save_user_credentials(user, file_path="data/valid_users.jsonl"):
+        """Потокобезопасное сохранение кредов в единый файл формата JSON Lines."""
+
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+        # Подготавливаем словарь с нужными данными
+        user_data = {
+            "email": user.email,
+            "password": user.password
+        }
+
+        # Режим 'a' (append) и запись строки (json.dumps) за одно атомарное действие
+        with open(file_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(user_data) + "\n")
 
 
 # ==========================================

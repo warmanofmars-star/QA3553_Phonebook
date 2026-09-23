@@ -112,6 +112,10 @@ def test_registration_success(driver):
     assert login_page.is_logged(), "Ошибка: Пользователь не авторизовался после регистрации!"
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
+    # СОХРАНЯЕМ ДАННЫЕ В ФАЙЛ ДЛЯ ИСТОРИИ
+    UserGenerator.save_user_credentials(user)
+    logger.info(f"Данные пользователя {user.email} сохранены в data/valid_users.jsonl")
+
 
 # НЕГАТИВНЫЕ СЦЕНАРИИ
 @allure.severity(allure.severity_level.NORMAL)

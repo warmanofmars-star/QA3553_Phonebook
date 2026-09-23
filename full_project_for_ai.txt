@@ -150,6 +150,60 @@ def pytest_make_parametrize_id(val):
     return str(val)
 
 ============================================================
+📄 FILE: .\export_contacts.py
+============================================================
+
+import os
+import json
+import requests
+from dotenv import load_dotenv
+
+# Загружаем переменные окружения напрямую
+load_dotenv()
+API_URL = os.getenv("API_URL")
+USER_EMAIL = os.getenv("USER_EMAIL")
+USER_PASSWORD = os.getenv("USER_PASSWORD")
+
+
+def export_contacts_to_json():
+    print(f"Авторизация пользователя {USER_EMAIL}...")
+
+    # 1. Получаем токен
+    login_payload = {"username": USER_EMAIL, "password": USER_PASSWORD}
+    auth_res = requests.post(f"{API_URL}/v1/user/login/usernamepassword", json=login_payload)
+
+    if auth_res.status_code != 200:
+        print(f"Ошибка авторизации: {auth_res.status_code}. Проверьте данные в .env")
+        return
+
+    token = auth_res.json().get("token")
+    headers = {"Authorization": f"Bearer {token}"}
+
+    print("Загрузка списка контактов...")
+
+    # 2. Запрашиваем контакты
+    response = requests.get(f"{API_URL}/v1/contacts", headers=headers)
+
+    if response.status_code == 200:
+        contacts = response.json()
+
+        # 3. Сохраняем в папку data
+        os.makedirs("data", exist_ok=True)
+        file_path = "data/exported_contacts.json"
+
+        with open(file_path, "w", encoding="utf-8") as file:
+            json.dump(contacts, file, indent=4, ensure_ascii=False)
+
+        count = len(contacts.get("contacts", []))
+        print(f"✅ Успешно скачано {count} контактов в файл {file_path}")
+    else:
+        print(f"❌ Ошибка API при получении контактов: {response.status_code}")
+
+
+if __name__ == "__main__":
+    export_contacts_to_json()
+
+============================================================
 📄 FILE: .\make_readme.py
 ============================================================
 
@@ -795,6 +849,8 @@ def test_api_login_success():
 import random
 import string
 import time
+import os
+import json
 from faker import Faker
 
 # Импортируем наши модели
@@ -845,6 +901,22 @@ class UserGenerator:
     def get_user_with_invalid_password(cls):
         """Возвращает объект User с валидным email и коротким невалидным паролем"""
         return User(email=cls.generate_valid_email(), password="123")
+
+    @staticmethod
+    def save_user_credentials(user, file_path="data/valid_users.jsonl"):
+        """Потокобезопасное сохранение кредов в единый файл формата JSON Lines."""
+
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+        # Подготавливаем словарь с нужными данными
+        user_data = {
+            "email": user.email,
+            "password": user.password
+        }
+
+        # Режим 'a' (append) и запись строки (json.dumps) за одно атомарное действие
+        with open(file_path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(user_data) + "\n")
 
 
 # ==========================================
@@ -2158,6 +2230,10 @@ def test_registration_success(driver):
     logger.info("ПРОВЕРКА: Убеждаемся, что после регистрации мы успешно авторизованы")
     assert login_page.is_logged(), "Ошибка: Пользователь не авторизовался после регистрации!"
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+
+    # СОХРАНЯЕМ ДАННЫЕ В ФАЙЛ ДЛЯ ИСТОРИИ
+    UserGenerator.save_user_credentials(user)
+    logger.info(f"Данные пользователя {user.email} сохранены в data/valid_users.jsonl")
 
 
 # НЕГАТИВНЫЕ СЦЕНАРИИ
