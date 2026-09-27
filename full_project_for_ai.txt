@@ -472,23 +472,19 @@ jobs:
         run: pytest tests/ api_tests/ -n auto --clean-alluredir --reruns 2 --reruns-delay 2 --alluredir=allure-results
         continue-on-error: true
 
-      - name: Генерируем Allure отчет
-        uses: simple-elf/allure-report-action@v1.9
+      - name: Устанавливаем Allure CLI и генерируем отчет
         if: always()
-        id: allure-report
-        with:
-          allure_results: allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
+        run: |
+          npm install -g allure-commandline --save-dev
+          allure generate allure-results -o allure-report --clean
 
       - name: Публикуем отчет на GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: always()
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Этот токен GitHub выдает сам, создавать секрет НЕ НУЖНО!
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: allure-report
 
 
       - name: Отправляем уведомление в Telegram
