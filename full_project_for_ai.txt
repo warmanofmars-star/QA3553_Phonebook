@@ -473,7 +473,7 @@ jobs:
         continue-on-error: true
 
       - name: Генерируем Allure отчет
-        uses: simple-elf/allure-report-action@master
+        uses: simple-elf/allure-report-action@v1.9
         if: always()
         id: allure-report
         with:
@@ -489,18 +489,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Этот токен GitHub выдает сам, создавать секрет НЕ НУЖНО!
           publish_branch: gh-pages
           publish_dir: allure-history
-
-
-           # ==========================================
-            # 🚀 ПРОДВИНУТЫЙ ВАРИАНТ: СОХРАНЕНИЕ ЛОГОВ
-            # ==========================================
-      - name: Upload Test Logs
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: pytest-test-logs         # Имя архива, который можно будет скачать
-          path: logs/                    # Путь к нашей папке с логами
-          retention-days: 7              # Сколько дней хранить архив на сервере GitHub
 
 
       - name: Отправляем уведомление в Telegram
