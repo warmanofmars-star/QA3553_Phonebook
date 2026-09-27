@@ -1,0 +1,3 @@
+INFO     API:contact_api.py:44 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0516971475]
+INFO     API:contact_api.py:44 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0516971475]
+ERROR    API:test_api_add_contact.py:61 [POST БАГ] Сервер позволил создать дубликат! Статус: 200 - {"message":"Contact was added! ID: 0518a92b-24b7-4664-941e-617329c9ddf5"}

@@ -1,5 +1,0 @@
-INFO     API:contact_api.py:44 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0528105673]
-INFO     API:contact_api.py:57 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:contact_api.py:63 PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts [Обновление контакта ID: da39795d-c6c9-4132-8a30-e4936cacb7d5]
-INFO     API:contact_api.py:57 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:test_api_contacts.py:61 [PUT УСПЕХ] Контакт da39795d-c6c9-4132-8a30-e4936cacb7d5 переименован в API_UPDATED_NAME!

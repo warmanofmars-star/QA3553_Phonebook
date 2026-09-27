@@ -1,3 +1,0 @@
-[32;20m[2026-09-27 12:07:12] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword [User: warman.of.mars.2@gmail.com][0m
-[31;20m[2026-09-27 12:07:12] [ERROR] [API] - Ошибка авторизации: 401 - {"timestamp":"2026-09-27T12:07:12","status":401,"error":"Unauthorized","message":"Login or Password incorrect","path":"/v1/user/login/usernamepassword"}[0m
-[32;20m[2026-09-27 12:07:12] [INFO] [API] - [LOGIN NEGATIVE УСПЕХ] Сценарий 'Неверный пароль' корректно отклонён со статусом 401[0m

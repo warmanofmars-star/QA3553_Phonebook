@@ -1,5 +1,0 @@
-[32;20m[2026-09-27 12:07:11] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0528105673][0m
-[32;20m[2026-09-27 12:07:11] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
-[32;20m[2026-09-27 12:07:12] [INFO] [API] - PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts [Обновление контакта ID: da39795d-c6c9-4132-8a30-e4936cacb7d5][0m
-[32;20m[2026-09-27 12:07:12] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
-[32;20m[2026-09-27 12:07:12] [INFO] [API] - [PUT УСПЕХ] Контакт da39795d-c6c9-4132-8a30-e4936cacb7d5 переименован в API_UPDATED_NAME![0m

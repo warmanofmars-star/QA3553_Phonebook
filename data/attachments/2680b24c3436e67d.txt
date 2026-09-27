@@ -1,0 +1,5 @@
+INFO     API:contact_api.py:44 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0518925121]
+INFO     API:contact_api.py:57 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
+INFO     API:contact_api.py:63 PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts [Обновление контакта ID: 1a6b4782-3cf1-42bd-9c9a-0afe48e3809c]
+INFO     API:contact_api.py:57 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
+INFO     API:test_api_contacts.py:61 [PUT УСПЕХ] Контакт 1a6b4782-3cf1-42bd-9c9a-0afe48e3809c переименован в API_UPDATED_NAME!
