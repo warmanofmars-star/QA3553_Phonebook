@@ -11,7 +11,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest # Виртуальная машина на Linux
+    runs-on: ubuntu-22.04 # Виртуальная машина на Linux
 
     steps:
       - name: Скачиваем код проекта
