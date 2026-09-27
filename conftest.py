@@ -1,13 +1,13 @@
 import os
 import pytest
 import allure
-import requests
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from dotenv import load_dotenv
 from selenium.webdriver.support.events import EventFiringWebDriver
 from utils.listener import PhonebookListener
+from api.contact_api import PhonebookAPI
 
 # Загружаем переменные из .env
 load_dotenv()
@@ -29,6 +29,7 @@ def driver():
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
+        options.add_argument('--lang=en-US')
         driver_instance = webdriver.Chrome(options=options)
 
     else:
@@ -39,6 +40,7 @@ def driver():
             if is_headless:
                 options.add_argument('--headless=new')
             options.add_argument('--window-size=1920,1080')
+            options.add_argument('--lang=en-US')
             driver_instance = webdriver.Chrome(options=options)
 
         except Exception as e:
@@ -50,6 +52,7 @@ def driver():
             if is_headless:
                 options.add_argument('--headless')
             options.add_argument('--window-size=1920,1080')
+            options.add_argument('--lang=en-US')
             driver_instance = webdriver.Edge(options=options)
 
         if not is_headless:
@@ -83,47 +86,39 @@ def authenticated_driver(driver):
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    """
-    Хук, который вызывается после каждой фазы теста (setup, call, teardown).
-    Если тест падает, он делает скриншот экрана и прикрепляет его к Allure-отчету.
-    """
     outcome = yield
     report = outcome.get_result()
 
-    # Проверяем, что тест упал именно на этапе выполнения (call), а не при настройке
     if report.when == 'call' and report.failed:
-        # Пытаемся получить webdriver из фикстур теста
         driver = item.funcargs.get('driver') or item.funcargs.get('authenticated_driver')
 
         if driver:
-            # Формируем читаемое имя для скриншота из названия теста
-            test_name = item.name.replace("/", "_").replace("::", "_")
+            # ЗАЩИТА: Если перед падением остался висеть алерт, гасим его, чтобы не рушился ChromeDriver
+            try:
+                alert = driver.switch_to.alert
+                alert.accept()
+            except Exception:
+                pass # Алерта нет, идем дальше спокойно
 
-            # Прикрепляем скриншот напрямую в Allure (без сохранения на жесткий диск)
+            test_name = item.name.replace("/", "_").replace("::", "_")
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name=f"Скриншот ошибки: {test_name}",
                 attachment_type=allure.attachment_type.PNG
             )
 
-#здесь мы получим токен авторизации для API-тестов и будем вызывать его
 @pytest.fixture(scope="session")
-def api_token():
-    """Получает токен авторизации один раз для всех API-тестов"""
-    api_url = os.getenv("API_URL")
+def auth_api():
+    """Фикстура, которая автоматически создает API-клиента, логинится и возвращает готовую сессию"""
+    api = PhonebookAPI()
+    email = os.getenv("USER_EMAIL")
+    password = os.getenv("USER_PASSWORD")
 
-    login_payload = {
-        "username": os.getenv("USER_EMAIL"),
-        "password": os.getenv("USER_PASSWORD")
-    }
+    with allure.step("Setup Fixture: Автоматическая API-авторизация"):
+        response = api.login(email, password)
+        assert response.status_code == 200, "КРИТИЧЕСКАЯ ОШИБКА: Не удалось получить API токен!"
 
-    response = requests.post(f"{api_url}/v1/user/login/usernamepassword", json=login_payload)
-
-    # Жесткая проверка, чтобы тесты даже не начинались, если бэкенд лежит
-    assert response.status_code == 200, "КРИТИЧЕСКАЯ ОШИБКА: Не удалось получить API токен!"
-
-    # Возвращаем сам токен (строку)
-    return response.json().get("token")
+    return api
 
 def pytest_make_parametrize_id(val):
     """

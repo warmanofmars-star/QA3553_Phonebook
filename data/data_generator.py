@@ -1,6 +1,6 @@
 import random
 import string
-import time
+import uuid
 import os
 import json
 from faker import Faker
@@ -34,10 +34,10 @@ class UserGenerator:
 
     @staticmethod
     def generate_valid_email():
-        """Генерирует уникальный валидный email"""
-        prefix_length = random.randint(5, 10)
-        prefix = ''.join(random.choices(string.ascii_lowercase, k=prefix_length))
-        return f"{prefix}_{int(time.time())}@gmail.com"
+        """Генерирует абсолютно уникальный email, безопасный для xdist"""
+        # uuid4().hex дает уникальную строку из 32 символов. Берем первые 10.
+        unique_id = uuid.uuid4().hex[:10]
+        return f"user_{unique_id}@gmail.com"
 
     @classmethod
     def get_valid_user(cls):
@@ -78,18 +78,20 @@ class ContactGenerator:
 
     @staticmethod
     def get_random_contact(**overrides) -> Contact:
-        """Генерирует случайный контакт. Позволяет переопределять любые поля через **overrides"""
+        """Генерирует случайный контакт с потокобезопасной уникальностью (UUID)"""
+
+        # Получаем абсолютно уникальное число из UUID (int) и берем 8 цифр
+        unique_digits = str(uuid.uuid4().int)[:8]
+        safe_phone = f"05{unique_digits}"  # Гарантированно 10 цифр, начинается с 05
+
         data = {
             "name": fake.first_name(),
             "last_name": fake.last_name(),
-            "phone": fake.unique.numerify("05########"),
-            "email": fake.unique.email(),
+            "phone": safe_phone,  # Прощай, нестабильный fake.unique!
+            "email": UserGenerator.generate_valid_email(),
             "address": fake.address(),
             "description": fake.sentence()
         }
 
-        # Обновляем словарь нашими значениями, если они были переданы
         data.update(overrides)
-
-        # Распаковываем словарь в объект Contact
         return Contact(**data)

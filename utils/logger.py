@@ -3,6 +3,7 @@ import os
 import sys
 import glob
 from datetime import datetime
+from pathlib import Path
 
 
 class ColoredFormatter(logging.Formatter):
@@ -29,16 +30,14 @@ class ColoredFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-def clean_old_logs(log_dir="logs", keep_last=5):
-    """Удаляет старые файлы логов, оставляя только N самых свежих."""
+def clean_old_logs(log_dir, keep_last=15):
+    """Удаляет старые файлы логов, оставляя только свежие."""
     if not os.path.exists(log_dir):
         return
 
-    # Ищем все .log файлы и сортируем их по времени изменения (самые старые в начале)
     files = glob.glob(os.path.join(log_dir, "*.log"))
     files.sort(key=os.path.getmtime)
 
-    # Удаляем файлы, пока их количество не станет равным keep_last
     while len(files) > keep_last:
         oldest_file = files.pop(0)
         try:
@@ -47,7 +46,13 @@ def clean_old_logs(log_dir="logs", keep_last=5):
             pass
 
 
+# ГЛОБАЛЬНАЯ ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ФАЙЛА ТЕКУЩЕГО ПРОЦЕССА
+_PROCESS_LOG_FILE = None
+
+
 def get_logger(name="PhonebookQA"):
+    global _PROCESS_LOG_FILE
+
     logger = logging.getLogger(name)
 
     if logger.handlers:
@@ -56,37 +61,43 @@ def get_logger(name="PhonebookQA"):
     logger.setLevel(logging.INFO)
     logger.propagate = False
 
-    # ==========================================
-    # 🔇 ГЛУШИЛКИ ДЛЯ ЧУЖИХ ЛОГОВ
-    # ==========================================
-    # Принудительно затыкаем внутренний спам Selenium и urllib3,
-    # разрешая им говорить только об ошибках (WARNING и выше)
+    # Глушилки для системного спама
     logging.getLogger("selenium").setLevel(logging.WARNING)
     logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-    if not os.path.exists("logs"):
-        os.makedirs("logs")
+    # 1. Проверяем воркеров (есть ли переменная окружения xdist)
+    is_worker = "PYTEST_XDIST_WORKER" in os.environ
 
-    # 1. Запускаем "пылесос" перед созданием нового файла
-    clean_old_logs("logs", keep_last=5)
+    # 2. Проверяем Мастер-процесс (читаем команду запуска из терминала на наличие флага -n)
+    is_xdist_master = "-n" in sys.argv or any(arg.startswith("-n") for arg in sys.argv)
+
+    # Итоговый вердикт: запущен ли xdist
+    is_xdist = is_worker or is_xdist_master
 
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(ColoredFormatter())
-
-    # 2. Формируем имя файла: Время + PID процесса для безопасной параллельной работы
-    current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_filename = f"logs/run_{current_time}_pid{os.getpid()}.log"
-
-    file_formatter = logging.Formatter(
-        fmt='[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
-
-    # 3. Подключаем обычный FileHandler (файл создастся с нуля)
-    file_handler = logging.FileHandler(log_filename, encoding='utf-8')
-    file_handler.setFormatter(file_formatter)
-
     logger.addHandler(console_handler)
-    logger.addHandler(file_handler)
+
+    # ЗАПИСЬ В ФАЙЛ ТОЛЬКО ЕСЛИ ЭТО НЕ ПАРАЛЛЕЛЬНЫЙ ЗАПУСК
+    if not is_xdist:
+        project_root = Path(__file__).resolve().parent.parent
+        log_dir = project_root / "logs"
+        log_dir.mkdir(exist_ok=True)
+
+        clean_old_logs(str(log_dir), keep_last=15)
+
+        if _PROCESS_LOG_FILE is None:
+            current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            # PID больше не нужен, файл всегда один
+            _PROCESS_LOG_FILE = str(log_dir / f"run_{current_time}.log")
+
+        file_formatter = logging.Formatter(
+            fmt='[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
+
+        file_handler = logging.FileHandler(_PROCESS_LOG_FILE, encoding='utf-8')
+        file_handler.setFormatter(file_formatter)
+        logger.addHandler(file_handler)
 
     return logger

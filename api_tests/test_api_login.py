@@ -1,44 +1,45 @@
 import allure
 import os
 import pytest
-from utils.api_helper import make_api_request
+from api.contact_api import PhonebookAPI
 from dotenv import load_dotenv
 from utils.logger import get_logger
 
-# Загружаем переменные окружения
 load_dotenv()
-
-# Достаем базовый URL бэкенда и наши доступы
 API_URL = os.getenv("API_URL")
 USER_EMAIL = os.getenv("USER_EMAIL")
 USER_PASSWORD = os.getenv("USER_PASSWORD")
-
 logger = get_logger("API")
 
 
-@allure.epic("API Testing") # Глобальный раздел в отчете
-@allure.feature("Contacts CRUD") # Подраздел
-@allure.story("Login") # Название фичи
-@allure.severity(allure.severity_level.BLOCKER) # Серьезность
+@allure.epic("API Testing")
+@allure.feature("Authentication Controller")
+@allure.story("Login Success")
+@allure.severity(allure.severity_level.BLOCKER)
 def test_api_login_success():
-    """Тест успешной авторизации через API и получения токена"""
+    """Позитивный тест: Успешная авторизация через API"""
+    api = PhonebookAPI()
+    response = api.login(USER_EMAIL, USER_PASSWORD)
 
-    # 1. Формируем полный URL
-    endpoint = f"{API_URL}/v1/user/login/usernamepassword"
+    assert response.status_code == 200, f"Ошибка авторизации: {response.text}"
+    token = response.json().get("token")
+    assert token is not None, "Токен не пришел в ответе!"
+    logger.info(f"[LOGIN УСПЕХ] Токен получен: {token[:15]}...")
 
-    # 2. Формируем тело запроса (Payload) строго по документации
-    payload = {
-        "username": USER_EMAIL,
-        "password": USER_PASSWORD
-    }
 
-    # 3. Делаем POST-запрос
-    response = make_api_request("POST", endpoint, json=payload)
+@allure.epic("API Testing")
+@allure.feature("Authentication Controller")
+@allure.story("Login Negative")
+@allure.severity(allure.severity_level.CRITICAL)
+@pytest.mark.parametrize("email, password, expected_status, scenario", [
+    ("wrong_email@gmail.com", USER_PASSWORD, 401, "Несуществующий email"),
+    (USER_EMAIL, "WrongPassword123!", 401, "Неверный пароль"),
+])
+def test_api_login_negative(email, password, expected_status, scenario):
+    """Негативные тесты авторизации через API"""
+    api = PhonebookAPI()
+    response = api.login(email, password)
 
-    if response.status_code == 200:
-        token = response.json().get("token")
-        assert token is not None, "Токен не пришел в ответе!"
-        logger.info(f"[LOGIN УСПЕХ] Сервер выдал токен: {token[:15]}... (скрыто для безопасности)")
-    else:
-        logger.error(f"[LOGIN ОШИБКА] Сбой авторизации: {response.status_code} - {response.text}")
-        pytest.fail("API не смог авторизовать пользователя")
+    assert response.status_code == expected_status, \
+        f"Ожидали статус {expected_status} для сценария '{scenario}', но сервер вернул {response.status_code}"
+    logger.info(f"[LOGIN NEGATIVE УСПЕХ] Сценарий '{scenario}' корректно отклонён со статусом {response.status_code}")

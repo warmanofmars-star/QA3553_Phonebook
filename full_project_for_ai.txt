@@ -19,13 +19,13 @@ PW_TIMEOUT=10000
 import os
 import pytest
 import allure
-import requests
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from dotenv import load_dotenv
 from selenium.webdriver.support.events import EventFiringWebDriver
 from utils.listener import PhonebookListener
+from api.contact_api import PhonebookAPI
 
 # Загружаем переменные из .env
 load_dotenv()
@@ -47,6 +47,7 @@ def driver():
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
+        options.add_argument('--lang=en-US')
         driver_instance = webdriver.Chrome(options=options)
 
     else:
@@ -57,6 +58,7 @@ def driver():
             if is_headless:
                 options.add_argument('--headless=new')
             options.add_argument('--window-size=1920,1080')
+            options.add_argument('--lang=en-US')
             driver_instance = webdriver.Chrome(options=options)
 
         except Exception as e:
@@ -68,6 +70,7 @@ def driver():
             if is_headless:
                 options.add_argument('--headless')
             options.add_argument('--window-size=1920,1080')
+            options.add_argument('--lang=en-US')
             driver_instance = webdriver.Edge(options=options)
 
         if not is_headless:
@@ -101,47 +104,39 @@ def authenticated_driver(driver):
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    """
-    Хук, который вызывается после каждой фазы теста (setup, call, teardown).
-    Если тест падает, он делает скриншот экрана и прикрепляет его к Allure-отчету.
-    """
     outcome = yield
     report = outcome.get_result()
 
-    # Проверяем, что тест упал именно на этапе выполнения (call), а не при настройке
     if report.when == 'call' and report.failed:
-        # Пытаемся получить webdriver из фикстур теста
         driver = item.funcargs.get('driver') or item.funcargs.get('authenticated_driver')
 
         if driver:
-            # Формируем читаемое имя для скриншота из названия теста
-            test_name = item.name.replace("/", "_").replace("::", "_")
+            # ЗАЩИТА: Если перед падением остался висеть алерт, гасим его, чтобы не рушился ChromeDriver
+            try:
+                alert = driver.switch_to.alert
+                alert.accept()
+            except Exception:
+                pass # Алерта нет, идем дальше спокойно
 
-            # Прикрепляем скриншот напрямую в Allure (без сохранения на жесткий диск)
+            test_name = item.name.replace("/", "_").replace("::", "_")
             allure.attach(
                 driver.get_screenshot_as_png(),
                 name=f"Скриншот ошибки: {test_name}",
                 attachment_type=allure.attachment_type.PNG
             )
 
-#здесь мы получим токен авторизации для API-тестов и будем вызывать его
 @pytest.fixture(scope="session")
-def api_token():
-    """Получает токен авторизации один раз для всех API-тестов"""
-    api_url = os.getenv("API_URL")
+def auth_api():
+    """Фикстура, которая автоматически создает API-клиента, логинится и возвращает готовую сессию"""
+    api = PhonebookAPI()
+    email = os.getenv("USER_EMAIL")
+    password = os.getenv("USER_PASSWORD")
 
-    login_payload = {
-        "username": os.getenv("USER_EMAIL"),
-        "password": os.getenv("USER_PASSWORD")
-    }
+    with allure.step("Setup Fixture: Автоматическая API-авторизация"):
+        response = api.login(email, password)
+        assert response.status_code == 200, "КРИТИЧЕСКАЯ ОШИБКА: Не удалось получить API токен!"
 
-    response = requests.post(f"{api_url}/v1/user/login/usernamepassword", json=login_payload)
-
-    # Жесткая проверка, чтобы тесты даже не начинались, если бэкенд лежит
-    assert response.status_code == 200, "КРИТИЧЕСКАЯ ОШИБКА: Не удалось получить API токен!"
-
-    # Возвращаем сам токен (строку)
-    return response.json().get("token")
+    return api
 
 def pytest_make_parametrize_id(val):
     """
@@ -521,17 +516,106 @@ jobs:
               👉 https://warmanofmars-star.github.io/QA3553_Phonebook/
 
 ============================================================
+📄 FILE: .\api\contact_api.py
+============================================================
+
+import os
+import requests
+import allure
+import json
+from utils.logger import get_logger
+
+logger = get_logger("API")
+
+
+class PhonebookAPI:
+    BASE_URL = os.getenv("API_URL", "https://contactapp-telran-backend.herokuapp.com")
+
+    def __init__(self):
+        # 🌟 КЛЮЧЕВОЙ МОМЕНТ: Открываем единую сессию
+        self.session = requests.Session()
+        self.token = None
+
+    @allure.step("API: Авторизация пользователя {username}")
+    def login(self, username, password):
+        url = f"{self.BASE_URL}/v1/user/login/usernamepassword"
+        logger.info(f"POST {url} [User: {username}]")
+
+        payload = {"username": username, "password": password}
+        response = self.session.post(url, json=payload)
+
+        if response.status_code == 200:
+            self.token = response.json().get("token")
+            # 🌟 МАГИЯ: Вшиваем токен в заголовки сессии раз и навсегда
+            self.session.headers.update({"Authorization": f"Bearer {self.token}"})
+            logger.info("Авторизация успешна (Token вшит в сессию)")
+
+            # Прикрепляем токен в Allure для отладки (обрезанный)
+            allure.attach(f"Token: {self.token[:15]}...", name="Auth Token",
+                          attachment_type=allure.attachment_type.TEXT)
+        else:
+            logger.error(f"Ошибка авторизации: {response.status_code} - {response.text}")
+
+        return response
+
+    @allure.step("API: Создание контакта")
+    def add_contact(self, contact_payload):
+        url = f"{self.BASE_URL}/v1/contacts"
+        phone = contact_payload.get('phone', 'UNKNOWN')
+        logger.info(f"POST {url} [Контакт: {phone}]")
+
+        # Нам больше не нужно передавать headers! Сессия сделает всё сама.
+        response = self.session.post(url, json=contact_payload)
+
+        # Красиво цепляем тело запроса в Allure
+        allure.attach(json.dumps(contact_payload, indent=4), name="Payload",
+                      attachment_type=allure.attachment_type.JSON)
+        return response
+
+    @allure.step("API: Получение списка контактов")
+    def get_contacts(self):
+        url = f"{self.BASE_URL}/v1/contacts"
+        logger.info(f"GET {url} [Запрос всех контактов]")
+        return self.session.get(url)
+
+    @allure.step("API: Обновление контакта")
+    def update_contact(self, contact_payload):
+        url = f"{self.BASE_URL}/v1/contacts"
+        logger.info(f"PUT {url} [Обновление контакта ID: {contact_payload.get('id')}]")
+
+        response = self.session.put(url, json=contact_payload)
+
+        allure.attach(json.dumps(contact_payload, indent=4), name="Payload",
+                      attachment_type=allure.attachment_type.JSON)
+        return response
+
+    @allure.step("API: Удаление контакта {contact_id}")
+    def delete_contact(self, contact_id):
+        url = f"{self.BASE_URL}/v1/contacts/{contact_id}"
+        logger.info(f"DELETE {url} [ID: {contact_id}]")
+        return self.session.delete(url)
+
+    @allure.step("API: Массовое удаление всех контактов")
+    def clear_contacts(self):
+        url = f"{self.BASE_URL}/v1/contacts/clear"
+        logger.info(f"DELETE {url} [Массовая очистка]")
+        return self.session.delete(url)
+
+============================================================
+📄 FILE: .\api\__init__.py
+============================================================
+
+
+
+============================================================
 📄 FILE: .\api_tests\test_api_add_contact.py
 ============================================================
 
 import allure
-import os
 import pytest
-from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
 from utils.logger import get_logger
 
-API_URL = os.getenv("API_URL")
 logger = get_logger("API")
 
 
@@ -539,14 +623,11 @@ logger = get_logger("API")
 @allure.feature("Contacts CRUD")
 @allure.story("Create Contact")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_api_add_contact(api_token):
-    headers = {"Authorization": f"Bearer {api_token}"}
+def test_api_add_contact(auth_api):
     contact = ContactGenerator.get_random_contact()
 
-    # Супер-коротко: берем payload прямо из модели!
-    contact_payload = contact.to_api_payload()
-
-    response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
+    # Вся магия сессий: мы просто передаем payload, токен подтянется сам!
+    response = auth_api.add_contact(contact.to_api_payload())
 
     if response.status_code == 200:
         logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
@@ -555,21 +636,16 @@ def test_api_add_contact(api_token):
         pytest.fail("API не смог создать контакт")
 
 
-# Негативные тесты
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Create Contact without Name")
 @allure.severity(allure.severity_level.NORMAL)
-def test_api_add_contact_missing_required_field(api_token):
-    """Негативный тест: Создание контакта без обязательного поля (name)"""
-    headers = {"Authorization": f"Bearer {api_token}"}
+def test_api_add_contact_missing_required_field(auth_api):
     contact = ContactGenerator.get_random_contact()
-
-    # Берем полный payload и точечно удаляем из него ключ "name"
     contact_payload = contact.to_api_payload()
     del contact_payload["name"]
 
-    response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact_payload, headers=headers)
+    response = auth_api.add_contact(contact_payload)
 
     if response.status_code == 400:
         logger.info("[POST УСПЕХ (Негативный)] Сервер корректно отклонил контакт без имени (400 Bad Request)")
@@ -583,18 +659,14 @@ def test_api_add_contact_missing_required_field(api_token):
 @allure.story("Create Duplicate Contact")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG BACKEND: Сервер возвращает 200 вместо 409 при дубликате (Swagger врет)")
-def test_api_add_contact_duplicate(api_token):
-    """Негативный тест: Попытка создать дубликат контакта"""
-    headers = {"Authorization": f"Bearer {api_token}"}
+def test_api_add_contact_duplicate(auth_api):
     contact = ContactGenerator.get_random_contact()
     payload = contact.to_api_payload()
 
-    # 1. Создаем оригинальный контакт
-    res_first = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    res_first = auth_api.add_contact(payload)
     assert res_first.status_code == 200, "Предусловие сломалось: первый контакт не создался"
 
-    # 2. Пытаемся закинуть ТОТ ЖЕ САМЫЙ payload второй раз
-    res_second = make_api_request("POST", f"{API_URL}/v1/contacts", json=payload, headers=headers)
+    res_second = auth_api.add_contact(payload)
 
     if res_second.status_code == 409:
         logger.info("[POST УСПЕХ (Негативный)] Сервер корректно заблокировал дубликат (409 Conflict)")
@@ -608,103 +680,66 @@ def test_api_add_contact_duplicate(api_token):
 ============================================================
 
 import allure
-import os
 import pytest
-from utils.api_helper import make_api_request
 from utils.logger import get_logger
 from data.data_generator import ContactGenerator
-from dotenv import load_dotenv
-
 from jsonschema import validate, ValidationError
 from schemas.contact_schemas import GET_CONTACTS_RESPONSE_SCHEMA
 
-load_dotenv()
-API_URL = os.getenv("API_URL")
-
-# Подключаем логгер для API
 logger = get_logger("API")
 
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Get All Contact")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_api_get_all_contacts(api_token):
-    """Тест получения списка контактов (Read)"""
-    headers = {"Authorization": f"Bearer {api_token}"}
-
-    # 1. ПРЕДУСЛОВИЕ: Создаем уникальный контакт
+def test_api_get_all_contacts(auth_api):
     contact = ContactGenerator.get_random_contact()
-    make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(), headers=headers)
+    auth_api.add_contact(contact.to_api_payload())
 
-    # 2. ШАГ ТЕСТА: Отправляем GET-запрос
-    response = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
+    response = auth_api.get_contacts()
     assert response.status_code == 200, f"Ошибка при получении контактов: {response.text}"
 
-    # ==========================================
-    # 🛠 СТРОГАЯ ВАЛИДАЦИЯ КОНТРАКТА (JSON SCHEMA)
-    # ==========================================
     try:
         validate(instance=response.json(), schema=GET_CONTACTS_RESPONSE_SCHEMA)
         logger.info("Контракт API (JSON Schema) успешно провалидирован!")
     except ValidationError as e:
         pytest.fail(f"Бэкенд нарушил контракт Swagger!\nОшибка структуры: {e.message}")
 
-    # ==========================================
-    # 🎯 БИЗНЕС-ПРОВЕРКА (Наличие конкретных данных)
-    # ==========================================
     contacts_list = response.json().get("contacts", [])
     all_phones = [c.get("phone") for c in contacts_list]
 
-
     assert contact.phone in all_phones, f"Созданный контакт с телефоном {contact.phone} не найден в базе!"
-    print(f"\n[GET УСПЕХ] Контакт успешно найден в списке из {len(contacts_list)} записей.")
-
+    logger.info(f"[GET УСПЕХ] Контакт найден. Всего записей: {len(contacts_list)}.")
 
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Update Contact")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_api_update_contact(api_token):
-    """Тест обновления существующего контакта (Update)"""
-    headers = {"Authorization": f"Bearer {api_token}"}
-
-    # 1. ПРЕДУСЛОВИЕ: Создаем контакт
+def test_api_update_contact(auth_api):
     contact = ContactGenerator.get_random_contact()
-    make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(), headers=headers)
+    auth_api.add_contact(contact.to_api_payload())
 
-    # 2. РАЗВЕДКА: Ищем ID
-    response_get = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
+    response_get = auth_api.get_contacts()
     contacts_list = response_get.json().get("contacts", [])
 
-    target_id = None
-    for c in contacts_list:
-        if c.get("phone") == contact.phone:
-            target_id = c.get("id")
-            break
-
+    target_id = next((c.get("id") for c in contacts_list if c.get("phone") == contact.phone), None)
     assert target_id is not None, "Не удалось найти ID созданного контакта!"
 
-    # 3. ШАГ ТЕСТА: Подготавливаем новые данные для обновления
     updated_payload = contact.to_api_payload()
-    updated_payload["id"] = target_id  # Добавляем обязательный ID
-    updated_payload["name"] = "API_UPDATED_NAME"  # Меняем имя
-    updated_payload["description"] = "This contact was updated via API" # Меняем описание
+    updated_payload["id"] = target_id
+    updated_payload["name"] = "API_UPDATED_NAME"
+    updated_payload["description"] = "This contact was updated via API"
 
-    response_put = make_api_request("PUT", f"{API_URL}/v1/contacts", json=updated_payload, headers=headers)
+    response_put = auth_api.update_contact(updated_payload)
     assert response_put.status_code == 200, f"Ошибка обновления: {response_put.text}"
 
-    # 4. ПРОВЕРКА: Снова делаем GET
-    response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
+    response_check = auth_api.get_contacts()
     contacts_list_after = response_check.json().get("contacts", [])
 
-    updated_name_in_db = None
-    for c in contacts_list_after:
-        if c.get("id") == target_id:
-            updated_name_in_db = c.get("name")
-            break
+    updated_name_in_db = next((c.get("name") for c in contacts_list_after if c.get("id") == target_id), None)
 
     assert updated_name_in_db == "API_UPDATED_NAME", "Имя в базе данных не обновилось!"
-    print(f"\n[PUT УСПЕХ] Контакт {target_id} успешно переименован в {updated_name_in_db}!")
+    logger.info(f"[PUT УСПЕХ] Контакт {target_id} переименован в {updated_name_in_db}!")
 
 ============================================================
 📄 FILE: .\api_tests\test_api_delete.py
@@ -713,13 +748,11 @@ def test_api_update_contact(api_token):
 import allure
 import pytest
 import os
-from utils.api_helper import make_api_request
 from data.data_generator import ContactGenerator
-from dotenv import load_dotenv
 from utils.logger import get_logger
+from dotenv import load_dotenv
 
 load_dotenv()
-API_URL = os.getenv("API_URL")
 ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
 logger = get_logger("API")
 
@@ -728,27 +761,17 @@ logger = get_logger("API")
 @allure.feature("Contacts CRUD")
 @allure.story("Delete Contact")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_api_delete_contact(api_token):
-    """Тест удаления конкретного контакта (Delete)"""
-    headers = {"Authorization": f"Bearer {api_token}"}
-
-    # 1. ПРЕДУСЛОВИЕ: Создаем контакт и узнаем его ID
+def test_api_delete_contact(auth_api):
     contact = ContactGenerator.get_random_contact()
-    make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(), headers=headers)
+    auth_api.add_contact(contact.to_api_payload())
 
-    response_get = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
+    response_get = auth_api.get_contacts()
     contacts_list = response_get.json().get("contacts", [])
 
-    target_id = None
-    for c in contacts_list:
-        if c.get("phone") == contact.phone:
-            target_id = c.get("id")
-            break
-
+    target_id = next((c.get("id") for c in contacts_list if c.get("phone") == contact.phone), None)
     assert target_id is not None, "Не удалось найти ID созданного контакта!"
 
-    # 2. ШАГ ТЕСТА: Удаляем контакт по ID
-    response_delete = make_api_request("DELETE", f"{API_URL}/v1/contacts/{target_id}", headers=headers)
+    response_delete = auth_api.delete_contact(target_id)
 
     if response_delete.status_code == 200:
         logger.info(f"[DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)")
@@ -756,10 +779,8 @@ def test_api_delete_contact(api_token):
         logger.error(f"[DELETE ОШИБКА] Сбой при удалении: {response_delete.status_code} - {response_delete.text}")
         pytest.fail("API не смог удалить контакт")
 
-    # 3. ПРОВЕРКА: Убеждаемся, что контакт реально исчез из базы
-    response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
-    contacts_after = response_check.json().get("contacts", [])
-    ids_after = [c.get("id") for c in contacts_after]
+    response_check = auth_api.get_contacts()
+    ids_after = [c.get("id") for c in response_check.json().get("contacts", [])]
 
     assert target_id not in ids_after, "БАГ: Контакт не удалился из базы данных!"
     logger.info(f"[DELETE ПРОВЕРКА] Контакт {target_id} действительно исчез из базы!")
@@ -770,18 +791,16 @@ def test_api_delete_contact(api_token):
 @allure.story("Delete All Contacts")
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
-def test_api_clear_all_contacts(api_token):
-    """Тест массового удаления контактов (Пылесос)"""
-    headers = {"Authorization": f"Bearer {api_token}"}
+def test_api_clear_all_contacts(auth_api):
+    response_clear = auth_api.clear_contacts()
 
-    response_clear = make_api_request("DELETE", f"{API_URL}/v1/contacts/clear", headers=headers)
     if response_clear.status_code == 200:
         logger.info("[CLEAR УСПЕХ] Запрос на массовое очищение выполнен")
     else:
         logger.error(f"[CLEAR ОШИБКА] Сбой массового удаления: {response_clear.status_code} - {response_clear.text}")
         pytest.fail("API не смог очистить базу")
 
-    response_check = make_api_request("GET", f"{API_URL}/v1/contacts", headers=headers)
+    response_check = auth_api.get_contacts()
     contacts_after = response_check.json().get("contacts", [])
 
     assert len(contacts_after) == 0, f"БАГ: База не пуста! Осталось {len(contacts_after)} контактов."
@@ -794,47 +813,48 @@ def test_api_clear_all_contacts(api_token):
 import allure
 import os
 import pytest
-from utils.api_helper import make_api_request
+from api.contact_api import PhonebookAPI
 from dotenv import load_dotenv
 from utils.logger import get_logger
 
-# Загружаем переменные окружения
 load_dotenv()
-
-# Достаем базовый URL бэкенда и наши доступы
 API_URL = os.getenv("API_URL")
 USER_EMAIL = os.getenv("USER_EMAIL")
 USER_PASSWORD = os.getenv("USER_PASSWORD")
-
 logger = get_logger("API")
 
 
-@allure.epic("API Testing") # Глобальный раздел в отчете
-@allure.feature("Contacts CRUD") # Подраздел
-@allure.story("Login") # Название фичи
-@allure.severity(allure.severity_level.BLOCKER) # Серьезность
+@allure.epic("API Testing")
+@allure.feature("Authentication Controller")
+@allure.story("Login Success")
+@allure.severity(allure.severity_level.BLOCKER)
 def test_api_login_success():
-    """Тест успешной авторизации через API и получения токена"""
+    """Позитивный тест: Успешная авторизация через API"""
+    api = PhonebookAPI()
+    response = api.login(USER_EMAIL, USER_PASSWORD)
 
-    # 1. Формируем полный URL
-    endpoint = f"{API_URL}/v1/user/login/usernamepassword"
+    assert response.status_code == 200, f"Ошибка авторизации: {response.text}"
+    token = response.json().get("token")
+    assert token is not None, "Токен не пришел в ответе!"
+    logger.info(f"[LOGIN УСПЕХ] Токен получен: {token[:15]}...")
 
-    # 2. Формируем тело запроса (Payload) строго по документации
-    payload = {
-        "username": USER_EMAIL,
-        "password": USER_PASSWORD
-    }
 
-    # 3. Делаем POST-запрос
-    response = make_api_request("POST", endpoint, json=payload)
+@allure.epic("API Testing")
+@allure.feature("Authentication Controller")
+@allure.story("Login Negative")
+@allure.severity(allure.severity_level.CRITICAL)
+@pytest.mark.parametrize("email, password, expected_status, scenario", [
+    ("wrong_email@gmail.com", USER_PASSWORD, 401, "Несуществующий email"),
+    (USER_EMAIL, "WrongPassword123!", 401, "Неверный пароль"),
+])
+def test_api_login_negative(email, password, expected_status, scenario):
+    """Негативные тесты авторизации через API"""
+    api = PhonebookAPI()
+    response = api.login(email, password)
 
-    if response.status_code == 200:
-        token = response.json().get("token")
-        assert token is not None, "Токен не пришел в ответе!"
-        logger.info(f"[LOGIN УСПЕХ] Сервер выдал токен: {token[:15]}... (скрыто для безопасности)")
-    else:
-        logger.error(f"[LOGIN ОШИБКА] Сбой авторизации: {response.status_code} - {response.text}")
-        pytest.fail("API не смог авторизовать пользователя")
+    assert response.status_code == expected_status, \
+        f"Ожидали статус {expected_status} для сценария '{scenario}', но сервер вернул {response.status_code}"
+    logger.info(f"[LOGIN NEGATIVE УСПЕХ] Сценарий '{scenario}' корректно отклонён со статусом {response.status_code}")
 
 ============================================================
 📄 FILE: .\api_tests\__init__.py
@@ -848,7 +868,7 @@ def test_api_login_success():
 
 import random
 import string
-import time
+import uuid
 import os
 import json
 from faker import Faker
@@ -882,10 +902,10 @@ class UserGenerator:
 
     @staticmethod
     def generate_valid_email():
-        """Генерирует уникальный валидный email"""
-        prefix_length = random.randint(5, 10)
-        prefix = ''.join(random.choices(string.ascii_lowercase, k=prefix_length))
-        return f"{prefix}_{int(time.time())}@gmail.com"
+        """Генерирует абсолютно уникальный email, безопасный для xdist"""
+        # uuid4().hex дает уникальную строку из 32 символов. Берем первые 10.
+        unique_id = uuid.uuid4().hex[:10]
+        return f"user_{unique_id}@gmail.com"
 
     @classmethod
     def get_valid_user(cls):
@@ -926,20 +946,22 @@ class ContactGenerator:
 
     @staticmethod
     def get_random_contact(**overrides) -> Contact:
-        """Генерирует случайный контакт. Позволяет переопределять любые поля через **overrides"""
+        """Генерирует случайный контакт с потокобезопасной уникальностью (UUID)"""
+
+        # Получаем абсолютно уникальное число из UUID (int) и берем 8 цифр
+        unique_digits = str(uuid.uuid4().int)[:8]
+        safe_phone = f"05{unique_digits}"  # Гарантированно 10 цифр, начинается с 05
+
         data = {
             "name": fake.first_name(),
             "last_name": fake.last_name(),
-            "phone": fake.unique.numerify("05########"),
-            "email": fake.unique.email(),
+            "phone": safe_phone,  # Прощай, нестабильный fake.unique!
+            "email": UserGenerator.generate_valid_email(),
             "address": fake.address(),
             "description": fake.sentence()
         }
 
-        # Обновляем словарь нашими значениями, если они были переданы
         data.update(overrides)
-
-        # Распаковываем словарь в объект Contact
         return Contact(**data)
 
 ============================================================
@@ -1837,11 +1859,9 @@ import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
-from utils.api_helper import make_api_request
 from utils.logger import get_logger
 
 logger = get_logger("TEST")
-API_URL = os.getenv("API_URL")
 
 
 # ==========================================
@@ -1851,14 +1871,14 @@ API_URL = os.getenv("API_URL")
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Delete -> UI Assert")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_delete_contact(authenticated_driver, api_token):
+def test_delete_contact(authenticated_driver, auth_api):
     logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_contact ---")
 
     with allure.step("API PRECONDITION: Создаем контакт через бэкенд"):
         contact = ContactGenerator.get_random_contact()
-        headers = {"Authorization": f"Bearer {api_token}"}
 
-        response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(), headers=headers)
+        # ОДНА СТРОЧКА! Токен уже внутри auth_api, заголовки подставятся сами
+        response = auth_api.add_contact(contact.to_api_payload())
         assert response.status_code == 200, "Пререквизит упал: API не создал контакт"
         logger.info(f"API успешно создал контакт с телефоном: {contact.phone}")
 
@@ -1908,7 +1928,7 @@ def test_delete_all_contacts(authenticated_driver):
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Multiple Delete")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_delete_multiple_contacts(authenticated_driver, api_token):
+def test_delete_multiple_contacts(authenticated_driver, auth_api):
     """Проверка последовательного удаления нескольких конкретных контактов"""
     logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_multiple_contacts ---")
     contacts_page = ContactsPage(authenticated_driver)
@@ -1919,12 +1939,11 @@ def test_delete_multiple_contacts(authenticated_driver, api_token):
     # ПРЕДУСЛОВИЕ ЧЕРЕЗ API
     # ==========================================
     with allure.step("API PRECONDITION: Создаем 2 временных контакта через бэкенд"):
-        headers = {"Authorization": f"Bearer {api_token}"}
-
         for i in range(2):
             contact = ContactGenerator.get_random_contact()
-            response = make_api_request("POST", f"{API_URL}/v1/contacts", json=contact.to_api_payload(),
-                                        headers=headers)
+
+            # Заменили make_api_request на auth_api.add_contact
+            response = auth_api.add_contact(contact.to_api_payload())
             assert response.status_code == 200, f"Ошибка API: Не удалось создать контакт №{i + 1}"
 
             phones_to_delete.append(contact.phone)
@@ -2368,66 +2387,6 @@ def test_pw_login_success(page: Page): # <--- Берем встроенную ф
 
 
 ============================================================
-📄 FILE: .\utils\api_helper.py
-============================================================
-
-import requests
-import allure
-import json
-import copy
-
-
-def make_api_request(method, url, **kwargs):
-    """
-    Умная обертка над requests.
-    Автоматически логирует все детали запроса и ответа в Allure-отчет,
-    маскируя при этом чувствительные данные (пароли и токены).
-    """
-    with allure.step(f"API Request: {method} {url}"):
-
-        # Выполняем сам запрос
-        response = requests.request(method, url, **kwargs)
-
-        # 1. Прикрепляем тело запроса (С МАСКИРОВКОЙ ПАРОЛЯ)
-        if "json" in kwargs:
-            # Делаем глубокую копию, чтобы не испортить реальный запрос
-            payload_to_log = copy.deepcopy(kwargs["json"])
-
-            # Если в теле запроса есть пароль - прячем его
-            if isinstance(payload_to_log, dict) and "password" in payload_to_log:
-                payload_to_log["password"] = "*** HIDDEN FOR SECURITY ***"
-
-            allure.attach(
-                json.dumps(payload_to_log, indent=4, ensure_ascii=False),
-                name="📥 Request Body (Что мы отправили)",
-                attachment_type=allure.attachment_type.JSON
-            )
-
-        # 2. Пытаемся красиво отформатировать ответ сервера (С МАСКИРОВКОЙ ТОКЕНА)
-        try:
-            response_dict = response.json()
-
-            # Если сервер вернул нам токен - прячем его
-            if isinstance(response_dict, dict) and "token" in response_dict:
-                response_dict["token"] = "*** HIDDEN FOR SECURITY ***"
-
-            response_body = json.dumps(response_dict, indent=4, ensure_ascii=False)
-            attach_type = allure.attachment_type.JSON
-        except ValueError:
-            # Если сервер вернул текст или HTML
-            response_body = response.text
-            attach_type = allure.attachment_type.TEXT
-
-        # 3. Прикрепляем ответ сервера к отчету
-        allure.attach(
-            f"Status Code: {response.status_code}\n\n{response_body}",
-            name="📤 Response (Что ответил сервер)",
-            attachment_type=attach_type
-        )
-
-        return response
-
-============================================================
 📄 FILE: .\utils\listener.py
 ============================================================
 
@@ -2476,6 +2435,7 @@ import os
 import sys
 import glob
 from datetime import datetime
+from pathlib import Path
 
 
 class ColoredFormatter(logging.Formatter):
@@ -2502,16 +2462,14 @@ class ColoredFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-def clean_old_logs(log_dir="logs", keep_last=5):
-    """Удаляет старые файлы логов, оставляя только N самых свежих."""
+def clean_old_logs(log_dir, keep_last=15):
+    """Удаляет старые файлы логов, оставляя только свежие."""
     if not os.path.exists(log_dir):
         return
 
-    # Ищем все .log файлы и сортируем их по времени изменения (самые старые в начале)
     files = glob.glob(os.path.join(log_dir, "*.log"))
     files.sort(key=os.path.getmtime)
 
-    # Удаляем файлы, пока их количество не станет равным keep_last
     while len(files) > keep_last:
         oldest_file = files.pop(0)
         try:
@@ -2520,7 +2478,13 @@ def clean_old_logs(log_dir="logs", keep_last=5):
             pass
 
 
+# ГЛОБАЛЬНАЯ ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ФАЙЛА ТЕКУЩЕГО ПРОЦЕССА
+_PROCESS_LOG_FILE = None
+
+
 def get_logger(name="PhonebookQA"):
+    global _PROCESS_LOG_FILE
+
     logger = logging.getLogger(name)
 
     if logger.handlers:
@@ -2529,38 +2493,44 @@ def get_logger(name="PhonebookQA"):
     logger.setLevel(logging.INFO)
     logger.propagate = False
 
-    # ==========================================
-    # 🔇 ГЛУШИЛКИ ДЛЯ ЧУЖИХ ЛОГОВ
-    # ==========================================
-    # Принудительно затыкаем внутренний спам Selenium и urllib3,
-    # разрешая им говорить только об ошибках (WARNING и выше)
+    # Глушилки для системного спама
     logging.getLogger("selenium").setLevel(logging.WARNING)
     logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-    if not os.path.exists("logs"):
-        os.makedirs("logs")
+    # 1. Проверяем воркеров (есть ли переменная окружения xdist)
+    is_worker = "PYTEST_XDIST_WORKER" in os.environ
 
-    # 1. Запускаем "пылесос" перед созданием нового файла
-    clean_old_logs("logs", keep_last=5)
+    # 2. Проверяем Мастер-процесс (читаем команду запуска из терминала на наличие флага -n)
+    is_xdist_master = "-n" in sys.argv or any(arg.startswith("-n") for arg in sys.argv)
+
+    # Итоговый вердикт: запущен ли xdist
+    is_xdist = is_worker or is_xdist_master
 
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(ColoredFormatter())
-
-    # 2. Формируем имя файла: Время + PID процесса для безопасной параллельной работы
-    current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_filename = f"logs/run_{current_time}_pid{os.getpid()}.log"
-
-    file_formatter = logging.Formatter(
-        fmt='[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
-
-    # 3. Подключаем обычный FileHandler (файл создастся с нуля)
-    file_handler = logging.FileHandler(log_filename, encoding='utf-8')
-    file_handler.setFormatter(file_formatter)
-
     logger.addHandler(console_handler)
-    logger.addHandler(file_handler)
+
+    # ЗАПИСЬ В ФАЙЛ ТОЛЬКО ЕСЛИ ЭТО НЕ ПАРАЛЛЕЛЬНЫЙ ЗАПУСК
+    if not is_xdist:
+        project_root = Path(__file__).resolve().parent.parent
+        log_dir = project_root / "logs"
+        log_dir.mkdir(exist_ok=True)
+
+        clean_old_logs(str(log_dir), keep_last=15)
+
+        if _PROCESS_LOG_FILE is None:
+            current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            # PID больше не нужен, файл всегда один
+            _PROCESS_LOG_FILE = str(log_dir / f"run_{current_time}.log")
+
+        file_formatter = logging.Formatter(
+            fmt='[%(asctime)s] [%(levelname)s] [%(name)s] - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
+
+        file_handler = logging.FileHandler(_PROCESS_LOG_FILE, encoding='utf-8')
+        file_handler.setFormatter(file_formatter)
+        logger.addHandler(file_handler)
 
     return logger
 
