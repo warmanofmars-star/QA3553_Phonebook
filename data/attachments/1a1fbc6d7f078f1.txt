@@ -1,0 +1,2 @@
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0533626932][0m
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - [POST УСПЕХ (Негативный)] Сервер корректно отклонил контакт без имени (400 Bad Request)[0m

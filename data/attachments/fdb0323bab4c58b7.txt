@@ -1,0 +1,4 @@
+INFO     API:contact_api.py:21 POST https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword [User: warman.of.mars.2@gmail.com]
+INFO     API:contact_api.py:30 Авторизация успешна (Token вшит в сессию)
+INFO     API:contact_api.py:44 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0522335099]
+INFO     API:test_api_add_contact.py:20 [POST УСПЕХ] Контакт Jonathan Woods успешно создан!

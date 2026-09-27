@@ -1,0 +1,6 @@
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword [User: warman.of.mars.2@gmail.com][0m
+[32;20m[2026-09-27 12:07:13] [INFO] [API] - Авторизация успешна (Token вшит в сессию)[0m
+[32;20m[2026-09-27 12:07:13] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0521241187][0m
+[32;20m[2026-09-27 12:07:13] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-09-27 12:07:13] [INFO] [API] - Контракт API (JSON Schema) успешно провалидирован![0m
+[32;20m[2026-09-27 12:07:13] [INFO] [API] - [GET УСПЕХ] Контакт найден. Всего записей: 296.[0m

@@ -1,0 +1,6 @@
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0527854608][0m
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/22e9d217-04a6-4fff-816e-910881df6cd4 [ID: 22e9d217-04a6-4fff-816e-910881df6cd4][0m
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - [DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)[0m
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-09-27 12:07:12] [INFO] [API] - [DELETE ПРОВЕРКА] Контакт 22e9d217-04a6-4fff-816e-910881df6cd4 действительно исчез из базы![0m
