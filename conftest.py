@@ -1,4 +1,5 @@
 import os
+import time
 import pytest
 import allure
 from selenium import webdriver
@@ -20,11 +21,14 @@ def driver():
     # Читаем флаги
     is_headless = os.getenv('HEADLESS_MODE', 'false').lower() == 'true'
     is_ci = os.environ.get('CI') == 'true'
+    use_selenoid = os.getenv('USE_SELENOID', 'false').lower() == 'true'
+
+    # Переменная для хранения ID сессии Докера
+    session_id = None
 
     if is_ci:
-        # ПРОФЕССИОНАЛЬНЫЙ CI-ПОДХОД: Строго Google Chrome для Linux-сервера (GitHub Actions)
         options = ChromeOptions()
-        options.add_argument('--headless=new') # Современный headless для Chrome
+        options.add_argument('--headless=new')
         options.add_argument('--window-size=1920,1080')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
@@ -33,40 +37,80 @@ def driver():
         driver_instance = webdriver.Chrome(options=options)
 
     else:
-        # ЛОКАЛЬНАЯ РАЗРАБОТКА: Каскадный поиск браузера (Chrome -> Edge)
-        try:
-            # Попытка №1: Пытаемся поднять Chrome, чтобы зеркалировать CI-окружение
+        if use_selenoid:
+            print("\n[INFO] Маршрутизация в изолированный Docker-контейнер (Selenoid)...")
             options = ChromeOptions()
-            if is_headless:
-                options.add_argument('--headless=new')
-            options.add_argument('--window-size=1920,1080')
-            options.add_argument('--lang=en-US')
-            driver_instance = webdriver.Chrome(options=options)
+            options.set_capability("browserName", "chrome")
+            options.set_capability("browserVersion", "128.0")
+            options.set_capability("selenoid:options", {
+                "enableVNC": True,
+                "enableVideo": True,  # <--- ВКЛЮЧАЕМ ЗАПИСЬ ВИДЕО
 
-        except Exception as e:
-            # Попытка №2: Если Chrome нет, делаем мягкий фоллбэк на Edge
-            print(f"\n[WARNING] Chrome не запустился. Причина: {e}")
-            print("[INFO] Выполняем каскадное переключение на Microsoft Edge...")
+            })
 
-            options = EdgeOptions()
-            if is_headless:
-                options.add_argument('--headless')
-            options.add_argument('--window-size=1920,1080')
-            options.add_argument('--lang=en-US')
-            driver_instance = webdriver.Edge(options=options)
+            driver_instance = webdriver.Remote(
+                command_executor="http://localhost:4444/wd/hub",
+                options=options
+            )
+            # Запоминаем ID сессии, чтобы потом забрать правильное видео
+            session_id = driver_instance.session_id
 
-        if not is_headless:
-            driver_instance.maximize_window()
+        else:
+            try:
+                options = ChromeOptions()
+                if is_headless:
+                    options.add_argument('--headless=new')
+                options.add_argument('--window-size=1920,1080')
+                options.add_argument('--lang=en-US')
+                driver_instance = webdriver.Chrome(options=options)
 
-    # Устанавливаем жесткий лимит на загрузку страницы (30 секунд)
+            except Exception as e:
+                print(f"\n[WARNING] Chrome не запустился. Причина: {e}")
+                options = EdgeOptions()
+                if is_headless:
+                    options.add_argument('--headless')
+                options.add_argument('--window-size=1920,1080')
+                options.add_argument('--lang=en-US')
+                driver_instance = webdriver.Edge(options=options)
+
+    if not is_headless and not use_selenoid:
+        driver_instance.maximize_window()
+    elif use_selenoid:
+        driver_instance.maximize_window()
+
     driver_instance.set_page_load_timeout(30)
-
-    # === НАДЕВАЕМ ШПИОНА НА ДРАЙВЕР ПЕРЕД ВЫДАЧЕЙ ===
     decorated_driver = EventFiringWebDriver(driver_instance, PhonebookListener())
 
-    yield decorated_driver  # Передаем ОБЕРНУТЫЙ драйвер в тесты
-    decorated_driver.quit()  # В конце убиваем именно обернутый драйвер
+    yield decorated_driver
 
+    # Закрываем браузер. Только после этой команды Selenoid финализирует mp4 файл!
+    decorated_driver.quit()
+
+    # === ИНТЕГРАЦИЯ ВИДЕО В ALLURE ===
+    if use_selenoid and session_id:
+
+        # Видео уже физически лежит на твоем диске C, идем прямо за ним
+        video_path = rf"C:\selenoid\video\{session_id}.mp4"
+
+        # Умное ожидание: проверяем появление файла на диске (до 10 секунд)
+        for attempt in range(10):
+            if os.path.exists(video_path):
+                # Файл появился. Даем системе 1 секунду, чтобы Докер снял с него блокировку записи
+                time.sleep(1)
+                try:
+                    with open(video_path, "rb") as video_file:
+                        allure.attach(
+                            video_file.read(),
+                            name=f"Видео прохождения теста",
+                            attachment_type=allure.attachment_type.MP4
+                        )
+                    print(f"\n[INFO] Видео успешно прикреплено напрямую с диска Windows!")
+                    break  # Успешно прикрепили, выходим из цикла
+                except Exception as e:
+                    print(f"\n[WARNING] Файл заблокирован, пробуем снова. Ошибка: {e}")
+
+            # Если файла еще нет, ждем 1 секунду перед новой проверкой
+            time.sleep(1)
 
 @pytest.fixture
 def authenticated_driver(driver):
