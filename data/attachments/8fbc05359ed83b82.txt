@@ -1,0 +1,31 @@
+
+[INFO] Маршрутизация в изолированный Docker-контейнер (Selenoid)...
+[32;20m[2026-09-30 11:02:12] [INFO] [UI] - Открываем страницу: None/login[0m
+[32;20m[2026-09-30 11:02:12] [INFO] [UI] - Переход по ссылке: None/login[0m
+[31;20m[2026-09-30 11:02:12] [ERROR] [UI] - ПЕРЕХВАТ ОШИБКИ WEBDRIVER: Message: invalid argument
+  (Session info: chrome=128.0.6613.137)
+Stacktrace:
+#0 0x563f44fde0ca <unknown>
+#1 0x563f44caa0f1 <unknown>
+#2 0x563f44c918a3 <unknown>
+#3 0x563f44c8ffcd <unknown>
+#4 0x563f44c9070a <unknown>
+#5 0x563f44cacbd1 <unknown>
+#6 0x563f44d3d975 <unknown>
+#7 0x563f44d1e902 <unknown>
+#8 0x563f44d3ce26 <unknown>
+#9 0x563f44d1e6a3 <unknown>
+#10 0x563f44cec4f3 <unknown>
+#11 0x563f44ced4fe <unknown>
+#12 0x563f44fa4d7b <unknown>
+#13 0x563f44fa8d31 <unknown>
+#14 0x563f44f90c85 <unknown>
+#15 0x563f44fa98a2 <unknown>
+#16 0x563f44f75e1f <unknown>
+#17 0x563f44fcce48 <unknown>
+#18 0x563f44fcd013 <unknown>
+#19 0x563f44fdcebc <unknown>
+#20 0x7f6d05bb2ac3 <unknown>
+[0m
+
+[INFO] Видео успешно прикреплено к отчету!

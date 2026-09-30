@@ -1,0 +1,28 @@
+INFO     API:contact_api.py:21 POST https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword [User: warman.of.mars.2@gmail.com]
+INFO     API:contact_api.py:30 Авторизация успешна (Token вшит в сессию)
+INFO     UI:base_page.py:25 Открываем страницу: None/login
+INFO     UI:listener.py:11 Переход по ссылке: None/login
+ERROR    UI:listener.py:35 ПЕРЕХВАТ ОШИБКИ WEBDRIVER: Message: invalid argument
+  (Session info: chrome=128.0.6613.137)
+Stacktrace:
+#0 0x55c54fa560ca <unknown>
+#1 0x55c54f7220f1 <unknown>
+#2 0x55c54f7098a3 <unknown>
+#3 0x55c54f707fcd <unknown>
+#4 0x55c54f70870a <unknown>
+#5 0x55c54f724bd1 <unknown>
+#6 0x55c54f7b5975 <unknown>
+#7 0x55c54f796902 <unknown>
+#8 0x55c54f7b4e26 <unknown>
+#9 0x55c54f7966a3 <unknown>
+#10 0x55c54f7644f3 <unknown>
+#11 0x55c54f7654fe <unknown>
+#12 0x55c54fa1cd7b <unknown>
+#13 0x55c54fa20d31 <unknown>
+#14 0x55c54fa08c85 <unknown>
+#15 0x55c54fa218a2 <unknown>
+#16 0x55c54f9ede1f <unknown>
+#17 0x55c54fa44e48 <unknown>
+#18 0x55c54fa45013 <unknown>
+#19 0x55c54fa54ebc <unknown>
+#20 0x7fdf68629ac3 <unknown>

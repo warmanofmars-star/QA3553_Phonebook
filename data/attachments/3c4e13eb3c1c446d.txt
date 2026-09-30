@@ -1,0 +1,26 @@
+INFO     UI:base_page.py:25 Открываем страницу: None/login
+INFO     UI:listener.py:11 Переход по ссылке: None/login
+ERROR    UI:listener.py:35 ПЕРЕХВАТ ОШИБКИ WEBDRIVER: Message: invalid argument
+  (Session info: chrome=128.0.6613.137)
+Stacktrace:
+#0 0x557b230b60ca <unknown>
+#1 0x557b22d820f1 <unknown>
+#2 0x557b22d698a3 <unknown>
+#3 0x557b22d67fcd <unknown>
+#4 0x557b22d6870a <unknown>
+#5 0x557b22d84bd1 <unknown>
+#6 0x557b22e15975 <unknown>
+#7 0x557b22df6902 <unknown>
+#8 0x557b22e14e26 <unknown>
+#9 0x557b22df66a3 <unknown>
+#10 0x557b22dc44f3 <unknown>
+#11 0x557b22dc54fe <unknown>
+#12 0x557b2307cd7b <unknown>
+#13 0x557b23080d31 <unknown>
+#14 0x557b23068c85 <unknown>
+#15 0x557b230818a2 <unknown>
+#16 0x557b2304de1f <unknown>
+#17 0x557b230a4e48 <unknown>
+#18 0x557b230a5013 <unknown>
+#19 0x557b230b4ebc <unknown>
+#20 0x7f1a86df6ac3 <unknown>
