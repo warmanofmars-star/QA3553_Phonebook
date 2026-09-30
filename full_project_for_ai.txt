@@ -257,6 +257,10 @@ services:
       - VIDEO_DIR=/app/video
       - USER_EMAIL=${USER_EMAIL}
       - USER_PASSWORD=${USER_PASSWORD}
+      # 👇 ДОБАВЛЯЕМ ЭТИ СТРОКИ, ЧТОБЫ ТЕСТЫ ВИДЕЛИ ССЫЛКИ И НАСТРОЙКИ
+      - BASE_URL=https://telranedu.web.app
+      - API_URL=https://contactapp-telran-backend.herokuapp.com
+      - ALLOW_MASS_DELETE=${ALLOW_MASS_DELETE:-false}
 
 ============================================================
 📄 FILE: .\export_contacts.py
