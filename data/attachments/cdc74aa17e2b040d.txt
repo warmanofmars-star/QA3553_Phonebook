@@ -1,2 +1,0 @@
-INFO     API:contact_api.py:44 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0528737460]
-INFO     API:test_api_add_contact.py:20 [POST УСПЕХ] Контакт Anthony Schwartz успешно создан!

@@ -1,6 +1,0 @@
-INFO     API:contact_api.py:44 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0527880064]
-INFO     API:contact_api.py:57 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:contact_api.py:74 DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/fa465827-3176-435d-9eaa-117374ce33b1 [ID: fa465827-3176-435d-9eaa-117374ce33b1]
-INFO     API:test_api_delete.py:30 [DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)
-INFO     API:contact_api.py:57 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:test_api_delete.py:39 [DELETE ПРОВЕРКА] Контакт fa465827-3176-435d-9eaa-117374ce33b1 действительно исчез из базы!

@@ -1,3 +1,0 @@
-[32;20m[2026-09-27 20:18:03] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword [User: wrong_email@gmail.com][0m
-[31;20m[2026-09-27 20:18:04] [ERROR] [API] - Ошибка авторизации: 401 - {"timestamp":"2026-09-27T20:18:03","status":401,"error":"Unauthorized","message":"Login or Password incorrect","path":"/v1/user/login/usernamepassword"}[0m
-[32;20m[2026-09-27 20:18:04] [INFO] [API] - [LOGIN NEGATIVE УСПЕХ] Сценарий 'Несуществующий email' корректно отклонён со статусом 401[0m
