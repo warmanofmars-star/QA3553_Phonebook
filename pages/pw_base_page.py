@@ -9,6 +9,9 @@ class PwBasePage:
         self.page = page
         self.base_url = "https://telranedu.web.app"
 
+        # Динамически тянем BASE_URL из .env, как и в Selenium
+        self.base_url = os.getenv("BASE_URL", "https://telranedu.web.app")
+
         # Динамический парсинг переменной из .env с фоллбэком
         pw_timeout = os.getenv("PW_TIMEOUT", "10000")
         self.expect_timeout = int(pw_timeout)

@@ -92,6 +92,7 @@ def driver():
         driver_instance.maximize_window()
 
     driver_instance.set_page_load_timeout(30)
+
     decorated_driver = EventFiringWebDriver(driver_instance, PhonebookListener())
 
     yield decorated_driver

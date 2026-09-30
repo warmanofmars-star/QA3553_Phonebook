@@ -226,4 +226,6 @@ allure-results/
 
 #test logs
 logs/
+
 *.txt
+*.jsonl

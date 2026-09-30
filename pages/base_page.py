@@ -29,18 +29,23 @@ class BasePage:
         return self.driver.find_element(*locator)
 
     def click(self, locator: tuple[str, str]) -> None:
-        self.find(locator).click()
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.element_to_be_clickable(locator)
+        )
+        element.click()
 
     def fill(self, locator, value, is_secret=False):
         """
-        Вводит текст в поле.
+        Вводит текст в поле с предварительным ожиданием видимости.
         Если is_secret=True, пароль в отчетах Allure будет заменен на звездочки.
         """
         display_value = "********" if is_secret else value
 
         with allure.step(f"Ввод текста '{display_value}' в поле {locator}"):
-            # Ищем элемент ровно ОДИН раз и сохраняем его в память
-            element = self.find(locator)
+            # Умное ожидание: ждем, пока элемент не появится в DOM и не станет видимым
+            element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+                EC.visibility_of_element_located(locator)
+            )
             element.clear()
             element.send_keys(value)
 
@@ -51,10 +56,7 @@ class BasePage:
 
     def click_sign_out_button(self):
         self.logger.info("Нажимаем кнопку 'Sign Out'")
-        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.element_to_be_clickable(self.SIGN_OUT_BTN)
-        )
-        element.click()
+        self.click(self.SIGN_OUT_BTN)
 
     # ==========================================
     # УНИВЕРСАЛЬНЫЕ МЕТОДЫ (ALERTS & WAITS)

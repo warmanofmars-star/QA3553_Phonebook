@@ -74,7 +74,17 @@ class ContactsPage(BasePage):
 
     def delete_all_contacts(self):
         """Удаляет все контакты по одному, избегая ошибки устаревших элементов (StaleElementReference)"""
-        while True:
+
+        # 1. Узнаем реальное количество контактов на странице до начала удаления
+        initial_count = self.get_all_contacts_count()
+
+        if initial_count == 0:
+            return  # База уже чиста, выходим
+
+        # 2. Ставим лимит = реальное количество + буфер (вдруг в процессе фоном добавится еще один)
+        max_iterations = initial_count + 5
+
+        for _ in range(max_iterations):
             # Каждый раз заново ищем все карточки на странице
             cards = self.driver.find_elements(*self.CONTACT_CARDS)
 
@@ -93,10 +103,12 @@ class ContactsPage(BasePage):
             ).click()
 
             # САМОЕ ВАЖНОЕ: Ждем, пока общее количество карточек не уменьшится на 1
-            # Только после этого идем на следующий круг цикла
             WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
                 lambda driver: len(driver.find_elements(*self.CONTACT_CARDS)) < current_count
             )
+        else:
+            # Сработает только если цикл исчерпал max_iterations, но break не случился
+            raise Exception(f"Превышен динамический лимит удалений ({max_iterations}). Похоже на баг фронтенда!")
 
     def delete_specific_contacts(self, phone_numbers: list):
         """Удаляет только те контакты, телефоны которых переданы в списке"""

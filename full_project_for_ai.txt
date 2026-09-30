@@ -111,6 +111,7 @@ def driver():
         driver_instance.maximize_window()
 
     driver_instance.set_page_load_timeout(30)
+
     decorated_driver = EventFiringWebDriver(driver_instance, PhonebookListener())
 
     yield decorated_driver
@@ -1244,18 +1245,23 @@ class BasePage:
         return self.driver.find_element(*locator)
 
     def click(self, locator: tuple[str, str]) -> None:
-        self.find(locator).click()
+        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+            EC.element_to_be_clickable(locator)
+        )
+        element.click()
 
     def fill(self, locator, value, is_secret=False):
         """
-        Вводит текст в поле.
+        Вводит текст в поле с предварительным ожиданием видимости.
         Если is_secret=True, пароль в отчетах Allure будет заменен на звездочки.
         """
         display_value = "********" if is_secret else value
 
         with allure.step(f"Ввод текста '{display_value}' в поле {locator}"):
-            # Ищем элемент ровно ОДИН раз и сохраняем его в память
-            element = self.find(locator)
+            # Умное ожидание: ждем, пока элемент не появится в DOM и не станет видимым
+            element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
+                EC.visibility_of_element_located(locator)
+            )
             element.clear()
             element.send_keys(value)
 
@@ -1266,10 +1272,7 @@ class BasePage:
 
     def click_sign_out_button(self):
         self.logger.info("Нажимаем кнопку 'Sign Out'")
-        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.element_to_be_clickable(self.SIGN_OUT_BTN)
-        )
-        element.click()
+        self.click(self.SIGN_OUT_BTN)
 
     # ==========================================
     # УНИВЕРСАЛЬНЫЕ МЕТОДЫ (ALERTS & WAITS)
@@ -1383,7 +1386,17 @@ class ContactsPage(BasePage):
 
     def delete_all_contacts(self):
         """Удаляет все контакты по одному, избегая ошибки устаревших элементов (StaleElementReference)"""
-        while True:
+
+        # 1. Узнаем реальное количество контактов на странице до начала удаления
+        initial_count = self.get_all_contacts_count()
+
+        if initial_count == 0:
+            return  # База уже чиста, выходим
+
+        # 2. Ставим лимит = реальное количество + буфер (вдруг в процессе фоном добавится еще один)
+        max_iterations = initial_count + 5
+
+        for _ in range(max_iterations):
             # Каждый раз заново ищем все карточки на странице
             cards = self.driver.find_elements(*self.CONTACT_CARDS)
 
@@ -1402,10 +1415,12 @@ class ContactsPage(BasePage):
             ).click()
 
             # САМОЕ ВАЖНОЕ: Ждем, пока общее количество карточек не уменьшится на 1
-            # Только после этого идем на следующий круг цикла
             WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
                 lambda driver: len(driver.find_elements(*self.CONTACT_CARDS)) < current_count
             )
+        else:
+            # Сработает только если цикл исчерпал max_iterations, но break не случился
+            raise Exception(f"Превышен динамический лимит удалений ({max_iterations}). Похоже на баг фронтенда!")
 
     def delete_specific_contacts(self, phone_numbers: list):
         """Удаляет только те контакты, телефоны которых переданы в списке"""
@@ -1569,6 +1584,9 @@ class PwBasePage:
     def __init__(self, page: Page):
         self.page = page
         self.base_url = "https://telranedu.web.app"
+
+        # Динамически тянем BASE_URL из .env, как и в Selenium
+        self.base_url = os.getenv("BASE_URL", "https://telranedu.web.app")
 
         # Динамический парсинг переменной из .env с фоллбэком
         pw_timeout = os.getenv("PW_TIMEOUT", "10000")
