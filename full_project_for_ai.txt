@@ -582,6 +582,10 @@ jobs:
           echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}" >> .env
           echo "ALLOW_MASS_DELETE=${{ github.event.inputs.allow_mass_delete }}" >> .env
 
+      # 👇 ДОБАВЛЯЕМ ПРЕДВАРИТЕЛЬНУЮ ЗАГРУЗКУ ОБРАЗА БРАУЗЕРА ДЛЯ СЕЛЕНОИДА
+      - name: Pull Selenoid Chrome image
+        run: docker pull selenoid/chrome:128.0
+
       - name: Запускаем автотесты в изолированной среде Docker Compose
         run: docker compose up --build --exit-code-from qa-framework
         continue-on-error: true
