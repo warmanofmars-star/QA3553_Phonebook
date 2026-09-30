@@ -7,7 +7,6 @@ from utils.logger import get_logger
 class PwBasePage:
     def __init__(self, page: Page):
         self.page = page
-        self.base_url = "https://telranedu.web.app"
 
         # Динамически тянем BASE_URL из .env, как и в Selenium
         self.base_url = os.getenv("BASE_URL", "https://telranedu.web.app")

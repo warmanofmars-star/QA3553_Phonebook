@@ -16,14 +16,17 @@ logger = get_logger("TEST")
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Delete -> UI Assert")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_delete_contact(authenticated_driver, auth_api):
+def test_delete_contact(authenticated_driver, temp_user): # <--- Заменили auth_api на temp_user
     logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_contact ---")
+
+    # Достаем изолированный API клиент этого конкретного пользователя
+    api = temp_user["api"]
 
     with allure.step("API PRECONDITION: Создаем контакт через бэкенд"):
         contact = ContactGenerator.get_random_contact()
 
-        # ОДНА СТРОЧКА! Токен уже внутри auth_api, заголовки подставятся сами
-        response = auth_api.add_contact(contact.to_api_payload())
+        # Используем API клиента ИЗ ПЕСОЧНИЦЫ
+        response = api.add_contact(contact.to_api_payload())
         assert response.status_code == 200, "Пререквизит упал: API не создал контакт"
         logger.info(f"API успешно создал контакт с телефоном: {contact.phone}")
 
@@ -73,12 +76,15 @@ def test_delete_all_contacts(authenticated_driver):
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Multiple Delete")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_delete_multiple_contacts(authenticated_driver, auth_api):
+def test_delete_multiple_contacts(authenticated_driver, temp_user): # <--- Заменили auth_api на temp_user
     """Проверка последовательного удаления нескольких конкретных контактов"""
     logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_multiple_contacts ---")
     contacts_page = ContactsPage(authenticated_driver)
 
     phones_to_delete = []
+
+    # Достаем изолированный API клиент этого конкретного пользователя
+    api = temp_user["api"]
 
     # ==========================================
     # ПРЕДУСЛОВИЕ ЧЕРЕЗ API
@@ -88,7 +94,7 @@ def test_delete_multiple_contacts(authenticated_driver, auth_api):
             contact = ContactGenerator.get_random_contact()
 
             # Заменили make_api_request на auth_api.add_contact
-            response = auth_api.add_contact(contact.to_api_payload())
+            response = api.add_contact(contact.to_api_payload())
             assert response.status_code == 200, f"Ошибка API: Не удалось создать контакт №{i + 1}"
 
             phones_to_delete.append(contact.phone)

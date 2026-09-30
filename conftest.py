@@ -10,6 +10,7 @@ from selenium.webdriver.support.events import EventFiringWebDriver
 from utils.listener import PhonebookListener
 from api.contact_api import PhonebookAPI
 from pages.login_page import LoginPage
+from data.data_generator import UserGenerator
 
 # Загружаем переменные из .env
 load_dotenv()
@@ -132,14 +133,18 @@ def driver():
             time.sleep(1)
 
 
+
 @pytest.fixture
-def authenticated_driver(driver):
+def authenticated_driver(driver, temp_user): # <--- Добавили temp_user
     login_page = LoginPage(driver)
     login_page.open()
 
-    # Берем данные напрямую из .env, не обращаясь к файлу тестов
-    login_page.fill_email(os.getenv("USER_EMAIL"))
-    login_page.fill_password(os.getenv("USER_PASSWORD"))
+    # Достаем нашего уникального пользователя из песочницы
+    user = temp_user["user"]
+
+    # Берем данные свежесозданного юзера
+    login_page.fill_email(user.email)
+    login_page.fill_password(user.password)
     login_page.submit_login()
 
     # Ждем, пока авторизация действительно завершится
@@ -172,22 +177,34 @@ def pytest_runtest_makereport(item, call):
             )
 
 
-@pytest.fixture(scope="session")
-def auth_api():
-    """Фикстура, которая автоматически создает API-клиента, логинится и возвращает готовую сессию"""
-    api = PhonebookAPI()
-    email = os.getenv("USER_EMAIL")
-    password = os.getenv("USER_PASSWORD")
-
-    with allure.step("Setup Fixture: Автоматическая API-авторизация"):
-        response = api.login(email, password)
-        assert response.status_code == 200, "КРИТИЧЕСКАЯ ОШИБКА: Не удалось получить API токен!"
-
-    return api
-
+@pytest.fixture(scope="function")
+def auth_api(temp_user):
+    """
+    Фикстура-адаптер: берет изолированного API-клиента из песочницы (temp_user)
+    и отдает его чистым API-тестам.
+    """
+    # Достаем уже авторизованного клиента из временного пользователя
+    return temp_user["api"]
 
 def pytest_make_parametrize_id(val):
     """
     Хук Pytest: запрещает экранировать кириллицу в ID параметризованных тестов.
     """
     return str(val)
+
+
+@pytest.fixture
+def temp_user():
+    """
+    Создает уникального пользователя через API для полной изоляции тестов.
+    Возвращает объект User (email, password) и готовый API-клиент.
+    """
+    user = UserGenerator.get_valid_user()
+    api = PhonebookAPI()
+
+    with allure.step(f"Setup: Генерация временного пользователя {user.email}"):
+        response = api.register(user.email, user.password)
+        assert response.status_code == 200, "Не удалось зарегистрировать временного пользователя!"
+
+    # Возвращаем словарь с данными юзера и авторизованной API сессией
+    return {"user": user, "api": api}
