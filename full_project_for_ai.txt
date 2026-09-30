@@ -586,6 +586,10 @@ jobs:
       - name: Pull Selenoid Chrome image
         run: docker pull selenoid/chrome:128.0
 
+      # 👇 ДОБАВЛЯЕМ СКАЧИВАНИЕ ОБРАЗА ВИДЕОРЕКОРДЕРА ДЛЯ CI/CD
+      - name: Pull Selenoid Video Recorder image
+        run: docker pull selenoid/video-recorder:latest-release
+
       - name: Запускаем автотесты в изолированной среде Docker Compose
         run: docker compose up --build --exit-code-from qa-framework
         continue-on-error: true
