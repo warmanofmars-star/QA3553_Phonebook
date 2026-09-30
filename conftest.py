@@ -9,11 +9,10 @@ from dotenv import load_dotenv
 from selenium.webdriver.support.events import EventFiringWebDriver
 from utils.listener import PhonebookListener
 from api.contact_api import PhonebookAPI
+from pages.login_page import LoginPage
 
 # Загружаем переменные из .env
 load_dotenv()
-
-from pages.login_page import LoginPage
 
 
 @pytest.fixture
@@ -23,8 +22,9 @@ def driver():
     is_ci = os.environ.get('CI') == 'true'
     use_selenoid = os.getenv('USE_SELENOID', 'false').lower() == 'true'
 
-    # Переменная для хранения ID сессии Докера
+    # Инициализируем переменные заранее, чтобы статический анализатор PyCharm не ругался
     session_id = None
+    driver_instance = None
 
     if is_ci:
         options = ChromeOptions()
@@ -45,13 +45,26 @@ def driver():
             options.set_capability("selenoid:options", {
                 "enableVNC": True,
                 "enableVideo": True,  # <--- ВКЛЮЧАЕМ ЗАПИСЬ ВИДЕО
-
             })
 
-            driver_instance = webdriver.Remote(
-                command_executor="http://localhost:4444/wd/hub",
-                options=options
-            )
+            # Читаем URL из docker-compose, а если его нет (запуск руками) - берем localhost
+            hub_url = os.getenv("SELENOID_HUB_URL", "http://localhost:4444/wd/hub")
+
+            # Умное ожидание готовности Селеноида (до 10 секунд)
+            for attempt in range(5):
+                try:
+                    driver_instance = webdriver.Remote(
+                        command_executor=hub_url,
+                        options=options
+                    )
+                    break  # Подключились успешно, выходим из цикла
+                except Exception as e:
+                    if attempt == 4:
+                        print(f"\n[ERROR] Селеноид так и не ответил: {e}")
+                        raise e  # Если 5 попыток не помогли - роняем тест
+                    print(f"\n[INFO] Ждем пробуждения Selenoid (попытка {attempt + 1})...")
+                    time.sleep(2)
+
             # Запоминаем ID сессии, чтобы потом забрать правильное видео
             session_id = driver_instance.session_id
 
@@ -83,14 +96,19 @@ def driver():
 
     yield decorated_driver
 
+    # Защита от сверхбыстрых тестов: даем FFmpeg время на создание файла
+    if use_selenoid:
+        time.sleep(1.5)
+
     # Закрываем браузер. Только после этой команды Selenoid финализирует mp4 файл!
     decorated_driver.quit()
 
     # === ИНТЕГРАЦИЯ ВИДЕО В ALLURE ===
     if use_selenoid and session_id:
 
-        # Видео уже физически лежит на твоем диске C, идем прямо за ним
-        video_path = rf"C:\selenoid\video\{session_id}.mp4"
+        # Читаем директорию из переменной Докера, а если запускаем локально — берем диск C
+        video_dir = os.getenv("VIDEO_DIR", r"C:\selenoid\video")
+        video_path = os.path.join(video_dir, f"{session_id}.mp4")
 
         # Умное ожидание: проверяем появление файла на диске (до 10 секунд)
         for attempt in range(10):
@@ -101,16 +119,17 @@ def driver():
                     with open(video_path, "rb") as video_file:
                         allure.attach(
                             video_file.read(),
-                            name=f"Видео прохождения теста",
+                            name="Видео прохождения теста",
                             attachment_type=allure.attachment_type.MP4
                         )
-                    print(f"\n[INFO] Видео успешно прикреплено напрямую с диска Windows!")
+                    print("\n[INFO] Видео успешно прикреплено к отчету!")
                     break  # Успешно прикрепили, выходим из цикла
                 except Exception as e:
                     print(f"\n[WARNING] Файл заблокирован, пробуем снова. Ошибка: {e}")
 
             # Если файла еще нет, ждем 1 секунду перед новой проверкой
             time.sleep(1)
+
 
 @pytest.fixture
 def authenticated_driver(driver):
@@ -142,7 +161,7 @@ def pytest_runtest_makereport(item, call):
                 alert = driver.switch_to.alert
                 alert.accept()
             except Exception:
-                pass # Алерта нет, идем дальше спокойно
+                pass  # Алерта нет, идем дальше спокойно
 
             test_name = item.name.replace("/", "_").replace("::", "_")
             allure.attach(
@@ -150,6 +169,7 @@ def pytest_runtest_makereport(item, call):
                 name=f"Скриншот ошибки: {test_name}",
                 attachment_type=allure.attachment_type.PNG
             )
+
 
 @pytest.fixture(scope="session")
 def auth_api():
@@ -163,6 +183,7 @@ def auth_api():
         assert response.status_code == 200, "КРИТИЧЕСКАЯ ОШИБКА: Не удалось получить API токен!"
 
     return api
+
 
 def pytest_make_parametrize_id(val):
     """

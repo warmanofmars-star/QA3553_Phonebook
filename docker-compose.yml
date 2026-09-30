@@ -1,0 +1,43 @@
+version: '3.8'
+
+networks:
+  qa-network:
+    name: qa-network
+    driver: bridge
+
+# Создаем изолированный виртуальный диск внутри Докера
+volumes:
+  video-data:
+    name: video-data
+
+services:
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    networks:
+      - qa-network
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./selenoid:/etc/selenoid:ro"
+      - "video-data:/opt/selenoid/video" # Подключаем диск к Селеноиду
+    ports:
+      - "4444:4444"
+    environment:
+      - DOCKER_API_VERSION=1.41
+      - OVERRIDE_VIDEO_OUTPUT_DIR=video-data # Магия Селеноида для связи с томом
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-container-network", "qa-network"]
+
+  qa-framework:
+    build: .
+    depends_on:
+      - selenoid
+    networks:
+      - qa-network
+    volumes:
+      - "./allure-results:/app/allure-results"
+      - "video-data:/app/video" # Подключаем этот же диск к нашему фреймворку
+    environment:
+      - USE_SELENOID=true
+      - SELENOID_HUB_URL=http://selenoid:4444/wd/hub
+      - VIDEO_DIR=/app/video
+      - USER_EMAIL=${USER_EMAIL}
+      - USER_PASSWORD=${USER_PASSWORD}
