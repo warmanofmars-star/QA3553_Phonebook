@@ -24,7 +24,7 @@ jobs:
           echo "ALLOW_MASS_DELETE=${{ github.event.inputs.allow_mass_delete }}" >> .env
 
       - name: Запускаем автотесты в изолированной среде Docker Compose
-        run: docker-compose up --build --exit-code-from qa-framework
+        run: docker compose up --build --exit-code-from qa-framework
         continue-on-error: true
 
       - name: Устанавливаем Allure CLI и генерируем отчет
