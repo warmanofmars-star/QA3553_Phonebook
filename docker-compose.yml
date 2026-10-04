@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   qa-network:
     name: qa-network
@@ -45,3 +43,5 @@ services:
       - BASE_URL=https://telranedu.web.app
       - API_URL=https://contactapp-telran-backend.herokuapp.com
       - ALLOW_MASS_DELETE=${ALLOW_MASS_DELETE:-false}
+    #👇 ДОБАВЛЯЕМ КОМАНДУ ЗАПУСКА С ФЛАГОМ --video=on
+    command: pytest tests/ -n 3 --video=on --clean-alluredir --alluredir=allure-results
