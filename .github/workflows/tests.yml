@@ -10,11 +10,13 @@ on:
           default: false
 
 jobs:
-  test:
+  # =========================================
+  # JOB 1: ПАРАЛЛЕЛЬНЫЙ ЗАПУСК ТЕСТОВ (МАТРИЦА)
+  # =========================================
+  test-execution:
     runs-on: ubuntu-22.04
-    # 👇 НАША МАТРИЦА КРОССБРАУЗЕРНОСТИ
     strategy:
-      fail-fast: false # Если Chrome упадет, мы всё равно хотим дождаться результатов Firefox
+      fail-fast: false
       matrix:
         browser: [chrome, firefox]
 
@@ -28,14 +30,12 @@ jobs:
           echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}" >> .env
           echo "ALLOW_MASS_DELETE=${{ github.event.inputs.allow_mass_delete }}" >> .env
 
-      # 👇 СКАЧИВАЕМ VNC-ОБРАЗЫ ОБЕИХ ВЕРСИЙ (с поддержкой видео)
       - name: Pull Selenoid Browser Images & Video Recorder
         run: |
           docker pull selenoid/vnc_chrome:128.0
           docker pull selenoid/vnc_firefox:125.0
           docker pull selenoid/video-recorder:latest-release
 
-      # 👇 ПРОКИДЫВАЕМ ТЕКУЩИЙ БРАУЗЕР ИЗ МАТРИЦЫ ВНУТРЬ ДОКЕРА
       - name: Запускаем автотесты в изолированной среде Docker Compose
         env:
           BROWSER: ${{ matrix.browser }}
@@ -50,29 +50,60 @@ jobs:
           echo "Environment=Docker Compose (Selenoid)" >> allure-results/environment.properties
           echo "CI=GitHub Actions" >> allure-results/environment.properties
 
-      - name: Устанавливаем Allure CLI и генерируем отчет
+      - name: Сохраняем сырые результаты Allure как артефакт
+        uses: actions/upload-artifact@v4
         if: always()
+        with:
+          name: allure-results-${{ matrix.browser }}
+          path: allure-results
+          retention-days: 1 # Храним недолго, они нужны только для генерации отчета в следующем шаге
+
+  # =========================================
+  # JOB 2: СБОРКА ЕДИНОГО ОТЧЕТА И ПУБЛИКАЦИЯ
+  # =========================================
+  generate-report:
+    needs: test-execution # Этот Job запустится ТОЛЬКО после завершения матрицы тестов
+    runs-on: ubuntu-22.04
+    if: always() # Выполняем сборку отчета даже если часть тестов упала
+
+    steps:
+      - name: Скачиваем результаты Chrome
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results-chrome
+          path: allure-results-chrome
+
+      - name: Скачиваем результаты Firefox
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results-firefox
+          path: allure-results-firefox
+
+      - name: Объединяем результаты в одну директорию
+        run: |
+          mkdir -p all-allure-results
+          cp -r allure-results-chrome/* all-allure-results/ || true
+          cp -r allure-results-firefox/* all-allure-results/ || true
+
+      - name: Устанавливаем Allure CLI и генерируем ОБЩИЙ отчет
         run: |
           npm install -g allure-commandline --save-dev
-          allure generate allure-results -o allure-report --clean
+          allure generate all-allure-results -o allure-report --clean
 
-      - name: Публикуем отчет на GitHub Pages
+      - name: Публикуем финальный отчет на GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-report
-          destination_dir: ${{ matrix.browser }} # <--- Раскладываем отчеты по папкам (chrome или firefox)
 
-      - name: Отправляем уведомление в Telegram
+      - name: Отправляем сводное уведомление в Telegram
         uses: appleboy/telegram-action@master
-        if: always()
         with:
             to: ${{ secrets.TELEGRAM_TO }}
             token: ${{ secrets.TELEGRAM_TOKEN }}
             message: |
-              🤖 Автотесты Phonebook завершены!
-              🌐 Браузер: ${{ matrix.browser }}
-              📊 Посмотреть Allure-отчет можно по ссылке:
-              👉 https://warmanofmars-star.github.io/QA3553_Phonebook/${{ matrix.browser }}/
+              🤖 Кроссбраузерные автотесты Phonebook завершены!
+              🌐 Проверено в: Chrome и Firefox
+              📊 Посмотреть общий Allure-отчет можно по ссылке:
+              👉 https://warmanofmars-star.github.io/QA3553_Phonebook/
