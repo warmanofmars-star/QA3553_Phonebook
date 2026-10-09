@@ -75,28 +75,23 @@ jobs:
           name: allure-results-firefox
           path: allure-results-firefox
 
-      - name: Уникализируем результаты и разносим по папкам в Allure
+      - name: Уникализируем и объединяем результаты
         run: |
           cat << 'EOF' > process_allure.py
           import json
           import glob
 
           def process_folder(folder, browser):
-              files = glob.glob(f"{folder}/*result.json")
-              for file_path in files:
+              for file_path in glob.glob(f"{folder}/*result.json"):
                   with open(file_path, 'r', encoding='utf-8') as f:
                       data = json.load(f)
                   
                   if 'historyId' in data:
                       data['historyId'] = f"{data['historyId']}-{browser}"
-                  
-                  if 'name' in data:
-                      data['name'] = f"{data['name']} [{browser.upper()}]"
-                  
-                  # 🔥 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: уникализируем fullName, чтобы предотвратить склейку
                   if 'fullName' in data:
                       data['fullName'] = f"{data['fullName']} [{browser.upper()}]"
-                  
+                  if 'name' in data:
+                      data['name'] = f"{data['name']} [{browser.upper()}]"
                   if 'labels' in data:
                       for label in data['labels']:
                           if label['name'] == 'suite':
@@ -111,15 +106,20 @@ jobs:
           
           python3 process_allure.py
           
-          # Создаем файл окружения прямо в папке Chrome (Allure сам его подхватит)
-          echo "Browsers=Chrome, Firefox" > allure-results-chrome/environment.properties
-          echo "Environment=Docker Compose (Selenoid)" >> allure-results-chrome/environment.properties
-          echo "CI=GitHub Actions Matrix" >> allure-results-chrome/environment.properties
+          # СЛИВАЕМ ВСЕ ФАЙЛЫ В ОДНУ ПАПКУ (Имена файлов уникальны, конфликта не будет)
+          mkdir -p all-allure-results
+          cp -r allure-results-chrome/* all-allure-results/ || true
+          cp -r allure-results-firefox/* all-allure-results/ || true
+          
+          # Создаем единый файл окружения
+          echo "Browsers=Chrome, Firefox" > all-allure-results/environment.properties
+          echo "Environment=Docker Compose (Selenoid)" >> all-allure-results/environment.properties
+          echo "CI=GitHub Actions Matrix" >> all-allure-results/environment.properties
 
       - name: Устанавливаем Allure CLI и генерируем ОБЩИЙ отчет
         run: |
           npm install -g allure-commandline --save-dev
-          allure generate allure-results-chrome allure-results-firefox -o allure-report --clean
+          allure generate all-allure-results -o allure-report --clean
 
       - name: Публикуем финальный отчет на GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
