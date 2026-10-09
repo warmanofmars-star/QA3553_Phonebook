@@ -26,6 +26,12 @@ def pytest_addoption(parser):
         help="Browser to run tests in: chrome, firefox, or edge"
     )
 
+@pytest.fixture(autouse=True)
+def add_browser_param_to_allure(request):
+    """Динамически маркируем каждый тест именем браузера, чтобы Allure их не склеивал"""
+    browser_name = request.config.getoption("--browser_name")
+    allure.dynamic.parameter("browser", browser_name)
+
 
 @pytest.fixture
 def driver(request):  # <--- Добавили request для чтения флага

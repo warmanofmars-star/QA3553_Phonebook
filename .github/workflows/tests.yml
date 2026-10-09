@@ -42,13 +42,9 @@ jobs:
         run: docker compose up --build --exit-code-from qa-framework
         continue-on-error: true
 
-      - name: Создаем файл окружения для Allure
+      - name: Исправляем права доступа для артефактов
         if: always()
-        run: |
-          sudo chown -R $USER:$USER allure-results
-          echo "Browser=${{ matrix.browser }}" >> allure-results/environment.properties
-          echo "Environment=Docker Compose (Selenoid)" >> allure-results/environment.properties
-          echo "CI=GitHub Actions" >> allure-results/environment.properties
+        run: sudo chown -R $USER:$USER allure-results
 
       - name: Сохраняем сырые результаты Allure как артефакт
         uses: actions/upload-artifact@v4
@@ -56,13 +52,13 @@ jobs:
         with:
           name: allure-results-${{ matrix.browser }}
           path: allure-results
-          retention-days: 1 # Храним недолго, они нужны только для генерации отчета в следующем шаге
+          retention-days: 1 # Храним недолго, они нужны только для генерации отчета
 
   # =========================================
   # JOB 2: СБОРКА ЕДИНОГО ОТЧЕТА И ПУБЛИКАЦИЯ
   # =========================================
   generate-report:
-    needs: test-execution # Этот Job запустится ТОЛЬКО после завершения матрицы тестов
+    needs: test-execution # Запустится ТОЛЬКО после завершения матрицы
     runs-on: ubuntu-22.04
     if: always() # Выполняем сборку отчета даже если часть тестов упала
 
@@ -84,6 +80,11 @@ jobs:
           mkdir -p all-allure-results
           cp -r allure-results-chrome/* all-allure-results/ || true
           cp -r allure-results-firefox/* all-allure-results/ || true
+          
+          # Создаем единый сводный файл окружения прямо в общей папке
+          echo "Browsers=chrome, firefox" > all-allure-results/environment.properties
+          echo "Environment=Docker Compose (Selenoid)" >> all-allure-results/environment.properties
+          echo "CI=GitHub Actions" >> all-allure-results/environment.properties
 
       - name: Устанавливаем Allure CLI и генерируем ОБЩИЙ отчет
         run: |
