@@ -42,6 +42,13 @@ jobs:
         run: docker compose up --build --exit-code-from qa-framework
         continue-on-error: true
 
+      - name: Создаем файл окружения для Allure
+        if: always()
+        run: |
+          echo "Browser=${{ matrix.browser }}" >> allure-results/environment.properties
+          echo "Environment=Docker Compose (Selenoid)" >> allure-results/environment.properties
+          echo "CI=GitHub Actions" >> allure-results/environment.properties
+
       - name: Устанавливаем Allure CLI и генерируем отчет
         if: always()
         run: |
