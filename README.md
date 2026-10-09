@@ -3,7 +3,7 @@
 [![UI Tests in Docker](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)
 📊 **Live Allure Report:** [View Dashboard](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
-Robust, production-ready hybrid test automation framework for the "Phonebook" web application, featuring a fully containerized **Infrastructure as Code (IaC)** approach.
+Robust, production-ready hybrid test automation framework for the "Phonebook" web application, featuring a fully containerized **Infrastructure as Code (IaC)** approach and cross-browser CI/CD matrix execution.
 
 This project demonstrates a **Senior-level approach** to QA automation, combining classic UI testing, API integration, remote browser execution via Selenoid, and modern container orchestration.
 
@@ -16,19 +16,19 @@ This project demonstrates a **Senior-level approach** to QA automation, combinin
 * **Design Pattern:** Page Object Model (POM)
 * **Test Data:** Faker (dynamic generation of names, phones, emails)
 * **Reporting:** Allure Report (with embedded test session videos and secure data masking)
-* **CI/CD:** GitHub Actions (Fully containerized pipeline execution)
+* **CI/CD:** GitHub Actions (Fully containerized pipeline execution with Build Matrix)
 * **Notifications:** Telegram Bot API
 * **Security:** `python-dotenv` for managing sensitive credentials
 
 ## 🚀 Key Architectural Features
 
-* **Dockerized Infrastructure (IaC):** The entire test environment—including the framework, Selenoid hub, Chrome instances, and video recording modules—is orchestrated via Docker Compose, guaranteeing absolute environment consistency across local machines and CI/CD.
-* **Isolated Networking & Named Volumes:** Utilizes a custom bridge network (`qa-network`) for seamless container communication and persistent `video-data` named volumes to handle test artifacts independently of host OS file systems.
+* **Cross-Browser CI/CD Matrix:** Configured GitHub Actions matrix strategy to dynamically spawn parallel test suites in Google Chrome and Mozilla Firefox inside isolated Docker containers.
+* **Dockerized Infrastructure (IaC):** The entire test environment—including the framework, Selenoid hub, browser instances, and video recording modules—is orchestrated via Docker Compose.
+* **Isolated Networking & Named Volumes:** Utilizes a custom bridge network (`qa-network`) and persistent `video-data` named volumes to handle test artifacts independently of host OS file systems.
 * **Automatic Video Attachment:** Every test execution session is recorded via FFmpeg/Selenoid, and the resulting `.mp4` files are automatically attached to the Allure report upon teardown.
 * **Hybrid Testing Approach (API + UI):** Tests use API calls to set up preconditions and manage state, drastically reducing execution time and ensuring test isolation.
-* **Smart Browser Cascading:** Automatically detects runtime context (Docker vs. local execution) and supports fallback mechanisms for local debugging.
-* **Security & Log Masking:** Sensitive data (passwords, tokens) are strictly masked in all logs and Allure reports.
-* **Thread-Safe Custom Logging:** Proprietary logging utility with dual-stream outputs, ANSI-colored console logs, and individual log files per Process ID (`PID`) for safe parallel execution (`pytest-xdist`).
+* **Smart Browser Cascading:** Automatically detects runtime context and provides seamless CLI configuration via custom `--browser_name` pytest argument.
+* **Thread-Safe Custom Logging:** Proprietary logging utility with dual-stream outputs, ANSI-colored console logs, and individual log files per Process ID (`PID`).
 
 ## ⚙️ Setup & Installation
 
@@ -57,12 +57,12 @@ API_URL=https://contactapp-telran-backend.herokuapp.com
 
 **Run tests in the isolated Docker container (Recommended):**
 ```bash
-docker-compose up --build --exit-code-from qa-framework
+docker compose up --build --exit-code-from qa-framework
 ```
 
-**Run locally via Pytest (parallel execution):**
+**Run locally via Pytest (parallel execution & specific browser):**
 ```bash
-pytest tests/ -n auto --clean-alluredir --alluredir=allure-results
+pytest tests/ -n auto --browser_name=firefox --clean-alluredir --alluredir=allure-results
 ```
 
 **Generate and view Allure Report locally:**
@@ -70,18 +70,10 @@ pytest tests/ -n auto --clean-alluredir --alluredir=allure-results
 allure serve allure-results
 ```
 
-## ☁️ CI/CD & Remote Execution
-The project features an advanced **GitHub Actions** pipeline:
-* Automatically triggers on `main` branch pushes or manual dispatch (`workflow_dispatch`).
-* Spins up a clean Linux runner, builds the Docker Compose stack, and executes all tests in parallel.
-* Securely injects credentials via **GitHub Secrets**.
-* Generates and deploys the Allure report to **GitHub Pages**.
-* Sends automated execution status notifications with a direct link to Telegram.
-
 ## 🏗 Project Structure
 ```text
 QA3553_Phonebook/
-├── .github/workflows/    # CI/CD pipeline configuration (tests.yml)
+├── .github/workflows/    # CI/CD pipeline configuration with Matrix (tests.yml)
 ├── api_tests/            # Pure API test suites
 ├── data/                 # Test data generators (Faker, DataClasses)
 ├── models/               # Data models (Contact, User)

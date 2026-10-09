@@ -12,6 +12,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-22.04
+    # 👇 НАША МАТРИЦА КРОССБРАУЗЕРНОСТИ
+    strategy:
+      fail-fast: false # Если Chrome упадет, мы всё равно хотим дождаться результатов Firefox
+      matrix:
+        browser: [chrome, firefox]
 
     steps:
       - name: Скачиваем код проекта
@@ -23,15 +28,17 @@ jobs:
           echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}" >> .env
           echo "ALLOW_MASS_DELETE=${{ github.event.inputs.allow_mass_delete }}" >> .env
 
-      # 👇 ДОБАВЛЯЕМ ПРЕДВАРИТЕЛЬНУЮ ЗАГРУЗКУ ОБРАЗА БРАУЗЕРА ДЛЯ СЕЛЕНОИДА
-      - name: Pull Selenoid Chrome image
-        run: docker pull selenoid/chrome:128.0
+      # 👇 СКАЧИВАЕМ VNC-ОБРАЗЫ ОБЕИХ ВЕРСИЙ (с поддержкой видео)
+      - name: Pull Selenoid Browser Images & Video Recorder
+        run: |
+          docker pull selenoid/vnc_chrome:128.0
+          docker pull selenoid/vnc_firefox:125.0
+          docker pull selenoid/video-recorder:latest-release
 
-      # 👇 ДОБАВЛЯЕМ СКАЧИВАНИЕ ОБРАЗА ВИДЕОРЕКОРДЕРА ДЛЯ CI/CD
-      - name: Pull Selenoid Video Recorder image
-        run: docker pull selenoid/video-recorder:latest-release
-
+      # 👇 ПРОКИДЫВАЕМ ТЕКУЩИЙ БРАУЗЕР ИЗ МАТРИЦЫ ВНУТРЬ ДОКЕРА
       - name: Запускаем автотесты в изолированной среде Docker Compose
+        env:
+          BROWSER: ${{ matrix.browser }}
         run: docker compose up --build --exit-code-from qa-framework
         continue-on-error: true
 
@@ -56,6 +63,7 @@ jobs:
             to: ${{ secrets.TELEGRAM_TO }}
             token: ${{ secrets.TELEGRAM_TOKEN }}
             message: |
-              🤖 Автотесты Phonebook завершены (Docker Environment)!
+              🤖 Автотесты Phonebook завершены!
+              🌐 Браузер: ${{ matrix.browser }}
               📊 Посмотреть Allure-отчет можно по ссылке:
               👉 https://warmanofmars-star.github.io/QA3553_Phonebook/
