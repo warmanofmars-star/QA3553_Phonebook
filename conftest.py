@@ -26,11 +26,16 @@ def pytest_addoption(parser):
         help="Browser to run tests in: chrome, firefox, or edge"
     )
 
-@pytest.fixture(autouse=True)
-def add_browser_param_to_allure(request):
-    """Динамически маркируем каждый тест именем браузера, чтобы Allure их не склеивал"""
-    browser_name = request.config.getoption("--browser_name")
-    allure.dynamic.parameter("browser", browser_name)
+def pytest_collection_modifyitems(config, items):
+    """
+    Хак для Allure + GitHub Actions Matrix.
+    Добавляем имя браузера прямо в ID теста (nodeid) ПЕРЕД его запуском.
+    Это заставит Allure генерировать разные History ID для Chrome и Firefox.
+    """
+    browser_name = config.getoption("--browser_name")
+    for item in items:
+        # Превращаем 'test_login.py::test_login' в 'test_login.py::test_login[chrome]'
+        item._nodeid = f"{item.nodeid}[{browser_name}]"
 
 
 @pytest.fixture
