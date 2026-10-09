@@ -1,0 +1,32 @@
+INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_f120356c60@gmail.com]
+INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
+INFO     UI:base_page.py:25 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/login
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='email']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: css selector, Value: 'input[name='password']'
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:27 Ввод данных в поле формы...
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Login']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Login'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     TEST:test_delete_contact.py:20 --- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_contact ---
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0521064741]
+INFO     TEST:test_delete_contact.py:31 API успешно создал контакт с телефоном: 0521064741
+INFO     UI:base_page.py:25 Открываем страницу: https://telranedu.web.app/contacts
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/contacts
+INFO     TEST:test_delete_contact.py:38 ШАГ 1: Кликаем по карточке контакта (0521064741)
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0521064741']/..'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0521064741']/..'
+INFO     UI:listener.py:22 Клик по элементу <div> с текстом: 'Thomas
+0521064741'
+INFO     TEST:test_delete_contact.py:40 ШАГ 2: Нажимаем кнопку Remove
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//button[text()='Remove']'
+INFO     UI:listener.py:22 Клик по элементу <button> с текстом: 'Remove'
+INFO     UI:base_page.py:81 Ожидаем исчезновения элемента: ('xpath', "//h3[text()='0521064741']")
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0521064741']'
+INFO     UI:listener.py:15 Поиск элемента -> By: xpath, Value: '//h3[text()='0521064741']'
+INFO     UI:base_page.py:86 Элемент успешно исчез со страницы
+INFO     TEST:test_delete_contact.py:46 --- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---
