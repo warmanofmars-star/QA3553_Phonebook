@@ -45,6 +45,7 @@ jobs:
       - name: Создаем файл окружения для Allure
         if: always()
         run: |
+          sudo chown -R $USER:$USER allure-results
           echo "Browser=${{ matrix.browser }}" >> allure-results/environment.properties
           echo "Environment=Docker Compose (Selenoid)" >> allure-results/environment.properties
           echo "CI=GitHub Actions" >> allure-results/environment.properties
