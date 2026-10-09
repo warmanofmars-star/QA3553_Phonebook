@@ -63,6 +63,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-report
+          destination_dir: ${{ matrix.browser }} # <--- Раскладываем отчеты по папкам (chrome или firefox)
 
       - name: Отправляем уведомление в Telegram
         uses: appleboy/telegram-action@master
@@ -74,4 +75,4 @@ jobs:
               🤖 Автотесты Phonebook завершены!
               🌐 Браузер: ${{ matrix.browser }}
               📊 Посмотреть Allure-отчет можно по ссылке:
-              👉 https://warmanofmars-star.github.io/QA3553_Phonebook/
+              👉 https://warmanofmars-star.github.io/QA3553_Phonebook/${{ matrix.browser }}/
