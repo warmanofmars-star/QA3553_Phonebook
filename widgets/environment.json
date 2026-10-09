@@ -1,1 +1,1 @@
-[{"values":["firefox"],"name":"Browser"},{"values":["Docker Compose (Selenoid)"],"name":"Environment"},{"values":["GitHub Actions"],"name":"CI"}]
+[{"values":["chrome, firefox"],"name":"Browsers"},{"values":["Docker Compose (Selenoid)"],"name":"Environment"},{"values":["GitHub Actions"],"name":"CI"}]
