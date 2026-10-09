@@ -83,20 +83,20 @@ jobs:
 
           def process_folder(folder, browser):
               files = glob.glob(f"{folder}/*result.json")
-              print(f"[INFO] Найдено {len(files)} тестов в папке {folder}")
               for file_path in files:
                   with open(file_path, 'r', encoding='utf-8') as f:
                       data = json.load(f)
                   
-                  # 1. Меняем ID, чтобы исключить склейку
                   if 'historyId' in data:
                       data['historyId'] = f"{data['historyId']}-{browser}"
                   
-                  # 2. Переименовываем тест
                   if 'name' in data:
                       data['name'] = f"{data['name']} [{browser.upper()}]"
                   
-                  # 3. Меняем Suite, чтобы в отчете они лежали в разных папках слева!
+                  # 🔥 КРИТИЧНОЕ ИСПРАВЛЕНИЕ: уникализируем fullName, чтобы предотвратить склейку
+                  if 'fullName' in data:
+                      data['fullName'] = f"{data['fullName']} [{browser.upper()}]"
+                  
                   if 'labels' in data:
                       for label in data['labels']:
                           if label['name'] == 'suite':
@@ -119,7 +119,6 @@ jobs:
       - name: Устанавливаем Allure CLI и генерируем ОБЩИЙ отчет
         run: |
           npm install -g allure-commandline --save-dev
-          # ПЕРЕДАЕМ ОБЕ ПАПКИ НАПРЯМУЮ! Никаких cp -r, Allure всё сделает сам.
           allure generate allure-results-chrome allure-results-firefox -o allure-report --clean
 
       - name: Публикуем финальный отчет на GitHub Pages
