@@ -1,4 +1,4 @@
-# Собираем тройные кавычки динамически, чтобы парсер чата не сошел с ума
+# Собираем тройные кавычки динамически, чтобы парсер не сошел с ума
 TICK = "`" * 3
 
 lines = [
@@ -17,17 +17,17 @@ lines = [
     "* **Test Runner:** Pytest (with `pytest-xdist` for parallel execution)\n",
     "* **Design Pattern:** Page Object Model (POM)\n",
     "* **Test Data:** Faker (dynamic generation of names, phones, emails)\n",
-    "* **Reporting:** Allure Report (with embedded test session videos and secure data masking)\n",
-    "* **CI/CD:** GitHub Actions (Fully containerized pipeline execution with Build Matrix)\n",
+    "* **Reporting:** Allure Report (with embedded videos and secure data masking)\n",
+    "* **CI/CD:** GitHub Actions (Containerized pipeline with Build Matrix)\n",
     "* **Notifications:** Telegram Bot API\n",
     "* **Security:** `python-dotenv` for managing sensitive credentials\n\n",
     "## 🚀 Key Architectural Features\n\n",
+    "* **Advanced Allure Matrix Deduplication:** Features a custom Python-based post-processor injected into GitHub Actions. It dynamically mutates `testCaseId` and `historyId` in raw JSON results to merge parallel cross-browser execution arrays (Chrome & Firefox) into a single unified Allure dashboard without test collapsing.\n",
+    "* **Total Data Isolation (Sandbox Pattern):** UI tests rely on dynamic API fixtures (`temp_user`) to instantly provision and tear down fully isolated user accounts on the fly, eliminating data collisions during high-concurrency `pytest-xdist` runs.\n",
+    "* **Network Interception & Mocking:** Leverages Playwright to intercept frontend requests and mock backend API responses, ensuring ultra-fast, completely isolated testing of UI components.\n",
     "* **Cross-Browser CI/CD Matrix:** Configured GitHub Actions matrix strategy to dynamically spawn parallel test suites in Google Chrome and Mozilla Firefox inside isolated Docker containers.\n",
     "* **Dockerized Infrastructure (IaC):** The entire test environment—including the framework, Selenoid hub, browser instances, and video recording modules—is orchestrated via Docker Compose.\n",
-    "* **Isolated Networking & Named Volumes:** Utilizes a custom bridge network (`qa-network`) and persistent `video-data` named volumes to handle test artifacts independently of host OS file systems.\n",
     "* **Automatic Video Attachment:** Every test execution session is recorded via FFmpeg/Selenoid, and the resulting `.mp4` files are automatically attached to the Allure report upon teardown.\n",
-    "* **Hybrid Testing Approach (API + UI):** Tests use API calls to set up preconditions and manage state, drastically reducing execution time and ensuring test isolation.\n",
-    "* **Smart Browser Cascading:** Automatically detects runtime context and provides seamless CLI configuration via custom `--browser_name` pytest argument.\n",
     "* **Thread-Safe Custom Logging:** Proprietary logging utility with dual-stream outputs, ANSI-colored console logs, and individual log files per Process ID (`PID`).\n\n",
     "## ⚙️ Setup & Installation\n\n",
     "### 1. Clone and Setup\n",
@@ -62,6 +62,12 @@ lines = [
     f"{TICK}bash\n",
     "allure serve allure-results\n",
     f"{TICK}\n\n",
+    "## 🛠 Utility Scripts\n\n",
+    "The project includes standalone utility scripts for database and artifact management:\n",
+    f"{TICK}bash\n",
+    "# Export all contacts of the current user into a formatted JSON file (data/exported_contacts.json)\n",
+    "python export_contacts.py\n",
+    f"{TICK}\n\n",
     "## 🏗 Project Structure\n",
     f"{TICK}text\n",
     "QA3553_Phonebook/\n",
@@ -77,6 +83,7 @@ lines = [
     "├── conftest.py           # Pytest fixtures, Selenoid remote connection, video attachment hooks\n",
     "├── Dockerfile            # Container definition for the test framework\n",
     "├── docker-compose.yml    # Infrastructure orchestration (Selenoid + Framework + Network + Volumes)\n",
+    "├── export_contacts.py    # Standalone utility script to export DB via API\n",
     "├── requirements.txt      # Project dependencies\n",
     "└── README.md             # Project documentation\n",
     f"{TICK}\n\n",
@@ -87,4 +94,4 @@ lines = [
 with open("README.md", "w", encoding="utf-8") as f:
     f.writelines(lines)
 
-print("✅ Файл README.md успешно перезаписан с учетом кроссбраузерности!")
+print("✅ Файл README.md успешно перезаписан с учетом всех новых Senior-фич!")

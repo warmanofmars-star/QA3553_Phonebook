@@ -15,19 +15,19 @@ This project demonstrates a **Senior-level approach** to QA automation, combinin
 * **Test Runner:** Pytest (with `pytest-xdist` for parallel execution)
 * **Design Pattern:** Page Object Model (POM)
 * **Test Data:** Faker (dynamic generation of names, phones, emails)
-* **Reporting:** Allure Report (with embedded test session videos and secure data masking)
-* **CI/CD:** GitHub Actions (Fully containerized pipeline execution with Build Matrix)
+* **Reporting:** Allure Report (with embedded videos and secure data masking)
+* **CI/CD:** GitHub Actions (Containerized pipeline with Build Matrix)
 * **Notifications:** Telegram Bot API
 * **Security:** `python-dotenv` for managing sensitive credentials
 
 ## 🚀 Key Architectural Features
 
+* **Advanced Allure Matrix Deduplication:** Features a custom Python-based post-processor injected into GitHub Actions. It dynamically mutates `testCaseId` and `historyId` in raw JSON results to merge parallel cross-browser execution arrays (Chrome & Firefox) into a single unified Allure dashboard without test collapsing.
+* **Total Data Isolation (Sandbox Pattern):** UI tests rely on dynamic API fixtures (`temp_user`) to instantly provision and tear down fully isolated user accounts on the fly, eliminating data collisions during high-concurrency `pytest-xdist` runs.
+* **Network Interception & Mocking:** Leverages Playwright to intercept frontend requests and mock backend API responses, ensuring ultra-fast, completely isolated testing of UI components.
 * **Cross-Browser CI/CD Matrix:** Configured GitHub Actions matrix strategy to dynamically spawn parallel test suites in Google Chrome and Mozilla Firefox inside isolated Docker containers.
 * **Dockerized Infrastructure (IaC):** The entire test environment—including the framework, Selenoid hub, browser instances, and video recording modules—is orchestrated via Docker Compose.
-* **Isolated Networking & Named Volumes:** Utilizes a custom bridge network (`qa-network`) and persistent `video-data` named volumes to handle test artifacts independently of host OS file systems.
 * **Automatic Video Attachment:** Every test execution session is recorded via FFmpeg/Selenoid, and the resulting `.mp4` files are automatically attached to the Allure report upon teardown.
-* **Hybrid Testing Approach (API + UI):** Tests use API calls to set up preconditions and manage state, drastically reducing execution time and ensuring test isolation.
-* **Smart Browser Cascading:** Automatically detects runtime context and provides seamless CLI configuration via custom `--browser_name` pytest argument.
 * **Thread-Safe Custom Logging:** Proprietary logging utility with dual-stream outputs, ANSI-colored console logs, and individual log files per Process ID (`PID`).
 
 ## ⚙️ Setup & Installation
@@ -70,6 +70,14 @@ pytest tests/ -n auto --browser_name=firefox --clean-alluredir --alluredir=allur
 allure serve allure-results
 ```
 
+## 🛠 Utility Scripts
+
+The project includes standalone utility scripts for database and artifact management:
+```bash
+# Export all contacts of the current user into a formatted JSON file (data/exported_contacts.json)
+python export_contacts.py
+```
+
 ## 🏗 Project Structure
 ```text
 QA3553_Phonebook/
@@ -85,6 +93,7 @@ QA3553_Phonebook/
 ├── conftest.py           # Pytest fixtures, Selenoid remote connection, video attachment hooks
 ├── Dockerfile            # Container definition for the test framework
 ├── docker-compose.yml    # Infrastructure orchestration (Selenoid + Framework + Network + Volumes)
+├── export_contacts.py    # Standalone utility script to export DB via API
 ├── requirements.txt      # Project dependencies
 └── README.md             # Project documentation
 ```
