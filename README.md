@@ -29,6 +29,7 @@ This project demonstrates a **Senior-level approach** to QA automation, combinin
 * **Dockerized Infrastructure (IaC):** The entire test environment—including the framework, Selenoid hub, browser instances, and video recording modules—is orchestrated via Docker Compose.
 * **Automatic Video Attachment:** Every test execution session is recorded via FFmpeg/Selenoid, and the resulting `.mp4` files are automatically attached to the Allure report upon teardown.
 * **Thread-Safe Custom Logging:** Proprietary logging utility with dual-stream outputs, ANSI-colored console logs, and individual log files per Process ID (`PID`).
+* **Test Categorization (Pytest Markers):** Implements a robust tagging system (`smoke`, `regression`, `api`, `ui`, `security`, `playwright`) for granular execution control. Includes dynamic marker injection directly from the GitHub Actions UI.
 
 ## ⚙️ Setup & Installation
 
@@ -65,6 +66,12 @@ docker compose up --build --exit-code-from qa-framework
 pytest tests/ -n auto --browser_name=firefox --clean-alluredir --alluredir=allure-results
 ```
 
+**Run specific test categories (using Pytest markers):**
+```bash
+pytest -m "smoke and ui" -n 2  # Run only UI smoke tests in 2 threads
+pytest -m "api or security"    # Run API and security tests
+```
+
 **Generate and view Allure Report locally:**
 ```bash
 allure serve allure-results
@@ -91,6 +98,7 @@ QA3553_Phonebook/
 ├── utils/                # Custom logger, WebDriver listener, API helpers
 ├── logs/                 # Auto-rotating, thread-safe local log files
 ├── conftest.py           # Pytest fixtures, Selenoid remote connection, video attachment hooks
+├── pytest.ini            # Pytest configuration and marker registration
 ├── Dockerfile            # Container definition for the test framework
 ├── docker-compose.yml    # Infrastructure orchestration (Selenoid + Framework + Network + Volumes)
 ├── export_contacts.py    # Standalone utility script to export DB via API
