@@ -7,6 +7,9 @@ from schemas.contact_schemas import GET_CONTACTS_RESPONSE_SCHEMA
 
 logger = get_logger("API")
 
+
+@pytest.mark.smoke
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Get All Contact")
@@ -30,6 +33,9 @@ def test_api_get_all_contacts(auth_api):
     assert contact.phone in all_phones, f"Созданный контакт с телефоном {contact.phone} не найден в базе!"
     logger.info(f"[GET УСПЕХ] Контакт найден. Всего записей: {len(contacts_list)}.")
 
+
+@pytest.mark.smoke
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Update Contact")

@@ -1,12 +1,14 @@
 import os
 import allure
+import pytest
 from playwright.sync_api import Page, Route
 from pages.pw_login_page import PwLoginPage
 
 VALID_EMAIL = os.getenv("USER_EMAIL")
 VALID_PASSWORD = os.getenv("USER_PASSWORD")
 
-
+@pytest.mark.regression
+@pytest.mark.playwright
 @allure.epic("Playwright Testing")
 @allure.feature("Network Interception")
 @allure.story("Mocking Contacts List")

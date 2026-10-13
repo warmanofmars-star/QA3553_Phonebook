@@ -9,7 +9,8 @@ load_dotenv()
 ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
 logger = get_logger("API")
 
-
+@pytest.mark.smoke
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Delete Contact")
@@ -39,6 +40,8 @@ def test_api_delete_contact(auth_api):
     logger.info(f"[DELETE ПРОВЕРКА] Контакт {target_id} действительно исчез из базы!")
 
 
+@pytest.mark.regression
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Delete All Contacts")

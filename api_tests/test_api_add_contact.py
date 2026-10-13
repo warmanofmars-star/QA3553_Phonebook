@@ -5,7 +5,8 @@ from utils.logger import get_logger
 
 logger = get_logger("API")
 
-
+@pytest.mark.smoke
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Create Contact")
@@ -23,6 +24,8 @@ def test_api_add_contact(auth_api):
         pytest.fail("API не смог создать контакт")
 
 
+@pytest.mark.regression
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Contacts CRUD")
 @allure.story("Create Contact without Name")
@@ -41,6 +44,8 @@ def test_api_add_contact_missing_required_field(auth_api):
         pytest.fail("БАГ БЭКЕНДА: Сервер принял контакт без имени!")
 
 
+@pytest.mark.regression
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Contacts Validation")
 @allure.story("Create Duplicate Contact")

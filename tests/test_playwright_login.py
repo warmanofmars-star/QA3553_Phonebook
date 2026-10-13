@@ -1,11 +1,14 @@
 import os
 import allure
+import pytest
 from playwright.sync_api import Page
 from pages.pw_login_page import PwLoginPage
 
 VALID_EMAIL = os.getenv("USER_EMAIL")
 VALID_PASSWORD = os.getenv("USER_PASSWORD")
 
+@pytest.mark.smoke
+@pytest.mark.playwright
 @allure.epic("Playwright Testing")
 @allure.feature("Login")
 @allure.story("Positive Login (Playwright + POM)")

@@ -3,6 +3,11 @@ name: Phonebook UI Tests
 on:
   workflow_dispatch:
       inputs:
+        test_marker:
+          description: 'Теги для запуска (smoke, regression, api, ui). Оставь пустым для всех тестов.'
+          required: false
+          type: string
+          default: ''
         allow_mass_delete:
           description: 'Включить полное удаление всех контактов (DANGER!)'
           required: false
@@ -39,7 +44,17 @@ jobs:
       - name: Запускаем автотесты в изолированной среде Docker Compose
         env:
           BROWSER: ${{ matrix.browser }}
-        run: docker compose up --build --exit-code-from qa-framework
+          MARKER: ${{ github.event.inputs.test_marker }}
+        run: |
+          # Динамически подставляем флаг -m, если пользователь ввел тег
+          if [ -n "$MARKER" ]; then
+            MARKER_FLAG="-m \"$MARKER\""
+          else
+            MARKER_FLAG=""
+          fi
+          
+          # Запускаем через sh -c, чтобы переменные корректно раскрылись
+          docker compose run --rm -e BROWSER=$BROWSER qa-framework sh -c "pytest -n 2 --browser_name=$BROWSER $MARKER_FLAG --video=on --clean-alluredir --alluredir=allure-results"
         continue-on-error: true
 
       - name: Исправляем права доступа для артефактов

@@ -12,6 +12,9 @@ logger = get_logger("TEST")
 # ==========================================
 # ТЕСТ 1: Отображение созданного контакта
 # ==========================================
+
+@pytest.mark.smoke
+@pytest.mark.ui
 @allure.severity(allure.severity_level.CRITICAL)
 def test_contact_is_visible_in_list(authenticated_driver):
     logger.info("--- ЗАПУСК ТЕСТА: test_contact_is_visible_in_list ---")
@@ -39,6 +42,9 @@ def test_contact_is_visible_in_list(authenticated_driver):
 # ==========================================
 # ТЕСТ 2: Подтверждение бага с дубликатами
 # ==========================================
+
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты, и они ОБА появляются в списке")
 def test_duplicate_contact_cards_count(authenticated_driver):
@@ -83,6 +89,9 @@ def test_duplicate_contact_cards_count(authenticated_driver):
 # ==========================================
 # ТЕСТ 3: Открытие деталей контакта (Правая панель)
 # ==========================================
+
+@pytest.mark.smoke
+@pytest.mark.ui
 @allure.severity(allure.severity_level.CRITICAL)
 def test_open_contact_details(authenticated_driver):
     logger.info("--- ЗАПУСК ТЕСТА: test_open_contact_details ---")

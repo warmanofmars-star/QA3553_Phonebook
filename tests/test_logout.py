@@ -1,4 +1,5 @@
 import allure
+import pytest
 from pages.contacts_page import ContactsPage
 from pages.login_page import LoginPage
 from utils.logger import get_logger
@@ -9,6 +10,8 @@ logger = get_logger("TEST")
 
 class TestLogout:
 
+    @pytest.mark.smoke
+    @pytest.mark.ui
     @allure.severity(allure.severity_level.CRITICAL)
     def test_logout_success(self, authenticated_driver):
         """Проверка: Авторизованный пользователь может успешно выйти из системы."""
@@ -27,6 +30,8 @@ class TestLogout:
         assert login_page.is_login_button_visible(), "Ошибка: Кнопка Login не появилась после выхода из системы!"
         logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
+    @pytest.mark.regression
+    @pytest.mark.security
     @allure.severity(allure.severity_level.CRITICAL)
     def test_logout_security_redirect(self, driver):
         """Проверка безопасности: Неавторизованный пользователь не может открыть страницу /contacts."""

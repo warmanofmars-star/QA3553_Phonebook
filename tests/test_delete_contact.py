@@ -12,6 +12,9 @@ logger = get_logger("TEST")
 # ==========================================
 # 1. ТЕСТ ОДИНОЧНОГО УДАЛЕНИЯ
 # ==========================================
+
+@pytest.mark.smoke
+@pytest.mark.ui
 @allure.epic("Hybrid Testing")
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Delete -> UI Assert")
@@ -51,7 +54,8 @@ def test_delete_contact(authenticated_driver, temp_user): # <--- Заменил�
 # ==========================================
 ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
 
-
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.epic("UI Testing")
 @allure.feature("Contacts Management")
 @allure.story("Mass Delete Utilities")
@@ -72,6 +76,9 @@ def test_delete_all_contacts(authenticated_driver):
 # ==========================================
 # 3. МНОЖЕСТВЕННОЕ ТОЧЕЧНОЕ УДАЛЕНИЕ
 # ==========================================
+
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.epic("Hybrid Testing")
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Multiple Delete")

@@ -13,6 +13,9 @@ logger = get_logger("TEST")
 # ==========================================
 # ПОЗИТИВНЫЕ ТЕСТЫ
 # ==========================================
+
+@pytest.mark.smoke
+@pytest.mark.ui
 @allure.severity(allure.severity_level.CRITICAL)
 def test_edit_contact_positive(authenticated_driver):
     logger.info("--- ЗАПУСК ТЕСТА: test_edit_contact_positive ---")
@@ -64,6 +67,9 @@ def test_edit_contact_positive(authenticated_driver):
 # ==========================================
 # НЕГАТИВНЫЕ ТЕСТЫ: Дубликаты (TC-034, TC-035)
 # ==========================================
+
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Фронтенд позволяет редактировать телефон на уже существующий дубликат")
 def test_edit_contact_duplicate_phone(authenticated_driver):
@@ -111,6 +117,9 @@ def test_edit_contact_duplicate_phone(authenticated_driver):
 # ==========================================
 # НЕГАТИВНЫЕ ТЕСТЫ: Очистка обязательных полей (TC-028 - TC-033)
 # ==========================================
+
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.xfail(reason="BUG: Фронтенд позволяет сохранять контакт с пустыми обязательными полями при редактировании")
 @pytest.mark.parametrize("field_to_clear", ["name", "last_name", "phone", "email", "address"])

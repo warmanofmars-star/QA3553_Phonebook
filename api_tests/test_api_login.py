@@ -11,7 +11,8 @@ USER_EMAIL = os.getenv("USER_EMAIL")
 USER_PASSWORD = os.getenv("USER_PASSWORD")
 logger = get_logger("API")
 
-
+@pytest.mark.smoke
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Authentication Controller")
 @allure.story("Login Success")
@@ -27,6 +28,8 @@ def test_api_login_success():
     logger.info(f"[LOGIN УСПЕХ] Токен получен: {token[:15]}...")
 
 
+@pytest.mark.regression
+@pytest.mark.api
 @allure.epic("API Testing")
 @allure.feature("Authentication Controller")
 @allure.story("Login Negative")

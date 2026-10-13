@@ -15,6 +15,8 @@ logger = get_logger("TEST")
 # ПОЗИТИВНЫЕ ТЕСТЫ
 # ==========================================
 
+@pytest.mark.smoke
+@pytest.mark.ui
 @allure.epic("UI Testing")
 @allure.feature("Contacts Management")
 @allure.story("Test Add Contact Success All Fields")
@@ -51,6 +53,8 @@ def test_add_contact_success_all_fields(authenticated_driver):
 # НЕГАТИВНЫЕ ТЕСТЫ (Данные берутся из CSV)
 # ==========================================
 
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.epic("UI Testing")
 @allure.feature("Contacts Management")
 @allure.story("Negative Add Contact")
@@ -95,6 +99,8 @@ def test_add_contact_negative(authenticated_driver, name, last_name, phone, emai
     logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
 
 
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.epic("UI Testing")
 @allure.feature("Contacts Management")
 @allure.story("Test Add contact: Duplicate Phone")

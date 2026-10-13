@@ -21,6 +21,8 @@ VALID_PASSWORD = os.getenv("USER_PASSWORD")
 # ТЕСТЫ НА АВТОРИЗАЦИЮ (LOGIN)
 # ==========================================
 
+@pytest.mark.smoke
+@pytest.mark.ui
 @allure.severity(allure.severity_level.BLOCKER)
 def test_login_success(driver):
     """Позитивный тест: Успешная авторизация с валидными данными"""
@@ -43,6 +45,8 @@ def test_login_success(driver):
 
 
 # НЕГАТИВНЫЕ СЦЕНАРИИ
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.parametrize("scenario_key, scenario_name", [
     ("invalid_email", "Невалидный формат email"),
@@ -87,6 +91,8 @@ def test_login_negative(driver, scenario_key, scenario_name):
 # ТЕСТЫ НА РЕГИСТРАЦИЮ (REGISTRATION)
 # ==========================================
 
+@pytest.mark.smoke
+@pytest.mark.ui
 @allure.severity(allure.severity_level.BLOCKER)
 def test_registration_success(driver):
     """Позитивный тест: Успешная регистрация нового пользователя"""
@@ -118,6 +124,8 @@ def test_registration_success(driver):
 
 
 # НЕГАТИВНЫЕ СЦЕНАРИИ
+@pytest.mark.regression
+@pytest.mark.ui
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.parametrize("scenario_key, expected_alert, scenario_name", [
     ("existing_user", "User already exist", "Регистрация уже существующего пользователя"),
