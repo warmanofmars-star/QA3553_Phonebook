@@ -1,0 +1,7 @@
+[32;20m[2026-10-15 13:24:13] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_082f478741@gmail.com][0m
+[32;20m[2026-10-15 13:24:13] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-15 13:24:13] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0513161271][0m
+[32;20m[2026-10-15 13:24:13] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-10-15 13:24:13] [INFO] [API] - PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts [Обновление контакта ID: 40790841-a668-42e1-a314-0681076df93a][0m
+[32;20m[2026-10-15 13:24:13] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-10-15 13:24:13] [INFO] [API] - [PUT УСПЕХ] Контакт 40790841-a668-42e1-a314-0681076df93a переименован в API_UPDATED_NAME![0m

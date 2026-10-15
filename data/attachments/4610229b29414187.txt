@@ -1,4 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_605f9accaf@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0530435607]
-INFO     API:test_api_add_contact.py:21 [POST УСПЕХ] Контакт Marie Rivera успешно создан!

@@ -1,7 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_ae1d10b819@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0525958577]
-INFO     API:contact_api.py:77 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:contact_api.py:83 PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts [Обновление контакта ID: 63c2ce93-9860-4d24-b3e3-80c855d588f3]
-INFO     API:contact_api.py:77 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:test_api_contacts.py:67 [PUT УСПЕХ] Контакт 63c2ce93-9860-4d24-b3e3-80c855d588f3 переименован в API_UPDATED_NAME!
