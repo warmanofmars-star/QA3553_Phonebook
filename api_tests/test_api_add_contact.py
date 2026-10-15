@@ -2,6 +2,8 @@ import allure
 import pytest
 from data.data_generator import ContactGenerator
 from utils.logger import get_logger
+from jsonschema import validate, ValidationError
+from schemas.contact_schemas import MESSAGE_RESPONSE_SCHEMA
 
 logger = get_logger("API")
 
@@ -18,10 +20,14 @@ def test_api_add_contact(auth_api):
     response = auth_api.add_contact(contact.to_api_payload())
 
     if response.status_code == 200:
+        # 🔥 ДОБАВЛЯЕМ ВАЛИДАЦИЮ СХЕМЫ ОТВЕТА (Проверки 2, 3, 4)
+        try:
+            validate(instance=response.json(), schema=MESSAGE_RESPONSE_SCHEMA)
+            logger.info("Контракт успешного ответа (JSON Schema) не нарушен!")
+        except ValidationError as e:
+            pytest.fail(f"Бэкенд вернул 200, но сломал JSON-контракт!\nОшибка: {e.message}")
+
         logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
-    else:
-        logger.error(f"[POST ОШИБКА] Сервер вернул: {response.status_code} - {response.text}")
-        pytest.fail("API не смог создать контакт")
 
 
 @pytest.mark.regression

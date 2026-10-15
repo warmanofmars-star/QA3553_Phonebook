@@ -29,3 +29,15 @@ GET_CONTACTS_RESPONSE_SCHEMA = {
         }
     }
 }
+
+# Схема для POST, PUT, DELETE (ожидаем просто {"message": "Текст сообщения"})
+# Если твой API возвращает что-то другое (например, сам созданный контакт),
+# то сюда нужно будет вставить CONTACT_OBJECT_SCHEMA
+MESSAGE_RESPONSE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "message": {"type": "string"}
+    },
+    "required": ["message"],
+    "additionalProperties": False # Строгая проверка: никаких лишних скрытых полей!
+}

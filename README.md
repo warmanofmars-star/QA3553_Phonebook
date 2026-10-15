@@ -10,7 +10,7 @@ This project demonstrates a **Senior-level approach** to QA automation, combinin
 ## 🛠 Technologies & Tools
 * **Language:** Python 3.12+
 * **UI Frameworks:** Selenium WebDriver 4+, Playwright (Sync API)
-* **API Testing:** Requests
+* **API Testing:** Requests, jsonschema
 * **Containerization & Orchestration:** Docker, Docker Compose, Selenoid (with video-recorder)
 * **Test Runner:** Pytest (with `pytest-xdist` for parallel execution)
 * **Design Pattern:** Page Object Model (POM)
@@ -30,6 +30,7 @@ This project demonstrates a **Senior-level approach** to QA automation, combinin
 * **Automatic Video Attachment:** Every test execution session is recorded via FFmpeg/Selenoid, and the resulting `.mp4` files are automatically attached to the Allure report upon teardown.
 * **Thread-Safe Custom Logging:** Proprietary logging utility with dual-stream outputs, ANSI-colored console logs, and individual log files per Process ID (`PID`).
 * **Test Categorization (Pytest Markers):** Implements a robust tagging system (`smoke`, `regression`, `api`, `ui`, `security`, `playwright`) for granular execution control. Includes dynamic marker injection directly from the GitHub Actions UI.
+* **Strict API Contract & Security Validation:** Enforces deep backend validation using `jsonschema` (checking structure, types, and formats) and `lambda`-based payload mutations for negative testing. Includes dedicated security validators to detect data leaks, broken object-level authorization (BOLA), and idempotency issues.
 
 ## ⚙️ Setup & Installation
 
@@ -89,13 +90,14 @@ python export_contacts.py
 ```text
 QA3553_Phonebook/
 ├── .github/workflows/    # CI/CD pipeline configuration with Matrix (tests.yml)
-├── api_tests/            # Pure API test suites
+├── api_tests/            # Pure API test suites (Payload validation, Auth, Security, BOLA)
 ├── data/                 # Test data generators (Faker, DataClasses)
 ├── models/               # Data models (Contact, User)
 ├── pages/                # Page Object classes (Selenium BasePage & Playwright PwBasePage)
+├── schemas/              # JSON Schema contracts for strict API validation
 ├── selenoid/             # Selenoid configuration (browsers.json)
 ├── tests/                # Hybrid and UI Test suites
-├── utils/                # Custom logger, WebDriver listener, API helpers
+├── utils/                # Custom logger, WebDriver listener, Error validators, API helpers
 ├── logs/                 # Auto-rotating, thread-safe local log files
 ├── conftest.py           # Pytest fixtures, Selenoid remote connection, video attachment hooks
 ├── pytest.ini            # Pytest configuration and marker registration

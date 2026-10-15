@@ -12,7 +12,7 @@ lines = [
     "## 🛠 Technologies & Tools\n",
     "* **Language:** Python 3.12+\n",
     "* **UI Frameworks:** Selenium WebDriver 4+, Playwright (Sync API)\n",
-    "* **API Testing:** Requests\n",
+    "* **API Testing:** Requests, jsonschema\n",
     "* **Containerization & Orchestration:** Docker, Docker Compose, Selenoid (with video-recorder)\n",
     "* **Test Runner:** Pytest (with `pytest-xdist` for parallel execution)\n",
     "* **Design Pattern:** Page Object Model (POM)\n",
@@ -29,7 +29,8 @@ lines = [
     "* **Dockerized Infrastructure (IaC):** The entire test environment—including the framework, Selenoid hub, browser instances, and video recording modules—is orchestrated via Docker Compose.\n",
     "* **Automatic Video Attachment:** Every test execution session is recorded via FFmpeg/Selenoid, and the resulting `.mp4` files are automatically attached to the Allure report upon teardown.\n",
     "* **Thread-Safe Custom Logging:** Proprietary logging utility with dual-stream outputs, ANSI-colored console logs, and individual log files per Process ID (`PID`).\n",
-    "* **Test Categorization (Pytest Markers):** Implements a robust tagging system (`smoke`, `regression`, `api`, `ui`, `security`, `playwright`) for granular execution control. Includes dynamic marker injection directly from the GitHub Actions UI.\n\n",
+    "* **Test Categorization (Pytest Markers):** Implements a robust tagging system (`smoke`, `regression`, `api`, `ui`, `security`, `playwright`) for granular execution control. Includes dynamic marker injection directly from the GitHub Actions UI.\n",
+    "* **Strict API Contract & Security Validation:** Enforces deep backend validation using `jsonschema` (checking structure, types, and formats) and `lambda`-based payload mutations for negative testing. Includes dedicated security validators to detect data leaks, broken object-level authorization (BOLA), and idempotency issues.\n\n",
     "## ⚙️ Setup & Installation\n\n",
     "### 1. Clone and Setup\n",
     f"{TICK}bash\n",
@@ -78,13 +79,14 @@ lines = [
     f"{TICK}text\n",
     "QA3553_Phonebook/\n",
     "├── .github/workflows/    # CI/CD pipeline configuration with Matrix (tests.yml)\n",
-    "├── api_tests/            # Pure API test suites\n",
+    "├── api_tests/            # Pure API test suites (Payload validation, Auth, Security, BOLA)\n",
     "├── data/                 # Test data generators (Faker, DataClasses)\n",
     "├── models/               # Data models (Contact, User)\n",
     "├── pages/                # Page Object classes (Selenium BasePage & Playwright PwBasePage)\n",
+    "├── schemas/              # JSON Schema contracts for strict API validation\n",
     "├── selenoid/             # Selenoid configuration (browsers.json)\n",
     "├── tests/                # Hybrid and UI Test suites\n",
-    "├── utils/                # Custom logger, WebDriver listener, API helpers\n",
+    "├── utils/                # Custom logger, WebDriver listener, Error validators, API helpers\n",
     "├── logs/                 # Auto-rotating, thread-safe local log files\n",
     "├── conftest.py           # Pytest fixtures, Selenoid remote connection, video attachment hooks\n",
     "├── pytest.ini            # Pytest configuration and marker registration\n",
@@ -101,4 +103,4 @@ lines = [
 with open("README.md", "w", encoding="utf-8") as f:
     f.writelines(lines)
 
-print("✅ Файл README.md успешно перезаписан с учетом всех новых Senior-фич!")
+print("✅ Файл README.md успешно перезаписан с учетом всех новых Senior-фич (JSON Schema, BOLA)!")
