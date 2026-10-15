@@ -1,0 +1,5 @@
+[32;20m[2026-10-15 16:39:35] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_5970963892@gmail.com][0m
+[32;20m[2026-10-15 16:39:36] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-15 16:39:36] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0512375874][0m
+[32;20m[2026-10-15 16:39:36] [INFO] [API] - Контракт успешного ответа (JSON Schema) не нарушен![0m
+[32;20m[2026-10-15 16:39:36] [INFO] [API] - [POST УСПЕХ] Контакт Crystal Castillo успешно создан![0m

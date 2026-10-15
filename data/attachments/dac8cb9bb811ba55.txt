@@ -1,0 +1,6 @@
+[32;20m[2026-10-15 16:39:42] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_c9f3119df8@gmail.com][0m
+[32;20m[2026-10-15 16:39:43] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-15 16:39:43] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0525350110][0m
+[32;20m[2026-10-15 16:39:43] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-10-15 16:39:43] [INFO] [API] - Контракт API (JSON Schema) успешно провалидирован![0m
+[32;20m[2026-10-15 16:39:43] [INFO] [API] - [GET УСПЕХ] Контакт найден. Всего записей: 1.[0m

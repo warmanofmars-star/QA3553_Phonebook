@@ -1,0 +1,5 @@
+INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_d68662b0ab@gmail.com]
+INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
+INFO     API_VALIDATION:test_api_payload_validation.py:30 --- ЗАПУСК СЦЕНАРИЯ: Невалидный формат email ---
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0512371660]
+INFO     API_VALIDATION:test_api_payload_validation.py:62 [УСПЕХ] Сценарий 'Невалидный формат email' корректно заблокирован бэкендом.

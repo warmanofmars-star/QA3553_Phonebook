@@ -1,0 +1,5 @@
+INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_6b91805cb2@gmail.com]
+INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
+INFO     API_VALIDATION:test_api_payload_validation.py:30 --- ЗАПУСК СЦЕНАРИЯ: Слишком короткий телефон (вне паттерна Swagger) ---
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 123]
+INFO     API_VALIDATION:test_api_payload_validation.py:62 [УСПЕХ] Сценарий 'Слишком короткий телефон (вне паттерна Swagger)' корректно заблокирован бэкендом.

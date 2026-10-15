@@ -1,0 +1,5 @@
+INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_1f433e12a1@gmail.com]
+INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0514779867]
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0514779867]
+ERROR    API:test_api_add_contact.py:72 [POST БАГ] Сервер позволил создать дубликат! Статус: 200 - {"message":"Contact was added! ID: aa4b1b6f-097b-4e60-85de-c97ff9a8b0ef"}

@@ -1,7 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_fedd434c50@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0518509627]
-INFO     API:contact_api.py:77 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:contact_api.py:83 PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts [Обновление контакта ID: 04d99f8b-0db6-4219-aa95-85de69beb1a2]
-INFO     API:contact_api.py:77 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:test_api_contacts.py:67 [PUT УСПЕХ] Контакт 04d99f8b-0db6-4219-aa95-85de69beb1a2 переименован в API_UPDATED_NAME!
