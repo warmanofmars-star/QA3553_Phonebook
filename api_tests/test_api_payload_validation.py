@@ -34,7 +34,7 @@ def test_api_contact_payload_variations(auth_api, scenario_key, expected_status,
 
     # Словарь мутаций прямо внутри теста
     mutations = {
-        "missing_name": lambda p: p.pop("name"),
+        "missing_name": lambda p: p.pop("name", None),
         "empty_name": lambda p: p.update({"name": ""}),
         "null_name": lambda p: p.update({"name": None}),
         "spaces_phone": lambda p: p.update({"phone": "   "}),
