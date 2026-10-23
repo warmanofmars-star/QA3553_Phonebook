@@ -1,15 +1,11 @@
 import allure
-import os
 import pytest
 from api.contact_api import PhonebookAPI
-from dotenv import load_dotenv
+from utils.validators import assert_secure_error
 from utils.logger import get_logger
 
-load_dotenv()
-API_URL = os.getenv("API_URL")
-USER_EMAIL = os.getenv("USER_EMAIL")
-USER_PASSWORD = os.getenv("USER_PASSWORD")
 logger = get_logger("API")
+
 
 @pytest.mark.smoke
 @pytest.mark.api
@@ -17,10 +13,12 @@ logger = get_logger("API")
 @allure.feature("Authentication Controller")
 @allure.story("Login Success")
 @allure.severity(allure.severity_level.BLOCKER)
-def test_api_login_success():
-    """Позитивный тест: Успешная авторизация через API"""
+def test_api_login_success(temp_user):
+    """Позитивный тест: Успешная авторизация через API (Sandbox)"""
+    user = temp_user["user"]
     api = PhonebookAPI()
-    response = api.login(USER_EMAIL, USER_PASSWORD)
+
+    response = api.login(user.email, user.password)
 
     assert response.status_code == 200, f"Ошибка авторизации: {response.text}"
     token = response.json().get("token")
@@ -34,15 +32,21 @@ def test_api_login_success():
 @allure.feature("Authentication Controller")
 @allure.story("Login Negative")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.parametrize("email, password, expected_status, scenario", [
-    ("wrong_email@gmail.com", USER_PASSWORD, 401, "Несуществующий email"),
-    (USER_EMAIL, "WrongPassword123!", 401, "Неверный пароль"),
+@pytest.mark.parametrize("scenario_key, expected_status, scenario", [
+    ("wrong_email", 401, "Несуществующий email"),
+    ("wrong_password", 401, "Неверный пароль"),
 ])
-def test_api_login_negative(email, password, expected_status, scenario):
-    """Негативные тесты авторизации через API"""
+def test_api_login_negative(temp_user, scenario_key, expected_status, scenario):
+    """Негативные тесты авторизации через API без утечки пароля в параметры отчета"""
+    user = temp_user["user"]
     api = PhonebookAPI()
+
+    if scenario_key == "wrong_email":
+        email, password = "wrong_unregistered_email@gmail.com", user.password
+    else:
+        email, password = user.email, "WrongPassword123!"
+
     response = api.login(email, password)
 
-    assert response.status_code == expected_status, \
-        f"Ожидали статус {expected_status} для сценария '{scenario}', но сервер вернул {response.status_code}"
+    assert_secure_error(response, expected_status)
     logger.info(f"[LOGIN NEGATIVE УСПЕХ] Сценарий '{scenario}' корректно отклонён со статусом {response.status_code}")

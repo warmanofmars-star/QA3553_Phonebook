@@ -4,6 +4,9 @@ import sys
 import glob
 from datetime import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class ColoredFormatter(logging.Formatter):
@@ -30,7 +33,7 @@ class ColoredFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-def clean_old_logs(log_dir, keep_last=15):
+def clean_old_logs(log_dir, keep_last=30):
     """Удаляет старые файлы логов, оставляя только свежие."""
     if not os.path.exists(log_dir):
         return
@@ -46,7 +49,6 @@ def clean_old_logs(log_dir, keep_last=15):
             pass
 
 
-# ГЛОБАЛЬНАЯ ПЕРЕМЕННАЯ ДЛЯ ХРАНЕНИЯ ФАЙЛА ТЕКУЩЕГО ПРОЦЕССА
 _PROCESS_LOG_FILE = None
 
 
@@ -61,24 +63,19 @@ def get_logger(name="PhonebookQA"):
     logger.setLevel(logging.INFO)
     logger.propagate = False
 
-    # Глушилки для системного спама
     logging.getLogger("selenium").setLevel(logging.WARNING)
     logging.getLogger("urllib3").setLevel(logging.WARNING)
 
-    # 1. Проверяем воркеров (есть ли переменная окружения xdist)
     is_worker = "PYTEST_XDIST_WORKER" in os.environ
-
-    # 2. Проверяем Мастер-процесс (читаем команду запуска из терминала на наличие флага -n)
     is_xdist_master = "-n" in sys.argv or any(arg.startswith("-n") for arg in sys.argv)
-
-    # Итоговый вердикт: запущен ли xdist
     is_xdist = is_worker or is_xdist_master
 
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(ColoredFormatter())
-    logger.addHandler(console_handler)
 
-    # ЗАПИСЬ В ФАЙЛ ТОЛЬКО ЕСЛИ ЭТО НЕ ПАРАЛЛЕЛЬНЫЙ ЗАПУСК
+    if os.getenv('ENABLE_CONSOLE_LOGS', 'true').lower() == 'true':
+        logger.addHandler(console_handler)
+
     if not is_xdist:
         project_root = Path(__file__).resolve().parent.parent
         log_dir = project_root / "logs"
@@ -88,7 +85,6 @@ def get_logger(name="PhonebookQA"):
 
         if _PROCESS_LOG_FILE is None:
             current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            # PID больше не нужен, файл всегда один
             _PROCESS_LOG_FILE = str(log_dir / f"run_{current_time}.log")
 
         file_formatter = logging.Formatter(

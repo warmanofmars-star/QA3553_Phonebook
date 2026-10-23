@@ -13,6 +13,7 @@ logger = get_logger("TEST")
 # 1. ТЕСТ ОДИНОЧНОГО УДАЛЕНИЯ
 # ==========================================
 
+@pytest.mark.hybrid
 @pytest.mark.smoke
 @pytest.mark.ui
 @allure.epic("Hybrid Testing")
@@ -77,6 +78,7 @@ def test_delete_all_contacts(authenticated_driver):
 # 3. МНОЖЕСТВЕННОЕ ТОЧЕЧНОЕ УДАЛЕНИЕ
 # ==========================================
 
+@pytest.mark.hybrid
 @pytest.mark.regression
 @pytest.mark.ui
 @allure.epic("Hybrid Testing")

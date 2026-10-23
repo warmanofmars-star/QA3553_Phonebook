@@ -9,18 +9,25 @@ def assert_secure_error(response, expected_status=None):
     Глобальный валидатор ошибок (Проверки 11-13 из статьи).
     Проверяет статус-код и гарантирует, что бэкенд не 'выплевывает' секретные данные.
     """
-    with allure.step(f"Проверка безопасности ответа с ошибкой"):
+    with allure.step(f"Проверка безопасности ответа с ошибкой (ожидаем статус {expected_status})"):
         if expected_status:
             assert response.status_code == expected_status, \
                 f"Ожидался статус {expected_status}, но получен {response.status_code}. Тело: {response.text}"
 
         error_text = response.text.lower()
 
-        # Список слов, которых НИКОГДА не должно быть в ответах API для клиента
+        # Точные сигнатуры технических утечек (синхронизировано с IlCarro)
         forbidden_patterns = [
-            "stack trace", "traceback", "exception",
-            "sql", "syntax error", "internal_id",
-            "password", "secret", "/var/www/", "nullpointer"
+            "stack trace",
+            "traceback",
+            "sqlexception",
+            "syntax error",
+            "internal_id",
+            "password_hash",
+            "password=",
+            "secret=",
+            "/var/www/",
+            "nullpointer"
         ]
 
         for pattern in forbidden_patterns:

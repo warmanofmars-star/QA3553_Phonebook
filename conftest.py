@@ -9,11 +9,11 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from dotenv import load_dotenv
 from selenium.webdriver.support.events import EventFiringWebDriver
 from utils.listener import PhonebookListener
+from utils.logger import get_logger
 from api.contact_api import PhonebookAPI
 from pages.login_page import LoginPage
 from data.data_generator import UserGenerator
 
-# Загружаем переменные из .env
 load_dotenv()
 
 
@@ -26,22 +26,19 @@ def pytest_addoption(parser):
         help="Browser to run tests in: chrome, firefox, or edge"
     )
 
+
 @pytest.fixture
-def driver(request):  # <--- Добавили request для чтения флага
-    # Читаем наш флаг из консоли
+def driver(request):
     browser_name = request.config.getoption("--browser_name")
 
-    # Читаем системные флаги
     is_headless = os.getenv('HEADLESS_MODE', 'false').lower() == 'true'
     is_ci = os.environ.get('CI') == 'true'
     use_selenoid = os.getenv('USE_SELENOID', 'false').lower() == 'true'
 
-    # Инициализируем переменные
     session_id = None
     driver_instance = None
 
     if is_ci:
-        # ЗАПУСК В GITHUB ACTIONS
         if browser_name == "firefox":
             options = FirefoxOptions()
             options.add_argument('--headless')
@@ -59,13 +56,10 @@ def driver(request):  # <--- Добавили request для чтения фла
             options.add_argument('--disable-gpu')
             options.add_argument('--lang=en-US')
             driver_instance = webdriver.Chrome(options=options)
-
     else:
         if use_selenoid:
-            # ЗАПУСК В DOCKER SELENOID
             print(f"\n[INFO] Маршрутизация в Docker Selenoid. Браузер: {browser_name}")
 
-            # Подготавливаем опции и правильное имя для Селеноида
             if browser_name == "firefox":
                 options = FirefoxOptions()
                 selenoid_browser = "firefox"
@@ -82,17 +76,15 @@ def driver(request):  # <--- Добавили request для чтения фла
                 "enableVideo": True,
             })
 
-            # Читаем URL хаба
             hub_url = os.getenv("SELENOID_HUB_URL", "http://localhost:4444/wd/hub")
 
-            # Умное ожидание готовности Селеноида (до 10 секунд)
             for attempt in range(5):
                 try:
                     driver_instance = webdriver.Remote(
                         command_executor=hub_url,
                         options=options
                     )
-                    break  # Подключились успешно
+                    break
                 except Exception as e:
                     if attempt == 4:
                         print(f"\n[ERROR] Селеноид так и не ответил: {e}")
@@ -101,9 +93,7 @@ def driver(request):  # <--- Добавили request для чтения фла
                     time.sleep(2)
 
             session_id = driver_instance.session_id
-
         else:
-            # ЛОКАЛЬНЫЙ ЗАПУСК НА КОМПЬЮТЕРЕ
             try:
                 if browser_name == "firefox":
                     options = FirefoxOptions()
@@ -128,27 +118,21 @@ def driver(request):  # <--- Добавили request для чтения фла
                 print(f"\n[WARNING] Не удалось запустить локальный {browser_name}. Причина: {e}")
                 raise e
 
-    # Разворачиваем окно, если это не Headless
     if not is_headless and not use_selenoid:
         driver_instance.maximize_window()
     elif use_selenoid:
         driver_instance.maximize_window()
 
     driver_instance.set_page_load_timeout(30)
-
-    # Подключаем листенер для красивых логов
     decorated_driver = EventFiringWebDriver(driver_instance, PhonebookListener())
 
     yield decorated_driver
 
-    # Защита от сверхбыстрых тестов: даем FFmpeg время
     if use_selenoid:
         time.sleep(1.5)
 
-    # Закрываем браузер
     decorated_driver.quit()
 
-    # === ИНТЕГРАЦИЯ ВИДЕО В ALLURE ===
     if use_selenoid and session_id:
         video_dir = os.getenv("VIDEO_DIR", r"C:\selenoid\video")
         video_path = os.path.join(video_dir, f"{session_id}.mp4")
@@ -160,7 +144,7 @@ def driver(request):  # <--- Добавили request для чтения фла
                     with open(video_path, "rb") as video_file:
                         allure.attach(
                             video_file.read(),
-                            name=f"Видео прохождения теста ({browser_name})", # Указываем браузер в названии
+                            name=f"Видео прохождения теста ({browser_name})",
                             attachment_type=allure.attachment_type.MP4
                         )
                     print(f"\n[INFO] Видео ({browser_name}) успешно прикреплено к отчету!")
@@ -172,16 +156,15 @@ def driver(request):  # <--- Добавили request для чтения фла
 
 @pytest.fixture
 def authenticated_driver(driver, temp_user):
-    login_page = LoginPage(driver)
-    login_page.open()
+    """Автоматически логинится через UI под свежесозданным временным юзером (Sandbox)."""
+    with allure.step("Setup Fixture: Автоматическая UI-авторизация (Sandbox)"):
+        login_page = LoginPage(driver)
+        login_page.open()
 
-    user = temp_user["user"]
+        user = temp_user["user"]
+        login_page.login(user.email, user.password)
 
-    login_page.fill_email(user.email)
-    login_page.fill_password(user.password)
-    login_page.submit_login()
-
-    login_page.is_logged()
+        assert login_page.is_logged(), "Setup Failed: Кнопка Sign Out не появилась после авторизации!"
 
     return driver
 
@@ -209,44 +192,38 @@ def pytest_runtest_makereport(item, call):
             )
 
 
+@pytest.fixture
+def temp_user():
+    """Создает уникального пользователя через API для полной изоляции тестов."""
+    user = UserGenerator.get_valid_user()
+    api = PhonebookAPI()
+
+    with allure.step(f"Setup Fixture: Генерация временного пользователя {user.email}"):
+        response = api.register(user.email, user.password)
+        assert response.status_code == 200, f"Не удалось зарегистрировать временного пользователя: {response.text}"
+
+    return {"user": user, "api": api}
+
+
 @pytest.fixture(scope="function")
 def auth_api(temp_user):
-    """
-    Фикстура-адаптер: берет изолированного API-клиента из песочницы (temp_user)
-    и отдает его чистым API-тестам.
-    """
+    """Фикстура-адаптер: отдает изолированного API-клиента из песочницы (temp_user)."""
     return temp_user["api"]
 
 
 def pytest_make_parametrize_id(val):
     """
-    Хук Pytest: запрещает экранировать кириллицу в ID параметризованных тестов.
+    Запрещает экранировать кириллицу и скрывает динамические адреса памяти (0x...)
+    у lambda-функций, чтобы воркеры pytest-xdist собирали одинаковые ID тестов.
     """
+    if callable(val):
+        return "lambda_mutation"
     return str(val)
 
 
 @pytest.fixture
-def temp_user():
-    """
-    Создает уникального пользователя через API для полной изоляции тестов.
-    Возвращает объект User (email, password) и готовый API-клиент.
-    """
-    user = UserGenerator.get_valid_user()
-    api = PhonebookAPI()
-
-    with allure.step(f"Setup: Генерация временного пользователя {user.email}"):
-        response = api.register(user.email, user.password)
-        assert response.status_code == 200, "Не удалось зарегистрировать временного пользователя!"
-
-    return {"user": user, "api": api}
-
-
-@pytest.fixture
 def page(context):
-    """
-    Переопределяем базовую фикстуру Playwright для авто-сохранения видео в Allure.
-    Она прозрачно заменяет стандартный page во всех тестах.
-    """
+    """Переопределяем базовую фикстуру Playwright для авто-сохранения видео в Allure."""
     page = context.new_page()
     yield page
 
@@ -261,3 +238,9 @@ def page(context):
             name="Видео Playwright",
             attachment_type=allure.attachment_type.MP4
         )
+
+
+@pytest.fixture(scope="session")
+def sys_logger():
+    """Глобальная фикстура логгера для тестов."""
+    return get_logger("TEST")

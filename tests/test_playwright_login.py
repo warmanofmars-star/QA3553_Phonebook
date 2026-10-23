@@ -1,11 +1,8 @@
-import os
 import allure
 import pytest
 from playwright.sync_api import Page
 from pages.pw_login_page import PwLoginPage
 
-VALID_EMAIL = os.getenv("USER_EMAIL")
-VALID_PASSWORD = os.getenv("USER_PASSWORD")
 
 @pytest.mark.smoke
 @pytest.mark.playwright
@@ -13,13 +10,11 @@ VALID_PASSWORD = os.getenv("USER_PASSWORD")
 @allure.feature("Login")
 @allure.story("Positive Login (Playwright + POM)")
 @allure.severity(allure.severity_level.BLOCKER)
-def test_pw_login_success(page: Page): # <--- Берем встроенную фикстуру page
-    # 1. Инициализируем Page Object
+def test_pw_login_success(page: Page, temp_user):
     pw_login_page = PwLoginPage(page)
+    user = temp_user["user"]
 
-    # 2. Открываем страницу и логинимся
     pw_login_page.open()
-    pw_login_page.login(VALID_EMAIL, VALID_PASSWORD)
+    pw_login_page.login(user.email, user.password)
 
-    # 3. Проверяем результат встроенным expect()
     pw_login_page.check_sign_out_visible()

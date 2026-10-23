@@ -1,7 +1,3 @@
-# schemas/contact_schemas.py
-
-# Схема полностью скопирована из Swagger (ContactDto),
-# включая найденную недоработку с отсутствием phone и email в массиве required.
 CONTACT_OBJECT_SCHEMA = {
     "type": "object",
     "properties": {
@@ -11,13 +7,13 @@ CONTACT_OBJECT_SCHEMA = {
         "email": {"type": "string"},
         "phone": {
             "type": "string",
-            "pattern": "^\\d{10,15}$" # Жесткая проверка из Swagger
+            "pattern": "^\\d{10,15}$"
         },
         "address": {"type": "string"},
         "description": {"type": "string"}
     },
-    # Swagger указывает обязательными только эти 3 поля!
-    "required": ["address", "lastName", "name"]
+    "required": ["address", "lastName", "name"],
+    "additionalProperties": False
 }
 
 GET_CONTACTS_RESPONSE_SCHEMA = {
@@ -27,17 +23,16 @@ GET_CONTACTS_RESPONSE_SCHEMA = {
             "type": "array",
             "items": CONTACT_OBJECT_SCHEMA
         }
-    }
+    },
+    "required": ["contacts"],
+    "additionalProperties": False
 }
 
-# Схема для POST, PUT, DELETE (ожидаем просто {"message": "Текст сообщения"})
-# Если твой API возвращает что-то другое (например, сам созданный контакт),
-# то сюда нужно будет вставить CONTACT_OBJECT_SCHEMA
 MESSAGE_RESPONSE_SCHEMA = {
     "type": "object",
     "properties": {
         "message": {"type": "string"}
     },
     "required": ["message"],
-    "additionalProperties": False # Строгая проверка: никаких лишних скрытых полей!
+    "additionalProperties": False
 }

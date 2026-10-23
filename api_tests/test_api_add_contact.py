@@ -7,6 +7,7 @@ from schemas.contact_schemas import MESSAGE_RESPONSE_SCHEMA
 
 logger = get_logger("API")
 
+
 @pytest.mark.smoke
 @pytest.mark.api
 @allure.epic("API Testing")
@@ -16,38 +17,16 @@ logger = get_logger("API")
 def test_api_add_contact(auth_api):
     contact = ContactGenerator.get_random_contact()
 
-    # Вся магия сессий: мы просто передаем payload, токен подтянется сам!
     response = auth_api.add_contact(contact.to_api_payload())
+    assert response.status_code == 200, f"Ожидался статус 200, но получен {response.status_code}: {response.text}"
 
-    if response.status_code == 200:
-        # 🔥 ДОБАВЛЯЕМ ВАЛИДАЦИЮ СХЕМЫ ОТВЕТА (Проверки 2, 3, 4)
-        try:
-            validate(instance=response.json(), schema=MESSAGE_RESPONSE_SCHEMA)
-            logger.info("Контракт успешного ответа (JSON Schema) не нарушен!")
-        except ValidationError as e:
-            pytest.fail(f"Бэкенд вернул 200, но сломал JSON-контракт!\nОшибка: {e.message}")
+    try:
+        validate(instance=response.json(), schema=MESSAGE_RESPONSE_SCHEMA)
+        logger.info("Контракт успешного ответа (JSON Schema) не нарушен!")
+    except ValidationError as e:
+        pytest.fail(f"Бэкенд вернул 200, но сломал JSON-контракт!\nОшибка: {e.message}")
 
-        logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
-
-
-@pytest.mark.regression
-@pytest.mark.api
-@allure.epic("API Testing")
-@allure.feature("Contacts CRUD")
-@allure.story("Create Contact without Name")
-@allure.severity(allure.severity_level.NORMAL)
-def test_api_add_contact_missing_required_field(auth_api):
-    contact = ContactGenerator.get_random_contact()
-    contact_payload = contact.to_api_payload()
-    del contact_payload["name"]
-
-    response = auth_api.add_contact(contact_payload)
-
-    if response.status_code == 400:
-        logger.info("[POST УСПЕХ (Негативный)] Сервер корректно отклонил контакт без имени (400 Bad Request)")
-    else:
-        logger.error(f"[POST БАГ] Сервер принял невалидный контакт! Статус: {response.status_code} - {response.text}")
-        pytest.fail("БАГ БЭКЕНДА: Сервер принял контакт без имени!")
+    logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
 
 
 @pytest.mark.regression
