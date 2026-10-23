@@ -1,0 +1,8 @@
+[32;20m[2026-10-23 05:51:25] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_56c3708349@gmail.com][0m
+[32;20m[2026-10-23 05:51:26] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-23 05:51:26] [INFO] [API_SECURITY] - --- ЗАПУСК ТЕСТА BOLA ---[0m
+[32;20m[2026-10-23 05:51:26] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_2be97017c1@gmail.com][0m
+[32;20m[2026-10-23 05:51:26] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-23 05:51:26] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0524814319][0m
+[32;20m[2026-10-23 05:51:26] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-10-23 05:51:26] [INFO] [API] - DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/c9a6891b-b249-48ad-9ca4-8d3ae9eab0e6 [ID: c9a6891b-b249-48ad-9ca4-8d3ae9eab0e6][0m

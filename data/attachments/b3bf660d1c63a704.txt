@@ -1,0 +1,5 @@
+INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_b44198795a@gmail.com]
+INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0519911178]
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0519911178]
+ERROR    API:test_api_add_contact.py:51 [POST БАГ] Сервер позволил создать дубликат! Статус: 200 - {"message":"Contact was added! ID: 49875fa3-4217-45b5-ae57-10272fd316d4"}

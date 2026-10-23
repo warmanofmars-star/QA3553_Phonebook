@@ -1,8 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_205fa42772@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0530067872]
-INFO     API:contact_api.py:77 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:contact_api.py:94 DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/0bc3f08d-99b3-4c00-8f62-2bc2a17ad581 [ID: 0bc3f08d-99b3-4c00-8f62-2bc2a17ad581]
-INFO     API:test_api_delete.py:31 [DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)
-INFO     API:contact_api.py:77 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:test_api_delete.py:40 [DELETE ПРОВЕРКА] Контакт 0bc3f08d-99b3-4c00-8f62-2bc2a17ad581 действительно исчез из базы!

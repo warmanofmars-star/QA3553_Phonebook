@@ -1,0 +1,6 @@
+[32;20m[2026-10-23 05:51:37] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_b57916023c@gmail.com][0m
+[32;20m[2026-10-23 05:51:37] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-23 05:51:37] [INFO] [API_VALIDATION] - --- ЗАПУСК СЦЕНАРИЯ: Пробелы вместо телефона ---[0m
+[32;20m[2026-10-23 05:51:37] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт:    ][0m
+[32;20m[2026-10-23 05:51:37] [INFO] [VALIDATOR] - Ошибка безопасна (статус 400, утечек нет).[0m
+[32;20m[2026-10-23 05:51:37] [INFO] [API_VALIDATION] - [УСПЕХ] Сценарий 'Пробелы вместо телефона' корректно заблокирован бэкендом.[0m

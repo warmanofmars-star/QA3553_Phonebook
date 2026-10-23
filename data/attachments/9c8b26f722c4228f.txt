@@ -1,4 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_0f50ff3228@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0519854235]
-INFO     API:test_api_add_contact.py:47 [POST УСПЕХ (Негативный)] Сервер корректно отклонил контакт без имени (400 Bad Request)

@@ -1,0 +1,5 @@
+[32;20m[2026-10-23 05:51:21] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_d6a389c240@gmail.com][0m
+[32;20m[2026-10-23 05:51:22] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-23 05:51:22] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0588383889][0m
+[32;20m[2026-10-23 05:51:22] [INFO] [API] - Контракт успешного ответа (JSON Schema) не нарушен![0m
+[32;20m[2026-10-23 05:51:22] [INFO] [API] - [POST УСПЕХ] Контакт Jeffrey Cooper успешно создан![0m

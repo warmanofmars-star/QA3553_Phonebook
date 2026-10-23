@@ -1,0 +1,4 @@
+INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_32a673e832@gmail.com]
+INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
+INFO     API_VALIDATION:test_api_payload_validation.py:41 --- ЗАПУСК СЦЕНАРИЯ: Boolean вместо строки в name ---
+INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0552092384]

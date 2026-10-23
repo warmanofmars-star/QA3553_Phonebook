@@ -1,2 +1,0 @@
-INFO     API_SECURITY:test_api_auth_security.py:28 --- СЦЕНАРИЙ: Заголовок есть, но токен пустой ---
-INFO     VALIDATOR:validators.py:30 Ошибка безопасна (статус 401, утечек нет).

@@ -1,0 +1,10 @@
+{
+    "name": "Ashley",
+    "lastName": "Perkins",
+    "phone": "0510533251",
+    "email": "user_f9ce080e52@gmail.com",
+    "address": "282 Blake Island\nLake Tyler, FM 70947",
+    "description": "Great long specific property.",
+    "is_admin": true,
+    "secret_hack": "123"
+}

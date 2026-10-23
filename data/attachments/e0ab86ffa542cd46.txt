@@ -1,5 +1,0 @@
-[32;20m[2026-10-15 16:39:44] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_7f81504771@gmail.com][0m
-[32;20m[2026-10-15 16:39:44] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
-[32;20m[2026-10-15 16:39:44] [INFO] [API_VALIDATION] - --- ЗАПУСК СЦЕНАРИЯ: Без обязательного поля name ---[0m
-[32;20m[2026-10-15 16:39:44] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0558073143][0m
-[32;20m[2026-10-15 16:39:44] [INFO] [API_VALIDATION] - [УСПЕХ] Сценарий 'Без обязательного поля name' корректно заблокирован бэкендом.[0m

@@ -1,0 +1,3 @@
+[32;20m[2026-10-23 05:51:25] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_5715eeccff@gmail.com][0m
+[32;20m[2026-10-23 05:51:25] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-23 05:51:25] [INFO] [API_SECURITY] - --- ЗАПУСК ТЕСТА 415 UNSUPPORTED MEDIA TYPE ---[0m

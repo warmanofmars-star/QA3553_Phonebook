@@ -1,5 +1,0 @@
-[32;20m[2026-10-15 16:39:38] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_07d8c15cf8@gmail.com][0m
-[32;20m[2026-10-15 16:39:38] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
-[32;20m[2026-10-15 16:39:38] [INFO] [API_VALIDATION] - --- ЗАПУСК СЦЕНАРИЯ: Null в обязательном поле name ---[0m
-[32;20m[2026-10-15 16:39:38] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0511385205][0m
-[32;20m[2026-10-15 16:39:38] [INFO] [API_VALIDATION] - [УСПЕХ] Сценарий 'Null в обязательном поле name' корректно заблокирован бэкендом.[0m

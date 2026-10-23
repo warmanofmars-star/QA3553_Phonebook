@@ -1,0 +1,8 @@
+[32;20m[2026-10-23 05:51:38] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_8e1b7c31c0@gmail.com][0m
+[32;20m[2026-10-23 05:51:38] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
+[32;20m[2026-10-23 05:51:38] [INFO] [API_SECURITY] - --- ЗАПУСК ТЕСТА ИДЕМПОТЕНТНОСТИ ---[0m
+[32;20m[2026-10-23 05:51:38] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0520455886][0m
+[32;20m[2026-10-23 05:51:38] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
+[32;20m[2026-10-23 05:51:38] [INFO] [API] - DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/0cf4bf41-8309-4a27-b208-facd1f061685 [ID: 0cf4bf41-8309-4a27-b208-facd1f061685][0m
+[32;20m[2026-10-23 05:51:38] [INFO] [API] - DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/0cf4bf41-8309-4a27-b208-facd1f061685 [ID: 0cf4bf41-8309-4a27-b208-facd1f061685][0m
+[32;20m[2026-10-23 05:51:39] [INFO] [API_SECURITY] - [УСПЕХ] Система стабильна при дублирующих запросах.[0m
