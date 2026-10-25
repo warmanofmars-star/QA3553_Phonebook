@@ -40,7 +40,7 @@ services:
       context: .
       dockerfile: Dockerfile.selenoid-override
   qa-framework:
-    command: ["pytest", "-n", "0", "--alluredir=allure-results"]
+    command: ["pytest", "-n", "2", "--alluredir=allure-results"]
 EOF
 
                 grep -v "/etc/selenoid" docker-compose.yml > clean-compose.yml
