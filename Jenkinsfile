@@ -24,6 +24,7 @@ pipeline {
         stage('Fix DooD Volume Paradox') {
             steps {
                 // 1. Создаем "на лету" файлы-заплатки для сборки Селеноида
+                // 2. Вырезаем сломанный проброс папки с помощью безопасного grep
                 sh '''
                 cat <<EOF > Dockerfile.selenoid-override
 FROM aerokube/selenoid:latest-release
@@ -38,9 +39,8 @@ services:
       dockerfile: Dockerfile.selenoid-override
 EOF
 
-                # 2. Вырезаем сломанный проброс папки из оригинального файла.
-                # Используем безопасный разделитель | чтобы Groovy не ругался на слеши.
-                sed -i '\|/etc/selenoid|d' docker-compose.yml
+                grep -v "/etc/selenoid" docker-compose.yml > clean-compose.yml
+                mv clean-compose.yml docker-compose.yml
                 '''
             }
         }
