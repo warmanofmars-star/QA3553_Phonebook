@@ -7,7 +7,6 @@ pipeline {
     }
 
     environment {
-        // Секреты подтянутся из твоего сейфа Jenkins!
         USER_EMAIL = credentials('PHONEBOOK_EMAIL')
         USER_PASSWORD = credentials('PHONEBOOK_PASSWORD')
         ALLOW_MASS_DELETE = 'false'
@@ -18,6 +17,29 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 checkout scm
+            }
+        }
+
+        stage('Fix DooD Volume Paradox') {
+            steps {
+                // Создаем "на лету" файлы-заплатки для изоляции путей в Jenkins
+                sh '''
+                cat <<EOF > Dockerfile.selenoid-override
+FROM aerokube/selenoid:latest-release
+COPY selenoid/browsers.json /etc/selenoid/browsers.json
+EOF
+
+                cat <<EOF > docker-compose.override.yml
+services:
+  selenoid:
+    volumes: []
+    build:
+      context: .
+      dockerfile: Dockerfile.selenoid-override
+  qa-framework:
+    volumes: []
+EOF
+                '''
             }
         }
 
@@ -32,26 +54,16 @@ pipeline {
 
     post {
         always {
-            // 1. Создаем папку и вытаскиваем файлы из ОСТАНОВЛЕННОГО контейнера (добавлен флаг -a)
             sh '''
             mkdir -p allure-results
             CONTAINER_ID=$(docker compose ps -q -a qa-framework)
-            echo "ID контейнера с тестами: $CONTAINER_ID"
-
             if [ -n "$CONTAINER_ID" ]; then
-                docker cp $CONTAINER_ID:/app/allure-results/. ./allure-results/ || echo "Ошибка при копировании!"
-            else
-                echo "Контейнер qa-framework не найден!"
+                docker cp $CONTAINER_ID:/app/allure-results/. ./allure-results/ || true
             fi
-
-            echo "Содержимое папки с результатами:"
-            ls -la allure-results/
             '''
 
-            // 2. Убиваем контейнеры
             sh 'docker compose down -v'
 
-            // 3. Генерируем отчет
             allure([
                 commandline: 'Allure',
                 includeProperties: false,
