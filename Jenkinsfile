@@ -21,10 +21,10 @@ pipeline {
             }
         }
 
-        stage('Fix DooD Volume Paradox & Optimize Load') {
+        stage('Fix DooD Volume Paradox & Network') {
             steps {
                 // 1. Создаем Dockerfile для кастомного Селеноида
-                // 2. Делаем override с тайм-аутом 3m и тестами в 1 поток (-n 0)
+                // 2. Делаем override: прокидываем Селеноид в qa-network и ставим тесты в 1 поток (-n 0)
                 // 3. Вырезаем конфликтный проброс папок
                 sh '''
                 cat <<EOF > Dockerfile.selenoid-override
@@ -35,7 +35,7 @@ EOF
                 cat <<EOF > docker-compose.override.yml
 services:
   selenoid:
-    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-service-startup-timeout", "3m"]
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-container-network", "qa-network", "-service-startup-timeout", "1m"]
     build:
       context: .
       dockerfile: Dockerfile.selenoid-override
