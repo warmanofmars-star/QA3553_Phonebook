@@ -30,15 +30,28 @@ pipeline {
         }
     }
 
-    post {
+post {
         always {
-            // 1. Вытаскиваем папку allure-results из тестового контейнера прямо в Jenkins
-            sh 'docker cp $(docker compose ps -q qa-framework):/app/allure-results ./ || true'
+            // 1. Создаем папку и вытаскиваем файлы из ОСТАНОВЛЕННОГО контейнера (добавлен флаг -a)
+            sh '''
+            mkdir -p allure-results
+            CONTAINER_ID=$(docker compose ps -q -a qa-framework)
+            echo "ID контейнера с тестами: $CONTAINER_ID"
+
+            if [ -n "$CONTAINER_ID" ]; then
+                docker cp $CONTAINER_ID:/app/allure-results/. ./allure-results/ || echo "Ошибка при копировании!"
+            else
+                echo "Контейнер qa-framework не найден!"
+            fi
+
+            echo "Содержимое папки с результатами:"
+            ls -la allure-results/
+            '''
 
             // 2. Убиваем контейнеры
             sh 'docker compose down -v'
 
-            // 3. Генерируем отчет (теперь Jenkins знает, какой плагин использовать)
+            // 3. Генерируем отчет
             allure([
                 commandline: 'Allure',
                 includeProperties: false,
@@ -49,4 +62,3 @@ pipeline {
             ])
         }
     }
-}
