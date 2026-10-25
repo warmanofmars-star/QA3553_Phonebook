@@ -1,13 +1,17 @@
 pipeline {
     agent any
 
+    // 1. Добавляем тот самый "переключатель" (выпадающий список)
+    parameters {
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Выберите браузер для запуска тестов')
+    }
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         timestamps()
     }
 
     environment {
-        // Секреты подтянутся из сейфа Jenkins
         USER_EMAIL = credentials('PHONEBOOK_EMAIL')
         USER_PASSWORD = credentials('PHONEBOOK_PASSWORD')
         ALLOW_MASS_DELETE = 'false'
@@ -21,12 +25,11 @@ pipeline {
             }
         }
 
-        stage('Fix DooD Volume Paradox & Network') {
+        stage('Fix DooD Volume Paradox & Optimize Load') {
             steps {
-                // 1. Создаем Dockerfile для кастомного Селеноида
-                // 2. Делаем override: прокидываем Селеноид в qa-network и ставим тесты в 1 поток (-n 0)
-                // 3. Вырезаем конфликтный проброс папок
-                sh '''
+                // ВАЖНО: Здесь я заменил одинарные кавычки на двойные ("""),
+                // чтобы Jenkins мог подставить наш параметр ${params.BROWSER} внутрь bash-скрипта
+                sh """
                 cat <<EOF > Dockerfile.selenoid-override
 FROM aerokube/selenoid:latest-release
 COPY selenoid/browsers.json /etc/selenoid/browsers.json
@@ -40,12 +43,13 @@ services:
       context: .
       dockerfile: Dockerfile.selenoid-override
   qa-framework:
-    command: ["pytest", "-n", "2", "--alluredir=allure-results"]
+    # 2. Передаем выбранный в меню браузер во флаг --browser_name
+    command: ["pytest", "-n", "2", "--browser_name=${params.BROWSER}", "--alluredir=allure-results"]
 EOF
 
                 grep -v "/etc/selenoid" docker-compose.yml > clean-compose.yml
                 mv clean-compose.yml docker-compose.yml
-                '''
+                """
             }
         }
 
@@ -60,12 +64,12 @@ EOF
 
     post {
         always {
-            // 1. Вытаскиваем файлы из остановленного контейнера
+            sh 'rm -rf allure-results || true'
+
+            // Здесь оставляем одинарные кавычки, так как тут работают переменные самого Linux ($CONTAINER_ID)
             sh '''
             mkdir -p allure-results
             CONTAINER_ID=$(docker compose ps -q -a qa-framework)
-            echo "ID контейнера с тестами: $CONTAINER_ID"
-
             if [ -n "$CONTAINER_ID" ]; then
                 docker cp $CONTAINER_ID:/app/allure-results/. ./allure-results/ || echo "Ошибка при копировании!"
             else
@@ -73,10 +77,8 @@ EOF
             fi
             '''
 
-            // 2. Убиваем контейнеры
             sh 'docker compose down -v'
 
-            // 3. Генерируем отчет Allure
             allure([
                 commandline: 'Allure',
                 includeProperties: false,
