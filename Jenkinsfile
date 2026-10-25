@@ -21,10 +21,11 @@ pipeline {
             }
         }
 
-        stage('Fix DooD Volume Paradox') {
+        stage('Fix DooD Volume Paradox & Optimize Load') {
             steps {
-                // 1. Создаем "на лету" файлы-заплатки для сборки Селеноида
-                // 2. Вырезаем сломанный проброс папки с помощью безопасного grep
+                // 1. Создаем Dockerfile для кастомного Селеноида
+                // 2. Делаем override с тайм-аутом 3m и тестами в 1 поток (-n 0)
+                // 3. Вырезаем конфликтный проброс папок
                 sh '''
                 cat <<EOF > Dockerfile.selenoid-override
 FROM aerokube/selenoid:latest-release
@@ -34,9 +35,12 @@ EOF
                 cat <<EOF > docker-compose.override.yml
 services:
   selenoid:
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-service-startup-timeout", "3m"]
     build:
       context: .
       dockerfile: Dockerfile.selenoid-override
+  qa-framework:
+    command: ["pytest", "-n", "0", "--alluredir=allure-results"]
 EOF
 
                 grep -v "/etc/selenoid" docker-compose.yml > clean-compose.yml
@@ -72,7 +76,7 @@ EOF
             // 2. Убиваем контейнеры
             sh 'docker compose down -v'
 
-            // 3. Генерируем отчет
+            // 3. Генерируем отчет Allure
             allure([
                 commandline: 'Allure',
                 includeProperties: false,
