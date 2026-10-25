@@ -1,35 +1,28 @@
 pipeline {
-    agent any // Запускаемся прямо на мастере Jenkins
+    agent any
 
     options {
-        buildDiscarder(logRotator(numToKeepStr: '5')) // Храним только 5 последних прогонов
-        timestamps() // Добавляем время в логи
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+        timestamps()
+    }
+
+    environment {
+        // Секреты подтянутся из твоего сейфа Jenkins!
+        USER_EMAIL = credentials('PHONEBOOK_EMAIL')
+        USER_PASSWORD = credentials('PHONEBOOK_PASSWORD')
+        ALLOW_MASS_DELETE = 'false'
+        ENABLE_CONSOLE_LOGS = 'true'
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                // Скачиваем код из твоего GitHub
                 checkout scm
-            }
-        }
-
-        stage('Prepare Environment') {
-            steps {
-                // Создаем .env файл "на лету" (т.к. в Git его нет)
-                sh '''
-                echo "USER_EMAIL=warman.of.mars.2@gmail.com" > .env
-                echo "USER_PASSWORD=Wwar123456\\$" >> .env
-                echo "ALLOW_MASS_DELETE=false" >> .env
-                echo "ENABLE_CONSOLE_LOGS=true" >> .env
-                '''
             }
         }
 
         stage('Run Tests via Docker Compose') {
             steps {
-                // Jenkins отдает команду твоему Docker Desktop!
-                // Используем catchError, чтобы пайплайн не упал сразу, если тесты найдут баги
                 catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
                     sh 'docker compose up --build --exit-code-from qa-framework'
                 }
@@ -39,11 +32,15 @@ pipeline {
 
     post {
         always {
-            // Этап очистки: останавливаем Селеноид и удаляем тестовые контейнеры
+            // 1. Вытаскиваем папку allure-results из тестового контейнера прямо в Jenkins
+            sh 'docker cp $(docker compose ps -q qa-framework):/app/allure-results ./ || true'
+
+            // 2. Убиваем контейнеры
             sh 'docker compose down -v'
 
-            // Генерируем красивый Allure-отчет прямо в Jenkins
+            // 3. Генерируем отчет (теперь Jenkins знает, какой плагин использовать)
             allure([
+                commandline: 'Allure',
                 includeProperties: false,
                 jdk: '',
                 properties: [],

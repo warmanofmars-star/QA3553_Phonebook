@@ -1,0 +1,24 @@
+networks:
+  qa-network:
+    name: qa-network
+    driver: bridge
+
+volumes:
+  jenkins_home:
+    name: jenkins_home
+
+services:
+  jenkins-master:
+    build:
+      context: .
+      dockerfile: Dockerfile.jenkins
+    container_name: jenkins-master
+    user: root # Запускаем от root, чтобы иметь доступ к docker.sock твоего ПК
+    ports:
+      - "8080:8080" # Web-интерфейс Jenkins
+      - "50000:50000" # Порт для агентов (если понадобятся)
+    volumes:
+      - jenkins_home:/var/jenkins_home # Сохраняем настройки Jenkins на жестком диске
+      - /var/run/docker.sock:/var/run/docker.sock # Прокидываем "пульт управления" докером внутрь Jenkins
+    networks:
+      - qa-network
