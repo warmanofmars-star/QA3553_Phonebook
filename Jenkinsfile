@@ -80,7 +80,7 @@ EOF
             // 4. Генерируем отчет с пробросом параметров прямо в виджет Environment
             allure([
                 commandline: 'Allure',
-                includeProperties: false,
+                includeProperties: true,
                 jdk: '',
                 properties: [
                     [key: 'Browser', value: "${params.BROWSER}"],
