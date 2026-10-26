@@ -60,8 +60,10 @@ EOF
 
     post {
         always {
+            // 1. Убиваем старую папку с результатами прошлых сборок (очистка кэша)
             sh 'rm -rf allure-results || true'
 
+            // 2. Вытаскиваем свежие файлы из остановленного контейнера
             sh '''
             mkdir -p allure-results
             CONTAINER_ID=$(docker compose ps -q -a qa-framework)
@@ -72,20 +74,20 @@ EOF
             fi
             '''
 
-            // ДОБАВЛЕНО: Записываем выбранный параметр в виджет Environment для Allure
-            sh "echo 'Browser=${params.BROWSER}' > allure-results/environment.properties"
-            sh "echo 'Environment=Local Docker Compose' >> allure-results/environment.properties"
-
+            // 3. Убиваем контейнеры
             sh 'docker compose down -v'
 
+            // 4. Генерируем отчет с пробросом параметров прямо в виджет Environment
             allure([
                 commandline: 'Allure',
                 includeProperties: false,
                 jdk: '',
-                properties: [],
+                properties: [
+                    [key: 'Browser', value: "${params.BROWSER}"],
+                    [key: 'Environment', value: 'Local Docker Compose']
+                ],
                 reportBuildPolicy: 'ALWAYS',
                 results: [[path: 'allure-results']]
             ])
         }
     }
-}
