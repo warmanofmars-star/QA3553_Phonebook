@@ -11,7 +11,6 @@ pipeline {
     }
 
     environment {
-        // Секреты подтянутся из сейфа Jenkins
         USER_EMAIL = credentials('PHONEBOOK_EMAIL')
         USER_PASSWORD = credentials('PHONEBOOK_PASSWORD')
         ALLOW_MASS_DELETE = 'false'
@@ -61,10 +60,10 @@ EOF
 
     post {
         always {
-            // 1. Убиваем старую папку с результатами прошлых сборок (очистка кэша)
+            // 1. Убиваем старую папку
             sh 'rm -rf allure-results || true'
 
-            // 2. Вытаскиваем свежие файлы из остановленного контейнера
+            // 2. Вытаскиваем свежие результаты
             sh '''
             mkdir -p allure-results
             CONTAINER_ID=$(docker compose ps -q -a qa-framework)
@@ -75,7 +74,7 @@ EOF
             fi
             '''
 
-            // 3. БРУТФОРС: Создаем XML-файл, который Jenkins не сможет затереть
+            // 3. Создаем XML-файл для окружения
             sh """
             cat <<EOF > allure-results/environment.xml
 <environment>
@@ -91,10 +90,10 @@ EOF
 EOF
             """
 
-            // 4. Убиваем контейнеры
-            sh 'docker compose down -v'
+            // 4. Убиваем контейнеры, удаляем тома с видео (-v) и "сирот" (--remove-orphans)
+            sh 'docker compose down -v --remove-orphans'
 
-            // 5. Выключаем includeProperties, чтобы убрать лишний мусор от Jenkins
+            // 5. Генерируем отчет
             allure([
                 commandline: 'Allure',
                 includeProperties: false,
@@ -102,6 +101,17 @@ EOF
                 reportBuildPolicy: 'ALWAYS',
                 results: [[path: 'allure-results']]
             ])
+
+            // 6. 🧹 ФИНАЛЬНАЯ ЗАЧИСТКА МУСОРА
+            sh '''
+            echo "🧹 Убираем мусор за собой..."
+            # Удаляем временные файлы и сырые логи
+            rm -rf allure-results
+            rm -f docker-compose.override.yml Dockerfile.selenoid-override clean-compose.yml
+
+            # Удаляем "висячие" (dangling) образы Docker, чтобы они не забивали диск
+            docker image prune -f
+            '''
         }
     }
 }
