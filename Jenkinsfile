@@ -44,7 +44,7 @@ services:
       dockerfile: Dockerfile.selenoid-override
   qa-framework:
     # 2. Передаем выбранный в меню браузер во флаг --browser_name
-    command: ["pytest", "-n", "2", "--browser_name=${params.BROWSER}", "--alluredir=allure-results"]
+    command: ["sh", "-c", "pytest -n 2 --browser_name=${params.BROWSER} --video=on --clean-alluredir --alluredir=allure-results"]
 EOF
 
                 grep -v "/etc/selenoid" docker-compose.yml > clean-compose.yml
