@@ -11,6 +11,7 @@ pipeline {
     }
 
     environment {
+        // Секреты подтянутся из сейфа Jenkins
         USER_EMAIL = credentials('PHONEBOOK_EMAIL')
         USER_PASSWORD = credentials('PHONEBOOK_PASSWORD')
         ALLOW_MASS_DELETE = 'false'
@@ -74,18 +75,30 @@ EOF
             fi
             '''
 
-            // 3. Убиваем контейнеры
+            // 3. БРУТФОРС: Создаем XML-файл, который Jenkins не сможет затереть
+            sh """
+            cat <<EOF > allure-results/environment.xml
+<environment>
+    <parameter>
+        <key>Browser</key>
+        <value>${params.BROWSER}</value>
+    </parameter>
+    <parameter>
+        <key>Test_Environment</key>
+        <value>Local Docker Compose</value>
+    </parameter>
+</environment>
+EOF
+            """
+
+            // 4. Убиваем контейнеры
             sh 'docker compose down -v'
 
-            // 4. Генерируем отчет с пробросом параметров прямо в виджет Environment
+            // 5. Выключаем includeProperties, чтобы убрать лишний мусор от Jenkins
             allure([
                 commandline: 'Allure',
-                includeProperties: true,
+                includeProperties: false,
                 jdk: '',
-                properties: [
-                    [key: 'Browser', value: "${params.BROWSER}"],
-                    [key: 'Environment', value: 'Local Docker Compose']
-                ],
                 reportBuildPolicy: 'ALWAYS',
                 results: [[path: 'allure-results']]
             ])
