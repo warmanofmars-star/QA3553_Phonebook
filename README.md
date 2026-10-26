@@ -16,12 +16,13 @@ This project demonstrates a **Senior-level approach** to QA automation, combinin
 * **Design Pattern:** Page Object Model (POM)
 * **Data Modeling & Generation:** Python `dataclasses`, Faker & UUID, CSV (DDT)
 * **Reporting:** Allure Report (with embedded videos and secure data masking)
-* **CI/CD:** GitHub Actions (Containerized pipeline with Build Matrix)
+* **CI/CD:** GitHub Actions, Jenkins (Parameterized Declarative Pipelines), Ngrok (Webhook Tunneling)
 * **Notifications:** Telegram Bot API
 * **Security:** `python-dotenv` for managing sensitive credentials
 
 ## 🚀 Key Architectural Features
 
+* **Self-Hosted CI/CD Lifecycle:** Fully autonomous Jenkins pipeline with dynamic parameters (Browser selection), strict Allure environment injection, automated workspace cleanup, dangling Docker image pruning, and GitHub Webhook integration via Ngrok.
 * **Advanced Allure Matrix Deduplication:** Features a custom Python-based post-processor injected into GitHub Actions. It dynamically mutates `testCaseId` and `historyId` in raw JSON results to merge parallel cross-browser execution arrays (Chrome & Firefox) into a single unified Allure dashboard without test collapsing.
 * **Total Data Isolation (Sandbox Pattern):** UI, API, and Playwright tests rely on dynamic API fixtures (`temp_user`) to instantly provision isolated user accounts on the fly, eliminating race conditions during high-concurrency `pytest-xdist` runs.
 * **Strict API Contract Validation (JSON Schema):** All positive API responses are validated against strict JSON Schemas enforcing `additionalProperties: False` to catch undocumented fields, type mismatches, and contract violations.

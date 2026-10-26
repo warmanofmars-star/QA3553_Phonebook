@@ -26,6 +26,16 @@
 
 ---
 
+## 🚇 Ngrok & Jenkins Webhooks (Локальный CI/CD)
+**Авторизация в Ngrok (единоразово в консоли Windows):**
+`ngrok config add-authtoken <ТВОЙ_ТОКЕН>`
+
+**Запуск туннеля для Jenkins (проброс порта 8080 в интернет):**
+`ngrok http 8080`
+*(Скопируй HTTPS ссылку из консоли, добавь `/github-webhook/` и вставь в настройки репозитория GitHub -> Webhooks)*
+
+---
+
 ## 📊 Работа с Allure Report
 **Сгенерировать и открыть красивый HTML-отчет в браузере:**
 `allure serve allure-results`
@@ -48,16 +58,16 @@
   `BROWSER=firefox docker compose up --build --exit-code-from qa-framework`
 
 **Остановка и удаление контейнеров (после завершения работы):**
-`docker compose down`
+`docker compose down -v --remove-orphans`
 
 ---
 
 ## 🧹 Очистка и обслуживание Docker
-**Убить все активные контейнеры проекта и удалить тома:**
-`docker compose down -v`
+**Удалить зависшие "сироты" (orphans) контейнеры и тома:**
+`docker compose down -v --remove-orphans`
 
-**Удалить зависшие "сироты" (orphans) контейнеры:**
-`docker compose down --remove-orphans`
+**Очистить диск от безымянных (dangling) слоев образов:**
+`docker image prune -f`
 
 **Точечно обновить образы VNC-браузеров для Selenoid:**
 `docker pull selenoid/vnc_chrome:128.0`
