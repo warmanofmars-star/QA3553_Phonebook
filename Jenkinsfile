@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-    // 1. Добавляем тот самый "переключатель" (выпадающий список)
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Выберите браузер для запуска тестов')
     }
@@ -27,8 +26,6 @@ pipeline {
 
         stage('Fix DooD Volume Paradox & Optimize Load') {
             steps {
-                // ВАЖНО: Здесь я заменил одинарные кавычки на двойные ("""),
-                // чтобы Jenkins мог подставить наш параметр ${params.BROWSER} внутрь bash-скрипта
                 sh """
                 cat <<EOF > Dockerfile.selenoid-override
 FROM aerokube/selenoid:latest-release
@@ -43,7 +40,6 @@ services:
       context: .
       dockerfile: Dockerfile.selenoid-override
   qa-framework:
-    # 2. Передаем выбранный в меню браузер во флаг --browser_name
     command: ["sh", "-c", "pytest -n 2 --browser_name=${params.BROWSER} --video=on --clean-alluredir --alluredir=allure-results"]
 EOF
 
@@ -66,7 +62,6 @@ EOF
         always {
             sh 'rm -rf allure-results || true'
 
-            // Здесь оставляем одинарные кавычки, так как тут работают переменные самого Linux ($CONTAINER_ID)
             sh '''
             mkdir -p allure-results
             CONTAINER_ID=$(docker compose ps -q -a qa-framework)
@@ -76,6 +71,10 @@ EOF
                 echo "Контейнер qa-framework не найден!"
             fi
             '''
+
+            // ДОБАВЛЕНО: Записываем выбранный параметр в виджет Environment для Allure
+            sh "echo 'Browser=${params.BROWSER}' > allure-results/environment.properties"
+            sh "echo 'Environment=Local Docker Compose' >> allure-results/environment.properties"
 
             sh 'docker compose down -v'
 
