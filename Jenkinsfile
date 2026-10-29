@@ -6,11 +6,12 @@ pipeline {
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Выберите браузер для тестов')
     }
 
-    // 2. БЕЗОПАСНЫЕ ПЕРЕМЕННЫЕ (Секреты из сейфа Jenkins)
+    // 2. БЕЗОПАСНЫЕ ПЕРЕМЕННЫЕ (Реальные секреты из твоего сейфа Jenkins!)
     environment {
-        TG_BOT_TOKEN    = credentials('TG_BOT_TOKEN')
-        TG_CHAT_ID      = credentials('TG_CHAT_ID')
-        TELRAN_PASSWORD = credentials('TELRAN_PASSWORD') // Твой Wwar123456$ в безопасности
+        TG_BOT_TOKEN       = credentials('TG_BOT_TOKEN')
+        TG_CHAT_ID         = credentials('TG_CHAT_ID')
+        PHONEBOOK_EMAIL    = credentials('PHONEBOOK_EMAIL')
+        PHONEBOOK_PASSWORD = credentials('PHONEBOOK_PASSWORD')
     }
 
     // 3. ОСНОВНЫЕ ШАГИ
@@ -18,7 +19,7 @@ pipeline {
         stage('Run Docker Tests') {
             steps {
                 script {
-                    // ВОЗВРАЩАЕМ УТЕРЯННЫЙ БЛОК: Генерация .env на лету со всеми твоими переменными!
+                    // Генерируем .env на лету, подставляя безопасные переменные
                     sh """
                     echo 'USE_SELENOID=true' > .env
                     echo 'HEADLESS_MODE=true' >> .env
@@ -26,17 +27,17 @@ pipeline {
                     echo 'PW_TIMEOUT=10000' >> .env
                     echo 'BASE_URL=https://telranedu.web.app' >> .env
                     echo 'API_URL=https://contactapp-telran-backend.herokuapp.com' >> .env
-                    echo 'USER_EMAIL=warman.of.mars.2@gmail.com' >> .env
-                    echo 'USER_PASSWORD=${env.TELRAN_PASSWORD}' >> .env
+                    echo 'USER_EMAIL=${env.PHONEBOOK_EMAIL}' >> .env
+                    echo 'USER_PASSWORD=${env.PHONEBOOK_PASSWORD}' >> .env
                     """
 
-                    // Запускаем тесты в Докере (без глушилки, чтобы падения были видны)
+                    // Запускаем тесты в Докере (без глушилки catchError)
                     sh """
                     export BROWSER=${params.BROWSER}
                     docker compose up --build --exit-code-from qa-framework
                     """
 
-                    // Страховка: принудительно копируем отчеты из контейнера перед его смертью
+                    // Копируем отчеты из контейнера перед его смертью
                     sh "docker cp \$(docker compose ps -q qa-framework):/app/allure-results/. ./allure-results/ || true"
                 }
             }
@@ -46,13 +47,11 @@ pipeline {
     // 4. ДЕЙСТВИЯ ПОСЛЕ ТЕСТОВ
     post {
         always {
-            // Подготовка папки для Allure и инжект переменной браузера
             sh """
             mkdir -p allure-results
             echo "Browser=${params.BROWSER}" > allure-results/environment.properties
             """
 
-            // Генерация Allure отчета
             allure([
                 includeProperties: false,
                 jdk: '',
@@ -61,7 +60,6 @@ pipeline {
                 results: [[path: 'allure-results']]
             ])
 
-            // Отправка безопасного уведомления в Telegram
             script {
                 def buildStatus = currentBuild.currentResult ?: 'SUCCESS'
                 def statusIcon = buildStatus == 'SUCCESS' ? '✅' : '🔴'
@@ -73,7 +71,6 @@ pipeline {
                 """
             }
 
-            // Зачистка мусора
             sh 'docker compose down -v --remove-orphans'
             sh 'docker image prune -f'
         }
