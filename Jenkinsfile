@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Генерируем .env на лету, подставляя безопасные переменные
-                    sh """
+                    sh '''
                     echo 'USE_SELENOID=true' > .env
                     echo 'HEADLESS_MODE=true' >> .env
                     echo 'ALLOW_MASS_DELETE=false' >> .env
@@ -29,7 +29,7 @@ pipeline {
                     echo 'API_URL=https://contactapp-telran-backend.herokuapp.com' >> .env
                     echo 'USER_EMAIL=${env.PHONEBOOK_EMAIL}' >> .env
                     echo 'USER_PASSWORD=${env.PHONEBOOK_PASSWORD}' >> .env
-                    """
+                    '''
 
                     // Запускаем тесты в Докере (без глушилки catchError)
                     sh """
@@ -60,19 +60,18 @@ pipeline {
                 results: [[path: 'allure-results']]
             ])
 
+            // Отправка безопасного уведомления в Telegram
             script {
                 def buildStatus = currentBuild.currentResult ?: 'SUCCESS'
                 def statusIcon = buildStatus == 'SUCCESS' ? '✅' : '🔴'
 
-                def msg = "${statusIcon} *Отчет о сборке Jenkins*%0A📦 Проект: ${env.JOB_NAME}%0A🔢 Билд: #${env.BUILD_NUMBER}%0A🌐 Браузер: ${params.BROWSER}%0A🚦 Статус: ${buildStatus}"
+                // Сохраняем текст сообщения в переменную окружения
+                env.TG_MSG = "${statusIcon} *Отчет о сборке Jenkins*%0A📦 Проект: ${env.JOB_NAME}%0A🔢 Билд: #${env.BUILD_NUMBER}%0A🌐 Браузер: ${params.BROWSER}%0A🚦 Статус: ${buildStatus}"
 
-                sh """
-                curl -s -X POST "https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage" -d "chat_id=${env.TG_CHAT_ID}" -d "parse_mode=Markdown" -d "text=${msg}"
-                """
+                // Вызываем curl в одинарных кавычках - Jenkins будет абсолютно спокоен!
+                sh '''
+                curl -s -X POST "https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage" -d "chat_id=$TG_CHAT_ID" -d "parse_mode=Markdown" -d "text=$TG_MSG"
+                '''
             }
-
-            sh 'docker compose down -v --remove-orphans'
-            sh 'docker image prune -f'
-        }
     }
 }
