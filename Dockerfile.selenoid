@@ -1,0 +1,2 @@
+FROM aerokube/selenoid:latest-release
+COPY selenoid/browsers.json /etc/selenoid/browsers.json

@@ -10,13 +10,16 @@ volumes:
 
 services:
   selenoid:
-    image: aerokube/selenoid:latest-release
+    # 👇 Заменили скачивание готового образа на локальную сборку
+    build:
+      context: .
+      dockerfile: Dockerfile.selenoid
     networks:
       - qa-network
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./selenoid:/etc/selenoid:ro"
       - "video-data:/opt/selenoid/video" # Подключаем диск к Селеноиду
+      # ❌ Строчку с ./selenoid:/etc/selenoid:ro мы УДАЛИЛИ
     ports:
       - "4444:4444"
     environment:
@@ -39,10 +42,9 @@ services:
       - VIDEO_DIR=/app/video
       - USER_EMAIL=${USER_EMAIL}
       - USER_PASSWORD=${USER_PASSWORD}
-      # 👇 ДОБАВЛЯЕМ ЭТИ СТРОКИ, ЧТОБЫ ТЕСТЫ ВИДЕЛИ ССЫЛКИ И НАСТРОЙКИ
       - BASE_URL=https://telranedu.web.app
       - API_URL=https://contactapp-telran-backend.herokuapp.com
       - ALLOW_MASS_DELETE=${ALLOW_MASS_DELETE:-false}
       - ENABLE_CONSOLE_LOGS=${ENABLE_CONSOLE_LOGS:-true}
-    #👇 ДОБАВЛЯЕМ КОМАНДУ ЗАПУСКА С ФЛАГОМ --video=on
+    # Команда запуска тестов
     command: sh -c "pytest -n 2 --browser_name=$${BROWSER:-chrome} --video=on --clean-alluredir --alluredir=allure-results"
