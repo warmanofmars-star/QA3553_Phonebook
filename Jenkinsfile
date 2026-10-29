@@ -20,15 +20,16 @@ pipeline {
             steps {
                 script {
                     // Генерируем .env на лету, подставляя безопасные переменные
+                    // Используем двойные кавычки (") для значений, чтобы Linux сам подставил переменные
                     sh '''
-                    echo 'USE_SELENOID=true' > .env
-                    echo 'HEADLESS_MODE=true' >> .env
-                    echo 'ALLOW_MASS_DELETE=false' >> .env
-                    echo 'PW_TIMEOUT=10000' >> .env
-                    echo 'BASE_URL=https://telranedu.web.app' >> .env
-                    echo 'API_URL=https://contactapp-telran-backend.herokuapp.com' >> .env
-                    echo 'USER_EMAIL=${env.PHONEBOOK_EMAIL}' >> .env
-                    echo 'USER_PASSWORD=${env.PHONEBOOK_PASSWORD}' >> .env
+                    echo "USE_SELENOID=true" > .env
+                    echo "HEADLESS_MODE=true" >> .env
+                    echo "ALLOW_MASS_DELETE=false" >> .env
+                    echo "PW_TIMEOUT=10000" >> .env
+                    echo "BASE_URL=https://telranedu.web.app" >> .env
+                    echo "API_URL=https://contactapp-telran-backend.herokuapp.com" >> .env
+                    echo "USER_EMAIL=$PHONEBOOK_EMAIL" >> .env
+                    echo "USER_PASSWORD=$PHONEBOOK_PASSWORD" >> .env
                     '''
 
                     // Запускаем тесты в Докере (без глушилки catchError)
@@ -37,7 +38,7 @@ pipeline {
                     docker compose up --build --exit-code-from qa-framework
                     """
 
-                    // Копируем отчеты из контейнера перед его смертью
+                    // Копируем отчеты из контейнера перед его смертью (с флагом -a)
                     sh "docker cp \$(docker compose ps -a -q qa-framework):/app/allure-results/. ./allure-results/ || true"
                 }
             }
@@ -73,5 +74,10 @@ pipeline {
                 curl -s -X POST "https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage" -d "chat_id=$TG_CHAT_ID" -d "parse_mode=Markdown" -d "text=$TG_MSG"
                 '''
             }
+
+            // Возвращаем жизненно важную зачистку мусора
+            sh 'docker compose down -v --remove-orphans'
+            sh 'docker image prune -f'
+        }
     }
 }
