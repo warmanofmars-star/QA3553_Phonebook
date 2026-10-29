@@ -38,7 +38,7 @@ pipeline {
                     """
 
                     // Копируем отчеты из контейнера перед его смертью
-                    sh "docker cp \$(docker compose ps -q qa-framework):/app/allure-results/. ./allure-results/ || true"
+                    sh "docker cp \$(docker compose ps -a -q qa-framework):/app/allure-results/. ./allure-results/ || true"
                 }
             }
         }
