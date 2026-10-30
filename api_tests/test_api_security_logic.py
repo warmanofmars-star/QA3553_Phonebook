@@ -79,10 +79,8 @@ def test_api_delete_idempotency(auth_api):
 def test_api_security_method_not_allowed(auth_api):
     """Проверка: Сервер должен возвращать 405 при вызове неподдерживаемого HTTP-метода"""
     logger.info("--- ЗАПУСК ТЕСТА 405 METHOD NOT ALLOWED ---")
-    url = f"{auth_api.BASE_URL}/v1/contacts/clear"
-
     with allure.step("Отправляем POST вместо DELETE на эндпоинт /v1/contacts/clear"):
-        response = auth_api.session.post(url)
+        response = auth_api.request("POST", "/v1/contacts/clear")
 
     assert_secure_error(response, 405)
 
@@ -95,10 +93,11 @@ def test_api_security_method_not_allowed(auth_api):
 def test_api_security_unsupported_media_type(auth_api):
     """Проверка: Сервер не должен пытаться парсить text/plain, если ожидает application/json"""
     logger.info("--- ЗАПУСК ТЕСТА 415 UNSUPPORTED MEDIA TYPE ---")
-    url = f"{auth_api.BASE_URL}/v1/contacts"
-
     with allure.step("Отправляем обычный текст с заголовком text/plain вместо application/json"):
-        headers = {"Content-Type": "text/plain"}
-        response = auth_api.session.post(url, data="Malicious plain text payload", headers=headers)
+        response = auth_api.request(
+            "POST", "/v1/contacts",
+            data="Malicious plain text payload",
+            headers={"Content-Type": "text/plain"},
+        )
 
     assert_secure_error(response, 415)

@@ -23,7 +23,7 @@ def test_api_login_success(temp_user):
     assert response.status_code == 200, f"Ошибка авторизации: {response.text}"
     token = response.json().get("token")
     assert token is not None, "Токен не пришел в ответе!"
-    logger.info(f"[LOGIN УСПЕХ] Токен получен: {token[:15]}...")
+    logger.info("[LOGIN УСПЕХ] Токен получен")  # сам токен в лог не пишем
 
 
 @pytest.mark.regression
