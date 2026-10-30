@@ -1,13 +1,12 @@
 import os
 import json
 import requests
-from dotenv import load_dotenv
+from config import settings
 
-# Загружаем переменные окружения напрямую
-load_dotenv()
-API_URL = os.getenv("API_URL")
-USER_EMAIL = os.getenv("USER_EMAIL")
-USER_PASSWORD = os.getenv("USER_PASSWORD")
+# Настройки берём из единого конфига (config.py сам загружает .env)
+API_URL = settings.api_url
+USER_EMAIL = settings.user_email
+USER_PASSWORD = settings.user_password
 
 
 def export_contacts_to_json():

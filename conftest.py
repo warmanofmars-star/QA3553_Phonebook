@@ -6,15 +6,13 @@ from selenium import webdriver
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from dotenv import load_dotenv
 from selenium.webdriver.support.events import EventFiringWebDriver
 from utils.listener import PhonebookListener
 from utils.logger import get_logger
 from api.contact_api import PhonebookAPI
 from pages.login_page import LoginPage
 from data.data_generator import UserGenerator
-
-load_dotenv()
+from config import settings
 
 
 def pytest_addoption(parser):
@@ -31,9 +29,10 @@ def pytest_addoption(parser):
 def driver(request):
     browser_name = request.config.getoption("--browser_name")
 
-    is_headless = os.getenv('HEADLESS_MODE', 'false').lower() == 'true'
-    is_ci = os.environ.get('CI') == 'true'
-    use_selenoid = os.getenv('USE_SELENOID', 'false').lower() == 'true'
+    # Все настройки берём из config.py (см. описание там)
+    is_headless = settings.headless
+    is_ci = settings.is_ci
+    use_selenoid = settings.use_selenoid
 
     session_id = None
     driver_instance = None
@@ -76,7 +75,7 @@ def driver(request):
                 "enableVideo": True,
             })
 
-            hub_url = os.getenv("SELENOID_HUB_URL", "http://localhost:4444/wd/hub")
+            hub_url = settings.selenoid_hub_url
 
             for attempt in range(5):
                 try:
@@ -134,7 +133,7 @@ def driver(request):
     decorated_driver.quit()
 
     if use_selenoid and session_id:
-        video_dir = os.getenv("VIDEO_DIR", r"C:\selenoid\video")
+        video_dir = settings.video_dir
         video_path = os.path.join(video_dir, f"{session_id}.mp4")
 
         for attempt in range(10):

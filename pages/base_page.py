@@ -1,20 +1,17 @@
-import os
 import allure
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from dotenv import load_dotenv
 from utils.logger import get_logger
 from selenium.webdriver.remote.webelement import WebElement
-
-load_dotenv()
+from config import settings
 
 
 class BasePage:
-    BASE_URL = os.getenv("BASE_URL", "https://telranedu.web.app")
+    BASE_URL = settings.base_url
     ENDPOINT = ""
-    DEFAULT_TIMEOUT = 5
+    DEFAULT_TIMEOUT = settings.ui_timeout  # секунды, переопределяется через UI_TIMEOUT
 
     def __init__(self, driver):
         self.driver = driver

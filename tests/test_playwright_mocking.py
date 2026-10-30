@@ -1,11 +1,11 @@
-import os
 import allure
 import pytest
 from playwright.sync_api import Page, Route
 from pages.pw_login_page import PwLoginPage
+from config import settings
 
-VALID_EMAIL = os.getenv("USER_EMAIL")
-VALID_PASSWORD = os.getenv("USER_PASSWORD")
+VALID_EMAIL = settings.user_email
+VALID_PASSWORD = settings.user_password
 
 @pytest.mark.regression
 @pytest.mark.playwright

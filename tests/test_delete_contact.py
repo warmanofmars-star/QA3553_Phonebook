@@ -1,10 +1,10 @@
-import os
 import allure
 import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from pages.contacts_page import ContactsPage
 from data.data_generator import ContactGenerator
 from utils.logger import get_logger
+from config import settings
 
 logger = get_logger("TEST")
 
@@ -53,15 +53,13 @@ def test_delete_contact(authenticated_driver, temp_user): # <--- Заменил�
 # ==========================================
 # 2. МАССОВОЕ УДАЛЕНИЕ (Пылесос)
 # ==========================================
-ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
-
 @pytest.mark.regression
 @pytest.mark.ui
 @allure.epic("UI Testing")
 @allure.feature("Contacts Management")
 @allure.story("Mass Delete Utilities")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
+@pytest.mark.skipif(not settings.allow_mass_delete, reason="Предохранитель: Массовое удаление отключено в .env")
 def test_delete_all_contacts(authenticated_driver):
     """Скрипт-утилита: Полное очищение списка контактов через UI"""
     logger.info("--- ЗАПУСК ТЕСТА-УТИЛИТЫ: test_delete_all_contacts ---")

@@ -1,14 +1,14 @@
-import os
 import requests
 import allure
 import json
 from utils.logger import get_logger
+from config import settings
 
 logger = get_logger("API")
 
 
 class PhonebookAPI:
-    BASE_URL = os.getenv("API_URL", "https://contactapp-telran-backend.herokuapp.com")
+    BASE_URL = settings.api_url
 
     def __init__(self):
         # 🌟 КЛЮЧЕВОЙ МОМЕНТ: Открываем единую сессию

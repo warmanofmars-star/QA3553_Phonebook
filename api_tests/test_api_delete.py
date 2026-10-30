@@ -1,12 +1,9 @@
 import allure
 import pytest
-import os
 from data.data_generator import ContactGenerator
 from utils.logger import get_logger
-from dotenv import load_dotenv
+from config import settings
 
-load_dotenv()
-ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
 logger = get_logger("API")
 
 @pytest.mark.smoke
@@ -46,7 +43,7 @@ def test_api_delete_contact(auth_api):
 @allure.feature("Contacts CRUD")
 @allure.story("Delete All Contacts")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
+@pytest.mark.skipif(not settings.allow_mass_delete, reason="Предохранитель: Массовое удаление отключено в .env")
 def test_api_clear_all_contacts(auth_api):
     response_clear = auth_api.clear_contacts()
 

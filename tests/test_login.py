@@ -1,9 +1,9 @@
-import os
 import allure
 import pytest
 from pages.login_page import LoginPage
 from data.data_generator import UserGenerator
 from utils.logger import get_logger
+from config import settings
 
 # Создаем логгер для тестов
 logger = get_logger("TEST")
@@ -12,9 +12,9 @@ logger = get_logger("TEST")
 # ТЕСТОВЫЕ ДАННЫЕ ДЛЯ АВТОРИЗАЦИИ (LOGIN)
 # ==========================================
 # Для тестов логина нам нужен пользователь, который уже точно есть в базе
-# Достаем значения из переменных окружения
-EXISTING_EMAIL = os.getenv("USER_EMAIL")
-VALID_PASSWORD = os.getenv("USER_PASSWORD")
+# Берём учётные данные из единого конфига
+EXISTING_EMAIL = settings.user_email
+VALID_PASSWORD = settings.user_password
 
 
 # ==========================================

@@ -26,7 +26,8 @@ IGNORE_FILES = {
 }
 
 # Файлы с секретами: .env, .env.local, .env.prod и т.п.
-SECRET_FILE_PATTERN = re.compile(r"^\.env(\..+)?$")
+# Исключение — шаблон .env.example: в нём нет секретов, и ИИ полезно его видеть.
+SECRET_FILE_PATTERN = re.compile(r"^\.env(\.(?!example$).+)?$")
 
 VALID_EXTENSIONS = (".py", ".yml", ".yaml", ".md", ".ini", ".json", ".csv", ".txt", ".toml")
 
