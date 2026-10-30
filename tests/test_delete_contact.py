@@ -3,7 +3,7 @@ import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from pages.contacts_page import ContactsPage
 from utils.logger import get_logger
-from config import settings
+from utils.preconditions import require
 
 logger = get_logger("TEST")
 
@@ -41,7 +41,7 @@ def test_delete_contact(authenticated_driver, created_contact):
 
 
 # ==========================================
-# 2. МАССОВОЕ УДАЛЕНИЕ (Пылесос)
+# 2. УДАЛЕНИЕ ВСЕХ КОНТАКТОВ ЧЕРЕЗ UI (по одному)
 # ==========================================
 @pytest.mark.regression
 @pytest.mark.ui
@@ -49,17 +49,31 @@ def test_delete_contact(authenticated_driver, created_contact):
 @allure.feature("Contacts Management")
 @allure.story("Mass Delete Utilities")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.skipif(not settings.allow_mass_delete, reason="Предохранитель: Массовое удаление отключено в .env")
-def test_delete_all_contacts(authenticated_driver):
-    """Скрипт-утилита: Полное очищение списка контактов через UI"""
-    logger.info("--- ЗАПУСК ТЕСТА-УТИЛИТЫ: test_delete_all_contacts ---")
+@pytest.mark.hybrid
+def test_delete_all_contacts(authenticated_driver, auth_api, create_contact):
+    """Удаление всех контактов пользователя через UI, по одному.
+
+    Раньше тест запускался на новом sandbox-пользователе без контактов и проходил
+    всегда: удалять было нечего. Теперь контакты создаются заранее через API.
+    Предохранитель ALLOW_MASS_DELETE больше не нужен: пользователь одноразовый.
+    """
+    logger.info("--- ЗАПУСК ТЕСТА: test_delete_all_contacts ---")
+    phones = [create_contact().phone for _ in range(3)]
     contacts_page = ContactsPage(authenticated_driver)
 
     contacts_page.open()
+    # Ждём, пока React отрисует карточки. Без этого delete_all_contacts() мог бы
+    # увидеть пустой список (ещё не загрузился) и сразу выйти — тест снова стал бы "пустым".
+    for phone in phones:
+        contacts_page.contact_card_visible(phone)
+    require(contacts_page.get_all_contacts_count() == len(phones),
+            f"Предусловие: на странице должно быть {len(phones)} карточки")
+
     contacts_page.delete_all_contacts()
 
     final_count = contacts_page.get_all_contacts_count()
-    assert final_count == 0, f"Ошибка: Ожидалось 0 контактов, но осталось {final_count}!"
+    assert final_count == 0, f"Ошибка: Ожидалось 0 карточек, но осталось {final_count}!"
+    assert auth_api.get_contact_ids() == [], "Карточки пропали из UI, но контакты остались на бэкенде!"
 
 
 # ==========================================

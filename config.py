@@ -92,7 +92,6 @@ class Settings:
 
     # --- Поведение фреймворка ---
     console_logs: bool      # дублировать логи в консоль
-    allow_mass_delete: bool # разрешить тесты массового удаления
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -115,7 +114,6 @@ class Settings:
             pw_timeout_ms=_env_int("PW_TIMEOUT", 10000),
 
             console_logs=_env_bool("ENABLE_CONSOLE_LOGS", True),
-            allow_mass_delete=_env_bool("ALLOW_MASS_DELETE", False),
         )
 
 

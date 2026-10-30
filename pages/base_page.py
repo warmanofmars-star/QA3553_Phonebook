@@ -85,6 +85,25 @@ class BasePage:
         )
         alert.accept()
 
+    def wait_for_alert_text(self, timeout: float | None = None) -> str | None:
+        """Ждёт Alert и возвращает его текст, а если он не появился — None.
+
+        В отличие от get_alert_text() не бросает TimeoutException. Отсутствие алерта
+        проверяется в тесте обычным assert — тогда провал корректно отличается
+        от технических сбоев Selenium (это важно для known_bug: в xfail уходят
+        только AssertionError).
+        """
+        with allure.step("Ожидание Alert"):
+            try:
+                alert = WebDriverWait(self.driver, timeout or self.DEFAULT_TIMEOUT).until(
+                    EC.alert_is_present()
+                )
+            except TimeoutException:
+                self.logger.info("Alert не появился")
+                return None
+            self.logger.info(f"Прочитан текст Alert: '{alert.text}'")
+            return alert.text
+
     @allure.step("Ожидание исчезновения элемента: {locator}")
     def is_disappeared(self, locator):
         self.logger.info(f"Ожидаем исчезновения элемента: {locator}")

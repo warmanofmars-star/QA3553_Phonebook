@@ -20,6 +20,7 @@ import requests
 
 from config import settings
 from utils.logger import get_logger
+from utils.preconditions import require
 
 logger = get_logger("API")
 
@@ -172,12 +173,15 @@ class PhonebookAPI:
     # Возвращают готовые данные вместо Response и сами проверяют статус.
     # Если что-то пошло не так, тест падает с понятным сообщением
     # ещё на этапе подготовки, а не на непонятном KeyError дальше.
+    # Проверки сделаны через require(), а не assert: это предусловия,
+    # и их провал не должен прятаться за xfail (см. utils/preconditions.py).
 
     def get_contacts_list(self) -> list[dict]:
         """Список контактов текущего пользователя."""
         response = self.get_contacts()
-        assert response.status_code == 200, (
-            f"Не удалось получить список контактов: {response.status_code} {response.text}"
+        require(
+            response.status_code == 200,
+            f"Не удалось получить список контактов: {response.status_code} {response.text}",
         )
         return response.json().get("contacts", [])
 
@@ -191,5 +195,5 @@ class PhonebookAPI:
             (c.get("id") for c in self.get_contacts_list() if c.get("phone") == phone),
             None,
         )
-        assert contact_id is not None, f"Контакт с телефоном {phone} не найден у пользователя"
+        require(contact_id is not None, f"Контакт с телефоном {phone} не найден у пользователя")
         return contact_id

@@ -36,6 +36,7 @@ from models.contact import Contact
 from models.user import User
 from pages.login_page import LoginPage
 from utils.listener import PhonebookListener
+from utils.preconditions import require
 
 
 # ==========================================
@@ -72,8 +73,9 @@ def _register_temp_user(step_title: str) -> TempUser:
 
     with allure.step(f"Setup: {step_title} {user.email}"):
         response = api.register(user.email, user.password)
-        assert response.status_code == 200, (
-            f"Не удалось зарегистрировать временного пользователя: {response.status_code} {response.text}"
+        require(
+            response.status_code == 200,
+            f"Не удалось зарегистрировать временного пользователя: {response.status_code} {response.text}",
         )
     return TempUser(user=user, api=api)
 
@@ -118,8 +120,9 @@ def create_contact(auth_api: PhonebookAPI):
         contact = ContactGenerator.get_random_contact(**overrides)
         with allure.step(f"Setup: создание контакта через API (телефон {contact.phone})"):
             response = auth_api.add_contact(contact.to_api_payload())
-            assert response.status_code == 200, (
-                f"Предусловие: контакт не создан: {response.status_code} {response.text}"
+            require(
+                response.status_code == 200,
+                f"Предусловие: контакт не создан: {response.status_code} {response.text}",
             )
             # replace() создаёт копию dataclass с изменённым полем
             return replace(contact, id=auth_api.find_contact_id(contact.phone))
@@ -163,7 +166,7 @@ def authenticated_driver(driver, temp_user: TempUser):
         login_page = LoginPage(driver)
         login_page.open()
         login_page.login(temp_user.user.email, temp_user.user.password)
-        assert login_page.is_logged(), "Setup: кнопка Sign Out не появилась после авторизации"
+        require(login_page.is_logged(), "Setup: кнопка Sign Out не появилась после авторизации")
     return driver
 
 

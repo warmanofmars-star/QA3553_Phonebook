@@ -3,6 +3,7 @@ import allure
 from api.contact_api import PhonebookAPI
 from utils.validators import assert_secure_error
 from utils.logger import get_logger
+from data.known_bugs import known_bug
 
 logger = get_logger("API_SECURITY")
 pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
@@ -12,10 +13,9 @@ pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
 @allure.feature("Authentication")
 @allure.story("Check Token Validation")
 @pytest.mark.parametrize("auth_header, expected_status, scenario", [
-    # Оборачиваем падающий сценарий в xfail с описанием проблемы
     pytest.param(
         None, 401, "Запрос вообще без заголовка Authorization",
-        marks=pytest.mark.xfail(reason="BUG BACKEND: Без заголовка возвращается 403 вместо 401 (и 403 нет в Swagger)")
+        marks=known_bug("NO_AUTH_403"),
     ),
     ("Bearer ", 401, "Заголовок есть, но токен пустой"),
     ("Bearer invalid_token_12345", 401, "Абсолютно невалидный токен"),

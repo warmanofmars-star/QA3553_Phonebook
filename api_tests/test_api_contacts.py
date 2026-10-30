@@ -1,7 +1,7 @@
 import allure
 import pytest
 from utils.logger import get_logger
-from jsonschema import validate, ValidationError
+from utils.validators import assert_json_schema
 from schemas.contact_schemas import GET_CONTACTS_RESPONSE_SCHEMA
 
 logger = get_logger("API")
@@ -17,11 +17,7 @@ def test_api_get_all_contacts(auth_api, created_contact):
     response = auth_api.get_contacts()
     assert response.status_code == 200, f"Ошибка при получении контактов: {response.text}"
 
-    try:
-        validate(instance=response.json(), schema=GET_CONTACTS_RESPONSE_SCHEMA)
-        logger.info("Контракт API (JSON Schema) успешно провалидирован!")
-    except ValidationError as e:
-        pytest.fail(f"Бэкенд нарушил контракт Swagger!\nОшибка структуры: {e.message}")
+    assert_json_schema(response.json(), GET_CONTACTS_RESPONSE_SCHEMA, "Список контактов")
 
     contacts_list = response.json().get("contacts", [])
     all_phones = [c.get("phone") for c in contacts_list]

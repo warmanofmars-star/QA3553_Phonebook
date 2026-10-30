@@ -40,54 +40,7 @@ def test_contact_is_visible_in_list(authenticated_driver):
 
 
 # ==========================================
-# ТЕСТ 2: Подтверждение бага с дубликатами
-# ==========================================
-
-@pytest.mark.regression
-@pytest.mark.ui
-@allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты, и они ОБА появляются в списке")
-def test_duplicate_contact_cards_count(authenticated_driver):
-    logger.info("--- ЗАПУСК ТЕСТА: test_duplicate_contact_cards_count ---")
-    add_page = ContactPage(authenticated_driver)
-    contacts_page = ContactsPage(authenticated_driver)
-
-    logger.info("ПОДГОТОВКА: Генерируем данные для оригинального контакта")
-    contact = ContactGenerator.get_random_contact()
-
-    # Создаем ПЕРВЫЙ контакт
-    logger.info("ШАГ 1: Открываем форму и создаем ПЕРВЫЙ (оригинальный) контакт")
-    add_page.open()
-    add_page.fill_contact_form(contact)
-    add_page.submit_contact()
-
-    # Обязательно ждем окончания авто-редиректа, чтобы данные точно ушли в базу
-    logger.info("ШАГ 2: Ждем окончания авто-редиректа (убеждаемся, что первый контакт в списке)")
-    contacts_page.contact_card_visible(contact.phone)
-
-    # Создаем ВТОРОЙ контакт с ТЕМИ ЖЕ данными
-    logger.info(f"ШАГ 3: Снова открываем форму и создаем ВТОРОЙ контакт (дубликат) с телефоном: {contact.phone}")
-    add_page.open()
-    add_page.fill_contact_form(contact)
-    add_page.submit_contact()
-
-    # Снова ждем авто-редирект
-    logger.info("ШАГ 4: Снова ждем авто-редирект")
-    contacts_page.contact_card_visible(contact.phone)
-
-    # Теперь считаем карточки. Если баг на месте, их будет 2!
-    logger.info("ПРОВЕРКА: Считаем карточки. Ожидаем 1, но из-за бага ожидаем падение (xfail)")
-    count = contacts_page.contact_cards_count(contact.phone)
-
-    if count > 1:
-        logger.error(f"БАГ ПРИЛОЖЕНИЯ: Найдено {count} карточки. Интерфейс отрисовал дубликат!")
-
-    assert count == 1, f"Ожидалась 1 карточка, но найдено {count}. Интерфейс отрисовал дубликат!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Баг починили?) ---")
-
-
-# ==========================================
-# ТЕСТ 3: Открытие деталей контакта (Правая панель)
+# ТЕСТ 2: Открытие деталей контакта (Правая панель)
 # ==========================================
 
 @pytest.mark.smoke

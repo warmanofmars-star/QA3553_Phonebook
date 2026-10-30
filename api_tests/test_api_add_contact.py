@@ -1,9 +1,12 @@
 import allure
 import pytest
+
 from data.data_generator import ContactGenerator
-from utils.logger import get_logger
-from jsonschema import validate, ValidationError
+from data.known_bugs import known_bug
 from schemas.contact_schemas import MESSAGE_RESPONSE_SCHEMA
+from utils.logger import get_logger
+from utils.preconditions import require
+from utils.validators import assert_json_schema, assert_secure_error
 
 logger = get_logger("API")
 
@@ -19,12 +22,7 @@ def test_api_add_contact(auth_api):
 
     response = auth_api.add_contact(contact.to_api_payload())
     assert response.status_code == 200, f"Ожидался статус 200, но получен {response.status_code}: {response.text}"
-
-    try:
-        validate(instance=response.json(), schema=MESSAGE_RESPONSE_SCHEMA)
-        logger.info("Контракт успешного ответа (JSON Schema) не нарушен!")
-    except ValidationError as e:
-        pytest.fail(f"Бэкенд вернул 200, но сломал JSON-контракт!\nОшибка: {e.message}")
+    assert_json_schema(response.json(), MESSAGE_RESPONSE_SCHEMA, "Ответ на создание контакта")
 
     logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
 
@@ -35,19 +33,16 @@ def test_api_add_contact(auth_api):
 @allure.feature("Contacts Validation")
 @allure.story("Create Duplicate Contact")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.xfail(reason="BUG BACKEND: Сервер возвращает 200 вместо 409 при дубликате (Swagger врет)")
+@allure.tag("TC-0018", "TC-0019")
+@known_bug("DUPLICATE_CONTACT")
 def test_api_add_contact_duplicate(auth_api):
-    contact = ContactGenerator.get_random_contact()
-    payload = contact.to_api_payload()
+    """Повторное создание контакта с теми же данными должно отклоняться с 409 (SRS T32, T45; Swagger)."""
+    payload = ContactGenerator.get_random_contact().to_api_payload()
 
     res_first = auth_api.add_contact(payload)
-    assert res_first.status_code == 200, "Предусловие сломалось: первый контакт не создался"
+    require(res_first.status_code == 200, f"Предусловие: первый контакт не создался: {res_first.text}")
 
-    res_second = auth_api.add_contact(payload)
+    with allure.step("Повторная отправка тех же данных"):
+        res_second = auth_api.add_contact(payload)
 
-    if res_second.status_code == 409:
-        logger.info("[POST УСПЕХ (Негативный)] Сервер корректно заблокировал дубликат (409 Conflict)")
-    else:
-        logger.error(
-            f"[POST БАГ] Сервер позволил создать дубликат! Статус: {res_second.status_code} - {res_second.text}")
-        pytest.fail("БАГ БЭКЕНДА: Сервер позволил создать дубликат!")
+    assert_secure_error(res_second, 409)

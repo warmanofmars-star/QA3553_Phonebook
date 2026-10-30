@@ -1,11 +1,11 @@
 import pytest
 import allure
-from models.contact import Contact
 from pages.add_contact_page import ContactPage
 from data.data_generator import ContactGenerator
-from selenium.common.exceptions import TimeoutException
-from data.test_data import load_contact_data_from_csv
+from data.known_bugs import known_bug
+from data.test_data import load_negative_contacts
 from utils.logger import get_logger
+from utils.waits import eventually
 
 # Создаем логгер для тестов
 logger = get_logger("TEST")
@@ -59,81 +59,60 @@ def test_add_contact_success_all_fields(authenticated_driver):
 @allure.feature("Contacts Management")
 @allure.story("Negative Add Contact")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error",
-                         load_contact_data_from_csv())
-def test_add_contact_negative(authenticated_driver, name, last_name, phone, email, address, description,
-                              expected_error):
-    logger.info(f"--- ЗАПУСК ТЕСТА: test_add_contact_negative (Данные: phone='{phone}', email='{email}') ---")
-
+@pytest.mark.parametrize("contact, expected_error, test_case", load_negative_contacts())
+def test_add_contact_negative(authenticated_driver, contact, expected_error, test_case):
+    """Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+    а пользователь остаться на вкладке ADD."""
+    allure.dynamic.tag(test_case)  # связь с кейсом из STD
     contact_page = ContactPage(authenticated_driver)
+
     logger.info("ШАГ 1: Открываем страницу добавления контакта")
     contact_page.open()
 
-    logger.info("ПОДГОТОВКА: Формируем модель контакта с невалидными данными из CSV")
-    invalid_contact = Contact(
-        name=name,
-        last_name=last_name,
-        phone=phone,
-        email=email,
-        address=address,
-        description=description
-    )
-
-    logger.info("ШАГ 2: Заполняем форму и нажимаем Save")
-    contact_page.fill_contact_form(invalid_contact)
+    logger.info("ШАГ 2: Заполняем форму невалидными данными и нажимаем Save")
+    contact_page.fill_contact_form(contact)
     contact_page.submit_contact()
 
-    try:
-        logger.info(f"ПРОВЕРКА 1: Ожидаем появление Alert с текстом: '{expected_error}'")
-        alert_text = contact_page.get_alert_text()
-        assert expected_error in alert_text, f"Ожидалась ошибка '{expected_error}', но получено: '{alert_text}'"
-
-        logger.info(f"Успешно получен ожидаемый Alert: '{alert_text}'")
-        contact_page.accept_alert()
-    except TimeoutException:
-        logger.error(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert '{expected_error}' так и не появился!")
-        pytest.fail(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert с текстом '{expected_error}' так и не появился!")
+    logger.info(f"ПРОВЕРКА 1: Ожидаем Alert с текстом: '{expected_error}'")
+    alert_text = contact_page.wait_for_alert_text()
+    assert alert_text is not None, f"Alert с ошибкой не появился (ожидался текст '{expected_error}')"
+    assert expected_error in alert_text, f"Ожидалась ошибка '{expected_error}', но получено: '{alert_text}'"
+    contact_page.accept_alert()
 
     logger.info("ПРОВЕРКА 2: Вкладка ADD должна оставаться активной")
-    assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сохранить невалидный контакт!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    assert contact_page.is_add_tab_active(), \
+        "Вкладка ADD должна оставаться активной после попытки сохранить невалидный контакт!"
 
 
 @pytest.mark.regression
 @pytest.mark.ui
+@pytest.mark.hybrid
 @allure.epic("UI Testing")
 @allure.feature("Contacts Management")
 @allure.story("Test Add contact: Duplicate Phone")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
-def test_add_contact_duplicate_phone(authenticated_driver):
-    logger.info("--- ЗАПУСК ТЕСТА: test_add_contact_duplicate_phone ---")
+@allure.tag("TC-0019")
+@known_bug("DUPLICATE_CONTACT")
+def test_add_contact_duplicate_phone(authenticated_driver, auth_api, create_contact):
+    """SRS T45: телефон не должен повторять телефон ранее созданного контакта.
+
+    Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
+    Результат проверяется через API: это источник правды о том, что сохранилось.
+    """
+    original = create_contact()
     contact_page = ContactPage(authenticated_driver)
 
-    # --- ШАГ 1: Создаем первый уникальный контакт ---
-    logger.info("ШАГ 1: Создаем первый оригинальный контакт")
+    logger.info(f"ШАГ 1: Пытаемся через UI создать контакт с тем же телефоном {original.phone}")
     contact_page.open()
-    first_contact = ContactGenerator.get_random_contact()
-    contact_page.fill_contact_form(first_contact)
+    contact_page.fill_contact_form(ContactGenerator.get_random_contact(phone=original.phone))
     contact_page.submit_contact()
 
-    # --- ШАГ 2: Пытаемся создать второй контакт с ТЕМ ЖЕ номером ---
-    logger.info(f"ШАГ 2: Пытаемся создать дубликат с ТЕМ ЖЕ номером телефона: {first_contact.phone}")
-    contact_page.open()
-    duplicate_contact = ContactGenerator.get_random_contact()
-    duplicate_contact.phone = first_contact.phone  # Копируем телефон из первого контакта!
-
-    contact_page.fill_contact_form(duplicate_contact)
-    contact_page.submit_contact()
-
-    # --- ШАГ 3: Проверяем реакцию системы ---
-    logger.info("ПРОВЕРКА: Ожидаем появление Alert об ошибке дубликата")
-    try:
-        alert_text = contact_page.get_alert_text()
-        logger.warning(f"[РАЗВЕДКА] УРА! Система выдала Alert: '{alert_text}'")
-        contact_page.accept_alert()
-        # Пока ставим заглушку, чтобы тест прошел, если алерт есть
-        assert True
-    except TimeoutException:
-        logger.error("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
-        pytest.fail("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
+    logger.info("ПРОВЕРКА: дубликат не должен сохраниться")
+    # Сохранение асинхронное: даём приложению время "сделать плохое"
+    # и проверяем, что оно этого не сделало. Проверка сразу после клика
+    # могла бы пройти при живом баге — запрос ещё не дошёл бы до бэкенда.
+    duplicate_saved = eventually(
+        lambda: sum(c.get("phone") == original.phone for c in auth_api.get_contacts_list()) > 1,
+        timeout=5,
+    )
+    assert not duplicate_saved, f"Сохранён второй контакт с телефоном {original.phone}"
