@@ -2,9 +2,6 @@ import allure
 import pytest
 
 from data.known_bugs import known_bug
-from utils.logger import get_logger
-
-logger = get_logger("API")
 
 
 @pytest.mark.smoke
@@ -19,7 +16,6 @@ def test_api_delete_contact(auth_api, created_contact):
         f"API не смог удалить контакт: {response_delete.status_code} {response_delete.text}"
 
     assert created_contact.id not in auth_api.get_contact_ids(), "БАГ: Контакт не удалился из базы данных!"
-    logger.info(f"[DELETE ПРОВЕРКА] Контакт {created_contact.id} действительно исчез из базы!")
 
 
 @pytest.mark.regression

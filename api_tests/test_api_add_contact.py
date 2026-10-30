@@ -4,11 +4,8 @@ import pytest
 from data.data_generator import ContactGenerator
 from data.known_bugs import known_bug
 from schemas.contact_schemas import MESSAGE_RESPONSE_SCHEMA
-from utils.logger import get_logger
 from utils.preconditions import require
 from utils.validators import assert_json_schema, assert_secure_error
-
-logger = get_logger("API")
 
 
 @pytest.mark.smoke
@@ -23,8 +20,6 @@ def test_api_add_contact(auth_api):
     response = auth_api.add_contact(contact.to_api_payload())
     assert response.status_code == 200, f"Ожидался статус 200, но получен {response.status_code}: {response.text}"
     assert_json_schema(response.json(), MESSAGE_RESPONSE_SCHEMA, "Ответ на создание контакта")
-
-    logger.info(f"[POST УСПЕХ] Контакт {contact.name} {contact.last_name} успешно создан!")
 
 
 @pytest.mark.regression

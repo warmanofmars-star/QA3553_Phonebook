@@ -3,10 +3,8 @@ import pytest
 
 from data.data_generator import ContactGenerator
 from data.known_bugs import known_bug
-from utils.logger import get_logger
 from utils.validators import assert_secure_error
 
-logger = get_logger("API_VALIDATION")
 pytestmark = [pytest.mark.api, pytest.mark.regression]
 
 
@@ -46,7 +44,6 @@ pytestmark = [pytest.mark.api, pytest.mark.regression]
     # mass assignment — test_api_mass_assignment_foreign_id в test_api_security_logic.py
 ])
 def test_api_contact_payload_variations(auth_api, mutate_func, expected_status, scenario):
-    logger.info(f"--- ЗАПУСК СЦЕНАРИЯ: {scenario} ---")
 
     payload = ContactGenerator.get_random_contact().to_api_payload()
     mutate_func(payload)
@@ -55,4 +52,3 @@ def test_api_contact_payload_variations(auth_api, mutate_func, expected_status, 
         response = auth_api.add_contact(payload)
 
     assert_secure_error(response, expected_status)
-    logger.info(f"[УСПЕХ] Сценарий '{scenario}' корректно заблокирован бэкендом.")
