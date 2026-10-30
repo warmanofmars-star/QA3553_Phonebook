@@ -74,7 +74,7 @@ def test_login_negative(driver, scenario_key, scenario_name):
     logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
 
-    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '{password}'")
+    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '********'")
     login_page.fill_email(email)
     login_page.fill_password(password)
 
@@ -153,7 +153,7 @@ def test_registration_negative(driver, scenario_key, expected_alert, scenario_na
     logger.info("ШАГ 1: Открываем страницу авторизации/регистрации")
     login_page.open()
 
-    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '{password}'")
+    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '********'")
     login_page.fill_email(email)
     login_page.fill_password(password)
 

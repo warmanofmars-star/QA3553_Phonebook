@@ -227,5 +227,12 @@ allure-results/
 #test logs
 logs/
 
-*.txt
-*.jsonl
+# Выгрузка проекта для ИИ-ревью
+full_project_for_ai.txt
+
+# Локальные данные с кредами и персональными данными — не для гита
+data/valid_users.jsonl
+data/exported_contacts.json
+
+# Настройки IDE (у каждого разработчика свои)
+.idea/

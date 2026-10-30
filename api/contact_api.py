@@ -15,47 +15,45 @@ class PhonebookAPI:
         self.session = requests.Session()
         self.token = None
 
-    @allure.step("API: Авторизация пользователя {username}")
+
     def login(self, username, password):
-        url = f"{self.BASE_URL}/v1/user/login/usernamepassword"
-        logger.info(f"POST {url} [User: {username}]")
+        # Декоратор @allure.step здесь НЕ используем: он автоматически кладёт
+        # все аргументы функции (включая password) в параметры шага,
+        # и пароль виден в Allure-отчёте открытым текстом.
+        # Контекстный менеджер создаёт такой же шаг, но без параметров.
+        with allure.step(f"API: Авторизация пользователя {username}"):
+            url = f"{self.BASE_URL}/v1/user/login/usernamepassword"
+            logger.info(f"POST {url} [User: {username}]")
 
-        payload = {"username": username, "password": password}
-        response = self.session.post(url, json=payload)
+            payload = {"username": username, "password": password}
+            response = self.session.post(url, json=payload)
 
-        if response.status_code == 200:
-            self.token = response.json().get("token")
-            # 🌟 МАГИЯ: Вшиваем токен в заголовки сессии раз и навсегда
-            self.session.headers.update({"Authorization": f"Bearer {self.token}"})
-            logger.info("Авторизация успешна (Token вшит в сессию)")
+            if response.status_code == 200:
+                self.token = response.json().get("token")
+                self.session.headers.update({"Authorization": f"Bearer {self.token}"})
+                logger.info("Авторизация успешна (токен добавлен в заголовки сессии)")
+            else:
+                logger.error(f"Ошибка авторизации: {response.status_code} - {response.text}")
 
-            # Прикрепляем токен в Allure для отладки (обрезанный)
-            allure.attach(f"Token: {self.token[:15]}...", name="Auth Token",
-                          attachment_type=allure.attachment_type.TEXT)
-        else:
-            logger.error(f"Ошибка авторизации: {response.status_code} - {response.text}")
+            return response
 
-        return response
-
-    @allure.step("API: Регистрация нового пользователя {username}")
     def register(self, username, password):
-        url = f"{self.BASE_URL}/v1/user/registration/usernamepassword"
-        logger.info(f"POST {url} [Регистрация: {username}]")
+        # Причина отказа от @allure.step — та же, что и в login()
+        with allure.step(f"API: Регистрация нового пользователя {username}"):
+            url = f"{self.BASE_URL}/v1/user/registration/usernamepassword"
+            logger.info(f"POST {url} [Регистрация: {username}]")
 
-        payload = {"username": username, "password": password}
-        response = self.session.post(url, json=payload)
+            payload = {"username": username, "password": password}
+            response = self.session.post(url, json=payload)
 
-        if response.status_code == 200:
-            self.token = response.json().get("token")
-            # Вшиваем токен сразу после регистрации, чтобы сессия была авторизованной
-            self.session.headers.update({"Authorization": f"Bearer {self.token}"})
-            logger.info("Регистрация успешна (Token вшит в сессию)")
-            allure.attach(f"Token: {self.token[:15]}...", name="Auth Token",
-                          attachment_type=allure.attachment_type.TEXT)
-        else:
-            logger.error(f"Ошибка регистрации: {response.status_code} - {response.text}")
+            if response.status_code == 200:
+                self.token = response.json().get("token")
+                self.session.headers.update({"Authorization": f"Bearer {self.token}"})
+                logger.info("Регистрация успешна (токен добавлен в заголовки сессии)")
+            else:
+                logger.error(f"Ошибка регистрации: {response.status_code} - {response.text}")
 
-        return response
+            return response
 
     @allure.step("API: Создание контакта")
     def add_contact(self, contact_payload):
