@@ -1,0 +1,7 @@
+[32;20m[2026-10-30 15:14:09] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (253 ms)[0m
+[32;20m[2026-10-30 15:14:09] [INFO] [API] - Токен добавлен в заголовки сессии[0m
+[32;20m[2026-10-30 15:14:09] [INFO] [API] - POST /v1/contacts -> 200 (64 ms)[0m
+[32;20m[2026-10-30 15:14:09] [INFO] [API] - GET /v1/contacts -> 200 (61 ms)[0m
+[32;20m[2026-10-30 15:14:09] [INFO] [API] - PUT /v1/contacts -> 200 (91 ms)[0m
+[32;20m[2026-10-30 15:14:09] [INFO] [API] - GET /v1/contacts -> 200 (60 ms)[0m
+[32;20m[2026-10-30 15:14:09] [INFO] [API] - [PUT УСПЕХ] Контакт c1b24a78-5be3-4e7c-b1cc-3d18aa6806b5 переименован в API_UPDATED_NAME![0m

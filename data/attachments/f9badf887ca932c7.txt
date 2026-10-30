@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0eb1cf2c-49a3-48ff-be49-9ba508cea593",
+      "name": "Christopher",
+      "lastName": "Wilkerson",
+      "email": "user_874c0380f4@example.com",
+      "phone": "0526701819",
+      "address": "2126 Foster Squares Apt. 847, Juliestad, FL 96444",
+      "description": "Great want work increase."
+    },
+    {
+      "id": "3b6a5060-1290-40c5-8683-f9a00ae723e8",
+      "name": "James",
+      "lastName": "Moore",
+      "email": "user_e5816c4f8b@example.com",
+      "phone": "0512469901",
+      "address": "01633 Barnes Flats, Eddieville, MN 73822",
+      "description": "Some theory from when since history."
+    }
+  ]
+}

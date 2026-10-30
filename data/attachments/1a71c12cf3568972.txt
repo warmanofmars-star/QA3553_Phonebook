@@ -1,0 +1,18 @@
+INFO     DRIVER:factory.py:113 Проверка доступности Selenoid: http://selenoid:4444/status
+INFO     DRIVER:factory.py:95 Создание сессии в Selenoid, браузер: firefox
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (417 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+INFO     UI:base_page.py:47 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/login
+INFO     STEP:allure_steps.py:41 Войти как user_f8fdb84d6a@example.com
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'input[name='email']'
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'input[name='password']'
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'button[name='login']'
+INFO     UI:listener.py:26 Клик по элементу <button> с текстом: 'Login'
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     DRIVER:factory.py:182 Видео 1cb89030-f3ba-4f03-9322-bbcc3547024d.mp4 прикреплено к отчёту

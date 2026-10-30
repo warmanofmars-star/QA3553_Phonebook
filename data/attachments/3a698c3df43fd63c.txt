@@ -1,0 +1,5 @@
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (245 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+WARNING  API:contact_api.py:96 POST /v1/user/login/usernamepassword -> 401 (296 ms)
+INFO     VALIDATOR:validators.py:38 Ошибка безопасна (статус 401, утечек нет).
+INFO     API:test_api_login.py:52 [LOGIN NEGATIVE УСПЕХ] Сценарий 'Несуществующий email' корректно отклонён со статусом 401

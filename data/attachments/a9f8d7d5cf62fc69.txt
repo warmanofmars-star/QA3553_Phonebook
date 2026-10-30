@@ -1,0 +1,5 @@
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (253 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+INFO     API:contact_api.py:96 POST /v1/user/login/usernamepassword -> 200 (216 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+INFO     API:test_api_login.py:26 [LOGIN УСПЕХ] Токен получен

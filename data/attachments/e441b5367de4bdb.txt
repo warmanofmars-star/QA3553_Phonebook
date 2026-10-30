@@ -1,0 +1,2 @@
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (297 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии

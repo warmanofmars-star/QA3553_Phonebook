@@ -1,0 +1,25 @@
+[32;20m[2026-10-30 15:17:00] [INFO] [DRIVER] - Проверка доступности Selenoid: http://selenoid:4444/status[0m
+[32;20m[2026-10-30 15:17:00] [INFO] [DRIVER] - Создание сессии в Selenoid, браузер: chrome[0m
+[32;20m[2026-10-30 15:17:01] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (252 ms)[0m
+[32;20m[2026-10-30 15:17:01] [INFO] [API] - Токен добавлен в заголовки сессии[0m
+[32;20m[2026-10-30 15:17:01] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:17:01] [INFO] [UI] - Переход по ссылке: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:17:01] [INFO] [STEP] - Войти как user_3df5ffa611@example.com[0m
+[32;20m[2026-10-30 15:17:01] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='email']'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='password']'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'button[name='login']'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Клик по элементу <button> с текстом: 'Login'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [STEP] - Нажать Sign Out[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Клик по элементу <button> с текстом: 'Sign Out'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'button[name='login']'[0m
+[32;20m[2026-10-30 15:17:02] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:03] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:03] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:09] [INFO] [DRIVER] - Видео 15cf24874b0c45389e1fff3b9a6e60ad.mp4 прикреплено к отчёту[0m

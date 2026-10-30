@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7bb0275f-b68e-4935-b052-0546785f695e",
+      "name": "Wendy",
+      "lastName": "Spencer",
+      "email": "user_61b0fbd106@example.com",
+      "phone": "0515062975",
+      "address": "06288 Jennifer Drives Apt. 812, Port Anthony, NC 77397",
+      "description": "Among game tend cause reveal."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (71 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "47f26e9b-0864-4d9f-a4a4-00d2a85cf482",
+      "name": "William",
+      "lastName": "Harris",
+      "email": "user_c9cdde42ad@example.com",
+      "phone": "0527313489",
+      "address": "778 Moore Hill Suite 417, South Kayleeton, NE 78090",
+      "description": "Deep rich benefit write say might."
+    }
+  ]
+}

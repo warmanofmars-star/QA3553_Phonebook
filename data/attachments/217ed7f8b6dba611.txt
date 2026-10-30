@@ -1,0 +1,4 @@
+[32;20m[2026-10-30 15:14:07] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (242 ms)[0m
+[32;20m[2026-10-30 15:14:07] [INFO] [API] - Токен добавлен в заголовки сессии[0m
+[32;20m[2026-10-30 15:14:07] [INFO] [API] - POST /v1/contacts -> 200 (64 ms)[0m
+[32;20m[2026-10-30 15:14:07] [INFO] [API] - POST /v1/contacts -> 200 (60 ms)[0m

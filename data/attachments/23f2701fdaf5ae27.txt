@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8945c345-8f4d-4881-b6a7-3e8909b6174c",
+      "name": "Derrick",
+      "lastName": "Sweeney",
+      "email": "user_2761006d6a@example.com",
+      "phone": "0516101782",
+      "address": "2059 Ashley Union Apt. 169, New Virginia, FM 78534",
+      "description": "Reveal leave attention serve accept individual."
+    }
+  ]
+}

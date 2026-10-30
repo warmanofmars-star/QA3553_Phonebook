@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Williamson",
+  "phone": "0516448069",
+  "email": "user_5ed5b2c77f@example.com",
+  "address": "885 Kennedy Prairie, Smithport, FM 63628",
+  "description": "Minute own I challenge yes."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 139c81c6-ee0a-409b-8c6b-3025d65c9ac1"
+}

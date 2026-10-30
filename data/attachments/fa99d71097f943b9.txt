@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/c6d6a3cf-5c30-4994-af20-abfbc77d539e
+Статус: 400 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-30T15:14:15",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: c6d6a3cf-5c30-4994-af20-abfbc77d539e not found in your contacts!",
+  "path": "/v1/contacts/c6d6a3cf-5c30-4994-af20-abfbc77d539e"
+}

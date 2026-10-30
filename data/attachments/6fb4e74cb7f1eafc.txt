@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "92b462a3-5798-41be-a86b-421b5f9550ba",
+      "name": "Joseph",
+      "lastName": "Lopez",
+      "email": "user_3bf7965f17@example.com",
+      "phone": "0536264337",
+      "address": "510 Fox Well, Susanport, KY 33343",
+      "description": "Increase with until."
+    }
+  ]
+}

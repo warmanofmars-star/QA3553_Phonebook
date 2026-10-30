@@ -1,8 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_8e1b7c31c0@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API_SECURITY:test_api_security_logic.py:53 --- ЗАПУСК ТЕСТА ИДЕМПОТЕНТНОСТИ ---
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0520455886]
-INFO     API:contact_api.py:77 GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов]
-INFO     API:contact_api.py:94 DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/0cf4bf41-8309-4a27-b208-facd1f061685 [ID: 0cf4bf41-8309-4a27-b208-facd1f061685]
-INFO     API:contact_api.py:94 DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/0cf4bf41-8309-4a27-b208-facd1f061685 [ID: 0cf4bf41-8309-4a27-b208-facd1f061685]
-INFO     API_SECURITY:test_api_security_logic.py:71 [УСПЕХ] Система стабильна при дублирующих запросах.

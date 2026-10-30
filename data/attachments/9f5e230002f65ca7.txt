@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5d6af545-8ff7-439b-9d4b-fe95a692a2b5",
+      "name": "Francis",
+      "lastName": "White",
+      "email": "user_abd580109b@example.com",
+      "phone": "0528750407",
+      "address": "Unit 3661 Box 3789, DPO AA 22777",
+      "description": "Security maintain start affect."
+    },
+    {
+      "id": "27b6bd19-dd42-48a8-8fd0-3818901cd03d",
+      "name": "Nicole",
+      "lastName": "Bennett",
+      "email": "user_28a577ce00@example.com",
+      "phone": "0528750407",
+      "address": "640 Archer Circle, Higginsfort, PA 75401",
+      "description": "Serve room service night team."
+    }
+  ]
+}

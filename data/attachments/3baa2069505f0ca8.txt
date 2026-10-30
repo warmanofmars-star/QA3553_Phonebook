@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1663aacb-1fb6-4fae-a078-c3392ad92e4b",
+      "name": "Erin",
+      "lastName": "Williams",
+      "email": "user_3fc690b87e@example.com",
+      "phone": "0578579673",
+      "address": "47938 John Ports Apt. 626, South Suzanneport, HI 95724",
+      "description": "Interview lot it first change dark popular important."
+    }
+  ]
+}

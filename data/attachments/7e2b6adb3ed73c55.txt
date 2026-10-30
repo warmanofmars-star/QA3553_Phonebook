@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "04dfe572-d0ed-41a7-9680-7370122b85cd",
+      "name": "Sabrina",
+      "lastName": "Cole",
+      "email": "user_e5a71e63a3@example.com",
+      "phone": "0538714552",
+      "address": "PSC 2938, Box 0087, APO AE 16474",
+      "description": "Expert half prove along beat question."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[32;20m[2026-10-30 15:17:31] [INFO] [DRIVER] - Проверка доступности Selenoid: http://selenoid:4444/status[0m
+[32;20m[2026-10-30 15:17:31] [INFO] [DRIVER] - Создание сессии в Selenoid, браузер: firefox[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Переход по ссылке: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [STEP] - Зарегистрироваться как user_7f3a0b8c12@example.com[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='email']'[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='password']'[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'button[name='registration']'[0m
+[32;20m[2026-10-30 15:17:35] [INFO] [UI] - Клик по элементу <button> с текстом: 'Registration'[0m
+[32;20m[2026-10-30 15:17:36] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:36] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:17:41] [INFO] [DRIVER] - Видео 84d40bc6-11c7-45ea-9cea-d9a0e3d852b0.mp4 прикреплено к отчёту[0m

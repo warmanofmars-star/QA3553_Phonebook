@@ -1,3 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_42bd083dd8@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API_SECURITY:test_api_security_logic.py:81 --- ЗАПУСК ТЕСТА 405 METHOD NOT ALLOWED ---

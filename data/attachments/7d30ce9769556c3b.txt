@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (71 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Walker",
+  "phone": "0519242688",
+  "email": "user_eaf92d7eba@example.com",
+  "address": "49149 Kylie Stream, West Brandyville, WY 20972",
+  "description": "Young act big kind little detail."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ef6ad218-c447-4496-9fad-9b5ec003b965"
+}

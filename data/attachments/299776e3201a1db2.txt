@@ -1,5 +1,0 @@
-[32;20m[2026-10-23 05:51:22] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_b44198795a@gmail.com][0m
-[32;20m[2026-10-23 05:51:22] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
-[32;20m[2026-10-23 05:51:22] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0519911178][0m
-[32;20m[2026-10-23 05:51:22] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0519911178][0m
-[31;20m[2026-10-23 05:51:22] [ERROR] [API] - [POST БАГ] Сервер позволил создать дубликат! Статус: 200 - {"message":"Contact was added! ID: 49875fa3-4217-45b5-ae57-10272fd316d4"}[0m

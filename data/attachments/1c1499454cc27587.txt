@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "97256c92-ac90-470e-a12e-625888c50d04",
+      "name": "Kenneth",
+      "lastName": "White",
+      "email": "user_bef674bd7c@example.com",
+      "phone": "0518405582",
+      "address": "Unit 9112 Box 9388, DPO AA 06484",
+      "description": "Individual discover doctor down."
+    }
+  ]
+}

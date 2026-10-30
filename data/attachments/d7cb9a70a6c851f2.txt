@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7fed1285-4379-4b47-baa4-4c881d8fa815",
+      "name": "Debra",
+      "lastName": "Graham",
+      "email": "user_a48cc87c0a@example.com",
+      "phone": "0527029980",
+      "address": "50461 Alexander Land, West Melissamouth, KY 45159",
+      "description": "Join ready play lawyer ball good than."
+    }
+  ]
+}

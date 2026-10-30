@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c00ca3da-489d-4f83-9de1-8115900137dc",
+      "name": "Tracy",
+      "lastName": "Jacobs",
+      "email": "user_7d6c637d05@example.com",
+      "phone": "0583502390",
+      "address": "7415 Murphy Greens, New Katherineland, KY 16729",
+      "description": "Myself through concern decision measure finish reduce."
+    }
+  ]
+}

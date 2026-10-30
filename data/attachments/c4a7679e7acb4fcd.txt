@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sheila",
+  "lastName": "Patton",
+  "phone": "0515239694",
+  "email": "user_6ab992a0ad@example.com",
+  "address": "402 Smith Springs, Jamieland, CT 69124",
+  "description": "Campaign develop figure position."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 21fd1666-7c3d-43b9-b53d-3df913c387a2"
+}

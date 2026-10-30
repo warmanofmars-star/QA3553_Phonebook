@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/00000000-0000-0000-0000-000000000000
+Статус: 400 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-30T15:14:14",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 00000000-0000-0000-0000-000000000000 not found in your contacts!",
+  "path": "/v1/contacts/00000000-0000-0000-0000-000000000000"
+}

@@ -1,0 +1,21 @@
+[32;20m[2026-10-30 15:16:30] [INFO] [DRIVER] - Проверка доступности Selenoid: http://selenoid:4444/status[0m
+[32;20m[2026-10-30 15:16:30] [INFO] [DRIVER] - Создание сессии в Selenoid, браузер: chrome[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (238 ms)[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [API] - Токен добавлен в заголовки сессии[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [UI] - Переход по ссылке: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [STEP] - Войти как invalid_email.com[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='email']'[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:16:31] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='password']'[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'button[name='login']'[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [UI] - Клик по элементу <button> с текстом: 'Login'[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [UI] - Текст Alert: 'Wrong email or password'[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [STEP] - Закрыть Alert (OK)[0m
+[32;20m[2026-10-30 15:16:32] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:16:33] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:16:33] [INFO] [UI] - Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'[0m
+[32;20m[2026-10-30 15:16:39] [INFO] [DRIVER] - Видео f8fdec9c93a2cdaf8b86ace6c049d33c.mp4 прикреплено к отчёту[0m

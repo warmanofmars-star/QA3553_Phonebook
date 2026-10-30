@@ -1,0 +1,7 @@
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (392 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (114 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (112 ms)
+INFO     API:contact_api.py:96 DELETE /v1/contacts/0209a538-fffb-4e56-9bed-052e154e94ff -> 200 (114 ms)
+WARNING  API:contact_api.py:96 DELETE /v1/contacts/0209a538-fffb-4e56-9bed-052e154e94ff -> 400 (113 ms)
+INFO     VALIDATOR:validators.py:38 Ошибка безопасна (статус 400, утечек нет).

@@ -1,0 +1,7 @@
+INFO     DRIVER:factory.py:113 Проверка доступности Selenoid: http://selenoid:4444/status
+INFO     DRIVER:factory.py:95 Создание сессии в Selenoid, браузер: chrome
+INFO     UI:base_page.py:47 Открываем страницу: https://telranedu.web.app/contacts
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/contacts
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'button[name='login']'
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: '[class^='contact-item_card__']'
+INFO     DRIVER:factory.py:182 Видео 03c6d82bfa3de9db13347802b0fecfcc.mp4 прикреплено к отчёту

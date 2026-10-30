@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b4ca16ba-ee0f-4a6f-93c2-91cce676f981",
+      "name": "Erica",
+      "lastName": "Medina",
+      "email": "user_868bd21f77@example.com",
+      "phone": "0527997486",
+      "address": "931 Darryl Camp, Aaronland, AL 55614",
+      "description": "Table general economic."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Zachary",
+  "lastName": "Morales",
+  "phone": "0530276894",
+  "email": "user_438a486835@example.com",
+  "address": "1012 Rose Knoll, West Samanthaland, GU 23610",
+  "description": "Way wish really carry."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6ccbc678-6148-47dd-a715-c1ab438e87d4"
+}

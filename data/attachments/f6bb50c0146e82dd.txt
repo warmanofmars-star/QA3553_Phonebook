@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0cb79740-b95b-4458-b48a-21ee1b69f3dd",
+      "name": "Raymond",
+      "lastName": "Cobb",
+      "email": "user_d7ab619fd8@example.com",
+      "phone": "0513773131",
+      "address": "812 Hicks Green, East Deborahborough, GU 08113",
+      "description": "Arm case woman make."
+    }
+  ]
+}

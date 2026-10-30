@@ -1,8 +1,0 @@
-[32;20m[2026-10-23 05:51:22] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_4d557e9af2@gmail.com][0m
-[32;20m[2026-10-23 05:51:23] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
-[32;20m[2026-10-23 05:51:23] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0521530813][0m
-[32;20m[2026-10-23 05:51:23] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
-[32;20m[2026-10-23 05:51:23] [INFO] [API] - DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/3d145248-0a59-4b00-8ec1-67b092c93c0b [ID: 3d145248-0a59-4b00-8ec1-67b092c93c0b][0m
-[32;20m[2026-10-23 05:51:23] [INFO] [API] - [DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)[0m
-[32;20m[2026-10-23 05:51:23] [INFO] [API] - GET https://contactapp-telran-backend.herokuapp.com/v1/contacts [Запрос всех контактов][0m
-[32;20m[2026-10-23 05:51:23] [INFO] [API] - [DELETE ПРОВЕРКА] Контакт 3d145248-0a59-4b00-8ec1-67b092c93c0b действительно исчез из базы![0m

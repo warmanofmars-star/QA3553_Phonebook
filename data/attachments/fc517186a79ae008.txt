@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Moore",
+  "phone": "0512469901",
+  "email": "user_e5816c4f8b@example.com",
+  "address": "01633 Barnes Flats, Eddieville, MN 73822",
+  "description": "Some theory from when since history."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3b6a5060-1290-40c5-8683-f9a00ae723e8"
+}

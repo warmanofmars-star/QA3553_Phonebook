@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8626bba3-cf1d-4727-9759-cda48791cef9",
+      "name": "Ronald",
+      "lastName": "Rios",
+      "email": "user_fcd6d2e62c@example.com",
+      "phone": "0527503801",
+      "address": "3627 Cheryl Junction Apt. 383, Butlermouth, NC 09028",
+      "description": "Stage soon piece image seek relationship pattern."
+    }
+  ]
+}

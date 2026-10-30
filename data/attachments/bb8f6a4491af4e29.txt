@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5a0b90ba-1822-46b6-8204-8ddf5c71b41b",
+      "name": "Stanley",
+      "lastName": "Gomez",
+      "email": "user_5afd9ff1e4@example.com",
+      "phone": "0533512305",
+      "address": "1229 Blackwell Court Suite 616, Fletcherton, WA 60378",
+      "description": "Include business seat enough."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (71 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michele",
+  "lastName": "Guzman",
+  "phone": "0598355762",
+  "email": "user_7ba0b6c460@example.com",
+  "address": "1938 Ross Isle Apt. 529, Walshport, PW 01011",
+  "description": "Suffer bag experience son watch medical."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 839a3f10-b1a2-4218-a97d-956a02899bd5"
+}

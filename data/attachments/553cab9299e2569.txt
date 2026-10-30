@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Rice",
+  "phone": "0525039559",
+  "email": "user_b134cc43c3@example.com",
+  "address": "3437 Reynolds Mountains Suite 868, Port John, PA 52622",
+  "description": "May look itself magazine where."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 10627c97-89a9-4118-99b3-ceab5d262ea4"
+}

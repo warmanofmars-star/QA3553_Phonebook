@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Potter",
+  "phone": "0528551976",
+  "email": "user_ba0c6692f4@example.com",
+  "address": "162 April Springs Suite 275, Hillville, FM 53438",
+  "description": "Prevent key institution option rise product including them."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8aa8cf66-c2e9-4baa-bf9e-2468175c85be"
+}

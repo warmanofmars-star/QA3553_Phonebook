@@ -1,1 +1,0 @@
-INFO     API_SECURITY:test_api_auth_security.py:28 --- СЦЕНАРИЙ: Запрос вообще без заголовка Authorization ---

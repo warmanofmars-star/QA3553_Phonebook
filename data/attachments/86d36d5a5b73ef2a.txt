@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73b71d41-b396-40dd-8c44-78165db734e2",
+      "name": "Rodney",
+      "lastName": "Ross",
+      "email": "user_470ade84dd@example.com",
+      "phone": "0594530536",
+      "address": "0915 Jessica Streets, Hartmanmouth, DE 67348",
+      "description": "Cut site probably scene floor result."
+    },
+    {
+      "id": "7be38eeb-fe00-46ea-b5a2-8b0b14bcf4ba",
+      "name": "Virginia",
+      "lastName": "Rogers",
+      "email": "user_11b13a8fc3@example.com",
+      "phone": "0535200062",
+      "address": "408 Paul Pike, Gregorytown, VA 31208",
+      "description": "Do let near man my add high."
+    },
+    {
+      "id": "0651534e-8df3-4ef6-a58d-2ed7915307e8",
+      "name": "Joshua",
+      "lastName": "Henderson",
+      "email": "user_80f6fa82c2@example.com",
+      "phone": "0588943524",
+      "address": "0544 Heather Lake Suite 943, Scottmouth, UT 90264",
+      "description": "Peace represent sense stock quite national operation."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c632a231-bd85-4d4b-b27e-b87df7bacf8e",
+      "name": "Michael",
+      "lastName": "Evans",
+      "email": "user_9fa43f4790@example.com",
+      "phone": "0533881475",
+      "address": "8343 Jackson Island, Lake Adamberg, MO 82201",
+      "description": "A share Democrat clear."
+    }
+  ]
+}

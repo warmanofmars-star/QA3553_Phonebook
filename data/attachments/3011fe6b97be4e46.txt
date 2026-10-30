@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a571b239-a08a-45c5-845d-f798225b9c9b",
+      "name": "Lisa",
+      "lastName": "Harris",
+      "email": "user_ab879cd743@example.com",
+      "phone": "0524617948",
+      "address": "98110 Cruz Springs, Davidmouth, FM 42316",
+      "description": "Mention significant return why near."
+    }
+  ]
+}

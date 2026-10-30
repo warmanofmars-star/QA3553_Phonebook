@@ -1,0 +1,8 @@
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (264 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (76 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (69 ms)
+INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (71 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (70 ms)
+INFO     API:contact_api.py:96 DELETE /v1/contacts/clear -> 200 (74 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (69 ms)

@@ -1,0 +1,7 @@
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (258 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (63 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (61 ms)
+INFO     API:contact_api.py:96 DELETE /v1/contacts/0d4e784f-ce64-4e1c-acf1-df015f331062 -> 200 (64 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (61 ms)
+INFO     API:test_api_delete.py:22 [DELETE ПРОВЕРКА] Контакт 0d4e784f-ce64-4e1c-acf1-df015f331062 действительно исчез из базы!

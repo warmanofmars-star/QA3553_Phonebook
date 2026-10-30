@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (78 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "Bullock",
+  "phone": "0557421374",
+  "email": "user_98666247af@example.com",
+  "address": "PSC 7456, Box 2249, APO AA 51963",
+  "description": "Discover third style economic fine firm during."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4f2e015c-d9cd-4da1-8207-d308021b6f4a"
+}

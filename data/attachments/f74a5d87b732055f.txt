@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephen",
+  "lastName": "Nelson",
+  "phone": "0511157574",
+  "email": "user_86e282b3a0@example.com",
+  "address": "07483 Young Isle Suite 973, Lake Michaelside, KY 77334",
+  "description": "Learn stay shake."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3d2b7e6c-fb51-4dae-839a-3494e93ba7e9"
+}

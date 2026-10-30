@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bradley",
+  "lastName": "Proctor",
+  "phone": "0518399659",
+  "email": "user_3358929cad@example.com",
+  "address": "8380 Pham Route Apt. 555, Donnaview, NH 78802",
+  "description": "Line seem thousand suddenly happen without hour."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cdd1a921-f2c0-4f0a-ab56-62a38892e924"
+}

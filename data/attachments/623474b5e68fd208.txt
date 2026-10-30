@@ -1,0 +1,17 @@
+[32;20m[2026-10-30 15:17:45] [INFO] [DRIVER] - Проверка доступности Selenoid: http://selenoid:4444/status[0m
+[32;20m[2026-10-30 15:17:45] [INFO] [DRIVER] - Создание сессии в Selenoid, браузер: firefox[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (421 ms)[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [API] - Токен добавлен в заголовки сессии[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Переход по ссылке: https://telranedu.web.app/login[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [STEP] - Зарегистрироваться как user_7955ba4e9a@example.com[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='email']'[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'input[name='password']'[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:49] [INFO] [UI] - Ввод данных в поле формы...[0m
+[32;20m[2026-10-30 15:17:50] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'button[name='registration']'[0m
+[32;20m[2026-10-30 15:17:50] [INFO] [UI] - Клик по элементу <button> с текстом: 'Registration'[0m
+[32;20m[2026-10-30 15:17:50] [INFO] [UI] - Текст Alert: 'User already exist'[0m
+[32;20m[2026-10-30 15:17:56] [INFO] [DRIVER] - Видео bc5f964c-046d-47ca-8126-5df773903435.mp4 прикреплено к отчёту[0m

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f5fa5ab7-6659-428c-af8d-0d68fe2b1971",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Acosta",
+      "email": "user_3b62d6ae3c@example.com",
+      "phone": "0525803506",
+      "address": "536 Christina Road Apt. 320, Rodriguezside, KS 04748",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

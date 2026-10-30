@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Avila",
+  "phone": "0511063486",
+  "email": "user_b65c04617a@example.com",
+  "address": "26149 Davis Point, Port Jeffreyville, DC 45733",
+  "description": "Inside customer lawyer present impact process radio."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6f58e405-09a2-484c-82ae-1fa1a1d2b2db"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandon",
+  "lastName": "Stout",
+  "phone": "0532499653",
+  "email": "user_4da3a64f5b@example.com",
+  "address": "08791 Elizabeth Cliff, Hollyview, DE 98666",
+  "description": "Finally can address worker."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4b33084c-2e66-4743-b875-9f58cafc2a95"
+}

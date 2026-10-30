@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c6d6a3cf-5c30-4994-af20-abfbc77d539e",
+      "name": "John",
+      "lastName": "Velasquez",
+      "email": "user_9202b68f34@example.com",
+      "phone": "0585136287",
+      "address": "71570 Susan Mountains, South Jason, IL 16629",
+      "description": "Theory impact somebody fish born."
+    }
+  ]
+}

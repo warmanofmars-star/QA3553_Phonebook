@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ef8bb04b-d7c1-40d9-8610-0f20a91523ac",
+      "name": "Brenda",
+      "lastName": "Herrera",
+      "email": "user_aedd81f026@example.com",
+      "phone": "0520144933",
+      "address": "96220 Rowe Station, Johnstonmouth, MN 52117",
+      "description": "Identify give since water list."
+    }
+  ]
+}

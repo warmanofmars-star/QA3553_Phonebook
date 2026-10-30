@@ -1,6 +1,0 @@
-[32;20m[2026-10-23 05:51:24] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_45ed591a14@gmail.com][0m
-[32;20m[2026-10-23 05:51:25] [INFO] [API] - Регистрация успешна (Token вшит в сессию)[0m
-[32;20m[2026-10-23 05:51:25] [INFO] [API_VALIDATION] - --- ЗАПУСК СЦЕНАРИЯ: Слишком короткий телефон (вне паттерна Swagger) ---[0m
-[32;20m[2026-10-23 05:51:25] [INFO] [API] - POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 123][0m
-[32;20m[2026-10-23 05:51:25] [INFO] [VALIDATOR] - Ошибка безопасна (статус 400, утечек нет).[0m
-[32;20m[2026-10-23 05:51:25] [INFO] [API_VALIDATION] - [УСПЕХ] Сценарий 'Слишком короткий телефон (вне паттерна Swagger)' корректно заблокирован бэкендом.[0m

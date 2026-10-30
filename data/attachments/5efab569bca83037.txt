@@ -1,0 +1,4 @@
+[32;20m[2026-10-30 15:13:58] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (453 ms)[0m
+[32;20m[2026-10-30 15:13:58] [INFO] [API] - Токен добавлен в заголовки сессии[0m
+[32;20m[2026-10-30 15:13:58] [INFO] [API] - POST /v1/contacts -> 200 (87 ms)[0m
+[32;20m[2026-10-30 15:13:58] [INFO] [API] - [POST УСПЕХ] Контакт Richard Barnes успешно создан![0m

@@ -1,0 +1,39 @@
+INFO     DRIVER:factory.py:113 Проверка доступности Selenoid: http://selenoid:4444/status
+INFO     DRIVER:factory.py:95 Создание сессии в Selenoid, браузер: firefox
+INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (416 ms)
+INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
+INFO     UI:base_page.py:47 Открываем страницу: https://telranedu.web.app/login
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/login
+INFO     STEP:allure_steps.py:41 Войти как user_230d79a2e4@example.com
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'input[name='email']'
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'input[name='password']'
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'button[name='login']'
+INFO     UI:listener.py:26 Клик по элементу <button> с текстом: 'Login'
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//button[text()='Sign Out']'
+INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (115 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (111 ms)
+INFO     UI:base_page.py:47 Открываем страницу: https://telranedu.web.app/contacts
+INFO     UI:listener.py:11 Переход по ссылке: https://telranedu.web.app/contacts
+INFO     STEP:allure_steps.py:41 Открыть карточку контакта 0533021631
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//div[starts-with(@class, 'contact-item_card__')][h3[text()='0533021631']]'
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//div[starts-with(@class, 'contact-item_card__')][h3[text()='0533021631']]'
+INFO     UI:listener.py:26 Клик по элементу <div> с текстом: 'Michael 0533021631'
+INFO     STEP:allure_steps.py:41 Нажать Edit
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//button[text()='Edit']'
+INFO     UI:listener.py:26 Клик по элементу <button> с текстом: 'Edit'
+INFO     STEP:allure_steps.py:41 Изменить поля формы редактирования
+INFO     UI:listener.py:14 Поиск элемента -> By: css selector, Value: 'input[placeholder*='desc']'
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     UI:listener.py:31 Ввод данных в поле формы...
+INFO     STEP:allure_steps.py:41 Нажать Save в форме редактирования
+INFO     UI:listener.py:14 Поиск элемента -> By: xpath, Value: '//button[text()='Save']'
+INFO     UI:listener.py:26 Клик по элементу <button> с текстом: 'Save'
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (111 ms)
+INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (115 ms)
+INFO     DRIVER:factory.py:182 Видео 7c38f937-dd13-443b-9845-f412b8c7ced1.mp4 прикреплено к отчёту

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Terrell",
+  "phone": "0512570037",
+  "email": "user_fce122c68e@example.com",
+  "address": "266 Tonya Keys, Anthonyfort, CO 84667",
+  "description": "Similar drug time nice direction discuss process."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 85f04e28-29bf-43ad-b93f-c6387942c1b1"
+}

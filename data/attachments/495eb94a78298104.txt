@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "affcefef-ee40-4792-ba68-c1dd0de4dd99",
+      "name": "Andrew",
+      "lastName": "Woods",
+      "email": "user_0b47d6cf97@example.com",
+      "phone": "0510094500",
+      "address": "84524 Howard Harbor, Lisaburgh, NY 52655",
+      "description": "Compare view current."
+    }
+  ]
+}

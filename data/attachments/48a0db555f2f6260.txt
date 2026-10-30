@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8aa8cf66-c2e9-4baa-bf9e-2468175c85be",
+      "name": "Andrew",
+      "lastName": "Potter",
+      "email": "user_ba0c6692f4@example.com",
+      "phone": "0528551976",
+      "address": "162 April Springs Suite 275, Hillville, FM 53438",
+      "description": "Prevent key institution option rise product including them."
+    }
+  ]
+}

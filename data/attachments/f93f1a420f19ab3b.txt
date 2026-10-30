@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (79 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Perry",
+  "email": "user_247741d61e@example.com",
+  "address": "108 Sabrina Estate Apt. 261, North Justinfurt, IL 33213",
+  "description": "Nearly growth down money."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e2d2dfee-e57d-4c15-914e-e5541d236838"
+}

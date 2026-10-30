@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "389ffe54-5190-43b2-82d8-043dcb51c6cd",
+      "name": "Lauren",
+      "lastName": "Gray",
+      "email": "user_b143d917ce@example.com",
+      "phone": "0515986798",
+      "address": "026 Rebekah Valleys, Turnerfurt, FM 21985",
+      "description": "Gas lay media position while mouth."
+    }
+  ]
+}

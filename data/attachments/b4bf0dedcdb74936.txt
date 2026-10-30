@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Jenkins",
+  "phone": "0524205617",
+  "email": "user_2ffe8b0676@example.com",
+  "address": "4630 Devin Meadows Suite 061, Munozmouth, WY 07309",
+  "description": "Season free reality however."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 52412ca2-bbeb-4d6d-99aa-1064b96115c7"
+}

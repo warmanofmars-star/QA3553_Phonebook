@@ -1,6 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_5d42422fee@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API_VALIDATION:test_api_payload_validation.py:41 --- ЗАПУСК СЦЕНАРИЯ: Null в обязательном поле name ---
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0516125438]
-INFO     VALIDATOR:validators.py:37 Ошибка безопасна (статус 400, утечек нет).
-INFO     API_VALIDATION:test_api_payload_validation.py:52 [УСПЕХ] Сценарий 'Null в обязательном поле name' корректно заблокирован бэкендом.

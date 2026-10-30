@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Rodgers",
+  "phone": "0515485161",
+  "email": "user_e9fdee10a4@example.com",
+  "address": "900 Sarah Roads, West Ericaton, NH 86464",
+  "description": "Question almost later daughter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 76d6dea5-2660-4401-a14e-0a5ddca60c66"
+}

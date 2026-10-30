@@ -1,6 +1,0 @@
-INFO     API:contact_api.py:43 POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword [Регистрация: user_44c6f7817a@gmail.com]
-INFO     API:contact_api.py:52 Регистрация успешна (Token вшит в сессию)
-INFO     API_VALIDATION:test_api_payload_validation.py:41 --- ЗАПУСК СЦЕНАРИЯ: Пустая строка в name ---
-INFO     API:contact_api.py:64 POST https://contactapp-telran-backend.herokuapp.com/v1/contacts [Контакт: 0523687918]
-INFO     VALIDATOR:validators.py:37 Ошибка безопасна (статус 400, утечек нет).
-INFO     API_VALIDATION:test_api_payload_validation.py:52 [УСПЕХ] Сценарий 'Пустая строка в name' корректно заблокирован бэкендом.

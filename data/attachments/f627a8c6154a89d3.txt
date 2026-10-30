@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alex",
+  "lastName": "Harris",
+  "phone": "0590784064",
+  "email": "user_d66e1652bc@example.com",
+  "address": "8618 Sarah Square, Carmentown, ND 84002",
+  "description": "Increase smile life project bring why."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 91caa33e-e219-4b74-92b8-00ffe8257a03"
+}

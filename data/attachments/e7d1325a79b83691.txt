@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Henderson",
+  "phone": "0513493538",
+  "email": "user_d226dd533b@example.com",
+  "address": "649 Tiffany Valley Apt. 184, Carterburgh, VT 13007",
+  "description": "Hard listen east."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2ca07067-f0da-421f-93d5-4a98be313bfb"
+}

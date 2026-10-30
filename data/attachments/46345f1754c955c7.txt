@@ -1,0 +1,7 @@
+[32;20m[2026-10-30 15:17:06] [INFO] [DRIVER] - Проверка доступности Selenoid: http://selenoid:4444/status[0m
+[32;20m[2026-10-30 15:17:06] [INFO] [DRIVER] - Создание сессии в Selenoid, браузер: chrome[0m
+[32;20m[2026-10-30 15:17:08] [INFO] [UI] - Открываем страницу: https://telranedu.web.app/contacts[0m
+[32;20m[2026-10-30 15:17:08] [INFO] [UI] - Переход по ссылке: https://telranedu.web.app/contacts[0m
+[32;20m[2026-10-30 15:17:08] [INFO] [UI] - Поиск элемента -> By: css selector, Value: 'button[name='login']'[0m
+[32;20m[2026-10-30 15:17:08] [INFO] [UI] - Поиск элемента -> By: css selector, Value: '[class^='contact-item_card__']'[0m
+[32;20m[2026-10-30 15:17:12] [INFO] [DRIVER] - Видео 03c6d82bfa3de9db13347802b0fecfcc.mp4 прикреплено к отчёту[0m
