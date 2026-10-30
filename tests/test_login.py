@@ -1,170 +1,113 @@
+"""
+Вход и регистрация через UI.
+
+Все тесты используют временных пользователей (temp_user), а не постоянный
+аккаунт из .env: тесты не зависят от чужих данных и работают где угодно,
+даже без USER_EMAIL/USER_PASSWORD.
+Тексты ошибок — из SRS (F1–F4), а не из фактического поведения приложения.
+"""
+
 import allure
 import pytest
-from pages.login_page import LoginPage
+
 from data.data_generator import UserGenerator
-from utils.logger import get_logger
-from config import settings
+from data.known_bugs import known_bug
+from pages.login_page import LoginPage
 
-# Создаем логгер для тестов
-logger = get_logger("TEST")
+pytestmark = [pytest.mark.ui, allure.epic("UI Testing"), allure.feature("Authentication")]
+
+WRONG_CREDENTIALS = "Wrong email or password"   # SRS F1, F2, F4
+USER_ALREADY_EXISTS = "User already exists"     # SRS F3
+
+
+def _expect_alert(page: LoginPage, expected: str) -> None:
+    """Проверка: появился Alert, и в нём текст из требования."""
+    alert_text = page.wait_for_alert_text()
+    assert alert_text is not None, f"Alert не появился (ожидался текст '{expected}')"
+    assert expected in alert_text, f"Ожидался текст '{expected}', получено: '{alert_text}'"
+    page.accept_alert()
+
 
 # ==========================================
-# ТЕСТОВЫЕ ДАННЫЕ ДЛЯ АВТОРИЗАЦИИ (LOGIN)
+# ВХОД
 # ==========================================
-# Для тестов логина нам нужен пользователь, который уже точно есть в базе
-# Берём учётные данные из единого конфига
-EXISTING_EMAIL = settings.user_email
-VALID_PASSWORD = settings.user_password
-
-
-# ==========================================
-# ТЕСТЫ НА АВТОРИЗАЦИЮ (LOGIN)
-# ==========================================
-
 @pytest.mark.smoke
-@pytest.mark.ui
+@allure.story("Login success")
 @allure.severity(allure.severity_level.BLOCKER)
-def test_login_success(driver):
-    """Позитивный тест: Успешная авторизация с валидными данными"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_login_success ---")
+@allure.tag("TC-0006")
+def test_login_success(driver, temp_user):
     login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
+    login_page.login(temp_user.user.email, temp_user.user.password)
 
-    logger.info(f"ШАГ 2: Заполняем валидные данные пользователя: {EXISTING_EMAIL}")
-    login_page.fill_email(EXISTING_EMAIL)
-    login_page.fill_password(VALID_PASSWORD)
-
-    logger.info("ШАГ 3: Нажимаем кнопку Login")
-    login_page.submit_login()
-
-    logger.info("ПРОВЕРКА: Убеждаемся, что авторизация прошла успешно (появилась кнопка Sign Out)")
-    assert login_page.is_logged(), "Ошибка: Пользователь не авторизовался!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    assert login_page.is_signed_in(), "Пользователь не авторизовался: нет кнопки Sign Out"
 
 
-# НЕГАТИВНЫЕ СЦЕНАРИИ
 @pytest.mark.regression
-@pytest.mark.ui
+@allure.story("Login negative")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("scenario_key, scenario_name", [
-    ("invalid_email", "Невалидный формат email"),
-    ("invalid_password", "Валидный email, но невалидный пароль"),
-    ("unregistered", "Несуществующий пользователь")
+@pytest.mark.parametrize("scenario, test_case", [
+    pytest.param("invalid_email", "TC-0007", id="TC-0007-invalid-email"),
+    pytest.param("wrong_password", "TC-0008", id="TC-0008-wrong-password"),
+    pytest.param("unregistered", "TC-0009", id="TC-0009-unregistered-user"),
 ])
-def test_login_negative(driver, scenario_key, scenario_name):
-    """Негативные тесты: Авторизация с неверными данными"""
-    logger.info(f"--- ЗАПУСК ТЕСТА: test_login_negative ---")
-    logger.info(f"СЦЕНАРИЙ: {scenario_name}")
-
-    # 🛠 Генерируем данные внутри теста на основе ключа сценария
-    if scenario_key == "invalid_email":
-        user = UserGenerator.get_user_with_invalid_email()
-        email, password = user.email, user.password
-    elif scenario_key == "invalid_password":
-        email = EXISTING_EMAIL
-        password = UserGenerator.get_user_with_invalid_password().password
-    elif scenario_key == "unregistered":
-        user = UserGenerator.get_valid_user()
-        email, password = user.email, user.password
+def test_login_negative(driver, temp_user, scenario, test_case):
+    allure.dynamic.tag(test_case)
+    credentials = {
+        "invalid_email": (UserGenerator.get_user_with_invalid_email().email, temp_user.user.password),
+        "wrong_password": (temp_user.user.email, UserGenerator.generate_valid_password()),
+        "unregistered": (UserGenerator.get_valid_user().email, UserGenerator.generate_valid_password()),
+    }
+    email, password = credentials[scenario]
 
     login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации")
     login_page.open()
+    login_page.login(email, password)
 
-    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '********'")
-    login_page.fill_email(email)
-    login_page.fill_password(password)
-
-    logger.info("ШАГ 3: Нажимаем кнопку Login")
-    login_page.submit_login()
-
-    logger.info("ПРОВЕРКА: Ожидаем Alert с текстом 'Wrong email or password'")
-    assert "Wrong email or password" in login_page.get_alert_text(), f"Ошибка: Неверный текст Alert при сценарии '{scenario_name}'!"
-    login_page.accept_alert()
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    _expect_alert(login_page, WRONG_CREDENTIALS)
+    assert not login_page.is_signed_in(timeout=1), "Пользователь авторизовался с неверными данными"
 
 
 # ==========================================
-# ТЕСТЫ НА РЕГИСТРАЦИЮ (REGISTRATION)
+# РЕГИСТРАЦИЯ
 # ==========================================
-
 @pytest.mark.smoke
-@pytest.mark.ui
+@allure.story("Registration success")
 @allure.severity(allure.severity_level.BLOCKER)
+@allure.tag("TC-0001")
 def test_registration_success(driver):
-    """Позитивный тест: Успешная регистрация нового пользователя"""
-    logger.info("--- ЗАПУСК ТЕСТА: test_registration_success ---")
-    login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации")
-    login_page.open()
-
-    # Получаем абсолютно нового уникального пользователя
-    logger.info("ПОДГОТОВКА: Получаем абсолютно нового уникального пользователя")
     user = UserGenerator.get_valid_user()
 
-    logger.info(f"ШАГ 2: Регистрируем нового юзера: {user.email}")
-    login_page.fill_email(user.email)
-    login_page.fill_password(user.password)
+    login_page = LoginPage(driver)
+    login_page.open()
+    login_page.register(user.email, user.password)
 
-    logger.info("ШАГ 3: Нажимаем кнопку Registration")
-    login_page.submit_registration()
-
-    # Проверяем, что после регистрации мы успешно авторизованы
-    logger.info("ПРОВЕРКА: Убеждаемся, что после регистрации мы успешно авторизованы")
-    assert login_page.is_logged(), "Ошибка: Пользователь не авторизовался после регистрации!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
-
-    # СОХРАНЯЕМ ДАННЫЕ В ФАЙЛ ДЛЯ ИСТОРИИ
-    UserGenerator.save_user_credentials(user)
-    logger.info(f"Данные пользователя {user.email} сохранены в data/valid_users.jsonl")
+    assert login_page.is_signed_in(), "Пользователь не авторизовался после регистрации"
 
 
-# НЕГАТИВНЫЕ СЦЕНАРИИ
 @pytest.mark.regression
-@pytest.mark.ui
+@allure.story("Registration negative")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("scenario_key, expected_alert, scenario_name", [
-    ("existing_user", "User already exist", "Регистрация уже существующего пользователя"),
-    ("invalid_email", "Wrong email or password format", "Невалидный формат email"),
-    ("invalid_password", "Wrong email or password format", "Невалидный формат пароля")
+@pytest.mark.parametrize("scenario, expected_alert, test_case", [
+    pytest.param("invalid_email", WRONG_CREDENTIALS, "TC-0002", id="TC-0002-invalid-email"),
+    pytest.param("invalid_password", WRONG_CREDENTIALS, "TC-0003", id="TC-0003-invalid-password"),
+    pytest.param("existing_user", USER_ALREADY_EXISTS, "TC-0004", id="TC-0004-existing-user",
+                 marks=known_bug("USER_EXISTS_WORDING")),
+    pytest.param("existing_email", USER_ALREADY_EXISTS, "TC-0005", id="TC-0005-existing-email-new-password",
+                 marks=known_bug("USER_EXISTS_WORDING")),
 ])
-def test_registration_negative(driver, scenario_key, expected_alert, scenario_name):
-    """Негативные тесты: Регистрация с неверными данными или существующим email"""
-    logger.info(f"--- ЗАПУСК ТЕСТА: test_registration_negative ---")
-    logger.info(f"СЦЕНАРИЙ: {scenario_name}")
-
-    # 🛠 Генерируем данные внутри теста на основе ключа сценария
-    if scenario_key == "existing_user":
-        email = EXISTING_EMAIL
-        password = UserGenerator.get_valid_user().password
-    elif scenario_key == "invalid_email":
-        user = UserGenerator.get_user_with_invalid_email()
-        email, password = user.email, user.password
-    elif scenario_key == "invalid_password":
-        email = UserGenerator.get_valid_user().email
-        password = UserGenerator.get_user_with_invalid_password().password
+def test_registration_negative(driver, temp_user, scenario, expected_alert, test_case):
+    allure.dynamic.tag(test_case)
+    credentials = {
+        "invalid_email": (UserGenerator.get_user_with_invalid_email().email, UserGenerator.generate_valid_password()),
+        "invalid_password": (UserGenerator.get_valid_user().email, UserGenerator.get_user_with_invalid_password().password),
+        "existing_user": (temp_user.user.email, temp_user.user.password),
+        "existing_email": (temp_user.user.email, UserGenerator.generate_valid_password()),
+    }
+    email, password = credentials[scenario]
 
     login_page = LoginPage(driver)
-
-    logger.info("ШАГ 1: Открываем страницу авторизации/регистрации")
     login_page.open()
+    login_page.register(email, password)
 
-    logger.info(f"ШАГ 2: Вводим данные -> Email: '{email}', Password: '********'")
-    login_page.fill_email(email)
-    login_page.fill_password(password)
-
-    logger.info("ШАГ 3: Нажимаем кнопку Registration")
-    login_page.submit_registration()
-
-    logger.info(f"ПРОВЕРКА: Ожидаем Alert с текстом '{expected_alert}'")
-    actual_alert_text = login_page.get_alert_text()
-
-    assert expected_alert in actual_alert_text, \
-        f"Ошибка при сценарии '{scenario_name}': Ожидали '{expected_alert}', но получили '{actual_alert_text}'!"
-
-    login_page.accept_alert()
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    _expect_alert(login_page, expected_alert)

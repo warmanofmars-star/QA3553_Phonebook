@@ -166,7 +166,7 @@ def authenticated_driver(driver, temp_user: TempUser):
         login_page = LoginPage(driver)
         login_page.open()
         login_page.login(temp_user.user.email, temp_user.user.password)
-        require(login_page.is_logged(), "Setup: кнопка Sign Out не появилась после авторизации")
+        require(login_page.is_signed_in(), "Setup: кнопка Sign Out не появилась после авторизации")
     return driver
 
 

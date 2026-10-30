@@ -1,118 +1,125 @@
+"""
+Базовый класс Selenium Page Object.
+
+Два уровня методов:
+  * _find, _click, _fill, _is_visible... (с подчёркиванием) — внутренняя механика:
+    ожидания и работа с локаторами. Шагов в Allure НЕ создают (действия и так
+    логирует listener) и не предназначены для вызова из тестов.
+  * Публичные методы страниц-наследников — действия пользователя ("Нажать Save",
+    "Открыть карточку контакта"). Каждый — один понятный шаг в отчёте через @step.
+
+Тест работает только с публичными методами и не знает ни про локаторы, ни про WebDriverWait.
+"""
+
 import allure
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from utils.logger import get_logger
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+
 from config import settings
+from utils.allure_steps import step
+from utils.logger import get_logger
+
+Locator = tuple[str, str]
 
 
 class BasePage:
     BASE_URL = settings.base_url
     ENDPOINT = ""
-    DEFAULT_TIMEOUT = settings.ui_timeout  # секунды, переопределяется через UI_TIMEOUT
+    PAGE_NAME = "страница"           # человеческое имя для шагов отчёта; задаётся в наследниках
+    DEFAULT_TIMEOUT = settings.ui_timeout
+
+    # Общий для всех страниц элемент шапки
+    _SIGN_OUT_BTN = (By.XPATH, "//button[text()='Sign Out']")
 
     def __init__(self, driver):
         self.driver = driver
         self.logger = get_logger("UI")
 
-    @allure.step("Открытие страницы")
-    def open(self):
+    # ==========================================
+    # Публичные действия, общие для всех страниц
+    # ==========================================
+    def open(self) -> None:
         url = f"{self.BASE_URL}{self.ENDPOINT}"
-        self.logger.info(f"Открываем страницу: {url}")
-        self.driver.get(url)
+        with allure.step(f"Открыть страницу «{self.PAGE_NAME}»"):
+            self.logger.info(f"Открываем страницу: {url}")
+            self.driver.get(url)
 
-    @allure.step("Поиск элемента: {locator}")
-    def find(self, locator: tuple[str, str]) -> WebElement:
-        return WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.presence_of_element_located(locator)
-        )
+    @step("Нажать Sign Out")
+    def sign_out(self) -> None:
+        self._click(self._SIGN_OUT_BTN)
 
-    @allure.step("Клик по элементу: {locator}")
-    def click(self, locator: tuple[str, str]) -> None:
-        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.element_to_be_clickable(locator)
-        )
-        element.click()
+    def is_signed_in(self, timeout: float | None = None) -> bool:
+        """Пользователь авторизован — в шапке есть кнопка Sign Out."""
+        return self._is_visible(self._SIGN_OUT_BTN, timeout)
 
-    def fill(self, locator, value, is_secret=False):
-        """
-        Вводит текст в поле с предварительным ожиданием видимости.
-        Если is_secret=True, пароль в отчетах Allure будет заменен на звездочки.
-        """
-        display_value = "********" if is_secret else value
+    def is_url_contains(self, fragment: str, timeout: float | None = None) -> bool:
+        """Ждёт, пока адрес страницы будет содержать fragment (например, после редиректа)."""
+        try:
+            self._wait(timeout).until(EC.url_contains(fragment))
+            return True
+        except TimeoutException:
+            return False
 
-        with allure.step(f"Ввод текста '{display_value}' в поле {locator}"):
-            element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-                EC.visibility_of_element_located(locator)
-            )
-            element.clear()
-            element.send_keys(value)
-
-    @allure.step("Снятие фокуса с элемента (клик по фону)")
-    def remove_focus(self):
-        self.click((By.CSS_SELECTOR, "body"))
-
-    # ==========================================
-    # ОБЩИЕ ЭЛЕМЕНТЫ НАВИГАЦИИ (HEADER)
-    # ==========================================
-    SIGN_OUT_BTN = (By.XPATH, "//button[text()='Sign Out']")
-
-    @allure.step("Нажатие кнопки 'Sign Out'")
-    def click_sign_out_button(self):
-        self.logger.info("Нажимаем кнопку 'Sign Out'")
-        self.click(self.SIGN_OUT_BTN)
-
-    # ==========================================
-    # УНИВЕРСАЛЬНЫЕ МЕТОДЫ (ALERTS & WAITS)
-    # ==========================================
-    @allure.step("Чтение текста Alert")
-    def get_alert_text(self):
-        self.logger.info("Ожидаем появления Alert и читаем его текст")
-        alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.alert_is_present()
-        )
-        text = alert.text
-        self.logger.info(f"Прочитан текст Alert: '{text}'")
-        return text
-
-    @allure.step("Подтверждение (Accept) Alert")
-    def accept_alert(self):
-        self.logger.info("Подтверждаем (Accept) Alert")
-        alert = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.alert_is_present()
-        )
-        alert.accept()
-
+    # ---------- Alert ----------
     def wait_for_alert_text(self, timeout: float | None = None) -> str | None:
         """Ждёт Alert и возвращает его текст, а если он не появился — None.
 
-        В отличие от get_alert_text() не бросает TimeoutException. Отсутствие алерта
-        проверяется в тесте обычным assert — тогда провал корректно отличается
-        от технических сбоев Selenium (это важно для known_bug: в xfail уходят
-        только AssertionError).
+        Не бросает TimeoutException: отсутствие алерта проверяется в тесте обычным
+        assert, и тогда провал корректно попадает в known_bug (там только AssertionError).
         """
-        with allure.step("Ожидание Alert"):
+        with allure.step("Дождаться Alert"):
             try:
-                alert = WebDriverWait(self.driver, timeout or self.DEFAULT_TIMEOUT).until(
-                    EC.alert_is_present()
-                )
+                alert = self._wait(timeout).until(EC.alert_is_present())
             except TimeoutException:
                 self.logger.info("Alert не появился")
                 return None
-            self.logger.info(f"Прочитан текст Alert: '{alert.text}'")
+            self.logger.info(f"Текст Alert: '{alert.text}'")
             return alert.text
 
-    @allure.step("Ожидание исчезновения элемента: {locator}")
-    def is_disappeared(self, locator):
-        self.logger.info(f"Ожидаем исчезновения элемента: {locator}")
+    @step("Закрыть Alert (OK)")
+    def accept_alert(self) -> None:
+        self._wait().until(EC.alert_is_present()).accept()
+
+    # ==========================================
+    # Внутренняя механика (для наследников)
+    # ==========================================
+    def _wait(self, timeout: float | None = None) -> WebDriverWait:
+        return WebDriverWait(self.driver, timeout or self.DEFAULT_TIMEOUT)
+
+    def _find(self, locator: Locator) -> WebElement:
+        """Элемент, присутствующий в DOM."""
+        return self._wait().until(EC.presence_of_element_located(locator))
+
+    def _find_visible(self, locator: Locator) -> WebElement:
+        return self._wait().until(EC.visibility_of_element_located(locator))
+
+    def _click(self, locator: Locator) -> None:
+        self._wait().until(EC.element_to_be_clickable(locator)).click()
+
+    def _fill(self, locator: Locator, value: str) -> None:
+        element = self._find_visible(locator)
+        element.clear()
+        element.send_keys(value)
+
+    def _count(self, locator: Locator) -> int:
+        """Сколько элементов найдено прямо сейчас (без ожидания)."""
+        return len(self.driver.find_elements(*locator))
+
+    def _is_visible(self, locator: Locator, timeout: float | None = None) -> bool:
+        """Ждёт появления элемента. True — появился, False — не дождались."""
         try:
-            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-                EC.invisibility_of_element_located(locator)
-            )
-            self.logger.info("Элемент успешно исчез со страницы")
+            self._wait(timeout).until(EC.visibility_of_element_located(locator))
             return True
         except TimeoutException:
-            self.logger.warning(f"Элемент НЕ исчез в течение {self.DEFAULT_TIMEOUT} секунд!")
+            return False
+
+    def _is_gone(self, locator: Locator, timeout: float | None = None) -> bool:
+        """Ждёт исчезновения элемента. True — исчез, False — так и остался на странице."""
+        try:
+            self._wait(timeout).until(EC.invisibility_of_element_located(locator))
+            return True
+        except TimeoutException:
             return False

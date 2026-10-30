@@ -42,7 +42,7 @@ def test_api_login_negative(temp_user, scenario_key, expected_status, scenario):
     api = PhonebookAPI()
 
     if scenario_key == "wrong_email":
-        email, password = "wrong_unregistered_email@gmail.com", user.password
+        email, password = "wrong_unregistered_email@example.com", user.password
     else:
         email, password = user.email, "WrongPassword123!"
 

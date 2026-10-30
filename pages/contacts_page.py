@@ -1,179 +1,123 @@
-import platform
-from models.contact import Contact
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
 
+from models.contact import Contact
 from pages.base_page import BasePage
 from pages.locators import ContactFormLocators
+from utils.allure_steps import step
 
 
 class ContactsPage(BasePage):
     ENDPOINT = "/contacts"
+    PAGE_NAME = "Список контактов"
+
+    # Приложение использует CSS Modules: классы вида contact-item_card__2SOIM, где
+    # суффикс — хэш, который меняется при пересборке фронтенда. Поэтому ищем по
+    # стабильному началу класса (^= — "начинается с"), а не по полному имени.
+    # В реальной команде правильнее попросить разработчиков добавить data-testid.
+    _CARD = (By.CSS_SELECTOR, "[class^='contact-item_card__']")
+    _DETAILS = (By.CSS_SELECTOR, "[class^='contact-item-detailed_card__']")
+
+    _EDIT_BTN = (By.XPATH, "//button[text()='Edit']")
+    _REMOVE_BTN = (By.XPATH, "//button[text()='Remove']")
+    _SAVE_EDIT_BTN = (By.XPATH, "//button[text()='Save']")
+
+    @staticmethod
+    def _card_by_phone(phone: str):
+        """Карточка в списке слева, найденная по телефону (h3 внутри карточки)."""
+        return By.XPATH, f"//div[starts-with(@class, 'contact-item_card__')][h3[text()='{phone}']]"
 
     # ==========================================
-    # ЛОКАТОРЫ
+    # Список
     # ==========================================
-    CONTACT_NAV_LINK = (By.CSS_SELECTOR, "[href='/contacts']")
-    CONTACT_CARDS = (By.CLASS_NAME, "contact-item_card__2SOIM")
-    CONTACT_DETAILS_CARD = (By.CLASS_NAME, "contact-item-detailed_card__50dTS")
+    def is_card_displayed(self, phone: str, timeout: float | None = None) -> bool:
+        """Ждёт появления карточки с телефоном. False — так и не появилась."""
+        return self._is_visible(self._card_by_phone(phone), timeout)
 
-    # Кнопки
-    REMOVE_BTN = (By.XPATH, "//button[text()='Remove']")
-    EDIT_BTN = (By.XPATH, "//button[text()='Edit']")
-    SAVE_BTN = (By.XPATH, "//button[text()='Save']")
+    def is_card_gone(self, phone: str, timeout: float | None = None) -> bool:
+        """Ждёт исчезновения карточки с телефоном. False — так и осталась в списке."""
+        return self._is_gone(self._card_by_phone(phone), timeout)
 
-    # ==========================================
-    # БАЗОВЫЕ МЕТОДЫ (Список контактов)
-    # ==========================================
-    def open_contact_list(self):
-        """Открывает список контактов через клик по верхнему меню"""
-        self.click(self.CONTACT_NAV_LINK)
-        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.url_contains("/contacts"))
+    def cards_count(self) -> int:
+        """Сколько карточек в списке прямо сейчас."""
+        return self._count(self._CARD)
 
+    @step("Открыть карточку контакта {phone}")
+    def open_details(self, phone: str) -> None:
+        self._click(self._card_by_phone(phone))
 
-    def contact_cards_count(self, phone):
-        """Считает количество карточек с заданным номером телефона"""
-        return len(self.driver.find_elements(By.XPATH, f"//h3[text()='{phone}']"))
-
-    def open_contact_details(self, phone):
-        """Кликает по карточке (по номеру телефона), чтобы открыть детали"""
-        locator = (By.XPATH, f"//h3[text()='{phone}']/..")
-
-        # Явно ждем, пока карточка не только появится в DOM, но и станет кликабельной
-        card = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.element_to_be_clickable(locator)
-        )
-        card.click()
-
-    def contact_card_visible(self, phone):
-        """Ждет появления карточки в DOM и проверяет её видимость"""
-        locator = (By.XPATH, f"//h3[text()='{phone}']")
-        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.presence_of_element_located(locator))
-        return element.is_displayed()
+    def details_text(self) -> str:
+        """Весь текст правой панели с деталями контакта."""
+        return self._find_visible(self._DETAILS).text
 
     # ==========================================
-    # МЕТОДЫ УДАЛЕНИЯ
+    # Удаление
     # ==========================================
+    @step("Удалить контакт {phone}")
+    def delete_contact(self, phone: str) -> None:
+        """Открывает карточку и нажимает Remove. Исчезновение карточки проверяет тест."""
+        self.open_details(phone)
+        self._click(self._REMOVE_BTN)
 
-    def click_remove_button(self):
-        """Кликает на кнопку Remove в правой панели"""
-        self.click(self.REMOVE_BTN)
+    @step("Удалить все контакты по одному")
+    def delete_all_contacts(self) -> None:
+        """Удаляет контакты, всегда кликая по первой карточке.
 
-    def is_contact_deleted(self, phone):
-        """Проверяет, что карточка с указанным телефоном исчезла со страницы"""
-        locator = (By.XPATH, f"//h3[text()='{phone}']")
-        return self.is_disappeared(locator)
-
-    def get_all_contacts_count(self):
-        """Возвращает общее количество контактов в левом списке"""
-        # find_elements возвращает список. Если элементов нет - вернет пустой список []
-        return len(self.driver.find_elements(*self.CONTACT_CARDS))
-
-    def delete_all_contacts(self):
-        """Удаляет все контакты по одному, избегая ошибки устаревших элементов (StaleElementReference)"""
-
-        # 1. Узнаем реальное количество контактов на странице до начала удаления
-        initial_count = self.get_all_contacts_count()
-
-        if initial_count == 0:
-            return  # База уже чиста, выходим
-
-        # 2. Ставим лимит = реальное количество + буфер (вдруг в процессе фоном добавится еще один)
-        max_iterations = initial_count + 5
-
+        После каждого удаления React перерисовывает список, поэтому карточки ищем
+        заново на каждой итерации (иначе StaleElementReferenceException).
+        Лимит итераций защищает от бесконечного цикла, если удаление сломано.
+        """
+        max_iterations = self.cards_count() + 5
         for _ in range(max_iterations):
-            # Каждый раз заново ищем все карточки на странице
-            cards = self.driver.find_elements(*self.CONTACT_CARDS)
-
-            # Если карточек больше нет — прерываем цикл (работа сделана)
-            if not cards:
-                break
-
-            current_count = len(cards)
-
-            # Кликаем всегда по первой карточке в списке
-            cards[0].click()
-
-            # Ждем появления кнопки Remove и кликаем её
-            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-                EC.element_to_be_clickable(self.REMOVE_BTN)
-            ).click()
-
-            # САМОЕ ВАЖНОЕ: Ждем, пока общее количество карточек не уменьшится на 1
-            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-                lambda driver: len(driver.find_elements(*self.CONTACT_CARDS)) < current_count
-            )
-        else:
-            # Сработает только если цикл исчерпал max_iterations, но break не случился
-            raise Exception(f"Превышен динамический лимит удалений ({max_iterations}). Похоже на баг фронтенда!")
-
-    def delete_specific_contacts(self, phone_numbers: list):
-        """Удаляет только те контакты, телефоны которых переданы в списке"""
-        for phone in phone_numbers:
-            self.open_contact_details(phone)
-            self.click_remove_button()
-            self.is_contact_deleted(phone)
+            count_before = self.cards_count()
+            if count_before == 0:
+                return
+            self.driver.find_elements(*self._CARD)[0].click()
+            self._click(self._REMOVE_BTN)
+            self._wait().until(lambda driver: self.cards_count() < count_before)
+        raise AssertionError(f"Не удалось удалить все контакты за {max_iterations} попыток")
 
     # ==========================================
-    # МЕТОДЫ РЕДАКТИРОВАНИЯ
+    # Редактирование
     # ==========================================
-    def get_contact_details_text(self):
-        """Возвращает весь текст из правой панели деталей контакта"""
-        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.presence_of_element_located(self.CONTACT_DETAILS_CARD))
-        return self.find(self.CONTACT_DETAILS_CARD).text
+    @step("Нажать Edit")
+    def start_editing(self) -> None:
+        self._click(self._EDIT_BTN)
 
-    def click_edit_button(self):
-        """Кликает по кнопке Edit в правой панели"""
-        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(self.EDIT_BTN))
-        self.click(self.EDIT_BTN)
-
-    def clear_and_fill_input(self, locator, text):
-        """Надежно очищает поле в React-приложении и вводит новый текст"""
-        element = WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(EC.element_to_be_clickable(locator))
-        cmd_ctrl = Keys.COMMAND if platform.system() == 'Darwin' else Keys.CONTROL
-        element.send_keys(cmd_ctrl + "a")
-        element.send_keys(Keys.BACKSPACE)
-        element.send_keys(text)
-
-    def edit_contact_form(self, updated_contact):
-        """Оптимизированный метод заполнения формы.
-        Динамически читает данные из объекта Contact и заполняет форму"""
-        for attr_name, locator in ContactFormLocators.FIELDS.items():
-            value = getattr(updated_contact, attr_name, None)
+    @step("Изменить поля формы редактирования")
+    def fill_edit_form(self, contact: Contact) -> None:
+        """Меняет поля, у которых в contact задано значение (None — поле не трогаем).
+        Пустая строка "" очищает поле."""
+        for field, locator in ContactFormLocators.FIELDS.items():
+            value = getattr(contact, field)
             if value is not None:
-                self.clear_and_fill_input(locator, value)
+                self._replace_text(locator, value)
 
-    def click_save_edit_button(self):
-        """Кликает по кнопке Save в режиме редактирования"""
-        self.click(self.SAVE_BTN)
+    @step("Нажать Save в форме редактирования")
+    def save_edit(self) -> None:
+        self._click(self._SAVE_EDIT_BTN)
 
-    def is_edit_form_open(self):
-        """Проверяет, осталась ли открытой форма редактирования (по наличию инпута 'Name')"""
-        elements = self.driver.find_elements(*ContactFormLocators.FIELDS["name"])
-        return len(elements) > 0
+    def edit_contact(self, phone: str, changes: Contact) -> None:
+        """Полный сценарий редактирования: открыть карточку, Edit, изменить поля, Save."""
+        self.open_details(phone)
+        self.start_editing()
+        self.fill_edit_form(changes)
+        self.save_edit()
 
-    def get_contact_data_from_form(self) -> Contact:
+    def _replace_text(self, locator, text: str) -> None:
+        """Надёжная замена текста в поле React-формы.
+
+        element.clear() в React-формах ненадёжен: поле визуально очищается, но
+        состояние компонента не обновляется. Выделение всего текста + Backspace
+        имитирует действия пользователя и корректно запускает обработчики React.
         """
-        МЕГА-ПРОФЕССИОНАЛЬНЫЙ ПОДХОД:
-        Читаем значения из конкретных полей формы, чтобы убедиться,
-        что данные не 'съехали' в чужие инпуты.
-        """
-        # Ждем, пока форма точно появится
-        WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-            EC.presence_of_element_located(ContactFormLocators.FIELDS["name"])
-        )
-
-        # Вытаскиваем текст из атрибута 'value' каждого конкретного инпута
-        name = self.find(ContactFormLocators.FIELDS["name"]).get_attribute("value")
-        last_name = self.find(ContactFormLocators.FIELDS["last_name"]).get_attribute("value")
-        phone = self.find(ContactFormLocators.FIELDS["phone"]).get_attribute("value")
-        email = self.find(ContactFormLocators.FIELDS["email"]).get_attribute("value")
-        address = self.find(ContactFormLocators.FIELDS["address"]).get_attribute("value")
-        description = self.find(ContactFormLocators.FIELDS["description"]).get_attribute("value")
-
-        # Возвращаем эти данные в виде красивого объекта Contact
-        return Contact(name=name, last_name=last_name, phone=phone, email=email, address=address,
-                       description=description)
+        element = self._wait().until(EC.element_to_be_clickable(locator))
+        # Сочетание "выделить всё" зависит от ОС, на которой запущен БРАУЗЕР, а не тесты:
+        # с Mac через Selenoid браузер работает в Linux-контейнере и ждёт Ctrl, а не Cmd
+        browser_os = str(self.driver.capabilities.get("platformName", "")).lower()
+        select_all = Keys.COMMAND if "mac" in browser_os else Keys.CONTROL
+        element.send_keys(select_all + "a")
+        element.send_keys(Keys.BACKSPACE)
+        if text:
+            element.send_keys(text)

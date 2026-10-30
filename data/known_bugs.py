@@ -50,6 +50,10 @@ KNOWN_BUGS: dict[str, KnownBug] = {
         requirement="SRS T38–T39 (Swagger поле phone обязательным не считает)",
         description="Контакт без телефона сохраняется",
     ),
+    "EDIT_DESCRIPTION_BROKEN": KnownBug(
+        requirement="SRS раздел 2 (Update contact with valid data); STD TC-00026, TC-00027",
+        description="При изменении описания через форму редактирования сохраняется строка '[object Undefined]'",
+    ),
     "TYPE_COERCION": KnownBug(
         requirement="Swagger: ContactDto.name имеет type: string",
         description="Boolean в поле name молча приводится к строке, ответ 200",
@@ -79,6 +83,10 @@ KNOWN_BUGS: dict[str, KnownBug] = {
     "NO_ERROR_ON_EMPTY_FIELD": KnownBug(
         requirement="SRS F5, F6, F9",
         description="При пустом обязательном поле форма не показывает сообщение об ошибке",
+    ),
+    "USER_EXISTS_WORDING": KnownBug(
+        requirement="SRS F3: 'User already exists'",
+        description="Приложение показывает 'User already exist' (без окончания -s)",
     ),
     "EMAIL_ERROR_WORDING": KnownBug(
         requirement="SRS F7: 'Email not valid: must have format email!'",
