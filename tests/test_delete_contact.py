@@ -2,7 +2,6 @@ import allure
 import pytest
 from selenium.webdriver.support.wait import WebDriverWait
 from pages.contacts_page import ContactsPage
-from data.data_generator import ContactGenerator
 from utils.logger import get_logger
 from config import settings
 
@@ -20,19 +19,10 @@ logger = get_logger("TEST")
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Delete -> UI Assert")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_delete_contact(authenticated_driver, temp_user): # <--- Заменили auth_api на temp_user
+def test_delete_contact(authenticated_driver, created_contact):
+    """Контакт создаётся через API (фикстура created_contact), удаляется через UI."""
     logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_contact ---")
-
-    # Достаем изолированный API клиент этого конкретного пользователя
-    api = temp_user["api"]
-
-    with allure.step("API PRECONDITION: Создаем контакт через бэкенд"):
-        contact = ContactGenerator.get_random_contact()
-
-        # Используем API клиента ИЗ ПЕСОЧНИЦЫ
-        response = api.add_contact(contact.to_api_payload())
-        assert response.status_code == 200, "Пререквизит упал: API не создал контакт"
-        logger.info(f"API успешно создал контакт с телефоном: {contact.phone}")
+    contact = created_contact
 
     # Инициализируем страницу ДО ее использования
     contacts_page = ContactsPage(authenticated_driver)
@@ -83,29 +73,14 @@ def test_delete_all_contacts(authenticated_driver):
 @allure.feature("Contacts Management")
 @allure.story("API Setup -> UI Multiple Delete")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_delete_multiple_contacts(authenticated_driver, temp_user): # <--- Заменили auth_api на temp_user
+def test_delete_multiple_contacts(authenticated_driver, create_contact):
     """Проверка последовательного удаления нескольких конкретных контактов"""
     logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_multiple_contacts ---")
     contacts_page = ContactsPage(authenticated_driver)
 
-    phones_to_delete = []
-
-    # Достаем изолированный API клиент этого конкретного пользователя
-    api = temp_user["api"]
-
-    # ==========================================
-    # ПРЕДУСЛОВИЕ ЧЕРЕЗ API
-    # ==========================================
-    with allure.step("API PRECONDITION: Создаем 2 временных контакта через бэкенд"):
-        for i in range(2):
-            contact = ContactGenerator.get_random_contact()
-
-            # Заменили make_api_request на auth_api.add_contact
-            response = api.add_contact(contact.to_api_payload())
-            assert response.status_code == 200, f"Ошибка API: Не удалось создать контакт №{i + 1}"
-
-            phones_to_delete.append(contact.phone)
-            logger.info(f"  -> API создал временный контакт №{i + 1} с телефоном: {contact.phone}")
+    # ПРЕДУСЛОВИЕ ЧЕРЕЗ API: фабрика create_contact создаёт контакты у того же
+    # temp_user, под которым залогинен браузер
+    phones_to_delete = [create_contact().phone for _ in range(2)]
 
     # ==========================================
     # ШАГИ ТЕСТА ЧЕРЕЗ UI

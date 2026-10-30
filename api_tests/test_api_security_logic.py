@@ -18,7 +18,7 @@ def test_api_bola_delete_others_contact(temp_user):
     """Проверка 15: Пользователь А не должен иметь доступа к контакту Пользователя Б"""
     logger.info("--- ЗАПУСК ТЕСТА BOLA ---")
 
-    api_user_a = temp_user["api"]  # Пользователь А (Алиса)
+    api_user_a = temp_user.api  # Пользователь А (Алиса)
 
     # Регистрируем Пользователя Б (Боб)
     user_b_data = UserGenerator.get_valid_user()
@@ -48,15 +48,11 @@ def test_api_bola_delete_others_contact(temp_user):
 @allure.feature("Idempotency")
 @allure.story("Double DELETE operation")
 @allure.severity(allure.severity_level.NORMAL)
-def test_api_delete_idempotency(auth_api):
+def test_api_delete_idempotency(auth_api, created_contact):
     """Проверка 19: Повторный запрос не должен ломать систему (Идемпотентность)"""
     logger.info("--- ЗАПУСК ТЕСТА ИДЕМПОТЕНТНОСТИ ---")
 
-    contact = ContactGenerator.get_random_contact()
-    auth_api.add_contact(contact.to_api_payload())
-
-    contacts = auth_api.get_contacts().json().get("contacts", [])
-    target_id = next(c.get("id") for c in contacts if c.get("phone") == contact.phone)
+    target_id = created_contact.id
 
     res_first = auth_api.delete_contact(target_id)
     assert res_first.status_code == 200, "Первое удаление упало"

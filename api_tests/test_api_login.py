@@ -15,7 +15,7 @@ logger = get_logger("API")
 @allure.severity(allure.severity_level.BLOCKER)
 def test_api_login_success(temp_user):
     """Позитивный тест: Успешная авторизация через API (Sandbox)"""
-    user = temp_user["user"]
+    user = temp_user.user
     api = PhonebookAPI()
 
     response = api.login(user.email, user.password)
@@ -38,7 +38,7 @@ def test_api_login_success(temp_user):
 ])
 def test_api_login_negative(temp_user, scenario_key, expected_status, scenario):
     """Негативные тесты авторизации через API без утечки пароля в параметры отчета"""
-    user = temp_user["user"]
+    user = temp_user.user
     api = PhonebookAPI()
 
     if scenario_key == "wrong_email":

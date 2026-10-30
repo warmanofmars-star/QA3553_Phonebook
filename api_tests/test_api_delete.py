@@ -1,6 +1,5 @@
 import allure
 import pytest
-from data.data_generator import ContactGenerator
 from utils.logger import get_logger
 from config import settings
 
@@ -12,15 +11,8 @@ logger = get_logger("API")
 @allure.feature("Contacts CRUD")
 @allure.story("Delete Contact")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_api_delete_contact(auth_api):
-    contact = ContactGenerator.get_random_contact()
-    auth_api.add_contact(contact.to_api_payload())
-
-    response_get = auth_api.get_contacts()
-    contacts_list = response_get.json().get("contacts", [])
-
-    target_id = next((c.get("id") for c in contacts_list if c.get("phone") == contact.phone), None)
-    assert target_id is not None, "Не удалось найти ID созданного контакта!"
+def test_api_delete_contact(auth_api, created_contact):
+    target_id = created_contact.id
 
     response_delete = auth_api.delete_contact(target_id)
 
@@ -30,10 +22,7 @@ def test_api_delete_contact(auth_api):
         logger.error(f"[DELETE ОШИБКА] Сбой при удалении: {response_delete.status_code} - {response_delete.text}")
         pytest.fail("API не смог удалить контакт")
 
-    response_check = auth_api.get_contacts()
-    ids_after = [c.get("id") for c in response_check.json().get("contacts", [])]
-
-    assert target_id not in ids_after, "БАГ: Контакт не удалился из базы данных!"
+    assert target_id not in auth_api.get_contact_ids(), "БАГ: Контакт не удалился из базы данных!"
     logger.info(f"[DELETE ПРОВЕРКА] Контакт {target_id} действительно исчез из базы!")
 
 
