@@ -1,49 +1,52 @@
-import os
+"""
+Утилита: выгружает все контакты постоянного пользователя (USER_EMAIL из .env)
+в файл data/exported_contacts.json.
+
+Запуск из корня проекта:
+    python export_contacts.py
+
+Использует тот же PhonebookAPI, что и тесты, поэтому получает те же
+таймауты и логирование. Шаги Allure вне pytest просто ничего не делают.
+"""
+
 import json
-import requests
-from dotenv import load_dotenv
+import sys
 
-# Загружаем переменные окружения напрямую
-load_dotenv()
-API_URL = os.getenv("API_URL")
-USER_EMAIL = os.getenv("USER_EMAIL")
-USER_PASSWORD = os.getenv("USER_PASSWORD")
+from api.contact_api import PhonebookAPI
+from config import PROJECT_ROOT, settings
+
+# Путь строим от корня проекта, а не от текущей папки терминала
+OUTPUT_FILE = PROJECT_ROOT / "data" / "exported_contacts.json"
 
 
-def export_contacts_to_json():
-    print(f"Авторизация пользователя {USER_EMAIL}...")
+def export_contacts_to_json() -> int:
+    """Возвращает код выхода: 0 — успех, 1 — ошибка (удобно для скриптов и CI)."""
+    if not settings.user_email or not settings.user_password:
+        print("❌ Не заданы USER_EMAIL / USER_PASSWORD (см. .env.example)")
+        return 1
 
-    # 1. Получаем токен
-    login_payload = {"username": USER_EMAIL, "password": USER_PASSWORD}
-    auth_res = requests.post(f"{API_URL}/v1/user/login/usernamepassword", json=login_payload)
+    api = PhonebookAPI()
 
-    if auth_res.status_code != 200:
-        print(f"Ошибка авторизации: {auth_res.status_code}. Проверьте данные в .env")
-        return
-
-    token = auth_res.json().get("token")
-    headers = {"Authorization": f"Bearer {token}"}
+    print(f"Авторизация пользователя {settings.user_email}...")
+    auth_response = api.login(settings.user_email, settings.user_password)
+    if auth_response.status_code != 200:
+        print(f"❌ Ошибка авторизации: {auth_response.status_code}. Проверьте данные в .env")
+        return 1
 
     print("Загрузка списка контактов...")
-
-    # 2. Запрашиваем контакты
-    response = requests.get(f"{API_URL}/v1/contacts", headers=headers)
-
-    if response.status_code == 200:
-        contacts = response.json()
-
-        # 3. Сохраняем в папку data
-        os.makedirs("data", exist_ok=True)
-        file_path = "data/exported_contacts.json"
-
-        with open(file_path, "w", encoding="utf-8") as file:
-            json.dump(contacts, file, indent=4, ensure_ascii=False)
-
-        count = len(contacts.get("contacts", []))
-        print(f"✅ Успешно скачано {count} контактов в файл {file_path}")
-    else:
+    response = api.get_contacts()
+    if response.status_code != 200:
         print(f"❌ Ошибка API при получении контактов: {response.status_code}")
+        return 1
+
+    contacts = response.json()
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_FILE.write_text(json.dumps(contacts, indent=4, ensure_ascii=False), encoding="utf-8")
+
+    count = len(contacts.get("contacts", []))
+    print(f"✅ Успешно скачано {count} контактов в файл {OUTPUT_FILE}")
+    return 0
 
 
 if __name__ == "__main__":
-    export_contacts_to_json()
+    sys.exit(export_contacts_to_json())

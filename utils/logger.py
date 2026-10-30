@@ -4,9 +4,7 @@ import sys
 import glob
 from datetime import datetime
 from pathlib import Path
-from dotenv import load_dotenv
-
-load_dotenv()
+from config import settings
 
 
 class ColoredFormatter(logging.Formatter):
@@ -73,7 +71,7 @@ def get_logger(name="PhonebookQA"):
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(ColoredFormatter())
 
-    if os.getenv('ENABLE_CONSOLE_LOGS', 'true').lower() == 'true':
+    if settings.console_logs:
         logger.addHandler(console_handler)
 
     if not is_xdist:

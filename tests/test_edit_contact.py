@@ -1,159 +1,141 @@
-import pytest
+from dataclasses import replace
+
 import allure
-from pages.add_contact_page import ContactPage
-from pages.contacts_page import ContactsPage
+import pytest
+
 from data.data_generator import ContactGenerator
+from data.known_bugs import known_bug
 from models.contact import Contact
-from utils.logger import get_logger
+from pages.contacts_page import ContactsPage
+from utils.waits import eventually
 
-# Создаем логгер для тестов
-logger = get_logger("TEST")
+# Все тесты файла гибридные: предусловия — через API (фикстуры), действие — через UI,
+# результат — через API. Требования F10–F14 звучат как "система не сохраняет
+# невалидные данные", поэтому проверяем именно сохранение, а не поведение формы.
+pytestmark = [pytest.mark.ui, pytest.mark.hybrid, allure.epic("UI Testing"), allure.feature("Edit Contact")]
 
 
-# ==========================================
-# ПОЗИТИВНЫЕ ТЕСТЫ
-# ==========================================
+def _stored_contact(api, contact_id) -> dict:
+    """Контакт в том виде, в каком он сохранён на бэкенде."""
+    return next((c for c in api.get_contacts_list() if c.get("id") == contact_id), {})
+
+
+def _saved_fields(api, contact: Contact) -> dict:
+    """Сохранённые на бэкенде значения тех полей, которые есть в payload контакта."""
+    stored = _stored_contact(api, contact.id)
+    return {key: stored.get(key) for key in contact.to_api_payload()}
+
+
+# Как в STD: каждое поле меняется отдельным кейсом (TC-00021 ... TC-00026).
+# Это не формальность: если бы все поля проверялись одним тестом, известный баг
+# в описании сделал бы xfail весь тест — и спрятал бы поломку любого другого поля.
+EDIT_FIELD_CASES = [
+    pytest.param("name", "TC-0021", id="name"),
+    pytest.param("last_name", "TC-0022", id="last_name"),
+    pytest.param("email", "TC-0023", id="email"),
+    pytest.param("phone", "TC-0024", id="phone"),
+    pytest.param("address", "TC-0025", id="address"),
+    pytest.param("description", "TC-0026", id="description", marks=known_bug("EDIT_DESCRIPTION_BROKEN")),
+]
+
 
 @pytest.mark.smoke
-@pytest.mark.ui
+@allure.story("Edit one field")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_edit_contact_positive(authenticated_driver):
-    logger.info("--- ЗАПУСК ТЕСТА: test_edit_contact_positive ---")
-    add_page = ContactPage(authenticated_driver)
+@pytest.mark.parametrize("field, test_case", EDIT_FIELD_CASES)
+def test_edit_contact_single_field(authenticated_driver, auth_api, created_contact, field, test_case):
+    """Изменение одного поля сохраняется, а остальные поля остаются прежними."""
+    allure.dynamic.tag(test_case)
+    new_value = getattr(ContactGenerator.get_random_contact(), field)
+    expected = replace(created_contact, **{field: new_value})
+
     contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    contacts_page.edit_contact(created_contact.phone, Contact(**{field: new_value}))
 
-    # 1. ПРЕДУСЛОВИЕ: Создаем исходный контакт
-    logger.info("ПОДГОТОВКА: Создаем исходный (старый) контакт")
-    old_contact = ContactGenerator.get_random_contact()
-    add_page.open()
-    add_page.fill_contact_form(old_contact)
-    add_page.submit_contact()
-    contacts_page.contact_card_visible(old_contact.phone)  # Ждем авто-редирект
+    with allure.step("Проверить через API, что изменилось только нужное поле"):
+        before = created_contact.to_api_payload()
+        changed = eventually(lambda: _saved_fields(auth_api, created_contact) != before, timeout=5)
+        assert changed, "Изменения не сохранились на бэкенде"
+        actual = _saved_fields(auth_api, created_contact)
+        assert actual == expected.to_api_payload(), \
+            f"Сохранённые данные отличаются от ожидаемых:\n{actual}\n!=\n{expected.to_api_payload()}"
 
-    # 2. Подготовка: Генерируем новые данные для замены
-    logger.info("ПОДГОТОВКА: Генерируем новые данные для замены")
-    new_contact = ContactGenerator.get_random_contact()
-
-    # 3. ШАГИ ТЕСТА
-    logger.info(f"ШАГ 1: Открываем карточку старого контакта (тел: {old_contact.phone}) и жмем Edit")
-    contacts_page.open_contact_details(old_contact.phone)  # Открываем старую карточку
-    contacts_page.click_edit_button()  # Жмем Edit
-
-    logger.info(f"ШАГ 2: Вводим новые данные (имя: {new_contact.name}) и сохраняем")
-    contacts_page.edit_contact_form(new_contact)  # Вводим новые данные
-    contacts_page.click_save_edit_button()  # Сохраняем
-
-    # 4. ПРОВЕРКА
-    logger.info("ПРОВЕРКА 1: Убеждаемся, что измененный контакт появился в списке слева")
-    assert contacts_page.contact_card_visible(new_contact.phone), "Измененный контакт не появился в списке слева!"
-
-    # Снова открываем детали и жмем Edit, чтобы увидеть форму с сохраненными данными
-    logger.info("ШАГ 3: Снова открываем детали измененного контакта и жмем Edit для строгой проверки полей")
-    contacts_page.open_contact_details(new_contact.phone)
-    contacts_page.click_edit_button()
-
-    # Забираем данные ТОЧНО из своих полей!
-    logger.info("ШАГ 4: Считываем сохраненные значения прямо из инпутов формы (Senior подход)")
-    saved_contact = contacts_page.get_contact_data_from_form()
-
-    # Точечные жесткие проверки (Строгое равенство!)
-    logger.info("ПРОВЕРКА 2: Строго сравниваем сохраненные данные с теми, что мы отправляли")
-    assert saved_contact.name == new_contact.name, f"Баг маппинга! Имя съехало. Ожидали {new_contact.name}, получили {saved_contact.name}"
-    assert saved_contact.last_name == new_contact.last_name, "Баг маппинга! Фамилия сохранилась не туда!"
-    assert saved_contact.email == new_contact.email, "Баг маппинга! Email сохранился не туда!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
-
-
-# ==========================================
-# НЕГАТИВНЫЕ ТЕСТЫ: Дубликаты (TC-034, TC-035)
-# ==========================================
 
 @pytest.mark.regression
-@pytest.mark.ui
-@allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.xfail(reason="BUG: Фронтенд позволяет редактировать телефон на уже существующий дубликат")
-def test_edit_contact_duplicate_phone(authenticated_driver):
-    logger.info("--- ЗАПУСК ТЕСТА: test_edit_contact_duplicate_phone ---")
-    add_page = ContactPage(authenticated_driver)
+@allure.story("Edit all fields")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("TC-0027")
+@known_bug("EDIT_DESCRIPTION_BROKEN")
+def test_edit_contact_all_fields(authenticated_driver, auth_api, created_contact):
+    """Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле."""
+    expected = replace(ContactGenerator.get_random_contact(), id=created_contact.id)
+
     contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    contacts_page.edit_contact(created_contact.phone, expected)
 
-    # 1. ПРЕДУСЛОВИЕ: Создаем ДВА разных контакта
-    logger.info("ПОДГОТОВКА: Создаем Контакт №1")
-    contact_1 = ContactGenerator.get_random_contact()
-    add_page.open()
-    add_page.fill_contact_form(contact_1)
-    add_page.submit_contact()
-    contacts_page.contact_card_visible(contact_1.phone)
+    assert contacts_page.is_card_displayed(expected.phone), "Изменённый контакт не появился в списке"
 
-    logger.info("ПОДГОТОВКА: Создаем Контакт №2")
-    contact_2 = ContactGenerator.get_random_contact()
-    add_page.open()
-    add_page.fill_contact_form(contact_2)
-    add_page.submit_contact()
-    contacts_page.contact_card_visible(contact_2.phone)
+    with allure.step("Проверить через API, что все поля сохранены верно"):
+        updated = eventually(
+            lambda: _stored_contact(auth_api, created_contact.id).get("phone") == expected.phone,
+            timeout=5,
+        )
+        assert updated, "Изменения не сохранились на бэкенде"
+        actual = _saved_fields(auth_api, created_contact)
+        assert actual == expected.to_api_payload(), \
+            f"Сохранённые данные отличаются от введённых:\n{actual}\n!=\n{expected.to_api_payload()}"
 
-    # 2. ШАГИ ТЕСТА: Редактируем Контакт 2, подсовывая ему телефон от Контакта 1
-    logger.info(
-        f"ШАГ 1: Открываем Контакт №2 и пытаемся изменить его телефон на телефон Контакта №1 ({contact_1.phone})")
-    contacts_page.open_contact_details(contact_2.phone)
-    contacts_page.click_edit_button()
-
-    # Переопределяем только телефон через kwargs генератора
-    duplicate_data = ContactGenerator.get_random_contact(phone=contact_1.phone)
-    contacts_page.edit_contact_form(duplicate_data)
-    contacts_page.click_save_edit_button()
-
-    # 3. ПРОВЕРКА
-    logger.info("ПРОВЕРКА: Форма редактирования должна остаться открытой (ошибка дубликата)")
-    is_open = contacts_page.is_edit_form_open()
-
-    if not is_open:
-        logger.error("БАГ ПРИЛОЖЕНИЯ: Система сохранила дубликат при редактировании и закрыла форму!")
-
-    assert is_open, "Баг: Система сохранила дубликат при редактировании и закрыла форму!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Баг починили?) ---")
-
-
-# ==========================================
-# НЕГАТИВНЫЕ ТЕСТЫ: Очистка обязательных полей (TC-028 - TC-033)
-# ==========================================
 
 @pytest.mark.regression
-@pytest.mark.ui
+@allure.story("Edit with duplicate phone")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.xfail(reason="BUG: Фронтенд позволяет сохранять контакт с пустыми обязательными полями при редактировании")
-@pytest.mark.parametrize("field_to_clear", ["name", "last_name", "phone", "email", "address"])
-def test_edit_contact_clear_required_fields(authenticated_driver, field_to_clear):
-    logger.info(f"--- ЗАПУСК ТЕСТА: test_edit_contact_clear_required_fields (Поле для очистки: '{field_to_clear}') ---")
-    add_page = ContactPage(authenticated_driver)
+@allure.tag("TC-0035")
+@known_bug("DUPLICATE_CONTACT")
+def test_edit_contact_duplicate_phone(authenticated_driver, auth_api, create_contact):
+    """SRS T83: при редактировании телефон не должен повторять телефон другого контакта."""
+    contact_1 = create_contact()
+    contact_2 = create_contact()
+
     contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    contacts_page.edit_contact(contact_2.phone, Contact(phone=contact_1.phone))  # меняем только телефон
 
-    # 1. ПРЕДУСЛОВИЕ: Создаем валидный контакт
-    logger.info("ПОДГОТОВКА: Создаем валидный контакт для последующего редактирования")
-    contact = ContactGenerator.get_random_contact()
-    add_page.open()
-    add_page.fill_contact_form(contact)
-    add_page.submit_contact()
-    contacts_page.contact_card_visible(contact.phone)
+    duplicate_saved = eventually(
+        lambda: _stored_contact(auth_api, contact_2.id).get("phone") == contact_1.phone,
+        timeout=5,
+    )
+    assert not duplicate_saved, "Контакт №2 сохранён с телефоном контакта №1"
 
-    # 2. Открываем созданную карточку и жмем Edit
-    logger.info("ШАГ 1: Открываем созданную карточку и переходим в режим редактирования")
-    contacts_page.open_contact_details(contact.phone)
-    contacts_page.click_edit_button()
 
-    # 3. ШАГ ТЕСТА: Очищаем ТОЛЬКО ОДНО обязательное поле
-    logger.info(f"ШАГ 2: Очищаем обязательное поле '{field_to_clear}' и нажимаем Save")
-    empty_update = Contact(**{field_to_clear: ""})
+# Поле модели -> ключ в API -> кейс STD.
+# Известным багом помечен только email: бэкенд отклоняет пустые name/lastName/phone/address
+# (400, данные не меняются), а пустой email сохраняет.
+CLEAR_FIELD_CASES = [
+    pytest.param("name", "name", "TC-0028", id="name"),
+    pytest.param("last_name", "lastName", "TC-0029", id="last_name"),
+    pytest.param("email", "email", "TC-0030", id="email", marks=known_bug("EMAIL_NOT_REQUIRED")),
+    pytest.param("phone", "phone", "TC-0031", id="phone"),
+    pytest.param("address", "address", "TC-0032", id="address"),
+]
 
-    contacts_page.edit_contact_form(empty_update)
-    contacts_page.click_save_edit_button()
 
-    # 4. ПРОВЕРКА: Форма должна остаться открытой (система не должна принимать пустые значения)
-    logger.info("ПРОВЕРКА: Форма редактирования должна остаться открытой (сохранение невалидного контакта запрещено)")
-    is_open = contacts_page.is_edit_form_open()
+@pytest.mark.regression
+@allure.story("Clear required field")
+@allure.severity(allure.severity_level.NORMAL)
+@pytest.mark.parametrize("field, api_key, test_case", CLEAR_FIELD_CASES)
+def test_edit_contact_clear_required_fields(authenticated_driver, auth_api, created_contact,
+                                            field, api_key, test_case):
+    """SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные."""
+    allure.dynamic.tag(test_case)
 
-    if not is_open:
-        logger.error(f"БАГ ПРИЛОЖЕНИЯ: Система сохранила контакт с пустым полем '{field_to_clear}'!")
+    contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    contacts_page.edit_contact(created_contact.phone, Contact(**{field: ""}))
 
-    assert is_open, f"БАГ: Система сохранила контакт с пустым полем '{field_to_clear}'!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН (Баг починили?) ---")
+    empty_saved = eventually(
+        lambda: _stored_contact(auth_api, created_contact.id).get(api_key) == "",
+        timeout=5,
+    )
+    assert not empty_saved, f"Контакт сохранён с пустым обязательным полем '{field}'"

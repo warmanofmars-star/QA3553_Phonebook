@@ -1,0 +1,25 @@
+# .dockerignore — что НЕ копируется в образ при `COPY . .`
+# Работает как .gitignore, но для `docker build`.
+
+# Секреты: в контейнер они передаются через environment в docker-compose,
+# поэтому файл .env внутри образа не нужен и опасен
+.env
+.env.*
+
+# Git, виртуальное окружение и настройки IDE — образу не нужны и сильно его раздувают
+.git
+.venv
+.idea
+__pycache__
+.pytest_cache
+
+# Результаты прогонов: в контейнер они монтируются как volume, а не копируются
+allure-results
+allure-report
+logs
+screenshots
+
+# Локальные данные с кредами и выгрузки
+*.jsonl
+data/exported_contacts.json
+full_project_for_ai.txt

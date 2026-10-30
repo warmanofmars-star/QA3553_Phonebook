@@ -1,9 +1,9 @@
-name,last_name,phone,email,address,description,expected_error
-,Ivanov,0501234567,test@mail.com,Tel Aviv,desc,Name cannot be empty!
-Ivan,,0501234567,test@mail.com,Tel Aviv,desc,Last Name cannot be empty!
-Ivan,Ivanov,,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!"
-Ivan,Ivanov,0501234567,,Tel Aviv,desc,Email not valid: must be a well-formed email address
-Ivan,Ivanov,0501234567,test@mail.com,,desc,Address cannot be empty!
-Ivan,Ivanov,0501234567,not-an-email,Tel Aviv,desc,Email not valid: must be a well-formed email address
-Ivan,Ivanov,abcdefghij,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!"
-Ivan,Ivanov,050123,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!"
+test_case,scenario,name,last_name,phone,email,address,description,expected_error,known_bug
+TC-0013,empty-name,,Ivanov,0501234567,test@mail.com,Tel Aviv,desc,Name cannot be empty!,NO_ERROR_ON_EMPTY_FIELD
+TC-0014,empty-last-name,Ivan,,0501234567,test@mail.com,Tel Aviv,desc,Last Name cannot be empty!,NO_ERROR_ON_EMPTY_FIELD
+TC-0016,empty-phone,Ivan,Ivanov,,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!",
+TC-0015,empty-email,Ivan,Ivanov,0501234567,,Tel Aviv,desc,Email not valid: must have format email!,EMAIL_NOT_REQUIRED
+TC-0017,empty-address,Ivan,Ivanov,0501234567,test@mail.com,,desc,Address cannot be empty!,NO_ERROR_ON_EMPTY_FIELD
+TC-0015,invalid-email,Ivan,Ivanov,0501234567,not-an-email,Tel Aviv,desc,Email not valid: must have format email!,EMAIL_ERROR_WORDING
+TC-0016,letters-in-phone,Ivan,Ivanov,abcdefghij,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!",
+TC-0016,short-phone,Ivan,Ivanov,050123,test@mail.com,Tel Aviv,desc,"Phone not valid: Phone number must contain only digits! And length min 10, max 15!",

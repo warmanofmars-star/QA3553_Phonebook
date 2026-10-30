@@ -1,13 +1,11 @@
 import allure
 import pytest
-import os
-from data.data_generator import ContactGenerator
-from utils.logger import get_logger
-from dotenv import load_dotenv
 
-load_dotenv()
-ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
+from data.known_bugs import known_bug
+from utils.logger import get_logger
+
 logger = get_logger("API")
+
 
 @pytest.mark.smoke
 @pytest.mark.api
@@ -15,49 +13,38 @@ logger = get_logger("API")
 @allure.feature("Contacts CRUD")
 @allure.story("Delete Contact")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_api_delete_contact(auth_api):
-    contact = ContactGenerator.get_random_contact()
-    auth_api.add_contact(contact.to_api_payload())
+def test_api_delete_contact(auth_api, created_contact):
+    response_delete = auth_api.delete_contact(created_contact.id)
+    assert response_delete.status_code == 200, \
+        f"API не смог удалить контакт: {response_delete.status_code} {response_delete.text}"
 
-    response_get = auth_api.get_contacts()
-    contacts_list = response_get.json().get("contacts", [])
-
-    target_id = next((c.get("id") for c in contacts_list if c.get("phone") == contact.phone), None)
-    assert target_id is not None, "Не удалось найти ID созданного контакта!"
-
-    response_delete = auth_api.delete_contact(target_id)
-
-    if response_delete.status_code == 200:
-        logger.info(f"[DELETE УСПЕХ] Запрос на удаление прошел успешно (200 OK)")
-    else:
-        logger.error(f"[DELETE ОШИБКА] Сбой при удалении: {response_delete.status_code} - {response_delete.text}")
-        pytest.fail("API не смог удалить контакт")
-
-    response_check = auth_api.get_contacts()
-    ids_after = [c.get("id") for c in response_check.json().get("contacts", [])]
-
-    assert target_id not in ids_after, "БАГ: Контакт не удалился из базы данных!"
-    logger.info(f"[DELETE ПРОВЕРКА] Контакт {target_id} действительно исчез из базы!")
+    assert created_contact.id not in auth_api.get_contact_ids(), "БАГ: Контакт не удалился из базы данных!"
+    logger.info(f"[DELETE ПРОВЕРКА] Контакт {created_contact.id} действительно исчез из базы!")
 
 
 @pytest.mark.regression
 @pytest.mark.api
-@allure.epic("API Testing")
-@allure.feature("Contacts CRUD")
-@allure.story("Delete All Contacts")
+@pytest.mark.security
+@allure.epic("API Security")
+@allure.feature("BFLA (Broken Function Level Authorization)")
+@allure.story("Customer cannot delete all contacts")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
-def test_api_clear_all_contacts(auth_api):
-    response_clear = auth_api.clear_contacts()
+@known_bug("CUSTOMER_CAN_CLEAR_ALL")
+def test_api_customer_cannot_clear_all_contacts(auth_api, create_contact):
+    """SRS, раздел 2, модуль 'Delete all contact': Customer — Can't, только Manager.
 
-    if response_clear.status_code == 200:
-        logger.info("[CLEAR УСПЕХ] Запрос на массовое очищение выполнен")
-    else:
-        logger.error(f"[CLEAR ОШИБКА] Сбой массового удаления: {response_clear.status_code} - {response_clear.text}")
-        pytest.fail("API не смог очистить базу")
+    Раньше здесь был тест, проверявший ОБРАТНОЕ (что удаление проходит успешно),
+    да ещё и на пустом списке: у нового sandbox-пользователя контактов нет,
+    поэтому "все удалены" выполнялось всегда. Теперь контакты создаются заранее.
+    """
+    seeded_ids = {create_contact().id for _ in range(2)}
 
-    response_check = auth_api.get_contacts()
-    contacts_after = response_check.json().get("contacts", [])
+    with allure.step("Обычный пользователь вызывает DELETE /v1/contacts/clear"):
+        response = auth_api.clear_contacts()
 
-    assert len(contacts_after) == 0, f"БАГ: База не пуста! Осталось {len(contacts_after)} контактов."
-    logger.info("[CLEAR ПРОВЕРКА] Все контакты стерты в порошок. База девственно чиста!")
+    # Главное — данные на месте; код ответа вторичен (SRS его не задаёт)
+    remaining = seeded_ids & set(auth_api.get_contact_ids())
+    assert remaining == seeded_ids, \
+        f"Обычный пользователь удалил все контакты (удалено {len(seeded_ids - remaining)} из {len(seeded_ids)})"
+    assert response.status_code in (401, 403), \
+        f"Ожидался отказ в доступе (401/403), получено {response.status_code}"

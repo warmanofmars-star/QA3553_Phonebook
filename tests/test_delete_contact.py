@@ -1,138 +1,69 @@
-import os
 import allure
 import pytest
-from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.contacts_page import ContactsPage
-from data.data_generator import ContactGenerator
-from utils.logger import get_logger
+from utils.preconditions import require
+from utils.waits import eventually
 
-logger = get_logger("TEST")
+# Гибридные тесты: контакты создаются через API, удаляются через UI,
+# результат проверяется и в UI (карточка исчезла), и через API (данные удалены)
+pytestmark = [pytest.mark.ui, pytest.mark.hybrid, allure.epic("UI Testing"), allure.feature("Delete Contact")]
 
 
-# ==========================================
-# 1. ТЕСТ ОДИНОЧНОГО УДАЛЕНИЯ
-# ==========================================
-
-@pytest.mark.hybrid
 @pytest.mark.smoke
-@pytest.mark.ui
-@allure.epic("Hybrid Testing")
-@allure.feature("Contacts Management")
-@allure.story("API Setup -> UI Delete -> UI Assert")
+@allure.story("Delete one contact")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_delete_contact(authenticated_driver, temp_user): # <--- Заменили auth_api на temp_user
-    logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_contact ---")
-
-    # Достаем изолированный API клиент этого конкретного пользователя
-    api = temp_user["api"]
-
-    with allure.step("API PRECONDITION: Создаем контакт через бэкенд"):
-        contact = ContactGenerator.get_random_contact()
-
-        # Используем API клиента ИЗ ПЕСОЧНИЦЫ
-        response = api.add_contact(contact.to_api_payload())
-        assert response.status_code == 200, "Пререквизит упал: API не создал контакт"
-        logger.info(f"API успешно создал контакт с телефоном: {contact.phone}")
-
-    # Инициализируем страницу ДО ее использования
+@allure.tag("TC-0036")
+def test_delete_contact(authenticated_driver, auth_api, created_contact):
     contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    contacts_page.delete_contact(created_contact.phone)
 
-    with allure.step("UI SCENARIO: Открываем карточку и удаляем контакт"):
-        contacts_page.open()
-        logger.info(f"ШАГ 1: Кликаем по карточке контакта ({contact.phone})")
-        contacts_page.open_contact_details(contact.phone)
-        logger.info("ШАГ 2: Нажимаем кнопку Remove")
-        contacts_page.click_remove_button()
+    assert contacts_page.is_card_gone(created_contact.phone), \
+        f"Карточка с телефоном {created_contact.phone} не исчезла из списка"
+    assert eventually(lambda: created_contact.id not in auth_api.get_contact_ids()), \
+        "Карточка пропала из UI, но контакт остался на бэкенде"
 
-    with allure.step(f"UI ASSERT: Проверяем, что карточка исчезла"):
-        assert contacts_page.is_contact_deleted(contact.phone), \
-            f"Ошибка: Карточка с телефоном {contact.phone} не удалилась из списка!"
-        logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
-
-
-# ==========================================
-# 2. МАССОВОЕ УДАЛЕНИЕ (Пылесос)
-# ==========================================
-ALLOW_MASS_DELETE = os.getenv("ALLOW_MASS_DELETE") == 'true'
 
 @pytest.mark.regression
-@pytest.mark.ui
-@allure.epic("UI Testing")
-@allure.feature("Contacts Management")
-@allure.story("Mass Delete Utilities")
+@allure.story("Delete several contacts")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.skipif(not ALLOW_MASS_DELETE, reason="Предохранитель: Массовое удаление отключено в .env")
-def test_delete_all_contacts(authenticated_driver):
-    """Скрипт-утилита: Полное очищение списка контактов через UI"""
-    logger.info("--- ЗАПУСК ТЕСТА-УТИЛИТЫ: test_delete_all_contacts ---")
-    contacts_page = ContactsPage(authenticated_driver)
+def test_delete_multiple_contacts(authenticated_driver, auth_api, create_contact):
+    """Последовательное удаление нескольких конкретных контактов."""
+    contacts = [create_contact() for _ in range(2)]
 
+    contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
+    for contact in contacts:
+        require(contacts_page.is_card_displayed(contact.phone), f"Предусловие: нет карточки {contact.phone}")
+
+    for contact in contacts:
+        contacts_page.delete_contact(contact.phone)
+        assert contacts_page.is_card_gone(contact.phone), f"Карточка {contact.phone} не исчезла из списка"
+
+    deleted_ids = {contact.id for contact in contacts}
+    assert eventually(lambda: not deleted_ids & set(auth_api.get_contact_ids())), \
+        "Карточки пропали из UI, но контакты остались на бэкенде"
+
+
+@pytest.mark.regression
+@allure.story("Delete all contacts one by one")
+@allure.severity(allure.severity_level.CRITICAL)
+def test_delete_all_contacts(authenticated_driver, auth_api, create_contact):
+    """Удаление всех контактов пользователя через UI, по одному.
+
+    Контакты создаются заранее: на пустом списке тест проходил бы всегда.
+    """
+    phones = [create_contact().phone for _ in range(3)]
+
+    contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    # Ждём отрисовки карточек: иначе удаление увидело бы пустой (ещё не загруженный) список
+    for phone in phones:
+        require(contacts_page.is_card_displayed(phone), f"Предусловие: нет карточки {phone}")
+
     contacts_page.delete_all_contacts()
 
-    final_count = contacts_page.get_all_contacts_count()
-    assert final_count == 0, f"Ошибка: Ожидалось 0 контактов, но осталось {final_count}!"
-
-
-# ==========================================
-# 3. МНОЖЕСТВЕННОЕ ТОЧЕЧНОЕ УДАЛЕНИЕ
-# ==========================================
-
-@pytest.mark.hybrid
-@pytest.mark.regression
-@pytest.mark.ui
-@allure.epic("Hybrid Testing")
-@allure.feature("Contacts Management")
-@allure.story("API Setup -> UI Multiple Delete")
-@allure.severity(allure.severity_level.CRITICAL)
-def test_delete_multiple_contacts(authenticated_driver, temp_user): # <--- Заменили auth_api на temp_user
-    """Проверка последовательного удаления нескольких конкретных контактов"""
-    logger.info("--- ЗАПУСК ГИБРИДНОГО ТЕСТА: test_delete_multiple_contacts ---")
-    contacts_page = ContactsPage(authenticated_driver)
-
-    phones_to_delete = []
-
-    # Достаем изолированный API клиент этого конкретного пользователя
-    api = temp_user["api"]
-
-    # ==========================================
-    # ПРЕДУСЛОВИЕ ЧЕРЕЗ API
-    # ==========================================
-    with allure.step("API PRECONDITION: Создаем 2 временных контакта через бэкенд"):
-        for i in range(2):
-            contact = ContactGenerator.get_random_contact()
-
-            # Заменили make_api_request на auth_api.add_contact
-            response = api.add_contact(contact.to_api_payload())
-            assert response.status_code == 200, f"Ошибка API: Не удалось создать контакт №{i + 1}"
-
-            phones_to_delete.append(contact.phone)
-            logger.info(f"  -> API создал временный контакт №{i + 1} с телефоном: {contact.phone}")
-
-    # ==========================================
-    # ШАГИ ТЕСТА ЧЕРЕЗ UI
-    # ==========================================
-    with allure.step(f"UI SCENARIO: Точечное удаление контактов из списка: {phones_to_delete}"):
-        contacts_page.open()
-
-        logger.info("СИНХРОНИЗАЦИЯ: Ждем, пока React отрисует массив карточек в DOM")
-        WebDriverWait(authenticated_driver, 10).until(
-            lambda d: len(d.find_elements(*contacts_page.CONTACT_CARDS)) > 0,
-            message="Список контактов так и не загрузился!"
-        )
-
-        # Убеждаемся, что наши карточки подгрузились
-        contacts_page.contact_card_visible(phones_to_delete[0])
-
-        # Удаляем контакты селениумом (без подсчета общего количества)
-        contacts_page.delete_specific_contacts(phones_to_delete)
-
-    # ==========================================
-    # ПРОВЕРКА
-    # ==========================================
-    with allure.step("UI ASSERT: Проверяем, что удаленные контакты больше не отображаются"):
-        for phone in phones_to_delete:
-            assert contacts_page.is_contact_deleted(phone), \
-                f"Ошибка: Карточка с телефоном {phone} не удалилась из списка!"
-
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    assert contacts_page.cards_count() == 0, f"В списке осталось карточек: {contacts_page.cards_count()}"
+    assert eventually(lambda: auth_api.get_contact_ids() == []), \
+        "Карточки пропали из UI, но контакты остались на бэкенде"

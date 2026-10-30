@@ -1,19 +1,16 @@
 import allure
-import os
 from playwright.sync_api import Page, Locator
 from utils.logger import get_logger
+from config import settings
 
 
 class PwBasePage:
     def __init__(self, page: Page):
         self.page = page
 
-        # Динамически тянем BASE_URL из .env, как и в Selenium
-        self.base_url = os.getenv("BASE_URL", "https://telranedu.web.app")
-
-        # Динамический парсинг переменной из .env с фоллбэком
-        pw_timeout = os.getenv("PW_TIMEOUT", "10000")
-        self.expect_timeout = int(pw_timeout)
+        # Адрес и таймаут берём из единого конфига (тот же BASE_URL, что и у Selenium)
+        self.base_url = settings.base_url
+        self.expect_timeout = settings.pw_timeout_ms
 
         # Подключаем логгер с уникальным именем для Playwright
         self.logger = get_logger("PW")

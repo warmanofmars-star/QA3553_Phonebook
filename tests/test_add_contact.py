@@ -1,139 +1,83 @@
-import pytest
 import allure
-from models.contact import Contact
-from pages.add_contact_page import ContactPage
+import pytest
+
 from data.data_generator import ContactGenerator
-from selenium.common.exceptions import TimeoutException
-from data.test_data import load_contact_data_from_csv
-from utils.logger import get_logger
+from data.known_bugs import known_bug
+from data.test_data import load_negative_contacts
+from pages.add_contact_page import AddContactPage
+from pages.contacts_page import ContactsPage
+from utils.waits import eventually
 
-# Создаем логгер для тестов
-logger = get_logger("TEST")
+pytestmark = [pytest.mark.ui, allure.epic("UI Testing"), allure.feature("Add Contact")]
 
-
-# ==========================================
-# ПОЗИТИВНЫЕ ТЕСТЫ
-# ==========================================
 
 @pytest.mark.smoke
-@pytest.mark.ui
-@allure.epic("UI Testing")
-@allure.feature("Contacts Management")
-@allure.story("Test Add Contact Success All Fields")
+@allure.story("Add contact with all fields")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_add_contact_success_all_fields(authenticated_driver):
-    logger.info("--- ЗАПУСК ТЕСТА: test_add_contact_success_all_fields ---")
-
-    # 1. Инициализируем страницу
-    contact_page = ContactPage(authenticated_driver)
-
-    # 2. Открываем форму добавления контакта
-    logger.info("ШАГ 1: Открываем страницу добавления контакта (вкладка ADD)")
-    contact_page.open()
-
-    # 3. Генерируем уникальные тестовые данные через Faker
-    logger.info("ПОДГОТОВКА: Генерируем уникальные тестовые данные нового контакта")
+@allure.tag("TC-0011")
+def test_add_contact_success_all_fields(authenticated_driver, auth_api):
+    """Контакт, созданный через форму, появляется в списке и сохраняется со всеми полями."""
     contact = ContactGenerator.get_random_contact()
 
-    # 4. Заполняем форму и сохраняем
-    logger.info(f"ШАГ 2: Заполняем форму данными: {contact.name} {contact.last_name}")
-    contact_page.fill_contact_form(contact)
+    add_page = AddContactPage(authenticated_driver)
+    add_page.open()
+    add_page.add_contact(contact)
 
-    logger.info("ШАГ 3: Нажимаем кнопку Save")
-    contact_page.submit_contact()
+    assert ContactsPage(authenticated_driver).is_card_displayed(contact.phone), \
+        f"Карточка контакта с телефоном {contact.phone} не появилась в списке"
 
-    # 5. ПРОВЕРКА: убеждаемся, что карточка с нужным телефоном появилась в списке.
-    logger.info(f"ПРОВЕРКА: Убеждаемся, что карточка с телефоном {contact.phone} появилась в списке")
-    assert contact_page.is_contact_card_visible(contact.phone), \
-        f"Ошибка: Карточка контакта с телефоном {contact.phone} не появилась в списке!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    # UI показывает только имя и телефон. Через API проверяем, что ВСЕ поля
+    # сохранились, причём каждое в своё поле (не "съехали" в соседние инпуты)
+    with allure.step("Проверить через API, что все поля сохранены верно"):
+        stored = next((c for c in auth_api.get_contacts_list() if c.get("phone") == contact.phone), {})
+        expected = contact.to_api_payload()
+        actual = {key: stored.get(key) for key in expected}
+        assert actual == expected, f"Сохранённые данные отличаются от введённых:\n{actual}\n!=\n{expected}"
 
-
-# ==========================================
-# НЕГАТИВНЫЕ ТЕСТЫ (Данные берутся из CSV)
-# ==========================================
 
 @pytest.mark.regression
-@pytest.mark.ui
-@allure.epic("UI Testing")
-@allure.feature("Contacts Management")
 @allure.story("Negative Add Contact")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("name, last_name, phone, email, address, description, expected_error",
-                         load_contact_data_from_csv())
-def test_add_contact_negative(authenticated_driver, name, last_name, phone, email, address, description,
-                              expected_error):
-    logger.info(f"--- ЗАПУСК ТЕСТА: test_add_contact_negative (Данные: phone='{phone}', email='{email}') ---")
+@pytest.mark.parametrize("contact, expected_error, test_case", load_negative_contacts())
+def test_add_contact_negative(authenticated_driver, contact, expected_error, test_case):
+    """Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+    а пользователь остаться на вкладке ADD."""
+    allure.dynamic.tag(test_case)  # связь с кейсом из STD
 
-    contact_page = ContactPage(authenticated_driver)
-    logger.info("ШАГ 1: Открываем страницу добавления контакта")
-    contact_page.open()
+    add_page = AddContactPage(authenticated_driver)
+    add_page.open()
+    add_page.add_contact(contact)
 
-    logger.info("ПОДГОТОВКА: Формируем модель контакта с невалидными данными из CSV")
-    invalid_contact = Contact(
-        name=name,
-        last_name=last_name,
-        phone=phone,
-        email=email,
-        address=address,
-        description=description
-    )
+    alert_text = add_page.wait_for_alert_text()
+    assert alert_text is not None, f"Alert с ошибкой не появился (ожидался текст '{expected_error}')"
+    assert expected_error in alert_text, f"Ожидалась ошибка '{expected_error}', но получено: '{alert_text}'"
+    add_page.accept_alert()
 
-    logger.info("ШАГ 2: Заполняем форму и нажимаем Save")
-    contact_page.fill_contact_form(invalid_contact)
-    contact_page.submit_contact()
-
-    try:
-        logger.info(f"ПРОВЕРКА 1: Ожидаем появление Alert с текстом: '{expected_error}'")
-        alert_text = contact_page.get_alert_text()
-        assert expected_error in alert_text, f"Ожидалась ошибка '{expected_error}', но получено: '{alert_text}'"
-
-        logger.info(f"Успешно получен ожидаемый Alert: '{alert_text}'")
-        contact_page.accept_alert()
-    except TimeoutException:
-        logger.error(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert '{expected_error}' так и не появился!")
-        pytest.fail(f"БАГ ПРИЛОЖЕНИЯ: Ожидаемый Alert с текстом '{expected_error}' так и не появился!")
-
-    logger.info("ПРОВЕРКА 2: Вкладка ADD должна оставаться активной")
-    assert contact_page.is_add_tab_active(), "Вкладка ADD должна оставаться активной после попытки сохранить невалидный контакт!"
-    logger.info("--- ТЕСТ УСПЕШНО ЗАВЕРШЕН ---")
+    assert add_page.is_add_tab_active(), "После ошибки валидации пользователь должен остаться на вкладке ADD"
 
 
 @pytest.mark.regression
-@pytest.mark.ui
-@allure.epic("UI Testing")
-@allure.feature("Contacts Management")
-@allure.story("Test Add contact: Duplicate Phone")
+@pytest.mark.hybrid
+@allure.story("Add contact with duplicate phone")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.xfail(reason="BUG: Система позволяет создавать дубликаты по номеру телефона без Alert")
-def test_add_contact_duplicate_phone(authenticated_driver):
-    logger.info("--- ЗАПУСК ТЕСТА: test_add_contact_duplicate_phone ---")
-    contact_page = ContactPage(authenticated_driver)
+@allure.tag("TC-0019")
+@known_bug("DUPLICATE_CONTACT")
+def test_add_contact_duplicate_phone(authenticated_driver, auth_api, create_contact):
+    """SRS T45: телефон не должен повторять телефон ранее созданного контакта.
 
-    # --- ШАГ 1: Создаем первый уникальный контакт ---
-    logger.info("ШАГ 1: Создаем первый оригинальный контакт")
-    contact_page.open()
-    first_contact = ContactGenerator.get_random_contact()
-    contact_page.fill_contact_form(first_contact)
-    contact_page.submit_contact()
+    Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
+    Результат проверяется через API: это источник правды о том, что сохранилось.
+    """
+    original = create_contact()
 
-    # --- ШАГ 2: Пытаемся создать второй контакт с ТЕМ ЖЕ номером ---
-    logger.info(f"ШАГ 2: Пытаемся создать дубликат с ТЕМ ЖЕ номером телефона: {first_contact.phone}")
-    contact_page.open()
-    duplicate_contact = ContactGenerator.get_random_contact()
-    duplicate_contact.phone = first_contact.phone  # Копируем телефон из первого контакта!
+    add_page = AddContactPage(authenticated_driver)
+    add_page.open()
+    add_page.add_contact(ContactGenerator.get_random_contact(phone=original.phone))
 
-    contact_page.fill_contact_form(duplicate_contact)
-    contact_page.submit_contact()
-
-    # --- ШАГ 3: Проверяем реакцию системы ---
-    logger.info("ПРОВЕРКА: Ожидаем появление Alert об ошибке дубликата")
-    try:
-        alert_text = contact_page.get_alert_text()
-        logger.warning(f"[РАЗВЕДКА] УРА! Система выдала Alert: '{alert_text}'")
-        contact_page.accept_alert()
-        # Пока ставим заглушку, чтобы тест прошел, если алерт есть
-        assert True
-    except TimeoutException:
-        logger.error("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
-        pytest.fail("БАГ ПРИЛОЖЕНИЯ: Alert о дубликате телефона так и не появился! Контакт-клон сохранен.")
+    # Сохранение асинхронное: даём приложению время "сделать плохое"
+    # и проверяем, что оно этого не сделало (см. utils/waits.py)
+    duplicate_saved = eventually(
+        lambda: sum(c.get("phone") == original.phone for c in auth_api.get_contacts_list()) > 1,
+        timeout=5,
+    )
+    assert not duplicate_saved, f"Сохранён второй контакт с телефоном {original.phone}"

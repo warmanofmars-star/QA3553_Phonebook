@@ -1,34 +1,42 @@
 import csv
-import os
+from pathlib import Path
+
 import pytest
 
+from data.known_bugs import known_bug
+from models.contact import Contact
 
-def load_contact_data_from_csv():
-    """Читает негативные сценарии из CSV файла и возвращает их списком"""
+DATA_DIR = Path(__file__).resolve().parent
 
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(current_dir, 'negative_contacts.csv')
 
-    data = []
+def load_negative_contacts() -> list:
+    """Читает негативные сценарии создания контакта из negative_contacts.csv.
 
-    with open(file_path, newline='', encoding='utf-8') as f:
-        reader = csv.reader(f)
-        next(reader)  # Пропускаем заголовки
+    Колонки CSV:
+      test_case      — номер кейса из STD (TC-0013 ... TC-0017)
+      scenario       — короткое имя сценария, вместе с test_case образует id теста
+      name ... description — данные формы
+      expected_error — текст ошибки ПО ТРЕБОВАНИЮ (SRS F5–F9), а не по факту приложения
+      known_bug      — ключ из data/known_bugs.py, если сценарий упирается в известный дефект
 
-        for row in reader:
-            # Распаковываем строку на переменные для удобства
-            name, last_name, phone, email, address, description, expected_error = row
-
-            # ИЗВЕСТНЫЙ БАГ: система не выдает Alert, если Имя, Фамилия, Email или Адрес пустые.
-            if name == "" or last_name == "" or email == "" or address == "":
-
-                # Оборачиваем проблемные данные в pytest.param и вешаем маркер xfail
-                marked_row = pytest.param(*row, marks=pytest.mark.xfail(
-                    reason="BUG: Alert doesn't appear for empty fields"))
-                data.append(marked_row)
-
-            else:
-                # Если бага нет, добавляем данные как обычно
-                data.append(tuple(row))
-
-    return data
+    Раньше загрузчик сам решал, какие строки xfail, по признаку "какое поле пустое".
+    Теперь это явно записано в данных: открыл CSV — и видно, какой баг ловит строка.
+    """
+    params = []
+    with open(DATA_DIR / "negative_contacts.csv", newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            contact = Contact(
+                name=row["name"],
+                last_name=row["last_name"],
+                phone=row["phone"],
+                email=row["email"],
+                address=row["address"],
+                description=row["description"],
+            )
+            marks = [known_bug(row["known_bug"])] if row["known_bug"] else []
+            params.append(pytest.param(
+                contact, row["expected_error"], row["test_case"],
+                id=f'{row["test_case"]}-{row["scenario"]}',  # читаемый id: TC-0013-empty-name
+                marks=marks,
+            ))
+    return params

@@ -1,50 +1,33 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 
 from pages.base_page import BasePage
+from utils.allure_steps import step
 
 
 class LoginPage(BasePage):
     ENDPOINT = "/login"
+    PAGE_NAME = "Вход и регистрация"
 
-    LOGIN_NAV_LINK = (By.CSS_SELECTOR, "[href='/login']")
-    EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='email']")
-    PASSWORD_INPUT = (By.CSS_SELECTOR, "input[name='password']")
-    LOGIN_BTN = (By.XPATH, "//button[text()='Login']")
-    REGISTRATION_BTN = (By.CSS_SELECTOR, "button[name='registration']")
+    _EMAIL_INPUT = (By.CSS_SELECTOR, "input[name='email']")
+    _PASSWORD_INPUT = (By.CSS_SELECTOR, "input[name='password']")
+    _LOGIN_BTN = (By.CSS_SELECTOR, "button[name='login']")
+    _REGISTRATION_BTN = (By.CSS_SELECTOR, "button[name='registration']")
 
-    def open_login_form(self):
-        self.click(self.LOGIN_NAV_LINK)
+    @step("Войти как {email}")
+    def login(self, email: str, password: str) -> None:
+        # Пароль не попадает ни в название шага, ни в его параметры (см. utils/allure_steps.py)
+        self._fill_credentials(email, password)
+        self._click(self._LOGIN_BTN)
 
-    def fill_password(self, password):
-        self.fill(self.PASSWORD_INPUT, password, is_secret=True)
+    @step("Зарегистрироваться как {email}")
+    def register(self, email: str, password: str) -> None:
+        self._fill_credentials(email, password)
+        self._click(self._REGISTRATION_BTN)
 
-    def fill_email(self, email):
-        self.fill(self.EMAIL_INPUT, email)
+    def is_login_form_displayed(self, timeout: float | None = None) -> bool:
+        """Форма входа на экране — например, после выхода или редиректа анонима."""
+        return self._is_visible(self._LOGIN_BTN, timeout)
 
-    def submit_login(self):
-        self.click(self.LOGIN_BTN)
-
-    def submit_registration(self):
-        self.click(self.REGISTRATION_BTN)
-
-    def login(self, email, password):
-        self.fill_email(email)
-        self.fill_password(password)
-        self.submit_login()
-
-    def is_logged(self):
-        try:
-            WebDriverWait(self.driver, self.DEFAULT_TIMEOUT).until(
-                EC.visibility_of_element_located(self.SIGN_OUT_BTN)
-            )
-            return True
-        except TimeoutException:
-            return False
-
-    def is_login_button_visible(self):
-        """Проверяет, видна ли кнопка Login под формой"""
-        elements = self.driver.find_elements(*self.LOGIN_BTN)
-        return len(elements) > 0
+    def _fill_credentials(self, email: str, password: str) -> None:
+        self._fill(self._EMAIL_INPUT, email)
+        self._fill(self._PASSWORD_INPUT, password)

@@ -15,7 +15,7 @@ logger = get_logger("API")
 @allure.severity(allure.severity_level.BLOCKER)
 def test_api_login_success(temp_user):
     """Позитивный тест: Успешная авторизация через API (Sandbox)"""
-    user = temp_user["user"]
+    user = temp_user.user
     api = PhonebookAPI()
 
     response = api.login(user.email, user.password)
@@ -23,7 +23,7 @@ def test_api_login_success(temp_user):
     assert response.status_code == 200, f"Ошибка авторизации: {response.text}"
     token = response.json().get("token")
     assert token is not None, "Токен не пришел в ответе!"
-    logger.info(f"[LOGIN УСПЕХ] Токен получен: {token[:15]}...")
+    logger.info("[LOGIN УСПЕХ] Токен получен")  # сам токен в лог не пишем
 
 
 @pytest.mark.regression
@@ -38,11 +38,11 @@ def test_api_login_success(temp_user):
 ])
 def test_api_login_negative(temp_user, scenario_key, expected_status, scenario):
     """Негативные тесты авторизации через API без утечки пароля в параметры отчета"""
-    user = temp_user["user"]
+    user = temp_user.user
     api = PhonebookAPI()
 
     if scenario_key == "wrong_email":
-        email, password = "wrong_unregistered_email@gmail.com", user.password
+        email, password = "wrong_unregistered_email@example.com", user.password
     else:
         email, password = user.email, "WrongPassword123!"
 
