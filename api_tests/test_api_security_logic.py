@@ -17,11 +17,9 @@ import pytest
 
 from data.data_generator import ContactGenerator
 from data.known_bugs import known_bug
-from utils.logger import get_logger
 from utils.preconditions import require
 from utils.validators import assert_secure_error
 
-logger = get_logger("API_SECURITY")
 pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
 
 NONEXISTENT_ID = "00000000-0000-0000-0000-000000000000"

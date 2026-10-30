@@ -1,10 +1,7 @@
 import allure
 import pytest
-from utils.logger import get_logger
 from utils.validators import assert_json_schema
 from schemas.contact_schemas import GET_CONTACTS_RESPONSE_SCHEMA
-
-logger = get_logger("API")
 
 
 @pytest.mark.smoke
@@ -24,7 +21,6 @@ def test_api_get_all_contacts(auth_api, created_contact):
 
     assert created_contact.phone in all_phones, \
         f"Созданный контакт с телефоном {created_contact.phone} не найден в базе!"
-    logger.info(f"[GET УСПЕХ] Контакт найден. Всего записей: {len(contacts_list)}.")
 
 
 @pytest.mark.smoke
@@ -47,4 +43,3 @@ def test_api_update_contact(auth_api, created_contact):
     )
 
     assert updated_name_in_db == "API_UPDATED_NAME", "Имя в базе данных не обновилось!"
-    logger.info(f"[PUT УСПЕХ] Контакт {created_contact.id} переименован в {updated_name_in_db}!")

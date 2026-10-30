@@ -2,10 +2,8 @@ import pytest
 import allure
 from api.contact_api import PhonebookAPI
 from utils.validators import assert_secure_error
-from utils.logger import get_logger
 from data.known_bugs import known_bug
 
-logger = get_logger("API_SECURITY")
 pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
 
 
@@ -24,7 +22,6 @@ pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
 ])
 def test_api_invalid_tokens(auth_header, expected_status, scenario):
     """Проверка 14: Запрос без валидной аутентификации должен быть отклонен"""
-    logger.info(f"--- СЦЕНАРИЙ: {scenario} ---")
 
     headers = {"Authorization": auth_header} if auth_header is not None else {}
 

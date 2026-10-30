@@ -20,16 +20,19 @@
 temp_user: контакт создаётся именно у того пользователя, под которым залогинен браузер.
 """
 
+import logging
 import os
+import platform
 import time
 from dataclasses import dataclass, replace
+from pathlib import Path
 
 import allure
 import pytest
 from selenium.webdriver.support.events import EventFiringWebDriver
 
 from api.contact_api import PhonebookAPI
-from config import settings
+from config import PROJECT_ROOT, settings
 from data.data_generator import ContactGenerator, UserGenerator
 from drivers.factory import SUPPORTED_BROWSERS, attach_selenoid_video, create_driver
 from models.contact import Contact
@@ -40,8 +43,42 @@ from utils.preconditions import require
 
 
 # ==========================================
-# 1. ПАРАМЕТРЫ КОМАНДНОЙ СТРОКИ
+# 1. ПАРАМЕТРЫ КОМАНДНОЙ СТРОКИ И НАСТРОЙКА ЛОГОВ
 # ==========================================
+LOG_DIR = PROJECT_ROOT / "logs"
+
+# Сторонние библиотеки на уровне INFO/DEBUG пишут много служебного шума
+NOISY_LOGGERS = ("urllib3", "selenium", "faker", "asyncio")
+
+
+def pytest_configure(config):
+    """Настраивает файл логов для текущего процесса pytest.
+
+    Проблема: при запуске с xdist (-n 4) тесты выполняют несколько процессов-воркеров.
+    Если все они пишут в ОДИН файл, они затирают друг друга. Поэтому:
+      * обычный запуск             -> logs/pytest.log
+      * воркер xdist (gw0, gw1...) -> logs/pytest_gw0.log, logs/pytest_gw1.log, ...
+      * главный процесс xdist      -> файла нет: сам он тесты не выполняет
+    Явно переданный --log-file из командной строки имеет приоритет.
+    """
+    for name in NOISY_LOGGERS:
+        logging.getLogger(name).setLevel(logging.WARNING)
+
+    worker_id = os.environ.get("PYTEST_XDIST_WORKER")  # есть только внутри воркера xdist
+    is_xdist_controller = worker_id is None and config.getoption("numprocesses", default=None)
+
+    if worker_id is None:
+        # Главный процесс (или обычный запуск) стартует раньше воркеров:
+        # чистим файлы прошлого прогона, чтобы не путаться в старых pytest_gw*.log
+        LOG_DIR.mkdir(exist_ok=True)
+        for old_log in LOG_DIR.glob("*.log"):
+            old_log.unlink(missing_ok=True)
+
+    if config.option.log_file or is_xdist_controller:
+        return
+    config.option.log_file = str(LOG_DIR / (f"pytest_{worker_id}.log" if worker_id else "pytest.log"))
+
+
 def pytest_addoption(parser):
     parser.addoption(
         "--browser_name",
@@ -231,3 +268,37 @@ def pytest_make_parametrize_id(val):
         return "lambda_mutation"
     return str(val)
 
+
+def pytest_sessionfinish(session):
+    """Пишет блок Environment для Allure: где и как запускались тесты.
+
+    Раньше он заполнялся только в GitHub Actions — вручную через echo.
+    Теперь его пишет сам фреймворк, и информация есть в любом отчёте:
+    локальном, Docker, Jenkins, CI.
+    """
+    if os.environ.get("PYTEST_XDIST_WORKER"):
+        return  # пишет только главный процесс, иначе воркеры перезапишут файл друг за другом
+
+    results_dir = session.config.getoption("allure_report_dir", default=None)
+    if not results_dir:
+        return  # запуск без --alluredir: отчёта не будет, писать некуда
+
+    if settings.use_selenoid:
+        run_mode = "Selenoid"
+    elif settings.headless or settings.is_ci:
+        run_mode = "Local (headless)"
+    else:
+        run_mode = "Local"
+
+    environment = {
+        "Browser": session.config.getoption("--browser_name"),  # для Selenium; Playwright всегда chromium
+        "RunMode": run_mode,
+        "BaseUrl": settings.base_url,
+        "ApiUrl": settings.api_url,
+        "Python": platform.python_version(),
+        "OS": f"{platform.system()} {platform.release()}",
+    }
+    Path(results_dir, "environment.properties").write_text(
+        "\n".join(f"{key}={value}" for key, value in environment.items()) + "\n",
+        encoding="utf-8",
+    )

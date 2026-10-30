@@ -35,7 +35,7 @@ def assert_secure_error(response, expected_status=None):
             assert pattern not in error_text, \
                 f"УЯЗВИМОСТЬ: в тексте ошибки найдено критическое слово: '{pattern}'\nТело: {response.text}"
 
-        logger.info(f"Ошибка безопасна (статус {response.status_code}, утечек нет).")
+        logger.debug(f"Ошибка безопасна (статус {response.status_code}, утечек нет).")
 
 
 def assert_json_schema(data, schema: dict, what: str = "ответ") -> None:

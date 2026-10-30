@@ -90,9 +90,6 @@ class Settings:
     ui_timeout: int         # явные ожидания Selenium, секунды
     pw_timeout_ms: int      # ожидания Playwright, миллисекунды
 
-    # --- Поведение фреймворка ---
-    console_logs: bool      # дублировать логи в консоль
-
     @classmethod
     def from_env(cls) -> "Settings":
         """Собирает настройки из окружения. Вызывается один раз при импорте модуля."""
@@ -112,8 +109,6 @@ class Settings:
 
             ui_timeout=_env_int("UI_TIMEOUT", 5),
             pw_timeout_ms=_env_int("PW_TIMEOUT", 10000),
-
-            console_logs=_env_bool("ENABLE_CONSOLE_LOGS", True),
         )
 
 
