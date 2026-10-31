@@ -40,11 +40,14 @@ services:
       - USE_SELENOID=true
       - SELENOID_HUB_URL=http://selenoid:4444/wd/hub
       - VIDEO_DIR=/app/video
-      - USER_EMAIL=${USER_EMAIL}
-      - USER_PASSWORD=${USER_PASSWORD}
       - BASE_URL=https://telranedu.web.app
       - API_URL=https://contactapp-telran-backend.herokuapp.com
-      - ALLOW_MASS_DELETE=${ALLOW_MASS_DELETE:-false}
-      - ENABLE_CONSOLE_LOGS=${ENABLE_CONSOLE_LOGS:-true}
+      # Параметры запуска, которые передают CI (GitHub Actions, Jenkins) или ты сам:
+      #   BROWSER=firefox docker compose up ...                      (bash)
+      #   $env:BROWSER="firefox"; docker compose up ...              (PowerShell)
+      # Раньше BROWSER сюда не передавался, и выбор браузера в Jenkins молча игнорировался
+      - BROWSER=${BROWSER:-chrome}
+      # Дополнительные аргументы pytest, например -m "smoke" (pytest читает их сам)
+      - PYTEST_ADDOPTS=${PYTEST_ADDOPTS:-}
     # Команда запуска тестов
     command: sh -c "pytest -n 2 --browser_name=$${BROWSER:-chrome} --video=on --clean-alluredir --alluredir=allure-results"
