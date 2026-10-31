@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Perry",
+  "phone": "0532277748",
+  "email": "user_394edadc9b@example.com",
+  "address": "6341 Anthony Extensions, South Heatherside, PW 66164",
+  "description": "High mission bar seem."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5d3ac977-323f-4b27-adde-6f23812366e1"
+}

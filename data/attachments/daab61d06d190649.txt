@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephen",
+  "lastName": "Finley",
+  "phone": "123",
+  "email": "user_97e8038605@example.com",
+  "address": "35874 Tamara Village, Mezashire, PA 48026",
+  "description": "Magazine act site property."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:11:55",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

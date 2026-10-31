@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julie",
+  "lastName": "Fields",
+  "phone": "0530942329",
+  "email": "user_284db27033@example.com",
+  "address": "USNV Wells, FPO AA 20544",
+  "description": "Attorney far watch drive."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f687cfd2-d505-40a7-83e6-372514008b10"
+}

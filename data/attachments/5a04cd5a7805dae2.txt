@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (43 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Walker",
+  "phone": "0595572939",
+  "email": "user_2f250986dd@example.com",
+  "address": "47164 Kevin Way, East Courtney, VI 41727",
+  "description": "Far politics reach morning seek perform."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:12:10",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

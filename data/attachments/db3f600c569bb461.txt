@@ -1,0 +1,16 @@
+15:13:09 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+15:13:09 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: chrome
+15:13:10 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (405 ms)
+15:13:10 [INFO   ] API: Токен добавлен в заголовки сессии
+15:13:10 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+15:13:10 [INFO   ] STEP: Войти как user_270fe02bd9@example.com
+15:13:11 [INFO   ] API: POST /v1/contacts -> 200 (112 ms)
+15:13:11 [INFO   ] API: GET /v1/contacts -> 200 (112 ms)
+15:13:12 [INFO   ] API: POST /v1/contacts -> 200 (115 ms)
+15:13:12 [INFO   ] API: GET /v1/contacts -> 200 (112 ms)
+15:13:12 [INFO   ] API: POST /v1/contacts -> 200 (115 ms)
+15:13:12 [INFO   ] API: GET /v1/contacts -> 200 (112 ms)
+15:13:12 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+15:13:13 [INFO   ] STEP: Удалить все контакты по одному
+15:13:15 [INFO   ] API: GET /v1/contacts -> 200 (110 ms)
+15:13:18 [INFO   ] DRIVER: Видео 797f97996a51e0400eb5362dea01fc79.mp4 прикреплено к отчёту

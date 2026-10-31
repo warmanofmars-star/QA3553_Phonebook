@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sean",
+  "lastName": "Torres",
+  "phone": "0562968755",
+  "email": "user_f0ae683100@example.com",
+  "address": "01789 Sarah Land Suite 864, Lake Ashley, RI 35030",
+  "description": "President adult often budget sound.",
+  "id": "26c82b7b-a39f-4fa3-abea-84d34d5ea732"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dc2dbc51-1019-407b-89fc-66995e056d6a"
+}

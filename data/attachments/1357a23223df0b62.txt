@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Wright",
+  "phone": "0530663927",
+  "email": "user_2c590bceb0@example.com",
+  "address": "67045 Veronica Wells, Port Brandon, MD 18477",
+  "description": "Seven class of without."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6b5da213-dbe8-40c0-a45c-fb6100f1856d"
+}

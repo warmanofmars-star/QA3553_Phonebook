@@ -1,0 +1,8 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts/clear
+Статус: 403 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+<пусто>

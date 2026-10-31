@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "86007443-6763-4849-ad99-c88f405cea58",
+      "name": "Kevin",
+      "lastName": "Davenport",
+      "email": "user_53cc9f2120@example.com",
+      "phone": "0510887247",
+      "address": "USNS Arias, FPO AE 18937",
+      "description": "Decision property wear strong city loss."
+    }
+  ]
+}

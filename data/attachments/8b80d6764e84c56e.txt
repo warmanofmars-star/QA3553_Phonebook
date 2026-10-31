@@ -1,0 +1,7 @@
+15:14:20 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+15:14:20 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: chrome
+15:14:22 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (409 ms)
+15:14:22 [INFO   ] API: Токен добавлен в заголовки сессии
+15:14:22 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+15:14:22 [INFO   ] STEP: Войти как user_b2c64bdfab@example.com
+15:14:26 [INFO   ] DRIVER: Видео f084cd733f9d2024d0e275c6ebee15ce.mp4 прикреплено к отчёту

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8aa34f8d-5b9b-4c74-9001-140500c6d631",
+      "name": "Shawn",
+      "lastName": "Adams",
+      "email": "user_2766889b8d@example.com",
+      "phone": "0564513009",
+      "address": "994 Ballard Viaduct, Connieland, NJ 42218",
+      "description": "Suggest everybody yard scientist standard tax."
+    }
+  ]
+}

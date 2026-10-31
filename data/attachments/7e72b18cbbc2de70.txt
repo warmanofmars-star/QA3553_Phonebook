@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5d3ac977-323f-4b27-adde-6f23812366e1",
+      "name": "Jason",
+      "lastName": "Perry",
+      "email": "user_394edadc9b@example.com",
+      "phone": "0532277748",
+      "address": "6341 Anthony Extensions, South Heatherside, PW 66164",
+      "description": "High mission bar seem."
+    }
+  ]
+}

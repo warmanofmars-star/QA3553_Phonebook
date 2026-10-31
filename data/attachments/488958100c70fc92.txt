@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Gray",
+  "phone": "0516283886",
+  "email": "user_38ce33c19a@example.com",
+  "address": "291 Frey Squares, Ashleyfort, CO 71231",
+  "description": "Half while information relationship maintain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d86d5337-1cc4-417c-80b6-69c02df9bb54"
+}

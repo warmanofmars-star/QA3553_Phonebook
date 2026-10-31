@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2d8c83d9-c5c5-4706-979a-1cde50e0c8be",
+      "name": "Sandra",
+      "lastName": "Cruz",
+      "email": "user_00fc1bf37e@example.com",
+      "phone": "0514748844",
+      "address": "819 Hawkins Mills, Garcialand, ID 29801",
+      "description": "Quite memory short lose son."
+    }
+  ]
+}

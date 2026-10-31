@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Harris",
+  "phone": "0511595865",
+  "email": "user_bf9473596d@example.com",
+  "address": "0061 Tyler Corners, North Mercedes, RI 16582",
+  "description": "Population rather itself produce instead consumer nation bit."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ec4ab72d-84a3-4c74-8789-a5f66810e120"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e0355691-8809-4039-9580-bf632f53db1d",
+      "name": "Anthony",
+      "lastName": "Key",
+      "email": "user_bafd8ed77d@example.com",
+      "phone": "0521564545",
+      "address": "31950 Rose Views, Wyattland, IA 91427",
+      "description": "Institution somebody window church few modern."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Fisher",
+  "phone": "0532858878",
+  "email": "user_a34cdabc12@example.com",
+  "address": "8538 Johnathan Underpass Apt. 327, Waltermouth, PW 78323",
+  "description": "Nothing game lay course."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f6729e21-4394-40aa-9a1c-88135b05b58f"
+}

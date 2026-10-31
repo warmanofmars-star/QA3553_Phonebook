@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brenda",
+  "lastName": "Fernandez",
+  "phone": "0529183556",
+  "email": "user_21530bb98c@example.com",
+  "address": "074 Burns Gateway, South Cameronside, IN 46179",
+  "description": "Mind drop list arm."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ea999ec9-b1fc-4a16-961f-3e6d60211613"
+}

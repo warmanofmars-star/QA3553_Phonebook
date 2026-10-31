@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Monica",
+  "lastName": "Castro",
+  "phone": "0511996393",
+  "email": "user_0fa2811d04@example.com",
+  "address": "4046 Randy Extension, Teresafort, CO 92692",
+  "description": "Financial tough play image worker wrong close."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cae4aa0b-edfb-440f-8bf7-8a049c7ecede"
+}

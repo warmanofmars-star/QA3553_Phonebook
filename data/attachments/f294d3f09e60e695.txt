@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8aeba0fb-cc30-402f-b568-88b0f3dedd3a",
+      "name": "Cassandra",
+      "lastName": "Hammond",
+      "email": "user_63cf620409@example.com",
+      "phone": "0520136431",
+      "address": "97920 Wood Road, West Aaronchester, MN 64196",
+      "description": "Break none board structure down general."
+    },
+    {
+      "id": "120e68eb-2e78-4111-80b6-a8211f8fae2f",
+      "name": "Megan",
+      "lastName": "Miller",
+      "email": "user_81baac3e43@example.com",
+      "phone": "0520136431",
+      "address": "40796 William Lakes Apt. 251, Ericksonville, MN 59036",
+      "description": "Market live process collection."
+    }
+  ]
+}

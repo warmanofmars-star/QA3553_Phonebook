@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "996a9f40-31ea-48a5-a8d2-32aed1e0000f",
+      "name": "Tracey",
+      "lastName": "Roach",
+      "email": "user_1f03e780ed@example.com",
+      "phone": "0515778111",
+      "address": "7140 Dakota Street, Williamberg, PR 55279",
+      "description": "Rather may political south treatment."
+    }
+  ]
+}

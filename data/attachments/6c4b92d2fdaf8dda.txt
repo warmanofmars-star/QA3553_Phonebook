@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b20255c6-8b54-4644-b8bb-4d840c796bb6",
+      "name": "John",
+      "lastName": "Burke",
+      "email": "user_bde322d7c0@example.com",
+      "phone": "0527651520",
+      "address": "5700 Smith Extensions Suite 182, Lake Jenniferville, KS 89797",
+      "description": "Yeah recently wall."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Mayo",
+  "phone": "0526277761",
+  "email": "user_c54f56ea29@example.com",
+  "address": "9382 Fox Prairie, Port Charlesfort, PR 74982",
+  "description": "Ground business your despite."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 54226080-c5d6-454a-9ec2-f27aa4990cea"
+}

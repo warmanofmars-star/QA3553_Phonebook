@@ -1,7 +1,0 @@
-INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (400 ms)
-INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
-INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (114 ms)
-INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (111 ms)
-INFO     API:contact_api.py:96 PUT /v1/contacts -> 200 (141 ms)
-INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (111 ms)
-INFO     API:test_api_contacts.py:50 [PUT УСПЕХ] Контакт f5fa5ab7-6659-428c-af8d-0d68fe2b1971 переименован в API_UPDATED_NAME!

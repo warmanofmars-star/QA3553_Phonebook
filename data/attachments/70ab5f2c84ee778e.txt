@@ -1,0 +1,22 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (58 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Thomas",
+  "phone": "0527946813",
+  "email": "user_3c570afc73@example.com",
+  "address": "29477 Hammond Creek, North Bonnie, OR 37190",
+  "description": "Spring turn cause."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:11:54",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

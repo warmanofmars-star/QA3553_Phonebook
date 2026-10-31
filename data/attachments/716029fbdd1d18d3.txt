@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Heather",
+  "lastName": "Bishop",
+  "phone": "0526650439",
+  "email": "user_97d0870cb7@example.com",
+  "address": "668 Ashley Islands, Navarrotown, HI 07647",
+  "description": "Capital keep attorney news fight off effort difficult."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 50ecdafa-ce8d-4d21-8114-d418594bf630"
+}

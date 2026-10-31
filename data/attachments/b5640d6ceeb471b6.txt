@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "991dc545-1927-461d-b675-8fa4767c8b46",
+      "name": "Jasmine",
+      "lastName": "Herrera",
+      "email": "user_d49d028658@example.com",
+      "phone": "0513541465",
+      "address": "9733 Joshua Plaza, West Janice, LA 16758",
+      "description": "Involve if card conference staff your music."
+    },
+    {
+      "id": "70ad4502-3035-477c-979d-b907a6db6dfb",
+      "name": "Cameron",
+      "lastName": "Black",
+      "email": "user_92718db514@example.com",
+      "phone": "0513541465",
+      "address": "748 Wolfe Plains, West April, CT 13586",
+      "description": "Business consider traditional state think must."
+    }
+  ]
+}

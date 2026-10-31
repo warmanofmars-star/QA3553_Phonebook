@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicholas",
+  "lastName": "Liu",
+  "phone": "0527141450",
+  "email": "user_58e76dfc67@example.com",
+  "address": "21914 Matthew Station, New Thomas, AK 08022",
+  "description": "Help ok player newspaper gun smile."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f64e1d54-49a5-46d5-8357-f3b50c2d6a1c"
+}

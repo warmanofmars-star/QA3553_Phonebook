@@ -1,6 +1,0 @@
-INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (386 ms)
-INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
-INFO     API_VALIDATION:test_api_payload_validation.py:49 --- ЗАПУСК СЦЕНАРИЯ: Пустая строка в name ---
-WARNING  API:contact_api.py:96 POST /v1/contacts -> 400 (83 ms)
-INFO     VALIDATOR:validators.py:38 Ошибка безопасна (статус 400, утечек нет).
-INFO     API_VALIDATION:test_api_payload_validation.py:58 [УСПЕХ] Сценарий 'Пустая строка в name' корректно заблокирован бэкендом.

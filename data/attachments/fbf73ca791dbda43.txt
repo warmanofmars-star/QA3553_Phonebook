@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Frank",
+  "lastName": "Scott",
+  "phone": "0567574813",
+  "email": "user_5498ed23cc@example.com",
+  "address": "26006 Harrison Via, Nelsonshire, ID 54909",
+  "description": "These wide including election analysis trade yard."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 134da377-b13f-4097-84ab-d3bf714b06a9"
+}

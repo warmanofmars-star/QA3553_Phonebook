@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Johnson",
+  "phone": "0522429889",
+  "email": "user_bba8caba74@example.com",
+  "address": "780 Quinn Trafficway Suite 671, New Aaronshire, OR 16153",
+  "description": "Letter money cover hair network window."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 58fee6d1-e204-439b-adc4-82af1cf488a3"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "317b1940-7806-4736-a01e-e4d57f740883",
+      "name": "Jeff",
+      "lastName": "Coleman",
+      "email": "user_224bd7e80d@example.com",
+      "phone": "0527444422",
+      "address": "PSC 7128, Box 9985, APO AA 31294",
+      "description": "Condition south television current produce."
+    }
+  ]
+}

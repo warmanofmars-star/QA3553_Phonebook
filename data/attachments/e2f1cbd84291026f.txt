@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tristan",
+  "lastName": "Miles",
+  "phone": "0529575164",
+  "email": "user_031cb0471b@example.com",
+  "address": "009 Johnson Hollow Apt. 791, Mccarthyside, MS 24025",
+  "description": "Voice find story his moment."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 26c82b7b-a39f-4fa3-abea-84d34d5ea732"
+}

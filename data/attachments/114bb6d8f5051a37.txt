@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dustin",
+  "lastName": "Garcia",
+  "phone": "0511839126",
+  "email": "user_7780d559fb@example.com",
+  "address": "Unit 8237 Box 8979, DPO AP 17530",
+  "description": "Scientist go child without."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 21156139-a282-4fd7-bd28-68497ea2d132"
+}

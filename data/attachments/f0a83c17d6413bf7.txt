@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/5d3ac977-323f-4b27-adde-6f23812366e1
+Статус: 400 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:12:15",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 5d3ac977-323f-4b27-adde-6f23812366e1 not found in your contacts!",
+  "path": "/v1/contacts/5d3ac977-323f-4b27-adde-6f23812366e1"
+}

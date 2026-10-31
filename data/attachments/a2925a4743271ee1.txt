@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sharon",
+  "lastName": "Rojas",
+  "phone": "0526648976",
+  "email": "user_b86e72a51f@example.com",
+  "address": "47596 Riggs Fort, Port Cody, FM 85951",
+  "description": "Be series her increase."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e3cd7ca2-5e83-498c-a271-cd1cbe1687da"
+}

@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b50c94e4-fddc-4fe3-bc84-abf3653b7e1e",
+      "name": "Timothy",
+      "lastName": "Blackburn",
+      "email": "user_1d330a550f@example.com",
+      "phone": "0513021097",
+      "address": "98222 Dean Gateway Apt. 489, East Jodi, MT 00503",
+      "description": "When fight citizen bit."
+    },
+    {
+      "id": "7be87ae1-bf28-4b47-9992-e9e22a8ddd87",
+      "name": "Michelle",
+      "lastName": "Stephenson",
+      "email": "user_f5c515dc3c@example.com",
+      "phone": "0519120267",
+      "address": "88980 Tyler Knoll Suite 918, Tiffanyport, TX 89559",
+      "description": "These race born concern."
+    },
+    {
+      "id": "5cf85fd0-2c6c-435d-8bc9-e2ff378dcd7c",
+      "name": "Ashley",
+      "lastName": "Kelly",
+      "email": "user_4ee2c681db@example.com",
+      "phone": "0528748137",
+      "address": "Unit 7166 Box 4951, DPO AA 04727",
+      "description": "Look serve nice hot finish artist red."
+    }
+  ]
+}

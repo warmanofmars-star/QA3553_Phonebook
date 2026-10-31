@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Heidi",
+  "lastName": "Cameron",
+  "phone": "0521575180",
+  "email": "user_5dc0565928@example.com",
+  "address": "8245 James Mountains, Lake Denise, ID 02357",
+  "description": "Great work day mother company last along."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a983e5ca-d066-44f9-8078-60fd48340efd"
+}

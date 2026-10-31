@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (80 ms)
+
+--- Тело запроса ---
+{
+  "name": "Barbara",
+  "lastName": "Calhoun",
+  "email": "user_c1fd50a527@example.com",
+  "address": "8410 William Lights Apt. 078, Port Brett, PW 39639",
+  "description": "Environment statement civil if."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ee23e5c7-084d-4f5a-bf17-a9f836b76681"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "07c2066c-0591-4a1a-ad0a-6dd0e998d3ef",
+      "name": "Joshua",
+      "lastName": "Weeks",
+      "email": "user_c4e2249f7a@example.com",
+      "phone": "0523866958",
+      "address": "3383 Chen Crossing, East Thomas, MO 84912",
+      "description": "Various significant cup follow force challenge."
+    }
+  ]
+}

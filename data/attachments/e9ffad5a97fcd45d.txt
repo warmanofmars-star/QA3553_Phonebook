@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Valdez",
+  "phone": "0517806484",
+  "email": "not_an_email",
+  "address": "5286 Elizabeth Gateway Suite 985, Clarkebury, FL 76612",
+  "description": "Fight pay detail meet whatever."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:11:56",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,9 +1,0 @@
-[32;20m[2026-10-30 15:14:06] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (402 ms)[0m
-[32;20m[2026-10-30 15:14:06] [INFO] [API] - Токен добавлен в заголовки сессии[0m
-[32;20m[2026-10-30 15:14:06] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (405 ms)[0m
-[32;20m[2026-10-30 15:14:06] [INFO] [API] - Токен добавлен в заголовки сессии[0m
-[32;20m[2026-10-30 15:14:06] [INFO] [API] - POST /v1/contacts -> 200 (120 ms)[0m
-[32;20m[2026-10-30 15:14:06] [INFO] [API] - GET /v1/contacts -> 200 (117 ms)[0m
-[33;20m[2026-10-30 15:14:06] [WARNING] [API] - PUT /v1/contacts -> 400 (116 ms)[0m
-[32;20m[2026-10-30 15:14:07] [INFO] [API] - GET /v1/contacts -> 200 (118 ms)[0m
-[32;20m[2026-10-30 15:14:07] [INFO] [VALIDATOR] - Ошибка безопасна (статус 400, утечек нет).[0m

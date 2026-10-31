@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Swanson",
+  "phone": "0510705253",
+  "email": "user_3910c9de7f@example.com",
+  "address": "547 Parks Viaduct, Whitestad, RI 95660",
+  "description": "Individual wish either PM."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9d19ea81-3015-4ff8-83fd-b0f1c22554a1"
+}

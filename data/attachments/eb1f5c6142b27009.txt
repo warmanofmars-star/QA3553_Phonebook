@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/d3110d70-798b-415b-b934-3fc3c0c194f4
+Статус: 400 (71 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:12:17",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: d3110d70-798b-415b-b934-3fc3c0c194f4 not found in your contacts!",
+  "path": "/v1/contacts/d3110d70-798b-415b-b934-3fc3c0c194f4"
+}

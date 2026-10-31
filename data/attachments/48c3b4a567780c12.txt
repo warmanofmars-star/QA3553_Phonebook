@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ea999ec9-b1fc-4a16-961f-3e6d60211613",
+      "name": "Brenda",
+      "lastName": "Fernandez",
+      "email": "user_21530bb98c@example.com",
+      "phone": "0529183556",
+      "address": "074 Burns Gateway, South Cameronside, IN 46179",
+      "description": "Mind drop list arm."
+    }
+  ]
+}

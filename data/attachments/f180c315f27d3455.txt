@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "72c451c8-38f8-45d4-9526-3827c5a160e3",
+      "name": "James",
+      "lastName": "Pennington",
+      "email": "user_91adc647e7@example.com",
+      "phone": "0532601491",
+      "address": "5213 Williams Forges, Leestad, CA 08450",
+      "description": "Movement look respond want standard determine."
+    }
+  ]
+}

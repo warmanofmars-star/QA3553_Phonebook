@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a653a987-fa8d-4029-b70c-e6e5c0bf80da",
+      "name": "Allison",
+      "lastName": "Stuart",
+      "email": "user_ca207f560e@example.com",
+      "phone": "0533946932",
+      "address": "USS Todd, FPO AP 27314",
+      "description": "Wrong themselves contain career space road almost."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+15:13:41 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+15:13:41 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: firefox
+15:13:43 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (325 ms)
+15:13:43 [INFO   ] API: Токен добавлен в заголовки сессии
+15:13:43 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+15:13:43 [INFO   ] STEP: Войти как user_af302e1524@example.com
+15:13:44 [INFO   ] API: POST /v1/contacts -> 200 (87 ms)
+15:13:44 [INFO   ] API: GET /v1/contacts -> 200 (86 ms)
+15:13:44 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+15:13:45 [INFO   ] STEP: Открыть карточку контакта 0521215194
+15:13:45 [INFO   ] STEP: Нажать Edit
+15:13:45 [INFO   ] STEP: Изменить поля формы редактирования
+15:13:46 [INFO   ] STEP: Нажать Save в форме редактирования
+15:13:46 [INFO   ] API: GET /v1/contacts -> 200 (87 ms)
+15:13:46 [INFO   ] API: GET /v1/contacts -> 200 (86 ms)
+15:13:50 [INFO   ] DRIVER: Видео 871a1922-e2c4-4545-8b6f-901c9187d545.mp4 прикреплено к отчёту

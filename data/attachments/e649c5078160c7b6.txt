@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a983e5ca-d066-44f9-8078-60fd48340efd",
+      "name": "Heidi",
+      "lastName": "Cameron",
+      "email": "user_5dc0565928@example.com",
+      "phone": "0521575180",
+      "address": "8245 James Mountains, Lake Denise, ID 02357",
+      "description": "Great work day mother company last along."
+    },
+    {
+      "id": "01094bd5-b909-4c40-8f71-ac166ab85ee1",
+      "name": "Bradley",
+      "lastName": "Torres",
+      "email": "user_c1b92b3e90@example.com",
+      "phone": "0521575180",
+      "address": "9779 Ward Islands, Port Stephanieberg, UT 59067",
+      "description": "Produce response fall."
+    }
+  ]
+}

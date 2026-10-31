@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jacob",
+  "lastName": "Charles",
+  "email": "user_b50ebb7b1e@example.com",
+  "address": "952 Schneider Views Suite 075, West Jordanmouth, TN 44054",
+  "description": "Leave let night notice that."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2fe2bbc7-8f38-4fb9-9dd8-db3a6d120529"
+}

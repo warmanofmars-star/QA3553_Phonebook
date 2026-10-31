@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Meyer",
+  "phone": "0515962988",
+  "email": "user_061306ba8f@example.com",
+  "address": "0714 Jermaine Pines, Riceton, WV 11084",
+  "description": "Town let street cause little entire maintain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4f98487f-2889-4133-b01b-c836ee2619fc"
+}

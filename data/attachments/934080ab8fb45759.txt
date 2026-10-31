@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Smith",
+  "phone": "0533987991",
+  "email": "user_be1c4c7443@example.com",
+  "address": "Unit 0782 Box 4688, DPO AE 14376",
+  "description": "Million wonder discover push drive move mention me."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 23798984-ad84-4dda-aca5-f1049f6aafd9"
+}

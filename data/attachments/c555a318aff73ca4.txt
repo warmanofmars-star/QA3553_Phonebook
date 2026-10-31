@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f64e1d54-49a5-46d5-8357-f3b50c2d6a1c",
+      "name": "Nicholas",
+      "lastName": "Liu",
+      "email": "user_58e76dfc67@example.com",
+      "phone": "0527141450",
+      "address": "21914 Matthew Station, New Thomas, AK 08022",
+      "description": "Help ok player newspaper gun smile."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alan",
+  "lastName": "French",
+  "phone": "0529279914",
+  "email": "user_e41fbd9b9f@example.com",
+  "address": "6535 Robles Rue, Brianfort, AS 79199",
+  "description": "Heavy picture nearly ever both."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d90ba84e-a0e9-4b73-b3f3-bb75dede314f"
+}

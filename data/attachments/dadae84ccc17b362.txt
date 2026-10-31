@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Bird",
+  "phone": "0513408971",
+  "email": "user_605a3bc62c@example.com",
+  "address": "5103 Kim Pines, Kristenfurt, WV 55394",
+  "description": "Speak avoid recently on."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 696f4823-64a6-420d-9801-7d59d1271023"
+}

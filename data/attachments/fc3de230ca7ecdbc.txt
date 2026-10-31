@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "23839b18-0ab1-4033-8f99-7c8181f26801",
+      "name": "Joel",
+      "lastName": "Thomas",
+      "email": "user_c76c3035b0@example.com",
+      "phone": "0517588704",
+      "address": "55452 Bruce Viaduct Suite 872, Kennethland, DC 47655",
+      "description": "Team treatment week water car any check lay."
+    },
+    {
+      "id": "c5450c44-ec65-43b3-8fe5-f7706842cdfd",
+      "name": "Nathan",
+      "lastName": "Lee",
+      "email": "user_414b5fed3d@example.com",
+      "phone": "0570299684",
+      "address": "438 Taylor Forks, Smithport, MD 22846",
+      "description": "Purpose economy not data thousand issue alone open."
+    }
+  ]
+}

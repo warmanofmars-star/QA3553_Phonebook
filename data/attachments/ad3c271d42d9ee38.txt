@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anthony",
+  "lastName": "Key",
+  "phone": "0521564545",
+  "email": "user_bafd8ed77d@example.com",
+  "address": "31950 Rose Views, Wyattland, IA 91427",
+  "description": "Institution somebody window church few modern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e0355691-8809-4039-9580-bf632f53db1d"
+}

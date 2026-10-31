@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Darryl",
+  "lastName": "Wu",
+  "phone": "0512321445",
+  "email": "user_b37c48bba3@example.com",
+  "address": "PSC 6217, Box 6563, APO AA 92944",
+  "description": "Quite carry task resource certain and member."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9a703d87-3902-4a06-843c-0107305052c8"
+}

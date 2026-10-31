@@ -1,0 +1,6 @@
+15:15:06 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (328 ms)
+15:15:06 [INFO   ] API: Токен добавлен в заголовки сессии
+15:15:06 [INFO   ] PW: Переход по ссылке: https://telranedu.web.app/login
+15:15:06 [INFO   ] PW: Ввод данных в поле формы...
+15:15:06 [INFO   ] PW: Ввод данных в поле формы...
+15:15:06 [INFO   ] PW: Клик по элементу: 'Login'

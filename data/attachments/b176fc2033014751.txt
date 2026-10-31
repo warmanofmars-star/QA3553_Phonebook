@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Laura",
+  "lastName": "Beck",
+  "phone": "0525324616",
+  "email": "",
+  "address": "7281 Michele Route, Cynthiahaven, LA 87496",
+  "description": "Laugh field officer goal cell."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 48454cca-dff7-4251-8d1c-e5506715c7a3"
+}

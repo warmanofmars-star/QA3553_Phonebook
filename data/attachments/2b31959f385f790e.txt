@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Pennington",
+  "phone": "0532601491",
+  "email": "user_91adc647e7@example.com",
+  "address": "5213 Williams Forges, Leestad, CA 08450",
+  "description": "Movement look respond want standard determine."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 72c451c8-38f8-45d4-9526-3827c5a160e3"
+}

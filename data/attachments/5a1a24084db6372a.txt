@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c2e0610c-59c4-4245-9bd2-2fded4b1bbbc",
+      "name": "Pamela",
+      "lastName": "Nelson",
+      "email": "user_797246f36b@example.com",
+      "phone": "0514949651",
+      "address": "600 Taylor Inlet, Annfurt, OH 57333",
+      "description": "Listen office wonder similar woman mean seem difficult."
+    }
+  ]
+}

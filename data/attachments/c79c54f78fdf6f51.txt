@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (70 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d3110d70-798b-415b-b934-3fc3c0c194f4",
+      "name": "Daniel",
+      "lastName": "Jones",
+      "email": "user_e7b0964bab@example.com",
+      "phone": "0524049479",
+      "address": "01956 Gary Garden, Owenborough, OK 32835",
+      "description": "Rich look toward."
+    }
+  ]
+}

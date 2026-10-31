@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f6ebc159-8411-4ff9-951e-385781ed7189",
+      "name": "Paul",
+      "lastName": "Martinez",
+      "email": "user_06049b7c0d@example.com",
+      "phone": "0568892270",
+      "address": "89543 Berry Ridges Apt. 791, North Michael, VI 27830",
+      "description": "Lot still no who despite determine bed."
+    }
+  ]
+}

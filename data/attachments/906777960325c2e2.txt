@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "afbbd9b8-2d67-432d-bf2d-c8848786c3ce",
+      "name": "Jasmine",
+      "lastName": "Maldonado",
+      "email": "user_0b72d2da3f@example.com",
+      "phone": "0599561742",
+      "address": "52896 Lee Knolls Apt. 990, Port Jacob, KS 76730",
+      "description": "Return like others once."
+    }
+  ]
+}

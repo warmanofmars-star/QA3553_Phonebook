@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Blackburn",
+  "phone": "0513021097",
+  "email": "user_1d330a550f@example.com",
+  "address": "98222 Dean Gateway Apt. 489, East Jodi, MT 00503",
+  "description": "When fight citizen bit."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b50c94e4-fddc-4fe3-bc84-abf3653b7e1e"
+}

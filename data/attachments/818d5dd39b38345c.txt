@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Keith",
+  "lastName": "Wright",
+  "phone": "0536421288",
+  "email": "user_d5c9183d0c@example.com",
+  "address": "989 Reyes Overpass Suite 291, Brittanychester, IL 02439",
+  "description": "Speech quickly some character."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7061d645-1a12-444b-9f88-9199927a6ad3"
+}

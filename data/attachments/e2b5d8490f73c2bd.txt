@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "759051fe-9029-43b3-ac5c-cbe1be234605",
+      "name": "Sarah",
+      "lastName": "Davis",
+      "email": "user_69f12a0026@example.com",
+      "phone": "0580476533",
+      "address": "03595 Black Burg, New Morganside, MS 01108",
+      "description": "Visit good prevent."
+    }
+  ]
+}

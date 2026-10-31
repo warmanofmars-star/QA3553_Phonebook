@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ed0192bb-d9eb-4c86-97fa-107eafbb0fbf",
+      "name": "Andrew",
+      "lastName": "Palmer",
+      "email": "user_2fcc6cb833@example.com",
+      "phone": "0530430589",
+      "address": "1820 Parsons Estates, West Julie, AS 73845",
+      "description": "Reason set recognize."
+    }
+  ]
+}

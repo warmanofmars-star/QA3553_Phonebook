@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Palmer",
+  "phone": "0530430589",
+  "email": "user_2fcc6cb833@example.com",
+  "address": "731 Rodriguez Shoal, South Joshua, VA 94864",
+  "description": "Reason set recognize."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed0192bb-d9eb-4c86-97fa-107eafbb0fbf"
+}

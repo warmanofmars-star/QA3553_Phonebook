@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Wheeler",
+  "phone": "0512732873",
+  "email": "user_ccd4d5c5f3@example.com",
+  "address": "6479 Vanessa Union Suite 844, Port Lori, VA 11751",
+  "description": "Hot house across billion south less."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 194bc34d-14e9-4363-838c-a2bbead1bb86"
+}

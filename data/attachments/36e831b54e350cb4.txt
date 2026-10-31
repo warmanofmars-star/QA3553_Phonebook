@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2737e36b-58fd-4024-87a4-eb05893868ec",
+      "name": "Raymond",
+      "lastName": "Patel",
+      "email": "user_de9b399937@example.com",
+      "phone": "0532089696",
+      "address": "163 Micheal Groves Suite 904, Callahantown, IA 26324",
+      "description": "Include front direction among direction through."
+    }
+  ]
+}

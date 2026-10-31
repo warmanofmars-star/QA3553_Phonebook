@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sandra",
+  "lastName": "Cruz",
+  "phone": "0514748844",
+  "email": "user_00fc1bf37e@example.com",
+  "address": "819 Hawkins Mills, Garcialand, ID 29801",
+  "description": "Quite memory short lose son."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2d8c83d9-c5c5-4706-979a-1cde50e0c8be"
+}

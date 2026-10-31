@@ -1,9 +1,0 @@
-INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (229 ms)
-INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
-INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (242 ms)
-INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
-INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (65 ms)
-INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (60 ms)
-WARNING  API:contact_api.py:96 PUT /v1/contacts -> 400 (58 ms)
-INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (60 ms)
-INFO     VALIDATOR:validators.py:38 Ошибка безопасна (статус 400, утечек нет).

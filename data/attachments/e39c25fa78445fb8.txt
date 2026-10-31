@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Shannon",
+  "phone": "0551050159",
+  "email": "user_fab1110cae@example.com",
+  "address": "367 Cruz Fords, Latashatown, PR 26585",
+  "description": "Room eye they free lay buy service."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f9903c7e-05c1-4bd7-97d5-b9b1763fe241"
+}

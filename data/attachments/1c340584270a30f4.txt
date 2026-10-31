@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Luke",
+  "lastName": "Crawford",
+  "phone": "0533737161",
+  "email": "user_568ad7bf48@example.com",
+  "address": "0454 Saunders Forks Suite 092, Dickersontown, ME 13991",
+  "description": "Chance magazine protect rule court."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f3f62c55-3525-42f4-84a2-fef68f8aa278"
+}

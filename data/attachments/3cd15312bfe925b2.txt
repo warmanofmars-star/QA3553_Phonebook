@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f6729e21-4394-40aa-9a1c-88135b05b58f",
+      "name": "Jessica",
+      "lastName": "Fisher",
+      "email": "user_a34cdabc12@example.com",
+      "phone": "0532858878",
+      "address": "8538 Johnathan Underpass Apt. 327, Waltermouth, PW 78323",
+      "description": "Nothing game lay course."
+    }
+  ]
+}

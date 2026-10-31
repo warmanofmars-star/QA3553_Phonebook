@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Middleton",
+  "phone": "0510854924",
+  "email": "user_c1bb3cfceb@example.com",
+  "address": "2614 Hardin Ferry Suite 486, Vanessamouth, MT 75421",
+  "description": "Huge rock eight deal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 81bad7e0-a6c0-480f-843a-e748b158a2e6"
+}

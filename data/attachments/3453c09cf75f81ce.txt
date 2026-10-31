@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joel",
+  "lastName": "Thomas",
+  "phone": "0517588704",
+  "email": "user_c76c3035b0@example.com",
+  "address": "55452 Bruce Viaduct Suite 872, Kennethland, DC 47655",
+  "description": "Team treatment week water car any check lay."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 23839b18-0ab1-4033-8f99-7c8181f26801"
+}

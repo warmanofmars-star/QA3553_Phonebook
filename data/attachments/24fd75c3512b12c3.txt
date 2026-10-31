@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d5661205-e4f2-4c19-8bff-e8bc7b5fdbee",
+      "name": "Chad",
+      "lastName": "Dorsey",
+      "email": "user_85eff6ecae@example.com",
+      "phone": "0521391945",
+      "address": "977 Teresa Tunnel, East Chad, NE 74653",
+      "description": "Value product Democrat strategy."
+    },
+    {
+      "id": "115855ba-8c57-4e2f-a95c-f5ed52cee7a7",
+      "name": "Greg",
+      "lastName": "Mcbride",
+      "email": "user_aa75981102@example.com",
+      "phone": "0591853589",
+      "address": "1140 Carson Forges, West Aaron, WY 80376",
+      "description": "Fill I author show staff improve someone view."
+    },
+    {
+      "id": "f3f62c55-3525-42f4-84a2-fef68f8aa278",
+      "name": "Luke",
+      "lastName": "Crawford",
+      "email": "user_568ad7bf48@example.com",
+      "phone": "0533737161",
+      "address": "0454 Saunders Forks Suite 092, Dickersontown, ME 13991",
+      "description": "Chance magazine protect rule court."
+    }
+  ]
+}

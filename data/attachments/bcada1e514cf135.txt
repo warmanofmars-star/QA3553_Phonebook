@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (82 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "194bc34d-14e9-4363-838c-a2bbead1bb86",
+      "name": "Devin",
+      "lastName": "Kline",
+      "email": "user_d62c32c7c8@example.com",
+      "phone": "0511920968",
+      "address": "4020 Fleming Well, Port Scottchester, MH 01500",
+      "description": "[object Undefined]"
+    }
+  ]
+}

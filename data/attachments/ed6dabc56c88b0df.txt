@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/e72a95a5-3a80-45ef-b7a3-04c49e06c46e
+Статус: 400 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:11:57",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: e72a95a5-3a80-45ef-b7a3-04c49e06c46e not found in your contacts!",
+  "path": "/v1/contacts/e72a95a5-3a80-45ef-b7a3-04c49e06c46e"
+}

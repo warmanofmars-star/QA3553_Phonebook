@@ -1,0 +1,8 @@
+15:14:51 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+15:14:51 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: firefox
+15:14:54 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (329 ms)
+15:14:54 [INFO   ] API: Токен добавлен в заголовки сессии
+15:14:54 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+15:14:54 [INFO   ] STEP: Зарегистрироваться как user_fa03d1ac55@example.com
+15:14:55 [INFO   ] UI: Текст Alert: 'User already exist'
+15:15:00 [INFO   ] DRIVER: Видео b58d46e4-5633-4ea2-bd96-700cef7a72d6.mp4 прикреплено к отчёту

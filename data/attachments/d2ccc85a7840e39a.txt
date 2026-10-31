@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "827e1ac6-d34e-4d0f-919f-c30d4092e2b6",
+      "name": "Andrew",
+      "lastName": "Brady",
+      "email": "user_31dd6fa1c1@example.com",
+      "phone": "0522399143",
+      "address": "1330 Nelson Springs Suite 299, Lisaview, CO 14121",
+      "description": "Method culture age test form."
+    },
+    {
+      "id": "4f98487f-2889-4133-b01b-c836ee2619fc",
+      "name": "Brian",
+      "lastName": "Meyer",
+      "email": "user_061306ba8f@example.com",
+      "phone": "0515962988",
+      "address": "0714 Jermaine Pines, Riceton, WV 11084",
+      "description": "Town let street cause little entire maintain."
+    }
+  ]
+}

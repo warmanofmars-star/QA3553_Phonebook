@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (43 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Sanders",
+  "phone": "123",
+  "email": "user_8ad54523e9@example.com",
+  "address": "051 Armstrong Dam Apt. 880, South Joseph, CO 89937",
+  "description": "Product usually yourself show."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:12:10",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

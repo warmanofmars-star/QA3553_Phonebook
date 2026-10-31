@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "58fee6d1-e204-439b-adc4-82af1cf488a3",
+      "name": "Joseph",
+      "lastName": "Johnson",
+      "email": "user_bba8caba74@example.com",
+      "phone": "0522429889",
+      "address": "780 Quinn Trafficway Suite 671, New Aaronshire, OR 16153",
+      "description": "Letter money cover hair network window."
+    },
+    {
+      "id": "9a703d87-3902-4a06-843c-0107305052c8",
+      "name": "Darryl",
+      "lastName": "Wu",
+      "email": "user_b37c48bba3@example.com",
+      "phone": "0512321445",
+      "address": "PSC 6217, Box 6563, APO AA 92944",
+      "description": "Quite carry task resource certain and member."
+    }
+  ]
+}

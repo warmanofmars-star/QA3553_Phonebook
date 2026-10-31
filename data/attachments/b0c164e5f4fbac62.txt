@@ -1,4 +1,0 @@
-INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (453 ms)
-INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
-INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (87 ms)
-INFO     API:test_api_add_contact.py:27 [POST УСПЕХ] Контакт Richard Barnes успешно создан!

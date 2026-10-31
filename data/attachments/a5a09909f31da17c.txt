@@ -1,0 +1,22 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (85 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Hicks",
+  "phone": "0524442555",
+  "email": "user_315d674434@example.com",
+  "address": "236 Harris Park, Briggsshire, HI 99670",
+  "description": "Risk think administration city nice rate positive."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-10-31T15:12:09",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

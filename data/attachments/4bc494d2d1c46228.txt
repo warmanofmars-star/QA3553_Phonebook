@@ -1,0 +1,9 @@
+15:14:26 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+15:14:26 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: chrome
+15:14:28 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (416 ms)
+15:14:28 [INFO   ] API: Токен добавлен в заголовки сессии
+15:14:28 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+15:14:28 [INFO   ] STEP: Войти как invalid_email.com
+15:14:28 [INFO   ] UI: Текст Alert: 'Wrong email or password'
+15:14:28 [INFO   ] STEP: Закрыть Alert (OK)
+15:14:35 [INFO   ] DRIVER: Видео 8fa68211c02b7436da11200fd4cd3cb0.mp4 прикреплено к отчёту

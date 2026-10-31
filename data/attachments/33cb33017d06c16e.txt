@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Stephenson",
+  "phone": "0526808033",
+  "email": "user_f434e8488e@example.com",
+  "address": "9712 Alex Forge Apt. 590, Huntbury, AR 33001",
+  "description": "Rise cut benefit follow imagine call."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5142d183-40a7-48c5-a0c5-d278ffe70882"
+}

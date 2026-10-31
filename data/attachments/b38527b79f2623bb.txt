@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cae4aa0b-edfb-440f-8bf7-8a049c7ecede",
+      "name": "Monica",
+      "lastName": "Castro",
+      "email": "user_0fa2811d04@example.com",
+      "phone": "0511996393",
+      "address": "4046 Randy Extension, Teresafort, CO 92692",
+      "description": "Financial tough play image worker wrong close."
+    }
+  ]
+}

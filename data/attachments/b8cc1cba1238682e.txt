@@ -1,0 +1,12 @@
+15:12:43 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+15:12:43 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: chrome
+15:12:44 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (413 ms)
+15:12:44 [INFO   ] API: Токен добавлен в заголовки сессии
+15:12:44 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+15:12:44 [INFO   ] STEP: Войти как user_307d513bd8@example.com
+15:12:45 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/add
+15:12:45 [INFO   ] STEP: Заполнить форму контакта (телефон )
+15:12:46 [INFO   ] STEP: Нажать Save
+15:12:46 [INFO   ] UI: Текст Alert: ' Phone not valid: Phone number must contain only digits! And length min 10, max 15!'
+15:12:46 [INFO   ] STEP: Закрыть Alert (OK)
+15:12:51 [INFO   ] DRIVER: Видео 019f29764cf84b512c25fa8b5b5337b2.mp4 прикреплено к отчёту

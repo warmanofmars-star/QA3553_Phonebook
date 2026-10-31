@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "66be9e55-2767-4f0b-8ef0-603c287298d5",
+      "name": "Joanne",
+      "lastName": "Lane",
+      "email": "user_629c1e7408@example.com",
+      "phone": "0522539273",
+      "address": "89898 Lawrence Ramp Apt. 403, Johnnyton, WY 96362",
+      "description": "Tend hundred throw eye be create."
+    }
+  ]
+}

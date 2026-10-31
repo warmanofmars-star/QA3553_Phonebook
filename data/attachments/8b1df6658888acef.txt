@@ -1,2 +1,0 @@
-INFO     API_SECURITY:test_api_auth_security.py:27 --- СЦЕНАРИЙ: Запрос вообще без заголовка Authorization ---
-WARNING  API:contact_api.py:96 GET /v1/contacts -> 403 (131 ms)

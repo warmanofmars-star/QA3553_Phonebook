@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Johnson",
+  "phone": "0525451277",
+  "email": "user_5e43c5e45d@example.com",
+  "address": "PSC 0800, Box 8759, APO AP 63529",
+  "description": "Suggest join main daughter floor share anyone wait."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dcfdf8ff-674e-4adf-be84-f8de3f4e14a6"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d86d5337-1cc4-417c-80b6-69c02df9bb54",
+      "name": "James",
+      "lastName": "Gray",
+      "email": "user_38ce33c19a@example.com",
+      "phone": "0516283886",
+      "address": "291 Frey Squares, Ashleyfort, CO 71231",
+      "description": "Half while information relationship maintain."
+    },
+    {
+      "id": "03baf9b9-fe7b-4014-b6cc-c3e1053fac92",
+      "name": "Richard",
+      "lastName": "Webb",
+      "email": "user_8ba6d89143@example.com",
+      "phone": "0516283886",
+      "address": "0773 Church Inlet Apt. 132, Johnsonland, CO 80341",
+      "description": "Member mouth big environment fire."
+    }
+  ]
+}

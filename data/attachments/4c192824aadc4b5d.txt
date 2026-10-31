@@ -1,7 +1,0 @@
-INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (469 ms)
-INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
-INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (76 ms)
-INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (75 ms)
-INFO     API:contact_api.py:96 DELETE /v1/contacts/8107a80e-c3e4-4b17-9185-4a0bc508d613 -> 200 (78 ms)
-INFO     API:contact_api.py:96 GET /v1/contacts -> 200 (75 ms)
-INFO     API:test_api_delete.py:22 [DELETE ПРОВЕРКА] Контакт 8107a80e-c3e4-4b17-9185-4a0bc508d613 действительно исчез из базы!

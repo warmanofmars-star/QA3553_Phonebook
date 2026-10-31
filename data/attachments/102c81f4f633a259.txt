@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1e351d7a-f938-45a8-b9fe-c832527c1b0a",
+      "name": "Kimberly",
+      "lastName": "Parker",
+      "email": "user_c52fb2a256@example.com",
+      "phone": "0528932820",
+      "address": "194 Gibson Turnpike, Millerhaven, AR 64092",
+      "description": "Marriage base bed poor."
+    }
+  ]
+}

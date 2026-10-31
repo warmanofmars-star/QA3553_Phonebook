@@ -1,4 +1,0 @@
-INFO     API:contact_api.py:96 POST /v1/user/registration/usernamepassword -> 200 (251 ms)
-INFO     API:contact_api.py:144 Токен добавлен в заголовки сессии
-INFO     API_VALIDATION:test_api_payload_validation.py:49 --- ЗАПУСК СЦЕНАРИЯ: Boolean вместо строки в name ---
-INFO     API:contact_api.py:96 POST /v1/contacts -> 200 (63 ms)

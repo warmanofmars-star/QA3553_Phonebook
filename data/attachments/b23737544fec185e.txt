@@ -1,5 +1,0 @@
-[32;20m[2026-10-30 15:14:14] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (234 ms)[0m
-[32;20m[2026-10-30 15:14:14] [INFO] [API] - Токен добавлен в заголовки сессии[0m
-[32;20m[2026-10-30 15:14:14] [INFO] [API] - POST /v1/user/registration/usernamepassword -> 200 (241 ms)[0m
-[32;20m[2026-10-30 15:14:14] [INFO] [API] - Токен добавлен в заголовки сессии[0m
-[33;20m[2026-10-30 15:14:14] [WARNING] [API] - DELETE /v1/contacts/00000000-0000-0000-0000-000000000000 -> 400 (62 ms)[0m

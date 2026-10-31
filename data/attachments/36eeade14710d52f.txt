@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Henry",
+  "lastName": "Ochoa",
+  "phone": "0557547403",
+  "email": "user_191aae3fa0@example.com",
+  "address": "35970 Flores Mount Apt. 034, Lake Donnaburgh, MP 46531",
+  "description": "Dream recently condition debate level."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7cac7c32-780a-487c-8aef-08aa543219ad"
+}

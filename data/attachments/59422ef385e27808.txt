@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Cook",
+  "phone": "0527966172",
+  "email": "user_adb0f848d7@example.com",
+  "address": "1235 Erin River Apt. 766, Perezville, MD 20774",
+  "description": "Too recognize today action cost generation."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3053f757-b195-4380-9fd0-bbdbc6f8b051"
+}

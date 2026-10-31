@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "88f1abca-d3be-4df0-8f19-7f74b1cdd112",
+      "name": "Deborah",
+      "lastName": "Sullivan",
+      "email": "user_d247319d3c@example.com",
+      "phone": "0513964244",
+      "address": "383 Michael Green, South Laurenbury, NH 50835",
+      "description": "Serious attack represent early Republican structure."
+    }
+  ]
+}

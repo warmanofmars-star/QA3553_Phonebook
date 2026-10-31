@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Burke",
+  "phone": "0527651520",
+  "email": "user_bde322d7c0@example.com",
+  "address": "5700 Smith Extensions Suite 182, Lake Jenniferville, KS 89797",
+  "description": "Yeah recently wall."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b20255c6-8b54-4644-b8bb-4d840c796bb6"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "317b1940-7806-4736-a01e-e4d57f740883",
+      "name": "Tamara",
+      "lastName": "Foster",
+      "email": "user_4058a59b96@example.com",
+      "phone": "0518225712",
+      "address": "80492 Luke Knoll Apt. 992, North Walterview, MO 76231",
+      "description": "[object Undefined]"
+    }
+  ]
+}

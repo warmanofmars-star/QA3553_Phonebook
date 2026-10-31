@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Perry",
+  "phone": "0525644795",
+  "email": "user_a03d3833cf@example.com",
+  "address": "9707 Henry Oval, Herrerachester, AR 18755",
+  "description": "A green accept themselves.",
+  "id": "72c451c8-38f8-45d4-9526-3827c5a160e3"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 756542f1-1c1d-4799-bc1f-eb11f098c396"
+}

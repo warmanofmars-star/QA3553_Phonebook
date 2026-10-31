@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Stephenson",
+  "phone": "0519120267",
+  "email": "user_f5c515dc3c@example.com",
+  "address": "88980 Tyler Knoll Suite 918, Tiffanyport, TX 89559",
+  "description": "These race born concern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7be87ae1-bf28-4b47-9992-e9e22a8ddd87"
+}

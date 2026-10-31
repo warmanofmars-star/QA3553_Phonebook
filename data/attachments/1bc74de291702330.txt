@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4344d60f-2f39-408e-bdd6-ad96f7e6c746",
+      "name": "Marie",
+      "lastName": "Morgan",
+      "email": "user_a027aa0fdd@example.com",
+      "phone": "0512101850",
+      "address": "5485 Carol Brooks Apt. 940, West Jerryport, PR 00782",
+      "description": "Area program check section."
+    }
+  ]
+}
