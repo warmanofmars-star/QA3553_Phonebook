@@ -1,62 +1,89 @@
 pipeline {
     agent any
 
-    // 1. ПАРАМЕТРЫ ЗАПУСКА
+    // ==========================================
+    // 1. ОБЩИЕ НАСТРОЙКИ СБОРКИ
+    // ==========================================
+    options {
+        timeout(time: 30, unit: 'MINUTES')               // зависший Selenoid не повесит сборку навсегда
+        buildDiscarder(logRotator(numToKeepStr: '20'))   // старые сборки и их отчёты не копятся на диске
+        disableConcurrentBuilds()                        // две сборки в одном workspace мешали бы друг другу
+    }
+
+    // ==========================================
+    // 2. ПАРАМЕТРЫ ЗАПУСКА ("Собрать с параметрами")
+    // ==========================================
     parameters {
-        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Выберите браузер для тестов')
+        // Edge убран: в selenoid/browsers.json его нет, сборка всё равно упала бы
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox'], description: 'Браузер для UI-тестов')
+        string(name: 'TEST_MARKER', defaultValue: '', description: 'Маркеры pytest: smoke, api, "api and security"... Пусто — все тесты')
     }
 
-    // 2. БЕЗОПАСНЫЕ ПЕРЕМЕННЫЕ (Реальные секреты из твоего сейфа Jenkins!)
+    // ==========================================
+    // 3. ПЕРЕМЕННЫЕ ОКРУЖЕНИЯ
+    // ==========================================
     environment {
-        TG_BOT_TOKEN       = credentials('TG_BOT_TOKEN')
-        TG_CHAT_ID         = credentials('TG_CHAT_ID')
-        PHONEBOOK_EMAIL    = credentials('PHONEBOOK_EMAIL')
-        PHONEBOOK_PASSWORD = credentials('PHONEBOOK_PASSWORD')
+        // Секреты из хранилища Jenkins (Manage Jenkins -> Credentials)
+        TG_BOT_TOKEN = credentials('TG_BOT_TOKEN')
+        TG_CHAT_ID   = credentials('TG_CHAT_ID')
+        // Явное имя проекта Docker Compose: контейнеры, сети и тома этой сборки
+        // не пересекаются с локальными запусками docker compose на той же машине
+        COMPOSE_PROJECT_NAME = 'phonebook-jenkins'
     }
 
-    // 3. ОСНОВНЫЕ ШАГИ
+    // ==========================================
+    // 4. ЭТАПЫ
+    // ==========================================
     stages {
-        stage('Run Docker Tests') {
+        stage('Run tests in Docker') {
             steps {
                 script {
-                    // Workspace Jenkins сохраняется между сборками. Без очистки
-                    // старые результаты смешиваются с новыми, и Allure склеивает
-                    // разные прогоны в один отчёт (лишние тесты, "ретраи", неверное время)
-                    sh 'rm -rf allure-results && mkdir -p allure-results'
-                    // Генерируем .env на лету, подставляя безопасные переменные
-                    // Используем двойные кавычки (") для значений, чтобы Linux сам подставил переменные
-                    sh '''
-                    echo "USE_SELENOID=true" > .env
-                    echo "HEADLESS_MODE=true" >> .env
-                    echo "ALLOW_MASS_DELETE=false" >> .env
-                    echo "PW_TIMEOUT=10000" >> .env
-                    echo "BASE_URL=https://telranedu.web.app" >> .env
-                    echo "API_URL=https://contactapp-telran-backend.herokuapp.com" >> .env
-                    echo "USER_EMAIL=$PHONEBOOK_EMAIL" >> .env
-                    echo "USER_PASSWORD=$PHONEBOOK_PASSWORD" >> .env
-                    '''
+                    // Workspace Jenkins сохраняется между сборками: убираем результаты прошлой
+                    // сборки и старый .env (раньше в него писались логин и пароль — тестам он больше не нужен)
+                    sh 'rm -rf allure-results .env && mkdir -p allure-results'
 
-                    // Запускаем тесты в Докере (без глушилки catchError)
-                    sh """
-                    export BROWSER=${params.BROWSER}
-                    docker compose up --build --exit-code-from qa-framework
-                    """
+                    // Параметры передаются в контейнер через переменные окружения
+                    // (см. блок environment сервиса qa-framework в docker-compose.yml).
+                    // PYTEST_ADDOPTS pytest дочитывает сам — маркер не вклеивается в текст команды
+                    def marker = params.TEST_MARKER?.trim()
+                    def pytestAddopts = marker ? "-m \"${marker}\"" : ''
 
-                    // Копируем отчеты из контейнера перед его смертью (с флагом -a)
-                    sh "docker cp \$(docker compose ps -a -q qa-framework):/app/allure-results/. ./allure-results/ || true"
+                    def exitCode = 0
+                    withEnv(["BROWSER=${params.BROWSER}", "PYTEST_ADDOPTS=${pytestAddopts}"]) {
+                        // returnStatus: не прерываем pipeline сразу — сначала заберём результаты
+                        exitCode = sh(script: 'docker compose up --build --exit-code-from qa-framework', returnStatus: true)
+                    }
+
+                    // Результаты забираем ВСЕГДА — отчёт нужнее всего именно при упавших тестах.
+                    // Раньше копирование стояло после команды, которая падала, и не выполнялось
+                    sh 'docker cp "$(docker compose ps -a -q qa-framework)":/app/allure-results/. ./allure-results/ || true'
+
+                    // Коды выхода pytest: 0 — всё прошло; 1 — есть упавшие тесты; остальные — сбой запуска.
+                    // По соглашению Jenkins: упавшие тесты = UNSTABLE (жёлтая), сломанная сборка = FAILURE (красная)
+                    if (exitCode == 1) {
+                        unstable('Есть упавшие тесты — смотри Allure Report')
+                    } else if (exitCode != 0) {
+                        error("Тесты не удалось запустить (код выхода pytest/docker: ${exitCode})")
+                    }
                 }
             }
         }
     }
 
-    // 4. ДЕЙСТВИЯ ПОСЛЕ ТЕСТОВ
+    // ==========================================
+    // 5. ПОСЛЕ ЛЮБОГО ИСХОДА
+    // ==========================================
     post {
         always {
-            sh """
-            mkdir -p allure-results
-            echo "Browser=${params.BROWSER}" > allure-results/environment.properties
-            """
+            // environment.properties пишет сам фреймворк (conftest.py) — дополняем его
+            // данными о сборке, а не перезаписываем, как раньше
+            sh '''
+                mkdir -p allure-results
+                echo "CI=Jenkins" >> allure-results/environment.properties
+                echo "Build=${BUILD_NUMBER}" >> allure-results/environment.properties
+            '''
 
+            // Плагин Allure сам хранит историю сборок — график трендов строится автоматически
             allure([
                 includeProperties: false,
                 jdk: '',
@@ -65,23 +92,32 @@ pipeline {
                 results: [[path: 'allure-results']]
             ])
 
-            // Отправка безопасного уведомления в Telegram
             script {
-                def buildStatus = currentBuild.currentResult ?: 'SUCCESS'
-                def statusIcon = buildStatus == 'SUCCESS' ? '✅' : '🔴'
+                def status = currentBuild.currentResult   // SUCCESS / UNSTABLE / FAILURE / ABORTED
+                def icon = [SUCCESS: '✅', UNSTABLE: '🟡', FAILURE: '🔴'].get(status, '⚪')
+                def text = """${icon} Phonebook — Jenkins
+Сборка: ${env.JOB_NAME} #${env.BUILD_NUMBER}
+Браузер: ${params.BROWSER}
+Маркеры: ${params.TEST_MARKER ?: 'все тесты'}
+Статус: ${status}
+Отчёт: ${env.BUILD_URL}allure/"""
 
-                // Сохраняем текст сообщения в переменную окружения
-                env.TG_MSG = "${statusIcon} *Отчет о сборке Jenkins*%0A📦 Проект: ${env.JOB_NAME}%0A🔢 Билд: #${env.BUILD_NUMBER}%0A🌐 Браузер: ${params.BROWSER}%0A🚦 Статус: ${buildStatus}"
-
-                // Вызываем curl в одинарных кавычках - Jenkins будет абсолютно спокоен!
-                sh '''
-                curl -s -X POST "https://api.telegram.org/bot$TG_BOT_TOKEN/sendMessage" -d "chat_id=$TG_CHAT_ID" -d "parse_mode=Markdown" -d "text=$TG_MSG"
-                '''
+                // Текст передаём через переменную окружения, а curl кодирует его сам
+                // (--data-urlencode): переводы строк, эмодзи и спецсимволы не ломают запрос.
+                // Ошибка отправки не должна ронять сборку — отсюда "|| true"
+                withEnv(["TG_TEXT=${text}"]) {
+                    sh '''
+                        curl -sS -X POST "https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage" \
+                            --data-urlencode "chat_id=${TG_CHAT_ID}" \
+                            --data-urlencode "text=${TG_TEXT}" > /dev/null || true
+                    '''
+                }
             }
 
-            // Возвращаем жизненно важную зачистку мусора
-            sh 'docker compose down -v --remove-orphans'
-            sh 'docker image prune -f'
+            // Уборка. Благодаря COMPOSE_PROJECT_NAME --remove-orphans трогает
+            // только контейнеры этой сборки, но не сам Jenkins
+            sh 'docker compose down -v --remove-orphans || true'
+            sh 'docker image prune -f || true'
         }
     }
 }

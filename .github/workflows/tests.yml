@@ -1,27 +1,41 @@
-name: Phonebook UI Tests
+name: Phonebook Tests
 
+# ==========================================
+# КОГДА ЗАПУСКАЕТСЯ
+# ==========================================
 on:
-  workflow_dispatch:
-      inputs:
-        test_marker:
-          description: 'Теги для запуска (smoke, regression, api, ui). Оставь пустым для всех тестов.'
-          required: false
-          type: string
-          default: ''
-        allow_mass_delete:
-          description: 'Включить полное удаление всех контактов (DANGER!)'
-          required: false
-          type: boolean
-          default: false
+  push:
+    branches: [main]          # каждое изменение main проверяется автоматически
+  pull_request:
+    branches: [main]          # и каждый PR в main — ДО слияния (quality gate)
+  workflow_dispatch:          # ручной запуск из вкладки Actions
+    inputs:
+      test_marker:
+        description: 'Маркеры pytest: smoke, api, "api and security"... Пусто — все тесты'
+        required: false
+        type: string
+        default: ''
+
+# Минимальные права по умолчанию. Право на запись выдаётся только job отчёта
+permissions:
+  contents: read
+
+# Новый пуш в ту же ветку PR отменяет устаревший прогон. Прогоны main не прерываем,
+# чтобы опубликованный отчёт всегда соответствовал последнему завершённому прогону
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  # =========================================
-  # JOB 1: ПАРАЛЛЕЛЬНЫЙ ЗАПУСК ТЕСТОВ (МАТРИЦА)
-  # =========================================
+  # ==========================================
+  # JOB 1: ТЕСТЫ В НЕСКОЛЬКИХ БРАУЗЕРАХ ПАРАЛЛЕЛЬНО (МАТРИЦА)
+  # ==========================================
   test-execution:
+    name: Tests (${{ matrix.browser }})
     runs-on: ubuntu-22.04
+    timeout-minutes: 30       # зависший прогон не будет висеть 6 часов (лимит GitHub по умолчанию)
     strategy:
-      fail-fast: false
+      fail-fast: false        # падение в одном браузере не отменяет прогон в другом
       matrix:
         browser: [chrome, firefox]
 
@@ -29,131 +43,121 @@ jobs:
       - name: Скачиваем код проекта
         uses: actions/checkout@v4
 
-      - name: Подготавливаем переменные окружения для Docker
-        run: |
-          echo "USER_EMAIL=${{ secrets.USER_EMAIL }}" >> .env
-          echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}" >> .env
-          echo "ALLOW_MASS_DELETE=${{ github.event.inputs.allow_mass_delete }}" >> .env
-
-      - name: Pull Selenoid Browser Images & Video Recorder
+      - name: Скачиваем образы браузеров для Selenoid
+        # Selenoid сам запускает контейнеры с браузерами, но не скачивает их образы
         run: |
           docker pull selenoid/vnc_chrome:128.0
           docker pull selenoid/vnc_firefox:125.0
           docker pull selenoid/video-recorder:latest-release
 
-      - name: Запускаем автотесты в изолированной среде Docker Compose
+      - name: Запускаем тесты в Docker Compose (Selenoid)
         env:
           BROWSER: ${{ matrix.browser }}
-          MARKER: ${{ github.event.inputs.test_marker }}
-        run: |
-          # Динамически подставляем флаг -m, если пользователь ввел тег
-          if [ -n "$MARKER" ]; then
-            MARKER_FLAG="-m \"$MARKER\""
-          else
-            MARKER_FLAG=""
-          fi
-          
-          # Запускаем через sh -c, чтобы переменные корректно раскрылись
-          docker compose run --rm -e BROWSER=$BROWSER qa-framework sh -c "pytest -n 2 --browser_name=$BROWSER $MARKER_FLAG --video=on --clean-alluredir --alluredir=allure-results"
-        continue-on-error: true
+          # pytest сам дочитывает аргументы из переменной PYTEST_ADDOPTS.
+          # Маркер передаётся как данные, а не вклеивается в текст shell-команды
+          PYTEST_ADDOPTS: ${{ inputs.test_marker && format('-m "{0}"', inputs.test_marker) || '' }}
+        # Здесь больше НЕТ continue-on-error: упавшие тесты делают job и весь прогон красным.
+        # Отчёт при этом всё равно соберётся: следующие шаги помечены if: always()
+        run: docker compose run --rm qa-framework
 
-      - name: Исправляем права доступа для артефактов
+      - name: Возвращаем себе права на результаты
+        # Контейнер пишет файлы от root; без этого upload-artifact не сможет их прочитать
         if: always()
-        run: sudo chown -R $USER:$USER allure-results
+        run: sudo chown -R "$USER:$USER" allure-results || true
 
-      - name: Сохраняем сырые результаты Allure как артефакт
+      - name: Сохраняем сырые результаты Allure
+        if: always()
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: allure-results-${{ matrix.browser }}
           path: allure-results
-          retention-days: 1
+          retention-days: 3
 
-  # =========================================
-  # JOB 2: СБОРКА ЕДИНОГО ОТЧЕТА И ПУБЛИКАЦИЯ
-  # =========================================
-  generate-report:
+  # ==========================================
+  # JOB 2: ОБЩИЙ ОТЧЁТ, ПУБЛИКАЦИЯ И УВЕДОМЛЕНИЕ
+  # ==========================================
+  allure-report:
+    name: Allure report
     needs: test-execution
+    if: always()              # отчёт нужен именно тогда, когда тесты упали
     runs-on: ubuntu-22.04
-    if: always()
+    timeout-minutes: 15
+    permissions:
+      contents: write         # публикация отчёта в ветку gh-pages
 
     steps:
-      - name: Скачиваем результаты Chrome
+      - name: Скачиваем код проекта (нужен скрипт склейки)
+        uses: actions/checkout@v4
+
+      - name: Скачиваем результаты всех браузеров
         uses: actions/download-artifact@v4
         with:
-          name: allure-results-chrome
-          path: allure-results-chrome
+          pattern: allure-results-*   # каждый артефакт — в свою папку allure-results-<браузер>
 
-      - name: Скачиваем результаты Firefox
-        uses: actions/download-artifact@v4
+      - name: Забираем прошлый отчёт (история для графика трендов)
+        uses: actions/checkout@v4
+        continue-on-error: true       # при самом первом запуске ветки gh-pages ещё нет
         with:
-          name: allure-results-firefox
-          path: allure-results-firefox
+          ref: gh-pages
+          path: previous-report
 
-      - name: Уникализируем результаты для Allure (Python Script)
+      - name: Склеиваем результаты браузеров и добавляем историю
         run: |
-          cat << 'EOF' > process_allure.py
-          import json
-          import glob
+          python3 ci/merge_allure_results.py allure-results-*
+          # Allure строит тренды из папки history прошлого отчёта, положенной в результаты
+          FIRST_RESULTS=$(ls -d allure-results-* | head -n 1)
+          if [ -d previous-report/history ]; then
+            cp -r previous-report/history "$FIRST_RESULTS/"
+            echo "История прошлых прогонов добавлена"
+          fi
 
-          def process_folder(folder, browser):
-              files = glob.glob(f"{folder}/*result.json")
-              for file_path in files:
-                  with open(file_path, 'r', encoding='utf-8') as f:
-                      data = json.load(f)
-                  
-                  # 🔥 ГЛАВНЫЙ СЕКРЕТ ЗДЕСЬ: testCaseId отвечает за склейку тестов!
-                  if 'testCaseId' in data:
-                      data['testCaseId'] = f"{data['testCaseId']}-{browser}"
-                  
-                  if 'historyId' in data:
-                      data['historyId'] = f"{data['historyId']}-{browser}"
-                  
-                  if 'fullName' in data:
-                      data['fullName'] = f"{data['fullName']} [{browser.upper()}]"
-                  
-                  if 'name' in data:
-                      data['name'] = f"{data['name']} [{browser.upper()}]"
-                  
-                  if 'labels' in data:
-                      for label in data['labels']:
-                          if label['name'] == 'suite':
-                              label['value'] = f"{label['value']} ({browser.upper()})"
-                      
-                  with open(file_path, 'w', encoding='utf-8') as f:
-                      json.dump(data, f)
-
-          process_folder('allure-results-chrome', 'chrome')
-          process_folder('allure-results-firefox', 'firefox')
-          EOF
-          
-          python3 process_allure.py
-          
-          # Создаем файл окружения прямо в одной из папок
-          echo "Browsers=Chrome, Firefox" > allure-results-chrome/environment.properties
-          echo "Environment=Docker Compose (Selenoid)" >> allure-results-chrome/environment.properties
-          echo "CI=GitHub Actions Matrix" >> allure-results-chrome/environment.properties
-
-      - name: Устанавливаем Allure CLI и генерируем ОБЩИЙ отчет
+      - name: Генерируем отчёт
         run: |
-          npm install -g allure-commandline --save-dev
-          # Передаем обе папки напрямую в генератор
-          allure generate allure-results-chrome allure-results-firefox -o allure-report --clean
+          npm install -g allure-commandline@2.46.1
+          allure generate allure-results-* -o allure-report --clean
 
-      - name: Публикуем финальный отчет на GitHub Pages
+      - name: Публикуем отчёт на GitHub Pages
+        # Только для main: прогоны PR не должны подменять "официальный" отчёт
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-report
 
-      - name: Отправляем сводное уведомление в Telegram
-        uses: appleboy/telegram-action@master
+      - name: Сохраняем отчёт как артефакт
+        # Для PR это единственный способ посмотреть отчёт: скачать и открыть index.html
+        uses: actions/upload-artifact@v4
         with:
-            to: ${{ secrets.TELEGRAM_TO }}
-            token: ${{ secrets.TELEGRAM_TOKEN }}
-            message: |
-              🤖 Кроссбраузерные автотесты Phonebook завершены!
-              🌐 Проверено в: Chrome и Firefox
-              📊 Посмотреть общий Allure-отчет можно по ссылке:
-              👉 https://warmanofmars-star.github.io/QA3553_Phonebook/
+          name: allure-report
+          path: allure-report
+          retention-days: 7
+
+      - name: Уведомление в Telegram
+        if: always()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
+          TESTS_RESULT: ${{ needs.test-execution.result }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+          IS_MAIN: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ]; then echo "Секрет TELEGRAM_TOKEN не задан — пропускаю"; exit 0; fi
+
+          # Цифры берём из сгенерированного отчёта (xfail Allure считает как skipped)
+          STATS=$(python3 -c "import json; s = json.load(open('allure-report/widgets/summary.json'))['statistic']; print(f\"Прошли: {s['passed']}, упали: {s['failed'] + s['broken']}, известные баги/пропуски: {s['skipped']}\")" 2>/dev/null || echo "Отчёт не сформирован")
+          if [ "$TESTS_RESULT" = "success" ]; then ICON="✅"; else ICON="🔴"; fi
+          if [ "$IS_MAIN" = "true" ]; then REPORT="$PAGES_URL"; else REPORT="$RUN_URL (артефакт allure-report)"; fi
+
+          TEXT="$ICON Phonebook — GitHub Actions
+          Событие: $GITHUB_EVENT_NAME, ветка: $GITHUB_REF_NAME
+          Браузеры: chrome, firefox
+          Результат: $TESTS_RESULT
+          $STATS
+          Отчёт: $REPORT"
+
+          # --data-urlencode корректно передаёт переводы строк, эмодзи и спецсимволы
+          curl -sS -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_TO}" \
+            --data-urlencode "text=${TEXT}" > /dev/null || echo "Не удалось отправить уведомление"
