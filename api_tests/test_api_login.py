@@ -1,5 +1,6 @@
 import allure
 import pytest
+
 from api.contact_api import PhonebookAPI
 from utils.validators import assert_secure_error
 
@@ -28,10 +29,13 @@ def test_api_login_success(temp_user):
 @allure.feature("Authentication Controller")
 @allure.story("Login Negative")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.parametrize("scenario_key, expected_status, scenario", [
-    ("wrong_email", 401, "Несуществующий email"),
-    ("wrong_password", 401, "Неверный пароль"),
-])
+@pytest.mark.parametrize(
+    "scenario_key, expected_status, scenario",
+    [
+        ("wrong_email", 401, "Несуществующий email"),
+        ("wrong_password", 401, "Неверный пароль"),
+    ],
+)
 def test_api_login_negative(temp_user, scenario_key, expected_status, scenario):
     """Негативные тесты авторизации через API без утечки пароля в параметры отчета"""
     user = temp_user.user

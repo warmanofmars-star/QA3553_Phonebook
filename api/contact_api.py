@@ -39,8 +39,7 @@ def _mask_sensitive(data):
     """
     if isinstance(data, dict):
         return {
-            key: "********" if key.lower() in SENSITIVE_KEYS else _mask_sensitive(value)
-            for key, value in data.items()
+            key: "********" if key.lower() in SENSITIVE_KEYS else _mask_sensitive(value) for key, value in data.items()
         }
     if isinstance(data, list):
         return [_mask_sensitive(item) for item in data]

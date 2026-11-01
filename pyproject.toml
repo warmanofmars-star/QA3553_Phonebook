@@ -1,0 +1,34 @@
+# Настройки инструментов разработки.
+# Тесты настраиваются отдельно — в pytest.ini.
+
+[tool.ruff]
+# Минимальная версия Python, с которой совместим код. Это НЕ версия, на которой мы
+# запускаем (там 3.14 — локально и в Docker), а нижняя граница: ruff не станет
+# предлагать синтаксис, который сломается на 3.12. Например, на 3.14 аннотацию
+# -> "Settings" можно писать без кавычек, а на 3.12 это NameError при импорте.
+target-version = "py312"
+line-length = 120
+extend-exclude = ["allure-results", "allure-report", "logs"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",   # pycodestyle: базовый стиль
+    "F",        # pyflakes: неиспользуемые импорты и переменные, опечатки в именах
+    "I",        # isort: порядок импортов
+    "B",        # flake8-bugbear: типичные ошибки (изменяемые аргументы по умолчанию и т.п.)
+    "UP",       # pyupgrade: современный синтаксис для нашей версии Python
+    "SIM",      # flake8-simplify: код, который можно записать проще
+    "PT",       # flake8-pytest-style: стиль тестов pytest
+]
+
+[tool.ruff.lint.isort]
+# Наши пакеты — отдельной группой после сторонних библиотек
+known-first-party = ["api", "ci", "config", "data", "drivers", "models", "pages", "utils"]
+
+[tool.ruff.lint.flake8-pytest-style]
+# Имена параметров в parametrize пишем строкой через запятую: "contact, expected_error"
+parametrize-names-type = "csv"
+
+[tool.ruff.per-file-target-version]
+# Скрипт склейки отчётов в GitHub Actions выполняется системным Python раннера (3.10)
+"ci/**" = "py310"

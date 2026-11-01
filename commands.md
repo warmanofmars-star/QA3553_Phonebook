@@ -97,10 +97,28 @@
 
 ---
 
-## 🐙 Полезные команды Git и документации
-**Сгенерировать актуальный README.md из скрипта:**
-`python make_readme.py`
+## 🧹 Качество кода (ruff, pre-commit, gitleaks)
+**Установка инструментов разработки и хуков (один раз после клонирования):**
+`pip install -r requirements-dev.txt`
+`pre-commit install`
 
+**Проверить весь проект теми же хуками, что срабатывают перед коммитом:**
+`pre-commit run --all-files`
+
+**Только линтер / только форматирование:**
+`ruff check .` (с автоисправлением: `ruff check --fix .`)
+`ruff format .`
+
+**Проверить ВСЮ историю git на секреты (вывод без самих секретов):**
+`gitleaks git --redact` *(если gitleaks установлен отдельно; pre-commit проверяет только новые изменения)*
+
+---
+
+## 🐙 Полезные команды Git
 **Заставить Git "забыть" файл, но оставить его на диске (например, `.env` или `logs/`):**
 `git rm --cached <путь_к_файлу>`
 
+**Цикл работы над задачей (ветка → PR → слияние):**
+`git switch main && git pull` → `git switch -c <тип>/<название>` → коммиты →
+`git push -u origin <ветка>` → PR на GitHub → после слияния:
+`git switch main && git pull && git branch -d <ветка> && git fetch --prune`

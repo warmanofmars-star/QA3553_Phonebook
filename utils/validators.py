@@ -27,13 +27,15 @@ def assert_secure_error(response, expected_status=None):
     """
     with allure.step(f"Проверка безопасности ответа с ошибкой (ожидаем статус {expected_status})"):
         if expected_status:
-            assert response.status_code == expected_status, \
+            assert response.status_code == expected_status, (
                 f"Ожидался статус {expected_status}, но получен {response.status_code}. Тело: {response.text}"
+            )
 
         error_text = response.text.lower()
         for pattern in FORBIDDEN_PATTERNS:
-            assert pattern not in error_text, \
+            assert pattern not in error_text, (
                 f"УЯЗВИМОСТЬ: в тексте ошибки найдено критическое слово: '{pattern}'\nТело: {response.text}"
+            )
 
         logger.debug(f"Ошибка безопасна (статус {response.status_code}, утечек нет).")
 

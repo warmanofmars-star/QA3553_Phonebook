@@ -14,15 +14,23 @@ OUTPUT_FILE = "full_project_for_ai.txt"
 
 # Папки, которые не нужны для ревью (окружение, кэши, отчёты, IDE)
 IGNORE_DIRS = {
-    ".venv", ".git", ".idea", "__pycache__", ".pytest_cache",
-    "assets", "screenshots", "allure-results", "allure-report", "logs",
+    ".venv",
+    ".git",
+    ".idea",
+    "__pycache__",
+    ".pytest_cache",
+    "assets",
+    "screenshots",
+    "allure-results",
+    "allure-report",
+    "logs",
 }
 
 # Отдельные файлы, которые пропускаем всегда
 IGNORE_FILES = {
-    OUTPUT_FILE,               # не склеиваем сами себя
+    OUTPUT_FILE,  # не склеиваем сами себя
     "exported_contacts.json",  # реальные данные контактов
-    "valid_users.jsonl",       # логины/пароли сгенерированных пользователей
+    "valid_users.jsonl",  # логины/пароли сгенерированных пользователей
 }
 
 # Файлы с секретами: .env, .env.local, .env.prod и т.п.
@@ -34,8 +42,12 @@ VALID_EXTENSIONS = (".py", ".yml", ".yaml", ".md", ".ini", ".json", ".csv", ".tx
 # Файлы без расширения или с нестандартным именем, которые тоже важны для ревью.
 # Раньше Jenkinsfile и Dockerfile.* не попадали в выгрузку.
 VALID_EXACT_NAMES = {
-    "Dockerfile", "Dockerfile.jenkins", "Dockerfile.selenoid",
-    "Jenkinsfile", ".gitignore", ".dockerignore",
+    "Dockerfile",
+    "Dockerfile.jenkins",
+    "Dockerfile.selenoid",
+    "Jenkinsfile",
+    ".gitignore",
+    ".dockerignore",
 }
 
 # Страховка: строки вида USER_PASSWORD=..., TG_BOT_TOKEN=..., API_SECRET=...
@@ -53,7 +65,7 @@ def read_text(filepath: str) -> str:
     """
     for encoding in ("utf-8", "utf-8-sig", "utf-16"):
         try:
-            with open(filepath, "r", encoding=encoding) as f:
+            with open(filepath, encoding=encoding) as f:
                 return f.read()
         except (UnicodeDecodeError, UnicodeError):
             continue

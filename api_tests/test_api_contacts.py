@@ -1,7 +1,8 @@
 import allure
 import pytest
-from utils.validators import assert_json_schema
+
 from schemas.contact_schemas import GET_CONTACTS_RESPONSE_SCHEMA
+from utils.validators import assert_json_schema
 
 
 @pytest.mark.smoke
@@ -19,8 +20,9 @@ def test_api_get_all_contacts(auth_api, created_contact):
     contacts_list = response.json().get("contacts", [])
     all_phones = [c.get("phone") for c in contacts_list]
 
-    assert created_contact.phone in all_phones, \
+    assert created_contact.phone in all_phones, (
         f"Созданный контакт с телефоном {created_contact.phone} не найден в базе!"
+    )
 
 
 @pytest.mark.smoke

@@ -32,6 +32,7 @@ def test_mock_contacts_list(page: Page, temp_user):
     Ответ на GET /v1/contacts подменяется, поэтому тест проверяет только
     отрисовку и не зависит от реальных данных пользователя.
     """
+
     def handle_route(route: Route):
         if route.request.method == "GET":
             route.fulfill(json=FAKE_CONTACTS, status=200)

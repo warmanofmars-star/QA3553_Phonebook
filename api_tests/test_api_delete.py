@@ -12,8 +12,9 @@ from data.known_bugs import known_bug
 @allure.severity(allure.severity_level.CRITICAL)
 def test_api_delete_contact(auth_api, created_contact):
     response_delete = auth_api.delete_contact(created_contact.id)
-    assert response_delete.status_code == 200, \
+    assert response_delete.status_code == 200, (
         f"API не смог удалить контакт: {response_delete.status_code} {response_delete.text}"
+    )
 
     assert created_contact.id not in auth_api.get_contact_ids(), "БАГ: Контакт не удалился из базы данных!"
 
@@ -40,7 +41,7 @@ def test_api_customer_cannot_clear_all_contacts(auth_api, create_contact):
 
     # Главное — данные на месте; код ответа вторичен (SRS его не задаёт)
     remaining = seeded_ids & set(auth_api.get_contact_ids())
-    assert remaining == seeded_ids, \
+    assert remaining == seeded_ids, (
         f"Обычный пользователь удалил все контакты (удалено {len(seeded_ids - remaining)} из {len(seeded_ids)})"
-    assert response.status_code in (401, 403), \
-        f"Ожидался отказ в доступе (401/403), получено {response.status_code}"
+    )
+    assert response.status_code in (401, 403), f"Ожидался отказ в доступе (401/403), получено {response.status_code}"

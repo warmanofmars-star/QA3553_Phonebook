@@ -1,7 +1,8 @@
 import allure
-from playwright.sync_api import Page, Locator
-from utils.logger import get_logger
+from playwright.sync_api import Locator, Page
+
 from config import settings
+from utils.logger import get_logger
 
 
 class PwBasePage:

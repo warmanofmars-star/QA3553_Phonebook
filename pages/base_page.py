@@ -28,7 +28,7 @@ Locator = tuple[str, str]
 class BasePage:
     BASE_URL = settings.base_url
     ENDPOINT = ""
-    PAGE_NAME = "страница"           # человеческое имя для шагов отчёта; задаётся в наследниках
+    PAGE_NAME = "страница"  # человеческое имя для шагов отчёта; задаётся в наследниках
     DEFAULT_TIMEOUT = settings.ui_timeout
 
     # Общий для всех страниц элемент шапки

@@ -1,8 +1,9 @@
-import pytest
 import allure
+import pytest
+
 from api.contact_api import PhonebookAPI
-from utils.validators import assert_secure_error
 from data.known_bugs import known_bug
+from utils.validators import assert_secure_error
 
 pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
 
@@ -10,16 +11,21 @@ pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
 @allure.epic("API Security")
 @allure.feature("Authentication")
 @allure.story("Check Token Validation")
-@pytest.mark.parametrize("auth_header, expected_status, scenario", [
-    pytest.param(
-        None, 401, "Запрос вообще без заголовка Authorization",
-        marks=known_bug("NO_AUTH_403"),
-    ),
-    ("Bearer ", 401, "Заголовок есть, но токен пустой"),
-    ("Bearer invalid_token_12345", 401, "Абсолютно невалидный токен"),
-    ("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", 401, "Синтаксически похожий, но фейковый JWT"),
-    ("Basic dXNlcjpwYXNzd29yZA==", 401, "Подмена схемы (Basic вместо Bearer)")
-])
+@pytest.mark.parametrize(
+    "auth_header, expected_status, scenario",
+    [
+        pytest.param(
+            None,
+            401,
+            "Запрос вообще без заголовка Authorization",
+            marks=known_bug("NO_AUTH_403"),
+        ),
+        ("Bearer ", 401, "Заголовок есть, но токен пустой"),
+        ("Bearer invalid_token_12345", 401, "Абсолютно невалидный токен"),
+        ("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", 401, "Синтаксически похожий, но фейковый JWT"),
+        ("Basic dXNlcjpwYXNzd29yZA==", 401, "Подмена схемы (Basic вместо Bearer)"),
+    ],
+)
 def test_api_invalid_tokens(auth_header, expected_status, scenario):
     """Проверка 14: Запрос без валидной аутентификации должен быть отклонен"""
 

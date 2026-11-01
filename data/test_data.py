@@ -34,9 +34,13 @@ def load_negative_contacts() -> list:
                 description=row["description"],
             )
             marks = [known_bug(row["known_bug"])] if row["known_bug"] else []
-            params.append(pytest.param(
-                contact, row["expected_error"], row["test_case"],
-                id=f'{row["test_case"]}-{row["scenario"]}',  # читаемый id: TC-0013-empty-name
-                marks=marks,
-            ))
+            params.append(
+                pytest.param(
+                    contact,
+                    row["expected_error"],
+                    row["test_case"],
+                    id=f"{row['test_case']}-{row['scenario']}",  # читаемый id: TC-0013-empty-name
+                    marks=marks,
+                )
+            )
     return params

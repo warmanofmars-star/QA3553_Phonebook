@@ -52,6 +52,7 @@ def export_contacts_to_json() -> int:
 if __name__ == "__main__":
     # Вне pytest логирование никто не настраивает — включаем простой вывод в консоль,
     # чтобы видеть запросы API-клиента (POST /v1/... -> 200)
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
-                        datefmt="%H:%M:%S")
+    logging.basicConfig(
+        level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s", datefmt="%H:%M:%S"
+    )
     sys.exit(export_contacts_to_json())

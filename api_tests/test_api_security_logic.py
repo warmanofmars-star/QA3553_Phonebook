@@ -54,8 +54,9 @@ def test_api_bola_cannot_delete_others_contact(temp_user, second_user):
 
     # Главная проверка — данные B на месте. Именно это и есть защита от BOLA.
     with allure.step("Проверка: контакт B не удалён"):
-        assert contact_b.id in second_user.api.get_contact_ids(), \
+        assert contact_b.id in second_user.api.get_contact_ids(), (
             "КРИТИЧНО (BOLA): пользователь A удалил контакт пользователя B!"
+        )
 
     # Вторичная проверка — сервер не рапортует об успехе и не раскрывает лишнего
     assert attack.status_code != 200, "Сервер ответил 200 на удаление чужого контакта"
@@ -78,8 +79,7 @@ def test_api_bola_cannot_update_others_contact(temp_user, second_user):
     with allure.step("Проверка: данные контакта B не изменились"):
         stored = _get_contact(second_user.api, contact_b.id)
         assert stored is not None, "КРИТИЧНО (BOLA): контакт B исчез после PUT пользователя A!"
-        assert stored.get("phone") == contact_b.phone, \
-            "КРИТИЧНО (BOLA): пользователь A изменил контакт пользователя B!"
+        assert stored.get("phone") == contact_b.phone, "КРИТИЧНО (BOLA): пользователь A изменил контакт пользователя B!"
 
     assert attack.status_code != 200, "Сервер ответил 200 на изменение чужого контакта"
     assert_secure_error(attack)
@@ -101,12 +101,12 @@ def test_api_mass_assignment_foreign_id(temp_user, second_user):
 
     with allure.step("Проверка: контакт B не изменился"):
         stored = _get_contact(second_user.api, contact_b.id)
-        assert stored is not None and stored.get("phone") == contact_b.phone, \
-            "КРИТИЧНО: подставленный клиентом id перезаписал чужой контакт!"
+        # Две отдельные проверки: при падении сразу видно, что именно случилось
+        assert stored is not None, "КРИТИЧНО: контакт B исчез после атаки с подставленным id!"
+        assert stored.get("phone") == contact_b.phone, "КРИТИЧНО: подставленный клиентом id перезаписал чужой контакт!"
 
     with allure.step("Проверка: у A контакт создан с новым id, выданным сервером"):
-        assert contact_b.id not in temp_user.api.get_contact_ids(), \
-            "Сервер принял id, переданный клиентом"
+        assert contact_b.id not in temp_user.api.get_contact_ids(), "Сервер принял id, переданный клиентом"
 
 
 # ==========================================
@@ -174,11 +174,13 @@ def test_api_wrong_content_type_is_client_error(auth_api):
     """Тело text/plain вместо JSON — ошибка клиента, сервер должен ответить 4xx (в идеале 415), а не падать."""
     with allure.step("Отправляем обычный текст с заголовком text/plain вместо application/json"):
         response = auth_api.request(
-            "POST", "/v1/contacts",
+            "POST",
+            "/v1/contacts",
             data="Malicious plain text payload",
             headers={"Content-Type": "text/plain"},
         )
 
-    assert 400 <= response.status_code < 500, \
+    assert 400 <= response.status_code < 500, (
         f"Ошибка клиента должна давать 4xx, а сервер ответил {response.status_code}"
+    )
     assert_secure_error(response)

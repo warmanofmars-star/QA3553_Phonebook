@@ -41,7 +41,7 @@ SELENOID_BROWSER_NAMES = {"chrome": "chrome", "firefox": "firefox", "edge": "Mic
 # ждёт только ЗАПУСКА контейнера, а не готовности сервиса). Поэтому перед
 # созданием сессии ждём, пока Selenoid начнёт отвечать, но не дольше этого времени.
 SELENOID_STARTUP_TIMEOUT = 30  # секунды
-SELENOID_POLL_INTERVAL = 1     # пауза между проверками, секунды
+SELENOID_POLL_INTERVAL = 1  # пауза между проверками, секунды
 
 # Сколько секунд ждать, пока Selenoid допишет видеофайл после закрытия сессии
 VIDEO_WAIT_SECONDS = 10
@@ -124,7 +124,7 @@ def _wait_for_selenoid() -> None:
                 "Варианты:\n"
                 "  * запусти Selenoid:  docker compose up -d selenoid\n"
                 "  * или запускай браузер локально: USE_SELENOID=false в .env "
-                "(либо $env:USE_SELENOID=\"false\" в PowerShell на текущую сессию)"
+                '(либо $env:USE_SELENOID="false" в PowerShell на текущую сессию)'
             )
         time.sleep(SELENOID_POLL_INTERVAL)
 
