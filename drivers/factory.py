@@ -168,6 +168,12 @@ def attach_selenoid_video(session_id: str, browser: str) -> None:
     Selenoid дописывает mp4 уже ПОСЛЕ закрытия сессии, поэтому файл
     может появиться не сразу — ждём его до VIDEO_WAIT_SECONDS секунд.
     """
+    if not settings.video_dir:
+        # Локальный запуск против Selenoid: видео лежит в Docker-томе, отсюда его не достать.
+        # Раньше тест в этой ситуации 10 секунд ждал файл по несуществующему пути
+        logger.debug("VIDEO_DIR не задан — видео к отчёту не прикладываем")
+        return
+
     video_path = Path(settings.video_dir) / f"{session_id}.mp4"
 
     for _ in range(VIDEO_WAIT_SECONDS):
