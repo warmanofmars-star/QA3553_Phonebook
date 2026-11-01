@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Gibson",
+  "phone": "0559928994",
+  "email": "user_bc677745bb@example.com",
+  "address": "4804 Cooper Mills, Port John, LA 27664",
+  "description": "Response not listen consumer available interview dinner second."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5220e54f-02d1-4494-8971-3fc12169b665"
+}

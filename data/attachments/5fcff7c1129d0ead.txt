@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "741189d0-ed2a-4694-b290-5c15b634f159",
+      "name": "Jason",
+      "lastName": "Gonzalez",
+      "email": "user_92852b220d@example.com",
+      "phone": "0580221859",
+      "address": "82456 Keith Drive Suite 481, Barrettmouth, GU 07171",
+      "description": "Continue let task education girl detail if."
+    }
+  ]
+}

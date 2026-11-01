@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Casey",
+  "lastName": "Miller",
+  "phone": "0553671294",
+  "email": "user_43983db2c5@example.com",
+  "address": "589 Katherine Inlet Apt. 085, Lake Tylerborough, WA 11302",
+  "description": "Get believe minute tell along."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 48e86ba8-a46d-4127-8e63-e1a3dbc7d74f"
+}

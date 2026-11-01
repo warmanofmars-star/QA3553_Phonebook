@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Case",
+  "phone": "0594769301",
+  "email": "user_ad400cf2d6@example.com",
+  "address": "4734 Williams Parkway, Conwaymouth, MI 34627",
+  "description": "Spring let teach manager."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: afee36a0-fd75-4ebe-8b50-3359262b5dc8"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Scott",
+  "lastName": "Michael",
+  "phone": "0514400354",
+  "email": "user_cd44ba14ad@example.com",
+  "address": "213 Lucas Estates, Anthonyland, NC 97030",
+  "description": "Civil speech away friend."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0678bf17-7fd5-45c2-8391-4fa419368ad2"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Todd",
+  "lastName": "Riley",
+  "phone": "0591064085",
+  "email": "not_an_email",
+  "address": "8141 Elliott Cove Apt. 984, West Jennifer, OK 05550",
+  "description": "Guy here occur see total science common."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T16:12:42",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,11 @@
+16:13:25 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+16:13:25 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: chrome
+16:13:26 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (275 ms)
+16:13:26 [INFO   ] API: Токен добавлен в заголовки сессии
+16:13:26 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+16:13:26 [INFO   ] STEP: Войти как user_282f2cefea@example.com
+16:13:27 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/add
+16:13:27 [INFO   ] STEP: Заполнить форму контакта (телефон 0501234567)
+16:13:27 [INFO   ] STEP: Нажать Save
+16:13:28 [INFO   ] UI: Текст Alert: 'Email not valid: must be a well-formed email address'
+16:13:31 [INFO   ] DRIVER: Видео e0e79b25711ce97d13c75e7bcbe87609.mp4 прикреплено к отчёту

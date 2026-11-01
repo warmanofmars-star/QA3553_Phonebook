@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dd48352d-6256-4d30-851d-d05a92163a96",
+      "name": "Leah",
+      "lastName": "Briggs",
+      "email": "user_a89aedda9d@example.com",
+      "phone": "0531151625",
+      "address": "040 Jones Estates Suite 383, West Timothy, MI 48314",
+      "description": "Deep chair form weight attention situation light letter."
+    }
+  ]
+}

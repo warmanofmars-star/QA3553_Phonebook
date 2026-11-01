@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (119 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Taylor",
+  "phone": "0526549143",
+  "email": "user_0dcfa8c269@example.com",
+  "address": "2103 Tammy Tunnel Apt. 677, Amychester, IA 50802",
+  "description": "Song still government medical will."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e12b2790-1161-4016-a9e0-86cbc5973835"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5fa91370-c2b9-4fbe-b78d-70470302da20",
+      "name": "Brian",
+      "lastName": "Thomas",
+      "email": "user_57860de751@example.com",
+      "phone": "0520700424",
+      "address": "1221 Russell Fords, Farmerfort, WY 03740",
+      "description": "[object Undefined]"
+    }
+  ]
+}

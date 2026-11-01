@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dana",
+  "lastName": "Jordan",
+  "phone": "0529989404",
+  "email": "user_dd20ecab6b@example.com",
+  "address": "705 Hall Course Apt. 904, Kellerton, ND 27426",
+  "description": "All price account produce cold."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b9ad3c5c-e74a-4dff-bbce-4185eb0761c1"
+}

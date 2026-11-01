@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Jones",
+  "phone": "0529667595",
+  "email": "user_70dbc253b9@example.com",
+  "address": "0478 George Ridges, Port Nicholas, SC 06909",
+  "description": "Environment although teacher woman soldier there hear."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ca77fcbb-be12-481f-b93a-8607841e1f3d"
+}

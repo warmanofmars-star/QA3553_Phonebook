@@ -1,5 +1,0 @@
-12:50:59 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
-12:50:59 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: chrome
-12:51:00 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
-12:51:00 [INFO   ] STEP: Зарегистрироваться как user_0aef6611e8@example.com
-12:51:05 [INFO   ] DRIVER: Видео 2ac583f5c71959a1ae9d2478f72adf96.mp4 прикреплено к отчёту

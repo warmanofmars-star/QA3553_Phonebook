@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "44a2f2ca-ab1a-41c2-ae48-807a8301699d",
+      "name": "Brandi",
+      "lastName": "Aguilar",
+      "email": "user_738d0662fa@example.com",
+      "phone": "0520931032",
+      "address": "851 John Rest, Meganberg, NM 28364",
+      "description": "Exactly air partner executive some before life whole."
+    },
+    {
+      "id": "715e8350-76f5-48fe-b7f4-c3dc9aa42348",
+      "name": "Peter",
+      "lastName": "Lambert",
+      "email": "user_e3f4e8eeda@example.com",
+      "phone": "0520931032",
+      "address": "78260 Bautista Vista Apt. 125, South Ashleychester, PW 04820",
+      "description": "Wide gun skill TV energy system dinner."
+    }
+  ]
+}

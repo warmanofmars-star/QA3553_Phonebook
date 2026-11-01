@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2b8005a6-aef1-4941-98db-65659f899b49",
+      "name": "Matthew",
+      "lastName": "Cook",
+      "email": "user_9b8038ce0a@example.com",
+      "phone": "0524299752",
+      "address": "059 Richard Spur Apt. 200, Port Chelseaburgh, ID 87055",
+      "description": "View company south network support top pressure."
+    }
+  ]
+}

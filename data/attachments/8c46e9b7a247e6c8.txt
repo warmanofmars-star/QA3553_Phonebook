@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4b551212-1eb0-4efc-adb6-4cb0ebb40d22",
+      "name": "Thomas",
+      "lastName": "Medina",
+      "email": "user_db86f19baf@example.com",
+      "phone": "0529830653",
+      "address": "71052 King Walks Apt. 587, West Charlesport, AZ 08695",
+      "description": "Three year building suffer think big glass."
+    },
+    {
+      "id": "d0bd8052-2ebb-444c-8a95-997502c98616",
+      "name": "Desiree",
+      "lastName": "Brown",
+      "email": "user_4ae0c33387@example.com",
+      "phone": "0520208564",
+      "address": "3983 Karen Shoals Apt. 038, Port Ericborough, NV 27087",
+      "description": "Campaign leg enough wrong woman require product stage."
+    }
+  ]
+}

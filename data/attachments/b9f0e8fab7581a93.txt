@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Gonzalez",
+  "phone": "0580221859",
+  "email": "user_92852b220d@example.com",
+  "address": "82456 Keith Drive Suite 481, Barrettmouth, GU 07171",
+  "description": "Continue let task education girl detail if."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 741189d0-ed2a-4694-b290-5c15b634f159"
+}

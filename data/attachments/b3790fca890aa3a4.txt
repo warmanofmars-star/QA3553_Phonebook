@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (79 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Snyder",
+  "phone": "0526124776",
+  "email": "user_812d80b666@example.com",
+  "address": "0249 Howard Mission Apt. 085, Lake Jasonton, AK 10610",
+  "description": "Style program them form once visit ten group."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 26ecbb5c-af62-48d8-bab5-ac217a5869e4"
+}

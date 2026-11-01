@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Hansen",
+  "phone": "0511151799",
+  "email": "user_e5c88a34c2@example.com",
+  "address": "259 Michael Mill Apt. 809, New Susanchester, WI 74645",
+  "description": "Many benefit hard cup safe."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3e7622a2-ff61-4eeb-a220-28b1bda5ef95"
+}

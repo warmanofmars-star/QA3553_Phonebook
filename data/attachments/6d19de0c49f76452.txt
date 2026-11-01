@@ -1,0 +1,22 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Cox",
+  "phone": "0527565495",
+  "email": "user_fc4190c9b6@example.com",
+  "address": "34284 Blackburn Canyon Apt. 118, East Karen, NV 76365",
+  "description": "World focus activity miss program front.",
+  "id": "ec28faac-bccd-4043-8dc5-6f667e06e6bf"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T16:12:27",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: ec28faac-bccd-4043-8dc5-6f667e06e6bf not found in your contacts!",
+  "path": "/v1/contacts"
+}

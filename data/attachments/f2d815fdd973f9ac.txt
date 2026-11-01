@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "77a901d2-9a4b-4cf0-a3dd-ffbac9b731e7",
+      "name": "Anthony",
+      "lastName": "Garcia",
+      "email": "user_7a3a1316e8@example.com",
+      "phone": "0525344696",
+      "address": "37333 Reynolds Pass Suite 768, Cookchester, NM 13215",
+      "description": "Guy surface no pass consider strategy card."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fcb6ae37-5137-41bf-be0c-229f53cef907",
+      "name": "Timothy",
+      "lastName": "Henderson",
+      "email": "user_821dd8f8c3@example.com",
+      "phone": "0523330481",
+      "address": "9075 Miranda Village, North Travis, GU 51694",
+      "description": "Back state expert hour federal."
+    }
+  ]
+}

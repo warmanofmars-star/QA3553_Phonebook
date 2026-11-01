@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anthony",
+  "lastName": "Smith",
+  "phone": "0515009798",
+  "email": "user_128e950669@example.com",
+  "address": "347 William Manors Suite 990, Laurastad, MI 59013",
+  "description": "Test miss green cultural respond."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8717af77-5fb2-48a3-be97-c658dc204be7"
+}

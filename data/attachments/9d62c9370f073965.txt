@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5a7ea5b9-6918-48ca-a9c0-57f3482f9040",
+      "name": "Kirsten",
+      "lastName": "Townsend",
+      "email": "user_1146ad8271@example.com",
+      "phone": "0562069838",
+      "address": "09229 Lawrence Ranch Apt. 160, Port Jamiefurt, NJ 18348",
+      "description": "Toward central member agreement somebody."
+    },
+    {
+      "id": "61458e4d-21e3-4c36-a73a-9d5d3995b125",
+      "name": "John",
+      "lastName": "Cooper",
+      "email": "user_e00952e4bf@example.com",
+      "phone": "0516774178",
+      "address": "195 Sarah Run Suite 812, Castroshire, NY 63898",
+      "description": "Evidence person both position management truth reason where."
+    },
+    {
+      "id": "25fe855f-e5f8-4246-b10e-83c13f89432a",
+      "name": "Benjamin",
+      "lastName": "Price",
+      "email": "user_660577a645@example.com",
+      "phone": "0570147184",
+      "address": "PSC 4188, Box 7263, APO AP 80757",
+      "description": "Task position again build soon born stop."
+    }
+  ]
+}

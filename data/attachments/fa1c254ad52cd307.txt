@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (120 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Thomas",
+  "phone": "0520700424",
+  "email": "user_57860de751@example.com",
+  "address": "1221 Russell Fords, Farmerfort, WY 03740",
+  "description": "Cultural against station risk land good."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5fa91370-c2b9-4fbe-b78d-70470302da20"
+}

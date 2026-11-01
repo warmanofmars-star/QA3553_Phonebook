@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Desiree",
+  "lastName": "Brown",
+  "phone": "0520208564",
+  "email": "user_4ae0c33387@example.com",
+  "address": "3983 Karen Shoals Apt. 038, Port Ericborough, NV 27087",
+  "description": "Campaign leg enough wrong woman require product stage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d0bd8052-2ebb-444c-8a95-997502c98616"
+}

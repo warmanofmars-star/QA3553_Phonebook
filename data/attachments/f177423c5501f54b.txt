@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (120 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lucas",
+  "lastName": "Parker",
+  "phone": "0526895790",
+  "email": "user_305f9940ea@example.com",
+  "address": "9969 Wang Parkways Apt. 479, Port Ann, LA 20408",
+  "description": "Young house participant seem pick represent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e82aa671-509f-4ccb-b4f6-5e5fd2d56b00"
+}

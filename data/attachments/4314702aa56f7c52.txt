@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ed6bc3c1-b64c-431a-92a3-bde67db054ae",
+      "name": "Colton",
+      "lastName": "Miller",
+      "email": "user_8ed083ba02@example.com",
+      "phone": "0511173731",
+      "address": "31507 Alexander Bypass Suite 181, Elliottborough, MS 38379",
+      "description": "Protect approach full sign put Republican."
+    },
+    {
+      "id": "e304698c-ba12-4a52-8d2f-744c7ce0f557",
+      "name": "Allison",
+      "lastName": "Pena",
+      "email": "user_3d116a230d@example.com",
+      "phone": "0511173731",
+      "address": "PSC 1839, Box 5303, APO AP 29900",
+      "description": "Forget seem nation instead yard."
+    }
+  ]
+}

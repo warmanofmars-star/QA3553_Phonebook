@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (85 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Jones",
+  "phone": "0526181288",
+  "email": "user_2713725b4b@example.com",
+  "address": "5822 Smith Inlet, New Dillonhaven, VI 97371",
+  "description": "Everybody need partner piece occur easy."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T16:12:42",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

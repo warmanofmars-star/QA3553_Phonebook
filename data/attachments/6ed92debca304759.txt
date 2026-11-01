@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (119 ms)
+
+--- Тело запроса ---
+{
+  "name": "Theresa",
+  "lastName": "Moore",
+  "phone": "0512850609",
+  "email": "user_564388c860@example.com",
+  "address": "1693 Cooper Lakes, East Warrenfurt, MP 58081",
+  "description": "Clear later new government process life."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f3ed1085-9eba-4dd0-ae4f-d84b4bbb39e4"
+}

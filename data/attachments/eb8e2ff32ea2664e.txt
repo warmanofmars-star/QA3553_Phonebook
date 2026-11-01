@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Anderson",
+  "email": "user_f5705280ab@example.com",
+  "address": "2272 Keith View, Charleschester, MN 68213",
+  "description": "Church interest development usually page medical bill."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 918d1299-7cef-4498-8588-1cca2225b87d"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (121 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Smith",
+  "phone": "0554665553",
+  "email": "user_d877d40fe0@example.com",
+  "address": "4136 Hamilton Orchard, East Sara, TN 29505",
+  "description": "Under determine wall."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0d54e148-8d41-448e-ba4a-9c852deb5d3d"
+}

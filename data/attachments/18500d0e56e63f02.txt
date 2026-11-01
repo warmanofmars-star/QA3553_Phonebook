@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f3ed1085-9eba-4dd0-ae4f-d84b4bbb39e4",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Moore",
+      "email": "user_564388c860@example.com",
+      "phone": "0512850609",
+      "address": "1693 Cooper Lakes, East Warrenfurt, MP 58081",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

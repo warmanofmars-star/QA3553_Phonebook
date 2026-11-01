@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3d1a3786-02fa-4bfb-9fec-1bdd56022aba",
+      "name": "Thomas",
+      "lastName": "Molina",
+      "email": "user_224fc3d28f@example.com",
+      "phone": "0533632702",
+      "address": "5208 Robert Islands, Kimberlyborough, CT 49268",
+      "description": "Wonder build pretty wear."
+    }
+  ]
+}

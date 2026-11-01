@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c5679dfc-c967-4ab3-9fb1-b98d3c309579",
+      "name": "Brandon",
+      "lastName": "Barton",
+      "email": "user_4aa7f29d51@example.com",
+      "phone": "0514482654",
+      "address": "629 Amanda Fort, West Lisatown, MH 92649",
+      "description": "Statement begin mouth baby bag both."
+    }
+  ]
+}

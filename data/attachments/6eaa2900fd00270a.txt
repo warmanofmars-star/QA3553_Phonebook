@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Colton",
+  "lastName": "Miller",
+  "phone": "0511173731",
+  "email": "user_8ed083ba02@example.com",
+  "address": "31507 Alexander Bypass Suite 181, Elliottborough, MS 38379",
+  "description": "Protect approach full sign put Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed6bc3c1-b64c-431a-92a3-bde67db054ae"
+}

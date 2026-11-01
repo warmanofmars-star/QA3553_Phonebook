@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kirk",
+  "lastName": "Oneill",
+  "phone": "0510078819",
+  "email": "user_e8edc9cb58@example.com",
+  "address": "309 Laurie Grove, North Ernest, DE 10809",
+  "description": "Agree partner boy building."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8ca9f631-0975-4904-a1a7-758add5f44cf"
+}

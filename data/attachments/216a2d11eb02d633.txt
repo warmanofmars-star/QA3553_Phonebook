@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Turner",
+  "phone": "0527737911",
+  "email": "user_ed86c3067b@example.com",
+  "address": "364 Mcdaniel Run Apt. 749, Carolbury, OH 49697",
+  "description": "Bed right worry."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73e67a23-1a20-4462-a771-2da432f1bbcd"
+}

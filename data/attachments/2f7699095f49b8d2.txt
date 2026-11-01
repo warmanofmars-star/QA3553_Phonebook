@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (120 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Wilson",
+  "phone": "0510576372",
+  "email": "user_462277bd10@example.com",
+  "address": "49419 Smith Loaf, South Davidside, NM 36369",
+  "description": "Student line turn magazine same he."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2693417a-ccd4-4f18-b351-fdd365da61f7"
+}

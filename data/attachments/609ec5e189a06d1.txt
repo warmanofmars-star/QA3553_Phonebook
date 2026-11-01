@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4c59ceec-ed91-4c06-865f-45d578404614",
+      "name": "James",
+      "lastName": "Palmer",
+      "email": "user_b3ba846576@example.com",
+      "phone": "0511988642",
+      "address": "6914 Peters Falls Apt. 839, Port Johnland, FL 84112",
+      "description": "Whole bit piece outside."
+    }
+  ]
+}

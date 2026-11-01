@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6d088523-2570-4c88-8fd0-a378ea11b03f",
+      "name": "Tara",
+      "lastName": "Potts",
+      "email": "user_c311e79732@example.com",
+      "phone": "0520748700",
+      "address": "573 Kim Pines, Hernandezfurt, NJ 61261",
+      "description": "Your else see learn sea some."
+    }
+  ]
+}

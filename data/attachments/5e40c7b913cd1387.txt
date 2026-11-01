@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e12b2790-1161-4016-a9e0-86cbc5973835",
+      "name": "Katherine",
+      "lastName": "Taylor",
+      "email": "",
+      "phone": "0526549143",
+      "address": "2103 Tammy Tunnel Apt. 677, Amychester, IA 50802",
+      "description": "Song still government medical will."
+    }
+  ]
+}

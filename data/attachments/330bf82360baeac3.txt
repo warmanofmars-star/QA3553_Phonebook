@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Molina",
+  "phone": "0533632702",
+  "email": "user_224fc3d28f@example.com",
+  "address": "5208 Robert Islands, Kimberlyborough, CT 49268",
+  "description": "Wonder build pretty wear."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3d1a3786-02fa-4bfb-9fec-1bdd56022aba"
+}

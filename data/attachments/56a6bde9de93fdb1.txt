@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0e678082-73af-4d59-9e80-5a6905120bd5",
+      "name": "Pamela",
+      "lastName": "Murphy",
+      "email": "user_8a84ef1fd9@example.com",
+      "phone": "0533310286",
+      "address": "68274 Ashley Knolls Apt. 702, Lake Erinberg, TX 74147",
+      "description": "Life reveal they nation try four."
+    }
+  ]
+}

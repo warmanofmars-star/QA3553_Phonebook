@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erica",
+  "lastName": "May",
+  "phone": "0519167501",
+  "email": "user_52aa71b042@example.com",
+  "address": "35004 Stone Creek, Smithstad, OR 80270",
+  "description": "Share benefit education the.",
+  "id": "325719a9-c8c2-4b20-8e25-5e040f7e4ae5"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4ce91a91-3611-4d3b-ba45-568293bed375"
+}

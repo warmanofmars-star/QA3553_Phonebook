@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (119 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cc69e22e-4bf0-4242-b480-0c1150fd04c5",
+      "name": "Jeremiah",
+      "lastName": "Hogan",
+      "email": "user_9493077678@example.com",
+      "phone": "0543634279",
+      "address": "71563 Paul Pass, South Lindahaven, TX 39242",
+      "description": "Laugh section than him."
+    },
+    {
+      "id": "9b2be384-4dce-48cb-aa84-a3bd458aa1fb",
+      "name": "Andrew",
+      "lastName": "Oconnell",
+      "email": "user_42272f160f@example.com",
+      "phone": "0528997346",
+      "address": "55161 Chang Fields Apt. 745, Hammondhaven, KY 70561",
+      "description": "Worry democratic green street save attorney."
+    }
+  ]
+}

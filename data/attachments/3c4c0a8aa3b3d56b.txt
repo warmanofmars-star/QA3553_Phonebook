@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Justin",
+  "lastName": "Barnes",
+  "phone": "0525824862",
+  "email": "user_40816c24c2@example.com",
+  "address": "8169 Moore Glens, Anitahaven, ME 19999",
+  "description": "Staff interview offer coach education adult standard."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4ba91323-db14-49ee-a978-80887256edd3"
+}

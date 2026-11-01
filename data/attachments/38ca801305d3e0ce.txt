@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Griffin",
+  "phone": "0519958985",
+  "email": "user_0f0bca22ea@example.com",
+  "address": "595 Hood Streets, Anthonyland, TX 63711",
+  "description": "Recently mind likely ahead wall support many."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8d9fcdcf-0a5e-4b88-8a13-75048502afab"
+}

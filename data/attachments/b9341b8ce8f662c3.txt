@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Miranda",
+  "lastName": "Holmes",
+  "phone": "0510295953",
+  "email": "user_596e44b9ab@example.com",
+  "address": "PSC 4880, Box 7406, APO AE 86305",
+  "description": "Father defense when film throw local seek."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f3969670-987d-4e0b-9da2-ff1e5efc002f"
+}

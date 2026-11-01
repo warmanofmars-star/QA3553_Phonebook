@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deborah",
+  "lastName": "Franklin",
+  "phone": "0528734321",
+  "email": "user_07989c22f6@example.com",
+  "address": "202 Lori Throughway Apt. 380, Shanefurt, NY 06790",
+  "description": "Politics serve next."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ec28faac-bccd-4043-8dc5-6f667e06e6bf"
+}

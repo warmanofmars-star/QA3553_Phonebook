@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+{
+  "name": "Yvonne",
+  "lastName": "George",
+  "phone": "0566836901",
+  "email": "user_fdb2fb390b@example.com",
+  "address": "03053 Thomas Manors Suite 555, Kellyville, MN 34902",
+  "description": "Wide hear focus here its receive."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0f0f4f5f-9c90-4216-85c7-941bc70aab5e"
+}

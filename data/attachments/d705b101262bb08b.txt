@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f9b8a10d-2229-443e-a6e6-134ba6d3ac6e",
+      "name": "Richard",
+      "lastName": "Russell",
+      "email": "user_4cb2b9d585@example.com",
+      "phone": "0513640575",
+      "address": "3674 Riley Corners, South Diana, UT 02665",
+      "description": "Their class official bad pretty color easy concern."
+    },
+    {
+      "id": "8717af77-5fb2-48a3-be97-c658dc204be7",
+      "name": "Anthony",
+      "lastName": "Smith",
+      "email": "user_128e950669@example.com",
+      "phone": "0515009798",
+      "address": "347 William Manors Suite 990, Laurastad, MI 59013",
+      "description": "Test miss green cultural respond."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "Casey",
+  "lastName": "Cruz",
+  "phone": "0588753924",
+  "email": "user_c61bd2c9a8@example.com",
+  "address": "622 Garcia Locks, East Jerry, MH 79497",
+  "description": "Growth design despite."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 19c17fad-85d2-47d4-808d-2e956cabe06a"
+}

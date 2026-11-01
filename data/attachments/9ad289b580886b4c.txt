@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (77 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Mason",
+  "email": "user_919f3d1c23@example.com",
+  "address": "713 Alexander Road Suite 429, Robinville, LA 41470",
+  "description": "Carry at large American performance particular go."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 34892201-61c1-4fd1-911c-8a0d439c6edf"
+}

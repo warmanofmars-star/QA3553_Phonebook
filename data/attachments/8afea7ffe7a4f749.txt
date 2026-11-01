@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Byrd",
+  "phone": "0524053450",
+  "email": "user_5f57b7513f@example.com",
+  "address": "0480 James Locks Apt. 646, New Jade, SC 09317",
+  "description": "Present like seat one data."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ef436b48-0a66-4251-b392-8831cf675c4c"
+}

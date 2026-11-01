@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "75f4aa55-1705-4473-b17c-5966d7a0b81c",
+      "name": "Jackson",
+      "lastName": "Jones",
+      "email": "user_03b2dfcc81@example.com",
+      "phone": "0523355671",
+      "address": "35783 Pierce Rapids, Reillyborough, UT 55833",
+      "description": "Eight guy improve ago run law TV institution."
+    }
+  ]
+}

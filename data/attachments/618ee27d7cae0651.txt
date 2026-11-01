@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (120 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Osborn",
+  "phone": "0525458922",
+  "email": "user_adf2905fd8@example.com",
+  "address": "890 Hicks Greens Apt. 020, Ayalaton, AR 20528",
+  "description": "Camera soon provide tend executive admit."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d94d2590-284b-4223-94c7-ca38e4811345"
+}

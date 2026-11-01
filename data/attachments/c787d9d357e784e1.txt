@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Palmer",
+  "phone": "0511988642",
+  "email": "user_b3ba846576@example.com",
+  "address": "555 Stewart Mountain, East Kyle, NV 58988",
+  "description": "Whole bit piece outside."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4c59ceec-ed91-4c06-865f-45d578404614"
+}

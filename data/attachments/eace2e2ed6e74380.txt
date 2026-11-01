@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ff4e0d30-1b2f-4230-a58f-ed7d11b0900e",
+      "name": "Janice",
+      "lastName": "Simpson",
+      "email": "user_c17f16a438@example.com",
+      "phone": "0524992972",
+      "address": "Unit 7212 Box 8067, DPO AP 93527",
+      "description": "Election under anyone role determine."
+    }
+  ]
+}

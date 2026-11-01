@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (121 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Oconnell",
+  "phone": "0528997346",
+  "email": "user_42272f160f@example.com",
+  "address": "55161 Chang Fields Apt. 745, Hammondhaven, KY 70561",
+  "description": "Worry democratic green street save attorney."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9b2be384-4dce-48cb-aa84-a3bd458aa1fb"
+}

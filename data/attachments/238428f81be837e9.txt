@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8ca9f631-0975-4904-a1a7-758add5f44cf",
+      "name": "Kirk",
+      "lastName": "Oneill",
+      "email": "user_e8edc9cb58@example.com",
+      "phone": "0510078819",
+      "address": "309 Laurie Grove, North Ernest, DE 10809",
+      "description": "Agree partner boy building."
+    }
+  ]
+}

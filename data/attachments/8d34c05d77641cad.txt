@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michele",
+  "lastName": "Bolton",
+  "phone": "0513857636",
+  "email": "user_3d5a5f26e0@example.com",
+  "address": "60012 Lopez Route, Michellefort, VI 14953",
+  "description": "Store reflect some teach clear."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5811822b-75fc-4a04-98d9-d094b6b912b2"
+}
