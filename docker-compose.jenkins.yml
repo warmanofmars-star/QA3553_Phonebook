@@ -1,10 +1,19 @@
-networks:
-  qa-network:
-    name: qa-network
-    driver: bridge
+# Локальный Jenkins в Docker.
+#
+# Запуск:   docker compose -f docker-compose.jenkins.yml up -d --build
+# Останов:  docker compose -f docker-compose.jenkins.yml down      (том jenkins_home внешний — данные не удаляются)
+# Явное имя проекта. Раньше оба compose-файла лежали в одной папке и попадали в один
+# проект "qa3553_phonebook": docker compose для тестов видел контейнер Jenkins как
+# "сироту" (orphan), и команда `docker compose down --remove-orphans` его удаляла.
+name: phonebook-jenkins-server
 
 volumes:
   jenkins_home:
+    # Внешний том: compose его не создаёт и НЕ удаляет — даже командой down -v.
+    # Данные Jenkins (джобы, сборки, credentials, плагины) живут независимо
+    # от имени проекта и переживают любое пересоздание контейнера.
+    # На новой машине том создаётся один раз вручную: docker volume create jenkins_home
+    external: true
     name: jenkins_home
 
 services:
@@ -13,12 +22,14 @@ services:
       context: .
       dockerfile: Dockerfile.jenkins
     container_name: jenkins-master
-    user: root # Запускаем от root, чтобы иметь доступ к docker.sock твоего ПК
+    restart: unless-stopped          # сам поднимается после перезапуска Docker Desktop
+    user: root                       # доступ к docker.sock хоста (см. комментарий в Dockerfile.jenkins)
     ports:
-      - "8080:8080" # Web-интерфейс Jenkins
-      - "50000:50000" # Порт для агентов (если понадобятся)
+      - "8080:8080"                  # веб-интерфейс; на этот порт смотрит туннель ngrok
+      - "50000:50000"                # порт для подключения агентов Jenkins
     volumes:
-      - jenkins_home:/var/jenkins_home # Сохраняем настройки Jenkins на жестком диске
-      - /var/run/docker.sock:/var/run/docker.sock # Прокидываем "пульт управления" докером внутрь Jenkins
-    networks:
-      - qa-network
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Сеть qa-network Jenkins больше не нужна: тестовые контейнеры он запускает через
+    # docker.sock, а не по сети. Раньше общая сеть связывала его с тестовым стендом,
+    # и `docker compose down` тестов пытался её удалить, пока к ней подключён Jenkins.

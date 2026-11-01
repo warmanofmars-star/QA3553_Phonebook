@@ -1,2 +1,7 @@
-FROM aerokube/selenoid:latest-release
+# Selenoid с нашим списком браузеров внутри образа.
+#
+# Версия зафиксирована: 1.11.3 — последний выпуск (май 2024), именно на него
+# указывал тег latest-release. Проект Aerokube больше не развивается, новых
+# версий Selenoid и образов браузеров не выходит (см. selenoid/browsers.json).
+FROM aerokube/selenoid:1.11.3
 COPY selenoid/browsers.json /etc/selenoid/browsers.json

@@ -83,7 +83,7 @@ class Settings:
     headless: bool          # запуск без окна браузера (локально)
     use_selenoid: bool      # True: браузеры в Docker через Selenoid
     selenoid_hub_url: str   # адрес Selenoid
-    video_dir: str          # куда Selenoid складывает видео прогонов
+    video_dir: str | None   # где лежат видео Selenoid (None — видео к отчёту не прикладываем)
     is_ci: bool             # True: запуск на "голом" CI-раннере без Selenoid
 
     # --- Таймауты ---
@@ -104,7 +104,10 @@ class Settings:
             headless=_env_bool("HEADLESS_MODE", False),
             use_selenoid=_env_bool("USE_SELENOID", False),
             selenoid_hub_url=_env_str("SELENOID_HUB_URL", "http://localhost:4444/wd/hub"),
-            video_dir=_env_str("VIDEO_DIR", r"C:\selenoid\video"),
+            # По умолчанию видео нет: Selenoid пишет его в Docker-том, доступный только
+            # контейнеру с тестами (там VIDEO_DIR=/app/video задаёт docker-compose.yml).
+            # Раньше здесь был путь C:\selenoid\video — его нет ни в Docker, ни на CI.
+            video_dir=_env_str("VIDEO_DIR"),
             is_ci=_env_bool("CI", False),
 
             ui_timeout=_env_int("UI_TIMEOUT", 5),

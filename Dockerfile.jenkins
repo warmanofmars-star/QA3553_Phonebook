@@ -1,25 +1,31 @@
-# Берем самую свежую LTS-версию Jenkins на современной Java 21
-FROM jenkins/jenkins:lts-jdk21
+# Jenkins с Docker CLI внутри: сборки запускают docker compose через сокет
+# Docker хост-машины (см. docker-compose.jenkins.yml).
+#
+# ВЕРСИЯ: lts-jdk21 — "плавающий" тег, при пересборке образа может приехать новая
+# версия Jenkins, а с ней — несовместимость плагинов. Рекомендуется закрепить
+# версию, которая работает у тебя сейчас (она видна внизу любой страницы Jenkins),
+# например: FROM jenkins/jenkins:2.580.1-lts-jdk21
+# Важно: только ту же или более новую — откат Jenkins на старую версию
+# с уже обновлённым jenkins_home может сломать конфигурацию.
+FROM jenkins/jenkins:2.580.1-lts-jdk21
 
-# Переключаемся на root, чтобы установить программы
 USER root
 
-# 1. Устанавливаем базовые утилиты
-RUN apt-get update && apt-get install -y ca-certificates curl
+# Docker CLI и плагин compose из официального репозитория Docker.
+# Одним RUN-слоем и с очисткой кэша apt — образ получается меньше.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates curl \
+    && install -m 0755 -d /etc/apt/keyrings \
+    && curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc \
+    && chmod a+r /etc/apt/keyrings/docker.asc \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" \
+       > /etc/apt/sources.list.d/docker.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends docker-ce-cli docker-compose-plugin \
+    && rm -rf /var/lib/apt/lists/*
 
-# 2. Скачиваем официальный ключ Docker (современный безопасный метод через keyrings)
-RUN install -m 0755 -d /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
-    chmod a+r /etc/apt/keyrings/docker.asc
-
-# 3. Динамически добавляем репозиторий Docker под текущую версию Debian
-RUN echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable" | \
-  tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-# 4. Обновляем списки пакетов и устанавливаем Docker CLI
-RUN apt-get update && apt-get install -y docker-ce-cli docker-compose-plugin
-
-# Возвращаем пользователя jenkins для безопасности
+# Образ по умолчанию работает от пользователя jenkins. Но docker-compose.jenkins.yml
+# всё равно запускает контейнер от root (user: root) — иначе нет доступа к docker.sock.
+# Для учебного локального стенда это допустимо; в реальной инфраструктуре так не делают:
+# root в контейнере с docker.sock фактически означает root на всей хост-машине.
 USER jenkins

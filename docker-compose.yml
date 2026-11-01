@@ -1,53 +1,66 @@
+# Тестовый стенд: Selenoid (браузеры в Docker) + контейнер с тестами.
+#
+# Запуск:   docker compose up --build --exit-code-from qa-framework
+# Останов:  docker compose down
+# Браузер:  $env:BROWSER="firefox"; docker compose up ...   (PowerShell)
+#           BROWSER=firefox docker compose up ...             (bash)
+#
+# Явное имя проекта: стенд не смешивается с Jenkins (docker-compose.jenkins.yml).
+# В Jenkins имя переопределяется переменной COMPOSE_PROJECT_NAME (см. Jenkinsfile) —
+# она приоритетнее этой строки, поэтому сборки Jenkins идут отдельным проектом.
+name: phonebook-tests
+
 networks:
   qa-network:
+    # Фиксированное имя: Selenoid подключает к этой сети контейнеры с браузерами,
+    # которые сам же запускает (параметр -container-network ниже)
     name: qa-network
     driver: bridge
 
-# Создаем изолированный виртуальный диск внутри Докера
 volumes:
   video-data:
+    # Фиксированное имя: Selenoid передаёт его контейнерам записи видео
+    # (OVERRIDE_VIDEO_OUTPUT_DIR ниже), а те монтируют том по этому имени
     name: video-data
 
 services:
   selenoid:
-    # 👇 Заменили скачивание готового образа на локальную сборку
     build:
       context: .
-      dockerfile: Dockerfile.selenoid
+      dockerfile: Dockerfile.selenoid    # Selenoid со встроенным selenoid/browsers.json
     networks:
       - qa-network
     volumes:
+      # Selenoid сам запускает контейнеры с браузерами — ему нужен доступ к Docker
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "video-data:/opt/selenoid/video" # Подключаем диск к Селеноиду
-      # ❌ Строчку с ./selenoid:/etc/selenoid:ro мы УДАЛИЛИ
+      - "video-data:/opt/selenoid/video"
     ports:
-      - "4444:4444"
+      - "4444:4444"                      # доступ с хоста: локальный запуск тестов с USE_SELENOID=true
     environment:
+      # Selenoid 1.11 собран со старым Docker-клиентом; без явной версии API
+      # современный Docker Engine отказывается с ним работать
       - DOCKER_API_VERSION=1.41
-      - OVERRIDE_VIDEO_OUTPUT_DIR=video-data # Магия Селеноида для связи с томом
+      # Видео пишут отдельные контейнеры video-recorder: им передаётся имя тома, куда писать
+      - OVERRIDE_VIDEO_OUTPUT_DIR=video-data
     command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-container-network", "qa-network"]
 
   qa-framework:
     build: .
     depends_on:
-      - selenoid
+      - selenoid                         # готовность Selenoid проверяет drivers/factory.py (/status)
     networks:
       - qa-network
     volumes:
       - "./allure-results:/app/allure-results"
-      - "video-data:/app/video" # Подключаем этот же диск к нашему фреймворку
+      - "video-data:/app/video"          # тот же том: тесты прикладывают видео к Allure
     environment:
       - USE_SELENOID=true
       - SELENOID_HUB_URL=http://selenoid:4444/wd/hub
       - VIDEO_DIR=/app/video
       - BASE_URL=https://telranedu.web.app
       - API_URL=https://contactapp-telran-backend.herokuapp.com
-      # Параметры запуска, которые передают CI (GitHub Actions, Jenkins) или ты сам:
-      #   BROWSER=firefox docker compose up ...                      (bash)
-      #   $env:BROWSER="firefox"; docker compose up ...              (PowerShell)
-      # Раньше BROWSER сюда не передавался, и выбор браузера в Jenkins молча игнорировался
+      # Параметры запуска от CI (GitHub Actions, Jenkins) или от тебя (см. шапку файла)
       - BROWSER=${BROWSER:-chrome}
       # Дополнительные аргументы pytest, например -m "smoke" (pytest читает их сам)
       - PYTEST_ADDOPTS=${PYTEST_ADDOPTS:-}
-    # Команда запуска тестов
     command: sh -c "pytest -n 2 --browser_name=$${BROWSER:-chrome} --video=on --clean-alluredir --alluredir=allure-results"

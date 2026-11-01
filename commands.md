@@ -2,12 +2,13 @@
 
 
 ## 🏃‍♂️ Запуск тестов локально (Без Docker)
-Перед локальным запуском убедись, что в `.env` стоит `USE_SELENOID=false`.
+Перед локальным запуском убедись, что в `.env` стоит `USE_SELENOID=false`
+(или переопредели на текущий сеанс PowerShell: `$env:USE_SELENOID="false"`).
 
 **Запуск всех тестов (UI + API) параллельно в 4 потока с генерацией отчета:**
 `pytest -n 4 --clean-alluredir --alluredir=allure-results`
 
-**Запуск с выбором конкретного браузера (`chrome`, `firefox`, `edge`):**
+**Запуск с выбором конкретного браузера (`chrome`, `firefox`, `edge` — Edge только локально, в Selenoid его нет):**
 `pytest -n 4 --browser_name=firefox --clean-alluredir --alluredir=allure-results`
 
 **Быстрый прогон только API-слоя (без браузеров):**
@@ -24,6 +25,19 @@
 
 **Запуск Playwright тестов в видимом (Headed) режиме для дебага:**
 `pytest tests/test_playwright_login.py -s --headed`
+
+---
+
+## 🤖 Jenkins в Docker
+**Запуск (первый раз или после изменения Dockerfile.jenkins):**
+`docker compose -f docker-compose.jenkins.yml up -d --build`
+
+**Остановка (настройки и сборки сохраняются в томе `jenkins_home`):**
+`docker compose -f docker-compose.jenkins.yml down`
+*(Том `jenkins_home` объявлен внешним: compose не удаляет его даже с `-v`. На новой машине перед первым запуском создай его один раз: `docker volume create jenkins_home`)*
+
+**Логи Jenkins (например, начальный пароль администратора):**
+`docker logs jenkins-master`
 
 ---
 
@@ -47,10 +61,14 @@
 ---
 
 ## 🐳 Запуск через Docker Compose (Изолированная среда)
-Перед запуском убедись, что в `.env` стоит `USE_SELENOID=true`.
+Значение `USE_SELENOID` в `.env` здесь не важно: docker-compose.yml сам передаёт контейнеру `USE_SELENOID=true`.
 
 **Полный запуск (Сборка образа -> Запуск Selenoid -> Прогон тестов -> Выход):**
 `docker compose up --build --exit-code-from qa-framework`
+
+**Запуск только части тестов (маркеры передаются через `PYTEST_ADDOPTS`):**
+- В PowerShell: `$env:PYTEST_ADDOPTS='-m "smoke"'; docker compose up --build --exit-code-from qa-framework`
+- В Bash: `PYTEST_ADDOPTS='-m "smoke"' docker compose up --build --exit-code-from qa-framework`
 
 **Запуск в изолированном Firefox через Docker Compose:**
 - В PowerShell (Windows):
@@ -58,8 +76,9 @@
 - В Bash / Linux:
   `BROWSER=firefox docker compose up --build --exit-code-from qa-framework`
 
-**Остановка и удаление контейнеров (после завершения работы):**
+**Остановка и удаление контейнеров тестового стенда (после завершения работы):**
 `docker compose down -v --remove-orphans`
+*(Безопасно для Jenkins: он в отдельном проекте `phonebook-jenkins-server` и в «сироты» больше не попадает)*
 
 ---
 
@@ -70,7 +89,8 @@
 **Очистить диск от безымянных (dangling) слоев образов:**
 `docker image prune -f`
 
-**Точечно обновить образы VNC-браузеров для Selenoid:**
+**Скачать образы VNC-браузеров для Selenoid (Selenoid сам их не скачивает):**
+*(Это последние существующие версии: проект Selenoid больше не развивается)*
 `docker pull selenoid/vnc_chrome:128.0`
 `docker pull selenoid/vnc_firefox:125.0`
 `docker pull selenoid/video-recorder:latest-release`
