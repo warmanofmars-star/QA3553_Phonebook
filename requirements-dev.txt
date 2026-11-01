@@ -1,0 +1,5 @@
+# Зависимости для разработки: всё из requirements.txt плюс инструменты качества кода.
+# В Docker-образ с тестами они не попадают — там нужен только requirements.txt.
+-r requirements.txt
+ruff==0.17.1
+pre-commit==4.7.0

@@ -1,17 +1,19 @@
 import random
 import string
 import uuid
+
 from faker import Faker
+
+from models.contact import Contact
 
 # Импортируем наши модели
 from models.user import User
-from models.contact import Contact
 
 # Инициализируем Faker один раз для всего файла
-fake = Faker('en_US')
+fake = Faker("en_US")
+
 
 class UserGenerator:
-
     @staticmethod
     def generate_valid_password():
         """Генерирует валидный пароль: 8-15 символов, 1 заглавная, 1 строчная, 1 цифра, 1 спецсимвол"""
@@ -23,12 +25,12 @@ class UserGenerator:
         length = random.randint(8, 15)
         rest_length = length - 4
         all_chars = string.ascii_letters + string.digits + "@$#^&*!"
-        rest = ''.join(random.choices(all_chars, k=rest_length))
+        rest = "".join(random.choices(all_chars, k=rest_length))
 
         password_list = list(upper + lower + digit + special + rest)
         random.shuffle(password_list)
 
-        return ''.join(password_list)
+        return "".join(password_list)
 
     @staticmethod
     def generate_valid_email():
@@ -59,7 +61,6 @@ class UserGenerator:
 # ГЕНЕРАТОР ДЛЯ КОНТАКТОВ (Faker + Unique + Numerify)
 # ==========================================
 class ContactGenerator:
-
     @staticmethod
     def get_random_contact(**overrides) -> Contact:
         """Генерирует случайный контакт с потокобезопасной уникальностью (UUID)"""
@@ -76,7 +77,7 @@ class ContactGenerator:
             # Faker возвращает адрес в две строки, а поле ввода в UI однострочное:
             # перевод строки при вводе теряется, и данные из UI и API не совпадали бы
             "address": fake.address().replace("\n", ", "),
-            "description": fake.sentence()
+            "description": fake.sentence(),
         }
 
         data.update(overrides)

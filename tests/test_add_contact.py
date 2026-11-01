@@ -23,8 +23,9 @@ def test_add_contact_success_all_fields(authenticated_driver, auth_api):
     add_page.open()
     add_page.add_contact(contact)
 
-    assert ContactsPage(authenticated_driver).is_card_displayed(contact.phone), \
+    assert ContactsPage(authenticated_driver).is_card_displayed(contact.phone), (
         f"Карточка контакта с телефоном {contact.phone} не появилась в списке"
+    )
 
     # UI показывает только имя и телефон. Через API проверяем, что ВСЕ поля
     # сохранились, причём каждое в своё поле (не "съехали" в соседние инпуты)

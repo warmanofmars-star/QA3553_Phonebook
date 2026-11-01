@@ -16,8 +16,8 @@ from pages.login_page import LoginPage
 
 pytestmark = [pytest.mark.ui, allure.epic("UI Testing"), allure.feature("Authentication")]
 
-WRONG_CREDENTIALS = "Wrong email or password"   # SRS F1, F2, F4
-USER_ALREADY_EXISTS = "User already exists"     # SRS F3
+WRONG_CREDENTIALS = "Wrong email or password"  # SRS F1, F2, F4
+USER_ALREADY_EXISTS = "User already exists"  # SRS F3
 
 
 def _expect_alert(page: LoginPage, expected: str) -> None:
@@ -46,11 +46,14 @@ def test_login_success(driver, temp_user):
 @pytest.mark.regression
 @allure.story("Login negative")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("scenario, test_case", [
-    pytest.param("invalid_email", "TC-0007", id="TC-0007-invalid-email"),
-    pytest.param("wrong_password", "TC-0008", id="TC-0008-wrong-password"),
-    pytest.param("unregistered", "TC-0009", id="TC-0009-unregistered-user"),
-])
+@pytest.mark.parametrize(
+    "scenario, test_case",
+    [
+        pytest.param("invalid_email", "TC-0007", id="TC-0007-invalid-email"),
+        pytest.param("wrong_password", "TC-0008", id="TC-0008-wrong-password"),
+        pytest.param("unregistered", "TC-0009", id="TC-0009-unregistered-user"),
+    ],
+)
 def test_login_negative(driver, temp_user, scenario, test_case):
     allure.dynamic.tag(test_case)
     credentials = {
@@ -88,19 +91,35 @@ def test_registration_success(driver):
 @pytest.mark.regression
 @allure.story("Registration negative")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("scenario, expected_alert, test_case", [
-    pytest.param("invalid_email", WRONG_CREDENTIALS, "TC-0002", id="TC-0002-invalid-email"),
-    pytest.param("invalid_password", WRONG_CREDENTIALS, "TC-0003", id="TC-0003-invalid-password"),
-    pytest.param("existing_user", USER_ALREADY_EXISTS, "TC-0004", id="TC-0004-existing-user",
-                 marks=known_bug("USER_EXISTS_WORDING")),
-    pytest.param("existing_email", USER_ALREADY_EXISTS, "TC-0005", id="TC-0005-existing-email-new-password",
-                 marks=known_bug("USER_EXISTS_WORDING")),
-])
+@pytest.mark.parametrize(
+    "scenario, expected_alert, test_case",
+    [
+        pytest.param("invalid_email", WRONG_CREDENTIALS, "TC-0002", id="TC-0002-invalid-email"),
+        pytest.param("invalid_password", WRONG_CREDENTIALS, "TC-0003", id="TC-0003-invalid-password"),
+        pytest.param(
+            "existing_user",
+            USER_ALREADY_EXISTS,
+            "TC-0004",
+            id="TC-0004-existing-user",
+            marks=known_bug("USER_EXISTS_WORDING"),
+        ),
+        pytest.param(
+            "existing_email",
+            USER_ALREADY_EXISTS,
+            "TC-0005",
+            id="TC-0005-existing-email-new-password",
+            marks=known_bug("USER_EXISTS_WORDING"),
+        ),
+    ],
+)
 def test_registration_negative(driver, temp_user, scenario, expected_alert, test_case):
     allure.dynamic.tag(test_case)
     credentials = {
         "invalid_email": (UserGenerator.get_user_with_invalid_email().email, UserGenerator.generate_valid_password()),
-        "invalid_password": (UserGenerator.get_valid_user().email, UserGenerator.get_user_with_invalid_password().password),
+        "invalid_password": (
+            UserGenerator.get_valid_user().email,
+            UserGenerator.get_user_with_invalid_password().password,
+        ),
         "existing_user": (temp_user.user.email, temp_user.user.password),
         "existing_email": (temp_user.user.email, UserGenerator.generate_valid_password()),
     }

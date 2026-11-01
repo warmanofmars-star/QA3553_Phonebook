@@ -83,7 +83,9 @@ def write_executor(folder: Path) -> None:
     """executor.json: блок Executors и ссылки из графика трендов на конкретные прогоны."""
     if not os.getenv("GITHUB_ACTIONS"):
         return
-    run_url = f"{os.getenv('GITHUB_SERVER_URL')}/{os.getenv('GITHUB_REPOSITORY')}/actions/runs/{os.getenv('GITHUB_RUN_ID')}"
+    run_url = (
+        f"{os.getenv('GITHUB_SERVER_URL')}/{os.getenv('GITHUB_REPOSITORY')}/actions/runs/{os.getenv('GITHUB_RUN_ID')}"
+    )
     executor = {
         "name": "GitHub Actions",
         "type": "github",

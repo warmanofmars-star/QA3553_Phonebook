@@ -32,8 +32,8 @@ import pytest
 
 @dataclass(frozen=True)
 class KnownBug:
-    requirement: str   # на каком требовании основана проверка
-    description: str   # фактическое (неправильное) поведение приложения
+    requirement: str  # на каком требовании основана проверка
+    description: str  # фактическое (неправильное) поведение приложения
 
 
 KNOWN_BUGS: dict[str, KnownBug] = {
@@ -58,7 +58,6 @@ KNOWN_BUGS: dict[str, KnownBug] = {
         requirement="Swagger: ContactDto.name имеет type: string",
         description="Boolean в поле name молча приводится к строке, ответ 200",
     ),
-
     # ---------- API: контракт ответов ----------
     "NO_AUTH_403": KnownBug(
         requirement="Swagger: GET /v1/contacts -> 401 Unauthorized",
@@ -72,13 +71,11 @@ KNOWN_BUGS: dict[str, KnownBug] = {
         requirement="HTTP: ошибка клиента обрабатывается кодом 4xx, а не 5xx",
         description="На Content-Type text/plain сервер падает с 500 Internal Server Error",
     ),
-
     # ---------- API: права доступа ----------
     "CUSTOMER_CAN_CLEAR_ALL": KnownBug(
         requirement="SRS раздел 2, модуль 'Delete all contact': Customer — Can't",
         description="Обычный пользователь удаляет все свои контакты через DELETE /v1/contacts/clear (BFLA)",
     ),
-
     # ---------- UI: сообщения об ошибках ----------
     "NO_ERROR_ON_EMPTY_FIELD": KnownBug(
         requirement="SRS F5, F6, F9",

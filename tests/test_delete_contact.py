@@ -19,10 +19,12 @@ def test_delete_contact(authenticated_driver, auth_api, created_contact):
     contacts_page.open()
     contacts_page.delete_contact(created_contact.phone)
 
-    assert contacts_page.is_card_gone(created_contact.phone), \
+    assert contacts_page.is_card_gone(created_contact.phone), (
         f"Карточка с телефоном {created_contact.phone} не исчезла из списка"
-    assert eventually(lambda: created_contact.id not in auth_api.get_contact_ids()), \
+    )
+    assert eventually(lambda: created_contact.id not in auth_api.get_contact_ids()), (
         "Карточка пропала из UI, но контакт остался на бэкенде"
+    )
 
 
 @pytest.mark.regression
@@ -42,8 +44,9 @@ def test_delete_multiple_contacts(authenticated_driver, auth_api, create_contact
         assert contacts_page.is_card_gone(contact.phone), f"Карточка {contact.phone} не исчезла из списка"
 
     deleted_ids = {contact.id for contact in contacts}
-    assert eventually(lambda: not deleted_ids & set(auth_api.get_contact_ids())), \
+    assert eventually(lambda: not deleted_ids & set(auth_api.get_contact_ids())), (
         "Карточки пропали из UI, но контакты остались на бэкенде"
+    )
 
 
 @pytest.mark.regression
@@ -65,5 +68,6 @@ def test_delete_all_contacts(authenticated_driver, auth_api, create_contact):
     contacts_page.delete_all_contacts()
 
     assert contacts_page.cards_count() == 0, f"В списке осталось карточек: {contacts_page.cards_count()}"
-    assert eventually(lambda: auth_api.get_contact_ids() == []), \
+    assert eventually(lambda: auth_api.get_contact_ids() == []), (
         "Карточки пропали из UI, но контакты остались на бэкенде"
+    )

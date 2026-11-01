@@ -35,6 +35,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 # Переменные окружения всегда строки. Эти функции приводят их к нужному типу
 # и одинаково обрабатывают ситуацию "переменная не задана или пустая".
 
+
 def _env_str(name: str, default: str | None = None) -> str | None:
     """Строка; пустое значение считается незаданным."""
     value = os.getenv(name)
@@ -60,9 +61,7 @@ def _env_int(name: str, default: int) -> int:
     try:
         return int(value)
     except ValueError:
-        raise ValueError(
-            f"Переменная окружения {name} должна быть целым числом, получено: {value!r}"
-        ) from None
+        raise ValueError(f"Переменная окружения {name} должна быть целым числом, получено: {value!r}") from None
 
 
 # ==========================================
@@ -72,7 +71,7 @@ def _env_int(name: str, default: int) -> int:
 class Settings:
     # --- Адреса тестируемого приложения ---
     base_url: str  # фронтенд (UI)
-    api_url: str   # бэкенд (API)
+    api_url: str  # бэкенд (API)
 
     # --- Постоянный пользователь (нужен только части UI-тестов) ---
     user_email: str | None
@@ -80,15 +79,15 @@ class Settings:
     user_password: str | None = field(repr=False)
 
     # --- Запуск браузеров ---
-    headless: bool          # запуск без окна браузера (локально)
-    use_selenoid: bool      # True: браузеры в Docker через Selenoid
-    selenoid_hub_url: str   # адрес Selenoid
-    video_dir: str | None   # где лежат видео Selenoid (None — видео к отчёту не прикладываем)
-    is_ci: bool             # True: запуск на "голом" CI-раннере без Selenoid
+    headless: bool  # запуск без окна браузера (локально)
+    use_selenoid: bool  # True: браузеры в Docker через Selenoid
+    selenoid_hub_url: str  # адрес Selenoid
+    video_dir: str | None  # где лежат видео Selenoid (None — видео к отчёту не прикладываем)
+    is_ci: bool  # True: запуск на "голом" CI-раннере без Selenoid
 
     # --- Таймауты ---
-    ui_timeout: int         # явные ожидания Selenium, секунды
-    pw_timeout_ms: int      # ожидания Playwright, миллисекунды
+    ui_timeout: int  # явные ожидания Selenium, секунды
+    pw_timeout_ms: int  # ожидания Playwright, миллисекунды
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -97,10 +96,8 @@ class Settings:
             # rstrip("/"): чтобы f"{api_url}/v1/..." никогда не давал двойной слэш
             base_url=_env_str("BASE_URL", "https://telranedu.web.app").rstrip("/"),
             api_url=_env_str("API_URL", "https://contactapp-telran-backend.herokuapp.com").rstrip("/"),
-
             user_email=_env_str("USER_EMAIL"),
             user_password=_env_str("USER_PASSWORD"),
-
             headless=_env_bool("HEADLESS_MODE", False),
             use_selenoid=_env_bool("USE_SELENOID", False),
             selenoid_hub_url=_env_str("SELENOID_HUB_URL", "http://localhost:4444/wd/hub"),
@@ -109,7 +106,6 @@ class Settings:
             # Раньше здесь был путь C:\selenoid\video — его нет ни в Docker, ни на CI.
             video_dir=_env_str("VIDEO_DIR"),
             is_ci=_env_bool("CI", False),
-
             ui_timeout=_env_int("UI_TIMEOUT", 5),
             pw_timeout_ms=_env_int("PW_TIMEOUT", 10000),
         )

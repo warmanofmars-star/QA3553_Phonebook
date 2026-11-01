@@ -18,8 +18,9 @@ def test_contact_is_visible_in_list(authenticated_driver, created_contact):
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
 
-    assert contacts_page.is_card_displayed(created_contact.phone), \
+    assert contacts_page.is_card_displayed(created_contact.phone), (
         f"Контакт с телефоном {created_contact.phone} не найден в списке"
+    )
 
 
 @pytest.mark.smoke

@@ -1,127 +1,191 @@
-# 📖 Phonebook Hybrid Test Automation Framework
+# Phonebook — Test Automation Framework
 
-[![UI Tests in Docker](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions)
-📊 **Live Allure Report:** [View Dashboard](https://warmanofmars-star.github.io/QA3553_Phonebook/)
+[![Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml)
+**Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
-Robust, production-ready hybrid test automation framework for the "Phonebook" web application, featuring a fully containerized **Infrastructure as Code (IaC)** approach, cross-browser CI/CD matrix execution, and enterprise-grade API security & contract testing.
+UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
+**72 tests** (31 API, 41 UI) in Python + pytest, running locally, in Docker with Selenoid,
+in GitHub Actions and in a self-hosted Jenkins.
 
-This project demonstrates a **Senior-level approach** to QA automation, combining classic UI testing, deep API validation, remote browser execution via Selenoid, advanced network mocking, and modern container orchestration.
+This is a learning project built during a QA automation course. It was later refactored
+step by step after a code review against enterprise practices; the reasoning behind the main
+decisions is documented below and in the code comments.
 
-## 🛠 Technologies & Tools
-* **Language:** Python 3.12+
-* **UI Frameworks:** Selenium WebDriver 4+ (Chrome, Firefox, Edge), Playwright (Sync API)
-* **API & Contract Testing:** Requests, `jsonschema`
-* **Containerization & Orchestration:** Docker, Docker Compose, Selenoid (with video-recorder)
-* **Test Runner:** Pytest (with `pytest-xdist` for parallel execution)
-* **Design Pattern:** Page Object Model (POM)
-* **Data Modeling & Generation:** Python `dataclasses`, Faker & UUID, CSV (DDT)
-* **Reporting:** Allure Report (with embedded videos and secure data masking)
-* **CI/CD:** GitHub Actions, Jenkins (Parameterized Declarative Pipelines), Ngrok (Webhook Tunneling)
-* **Notifications:** Telegram Bot API
-* **Security:** `python-dotenv` for managing sensitive credentials
+---
 
-## 🚀 Key Architectural Features
+## What is tested
 
-* **Self-Hosted CI/CD Lifecycle:** Fully autonomous Jenkins pipeline with dynamic parameters (Browser selection), strict Allure environment injection, automated workspace cleanup, dangling Docker image pruning, and GitHub Webhook integration via Ngrok.
-* **Advanced Allure Matrix Deduplication:** Features a custom Python-based post-processor injected into GitHub Actions. It dynamically mutates `testCaseId` and `historyId` in raw JSON results to merge parallel cross-browser execution arrays (Chrome & Firefox) into a single unified Allure dashboard without test collapsing.
-* **Total Data Isolation (Sandbox Pattern):** UI, API, and Playwright tests rely on dynamic API fixtures (`temp_user`) to instantly provision isolated user accounts on the fly, eliminating race conditions during high-concurrency `pytest-xdist` runs.
-* **Strict API Contract Validation (JSON Schema):** All positive API responses are validated against strict JSON Schemas enforcing `additionalProperties: False` to catch undocumented fields, type mismatches, and contract violations.
-* **Data-Driven Negative Mutations (DDT):** Utilizes inline `lambda` mutations with `@pytest.mark.parametrize` (backed by a custom `pytest_make_parametrize_id` hook for `xdist` compatibility) to dynamically corrupt valid payloads on the fly.
-* **API Security & Vulnerability Auditing:** Dedicated security suite covering Broken Object Level Authorization (BOLA / IDOR), JWT authentication token tampering, `DELETE` idempotency, HTTP method restrictions (`405`), and media type validation (`415`).
-* **Global Data Leak Scanner:** Custom `assert_secure_error()` validator automatically scans all negative API responses for sensitive backend exposures (`stack trace`, `sql`, `exception`, `password`, internal paths).
-* **Defect Documentation via XFAIL:** Known backend contract violations and security flaws are strictly documented in code using `@pytest.mark.xfail(reason=...)` without polluting CI/CD pipeline stability.
-* **OOP Payload Serialization (Dataclasses):** Test data models (`Contact`, `User`) encapsulate their own API mapping logic via `.to_api_payload()`, eliminating hardcoded dictionaries across test suites.
-* **API Connection Pooling:** Utilizes `requests.Session()` for backend interactions, reusing TCP connections and automatically managing Bearer tokens.
-* **Network Interception & Mocking:** Leverages Playwright's `page.route()` to intercept frontend requests and mock backend API responses, ensuring ultra-fast, isolated testing of UI rendering logic.
-* **Cross-Browser CI/CD Matrix & Docker IaC:** Configured GitHub Actions matrix strategy to dynamically spawn parallel test suites in Google Chrome and Mozilla Firefox inside isolated Docker Compose / Selenoid containers.
-* **Universal Video Attachment:** Every Selenium session is recorded via FFmpeg/Selenoid, while Playwright tests utilize the native recording engine. All `.mp4` files are automatically attached to the Allure report upon teardown.
-* **Security & Context-Aware Logging:** Sensitive data (passwords, tokens) are strictly masked (`********`) across console outputs, test IDs, and Allure reports. Features a thread-safe custom logger that adapts to `pytest-xdist` workers.
-* **Test Categorization (Pytest Markers):** Implements a granular tagging system (`smoke`, `regression`, `api`, `ui`, `hybrid`, `security`, `playwright`) with dynamic marker injection directly from the GitHub Actions UI.
+The application under test is a contact book: registration, login and CRUD for contacts,
+with a React frontend and a REST backend.
 
-## ⚙️ Setup & Installation
+| Area | Examples |
+|---|---|
+| **API** | contacts CRUD, JSON Schema validation, negative payloads, auth tokens |
+| **API security** | BOLA (access to another user's contacts), mass assignment, BFLA, error message leaks |
+| **UI** | registration and login, adding / editing / deleting contacts, form validation |
+| **Hybrid** | preconditions via API, action via UI, result verified via API |
+| **Playwright** | login, network interception (backend response mocking) |
 
-### 1. Clone and Setup
+Expected behaviour comes from the project documentation, not from the current behaviour of the app:
+the **SRS** (requirements T1–T86, F1–F16), the **Swagger** contract and the manual test design (**STD**,
+test cases TC-0001…TC-0036). UI tests are tagged with their STD case id in the Allure report.
+
+## Known bugs
+
+The application is no longer maintained, so found defects will never be fixed. Tests that hit them
+are marked as expected failures — but only through a single registry, [`data/known_bugs.py`](data/known_bugs.py),
+where every defect is linked to the requirement it violates:
+
+| Key | Requirement | Actual behaviour |
+|---|---|---|
+| `DUPLICATE_CONTACT` | SRS T32, T45, T83; Swagger 409 | Duplicate email / phone is saved |
+| `EMAIL_NOT_REQUIRED` | SRS T26–T27, T64–T65 | Contact with an empty email is saved |
+| `PHONE_NOT_REQUIRED` | SRS T38–T39 | Contact without a phone is saved |
+| `EDIT_DESCRIPTION_BROKEN` | STD TC-00026, TC-00027 | Editing the description in UI saves `[object Undefined]` |
+| `CUSTOMER_CAN_CLEAR_ALL` | SRS, section 2 | A regular user can delete all contacts (BFLA) |
+| `WRONG_CONTENT_TYPE_500` | HTTP semantics | `text/plain` body crashes the server with 500 |
+| `NO_AUTH_403` | Swagger 401 | Missing `Authorization` header returns 403 |
+| `NOT_FOUND_400` | Swagger 404 | Missing or foreign contact returns 400 |
+| `TYPE_COERCION` | Swagger `type: string` | Boolean in `name` is silently accepted |
+| `NO_ERROR_ON_EMPTY_FIELD` | SRS F5, F6, F9 | Empty required field shows no error message |
+| `USER_EXISTS_WORDING` | SRS F3 | Error text differs from the requirement |
+| `EMAIL_ERROR_WORDING` | SRS F7 | Error text differs from the requirement |
+
+How the registry protects the test results:
+
+- **Strict xfail.** If a "known bug" test suddenly passes, the run fails with `XPASS` — the behaviour
+  changed and the test must be reviewed.
+- **Only assertion failures are expected.** `raises=AssertionError`: a timeout, a network error or a bug
+  in the test code is reported as a normal failure, not hidden behind a known bug.
+- **Preconditions are not assertions.** Setup steps use `require()` ([`utils/preconditions.py`](utils/preconditions.py)),
+  so a broken environment is never reported as an expected defect.
+- **Security checks are separate from contract checks.** For example, the BOLA test verifies that the other
+  user's data is intact and has no xfail; the exact status code is checked by a separate contract test.
+
+## Key design decisions
+
+- **A fresh user for every test.** The `temp_user` fixture registers a new user via API, so tests are
+  isolated from each other and from any real data, and run safely in parallel (`pytest-xdist`).
+  No permanent account credentials are needed to run the suite.
+- **API for preconditions and verification, UI for the action.** The `create_contact` / `created_contact`
+  fixtures prepare data via API; UI tests then check the saved state via API instead of trusting what the
+  page shows. This is how the `EDIT_DESCRIPTION_BROKEN` bug was found.
+- **Negative async checks wait for the bad thing to happen.** `eventually()` ([`utils/waits.py`](utils/waits.py))
+  polls the backend for a few seconds — a check right after a click would pass while the bug is still there.
+- **Readable reports.** Page Object actions are Allure steps with human-readable names (`@step`);
+  API calls attach the request and the response, with passwords and tokens masked.
+- **One place for configuration.** Environment variables are read only in [`config.py`](config.py);
+  everything else imports `settings`.
+
+## Project structure
+
+```text
+api/            API client: single request() entry point, timeouts, masked Allure attachments
+api_tests/      API, contract and security tests
+tests/          Selenium UI tests and Playwright tests
+pages/          Page Objects (public user actions; waits and locators are private)
+drivers/        WebDriver factory: local browsers or Selenoid
+data/           test data generators, negative CSV data, known bugs registry
+models/         Contact and User dataclasses
+schemas/        JSON Schemas for API responses
+utils/          logging, Allure steps, waits, validators, preconditions
+ci/             script that merges cross-browser Allure results in GitHub Actions
+selenoid/       browsers.json for Selenoid
+```
+
+## Running the tests
+
+### Locally
+
+Requires **Python 3.14** (the code itself is compatible with 3.12+).
+
 ```bash
 git clone https://github.com/warmanofmars-star/QA3553_Phonebook.git
 cd QA3553_Phonebook
 python -m venv .venv
-source .venv/Scripts/activate  # For Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+.venv\Scripts\activate             # Windows; on Linux / macOS: source .venv/bin/activate
+pip install -r requirements-dev.txt
 playwright install chromium
+cp .env.example .env               # Windows: copy .env.example .env
 ```
 
-### 2. Environment Variables (.env)
-Create a `.env` file in the root directory and add your credentials:
-```env
-HEADLESS_MODE=false
-USE_SELENOID=false
-ENABLE_CONSOLE_LOGS=true
-ALLOW_MASS_DELETE=false
-USER_EMAIL=your_valid_email@gmail.com
-USER_PASSWORD=Your_Valid_Password123$
-BASE_URL=https://telranedu.web.app
-API_URL=https://contactapp-telran-backend.herokuapp.com
-```
+Set `USE_SELENOID=false` in `.env` to run browsers locally, then:
 
-## 🏃‍♂️ How to Run Tests
-
-**Run all tests in the isolated Docker container (Recommended):**
 ```bash
+pytest -n 4 --alluredir=allure-results       # the whole suite in 4 parallel workers
+pytest -m api                                # API tests only
+pytest -m "smoke and ui" --browser_name=firefox
+allure serve allure-results                  # open the report
+```
+
+Markers: `smoke`, `regression`, `api`, `ui`, `hybrid`, `security`, `playwright`.
+All settings are described in [`.env.example`](.env.example) and [`config.py`](config.py).
+
+### In Docker (Selenoid)
+
+```bash
+docker pull selenoid/vnc_chrome:128.0
+docker pull selenoid/vnc_firefox:125.0
+docker pull selenoid/video-recorder:latest-release
 docker compose up --build --exit-code-from qa-framework
 ```
 
-**Run locally via Pytest (parallel execution & specific browser):**
+Selenium tests run in browsers inside Selenoid containers, and a video of every session is attached
+to the Allure report. Browser and markers are passed through environment variables, for example
+`BROWSER=firefox PYTEST_ADDOPTS='-m "smoke"' docker compose up ...`.
+More commands: [`commands.md`](commands.md).
+
+## CI
+
+**GitHub Actions** ([`.github/workflows/tests.yml`](.github/workflows/tests.yml)) runs on every push to `main`
+and on every pull request:
+
+- a linter job (ruff);
+- tests in Chrome and Firefox in parallel (matrix), each in Docker Compose with Selenoid;
+- one Allure report for both browsers with trend history, published to GitHub Pages from `main`
+  (for pull requests it is available as a build artifact);
+- a Telegram notification with the result and test counts.
+
+Failed tests fail the pipeline; the report is generated anyway.
+
+**Jenkins** ([`Jenkinsfile`](Jenkinsfile)) runs in a local Docker container
+([`docker-compose.jenkins.yml`](docker-compose.jenkins.yml)) and is triggered by a GitHub webhook through
+an ngrok tunnel. Parameters: browser and pytest markers. Failed tests mark the build `UNSTABLE`,
+infrastructure errors mark it `FAILURE`; the Allure plugin keeps the trend history.
+
+## Code quality
+
+- **ruff** — linter and formatter, configured in [`pyproject.toml`](pyproject.toml); also checked in CI.
+- **pre-commit** ([`.pre-commit-config.yaml`](.pre-commit-config.yaml)) — runs ruff, basic file checks and
+  **gitleaks** before every commit. Besides the built-in gitleaks rules, a custom rule in
+  [`.gitleaks.toml`](.gitleaks.toml) catches `.env`-style passwords, which the built-in rules do not detect.
+
 ```bash
-pytest -n 4 --browser_name=firefox --clean-alluredir --alluredir=allure-results
+pre-commit install            # once after cloning
+pre-commit run --all-files    # check the whole project manually
 ```
 
-**Run specific test categories (using Pytest markers):**
-```bash
-pytest -m "api" -n 2 -v           # Run all API tests in parallel
-pytest -m "api and security" -v   # Run API security & BOLA checks
-pytest -m "smoke and ui" -n 2     # Run only UI smoke tests
-pytest -m "hybrid" -v             # Run hybrid (API Setup -> UI Action) tests
-```
+## Known limitations
 
-**Generate and view Allure Report locally:**
-```bash
-allure serve allure-results
-```
+- **Selenoid is discontinued.** The Aerokube project no longer releases new versions; the newest available
+  browser images are Chrome 128 and Firefox 125, and there is no Edge image. A migration to Selenium Grid 4
+  is planned.
+- **The Jenkins setup is for local learning only.** The container runs as root with access to the host
+  Docker socket (which effectively means root on the host), builds run on the controller itself,
+  and Jenkins is exposed through ngrok. In a production setup builds would run on ephemeral agents,
+  browsers would be a separate grid service, and Jenkins would not be publicly accessible.
+- **No `data-testid` attributes in the app.** Locators rely on stable prefixes of CSS Modules class names,
+  e.g. `[class^='contact-item_card__']`; a frontend rebuild with different class prefixes would break them.
+- **Tests depend on an external training environment.** The frontend and the backend (on Heroku) are not
+  part of this repository; if they are down, the tests fail.
+- **Playwright coverage is minimal:** two tests demonstrating the approach, including network mocking.
+  The main UI suite uses Selenium.
+- **Videos are available only in Docker.** Selenoid writes them to a Docker volume that a local run
+  cannot access.
+- **Cosmetic issue in Allure:** every fixture shows an extra `<fixture>::<lambda>` teardown step with
+  the *Unknown* status. It is an incompatibility between pytest 9 (which registers an internal finalizer
+  for every fixture) and allure-pytest 2.16; test results are not affected.
 
-## 🛠 Utility Scripts
+## License
 
-The project includes standalone utility scripts for database and documentation management:
-```bash
-# Export all contacts of the current user into a formatted JSON file (data/exported_contacts.json)
-python export_contacts.py
-
-# Regenerate README.md dynamically
-python make_readme.py
-```
-
-## 🏗 Project Structure
-```text
-QA3553_Phonebook/
-├── .github/workflows/    # CI/CD pipeline configuration with Matrix (tests.yml)
-├── api/                  # API Client (Requests Session) for backend interactions
-├── api_tests/            # Pure API test suites (CRUD, Payload mutations, Auth, Security, BOLA)
-├── data/                 # Test data generators (Faker, UUID, CSV loader)
-├── models/               # Data classes with API payload serialization (Contact, User)
-├── pages/                # Page Object classes (Selenium BasePage & Playwright PwBasePage)
-├── schemas/              # Strict JSON Schema contracts for API validation
-├── selenoid/             # Selenoid configuration (browsers.json)
-├── tests/                # Hybrid, UI (Selenium), and Playwright test suites
-├── utils/                # Custom logger, WebDriver listener, Error & Security validators
-├── logs/                 # Auto-rotating, thread-safe local log files
-├── commands.md           # Quick CLI cheatsheet for local, Docker, and marker runs
-├── conftest.py           # Pytest fixtures, Selenoid remote connection, video attachment hooks
-├── pytest.ini            # Pytest configuration and marker registration
-├── Dockerfile            # Container definition for the test framework
-├── docker-compose.yml    # Infrastructure orchestration (Selenoid + Framework + Network + Volumes)
-├── export_contacts.py    # Standalone utility script to export DB via API
-├── requirements.txt      # Project dependencies
-└── README.md             # Project documentation
-```
-
----
-*Author: Maksim Vinogradov*
+[Apache License 2.0](LICENSE)

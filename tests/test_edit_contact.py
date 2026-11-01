@@ -58,8 +58,9 @@ def test_edit_contact_single_field(authenticated_driver, auth_api, created_conta
         changed = eventually(lambda: _saved_fields(auth_api, created_contact) != before, timeout=5)
         assert changed, "Изменения не сохранились на бэкенде"
         actual = _saved_fields(auth_api, created_contact)
-        assert actual == expected.to_api_payload(), \
+        assert actual == expected.to_api_payload(), (
             f"Сохранённые данные отличаются от ожидаемых:\n{actual}\n!=\n{expected.to_api_payload()}"
+        )
 
 
 @pytest.mark.regression
@@ -84,8 +85,9 @@ def test_edit_contact_all_fields(authenticated_driver, auth_api, created_contact
         )
         assert updated, "Изменения не сохранились на бэкенде"
         actual = _saved_fields(auth_api, created_contact)
-        assert actual == expected.to_api_payload(), \
+        assert actual == expected.to_api_payload(), (
             f"Сохранённые данные отличаются от введённых:\n{actual}\n!=\n{expected.to_api_payload()}"
+        )
 
 
 @pytest.mark.regression
@@ -125,8 +127,7 @@ CLEAR_FIELD_CASES = [
 @allure.story("Clear required field")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.parametrize("field, api_key, test_case", CLEAR_FIELD_CASES)
-def test_edit_contact_clear_required_fields(authenticated_driver, auth_api, created_contact,
-                                            field, api_key, test_case):
+def test_edit_contact_clear_required_fields(authenticated_driver, auth_api, created_contact, field, api_key, test_case):
     """SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные."""
     allure.dynamic.tag(test_case)
 

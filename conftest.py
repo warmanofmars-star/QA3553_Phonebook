@@ -20,6 +20,7 @@
 temp_user: контакт создаётся именно у того пользователя, под которым залогинен браузер.
 """
 
+import contextlib
 import logging
 import os
 import platform
@@ -29,6 +30,7 @@ from pathlib import Path
 
 import allure
 import pytest
+from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.support.events import EventFiringWebDriver
 
 from api.contact_api import PhonebookAPI
@@ -40,7 +42,6 @@ from models.user import User
 from pages.login_page import LoginPage
 from utils.listener import PhonebookListener
 from utils.preconditions import require
-
 
 # ==========================================
 # 1. ПАРАМЕТРЫ КОМАНДНОЙ СТРОКИ И НАСТРОЙКА ЛОГОВ
@@ -99,6 +100,7 @@ class TempUser:
     Раньше фикстура возвращала словарь {"user": ..., "api": ...}.
     С dataclass опечатка в имени поля даёт понятную ошибку, а IDE подсказывает поля.
     """
+
     user: User
     api: PhonebookAPI
 
@@ -153,6 +155,7 @@ def create_contact(auth_api: PhonebookAPI):
             second = create_contact(name="Ivan")   # переопределение полей генератора
             first.id, first.phone                  # всё известно сразу
     """
+
     def _create(**overrides) -> Contact:
         contact = ContactGenerator.get_random_contact(**overrides)
         with allure.step(f"Setup: создание контакта через API (телефон {contact.phone})"):
@@ -245,11 +248,10 @@ def pytest_runtest_makereport(item, call):
     if not driver:
         return  # API-тест: браузера нет, скриншот не нужен
 
-    # Открытый alert блокирует скриншот — закрываем его, если он есть
-    try:
+    # Открытый alert блокирует скриншот — закрываем его, если он есть.
+    # Ловим только "алерта нет", а не любое исключение: иначе спрятали бы настоящий сбой драйвера
+    with contextlib.suppress(NoAlertPresentException):
         driver.switch_to.alert.accept()
-    except Exception:
-        pass
 
     test_name = item.name.replace("/", "_").replace("::", "_")
     allure.attach(

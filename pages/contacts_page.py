@@ -75,7 +75,9 @@ class ContactsPage(BasePage):
                 return
             self.driver.find_elements(*self._CARD)[0].click()
             self._click(self._REMOVE_BTN)
-            self._wait().until(lambda driver: self.cards_count() < count_before)
+            # before=count_before фиксирует значение на ЭТОЙ итерации. Лямбда без этого
+            # видела бы переменную цикла, а не её значение (ловушка "позднего связывания")
+            self._wait().until(lambda _driver, before=count_before: self.cards_count() < before)
         raise AssertionError(f"Не удалось удалить все контакты за {max_iterations} попыток")
 
     # ==========================================
