@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5e3edc8f-bcc0-41e0-a6d4-71233fd88930",
+      "name": "April",
+      "lastName": "Myers",
+      "email": "user_e486ebdba6@example.com",
+      "phone": "0526801964",
+      "address": "02665 Mclean Radial, Danielton, MA 27996",
+      "description": "Computer better arm attention care allow daughter responsibility."
+    }
+  ]
+}

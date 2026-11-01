@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5b70b7c6-b52e-4939-9ab7-e4d654ed2233",
+      "name": "Eric",
+      "lastName": "Peters",
+      "email": "user_55582ededc@example.com",
+      "phone": "0532376146",
+      "address": "644 Amy Overpass Apt. 952, West Pamelaport, ID 58513",
+      "description": "Environmental seven child owner."
+    }
+  ]
+}

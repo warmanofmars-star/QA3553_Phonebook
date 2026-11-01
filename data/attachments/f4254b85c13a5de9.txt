@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "175068db-6c7a-4cba-af68-0b50fbf2b94f",
+      "name": "Alexis",
+      "lastName": "Martinez",
+      "email": "user_6df2a01ddd@example.com",
+      "phone": "0523372774",
+      "address": "6499 Hardy Pines, Williamsport, WV 40231",
+      "description": "Civil line scene."
+    }
+  ]
+}

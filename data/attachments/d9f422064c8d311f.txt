@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5e3edc8f-bcc0-41e0-a6d4-71233fd88930",
+      "name": "April",
+      "lastName": "Myers",
+      "email": "user_e486ebdba6@example.com",
+      "phone": "0526801964",
+      "address": "02665 Mclean Radial, Danielton, MA 27996",
+      "description": "Computer better arm attention care allow daughter responsibility."
+    },
+    {
+      "id": "5007407c-a1b2-4ede-a97f-1cd92fc559ba",
+      "name": "Ronald",
+      "lastName": "Green",
+      "email": "user_934c928f5a@example.com",
+      "phone": "0523879294",
+      "address": "94216 Shelby Dale Suite 485, Derrickshire, OK 09251",
+      "description": "Once site key share hope these."
+    },
+    {
+      "id": "ac6b0a41-8fb1-4927-813a-7a19070b10c6",
+      "name": "Cindy",
+      "lastName": "Simmons",
+      "email": "user_e92b0102df@example.com",
+      "phone": "0555348749",
+      "address": "323 Kevin Crest Suite 929, Aliciaside, CT 15184",
+      "description": "And imagine leave."
+    }
+  ]
+}

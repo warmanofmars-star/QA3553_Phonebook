@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Hunt",
+  "phone": "0581777038",
+  "email": "user_69cbdfd88a@example.com",
+  "address": "15707 Ryan Dale Suite 184, South Richardmouth, TN 86250",
+  "description": "Dinner respond style society enough data."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T12:48:28",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

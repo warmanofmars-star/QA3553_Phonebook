@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1c8bc3ad-e3d9-4757-b95b-3bd9bcef5db3",
+      "name": "Traci",
+      "lastName": "Shaw",
+      "email": "user_3f3aef9fd8@example.com",
+      "phone": "0526816867",
+      "address": "PSC 5598, Box 0660, APO AP 35958",
+      "description": "Whatever better resource nation."
+    },
+    {
+      "id": "4509e78c-59a5-4554-8108-0329f6306a6f",
+      "name": "Kevin",
+      "lastName": "Moore",
+      "email": "user_3e37ae860e@example.com",
+      "phone": "0526816867",
+      "address": "3829 Alexander Valley, Desireefurt, MT 93840",
+      "description": "Realize executive continue civil even experience often."
+    }
+  ]
+}

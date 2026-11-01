@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f45d9cde-4464-454b-bdd6-a81214c8bf03",
+      "name": "Dustin",
+      "lastName": "Quinn",
+      "email": "user_7f12363c12@example.com",
+      "phone": "0533066844",
+      "address": "6222 Rachel Plains Suite 283, Davisport, KY 91566",
+      "description": "Small beat pick camera method."
+    }
+  ]
+}

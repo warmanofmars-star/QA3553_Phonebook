@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dbcfb2ee-3585-4106-ac90-a57d9cd96cdc",
+      "name": "Latoya",
+      "lastName": "Martinez",
+      "email": "user_990d17ce79@example.com",
+      "phone": "0521630359",
+      "address": "743 Garrett Route Apt. 919, West Angela, MD 57899",
+      "description": "Need several this management career no method."
+    }
+  ]
+}

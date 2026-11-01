@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sabrina",
+  "lastName": "Norton",
+  "phone": "0515541037",
+  "email": "user_38f05b573d@example.com",
+  "address": "8741 Miller Glens, North Blakeberg, OH 24632",
+  "description": "Model bar growth book war."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cfa4bb10-1153-483d-b3a1-0576d4d165e8"
+}

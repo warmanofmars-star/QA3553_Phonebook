@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+{
+  "name": "Emily",
+  "lastName": "Hartman",
+  "phone": "0529575689",
+  "email": "user_6f91d741c5@example.com",
+  "address": "44571 Wilson Field, East Lawrence, MT 62820",
+  "description": "Example likely set lay marriage hard."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 258b9218-55fe-48a4-829e-9230278d9767"
+}

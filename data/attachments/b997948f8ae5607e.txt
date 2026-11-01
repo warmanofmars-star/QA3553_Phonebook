@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e39d8fb6-3249-4723-88d1-e2f74b0a281d",
+      "name": "Curtis",
+      "lastName": "Williams",
+      "email": "user_ffe9af237d@example.com",
+      "phone": "0514827509",
+      "address": "41037 Michele Garden Suite 334, West Vanessa, IL 45784",
+      "description": "Dark specific financial cause to beyond effort."
+    }
+  ]
+}

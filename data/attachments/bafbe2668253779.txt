@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7fe18e00-c9e5-46ee-a1d3-684227b8ef14",
+      "name": "Kelly",
+      "lastName": "Cantu",
+      "email": "user_92ff4d9ebb@example.com",
+      "phone": "0521587700",
+      "address": "471 Luke Underpass, West Stephanie, VT 95418",
+      "description": "While exactly lose."
+    }
+  ]
+}

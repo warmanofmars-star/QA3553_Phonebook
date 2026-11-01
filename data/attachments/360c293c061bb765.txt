@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fe14e7c6-24d0-4356-8f9f-79e85e425c40",
+      "name": "Steven",
+      "lastName": "Tyler",
+      "email": "user_df1f0bb9a4@example.com",
+      "phone": "0530258178",
+      "address": "505 Martinez Corner Apt. 748, Lake Brittany, MT 13576",
+      "description": "Down option around agency despite explain analysis."
+    },
+    {
+      "id": "6a945e77-3e05-447a-b93d-026176c750d8",
+      "name": "Jacqueline",
+      "lastName": "Mcdaniel",
+      "email": "user_a6bbe5655d@example.com",
+      "phone": "0524772917",
+      "address": "937 Garcia Cliffs, West Karen, AZ 48416",
+      "description": "Item evidence wind our everything other summer."
+    },
+    {
+      "id": "2bba8001-b1b8-465f-b2cc-a0ebc7d1244b",
+      "name": "James",
+      "lastName": "Vega",
+      "email": "user_27f3548be7@example.com",
+      "phone": "0592781101",
+      "address": "21509 Byrd Landing, North Tara, ND 41856",
+      "description": "Pretty college wind term not better great."
+    }
+  ]
+}

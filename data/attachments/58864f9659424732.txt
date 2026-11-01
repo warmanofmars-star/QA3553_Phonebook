@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Marshall",
+  "phone": "0526923848",
+  "email": "not_an_email",
+  "address": "99583 Hawkins Brook, East Desiree, NV 72364",
+  "description": "Wall red within use."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T12:48:28",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

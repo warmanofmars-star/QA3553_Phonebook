@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffery",
+  "lastName": "Archer",
+  "phone": "0528696675",
+  "email": "user_3a3e341a8f@example.com",
+  "address": "9634 Arroyo Village, New David, UT 83425",
+  "description": "Far sister man middle."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8d0a6925-73bf-4843-9cc2-4537484ab5a4"
+}

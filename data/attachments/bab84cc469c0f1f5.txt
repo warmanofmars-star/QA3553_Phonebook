@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Hughes",
+  "phone": "0519263396",
+  "email": "user_eef776ca78@example.com",
+  "address": "966 Davis Run Apt. 465, Sarahfort, IN 27731",
+  "description": "Little free us treat collection suddenly consumer sure."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T12:48:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephen",
+  "lastName": "Ramirez",
+  "phone": "0515576620",
+  "email": "user_32a6fb8cf0@example.com",
+  "address": "122 Natalie Forges, Port Bonnieside, WA 06840",
+  "description": "That east entire analysis clearly your."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f691a4c7-4f6c-4f5f-b716-7cdc3acc9a61"
+}

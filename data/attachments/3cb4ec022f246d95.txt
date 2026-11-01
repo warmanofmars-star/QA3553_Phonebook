@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dustin",
+  "lastName": "Quinn",
+  "phone": "0533066844",
+  "email": "user_7f12363c12@example.com",
+  "address": "6222 Rachel Plains Suite 283, Davisport, KY 91566",
+  "description": "Small beat pick camera method."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f45d9cde-4464-454b-bdd6-a81214c8bf03"
+}

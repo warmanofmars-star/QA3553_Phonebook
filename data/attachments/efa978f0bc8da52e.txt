@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erica",
+  "lastName": "Mitchell",
+  "phone": "0527328152",
+  "email": "",
+  "address": "93522 William Overpass Apt. 614, West Ashley, IL 35997",
+  "description": "Pm partner apply possible religious."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 798046bf-d513-4602-b782-3452c7d8e5d8"
+}

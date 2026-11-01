@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "60daa551-f3f5-4b46-88d1-ffb8b2b858ed",
+      "name": "Scott",
+      "lastName": "Garcia",
+      "email": "user_315d1b81f7@example.com",
+      "phone": "0517029632",
+      "address": "74691 Jones Hill, North Todd, VA 70096",
+      "description": "Cut care lot apply his rate me."
+    }
+  ]
+}

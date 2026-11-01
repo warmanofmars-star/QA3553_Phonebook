@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+{
+  "name": "Javier",
+  "lastName": "Valenzuela",
+  "phone": "0513910020",
+  "email": "user_92d0f852fa@example.com",
+  "address": "5070 Thomas Parkways Apt. 188, Robersonbury, AL 40499",
+  "description": "Experience so white successful."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d1770bb3-f52b-4a2e-899e-81a1cb0a880b"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Adrian",
+  "lastName": "Bryan",
+  "phone": "0516070103",
+  "email": "user_5bf41f7bd7@example.com",
+  "address": "4979 Cook Center, New Jessica, VI 76815",
+  "description": "Tend new phone college."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 53e75abb-bcd7-4bff-b949-46d01bd165ff"
+}

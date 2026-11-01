@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "57c3b111-c83f-42be-9f79-93013546c36d",
+      "name": "Linda",
+      "lastName": "Malone",
+      "email": "user_459f3150d3@example.com",
+      "phone": "0510625307",
+      "address": "6113 Steven Knoll, Christopherhaven, MI 43462",
+      "description": "Reveal meeting author beat measure station service yeah."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Hall",
+  "phone": "0520254627",
+  "email": "user_3c3371d75b@example.com",
+  "address": "334 William Circle, Micheleville, SC 38055",
+  "description": "Behavior truth hit office evening raise."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4067d220-4f94-42eb-a96c-f61b53f783a8"
+}

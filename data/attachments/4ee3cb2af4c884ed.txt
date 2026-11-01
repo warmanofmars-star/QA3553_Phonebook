@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f9fc09e1-8df8-43f9-9213-f893baa5d7f6",
+      "name": "Diana",
+      "lastName": "Reyes",
+      "email": "user_1d67ba94b7@example.com",
+      "phone": "0532303501",
+      "address": "60136 Matthew Hill Suite 077, Greenport, TN 45478",
+      "description": "[object Undefined]"
+    }
+  ]
+}

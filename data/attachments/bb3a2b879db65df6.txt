@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Franklin",
+  "phone": "0529215348",
+  "email": "user_387ca0d4a5@example.com",
+  "address": "05063 Timothy Village, Lake Tylermouth, PW 52313",
+  "description": "Law more author market raise travel."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fe87e276-8167-4fed-813c-65e283590308"
+}

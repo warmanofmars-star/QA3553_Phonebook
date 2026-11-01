@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Kent",
+  "phone": "0534231609",
+  "email": "user_fbb634c03d@example.com",
+  "address": "702 Christopher Tunnel, Joannastad, NE 58616",
+  "description": "Indicate staff sense."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 82564346-b538-4cb0-9edd-50bbddfa6a1a"
+}

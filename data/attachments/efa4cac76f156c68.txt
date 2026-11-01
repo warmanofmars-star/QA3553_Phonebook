@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Martin",
+  "phone": "0511523212",
+  "email": "user_0bd001c9ee@example.com",
+  "address": "763 Keller Union Suite 693, Sarahburgh, MI 15299",
+  "description": "Past big commercial upon former arrive."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 496199f2-a44e-4ca4-9916-09d5b9afb51f"
+}

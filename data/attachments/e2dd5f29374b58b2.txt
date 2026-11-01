@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "93458de3-6fb7-42e0-bd90-0da8ec3a3eb0",
+      "name": "Aaron",
+      "lastName": "Wilkinson",
+      "email": "user_2bd3406f1a@example.com",
+      "phone": "0513954964",
+      "address": "907 Laura Highway, Lake Valerie, VT 27382",
+      "description": "Benefit before visit perform."
+    }
+  ]
+}

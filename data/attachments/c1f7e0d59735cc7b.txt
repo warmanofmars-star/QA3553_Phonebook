@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Ward",
+  "phone": "123",
+  "email": "user_77160296a0@example.com",
+  "address": "0288 Smith Fields, South Robertberg, GA 60653",
+  "description": "Million pattern discussion."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T12:48:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "258b9218-55fe-48a4-829e-9230278d9767",
+      "name": "Emily",
+      "lastName": "Hartman",
+      "email": "user_6f91d741c5@example.com",
+      "phone": "0529575689",
+      "address": "44571 Wilson Field, East Lawrence, MT 62820",
+      "description": "Example likely set lay marriage hard."
+    }
+  ]
+}

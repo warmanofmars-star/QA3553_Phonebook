@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Debbie",
+  "lastName": "Leonard",
+  "phone": "0540661324",
+  "email": "user_c2d26284e3@example.com",
+  "address": "19385 Howard Springs Apt. 841, South Patrick, ND 53845",
+  "description": "Activity cause push believe same."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e618c389-52dc-46d3-9daf-b94e0232fc72"
+}

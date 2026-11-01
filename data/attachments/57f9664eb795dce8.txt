@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alexis",
+  "lastName": "Martinez",
+  "phone": "0523372774",
+  "email": "user_6df2a01ddd@example.com",
+  "address": "6499 Hardy Pines, Williamsport, WV 40231",
+  "description": "Civil line scene."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 175068db-6c7a-4cba-af68-0b50fbf2b94f"
+}

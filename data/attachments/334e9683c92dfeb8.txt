@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (77 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "859f1865-e327-4e39-99ec-56efa7e02c9d",
+      "name": "Victor",
+      "lastName": "Guzman",
+      "email": "user_9942772d36@example.com",
+      "phone": "0520951663",
+      "address": "USNV Mercer, FPO AP 30437",
+      "description": "Care nothing these white."
+    }
+  ]
+}

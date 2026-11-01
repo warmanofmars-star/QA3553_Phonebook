@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Debra",
+  "lastName": "Russo",
+  "phone": "0519471967",
+  "email": "user_1c6c25111e@example.com",
+  "address": "471 Hawkins Summit, Normanstad, PR 87104",
+  "description": "Physical pay if front."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f497336c-35ab-4a14-b735-27608c8fcab7"
+}

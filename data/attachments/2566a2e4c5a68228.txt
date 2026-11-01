@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Briggs",
+  "phone": "0515816235",
+  "email": "user_112c81724b@example.com",
+  "address": "950 Peterson Spurs Suite 518, New James, AZ 07916",
+  "description": "Religious adult happen improve few only."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 74e92f3a-cdcc-495b-8f50-7ee3abeaa86e"
+}

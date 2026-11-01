@@ -1,0 +1,14 @@
+12:51:05 [INFO   ] DRIVER: Проверка доступности Selenoid: http://selenoid:4444/status
+12:51:05 [INFO   ] DRIVER: Создание сессии в Selenoid, браузер: chrome
+12:51:06 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (257 ms)
+12:51:06 [INFO   ] API: Токен добавлен в заголовки сессии
+12:51:06 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+12:51:06 [INFO   ] STEP: Зарегистрироваться как user_77e2ba4c45@example.com
+12:51:07 [INFO   ] UI: Текст Alert: 'Wrong email or password format
+            Email must contains one @ and minimum 2 symbols after last dot
+            Password must contain at least one uppercase letter!
+            Password must contain at least one lowercase letter!
+            Password must contain at least one digit!
+            Password must contain at least one special symbol from [‘$’,’~’,’-‘,’_’]!'
+12:51:07 [INFO   ] STEP: Закрыть Alert (OK)
+12:51:11 [INFO   ] DRIVER: Видео 2de77cc71568f6947fcfff69be628959.mp4 прикреплено к отчёту

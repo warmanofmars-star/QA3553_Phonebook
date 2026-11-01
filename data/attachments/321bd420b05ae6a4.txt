@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "875a4f7e-a08d-454b-90f1-d501713cc468",
+      "name": "Jeffrey",
+      "lastName": "Wilson",
+      "email": "user_14b82cd10e@example.com",
+      "phone": "0552544720",
+      "address": "5647 Golden Branch Apt. 583, Lake Bianca, CA 72310",
+      "description": "[object Undefined]"
+    }
+  ]
+}

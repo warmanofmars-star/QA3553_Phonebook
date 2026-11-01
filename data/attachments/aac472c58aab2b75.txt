@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/dbcfb2ee-3585-4106-ac90-a57d9cd96cdc
+Статус: 400 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-01T12:48:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: dbcfb2ee-3585-4106-ac90-a57d9cd96cdc not found in your contacts!",
+  "path": "/v1/contacts/dbcfb2ee-3585-4106-ac90-a57d9cd96cdc"
+}

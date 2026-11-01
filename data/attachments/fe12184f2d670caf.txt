@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Aaron",
+  "lastName": "Lewis",
+  "phone": "0590740672",
+  "email": "user_8d79b29042@example.com",
+  "address": "2844 Melissa Square Suite 366, Kimmouth, MA 61047",
+  "description": "Son speech big organization sing especially."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b5e820b4-e86a-4843-8eac-3db5f24c5229"
+}

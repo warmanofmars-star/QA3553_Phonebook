@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "109d5aa9-bf84-4587-8bef-ff06f7d36cdf",
+      "name": "Mary",
+      "lastName": "Ford",
+      "email": "user_451b8e4bb2@example.com",
+      "phone": "0549383824",
+      "address": "29252 Bonnie Terrace Apt. 619, Carterchester, LA 35990",
+      "description": "Describe edge condition finish water."
+    }
+  ]
+}

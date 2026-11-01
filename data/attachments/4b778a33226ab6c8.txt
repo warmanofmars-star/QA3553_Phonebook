@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9707a8df-2222-4a95-92f4-c3d26ba9db6b",
+      "name": "Jenna",
+      "lastName": "Hamilton",
+      "email": "user_9f80bcb451@example.com",
+      "phone": "0524784790",
+      "address": "95894 Randall Road Apt. 772, East Catherinefort, WA 78673",
+      "description": "Machine leader he spend action phone less."
+    },
+    {
+      "id": "2f6ea641-9dbf-4fba-aac4-a15e7e33f109",
+      "name": "Curtis",
+      "lastName": "Harper",
+      "email": "user_24aaa49b17@example.com",
+      "phone": "0510792717",
+      "address": "05211 Herrera Brooks Apt. 500, Port Sonyamouth, DE 69939",
+      "description": "Provide himself air doctor least full nature."
+    }
+  ]
+}

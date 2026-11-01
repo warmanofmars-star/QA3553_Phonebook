@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Tyler",
+  "phone": "0530258178",
+  "email": "user_df1f0bb9a4@example.com",
+  "address": "505 Martinez Corner Apt. 748, Lake Brittany, MT 13576",
+  "description": "Down option around agency despite explain analysis."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fe14e7c6-24d0-4356-8f9f-79e85e425c40"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e6558d4f-1379-4917-a922-e24066f55dcd",
+      "name": "Jared",
+      "lastName": "Washington",
+      "email": "user_d1bb3466a7@example.com",
+      "phone": "0519330694",
+      "address": "731 Tran Road, Dennisstad, VT 41917",
+      "description": "Personal develop bank tell poor."
+    }
+  ]
+}

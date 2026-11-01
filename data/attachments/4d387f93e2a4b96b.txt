@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Aaron",
+  "lastName": "Trevino",
+  "phone": "0545833177",
+  "email": "user_e414e95a59@example.com",
+  "address": "978 Michael Parkway, South Vernonfort, AK 64682",
+  "description": "Task dog tend hundred."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c919baef-2f63-4e94-b4b2-5f7c9cdad87c"
+}
