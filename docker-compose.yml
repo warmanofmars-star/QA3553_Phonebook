@@ -11,7 +11,8 @@
 # (проверка готовности Grid в drivers/factory.py). Для локальной работы удобно
 # прописать COMPOSE_PROFILES=chrome в .env — docker compose читает его сам.
 #
-# Grid UI (кто подключён, какие сессии идут): http://localhost:4444/ui
+# Grid UI (кто подключён, какие сессии идут): http://localhost:4444/ui/
+# (косая черта в конце обязательна: без неё интерфейс не загружается)
 # Останов: docker compose down
 
 name: phonebook-tests
