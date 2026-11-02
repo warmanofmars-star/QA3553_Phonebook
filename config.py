@@ -80,10 +80,10 @@ class Settings:
 
     # --- Запуск браузеров ---
     headless: bool  # запуск без окна браузера (локально)
-    use_selenoid: bool  # True: браузеры в Docker через Selenoid
-    selenoid_hub_url: str  # адрес Selenoid
-    video_dir: str | None  # где лежат видео Selenoid (None — видео к отчёту не прикладываем)
-    is_ci: bool  # True: запуск на "голом" CI-раннере без Selenoid
+    use_grid: bool  # True: браузеры в Docker через Selenium Grid
+    grid_url: str  # адрес хаба Selenium Grid
+    video_dir: str | None  # где лежат видео сессий Grid (None — видео к отчёту не прикладываем)
+    is_ci: bool  # True: запуск на "голом" CI-раннере без Grid
 
     # --- Таймауты ---
     ui_timeout: int  # явные ожидания Selenium, секунды
@@ -99,11 +99,10 @@ class Settings:
             user_email=_env_str("USER_EMAIL"),
             user_password=_env_str("USER_PASSWORD"),
             headless=_env_bool("HEADLESS_MODE", False),
-            use_selenoid=_env_bool("USE_SELENOID", False),
-            selenoid_hub_url=_env_str("SELENOID_HUB_URL", "http://localhost:4444/wd/hub"),
-            # По умолчанию видео нет: Selenoid пишет его в Docker-том, доступный только
-            # контейнеру с тестами (там VIDEO_DIR=/app/video задаёт docker-compose.yml).
-            # Раньше здесь был путь C:\selenoid\video — его нет ни в Docker, ни на CI.
+            use_grid=_env_bool("USE_GRID", False),
+            grid_url=_env_str("GRID_URL", "http://localhost:4444").rstrip("/"),
+            # По умолчанию видео нет: узлы Grid пишут его в Docker-том, доступный только
+            # контейнеру с тестами (там VIDEO_DIR=/app/video задаёт docker-compose.yml)
             video_dir=_env_str("VIDEO_DIR"),
             is_ci=_env_bool("CI", False),
             ui_timeout=_env_int("UI_TIMEOUT", 5),

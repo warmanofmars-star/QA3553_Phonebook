@@ -22,11 +22,19 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Браузер для Playwright-тестов вместе с системными библиотеками (Selenium-тесты
-# идут в Selenoid, им локальный браузер не нужен)
+# идут в Selenium Grid, им локальный браузер не нужен)
 RUN playwright install --with-deps chromium
 
 # Код проекта — последним слоем (что не копируется, см. .dockerignore)
 COPY . .
+
+# Папка для видео с теми же владельцем и правами, что /videos в образах узлов Grid
+# (пользователь seluser = 1200, группа 0, 775). Общий том video-data Docker заполняет
+# по папке того контейнера, который смонтирует его первым. Раньше /app/video не было,
+# Docker создавал её от root, и если qa-framework стартовал раньше узлов, узлам не
+# хватало прав на запись (ffmpeg: Permission denied). Теперь владелец одинаковый
+# в обоих образах, и порядок старта не важен.
+RUN mkdir -p /app/video && chown 1200:0 /app/video && chmod 775 /app/video
 
 # Команда по умолчанию — весь набор тестов. В docker-compose.yml она переопределяется
 # (там добавлены браузер и видео), но и простой `docker run` теперь гоняет всё,

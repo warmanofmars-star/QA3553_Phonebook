@@ -36,7 +36,7 @@ from selenium.webdriver.support.events import EventFiringWebDriver
 from api.contact_api import PhonebookAPI
 from config import PROJECT_ROOT, settings
 from data.data_generator import ContactGenerator, UserGenerator
-from drivers.factory import SUPPORTED_BROWSERS, attach_selenoid_video, create_driver
+from drivers.factory import SUPPORTED_BROWSERS, attach_session_video, create_driver
 from models.contact import Contact
 from models.user import User
 from pages.login_page import LoginPage
@@ -184,19 +184,19 @@ def driver(request):
     """Браузер для UI-теста. Как именно он создаётся — решает drivers/factory.py."""
     browser = request.config.getoption("--browser_name")
     raw_driver = create_driver(browser)
-    session_id = raw_driver.session_id  # нужен, чтобы найти видео Selenoid после теста
+    session_id = raw_driver.session_id  # нужен, чтобы найти видео сессии после теста
 
     # Обёртка с listener'ом логирует действия (клики, переходы) — см. utils/listener.py
     decorated_driver = EventFiringWebDriver(raw_driver, PhonebookListener())
 
     yield decorated_driver
 
-    if settings.use_selenoid:
+    if settings.use_grid:
         time.sleep(1.5)  # даём видеозаписи захватить последние кадры перед закрытием
     decorated_driver.quit()
 
-    if settings.use_selenoid:
-        attach_selenoid_video(session_id, browser)
+    if settings.use_grid:
+        attach_session_video(session_id, browser)
 
 
 @pytest.fixture
@@ -285,8 +285,8 @@ def pytest_sessionfinish(session):
     if not results_dir:
         return  # запуск без --alluredir: отчёта не будет, писать некуда
 
-    if settings.use_selenoid:
-        run_mode = "Selenoid"
+    if settings.use_grid:
+        run_mode = "Selenium Grid"
     elif settings.headless or settings.is_ci:
         run_mode = "Local (headless)"
     else:

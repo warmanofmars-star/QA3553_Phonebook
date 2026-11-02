@@ -44,7 +44,6 @@ VALID_EXTENSIONS = (".py", ".yml", ".yaml", ".md", ".ini", ".json", ".csv", ".tx
 VALID_EXACT_NAMES = {
     "Dockerfile",
     "Dockerfile.jenkins",
-    "Dockerfile.selenoid",
     "Jenkinsfile",
     ".gitignore",
     ".dockerignore",

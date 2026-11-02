@@ -2,8 +2,8 @@
 Фабрика WebDriver: создание браузера для всех режимов запуска.
 
 Режимы (выбираются настройками из config.py):
-  * Selenoid  (USE_SELENOID=true)  — браузер в Docker-контейнере, с VNC и видео.
-  * Локально  (USE_SELENOID=false) — браузер на твоей машине;
+  * Selenium Grid (USE_GRID=true)  — браузер на узле Grid в Docker, с записью видео.
+  * Локально      (USE_GRID=false) — браузер на твоей машине;
                                      headless при HEADLESS_MODE=true или на CI.
 
 Раньше всё это жило в фикстуре driver в conftest.py: 120 строк if/else,
@@ -14,7 +14,6 @@
 
 import time
 from pathlib import Path
-from urllib.parse import urlsplit
 
 import allure
 import requests
@@ -34,16 +33,17 @@ SUPPORTED_BROWSERS = ("chrome", "firefox", "edge")
 WINDOW_WIDTH, WINDOW_HEIGHT = 1920, 1080
 PAGE_LOAD_TIMEOUT = 30  # секунды на полную загрузку страницы
 
-# Как браузеры называются в Selenoid (ключи в selenoid/browsers.json)
-SELENOID_BROWSER_NAMES = {"chrome": "chrome", "firefox": "firefox", "edge": "MicrosoftEdge"}
+# Как браузеры называются в протоколе WebDriver (browserName). Их же Grid
+# показывает в /status у слотов узлов — так мы проверяем, что нужный браузер есть
+GRID_BROWSER_NAMES = {"chrome": "chrome", "firefox": "firefox", "edge": "MicrosoftEdge"}
 
-# Selenoid в Docker может стартовать чуть позже тестов (depends_on в compose
-# ждёт только ЗАПУСКА контейнера, а не готовности сервиса). Поэтому перед
-# созданием сессии ждём, пока Selenoid начнёт отвечать, но не дольше этого времени.
-SELENOID_STARTUP_TIMEOUT = 30  # секунды
-SELENOID_POLL_INTERVAL = 1  # пауза между проверками, секунды
+# Узлы браузеров регистрируются в хабе через несколько секунд после старта контейнеров
+# (depends_on в compose ждёт только ЗАПУСКА контейнера, а не готовности сервиса).
+# Поэтому перед созданием сессии ждём, пока в Grid появится узел нужного браузера.
+GRID_STARTUP_TIMEOUT = 60  # секунды: первый старт узлов бывает небыстрым
+GRID_POLL_INTERVAL = 1  # пауза между проверками, секунды
 
-# Сколько секунд ждать, пока Selenoid допишет видеофайл после закрытия сессии
+# Сколько секунд ждать, пока узел допишет видеофайл после закрытия сессии
 VIDEO_WAIT_SECONDS = 10
 
 
@@ -81,52 +81,71 @@ def _build_options(browser: str, headless: bool, ci: bool):
 # Создание драйвера
 # ==========================================
 def _create_remote_driver(browser: str) -> WebDriver:
-    """Браузер в Selenoid. Видео и VNC включаются через selenoid:options."""
-    if browser == "edge":
-        # browsers.json сейчас описывает только chrome и firefox.
-        # Лучше упасть сразу с понятной причиной, чем получить невнятную ошибку от Selenoid.
-        raise ValueError("Edge не описан в selenoid/browsers.json — для Selenoid используй chrome или firefox")
-
+    """Браузер на узле Selenium Grid."""
     options = _build_options(browser, headless=False, ci=False)
-    options.set_capability("browserName", SELENOID_BROWSER_NAMES[browser])
-    options.set_capability("selenoid:options", {"enableVNC": True, "enableVideo": True})
+    # Запись видео этой сессии (встроенный рекордер узла, см. docker-compose.yml).
+    # Capability se:name НЕ задаём: тогда файл называется <id сессии>.mp4,
+    # и после теста его легко найти (attach_session_video)
+    options.set_capability("se:recordVideo", True)
 
-    _wait_for_selenoid()
-    logger.info(f"Создание сессии в Selenoid, браузер: {browser}")
-    return webdriver.Remote(command_executor=settings.selenoid_hub_url, options=options)
+    _wait_for_grid(browser)
+    logger.info(f"Создание сессии в Selenium Grid, браузер: {browser}")
+    return webdriver.Remote(command_executor=settings.grid_url, options=options)
 
 
-def _wait_for_selenoid() -> None:
-    """Ждёт, пока Selenoid начнёт отвечать на /status, либо падает с понятной ошибкой.
+def _grid_browsers(status: dict) -> set[str]:
+    """Какие браузеры сейчас предлагают работающие узлы Grid (по слотам из /status)."""
+    browsers = set()
+    for node in status.get("value", {}).get("nodes", []):
+        if node.get("availability", "UP") != "UP":
+            continue  # узел уходит (DRAINING) или недоступен (DOWN)
+        for slot in node.get("slots", []):
+            name = slot.get("stereotype", {}).get("browserName")
+            if name:
+                browsers.add(name)
+    return browsers
 
-    Зачем отдельная проверка, а не повтор webdriver.Remote() в цикле:
-    каждая неудачная попытка Remote() внутри ещё и сама ретраит соединение,
-    и 5 попыток растягивались на ~90 секунд ради невнятного MaxRetryError.
-    Лёгкий GET /status с коротким таймаутом отвечает на вопрос "жив ли Selenoid"
-    за доли секунды.
+
+def _wait_for_grid(browser: str) -> None:
+    """Ждёт, пока в Grid зарегистрируется узел нужного браузера, либо падает с понятной ошибкой.
+
+    Проверяем не просто "хаб отвечает", а "есть узел именно этого браузера":
+    хаб без узлов отвечает на /status, но сессию создать не сможет — запрос
+    повиснет в очереди на 5 минут (таймаут Grid по умолчанию) и упадёт с невнятной ошибкой.
     """
-    # http://localhost:4444/wd/hub -> http://localhost:4444/status
-    hub = urlsplit(settings.selenoid_hub_url)
-    status_url = f"{hub.scheme}://{hub.netloc}/status"
+    status_url = f"{settings.grid_url}/status"
+    expected = GRID_BROWSER_NAMES[browser]
+    available: set[str] = set()
+    hub_answered = False
 
-    deadline = time.monotonic() + SELENOID_STARTUP_TIMEOUT
-    logger.info(f"Проверка доступности Selenoid: {status_url}")
+    deadline = time.monotonic() + GRID_STARTUP_TIMEOUT
+    logger.info(f"Ожидание узла {browser} в Selenium Grid: {status_url}")
     while True:
         try:
-            if requests.get(status_url, timeout=2).ok:
+            response = requests.get(status_url, timeout=2)
+            hub_answered = True
+            available = _grid_browsers(response.json())
+            if expected in available:
                 return
-        except requests.RequestException:
-            pass  # соединение отклонено или таймаут — Selenoid ещё (или вообще) не запущен
+        except (requests.RequestException, ValueError):
+            pass  # хаб ещё не поднялся (или ответ ещё не JSON) — пробуем снова
 
         if time.monotonic() >= deadline:
+            if hub_answered:
+                registered = ", ".join(sorted(available)) or "ни одного"
+                raise RuntimeError(
+                    f"В Selenium Grid нет узлов браузера {browser} (зарегистрировано: {registered}).\n"
+                    f"Узлы запускаются по профилю: COMPOSE_PROFILES={browser} "
+                    "(в .env или переменной окружения) — и тот же браузер в BROWSER."
+                )
             raise RuntimeError(
-                f"Selenoid не отвечает на {status_url} уже {SELENOID_STARTUP_TIMEOUT} с.\n"
+                f"Selenium Grid не отвечает на {status_url} уже {GRID_STARTUP_TIMEOUT} с.\n"
                 "Варианты:\n"
-                "  * запусти Selenoid:  docker compose up -d selenoid\n"
-                "  * или запускай браузер локально: USE_SELENOID=false в .env "
-                '(либо $env:USE_SELENOID="false" в PowerShell на текущую сессию)'
+                f"  * запусти Grid:  COMPOSE_PROFILES={browser} docker compose up -d selenium-hub {browser}\n"
+                "  * или запускай браузер локально: USE_GRID=false в .env "
+                '(либо $env:USE_GRID="false" в PowerShell на текущую сессию)'
             )
-        time.sleep(SELENOID_POLL_INTERVAL)
+        time.sleep(GRID_POLL_INTERVAL)
 
 
 def _create_local_driver(browser: str, headless: bool) -> WebDriver:
@@ -140,14 +159,14 @@ def _create_local_driver(browser: str, headless: bool) -> WebDriver:
 def create_driver(browser: str) -> WebDriver:
     """Создаёт и настраивает WebDriver для текущего режима запуска.
 
-    Selenoid имеет приоритет: если USE_SELENOID=true, браузер всегда удалённый.
+    Grid имеет приоритет: если USE_GRID=true, браузер всегда удалённый.
     """
     if browser not in SUPPORTED_BROWSERS:
         raise ValueError(f"Неизвестный браузер {browser!r}, доступны: {', '.join(SUPPORTED_BROWSERS)}")
 
-    if settings.use_selenoid:
+    if settings.use_grid:
         driver = _create_remote_driver(browser)
-        headless = False  # в Selenoid браузер всегда "с окном" — его видно через VNC и на видео
+        headless = False  # на узле Grid браузер всегда "с окном" — иначе на видео будет пустой экран
     else:
         headless = settings.headless or settings.is_ci  # на CI-раннере экрана нет
         driver = _create_local_driver(browser, headless)
@@ -160,16 +179,16 @@ def create_driver(browser: str) -> WebDriver:
 
 
 # ==========================================
-# Видео из Selenoid
+# Видео сессии
 # ==========================================
-def attach_selenoid_video(session_id: str, browser: str) -> None:
-    """Прикрепляет к Allure видео сессии, записанное Selenoid.
+def attach_session_video(session_id: str, browser: str) -> None:
+    """Прикрепляет к Allure видео сессии, записанное узлом Grid.
 
-    Selenoid дописывает mp4 уже ПОСЛЕ закрытия сессии, поэтому файл
+    Рекордер дописывает mp4 уже ПОСЛЕ закрытия сессии, поэтому файл
     может появиться не сразу — ждём его до VIDEO_WAIT_SECONDS секунд.
     """
     if not settings.video_dir:
-        # Локальный запуск против Selenoid: видео лежит в Docker-томе, отсюда его не достать.
+        # Локальный запуск против Grid: видео лежит в Docker-томе, отсюда его не достать.
         # Раньше тест в этой ситуации 10 секунд ждал файл по несуществующему пути
         logger.debug("VIDEO_DIR не задан — видео к отчёту не прикладываем")
         return
