@@ -47,6 +47,47 @@ jobs:
           ruff format --check .
 
   # ==========================================
+  # JOB 0.1: ПОИСК СЕКРЕТОВ В НОВЫХ КОММИТАХ (параллельно с тестами)
+  # ==========================================
+  # Тот же gitleaks, что в pre-commit, но его не обойти через --no-verify.
+  # Проверяем ТОЛЬКО новые коммиты: в старой истории есть известная утечка,
+  # и полный скан падал бы всегда, ничего не сообщая о новом коде
+  secrets:
+    name: Secrets (gitleaks)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - name: Скачиваем код проекта со всей историей
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0              # нужны коммиты диапазона, а не только последний
+
+      - name: Ищем секреты в новых коммитах
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          # Диапазон в синтаксисе git log: что проверять
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            LOG_OPTS="$PR_BASE..$PR_HEAD"            # все коммиты PR
+          elif [ -n "$PUSH_BEFORE" ] && [ -n "${PUSH_BEFORE//0/}" ]; then
+            LOG_OPTS="$PUSH_BEFORE..$CURRENT_SHA"    # коммиты, пришедшие этим push
+          else
+            # Новая ветка (before из одних нулей) или ручной запуск (before нет):
+            # предыдущего состояния нет — проверяем только последний коммит
+            LOG_OPTS="-1 $CURRENT_SHA"
+          fi
+          echo "Проверяемые коммиты: $LOG_OPTS"
+
+          # Официальный образ той же версии, что в .pre-commit-config.yaml.
+          # --redact: найденный секрет не попадёт в публичный лог GitHub Actions
+          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 \
+            git /repo --config /repo/.gitleaks.toml --redact --verbose --log-opts="$LOG_OPTS"
+
+  # ==========================================
   # JOB 1: ТЕСТЫ В НЕСКОЛЬКИХ БРАУЗЕРАХ ПАРАЛЛЕЛЬНО (МАТРИЦА)
   # ==========================================
   test-execution:
@@ -56,28 +97,27 @@ jobs:
     strategy:
       fail-fast: false        # падение в одном браузере не отменяет прогон в другом
       matrix:
-        browser: [chrome, firefox]
+        browser: [chrome, firefox, edge]
 
     steps:
       - name: Скачиваем код проекта
         uses: actions/checkout@v4
 
-      - name: Скачиваем образы браузеров для Selenoid
-        # Selenoid сам запускает контейнеры с браузерами, но не скачивает их образы
-        run: |
-          docker pull selenoid/vnc_chrome:128.0
-          docker pull selenoid/vnc_firefox:125.0
-          docker pull selenoid/video-recorder:latest-release
-
-      - name: Запускаем тесты в Docker Compose (Selenoid)
+      # Образы хаба и узлов Grid docker compose скачивает сам при первом запуске
+      - name: Запускаем тесты в Docker Compose (Selenium Grid)
         env:
+          # Узлы браузеров живут в профилях compose: профиль = браузер матрицы
+          COMPOSE_PROFILES: ${{ matrix.browser }}
           BROWSER: ${{ matrix.browser }}
           # pytest сам дочитывает аргументы из переменной PYTEST_ADDOPTS.
           # Маркер передаётся как данные, а не вклеивается в текст shell-команды
           PYTEST_ADDOPTS: ${{ inputs.test_marker && format('-m "{0}"', inputs.test_marker) || '' }}
         # Здесь больше НЕТ continue-on-error: упавшие тесты делают job и весь прогон красным.
-        # Отчёт при этом всё равно соберётся: следующие шаги помечены if: always()
-        run: docker compose run --rm qa-framework
+        # Отчёт при этом всё равно соберётся: следующие шаги помечены if: always().
+        # Именно up, а не run: run стартует только depends_on сервиса (хаб), а узлы
+        # браузеров в depends_on не входят — их запускает профиль. --exit-code-from
+        # останавливает стенд после тестов и возвращает код выхода pytest
+        run: docker compose up --build --exit-code-from qa-framework
 
       - name: Возвращаем себе права на результаты
         # Контейнер пишет файлы от root; без этого upload-artifact не сможет их прочитать
@@ -124,9 +164,10 @@ jobs:
         run: |
           python3 ci/merge_allure_results.py allure-results-*
           # Allure строит тренды из папки history прошлого отчёта, положенной в результаты
-          FIRST_RESULTS=$(ls -d allure-results-* | head -n 1)
+          # Массив вместо ls | head: имена папок не разбираются как текст (shellcheck SC2012)
+          dirs=(allure-results-*)
           if [ -d previous-report/history ]; then
-            cp -r previous-report/history "$FIRST_RESULTS/"
+            cp -r previous-report/history "${dirs[0]}/"
             echo "История прошлых прогонов добавлена"
           fi
 
@@ -171,7 +212,7 @@ jobs:
 
           TEXT="$ICON Phonebook — GitHub Actions
           Событие: $GITHUB_EVENT_NAME, ветка: $GITHUB_REF_NAME
-          Браузеры: chrome, firefox
+          Браузеры: chrome, firefox, edge
           Результат: $TESTS_RESULT
           $STATS
           Отчёт: $REPORT"

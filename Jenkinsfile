@@ -5,7 +5,7 @@ pipeline {
     // 1. ОБЩИЕ НАСТРОЙКИ СБОРКИ
     // ==========================================
     options {
-        timeout(time: 30, unit: 'MINUTES')               // зависший Selenoid не повесит сборку навсегда
+        timeout(time: 30, unit: 'MINUTES')               // зависший Grid не повесит сборку навсегда
         buildDiscarder(logRotator(numToKeepStr: '20'))   // старые сборки и их отчёты не копятся на диске
         disableConcurrentBuilds()                        // две сборки в одном workspace мешали бы друг другу
     }
@@ -14,8 +14,7 @@ pipeline {
     // 2. ПАРАМЕТРЫ ЗАПУСКА ("Собрать с параметрами")
     // ==========================================
     parameters {
-        // Edge убран: в selenoid/browsers.json его нет, сборка всё равно упала бы
-        choice(name: 'BROWSER', choices: ['chrome', 'firefox'], description: 'Браузер для UI-тестов')
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Браузер для UI-тестов')
         string(name: 'TEST_MARKER', defaultValue: '', description: 'Маркеры pytest: smoke, api, "api and security"... Пусто — все тесты')
     }
 
@@ -29,6 +28,10 @@ pipeline {
         // Явное имя проекта Docker Compose: контейнеры, сети и тома этой сборки
         // не пересекаются с локальными запусками docker compose на той же машине
         COMPOSE_PROJECT_NAME = 'phonebook-jenkins'
+        // Какие узлы браузеров запускает compose (у каждого узла свой профиль).
+        // Задаётся здесь, а не в withEnv этапа: так профиль виден и при запуске тестов,
+        // и при уборке в post — иначе docker compose down не увидел бы узлы браузера
+        COMPOSE_PROFILES = "${params.BROWSER}"
     }
 
     // ==========================================
