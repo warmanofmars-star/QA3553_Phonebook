@@ -57,9 +57,7 @@ def _assert_registration(email: str, password: str, expectation: str) -> None:
         assert response.status_code == 400, f"Ожидался 400, получен {response.status_code}: {response.text}"
 
 
-# Имя без слова PASSWORD: правило env-style-password в .gitleaks.toml
-# принимает строку вида "...PASSWORD... = значение" за пароль из .env
-PWD_RULE_CASES = [
+PASSWORD_CASES = [
     # ---------- Длина (T14, T15) ----------
     pytest.param(lambda: _password(7), REJECT, ["T14"], id="len-7"),
     pytest.param(lambda: _password(8), ACCEPT, ["T14"], id="len-8"),
@@ -86,7 +84,7 @@ PWD_RULE_CASES = [
 
 @allure.story("Password rules")
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.parametrize("make_password, expectation, requirements", PWD_RULE_CASES)
+@pytest.mark.parametrize("make_password, expectation, requirements", PASSWORD_CASES)
 def test_api_registration_password(make_password, expectation, requirements):
     """POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден."""
     allure.dynamic.tag(*(f"SRS-{r}" for r in requirements))
