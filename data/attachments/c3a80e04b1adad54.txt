@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b7d9c162-768b-4ef8-92f0-a0b161ea453f",
+      "name": "Timothy",
+      "lastName": "Woods",
+      "email": "user_afdf37d2c2@example.com",
+      "phone": "0510686904",
+      "address": "48280 Kenneth Mill Apt. 547, Lake Eileen, KS 87785",
+      "description": "Purpose me analysis central best scientist why true."
+    },
+    {
+      "id": "4efe01cd-bb05-466e-8090-b8d901913389",
+      "name": "Michelle",
+      "lastName": "Lee",
+      "email": "user_afdf37d2c2@example.com",
+      "phone": "0524211641",
+      "address": "215 Kathryn Harbor Suite 277, Caseyhaven, DC 50981",
+      "description": "Individual sit third share."
+    }
+  ]
+}

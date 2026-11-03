@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f6b85a78-d8a5-47bf-905e-a08986b6fb5a",
+      "name": "Elizabeth",
+      "lastName": "Campbell",
+      "email": "user_9bf6ce53a4@example.com",
+      "phone": "0511275451",
+      "address": "39987 Carol Union Suite 137, Lake Kevin, NC 50680",
+      "description": "It tonight marriage window budget former plant."
+    }
+  ]
+}

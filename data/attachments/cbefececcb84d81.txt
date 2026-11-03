@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "619e9145-e777-4a3b-9a8e-94489e264300",
+      "name": "Derek",
+      "lastName": "Carr",
+      "email": "user_bfc60dbfa6@example.com",
+      "phone": "0513617565",
+      "address": "6936 Pitts Heights, Port Nicoletown, GU 84880",
+      "description": "Increase poor test everything story best commercial."
+    }
+  ]
+}

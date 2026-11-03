@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6b8674a3-9897-4d6c-b174-0a7f35120a1d",
+      "name": "Jacob",
+      "lastName": "Hart",
+      "email": "user_ba9047e526@example.com",
+      "phone": "0528151157",
+      "address": "38148 Donna Cove, New Brittanyhaven, DC 10177",
+      "description": "Hope wall across life skill different there."
+    }
+  ]
+}

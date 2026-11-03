@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (28 ms)
+
+--- Тело запроса ---
+{
+  "name": "Randall",
+  "lastName": "Quinn",
+  "phone": "0542318946",
+  "email": "not_an_email",
+  "address": "53315 Haley Radial, Amyhaven, WY 27774",
+  "description": "Small maintain several certainly over technology."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:34",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

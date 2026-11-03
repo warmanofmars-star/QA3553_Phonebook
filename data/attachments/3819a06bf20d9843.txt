@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (79 ms)
+
+--- Тело запроса ---
+{
+  "name": "Curtis",
+  "lastName": "Sherman",
+  "phone": "0510352168",
+  "email": "user_72361e5d76@example.com",
+  "address": "47734 Anderson Canyon Suite 718, Mcintyrefurt, AL 71005",
+  "description": "Citizen information three good customer teach."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4d4eff0f-fa0d-41fd-827e-84a7f2457dc2"
+}

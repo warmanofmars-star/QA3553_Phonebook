@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2ed8df99-9906-4528-a0a5-35845fbd14b1",
+      "name": "Jennifer",
+      "lastName": "B",
+      "email": "user_8146bdfa3d@example.com",
+      "phone": "0527803772",
+      "address": "6971 May Square Apt. 213, Lake Nancychester, KY 00754",
+      "description": "Recognize same million pay out listen child successful."
+    }
+  ]
+}

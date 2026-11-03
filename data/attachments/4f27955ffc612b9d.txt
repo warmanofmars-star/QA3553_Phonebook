@@ -1,0 +1,19 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword
+Статус: 400 (145 ms)
+
+--- Тело запроса ---
+{
+  "username": "8c2f54916f@mail@example.com",
+  "password": "********"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:40",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "username": "must be a well-formed email address"
+  },
+  "path": "/v1/user/registration/usernamepassword"
+}

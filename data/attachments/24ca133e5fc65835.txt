@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d1a98289-c358-4e7d-ae52-71c15a1c9e61",
+      "name": "Mariah",
+      "lastName": "Wilson",
+      "email": "user_6d3e8d2bf4@example.com",
+      "phone": "0532572461",
+      "address": "PSC 4792, Box 9043, APO AA 39194",
+      "description": "Political religious film science."
+    },
+    {
+      "id": "f7ae258f-4128-4a80-998f-97bbb43679fb",
+      "name": "Michael",
+      "lastName": "Morris",
+      "email": "user_e65cbd59ec@example.com",
+      "phone": "0514327651",
+      "address": "488 Andrea Course Suite 217, Lake Emilyshire, NH 42349",
+      "description": "Attorney power enter court create sense."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (80 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Miller",
+  "phone": "0523241863",
+  "email": "user_1baab32ae3@example.com",
+  "address": "7127 Mendez Ranch Apt. 137, West Danielshire, IL 46048",
+  "description": "History because race teacher politics imagine."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73d7ffc8-e4e2-439b-ae89-fd703e146a86"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicholas",
+  "lastName": "Cole",
+  "phone": "057329205482149",
+  "email": "user_96723a811f@example.com",
+  "address": "212 Timothy Land, Costaburgh, UT 73745",
+  "description": "Success step surface actually."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5bdd053b-5746-4961-9332-2a43db506e11"
+}

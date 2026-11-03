@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "48e08c74-faed-4bed-bb9d-78777f0c6c1b",
+      "name": "Kelly",
+      "lastName": "Padilla",
+      "email": "user_3c26bd376b@example.com",
+      "phone": "0594693662",
+      "address": "0352 Johnson Valleys, Deanland, NH 31388",
+      "description": "Home yes key society growth scene require."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c1788053-b76a-47bd-a0b0-25271ae69a3f",
+      "name": "Noah",
+      "lastName": "Arnold",
+      "email": "user_64a99a332e@example.com",
+      "phone": "059085575033141",
+      "address": "9534 Julia Station, Kennedyside, PW 98907",
+      "description": "Score place music dream see behind method rich."
+    }
+  ]
+}

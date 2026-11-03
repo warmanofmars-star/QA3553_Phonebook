@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Schmidt",
+  "phone": "0553160931",
+  "email": "user_812189420b@example.com",
+  "address": "22483 Michele Road, East Josephbury, NE 52104",
+  "description": "Medical where scientist part begin."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7872a66b-d988-4b97-b722-fa0b468ebc17"
+}

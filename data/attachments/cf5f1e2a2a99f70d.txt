@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Adam",
+  "lastName": "Wilkins",
+  "phone": "0523544781",
+  "email": "user_14619707a9@example.com",
+  "address": "87344 John Trace Suite 002, Whiteton, MO 14857",
+  "description": "Book inside unit job space less three."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8410c2d7-f98f-4027-a759-c06a080f5ed2"
+}

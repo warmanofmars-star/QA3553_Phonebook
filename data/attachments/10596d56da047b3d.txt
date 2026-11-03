@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "975fb45e-6a24-44c9-bebb-8d6f8be595c4",
+      "name": "Christina",
+      "lastName": "Chavez",
+      "email": "user_54f7b4063d@example.com",
+      "phone": "0527848570",
+      "address": "954 Cynthia Garden Suite 661, Lake Andrew, RI 35506",
+      "description": "Clearly material professional radio put state still house."
+    },
+    {
+      "id": "411dd6a4-ce54-4a0c-b366-59cb3e5bb776",
+      "name": "Betty",
+      "lastName": "Jackson",
+      "email": "user_b4a65e48bc@example.com",
+      "phone": "0527848570",
+      "address": "3211 Webb Springs Suite 222, North Sheila, IA 24229",
+      "description": "Table such let."
+    }
+  ]
+}

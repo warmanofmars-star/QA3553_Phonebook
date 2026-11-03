@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rickey",
+  "lastName": "Delgado",
+  "email": "user_c0b2fe4551@example.com",
+  "address": "624 Anderson Meadows, North Caitlinmouth, NJ 18845",
+  "description": "Less close involve process mind smile."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3bc673e9-3146-4ca3-a8c6-e85b23abc7e4"
+}

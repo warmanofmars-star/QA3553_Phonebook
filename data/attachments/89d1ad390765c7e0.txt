@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "977af11a-4d0c-4664-b4f5-52ba7b434d6f",
+      "name": "Elijah",
+      "lastName": "Smith",
+      "email": "user_3689c6f5d6@example.com",
+      "phone": "0523522018",
+      "address": "86947 Martinez Villages, South Lori, KY 01958",
+      "description": "Around stage raise after somebody."
+    },
+    {
+      "id": "5b5e9f58-5c87-4d54-be0f-6acc9c0fdf21",
+      "name": "Sharon",
+      "lastName": "Owens",
+      "email": "user_f8e76d70e6@example.com",
+      "phone": "0585814665",
+      "address": "6656 Gibson Springs, Rebeccamouth, NJ 33060",
+      "description": "Beyond car in apply become."
+    }
+  ]
+}

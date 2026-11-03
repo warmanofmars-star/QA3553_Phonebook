@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Zuniga",
+  "phone": "0526828874",
+  "email": "user_757f93b63e@example.com",
+  "address": "2181 Small Common, Port Kurt, VA 60457",
+  "description": "Pay garden my however take answer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e95ea0ae-0912-4cd7-8716-186f4b54198e"
+}

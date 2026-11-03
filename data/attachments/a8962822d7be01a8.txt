@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (70 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jesse",
+  "lastName": "Knox",
+  "phone": "0517961339",
+  "email": "user_68f2a7929e@example.com",
+  "address": "96238 Benjamin Freeway Suite 510, Stevenside, WV 17438",
+  "description": "Whom source situation whole baby lawyer reduce."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 54a0d7c7-ada1-45bd-921f-5348b88c26db"
+}

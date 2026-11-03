@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "51d69019-ce0f-463e-863c-b1e4a237ea75",
+      "name": "Alexander",
+      "lastName": "White",
+      "email": "user_3dde7fe09f@example.com",
+      "phone": "0515867807",
+      "address": "628 Ferguson Estates Suite 080, Hernandezton, SC 15562",
+      "description": "Southern chair be final kind might."
+    }
+  ]
+}

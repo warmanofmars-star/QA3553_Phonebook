@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Herbert",
+  "lastName": "Escobar",
+  "phone": "0519399184",
+  "email": "user_92d5d6d8c9@example.com",
+  "address": "1120 Patricia Mount, Reedland, AS 92297",
+  "description": "Stage never mention save race."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 423e641c-afc8-44d5-b9fc-5475cd6a7392"
+}

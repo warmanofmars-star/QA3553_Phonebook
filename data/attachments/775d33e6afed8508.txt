@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "White",
+  "phone": "0532025707",
+  "email": "user_6e22ac607f@example.com",
+  "address": "3595 West Underpass, Amyfurt, WI 29204",
+  "description": "Hundred culture lead produce agency off."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eadf8e3e-4df9-44aa-94d2-6b499eb7ec87"
+}

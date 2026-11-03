@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Rios",
+  "phone": "0514555537",
+  "email": "user_db46983b70@example.com",
+  "address": "12345",
+  "description": "Here care minute start magazine."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 42b0f38a-0c99-4433-8b93-4b629d23d005"
+}

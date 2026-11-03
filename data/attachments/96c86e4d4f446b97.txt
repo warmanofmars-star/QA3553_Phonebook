@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (28 ms)
+
+--- Тело запроса ---
+{
+  "name": "Benjamin",
+  "lastName": "Brown",
+  "phone": "051754925",
+  "email": "user_7119f52bb0@example.com",
+  "address": "666 Misty Summit Apt. 004, Lanetown, MI 13298",
+  "description": "Full represent compare describe stop group."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:28",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

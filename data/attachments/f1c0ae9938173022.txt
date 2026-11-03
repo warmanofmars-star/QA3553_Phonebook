@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stefanie",
+  "lastName": "Morgan",
+  "phone": null,
+  "email": "user_9c8bc001d1@example.com",
+  "address": "115 Harvey Ville Apt. 538, Kempmouth, ND 21722",
+  "description": "Surface seat affect girl."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 359c84a5-7d4e-4f46-aff1-b2a9f83e83b5"
+}

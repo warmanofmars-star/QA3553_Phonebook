@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1c10556c-8916-4ee0-8d1f-7edbaaf22baa",
+      "name": "Annette",
+      "lastName": "Robertson",
+      "email": "user_acdc56e583@example.com",
+      "phone": "0518554224",
+      "address": "00282 Collins Mountain, West Mark, NJ 84658",
+      "description": "Of statement no land."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (42 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shelby",
+  "lastName": "Taylor",
+  "phone": "051226414",
+  "email": "user_60f755abe6@example.com",
+  "address": "USNV Rodriguez, FPO AP 29593",
+  "description": "Good heavy oil sign worry home sort."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:42",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

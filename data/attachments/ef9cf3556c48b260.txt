@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Seth",
+  "lastName": "Stafford",
+  "phone": "0518273276",
+  "email": "user_af9bf58400@example.com",
+  "address": "PSC 6748, Box 4028, APO AP 36897",
+  "description": "Public try newspaper last series spring president."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0c93ee10-dbbb-4544-871e-83efb0d927fd"
+}

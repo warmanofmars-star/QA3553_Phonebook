@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jacqueline",
+  "lastName": "Turner",
+  "phone": "0513547498",
+  "email": "user_2065b7bbcb@example.com",
+  "address": "23518 Evans Curve Suite 403, Mcleanhaven, CA 00523",
+  "description": "Stop establish down ready stage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2ff24eae-a0e4-421c-86a6-990207b34741"
+}

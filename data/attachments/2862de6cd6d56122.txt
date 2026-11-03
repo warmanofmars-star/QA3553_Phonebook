@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3db80794-51e4-47bd-bae5-d216618d840b",
+      "name": "Mary",
+      "lastName": "12345",
+      "email": "user_d959dc1c96@example.com",
+      "phone": "0513784880",
+      "address": "4689 Heather Tunnel Suite 391, New Markchester, MD 38921",
+      "description": "Movement want run economic."
+    }
+  ]
+}

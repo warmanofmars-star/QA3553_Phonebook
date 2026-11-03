@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "330b0e91-7937-452f-a0a2-9ca1f2402742",
+      "name": "Cindy",
+      "lastName": "Rivers",
+      "email": "user_d1cb9137c7@example.com",
+      "phone": "0527464228",
+      "address": "8448 Matthew Loop Suite 081, Elizabethfurt, KS 76028",
+      "description": "Bit indeed foreign tough coach especially employee."
+    }
+  ]
+}

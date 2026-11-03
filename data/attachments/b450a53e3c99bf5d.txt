@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "abc0b095-73a1-43d7-8dba-5c481975a5ce",
+      "name": "Jason",
+      "lastName": "Pena",
+      "email": "user_9f194a1244@example.com",
+      "phone": "0550887132",
+      "address": "5530 Walton Alley, Weaverville, WA 86852",
+      "description": "About we nice red manage."
+    }
+  ]
+}

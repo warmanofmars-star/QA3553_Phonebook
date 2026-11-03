@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (69 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Knox",
+  "phone": "0515215464",
+  "email": "user_46e7174f5e@example.com",
+  "address": "71185 Rachel Light Suite 441, South Ericbury, NC 59224",
+  "description": "Resource air mother exactly per among respond early."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2b38d3dc-c850-4873-90d0-cb9bc0d29ce1"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Vanessa",
+  "lastName": "Smith",
+  "phone": "0532647038",
+  "email": "",
+  "address": "484 Daniel Mews Suite 838, West Natasha, CA 83025",
+  "description": "Food majority natural direction bar than."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6b51023e-65f0-4663-a03d-fac9fad1d29f"
+}

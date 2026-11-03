@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e45a1f87-dd50-4462-ac9b-09afd45f058a",
+      "name": "Timothy",
+      "lastName": "Sullivan",
+      "email": "user_f08be3441a@example.com",
+      "phone": "0533530741",
+      "address": "48679 Brian Prairie, South Roberto, MT 95704",
+      "description": "Kitchen along star person popular chance."
+    }
+  ]
+}

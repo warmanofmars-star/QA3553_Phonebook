@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Hurst",
+  "phone": "0524224349",
+  "email": "user_86be6802fa@example.com",
+  "address": "30803 Scott Mountain Apt. 266, Joseburgh, MA 12818",
+  "description": "Until ability something participant raise no itself."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 819a25b5-ba13-40e4-9e69-0a4b8e3e09d1"
+}

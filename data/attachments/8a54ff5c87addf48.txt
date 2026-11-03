@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alyssa",
+  "lastName": "Campos",
+  "phone": "0532584279",
+  "email": "user_a5728febb2@example.com",
+  "address": "PSC 6244, Box 5060, APO AE 75936",
+  "description": "Information young position his claim whom."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fed971ed-9384-4166-a0b2-eae622242059"
+}

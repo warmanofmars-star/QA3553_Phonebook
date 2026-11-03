@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "de0e0e9e-0191-4e10-97af-05cdea4c879a",
+      "name": "Robert",
+      "lastName": "Heath",
+      "email": "user_ba51753c74@example.com",
+      "phone": "0515876884",
+      "address": "USCGC Dudley, FPO AE 82854",
+      "description": "Enter billion indicate modern activity from method himself."
+    }
+  ]
+}

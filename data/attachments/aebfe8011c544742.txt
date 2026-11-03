@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7930bbf9-e642-4ef8-853e-5fbd8f7450e0",
+      "name": "Kimberly",
+      "lastName": "Johnson",
+      "email": "user_74b5fee292@example.com",
+      "phone": "0527854581",
+      "address": "042 Miller Views, New Rachelstad, MS 69041",
+      "description": "Business trade section Democrat."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Philip",
+  "lastName": "Sampson",
+  "phone": "0518731409",
+  "email": "user_069422d02e@example.com",
+  "address": "27661 Stephen Mountains, Lake Lisaland, PR 68065",
+  "description": "Just hour what design."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e83796f9-ead8-4a72-b192-30a82e23d3fa"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (14 ms)
+
+--- Тело запроса ---
+{
+  "name": "Terri",
+  "lastName": "Booth",
+  "phone": "123",
+  "email": "user_7ef1102ed8@example.com",
+  "address": "8318 Allison Manors, West Dwayne, AK 03867",
+  "description": "Scientist hard than guess program kid Republican."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:41",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

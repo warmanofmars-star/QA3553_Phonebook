@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (119 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Johnson",
+  "phone": "0527854581",
+  "email": "user_74b5fee292@example.com",
+  "address": "042 Miller Views, New Rachelstad, MS 69041",
+  "description": "Business trade section Democrat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7930bbf9-e642-4ef8-853e-5fbd8f7450e0"
+}

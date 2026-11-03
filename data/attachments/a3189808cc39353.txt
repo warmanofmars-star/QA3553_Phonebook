@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Morrison",
+  "phone": "0515766149",
+  "email": "user_3ea64c7c8a@example.com",
+  "address": "3516 Joseph Rapids Suite 162, North Mary, FL 22925",
+  "description": "Clear smile order meet significant low cause."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 70229295-c60f-44b4-8ccc-b01fa02ecabf"
+}

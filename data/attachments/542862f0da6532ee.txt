@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Destiny",
+  "lastName": "Torres",
+  "email": "user_0746b205cb@example.com",
+  "address": "027 Megan Neck, Port Paige, IA 46490",
+  "description": "Suffer over product husband."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 902718b1-f32a-495c-86ca-85801715d9cf"
+}

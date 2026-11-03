@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Barbara",
+  "lastName": "Schwartz",
+  "phone": "0522177191",
+  "email": "user_48a9f29772@example.com",
+  "address": "12121 Jennifer Lodge Suite 978, North Robertberg, DE 51914",
+  "description": "Carry time over reality economic every church."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2d891d98-40c7-4bdd-8552-7f43d91b6001"
+}

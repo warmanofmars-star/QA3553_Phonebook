@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brent",
+  "lastName": "Taylor",
+  "phone": "0530137932",
+  "email": "user_572b6f35e8@example.com",
+  "address": "99574 Anderson Turnpike Apt. 999, Lake Lisa, MI 21119",
+  "description": "Coach recently employee director."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9a30a10e-492a-4ac3-b70c-c6ae8029c407"
+}

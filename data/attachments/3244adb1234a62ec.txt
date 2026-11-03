@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (30 ms)
+
+--- Тело запроса ---
+{
+  "name": "Donna",
+  "lastName": "Shepherd",
+  "phone": "123",
+  "email": "user_adaa2af264@example.com",
+  "address": "6585 Miller Mall, New Matthew, PR 40882",
+  "description": "Next eat role management task realize she let."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:34",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

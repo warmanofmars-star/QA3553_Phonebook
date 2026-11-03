@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Morris",
+  "phone": "0514327651",
+  "email": "user_e65cbd59ec@example.com",
+  "address": "488 Andrea Course Suite 217, Lake Emilyshire, NH 42349",
+  "description": "Attorney power enter court create sense."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f7ae258f-4128-4a80-998f-97bbb43679fb"
+}

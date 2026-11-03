@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "db2f67c9-692d-4f89-8af4-68fd72460049",
+      "name": "Christopher",
+      "lastName": "Pruitt",
+      "email": "user_a52c63eb26@example.com",
+      "phone": "0522367197",
+      "address": "65944 Jennifer Light, West Jessica, VI 69119",
+      "description": "Resource modern public can structure total kitchen."
+    }
+  ]
+}

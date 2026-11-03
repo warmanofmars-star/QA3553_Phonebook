@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paula",
+  "lastName": "Reid",
+  "phone": "0514127145",
+  "email": "a@b",
+  "address": "86319 Watson Brook, New Donald, PR 17509",
+  "description": "New indicate a company act Democrat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4744448e-82a0-4a37-be69-5d1d33cd835e"
+}

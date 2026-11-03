@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "Chavez",
+  "phone": "0527848570",
+  "email": "user_54f7b4063d@example.com",
+  "address": "954 Cynthia Garden Suite 661, Lake Andrew, RI 35506",
+  "description": "Clearly material professional radio put state still house."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 975fb45e-6a24-44c9-bebb-8d6f8be595c4"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Lewis",
+  "phone": "0591582213",
+  "email": "user_1f3c6a719f@example.com",
+  "address": "959 Dwayne Dale, Lake Lorifurt, KY 11989",
+  "description": "Tell institution television former drug such both seat."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:49:03",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

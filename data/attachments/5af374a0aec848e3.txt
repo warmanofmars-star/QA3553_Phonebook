@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Byrd",
+  "phone": "0540019827",
+  "email": "user@",
+  "address": "48422 Guerra Spurs, East Carolyn, MS 63555",
+  "description": "Message feeling manager around author step."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:49",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

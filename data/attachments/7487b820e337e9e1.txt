@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Troy",
+  "lastName": "Barnett",
+  "phone": "0516905938",
+  "email": "user_2786f1aa1f@example.com",
+  "address": "236 Karen Trail Apt. 574, Herreraville, MD 40615",
+  "description": "Quality seven fish sign girl character as attention."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b7218403-f767-4d29-875b-1053a7bd4fc3"
+}

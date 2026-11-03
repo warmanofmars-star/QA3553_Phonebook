@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Candace",
+  "lastName": "Mercado",
+  "phone": "   ",
+  "email": "user_acefa4ecee@example.com",
+  "address": "51865 Lauren Corner, Colemouth, PA 99218",
+  "description": "Door two national rich."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:40",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mariah",
+  "lastName": "Wilson",
+  "phone": "0532572461",
+  "email": "user_6d3e8d2bf4@example.com",
+  "address": "PSC 4792, Box 9043, APO AA 39194",
+  "description": "Political religious film science."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d1a98289-c358-4e7d-ae52-71c15a1c9e61"
+}

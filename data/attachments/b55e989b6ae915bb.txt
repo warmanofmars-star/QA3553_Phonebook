@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mitchell",
+  "lastName": null,
+  "phone": "0523685160",
+  "email": "user_5cd6609fd1@example.com",
+  "address": "2451 Richmond Centers, North Keithburgh, SC 87795",
+  "description": "Product left necessary pass now daughter set."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:49",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

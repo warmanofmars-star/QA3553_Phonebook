@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (140 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sara",
+  "lastName": "Grimes",
+  "phone": "0519857778",
+  "email": "user_98bf0a1de2@example.com",
+  "address": "1021 Wilson Groves, Whitehaven, PR 80280",
+  "description": "Base look send body.",
+  "id": "e452c672-5742-463d-b342-186ad66bf3cf"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

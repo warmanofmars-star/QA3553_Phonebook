@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Bartlett",
+  "phone": "0531769266",
+  "email": "user_32f1de4995@example.com",
+  "address": "86366 Teresa Cliff Apt. 175, East Elizabethview, TN 02468",
+  "description": "Technology risk I color."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d3212ff2-fd13-47d8-a31f-af322c80b003"
+}

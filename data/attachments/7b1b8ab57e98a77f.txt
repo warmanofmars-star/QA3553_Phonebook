@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Darlene",
+  "lastName": "Salazar",
+  "phone": "0522790007",
+  "email": "user_d9e0417d17@example.com",
+  "address": "USNV Rasmussen, FPO AP 42954",
+  "description": "Voice car ground establish."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7cca330d-591b-45e8-9495-b6771f2e0e0e"
+}

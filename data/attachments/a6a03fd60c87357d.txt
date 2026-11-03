@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "Williams",
+  "phone": "0523775274",
+  "email": "user_21c97c9f06@example.com",
+  "address": "018 Fletcher Squares Suite 836, Paulastad, VI 56196",
+  "description": "Memory class almost quite leader prove."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e8d0fc5f-d53b-423e-b81a-a96794035fb5"
+}

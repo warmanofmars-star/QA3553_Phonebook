@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ronald",
+  "lastName": "Donaldson",
+  "phone": "0528511991",
+  "email": "user_05a7a634fd@example.com",
+  "address": "3198 Joseph Crest, North Staceyberg, IL 00811",
+  "description": "Get draw peace thought police chance to consumer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 13c20aa7-8bb3-46e9-ba4b-f9697ca8fc35"
+}

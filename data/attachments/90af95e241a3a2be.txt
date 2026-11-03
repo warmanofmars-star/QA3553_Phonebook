@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dd0b70d0-7e7d-4c47-ad9a-938eef515990",
+      "name": "Victoria",
+      "lastName": "Dickson",
+      "email": "user_3811e56334@example.com",
+      "phone": "0514686630",
+      "address": "894 Elijah Street, Patricialand, DE 66594",
+      "description": "Right thought type moment itself easy could necessary."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Hall",
+  "phone": "0522532984",
+  "email": null,
+  "address": "6480 Schneider Club Suite 899, West Kaitlyn, MP 23008",
+  "description": "Store however exist home article west."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f52d3a95-f078-403e-afa7-2a32b0ef862b"
+}

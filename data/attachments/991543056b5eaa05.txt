@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Woods",
+  "phone": "0510686904",
+  "email": "user_afdf37d2c2@example.com",
+  "address": "48280 Kenneth Mill Apt. 547, Lake Eileen, KS 87785",
+  "description": "Purpose me analysis central best scientist why true."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b7d9c162-768b-4ef8-92f0-a0b161ea453f"
+}

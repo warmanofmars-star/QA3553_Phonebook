@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Bell",
+  "phone": "0531600252",
+  "email": "user_d7a7a08252@example.com",
+  "address": "01084 Evelyn Summit Apt. 158, New William, IL 39378",
+  "description": "Nation good probably break."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0d6e2b9d-0e60-439c-aaef-55bc70e6db2e"
+}

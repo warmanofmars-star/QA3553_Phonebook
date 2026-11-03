@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4d4eff0f-fa0d-41fd-827e-84a7f2457dc2",
+      "name": "Curtis",
+      "lastName": "Sherman",
+      "email": "user_72361e5d76@example.com",
+      "phone": "0510352168",
+      "address": "47734 Anderson Canyon Suite 718, Mcintyrefurt, AL 71005",
+      "description": "Citizen information three good customer teach."
+    }
+  ]
+}

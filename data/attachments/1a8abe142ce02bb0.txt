@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chad",
+  "lastName": "Smith",
+  "phone": "0526507671",
+  "email": "user_dfd54aed4e@example.com",
+  "address": "1061 Hunter Roads, Oscarmouth, AR 12109",
+  "description": "South probably quite explain white."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 49f792c8-6e48-45e4-b298-62167ef4bcdc"
+}

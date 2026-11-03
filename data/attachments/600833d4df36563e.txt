@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Elliott",
+  "phone": null,
+  "email": "user_87b3ee8828@example.com",
+  "address": "112 Julie Throughway Suite 487, East Ronnieview, HI 70275",
+  "description": "Test develop tree stock."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b2b18ad5-0d3d-49d4-9bf6-0a629b8470b7"
+}

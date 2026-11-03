@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Armstrong",
+  "phone": "0517892057",
+  "email": "user_3fdbbec4b5@example.com",
+  "address": "4057 Cynthia Pine, Lake Sarahton, OK 87312",
+  "description": "Computer during within assume join career."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a4d82e26-770a-4fb8-8634-dd38ec37d2c8"
+}

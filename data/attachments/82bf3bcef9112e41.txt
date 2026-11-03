@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tara",
+  "lastName": "Smith",
+  "phone": "0526660353",
+  "email": "not_an_email",
+  "address": "473 Michelle Station Suite 734, East Saraborough, DE 00784",
+  "description": "Explain game low energy baby."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:41",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

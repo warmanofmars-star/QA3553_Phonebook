@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kristen",
+  "lastName": "Jennings",
+  "phone": "0525351747",
+  "email": "user_e60cc2540a@example.com",
+  "address": "958 Thompson Run Apt. 583, Sethbury, WA 38706",
+  "description": "Turn industry from skill car month suggest."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bed8109e-591d-4346-a6e4-90875bb23c7e"
+}

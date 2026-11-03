@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "51b589f9-b0cc-4b6e-b0e9-10ae4a8956ae",
+      "name": "Melanie",
+      "lastName": "Pham",
+      "email": "user_701ba8e7f9@example.com",
+      "phone": "0547036665",
+      "address": "!@#$%^&*()_+-=",
+      "description": "Push fly peace include."
+    }
+  ]
+}

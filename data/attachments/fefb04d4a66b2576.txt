@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (30 ms)
+
+--- Тело запроса ---
+{
+  "name": "Evelyn",
+  "lastName": "   ",
+  "phone": "0532426814",
+  "email": "user_0be2b9f4c3@example.com",
+  "address": "34046 Stacey Club, Janetview, ND 62093",
+  "description": "Someone sit institution billion station believe rule."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T17:48:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

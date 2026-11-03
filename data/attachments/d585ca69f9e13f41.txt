@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "abc0b095-73a1-43d7-8dba-5c481975a5ce",
+      "name": "Jason",
+      "lastName": "Pena",
+      "email": "user_9f194a1244@example.com",
+      "phone": "0550887132",
+      "address": "5530 Walton Alley, Weaverville, WA 86852",
+      "description": "About we nice red manage."
+    },
+    {
+      "id": "6f4c63ec-1c68-4861-997a-562a8607ce43",
+      "name": "Valerie",
+      "lastName": "Mitchell",
+      "email": "user_38ef2cd04b@example.com",
+      "phone": "0591624189",
+      "address": "644 Meyers Landing, New Christinabury, WY 57088",
+      "description": "Front from last truth ability."
+    },
+    {
+      "id": "cbc41e25-3db9-4b60-ae1d-77269ac8fb97",
+      "name": "David",
+      "lastName": "Ross",
+      "email": "user_ccd473f9e1@example.com",
+      "phone": "0525933022",
+      "address": "24396 Glen Greens Apt. 978, East Hunter, ND 48917",
+      "description": "Major set everything sea become."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Johnny",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0531906917",
+  "email": "user_d7a1491c1a@example.com",
+  "address": "658 Davidson Lodge, North Justin, AS 66919",
+  "description": "According least take under fact under where business."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 332ca597-d51a-481e-bd9c-22119397bce8"
+}

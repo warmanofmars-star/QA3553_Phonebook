@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5b48489a-8921-46cf-bc8b-7ceca5108683",
+      "name": "Katherine",
+      "lastName": "Frye",
+      "email": "user_219c03ef26@example.com",
+      "phone": "0533569346",
+      "address": "17500 Christina Lodge, South Aliceborough, DC 17589",
+      "description": "Put safe show."
+    }
+  ]
+}

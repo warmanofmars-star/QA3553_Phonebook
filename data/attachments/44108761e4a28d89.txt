@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ca20c501-95e8-49db-8f5a-012415c8792d",
+      "name": "Deborah",
+      "lastName": "Schultz",
+      "email": "user_aa3ae006f5@example.com",
+      "phone": "0532717673",
+      "address": "419 Wilson Valley, Changhaven, MD 35179",
+      "description": "Attention recognize because card push remember."
+    }
+  ]
+}

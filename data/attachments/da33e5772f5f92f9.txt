@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Reed",
+  "phone": "0529353166",
+  "email": "user_2102bf2695@example.com",
+  "address": "442 Jodi Creek Apt. 765, Brittanyborough, TN 86401",
+  "description": "Article door yourself near rest increase somebody."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c0eadc44-8c07-48b9-a3ab-339fc16f9afa"
+}

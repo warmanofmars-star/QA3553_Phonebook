@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c608c506-a26c-497f-9ef5-6499f7061cf1",
+      "name": "Faith",
+      "lastName": "Smith",
+      "email": "user_11335bf542@example.com",
+      "phone": "0524439330",
+      "address": "460 Alvarez Lights Apt. 651, New April, NY 11950",
+      "description": "[object Undefined]"
+    }
+  ]
+}

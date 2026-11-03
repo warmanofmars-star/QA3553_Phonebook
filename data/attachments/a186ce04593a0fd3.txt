@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Catherine",
+  "lastName": "Lopez",
+  "phone": "0510884771",
+  "email": "user_461961a16c@example.com",
+  "address": "07692 Garcia Creek Suite 065, East Cheyenneshire, TX 30244",
+  "description": "Community option college town exactly."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d4f4ab6f-6cee-443d-8476-674b04945168"
+}

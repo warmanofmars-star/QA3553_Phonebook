@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anita",
+  "lastName": "Gray",
+  "phone": "0592673619",
+  "email": "user_d3ab429c4a@example.com",
+  "address": "Unit 0316 Box 7165, DPO AE 12841",
+  "description": "Best southern different maybe never though.",
+  "id": "0cdcb12d-b02e-4d69-b71b-0012a1fa4b52"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dana",
+  "lastName": "Vega",
+  "phone": "0527922452",
+  "email": "user_8965b15988@example.com",
+  "address": "417 Stephen Harbor Suite 176, South Rogertown, IA 73851",
+  "description": "Performance human it plan program eat resource."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 33460400-7d4d-401a-b22b-af1d50261504"
+}

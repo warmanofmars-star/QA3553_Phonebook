@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kristi",
+  "lastName": "Holmes",
+  "phone": "0586469988",
+  "email": "user_29ab107ddb@example.com",
+  "address": "1199 Carrie Squares Suite 753, North Robert, ND 95096",
+  "description": "Believe can arm wrong job time seek."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 925b5066-50c8-4bd1-90ce-288deaf7ee29"
+}

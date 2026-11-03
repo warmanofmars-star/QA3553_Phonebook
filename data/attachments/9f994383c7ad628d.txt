@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Lee",
+  "phone": "0524211641",
+  "email": "user_e93bae50e8@example.com",
+  "address": "215 Kathryn Harbor Suite 277, Caseyhaven, DC 50981",
+  "description": "Individual sit third share."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4efe01cd-bb05-466e-8090-b8d901913389"
+}

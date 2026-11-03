@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "359c84a5-7d4e-4f46-aff1-b2a9f83e83b5",
+      "name": "Stefanie",
+      "lastName": "Morgan",
+      "email": "user_9c8bc001d1@example.com",
+      "phone": null,
+      "address": "115 Harvey Ville Apt. 538, Kempmouth, ND 21722",
+      "description": "Surface seat affect girl."
+    }
+  ]
+}

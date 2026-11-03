@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a68c2b46-9619-4ccb-8f07-99717cdfecdf",
+      "name": "Larry",
+      "lastName": "Hernandez",
+      "email": "user_a5f706027e@example.com",
+      "phone": "0524030814",
+      "address": "57070 Marco Camp, Stevenstown, KY 73507",
+      "description": "Money speak song site arrive."
+    }
+  ]
+}

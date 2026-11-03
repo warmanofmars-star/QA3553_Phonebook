@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Ross",
+  "phone": "0525933022",
+  "email": "user_ccd473f9e1@example.com",
+  "address": "24396 Glen Greens Apt. 978, East Hunter, ND 48917",
+  "description": "Major set everything sea become."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cbc41e25-3db9-4b60-ae1d-77269ac8fb97"
+}

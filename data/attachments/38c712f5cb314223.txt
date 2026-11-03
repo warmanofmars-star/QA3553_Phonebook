@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5d2c109f-b29a-4cfc-998a-88fc90661bc1",
+      "name": "David",
+      "lastName": "Thomas",
+      "email": "user_1e9ebbd4db@example.com",
+      "phone": "0522271720",
+      "address": "5041 Anthony Lodge, Jennifermouth, MP 69145",
+      "description": "During argue when indicate full soon."
+    }
+  ]
+}

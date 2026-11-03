@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carl",
+  "lastName": "Wright",
+  "phone": "0517997689",
+  "email": "user_7888cabec5@example.com",
+  "address": "USCGC Drake, FPO AA 68501",
+  "description": "Unit chair half arrive stop indicate."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cd42fd93-6ccb-4e90-b899-22be11616cfd"
+}

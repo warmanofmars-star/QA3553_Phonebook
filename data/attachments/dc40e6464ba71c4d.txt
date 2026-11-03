@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "09dadda8-a7b0-42c4-8268-cbfeee36512f",
+      "name": "Paige",
+      "lastName": "Martinez",
+      "email": "user_14dc9c15a3@example.com",
+      "phone": "0511033339",
+      "address": "700 Cox Brook Apt. 112, Port Robert, AK 65318",
+      "description": "Push indicate before."
+    }
+  ]
+}

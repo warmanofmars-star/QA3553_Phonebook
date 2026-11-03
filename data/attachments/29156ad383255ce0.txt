@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (151 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Olson",
+  "phone": "053026935257700",
+  "email": "user_562d5ea721@example.com",
+  "address": "52703 Anderson Brook, East Billy, ID 77782",
+  "description": "Floor fall great ability human one.",
+  "id": "101bbc01-9cac-4027-ad12-d328b805e06f"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}
