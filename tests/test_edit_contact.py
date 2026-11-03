@@ -111,6 +111,27 @@ def test_edit_contact_duplicate_phone(authenticated_driver, auth_api, create_con
     assert not duplicate_saved, "Контакт №2 сохранён с телефоном контакта №1"
 
 
+@pytest.mark.regression
+@allure.story("Edit with duplicate email")
+@allure.severity(allure.severity_level.NORMAL)
+@allure.tag("TC-0034")
+@known_bug("DUPLICATE_CONTACT")
+def test_edit_contact_duplicate_email(authenticated_driver, auth_api, create_contact):
+    """SRS T70: при редактировании email не должен повторять email другого контакта."""
+    contact_1 = create_contact()
+    contact_2 = create_contact()
+
+    contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    contacts_page.edit_contact(contact_2.phone, Contact(email=contact_1.email))  # меняем только email
+
+    duplicate_saved = eventually(
+        lambda: _stored_contact(auth_api, contact_2.id).get("email") == contact_1.email,
+        timeout=5,
+    )
+    assert not duplicate_saved, "Контакт №2 сохранён с email контакта №1"
+
+
 # Поле модели -> ключ в API -> кейс STD.
 # Известным багом помечен только email: бэкенд отклоняет пустые name/lastName/phone/address
 # (400, данные не меняются), а пустой email сохраняет.
@@ -140,3 +161,27 @@ def test_edit_contact_clear_required_fields(authenticated_driver, auth_api, crea
         timeout=5,
     )
     assert not empty_saved, f"Контакт сохранён с пустым обязательным полем '{field}'"
+
+
+@pytest.mark.regression
+@allure.story("Blank address")
+@allure.severity(allure.severity_level.NORMAL)
+@allure.tag("TC-0033")
+def test_edit_contact_blank_address(authenticated_driver, auth_api, created_contact):
+    """SRS T72, F14: адрес из одних пробелов — это blank, система не сохраняет такие данные.
+
+    Пустой адрес проверяет TC-0032, здесь — пробелы: формально поле заполнено, но по T72
+    это blank. В ожидаемом результате TC-0033 в STD упомянуто поле Name — это копипаст
+    из SRS, где все F10–F14 заканчиваются словами "to the name field". Тест следует
+    смыслу F14 и T72: проверяем адрес.
+    """
+    contacts_page = ContactsPage(authenticated_driver)
+    contacts_page.open()
+    contacts_page.edit_contact(created_contact.phone, Contact(address="   "))
+
+    address_changed = eventually(
+        lambda: _stored_contact(auth_api, created_contact.id).get("address") != created_contact.address,
+        timeout=5,
+    )
+    saved = _stored_contact(auth_api, created_contact.id).get("address")
+    assert not address_changed, f"Адрес изменился: было {created_contact.address!r}, сохранено {saved!r}"

@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 import allure
 import pytest
 
@@ -34,6 +36,32 @@ def test_add_contact_success_all_fields(authenticated_driver, auth_api):
         expected = contact.to_api_payload()
         actual = {key: stored.get(key) for key in expected}
         assert actual == expected, f"Сохранённые данные отличаются от введённых:\n{actual}\n!=\n{expected}"
+
+
+@pytest.mark.regression
+@allure.story("Add contact with required fields only")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("TC-0012")
+def test_add_contact_success_required_fields_only(authenticated_driver, auth_api):
+    """SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями."""
+    # description=None: Page Object не трогает поле, как пользователь, который его пропустил
+    contact = replace(ContactGenerator.get_random_contact(), description=None)
+
+    add_page = AddContactPage(authenticated_driver)
+    add_page.open()
+    add_page.add_contact(contact)
+
+    assert ContactsPage(authenticated_driver).is_card_displayed(contact.phone), (
+        f"Карточка контакта с телефоном {contact.phone} не появилась в списке"
+    )
+
+    with allure.step("Проверить через API, что обязательные поля сохранены верно, а описание пустое"):
+        stored = next((c for c in auth_api.get_contacts_list() if c.get("phone") == contact.phone), {})
+        expected = {key: value for key, value in contact.to_api_payload().items() if key != "description"}
+        actual = {key: stored.get(key) for key in expected}
+        assert actual == expected, f"Сохранённые данные отличаются от введённых:\n{actual}\n!=\n{expected}"
+        # Пустое описание бэкенд может вернуть и как "", и как отсутствующее поле — оба варианта верны
+        assert not stored.get("description"), f"Описание не вводилось, но сохранено: {stored.get('description')!r}"
 
 
 @pytest.mark.regression

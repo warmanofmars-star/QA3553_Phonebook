@@ -4,7 +4,7 @@
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
-**72 tests** (31 API, 41 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
+**75 tests** (31 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
 (Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 
 This is a learning project built during a QA automation course. It was later refactored
@@ -38,7 +38,7 @@ where every defect is linked to the requirement it violates:
 
 | Key | Requirement | Actual behaviour |
 |---|---|---|
-| `DUPLICATE_CONTACT` | SRS T32, T45, T83; Swagger 409 | Duplicate email / phone is saved |
+| `DUPLICATE_CONTACT` | SRS T32, T45, T70, T83; Swagger 409 | Duplicate email / phone is saved |
 | `EMAIL_NOT_REQUIRED` | SRS T26–T27, T64–T65 | Contact with an empty email is saved |
 | `PHONE_NOT_REQUIRED` | SRS T38–T39 | Contact without a phone is saved |
 | `EDIT_DESCRIPTION_BROKEN` | STD TC-00026, TC-00027 | Editing the description in UI saves `[object Undefined]` |

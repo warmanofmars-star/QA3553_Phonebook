@@ -39,7 +39,7 @@ class KnownBug:
 KNOWN_BUGS: dict[str, KnownBug] = {
     # ---------- Контакты: валидация и дубликаты ----------
     "DUPLICATE_CONTACT": KnownBug(
-        requirement="SRS T32, T45, T83; Swagger: POST /v1/contacts -> 409 Duplicate contact fields",
+        requirement="SRS T32, T45, T70, T83; Swagger: POST /v1/contacts -> 409 Duplicate contact fields",
         description="Бэкенд сохраняет контакт с уже существующими email/телефоном",
     ),
     "EMAIL_NOT_REQUIRED": KnownBug(
