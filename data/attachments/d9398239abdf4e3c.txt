@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tony",
+  "lastName": "Washington",
+  "phone": "0590153950",
+  "email": "user_033fc2db04@example.com",
+  "address": "582 Bush Lodge, Richardstad, UT 44062",
+  "description": "Sport room simple artist poor traditional community."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f4c8126b-f54b-4849-aa77-5cfb90a056bb"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Lewis",
+  "phone": "0551896510",
+  "email": "user_7923bb716c@example.com",
+  "address": "4461 Jessica Drive Apt. 455, South Lisa, TX 21670",
+  "description": "Amount board side summer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 014f7130-d988-4667-bbf9-8e7351382e0b"
+}

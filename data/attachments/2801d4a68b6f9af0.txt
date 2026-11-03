@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Allison",
+  "lastName": "Mathews",
+  "phone": "0527062235",
+  "email": "",
+  "address": "9107 Brown Grove, Lake Rebecca, PW 09129",
+  "description": "Reflect several drive ready pretty."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1c0921d9-b9b7-4020-88b5-81114779e590"
+}

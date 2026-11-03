@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Adkins",
+  "phone": "0518656963",
+  "email": "user_7df275a361@example.com",
+  "address": "596 Heather Greens Suite 328, Colemanport, NE 70915",
+  "description": "Loss town peace newspaper."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 504bc655-345a-4c82-b414-1a8bc86939ca"
+}

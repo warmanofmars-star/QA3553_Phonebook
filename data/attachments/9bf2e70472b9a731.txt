@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (29 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Allen",
+  "phone": "0513538974",
+  "email": "user_320d48c8ce@example.com",
+  "address": "4978 Charles Ridge Apt. 708, Davisbury, NC 58757",
+  "description": "Foot listen evening."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T08:57:21",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

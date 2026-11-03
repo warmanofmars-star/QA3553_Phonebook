@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "Hoffman",
+  "phone": "0516424382",
+  "email": "user_5123978684@example.com",
+  "address": "7665 Reginald Islands Apt. 490, South Brent, PA 50320",
+  "description": "His behavior never happy tree experience up."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5e4867e6-642c-409a-91df-703b42111d8d"
+}

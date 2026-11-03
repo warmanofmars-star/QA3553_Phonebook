@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kenneth",
+  "lastName": "Coleman",
+  "phone": "0529058801",
+  "email": "user_fdbfa06ef7@example.com",
+  "address": "PSC 0373, Box 1034, APO AE 35562",
+  "description": "Woman imagine book."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e332e86e-04f8-4dcd-ad01-113b53c7ac75"
+}

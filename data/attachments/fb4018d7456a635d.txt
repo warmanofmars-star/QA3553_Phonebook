@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bab2369b-0910-403f-ae58-f6fda8a49425",
+      "name": "Larry",
+      "lastName": "Gonzalez",
+      "email": "user_1b3f4d483b@example.com",
+      "phone": "0528285703",
+      "address": "64787 Williamson Underpass, Nancychester, DC 91055",
+      "description": "Direction yourself enjoy option traditional."
+    }
+  ]
+}

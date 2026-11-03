@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kathleen",
+  "lastName": "Smith",
+  "phone": "0555877418",
+  "email": "user_b78046cfa2@example.com",
+  "address": "5520 Lopez Curve Apt. 550, New Phillip, DC 90423",
+  "description": "Skin strategy example long avoid share compare."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e25b12d3-7f6d-49ec-acca-a30a4192353d"
+}

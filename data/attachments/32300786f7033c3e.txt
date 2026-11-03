@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cody",
+  "lastName": "Peterson",
+  "phone": "0522440415",
+  "email": "user_42c02d6ed0@example.com",
+  "address": "772 Christine Fields, Hortonbury, OK 05696",
+  "description": "Safe like even sing."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 42ddfa09-a615-4f3f-88f4-18859ccad31f"
+}

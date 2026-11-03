@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tammy",
+  "lastName": "Ward",
+  "phone": "0514976590",
+  "email": "user_c001ad847f@example.com",
+  "address": "102 Davis Parkways Suite 466, Stephanieborough, UT 24831",
+  "description": "Office long society direction science ahead.",
+  "id": "08702eed-02ab-412f-8ce7-e46e3b3d52c4"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0d6408c9-169b-41ba-a41a-796ccd9ff490"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carol",
+  "lastName": "Parker",
+  "phone": "0531669414",
+  "email": "user_712ed85c8a@example.com",
+  "address": "4709 Jared Drive Apt. 830, New Nathanieltown, WI 96332",
+  "description": "Son course live force catch."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 855ad63e-881e-4438-bfce-11a298eb103a"
+}

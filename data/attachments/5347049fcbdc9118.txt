@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "42ddfa09-a615-4f3f-88f4-18859ccad31f",
+      "name": "Cody",
+      "lastName": "Peterson",
+      "email": "user_42c02d6ed0@example.com",
+      "phone": "0522440415",
+      "address": "772 Christine Fields, Hortonbury, OK 05696",
+      "description": "Safe like even sing."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b3836317-3dde-470c-97aa-662877d5fb34",
+      "name": "Wendy",
+      "lastName": "Campbell",
+      "email": "user_81e6407be2@example.com",
+      "phone": "0520285046",
+      "address": "1361 Dana Union Apt. 868, Jacksonton, NJ 51143",
+      "description": "Against green ok degree bit sing certainly energy."
+    }
+  ]
+}

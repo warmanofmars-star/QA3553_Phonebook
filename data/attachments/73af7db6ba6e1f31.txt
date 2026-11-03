@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Hunter",
+  "phone": "0519689754",
+  "email": "user_c539efa0b8@example.com",
+  "address": "285 Jeffrey Flat Apt. 269, Mortontown, LA 09135",
+  "description": "Agreement picture travel list people wall image during."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1d86a2e5-e8d2-4f58-967a-77828cbb2f2c"
+}

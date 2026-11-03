@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "08fe0482-f061-46ac-a0e8-b249bf662a07",
+      "name": "Nancy",
+      "lastName": "Reynolds",
+      "email": "user_dfa4124245@example.com",
+      "phone": "0523719004",
+      "address": "99446 Emma Isle Suite 072, Amberborough, DE 25962",
+      "description": "Interest necessary best capital quickly."
+    }
+  ]
+}

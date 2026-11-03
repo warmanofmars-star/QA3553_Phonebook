@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patrick",
+  "lastName": "Sutton",
+  "phone": "0511316037",
+  "email": "user_b71387abd3@example.com",
+  "address": "USS Gutierrez, FPO AA 00858",
+  "description": "Land memory four television."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bea52d49-96f1-4f62-a39a-5426df9d230f"
+}

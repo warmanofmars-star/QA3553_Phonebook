@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9b236fef-e7ca-48ac-8833-42cea478afc3",
+      "name": "Jennifer",
+      "lastName": "Roberts",
+      "email": "user_53297b0adf@example.com",
+      "phone": "0598521782",
+      "address": "597 Thomas Harbors Apt. 522, Port Sylvia, DE 84964",
+      "description": "Tonight turn environment most condition industry energy."
+    }
+  ]
+}

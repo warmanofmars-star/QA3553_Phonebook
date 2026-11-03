@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Kelly",
+  "email": "user_2cca078270@example.com",
+  "address": "6210 Alvarado Alley, Lake Jamesmouth, TX 39781",
+  "description": "Nice prevent attention cause."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d9908d19-00c8-40c4-a6d5-f7ab2d1e29a0"
+}

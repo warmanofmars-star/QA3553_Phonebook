@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Hardy",
+  "phone": "0523347016",
+  "email": "user_1998b31ff6@example.com",
+  "address": "5560 Jonathan Oval Suite 371, Buchananmouth, AS 49740",
+  "description": "Rise world spring of."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73bda474-09f5-436d-b3ec-41079e4ef981"
+}

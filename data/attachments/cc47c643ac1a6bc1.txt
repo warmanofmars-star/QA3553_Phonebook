@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "21607237-5e87-4e16-9028-e97bf5fe075b",
+      "name": "Hunter",
+      "lastName": "Ramos",
+      "email": "user_e54c13a635@example.com",
+      "phone": "0519149520",
+      "address": "3247 Cobb Plaza Suite 111, Zacharyton, HI 49356",
+      "description": "Hour have air."
+    }
+  ]
+}

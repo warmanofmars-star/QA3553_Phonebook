@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "926f3335-f5a3-43b6-a3b0-8e94c891e457",
+      "name": "Mitchell",
+      "lastName": "Carter",
+      "email": "user_a4e6539f58@example.com",
+      "phone": "0523469002",
+      "address": "465 Colin Harbors, Port Sherimouth, GU 47528",
+      "description": "Foot toward close phone."
+    },
+    {
+      "id": "1d86a2e5-e8d2-4f58-967a-77828cbb2f2c",
+      "name": "Ryan",
+      "lastName": "Hunter",
+      "email": "user_c539efa0b8@example.com",
+      "phone": "0519689754",
+      "address": "285 Jeffrey Flat Apt. 269, Mortontown, LA 09135",
+      "description": "Agreement picture travel list people wall image during."
+    }
+  ]
+}

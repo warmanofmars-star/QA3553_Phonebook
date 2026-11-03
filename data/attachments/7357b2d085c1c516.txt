@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christian",
+  "lastName": "Bass",
+  "phone": "0527233694",
+  "email": "user_3a84b76a59@example.com",
+  "address": "PSC 9802, Box 7400, APO AP 41022",
+  "description": "Report bring yet upon cause central back."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9125f1eb-52bc-44b7-8ec3-0c5034da3e65"
+}

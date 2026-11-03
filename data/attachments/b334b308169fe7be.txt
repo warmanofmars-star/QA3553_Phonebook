@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Wallace",
+  "phone": "0513463004",
+  "email": "user_fa7d55457f@example.com",
+  "address": "247 Ryan Course Suite 241, Danielleberg, MA 95235",
+  "description": "Debate college choose score others human."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 79201941-6e83-4bbd-837c-042b75893eeb"
+}

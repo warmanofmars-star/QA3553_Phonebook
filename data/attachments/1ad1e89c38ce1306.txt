@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Hunter",
+  "lastName": "Ramos",
+  "phone": "0519149520",
+  "email": "user_e54c13a635@example.com",
+  "address": "3247 Cobb Plaza Suite 111, Zacharyton, HI 49356",
+  "description": "Hour have air."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 21607237-5e87-4e16-9028-e97bf5fe075b"
+}

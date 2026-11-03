@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Lopez",
+  "phone": "0591076928",
+  "email": "user_188faf70f0@example.com",
+  "address": "6139 Shannon Forges, Odomland, FM 28412",
+  "description": "Itself guy relate everyone mother."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b11422da-b62c-481e-afa0-9b654a3b2d51"
+}

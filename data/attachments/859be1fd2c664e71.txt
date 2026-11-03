@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lindsey",
+  "lastName": "Baker",
+  "phone": "0527336284",
+  "email": "user_e47794a913@example.com",
+  "address": "USS Chen, FPO AA 43843",
+  "description": "Wear security at exactly address open radio ability."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d3d91c5a-2504-4134-ac7d-d9a6685e6c6b"
+}

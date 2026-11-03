@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ebae3f90-d015-4981-b848-6e6480e876d8",
+      "name": "Paul",
+      "lastName": "Obrien",
+      "email": "user_b8268ac332@example.com",
+      "phone": "0513170791",
+      "address": "853 Lori Stream Apt. 910, Robertport, PR 43580",
+      "description": "Several around against list."
+    },
+    {
+      "id": "8ef3b94c-7996-4840-8fbf-9e4dddaedf86",
+      "name": "Carla",
+      "lastName": "Williams",
+      "email": "user_265e7f813c@example.com",
+      "phone": "0513170791",
+      "address": "297 James Plaza Apt. 646, Michaelport, AL 62427",
+      "description": "Personal during around idea much add still development."
+    }
+  ]
+}

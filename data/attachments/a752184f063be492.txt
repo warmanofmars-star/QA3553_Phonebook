@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "52072f30-cfc7-42c1-a93a-f6c11bf7a068",
+      "name": "Michael",
+      "lastName": "Frost",
+      "email": "user_a79bb5d3b2@example.com",
+      "phone": "0511332188",
+      "address": "5247 Emily Stream Suite 394, Port Darrell, ME 54048",
+      "description": "Record actually walk relate truth center."
+    }
+  ]
+}

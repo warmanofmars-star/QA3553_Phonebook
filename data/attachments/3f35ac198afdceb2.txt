@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73bda474-09f5-436d-b3ec-41079e4ef981",
+      "name": "Ashley",
+      "lastName": "Hardy",
+      "email": "user_1998b31ff6@example.com",
+      "phone": "0523347016",
+      "address": "5560 Jonathan Oval Suite 371, Buchananmouth, AS 49740",
+      "description": "Rise world spring of."
+    }
+  ]
+}

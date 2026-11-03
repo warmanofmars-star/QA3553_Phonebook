@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Heidi",
+  "lastName": "Holmes",
+  "phone": "0532289464",
+  "email": "user_257c8cd8c6@example.com",
+  "address": "029 Parker Street, Jonmouth, PA 41088",
+  "description": "Nation Mrs position agreement building end answer.",
+  "id": "37e6f38f-6ffa-49b2-bb53-3d3f4701e5c2"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 337a5e33-ed24-4961-8efd-c30b5a73cc06"
+}

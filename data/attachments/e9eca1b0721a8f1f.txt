@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Perry",
+  "phone": "0531261329",
+  "email": "user_f6b549f5ab@example.com",
+  "address": "30948 Kendra Row Suite 493, East Nicoleshire, MP 45147",
+  "description": "Beat likely opportunity any against performance sea."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cf46d45b-5b8a-42a2-9950-26cf09d0c56e"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tammy",
+  "lastName": "Pineda",
+  "phone": "0528210251",
+  "email": "user_05069339ac@example.com",
+  "address": "1931 Howard Mountains, Ambermouth, DE 37038",
+  "description": "Them Congress avoid window firm."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8d23303c-531f-43bf-982e-11ebf04f039f"
+}

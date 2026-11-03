@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Phillips",
+  "email": "user_271e701fa0@example.com",
+  "address": "4995 Allen Stravenue, Mcgeetown, IA 28300",
+  "description": "Home natural opportunity buy or answer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8f5f51b9-6771-4c02-98e7-89655c7c07d2"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ann",
+  "lastName": "Atkinson",
+  "phone": "0531533818",
+  "email": "user_9a01e2c14d@example.com",
+  "address": "180 Kathleen Bypass, New Chadchester, TX 05529",
+  "description": "Share south camera dark adult debate."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a7e9ddd7-e4d9-4406-8cae-15c7891bb018"
+}

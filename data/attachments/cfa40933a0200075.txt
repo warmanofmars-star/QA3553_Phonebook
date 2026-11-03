@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Baker",
+  "phone": "0541842919",
+  "email": "user_abcf92f98a@example.com",
+  "address": "42400 Sheri Branch Apt. 861, New Sethport, FL 60280",
+  "description": "Improve over choice enter nice less."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 785357eb-7a70-48e4-8b7e-14ad79a7fb3c"
+}

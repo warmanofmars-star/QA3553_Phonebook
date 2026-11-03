@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7db12abd-4c4f-43e4-b45f-b9986c783e08",
+      "name": "Gregory",
+      "lastName": "Turner",
+      "email": "user_b50d070e1c@example.com",
+      "phone": "0515755399",
+      "address": "3050 Bruce Estates Suite 553, South Amy, GA 42235",
+      "description": "Again wide see investment set type explain."
+    }
+  ]
+}

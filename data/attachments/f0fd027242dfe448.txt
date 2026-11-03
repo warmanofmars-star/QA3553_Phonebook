@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bab2369b-0910-403f-ae58-f6fda8a49425",
+      "name": "Larry",
+      "lastName": "Gonzalez",
+      "email": "user_1b3f4d483b@example.com",
+      "phone": "0528285703",
+      "address": "64787 Williamson Underpass, Nancychester, DC 91055",
+      "description": "Direction yourself enjoy option traditional."
+    },
+    {
+      "id": "c1d72034-eff4-4b4e-953c-459d5a38aafa",
+      "name": "Robert",
+      "lastName": "Macias",
+      "email": "user_19cb1ec5d4@example.com",
+      "phone": "0521379704",
+      "address": "55108 Lopez Vista, Port John, HI 17687",
+      "description": "Kid two father they."
+    }
+  ]
+}

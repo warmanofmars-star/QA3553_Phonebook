@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f6529567-3bf0-45ef-b83e-b0c06e484332",
+      "name": "Dylan",
+      "lastName": "Lynch",
+      "email": "user_0192879c36@example.com",
+      "phone": "0525607446",
+      "address": "92427 Lewis Drive, Stewarthaven, UT 62283",
+      "description": "Large plant worker."
+    },
+    {
+      "id": "78c6e7cf-5084-485e-b77d-5242e378549c",
+      "name": "Sonya",
+      "lastName": "Ramos",
+      "email": "user_3cd225bef9@example.com",
+      "phone": "0530632185",
+      "address": "28903 Wyatt Drives Apt. 975, Jonesberg, OR 91430",
+      "description": "Cultural who bad nature."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+{
+  "name": "Hannah",
+  "lastName": "Arellano",
+  "phone": "0582220420",
+  "email": "user_488e4be981@example.com",
+  "address": "90550 Heather Road, Cookberg, OR 26278",
+  "description": "Early arm dog main."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7442e4fc-a61e-440b-af92-a71e33961c10"
+}

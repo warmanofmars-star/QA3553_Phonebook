@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Cannon",
+  "phone": "0530760978",
+  "email": "user_29f64ab7bf@example.com",
+  "address": "91826 Christina Haven Apt. 047, Port Lauriefort, CA 17625",
+  "description": "Blood hair day name natural."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5042f266-bd6c-4784-812c-2677772166b4"
+}

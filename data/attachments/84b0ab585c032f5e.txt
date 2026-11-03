@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5b5fe14d-257b-4cba-b1a9-e67788d7dd07",
+      "name": "Robert",
+      "lastName": "Kirby",
+      "email": "user_bf5821f0ef@example.com",
+      "phone": "0533588171",
+      "address": "96624 Edwin Place, West Michaelview, GU 84941",
+      "description": "Usually cold live toward purpose recent sister."
+    }
+  ]
+}

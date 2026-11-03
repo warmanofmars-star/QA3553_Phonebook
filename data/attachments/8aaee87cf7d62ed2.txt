@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carlos",
+  "lastName": "Johnson",
+  "email": "user_3200d8bd7e@example.com",
+  "address": "2610 Glen Oval, Timothymouth, OH 39841",
+  "description": "Approach almost result five generation toward resource word."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 74208110-52a4-40c2-a793-46e99fb23ec6"
+}

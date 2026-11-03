@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Turner",
+  "phone": "0526546167",
+  "email": "user_47e7c8f5e8@example.com",
+  "address": "11743 Banks Bridge, New Dennisberg, OK 61121",
+  "description": "Concern ten audience shake sport town resource."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 33f2cbae-9be1-4963-8433-6f4d08f4d1bd"
+}

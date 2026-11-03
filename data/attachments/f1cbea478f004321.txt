@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jim",
+  "lastName": "Thomas",
+  "phone": "0527527279",
+  "email": "user_68ce55f7d2@example.com",
+  "address": "Unit 4286 Box 9674, DPO AP 77965",
+  "description": "At alone speak push color music."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 75336415-59c7-444c-a1c6-074635a1b420"
+}

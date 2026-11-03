@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "926f3335-f5a3-43b6-a3b0-8e94c891e457",
+      "name": "Mitchell",
+      "lastName": "Carter",
+      "email": "user_a4e6539f58@example.com",
+      "phone": "0523469002",
+      "address": "465 Colin Harbors, Port Sherimouth, GU 47528",
+      "description": "Foot toward close phone."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Francisco",
+  "lastName": "Williams",
+  "phone": "0532852277",
+  "email": "user_69b425f6d7@example.com",
+  "address": "804 Blankenship Highway Apt. 113, South Lynn, WA 34176",
+  "description": "President whose follow which."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 69b4c0ac-000c-43dd-a9b3-ff2b9bcaea23"
+}

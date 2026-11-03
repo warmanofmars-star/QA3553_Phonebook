@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "45f2b62c-6bbf-4640-acc9-d39c897b0023",
+      "name": "Tyler",
+      "lastName": "Burch",
+      "email": "user_278e464290@example.com",
+      "phone": "0518434436",
+      "address": "923 Mary Grove Suite 161, West Matthew, AK 53874",
+      "description": "Third outside speech store adult stay."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Hamilton",
+  "phone": "0516461432",
+  "email": "user_6d7d77c1da@example.com",
+  "address": "457 John Turnpike, Leeburgh, MN 47863",
+  "description": "Federal campaign either shoulder."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 37e6f38f-6ffa-49b2-bb53-3d3f4701e5c2"
+}

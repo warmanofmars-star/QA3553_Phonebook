@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "James",
+  "phone": "0520349336",
+  "email": "user_4efa3fb6a6@example.com",
+  "address": "Unit 9960 Box 2608, DPO AA 13610",
+  "description": "Cup actually key machine third player animal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 210f164c-74e5-4560-b15a-8b14d4f90b3d"
+}

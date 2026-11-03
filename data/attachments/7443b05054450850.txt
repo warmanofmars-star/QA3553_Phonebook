@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aaa25e6b-f040-42e2-937b-72ebd96e24e4",
+      "name": "Carolyn",
+      "lastName": "Martinez",
+      "email": "user_eae70246f3@example.com",
+      "phone": "0526774573",
+      "address": "17055 Jennings Shoals Suite 714, Jenniferville, MH 52708",
+      "description": "Entire read career picture free nation sister."
+    },
+    {
+      "id": "a95934dd-a58f-4ef6-8e45-77a6105fb7df",
+      "name": "Jennifer",
+      "lastName": "Carter",
+      "email": "user_915c37bab9@example.com",
+      "phone": "0526774573",
+      "address": "7194 Brent Summit Suite 840, Danielview, MN 59693",
+      "description": "Eat fact shoulder around."
+    }
+  ]
+}

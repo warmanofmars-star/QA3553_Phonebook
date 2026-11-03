@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b11422da-b62c-481e-afa0-9b654a3b2d51",
+      "name": "Joseph",
+      "lastName": "Lopez",
+      "email": "user_188faf70f0@example.com",
+      "phone": "0591076928",
+      "address": "6139 Shannon Forges, Odomland, FM 28412",
+      "description": "Itself guy relate everyone mother."
+    }
+  ]
+}

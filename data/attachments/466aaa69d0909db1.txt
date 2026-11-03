@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a7e9ddd7-e4d9-4406-8cae-15c7891bb018",
+      "name": "Ann",
+      "lastName": "Atkinson",
+      "email": "user_9a01e2c14d@example.com",
+      "phone": "0531533818",
+      "address": "180 Kathleen Bypass, New Chadchester, TX 05529",
+      "description": "Share south camera dark adult debate."
+    },
+    {
+      "id": "f0dcfb60-8578-4ad6-bd1a-c494a8450560",
+      "name": "James",
+      "lastName": "Levy",
+      "email": "user_e5f0ef5750@example.com",
+      "phone": "0528386658",
+      "address": "28930 Munoz Port Suite 199, Valeriechester, TN 66755",
+      "description": "Nature true maybe two even else and production."
+    }
+  ]
+}

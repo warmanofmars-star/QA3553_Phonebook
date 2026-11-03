@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e25b12d3-7f6d-49ec-acca-a30a4192353d",
+      "name": "Kathleen",
+      "lastName": "Griffin",
+      "email": "user_b78046cfa2@example.com",
+      "phone": "0555877418",
+      "address": "5520 Lopez Curve Apt. 550, New Phillip, DC 90423",
+      "description": "Skin strategy example long avoid share compare."
+    }
+  ]
+}

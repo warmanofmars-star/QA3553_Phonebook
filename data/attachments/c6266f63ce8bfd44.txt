@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alejandro",
+  "lastName": "Rodriguez",
+  "phone": "0517017881",
+  "email": "user_9569b4a881@example.com",
+  "address": "31732 Cheryl Mountains Suite 273, New Gregoryshire, WI 87536",
+  "description": "Street join military book television type."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a7d8ba5c-d1e7-49d0-befd-40e62288b4b4"
+}

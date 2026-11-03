@@ -1,0 +1,11 @@
+08:57:56 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+08:57:56 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+08:57:57 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (256 ms)
+08:57:57 [INFO   ] API: Токен добавлен в заголовки сессии
+08:57:57 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+08:57:57 [INFO   ] STEP: Войти как user_0c5cf80699@example.com
+08:57:58 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/add
+08:57:58 [INFO   ] STEP: Заполнить форму контакта (телефон 0501234567)
+08:57:59 [INFO   ] STEP: Нажать Save
+08:58:04 [INFO   ] UI: Alert не появился
+08:58:07 [INFO   ] DRIVER: Видео 3b39d8495dfb92494c6958ccd69d5d70.mp4 прикреплено к отчёту

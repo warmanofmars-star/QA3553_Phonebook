@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deborah",
+  "lastName": "Fuller",
+  "phone": "0510259477",
+  "email": "user_2a3ed20010@example.com",
+  "address": "812 Aaron Junctions, East Jasonport, MH 40126",
+  "description": "Purpose forget project avoid off trouble station."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cff8eed1-1bdf-4a16-aca5-eb3e9be05367"
+}

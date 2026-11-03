@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "242663f0-f09d-4a6f-a2c9-7cd45349b94f",
+      "name": "Jose",
+      "lastName": "Frazier",
+      "email": "user_3ae71aacc8@example.com",
+      "phone": "0510641847",
+      "address": "96107 Banks Curve, Peckville, DC 64847",
+      "description": "Son hit of again find."
+    }
+  ]
+}

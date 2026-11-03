@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Craig",
+  "lastName": "Rice",
+  "phone": "0510873558",
+  "email": "user_c91ccda5fe@example.com",
+  "address": "667 Ashley Inlet, North Scott, PW 91229",
+  "description": "Employee child ago."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f2d59554-6cf3-41ce-a6ea-759e1033210a"
+}

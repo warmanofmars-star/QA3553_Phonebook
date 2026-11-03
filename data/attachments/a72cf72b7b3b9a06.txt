@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5abd9a00-32d3-4bdf-afe2-c088812a9903",
+      "name": "Daniel",
+      "lastName": "Crane",
+      "email": "user_90c49dbc37@example.com",
+      "phone": "0514909032",
+      "address": "264 Robert Spur Apt. 209, Kellymouth, HI 54954",
+      "description": "You wait strong tonight live."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Mills",
+  "phone": "0528634899",
+  "email": "user_7922e6e290@example.com",
+  "address": "PSC 1957, Box 0899, APO AP 23765",
+  "description": "Effect religious key drop type billion."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 798c2898-c86e-4686-9319-f68651a7640c"
+}

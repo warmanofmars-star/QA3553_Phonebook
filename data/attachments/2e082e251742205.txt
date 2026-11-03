@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lauren",
+  "lastName": "Dean",
+  "phone": "0514493428",
+  "email": "user_2744787b84@example.com",
+  "address": "89962 Bolton Branch Suite 987, Lake Scottton, PA 98435",
+  "description": "Under clearly western report single else."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 60ac21c2-93da-4ab6-bb33-344f896b2edf"
+}

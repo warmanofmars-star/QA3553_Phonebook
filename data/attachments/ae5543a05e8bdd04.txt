@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julie",
+  "lastName": "Reeves",
+  "phone": "0531548972",
+  "email": "user_f4769a0785@example.com",
+  "address": "503 Jessica Fields, Michaelview, MP 79380",
+  "description": "Side area lose seven thank minute add."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 010ae1fa-67ea-47eb-bd45-8bd095cce1d6"
+}

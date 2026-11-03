@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5d990f35-092b-42d8-9be1-696ade969cb1",
+      "name": "Alejandro",
+      "lastName": "Wilson",
+      "email": "user_2c30232fb7@example.com",
+      "phone": "0512574729",
+      "address": "24251 Hill Junction Suite 948, Port Hannah, NV 92573",
+      "description": "Success matter student standard professional."
+    }
+  ]
+}

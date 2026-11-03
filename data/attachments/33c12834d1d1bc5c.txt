@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carla",
+  "lastName": "Williams",
+  "phone": "0533326307",
+  "email": "user_265e7f813c@example.com",
+  "address": "297 James Plaza Apt. 646, Michaelport, AL 62427",
+  "description": "Personal during around idea much add still development."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8ef3b94c-7996-4840-8fbf-9e4dddaedf86"
+}
