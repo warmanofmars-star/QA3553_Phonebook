@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Скачиваем код проекта
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Проверяем код линтером и форматтером
         run: |
@@ -58,7 +58,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Скачиваем код проекта со всей историей
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0              # нужны коммиты диапазона, а не только последний
 
@@ -101,7 +101,7 @@ jobs:
 
     steps:
       - name: Скачиваем код проекта
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Образы хаба и узлов Grid docker compose скачивает сам при первом запуске
       - name: Запускаем тесты в Docker Compose (Selenium Grid)
@@ -126,7 +126,7 @@ jobs:
 
       - name: Сохраняем сырые результаты Allure
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: allure-results-${{ matrix.browser }}
           path: allure-results
@@ -146,15 +146,15 @@ jobs:
 
     steps:
       - name: Скачиваем код проекта (нужен скрипт склейки)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Скачиваем результаты всех браузеров
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: allure-results-*   # каждый артефакт — в свою папку allure-results-<браузер>
 
       - name: Забираем прошлый отчёт (история для графика трендов)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         continue-on-error: true       # при самом первом запуске ветки gh-pages ещё нет
         with:
           ref: gh-pages
@@ -187,7 +187,7 @@ jobs:
 
       - name: Сохраняем отчёт как артефакт
         # Для PR это единственный способ посмотреть отчёт: скачать и открыть index.html
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: allure-report
           path: allure-report
