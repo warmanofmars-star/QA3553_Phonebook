@@ -236,3 +236,5 @@ data/exported_contacts.json
 
 # Настройки IDE (у каждого разработчика свои)
 .idea/
+
+docs/requirements/

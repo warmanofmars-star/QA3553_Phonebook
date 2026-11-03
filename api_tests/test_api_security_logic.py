@@ -15,7 +15,8 @@ from dataclasses import replace
 import allure
 import pytest
 
-from data.data_generator import ContactGenerator
+from api.contact_api import PhonebookAPI
+from data.data_generator import ContactGenerator, UserGenerator
 from data.known_bugs import known_bug
 from utils.preconditions import require
 from utils.validators import assert_secure_error
@@ -184,3 +185,81 @@ def test_api_wrong_content_type_is_client_error(auth_api):
         f"Ошибка клиента должна давать 4xx, а сервер ответил {response.status_code}"
     )
     assert_secure_error(response)
+
+
+# ==========================================
+# BOLA: чтение чужих контактов
+# ==========================================
+@allure.epic("API Security")
+@allure.feature("BOLA (Broken Object Level Authorization)")
+@allure.story("Read other user's contact")
+@allure.severity(allure.severity_level.BLOCKER)
+@allure.tag("API-CHECK-15")
+def test_api_bola_cannot_read_others_contact(temp_user, second_user):
+    """Пользователь A не видит контакт пользователя B в своём списке.
+    Отдельного GET по id в Swagger нет, поэтому чтение чужих данных возможно только через список."""
+    contact_b = _create_contact_for(second_user)
+
+    with allure.step("Пользователь A запрашивает свой список контактов"):
+        contacts_a = temp_user.api.get_contacts_list()
+
+    assert contact_b.id not in {c.get("id") for c in contacts_a}, "КРИТИЧНО (BOLA): A видит контакт B по id"
+    assert contact_b.phone not in {c.get("phone") for c in contacts_a}, "КРИТИЧНО (BOLA): A видит телефон контакта B"
+
+
+# ==========================================
+# Ответы не раскрывают лишнего
+# ==========================================
+FORBIDDEN_KEY_PARTS = ("password", "hash")
+
+
+def _all_keys(data) -> list[str]:
+    """Все ключи JSON на любой глубине (в нижнем регистре)."""
+    if isinstance(data, dict):
+        return [k.lower() for k in data] + [k for v in data.values() for k in _all_keys(v)]
+    if isinstance(data, list):
+        return [k for item in data for k in _all_keys(item)]
+    return []
+
+
+def _assert_no_sensitive_keys(response, what: str) -> None:
+    leaked = [k for k in _all_keys(response.json()) if any(part in k for part in FORBIDDEN_KEY_PARTS)]
+    assert not leaked, f"{what}: в ответе есть поля с паролем или хэшем: {leaked}"
+
+
+@allure.epic("API Security")
+@allure.feature("Excessive Data Exposure")
+@allure.story("Auth responses do not expose password data")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-5")
+def test_api_auth_responses_do_not_expose_password():
+    """Ответы регистрации и логина не содержат полей password/hash и самого пароля."""
+    user = UserGenerator.get_valid_user()
+
+    responses = {
+        "Регистрация": PhonebookAPI().register(user.email, user.password),
+        "Логин": PhonebookAPI().login(user.email, user.password),
+    }
+    for what, response in responses.items():
+        require(response.status_code == 200, f"Предусловие: {what} не прошла: {response.status_code}")
+        _assert_no_sensitive_keys(response, what)
+        assert user.password not in response.text, f"{what}: в ответе есть пароль пользователя"
+
+
+@allure.epic("API Security")
+@allure.feature("Excessive Data Exposure")
+@allure.story("Contact responses do not expose credentials")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-5")
+def test_api_contact_responses_do_not_expose_credentials(temp_user):
+    """Ответы о контактах (создание и список) не содержат полей password/hash, токена и пароля."""
+    api = temp_user.api
+    responses = {
+        "Создание контакта": api.add_contact(ContactGenerator.get_random_contact().to_api_payload()),
+        "Список контактов": api.get_contacts(),
+    }
+    for what, response in responses.items():
+        require(response.status_code == 200, f"Предусловие: {what}: {response.status_code} {response.text}")
+        _assert_no_sensitive_keys(response, what)
+        assert api.token not in response.text, f"{what}: в ответе есть токен"
+        assert temp_user.user.password not in response.text, f"{what}: в ответе есть пароль пользователя"

@@ -4,7 +4,7 @@
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
-**75 tests** (31 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
+**129 tests** (85 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
 (Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 
 This is a learning project built during a QA automation course. It was later refactored
@@ -46,6 +46,9 @@ where every defect is linked to the requirement it violates:
 | `WRONG_CONTENT_TYPE_500` | HTTP semantics | `text/plain` body crashes the server with 500 |
 | `NO_AUTH_403` | Swagger 401 | Missing `Authorization` header returns 403 |
 | `NOT_FOUND_400` | Swagger 404 | Missing or foreign contact returns 400 |
+| `PASSWORD_NO_MAX_LENGTH` | SRS T15 | Password longer than 15 characters is accepted; there is no upper limit |
+| `PASSWORD_NON_LATIN_ALLOWED` | SRS T10 | Non-Latin letters in the password are accepted |
+| `EMAIL_NON_LATIN_ALLOWED` | SRS T6, T31 | Non-Latin letters in the email are accepted (registration and contacts) |
 | `TYPE_COERCION` | Swagger `type: string` | Boolean in `name` is silently accepted |
 | `NO_ERROR_ON_EMPTY_FIELD` | SRS F5, F6, F9 | Empty required field shows no error message |
 | `USER_EXISTS_WORDING` | SRS F3 | Error text differs from the requirement |

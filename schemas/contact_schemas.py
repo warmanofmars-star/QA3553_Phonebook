@@ -26,3 +26,18 @@ MESSAGE_RESPONSE_SCHEMA = {
     "required": ["message"],
     "additionalProperties": False,
 }
+
+# Swagger: ErrorMessageDto — тело ответа с ошибкой (400, 401, 404, 409...).
+# message — объект: для ошибок валидации это {"поле": "текст ошибки"}.
+# Лишние поля не запрещаем: Swagger их не запрещает, а тест проверяет наличие и типы описанных
+ERROR_MESSAGE_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "timestamp": {"type": "string"},
+        "status": {"type": "integer"},
+        "error": {"type": "string"},
+        "message": {"type": "object"},
+        "path": {"type": "string"},
+    },
+    "required": ["timestamp", "status", "error", "message", "path"],
+}
