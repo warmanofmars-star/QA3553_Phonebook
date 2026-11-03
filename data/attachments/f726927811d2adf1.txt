@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Troy",
+  "lastName": "Nicholson",
+  "phone": "0513653914",
+  "email": "user_5a1064ad35@example.com",
+  "address": "2199 Theresa Hills Apt. 690, Johnnyport, PW 74714",
+  "description": "Politics and face raise prepare tree age."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a0085c3f-7949-4c11-920f-5cf5feae1b52"
+}

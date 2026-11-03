@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8daa9e3f-2441-43a0-a791-088d4dc3826a",
+      "name": "Kristen",
+      "lastName": "Baker",
+      "email": "user_93387d33aa@example.com",
+      "phone": "0518344364",
+      "address": "9001 Lee Passage Apt. 332, West Tiffanyview, NY 10378",
+      "description": "Long just and himself policy."
+    },
+    {
+      "id": "cf7abfec-c928-4635-8174-40e771dd08bb",
+      "name": "Devin",
+      "lastName": "Daniel",
+      "email": "user_7cb3984d67@example.com",
+      "phone": "0518344364",
+      "address": "753 Wilkerson Hill, Markmouth, TX 96434",
+      "description": "Simple activity official suggest."
+    }
+  ]
+}

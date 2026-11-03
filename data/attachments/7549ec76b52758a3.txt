@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "622db3fd-35e7-4fb8-afa3-671c0d6d5707",
+      "name": "Tammy",
+      "lastName": "Lawson",
+      "email": "user_eec227b2ee@example.com",
+      "phone": "0584702345",
+      "address": "43091 Joyce Circles, East Josephchester, NY 97850",
+      "description": "Loss prepare option yet do throw public."
+    }
+  ]
+}

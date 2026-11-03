@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Bishop",
+  "phone": "0516156780",
+  "email": "user_66a1253ab3@example.com",
+  "address": "USS Freeman, FPO AA 70457",
+  "description": "Outside month voice enjoy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 075b2b2d-e4f8-4e8a-adf3-04607a55fe2d"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "68f0d1b2-5f08-4c4a-91bb-32ef762d3136",
+      "name": "Christina",
+      "lastName": "Lee",
+      "email": "user_995dc9e882@example.com",
+      "phone": "0520196713",
+      "address": "655 Judy Way Suite 329, New David, IL 83152",
+      "description": "Produce spend red happy ten."
+    }
+  ]
+}

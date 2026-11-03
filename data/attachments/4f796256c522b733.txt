@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Dominguez",
+  "phone": "0518918717",
+  "email": "user_f550057717@example.com",
+  "address": "0090 Sparks Canyon, Mcconnellside, GA 06071",
+  "description": "Point cup another body."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cd892c31-e3bf-4095-aee8-756319234a35"
+}

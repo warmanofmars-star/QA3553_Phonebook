@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (30 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9230719b-6153-4f52-964c-aa6b16601783",
+      "name": "Gregory",
+      "lastName": "Hernandez",
+      "email": "user_7178ee0cc9@example.com",
+      "phone": "0510856718",
+      "address": "0894 Johnson Fall Apt. 337, New Austinstad, UT 72618",
+      "description": "Eat store sister each today quickly."
+    }
+  ]
+}

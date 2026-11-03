@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Claudia",
+  "lastName": "Mcintyre",
+  "phone": "0516394976",
+  "email": "user_f939493c67@example.com",
+  "address": "10006 Cox Center Suite 544, South Tiffanyfort, PW 02854",
+  "description": "Approach budget rest to material describe heart."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7e78f974-fdbb-4624-8206-a59292fd723d"
+}

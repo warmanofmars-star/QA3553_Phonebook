@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8068cb35-b03b-4ed2-bf05-1cdf37359503",
+      "name": "Kristen",
+      "lastName": "Brennan",
+      "email": "user_dea9592588@example.com",
+      "phone": "0518181202",
+      "address": "464 Jonathan Circle Suite 944, Port Lori, MO 71077",
+      "description": "[object Undefined]"
+    }
+  ]
+}

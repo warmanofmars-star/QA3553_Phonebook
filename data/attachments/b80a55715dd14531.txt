@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandon",
+  "lastName": "Garcia",
+  "phone": "0523008118",
+  "email": "user_c6bb2a4cb0@example.com",
+  "address": "025 Susan Isle, Michaelton, GU 72412",
+  "description": "Possible serve friend."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1490fc5c-87ec-4151-850c-aa19e3f94d1e"
+}

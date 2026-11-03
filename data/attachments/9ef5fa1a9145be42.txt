@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Smith",
+  "phone": "0572625074",
+  "email": "",
+  "address": "6077 Martinez Extensions Apt. 195, Wendyburgh, WY 93783",
+  "description": "Simply any check somebody."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d7975752-75fe-449f-b9dc-a71defdb5a03"
+}

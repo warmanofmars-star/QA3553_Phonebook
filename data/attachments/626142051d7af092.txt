@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6f27ac36-21cc-42f5-bb17-7b07a5325066",
+      "name": "Philip",
+      "lastName": "Padilla",
+      "email": "user_28dcf44af7@example.com",
+      "phone": "0518688369",
+      "address": "18976 Ray Alley Apt. 778, Roseborough, FM 15654",
+      "description": "Commercial none year whatever leg experience sort."
+    }
+  ]
+}

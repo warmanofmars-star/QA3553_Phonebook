@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Adrian",
+  "lastName": "Henry",
+  "phone": "0521485825",
+  "email": "user_d40a996b7b@example.com",
+  "address": "7307 Garrett Common Apt. 749, Lake Jeffrey, NY 31921",
+  "description": "Model cover effect despite."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 070bd6e1-62fb-447f-a6c1-f930a0e66535"
+}

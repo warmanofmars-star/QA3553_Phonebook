@@ -1,0 +1,14 @@
+16:44:13 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+16:44:13 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+16:44:13 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (254 ms)
+16:44:13 [INFO   ] API: Токен добавлен в заголовки сессии
+16:44:13 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+16:44:13 [INFO   ] STEP: Зарегистрироваться как user_ed075d8742@example.com
+16:44:14 [INFO   ] UI: Текст Alert: 'Wrong email or password format
+            Email must contains one @ and minimum 2 symbols after last dot
+            Password must contain at least one uppercase letter!
+            Password must contain at least one lowercase letter!
+            Password must contain at least one digit!
+            Password must contain at least one special symbol from [‘$’,’~’,’-‘,’_’]!'
+16:44:14 [INFO   ] STEP: Закрыть Alert (OK)
+16:44:17 [INFO   ] DRIVER: Видео 2fd203c8e86a8c835b14963854d1c4aa.mp4 прикреплено к отчёту

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ce6179ea-9c31-4e40-8966-4fab6c9ada32",
+      "name": "Bradley",
+      "lastName": "Williamson",
+      "email": "user_88e2398d5d@example.com",
+      "phone": "0518601789",
+      "address": "39748 Kaiser Highway, West Jacktown, ID 60423",
+      "description": "Top idea toward money continue."
+    }
+  ]
+}

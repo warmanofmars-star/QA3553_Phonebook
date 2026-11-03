@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b4dd7316-0bf1-43a2-9001-6a02e5f1d17b",
+      "name": "Edward",
+      "lastName": "Wilkerson",
+      "email": "user_29cf0c631f@example.com",
+      "phone": "0526222465",
+      "address": "70276 Cody Estate Apt. 533, Coryshire, VA 98359",
+      "description": "Option drop reveal apply."
+    }
+  ]
+}

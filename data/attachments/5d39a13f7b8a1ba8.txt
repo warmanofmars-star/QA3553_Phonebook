@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ea2fefad-1e49-4ce7-be37-a78ac36d80ab",
+      "name": "Michael",
+      "lastName": "Allen",
+      "email": "user_d4503dcd7f@example.com",
+      "phone": "0551956169",
+      "address": "204 Hughes Streets Suite 744, New Michael, DC 27868",
+      "description": "Deep middle hotel report."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Velazquez",
+  "phone": "0516057116",
+  "email": "user_439714182b@example.com",
+  "address": "81785 Stephanie Place, Maryfurt, PA 09116",
+  "description": "Agency scientist here whether."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 214db92c-709f-4b97-87d4-a5813ef4bf03"
+}

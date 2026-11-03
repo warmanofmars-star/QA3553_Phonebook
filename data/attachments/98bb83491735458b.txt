@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "White",
+  "phone": "0535978310",
+  "email": "user_ca9c1c57ab@example.com",
+  "address": "356 Hurley Tunnel, West Johnport, AK 96130",
+  "description": "Someone see maybe lot investment school."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a660342d-0b5f-4bfa-9832-52e9dba467b1"
+}

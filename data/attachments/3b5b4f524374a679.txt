@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kathleen",
+  "lastName": "Cole",
+  "phone": "0529550637",
+  "email": "user_a37dc386c5@example.com",
+  "address": "8944 Krystal Prairie Apt. 582, Vanessahaven, HI 34504",
+  "description": "Animal treatment although world economy account scene."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 805804b7-17c4-4cd7-80a1-3e8465e729fe"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (28 ms)
+
+--- Тело запроса ---
+{
+  "name": "Janice",
+  "lastName": "Smith",
+  "phone": "   ",
+  "email": "user_d749dbbd9a@example.com",
+  "address": "9928 Simmons Squares, Nelsontown, OK 59314",
+  "description": "Piece threat ten life human fact entire."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T16:42:03",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

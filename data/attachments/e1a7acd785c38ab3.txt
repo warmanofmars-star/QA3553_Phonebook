@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erik",
+  "lastName": "Griffin",
+  "phone": "0511476455",
+  "email": "user_917bcf5cbc@example.com",
+  "address": "470 Chad Union, East Conniefort, FM 63103",
+  "description": "Clear night player individual others."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: daeb6408-a8a1-460c-8bc0-1b1c03b575a1"
+}

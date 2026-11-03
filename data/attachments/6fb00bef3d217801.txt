@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sharon",
+  "lastName": "Crawford",
+  "phone": "0518378680",
+  "email": "user_1bad1ba4e3@example.com",
+  "address": "24109 Michelle Squares Apt. 440, Lisafort, MN 43427",
+  "description": "Offer number clearly current."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 04d78b93-51f6-4460-9e32-57d6f83065d2"
+}

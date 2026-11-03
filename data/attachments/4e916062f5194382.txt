@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandi",
+  "lastName": "Waller",
+  "phone": "0510261371",
+  "email": "user_adc423d299@example.com",
+  "address": "702 Jordan Turnpike, Terriberg, SC 69382",
+  "description": "Room media race production soldier green manager."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8bead46c-70a0-4f85-8119-f91805c676a4"
+}

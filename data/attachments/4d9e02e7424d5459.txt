@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeanette",
+  "lastName": "Johnson",
+  "phone": "0589055515",
+  "email": "user_6aa480a74f@example.com",
+  "address": "USNV Macias, FPO AE 97433",
+  "description": "Give marriage rest politics no."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 13353a0f-14ad-48c8-b556-6ade2741c430"
+}

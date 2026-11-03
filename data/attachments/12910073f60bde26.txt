@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Rich",
+  "phone": "0516982530",
+  "email": "user_284f167cfd@example.com",
+  "address": "22024 Harvey Villages Apt. 717, Lake Nancy, NH 22589",
+  "description": "Always summer notice government data structure sister."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2fc247a1-124e-42cb-a2bc-f37205274ffc"
+}

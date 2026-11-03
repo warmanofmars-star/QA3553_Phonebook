@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erika",
+  "lastName": "Juarez",
+  "phone": "0516019119",
+  "email": "user_170f919049@example.com",
+  "address": "57297 Chang Trace, Barryborough, DE 88327",
+  "description": "As likely rate just seek."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 70935f1e-9acd-44d0-bb35-9d5d92c7ddf1"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jaclyn",
+  "lastName": "Bell",
+  "phone": "0524511749",
+  "email": "",
+  "address": "04867 James Pines, Lanceville, CT 54671",
+  "description": "Find whose out dream realize resource."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7c9bbfb7-d68e-439f-88e3-15bbfabca3b0"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3c95d509-3bb6-4e5c-91c5-2335c9741984",
+      "name": "Nicholas",
+      "lastName": "Lopez",
+      "email": "user_074ead62ed@example.com",
+      "phone": "0568941130",
+      "address": "362 Johnson Fork, North David, GA 35012",
+      "description": "Return account remain."
+    }
+  ]
+}

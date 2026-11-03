@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "255491dd-89c5-43d1-987f-3c308a176c78",
+      "name": "Joel",
+      "lastName": "Martinez",
+      "email": "user_3fa805dedd@example.com",
+      "phone": "0519294377",
+      "address": "42136 Williams Lights, Kathleenview, GU 01512",
+      "description": "[object Undefined]"
+    }
+  ]
+}

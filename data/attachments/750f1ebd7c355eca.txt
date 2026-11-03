@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Susan",
+  "lastName": "Williams",
+  "phone": "0521116906",
+  "email": "user_94604d0f64@example.com",
+  "address": "564 Gardner Passage, Jensenbury, KS 23287",
+  "description": "Buy ball power heavy money give level."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 255491dd-89c5-43d1-987f-3c308a176c78"
+}

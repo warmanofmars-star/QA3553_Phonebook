@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0399242d-998c-4a42-8394-c4e9d1e4fccd",
+      "name": "Elizabeth",
+      "lastName": "Rodriguez",
+      "email": "user_cc683f4be1@example.com",
+      "phone": "0513998603",
+      "address": "95384 Davis Cliffs Suite 051, Aliciaburgh, KS 75656",
+      "description": "Success where cover audience form have hair during."
+    },
+    {
+      "id": "8809fa65-beb1-4423-bea8-4b270b9f448f",
+      "name": "Rebecca",
+      "lastName": "Smith",
+      "email": "user_b3e9841b83@example.com",
+      "phone": "0516272586",
+      "address": "2887 Alyssa Mountain, Solisville, DE 37669",
+      "description": "Station us once."
+    }
+  ]
+}

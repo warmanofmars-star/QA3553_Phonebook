@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Haley",
+  "lastName": "Bryant",
+  "phone": "0514495546",
+  "email": "user_8c5a901f7b@example.com",
+  "address": "1647 Jesus Camp, Lake Brittanyside, UT 72185",
+  "description": "Dog thus several place suddenly."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0b7648eb-cb02-4631-af43-14fd6ca73997"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tammy",
+  "lastName": "Lawson",
+  "phone": "0584702345",
+  "email": "user_eec227b2ee@example.com",
+  "address": "43091 Joyce Circles, East Josephchester, NY 97850",
+  "description": "Loss prepare option yet do throw public."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 622db3fd-35e7-4fb8-afa3-671c0d6d5707"
+}

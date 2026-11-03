@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a8c5b57e-fc23-49cd-a69a-a9ee1927aedb",
+      "name": "Peter",
+      "lastName": "Hobbs",
+      "email": "user_61935aafa0@example.com",
+      "phone": "0533618046",
+      "address": "507 Brian Crossing Apt. 731, Danielleland, HI 83322",
+      "description": ""
+    }
+  ]
+}

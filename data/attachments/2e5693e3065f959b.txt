@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Campos",
+  "phone": "0511432302",
+  "email": "user_573e9e87cc@example.com",
+  "address": "699 Singleton Corner Suite 671, Robintown, ME 98691",
+  "description": "Size option board amount state situation."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ded203ef-ae31-446f-bab8-d3f1cce42e8e"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "65cbfbc4-3844-4a7d-a3ec-116b419daafb",
+      "name": "Kevin",
+      "lastName": "Hoffman",
+      "email": "user_81eb70b213@example.com",
+      "phone": "0513786977",
+      "address": "340 Jennifer Estate Suite 243, New Joshua, GA 76788",
+      "description": "Artist draw yeah exist skill."
+    }
+  ]
+}

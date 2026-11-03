@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "daeb6408-a8a1-460c-8bc0-1b1c03b575a1",
+      "name": "Erik",
+      "lastName": "Griffin",
+      "email": "user_917bcf5cbc@example.com",
+      "phone": "0511476455",
+      "address": "470 Chad Union, East Conniefort, FM 63103",
+      "description": "Clear night player individual others."
+    }
+  ]
+}

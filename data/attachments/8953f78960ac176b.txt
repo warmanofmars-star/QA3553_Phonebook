@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Peter",
+  "lastName": "Irwin",
+  "phone": "0523392161",
+  "email": "user_817bd6cb4f@example.com",
+  "address": "5092 Phillips Grove Suite 453, South Christinabury, SD 12765",
+  "description": "Defense visit environment less though."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7e468073-d5bb-48ef-adce-41c036773c1d"
+}

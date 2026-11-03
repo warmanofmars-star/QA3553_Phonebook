@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "90e2ed05-d34d-4f1b-b710-dce3d2c94fb7",
+      "name": "Robert",
+      "lastName": "Mitchell",
+      "email": "user_400a7e46ef@example.com",
+      "phone": "0584886297",
+      "address": "18291 Edward Parkways Suite 633, Port Vanessa, TN 85127",
+      "description": "Major sit wish detail available cover."
+    }
+  ]
+}

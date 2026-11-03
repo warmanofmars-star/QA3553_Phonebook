@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Cox",
+  "phone": "0523923189",
+  "email": "user_86c3a8c4c1@example.com",
+  "address": "682 Rick River Suite 560, Jacobsonshire, GA 05558",
+  "description": "Board everyone modern hotel plant among."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 68892306-925b-41a0-807e-6017f6815d1b"
+}

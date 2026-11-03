@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bradley",
+  "lastName": "Williamson",
+  "phone": "0518601789",
+  "email": "user_88e2398d5d@example.com",
+  "address": "39748 Kaiser Highway, West Jacktown, ID 60423",
+  "description": "Top idea toward money continue."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ce6179ea-9c31-4e40-8966-4fab6c9ada32"
+}

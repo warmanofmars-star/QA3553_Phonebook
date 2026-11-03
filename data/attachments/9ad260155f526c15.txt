@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tammy",
+  "lastName": "Villanueva",
+  "phone": "0513359508",
+  "email": "user_b515777531@example.com",
+  "address": "6813 Daniel Harbor Suite 288, Elizabethmouth, NM 76420",
+  "description": "Ask young explain until serious behind crime common."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0d0288c2-a107-4a35-93c1-ed0e2928d9f8"
+}

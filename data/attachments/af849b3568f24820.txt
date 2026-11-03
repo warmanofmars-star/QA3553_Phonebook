@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (31 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Crawford",
+  "phone": "123",
+  "email": "user_4eb4cf1f19@example.com",
+  "address": "77224 Shepherd Hollow Suite 118, New Anna, CT 94969",
+  "description": "Without kind why body condition outside never."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T16:42:04",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

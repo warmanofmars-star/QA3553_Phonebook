@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6b7e83b8-a0b2-451e-b64c-187866db21f0",
+      "name": "Patricia",
+      "lastName": "Anderson",
+      "email": "user_934a996d8d@example.com",
+      "phone": "0547176981",
+      "address": "22000 Stephen Stravenue, Whiteport, NV 82580",
+      "description": "Responsibility more she man person middle exist."
+    }
+  ]
+}

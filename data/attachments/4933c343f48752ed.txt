@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cd892c31-e3bf-4095-aee8-756319234a35",
+      "name": "Kevin",
+      "lastName": "Dominguez",
+      "email": "user_f550057717@example.com",
+      "phone": "0518918717",
+      "address": "0090 Sparks Canyon, Mcconnellside, GA 06071",
+      "description": "Point cup another body."
+    }
+  ]
+}

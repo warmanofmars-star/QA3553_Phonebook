@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "36cb9f20-de80-473f-8ba5-7d8853e9093d",
+      "name": "Mary",
+      "lastName": "Sellers",
+      "email": "user_2a24f80c5d@example.com",
+      "phone": "0516786470",
+      "address": "5048 Bentley Creek, West Leslie, TN 44389",
+      "description": "Pretty total the former article."
+    }
+  ]
+}

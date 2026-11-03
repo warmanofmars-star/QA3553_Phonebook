@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9248e67b-3bb6-4402-899d-2b69af7f470f",
+      "name": "Leslie",
+      "lastName": "Smith",
+      "email": "user_41bbace543@example.com",
+      "phone": "0531606093",
+      "address": "88678 Rowe Lakes, East Frank, NY 94902",
+      "description": "Hope campaign somebody line certainly call wonder support."
+    }
+  ]
+}

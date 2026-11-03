@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6201f96e-7544-4ee0-a010-840497bca4f2",
+      "name": "Paul",
+      "lastName": "Miller",
+      "email": "user_dcc9681311@example.com",
+      "phone": "0529303962",
+      "address": "286 Kimberly Ridge Suite 265, Mistychester, SD 33715",
+      "description": "Out court level."
+    }
+  ]
+}

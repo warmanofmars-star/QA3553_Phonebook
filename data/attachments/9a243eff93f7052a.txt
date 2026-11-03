@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+{
+  "name": "Adam",
+  "lastName": "Williams",
+  "phone": "0517579938",
+  "email": "user_d71f06fe11@example.com",
+  "address": "USNS Warren, FPO AP 67525",
+  "description": "Mrs each positive product investment."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b6ee8904-f212-4dbb-952b-ffac088fe08a"
+}

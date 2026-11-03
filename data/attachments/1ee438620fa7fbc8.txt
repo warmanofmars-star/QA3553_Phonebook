@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+{
+  "name": "Travis",
+  "lastName": "Wright",
+  "phone": "0519288956",
+  "email": "user_738991ae1d@example.com",
+  "address": "842 Griffith Mountain, Lake Jasmin, MA 51633",
+  "description": "Live white right rest just."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a4a7fc8c-b39d-4f25-b2a3-778865b1a7d0"
+}

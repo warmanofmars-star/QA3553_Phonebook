@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Jones",
+  "phone": "0526917463",
+  "email": "user_7d15c3bb29@example.com",
+  "address": "5424 Steven Pass, Mcneilhaven, FM 51397",
+  "description": "Level film tax economy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 28595ba4-b241-4f56-bf83-caa59c4028b0"
+}

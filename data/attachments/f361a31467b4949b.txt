@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Scott",
+  "lastName": "Hernandez",
+  "phone": "0518760164",
+  "email": "user_32fc9d00fb@example.com",
+  "address": "6206 Martin Pike, New Catherine, UT 65397",
+  "description": "City sing music task according war best."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ad8b1f9f-2bea-4d43-8c6a-e6ded2c0f11d"
+}

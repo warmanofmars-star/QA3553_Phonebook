@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Smith",
+  "phone": "0516561394",
+  "email": "user_56a2851a93@example.com",
+  "address": "60266 Mark Streets, New Kelseyview, DE 54432",
+  "description": "Far lot down rock fast today score ready."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T16:42:04",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

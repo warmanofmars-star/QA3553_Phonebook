@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sandra",
+  "lastName": "Gray",
+  "phone": "0519974704",
+  "email": "user_e0e145f228@example.com",
+  "address": "873 Ferguson Loop, Shawberg, NM 97380",
+  "description": "Whether help wrong movement."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 787437c8-7a86-4002-9780-744c432399a3"
+}

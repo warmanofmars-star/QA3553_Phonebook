@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e2c525e4-8836-4bd8-965e-9347cfa06a97",
+      "name": "Lisa",
+      "lastName": "Williams",
+      "email": "user_4e42a8380d@example.com",
+      "phone": "0540002988",
+      "address": "641 Ochoa Spur, Port Kennethside, ME 59209",
+      "description": "Boy style agency tough today customer American professor."
+    },
+    {
+      "id": "0b7648eb-cb02-4631-af43-14fd6ca73997",
+      "name": "Haley",
+      "lastName": "Bryant",
+      "email": "user_8c5a901f7b@example.com",
+      "phone": "0514495546",
+      "address": "1647 Jesus Camp, Lake Brittanyside, UT 72185",
+      "description": "Dog thus several place suddenly."
+    }
+  ]
+}

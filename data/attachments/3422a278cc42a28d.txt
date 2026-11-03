@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stacy",
+  "lastName": "Love",
+  "phone": "0526627333",
+  "email": "user_74e0cef407@example.com",
+  "address": "3709 Dalton Avenue Suite 448, West Nataliemouth, CO 61082",
+  "description": "Situation hospital pay hard fine several."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 93dd71de-60b8-4a01-8ec1-a6dff1b81a7d"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "30c25028-54f5-4208-b7d5-abda55f94d5c",
+      "name": "Nicholas",
+      "lastName": "Carpenter",
+      "email": "user_2d1c7e5ae1@example.com",
+      "phone": "0511807991",
+      "address": "815 Ray Coves Apt. 525, North Jameston, NM 10838",
+      "description": "Computer someone brother."
+    },
+    {
+      "id": "68892306-925b-41a0-807e-6017f6815d1b",
+      "name": "John",
+      "lastName": "Cox",
+      "email": "user_86c3a8c4c1@example.com",
+      "phone": "0523923189",
+      "address": "682 Rick River Suite 560, Jacobsonshire, GA 05558",
+      "description": "Board everyone modern hotel plant among."
+    }
+  ]
+}

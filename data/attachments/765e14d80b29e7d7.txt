@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Trevor",
+  "lastName": "Rodriguez",
+  "phone": "0520762573",
+  "email": "user_0a3f8b57a5@example.com",
+  "address": "PSC 9958, Box 0598, APO AE 04136",
+  "description": "Mr charge fact summer stuff teacher hospital."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d5f54b9e-8438-4417-ad55-d3c52ad48d2b"
+}

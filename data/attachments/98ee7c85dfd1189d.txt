@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Gonzales",
+  "phone": "0510089181",
+  "email": "user_ee6e964a5d@example.com",
+  "address": "1596 Ward Lake, Derrickborough, VI 76922",
+  "description": "Them your when argue art place give."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eb5d65ed-95c8-4ef3-92dc-e6cabfeeec3d"
+}

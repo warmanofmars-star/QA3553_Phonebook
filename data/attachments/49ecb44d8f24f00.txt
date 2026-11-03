@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4d829d33-c74b-40c1-b7ec-4bdecbbe4cf6",
+      "name": "Deborah",
+      "lastName": "Smith",
+      "email": "user_b3f678f186@example.com",
+      "phone": "0531027129",
+      "address": "9734 Ronald Common Apt. 694, Meadowsport, MT 23033",
+      "description": "Myself politics follow race house."
+    }
+  ]
+}

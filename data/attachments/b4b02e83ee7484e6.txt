@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "44852565-084f-49f0-9d7c-3db2b08a80e0",
+      "name": "Judith",
+      "lastName": "Myers",
+      "email": "user_8ffaa2693c@example.com",
+      "phone": "0521097333",
+      "address": "81534 Steven Ports Suite 217, South Rachel, NC 93185",
+      "description": "Bit class factor travel blue arm enough."
+    }
+  ]
+}

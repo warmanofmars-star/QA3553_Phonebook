@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Edward",
+  "lastName": "Wilkerson",
+  "phone": "0526222465",
+  "email": "user_1f06f3aa38@example.com",
+  "address": "70276 Cody Estate Apt. 533, Coryshire, VA 98359",
+  "description": "Option drop reveal apply."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b4dd7316-0bf1-43a2-9001-6a02e5f1d17b"
+}

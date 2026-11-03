@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Davis",
+  "phone": "0530908216",
+  "email": "user_eed5416537@example.com",
+  "address": "958 Rice Point Apt. 725, Lake John, VA 67654",
+  "description": "Lawyer development member research wait budget."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4371f00c-9dae-426a-8481-5c850db154ff"
+}

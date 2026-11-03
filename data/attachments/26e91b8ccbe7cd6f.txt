@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Thompson",
+  "phone": "0551017273",
+  "email": "",
+  "address": "94846 Shaw Walks, West Lancefurt, MI 29117",
+  "description": "Environmental responsibility important ability technology find pattern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6cf26e19-f908-41ee-a6f7-418e248ebce9"
+}

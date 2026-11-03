@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "691a2f7b-9312-49ee-91c4-0548b2813a4e",
+      "name": "Ronald",
+      "lastName": "Richmond",
+      "email": "user_937f242c90@example.com",
+      "phone": "0517262256",
+      "address": "24906 Michelle Views, Lake Ginafort, VT 43738",
+      "description": "Short industry him increase building."
+    },
+    {
+      "id": "eb5d65ed-95c8-4ef3-92dc-e6cabfeeec3d",
+      "name": "Maria",
+      "lastName": "Gonzales",
+      "email": "user_ee6e964a5d@example.com",
+      "phone": "0510089181",
+      "address": "1596 Ward Lake, Derrickborough, VI 76922",
+      "description": "Them your when argue art place give."
+    }
+  ]
+}

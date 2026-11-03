@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4a31b91c-3e57-4960-ad67-efadedc8931b",
+      "name": "Emily",
+      "lastName": "Kelly",
+      "email": "user_e36e3c7b92@example.com",
+      "phone": "0571428274",
+      "address": "USNV Mann, FPO AA 20155",
+      "description": "Man should whatever agree gas total perhaps."
+    },
+    {
+      "id": "d5f54b9e-8438-4417-ad55-d3c52ad48d2b",
+      "name": "Trevor",
+      "lastName": "Rodriguez",
+      "email": "user_0a3f8b57a5@example.com",
+      "phone": "0520762573",
+      "address": "PSC 9958, Box 0598, APO AE 04136",
+      "description": "Mr charge fact summer stuff teacher hospital."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7e78f974-fdbb-4624-8206-a59292fd723d",
+      "name": "Claudia",
+      "lastName": "Mcintyre",
+      "email": "user_f939493c67@example.com",
+      "phone": "0516394976",
+      "address": "10006 Cox Center Suite 544, South Tiffanyfort, PW 02854",
+      "description": "Approach budget rest to material describe heart."
+    }
+  ]
+}

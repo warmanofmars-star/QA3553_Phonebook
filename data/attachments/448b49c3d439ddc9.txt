@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Allen",
+  "phone": "0551956169",
+  "email": "user_d4503dcd7f@example.com",
+  "address": "204 Hughes Streets Suite 744, New Michael, DC 27868",
+  "description": "Deep middle hotel report."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ea2fefad-1e49-4ce7-be37-a78ac36d80ab"
+}

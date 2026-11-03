@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ded203ef-ae31-446f-bab8-d3f1cce42e8e",
+      "name": "Ashley",
+      "lastName": "Campos",
+      "email": "user_573e9e87cc@example.com",
+      "phone": "0511432302",
+      "address": "699 Singleton Corner Suite 671, Robintown, ME 98691",
+      "description": "Size option board amount state situation."
+    },
+    {
+      "id": "5f9ad168-8540-4dfc-84b2-228d1a893d3b",
+      "name": "Kristina",
+      "lastName": "Wright",
+      "email": "user_9ee91741f3@example.com",
+      "phone": "0511432302",
+      "address": "7837 Gonzales Wells Suite 686, Phillipsland, IN 93939",
+      "description": "Go hard perhaps whatever head."
+    }
+  ]
+}

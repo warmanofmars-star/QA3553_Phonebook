@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tiffany",
+  "lastName": "Davila",
+  "phone": "0525854064",
+  "email": "not_an_email",
+  "address": "872 Kathleen Glens Apt. 780, New Cynthia, VI 45126",
+  "description": "Year avoid wonder none director compare job culture."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T16:42:25",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

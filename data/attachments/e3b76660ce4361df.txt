@@ -1,0 +1,6 @@
+16:42:27 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (179 ms)
+16:42:27 [INFO   ] API: Токен добавлен в заголовки сессии
+16:42:27 [INFO   ] API: POST /v1/contacts -> 200 (34 ms)
+16:42:27 [INFO   ] API: GET /v1/contacts -> 200 (32 ms)
+16:42:27 [WARNING] API: POST /v1/contacts/clear -> 403 (5 ms)
+16:42:27 [INFO   ] API: GET /v1/contacts -> 200 (36 ms)

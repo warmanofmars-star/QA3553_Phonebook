@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9ce3df21-5338-4a4a-b175-076ed521750d",
+      "name": "Dylan",
+      "lastName": "Gilmore",
+      "email": "user_beccbbf89b@example.com",
+      "phone": "0513931438",
+      "address": "984 Montes Trail, Thomasfurt, PW 91671",
+      "description": "Vote population ready she before."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (30 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "23f34740-d47a-481e-8095-19888802ebf4",
+      "name": "Anthony",
+      "lastName": "Perry",
+      "email": "user_0e90a5114f@example.com",
+      "phone": "0510827161",
+      "address": "897 Ronald Inlet Suite 190, Kimberlybury, MS 27372",
+      "description": "Over beat phone sing."
+    }
+  ]
+}

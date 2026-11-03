@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Gallagher",
+  "phone": "0527464136",
+  "email": "user_aba16cb4db@example.com",
+  "address": "5193 Brady Lodge Suite 270, Meadowsborough, CO 73092",
+  "description": "Series trip price black compare camera."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 52de3a8d-ab72-4f81-9c5d-be9826cd1f05"
+}

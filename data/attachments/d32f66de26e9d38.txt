@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Judith",
+  "lastName": "Myers",
+  "phone": "0521097333",
+  "email": "user_8ffaa2693c@example.com",
+  "address": "81534 Steven Ports Suite 217, South Rachel, NC 93185",
+  "description": "Bit class factor travel blue arm enough."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 44852565-084f-49f0-9d7c-3db2b08a80e0"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "70935f1e-9acd-44d0-bb35-9d5d92c7ddf1",
+      "name": "Erika",
+      "lastName": "Juarez",
+      "email": "user_170f919049@example.com",
+      "phone": "0516019119",
+      "address": "57297 Chang Trace, Barryborough, DE 88327",
+      "description": "As likely rate just seek."
+    }
+  ]
+}

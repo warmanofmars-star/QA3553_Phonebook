@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2f1bba84-376d-411f-ad88-56cbe4c7a61f",
+      "name": "Jacob",
+      "lastName": "Harrell",
+      "email": "user_0e1c354805@example.com",
+      "phone": "0532625131",
+      "address": "3814 Dana Views Suite 502, South Justinchester, WI 10670",
+      "description": "Much concern white one employee even civil."
+    },
+    {
+      "id": "a0085c3f-7949-4c11-920f-5cf5feae1b52",
+      "name": "Troy",
+      "lastName": "Nicholson",
+      "email": "user_5a1064ad35@example.com",
+      "phone": "0513653914",
+      "address": "2199 Theresa Hills Apt. 690, Johnnyport, PW 74714",
+      "description": "Politics and face raise prepare tree age."
+    }
+  ]
+}

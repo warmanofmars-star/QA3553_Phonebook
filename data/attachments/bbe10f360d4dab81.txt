@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fb0c8a11-7162-40d8-9597-74f08b5b7aba",
+      "name": "Joshua",
+      "lastName": "Nielsen",
+      "email": "user_b3499e6e26@example.com",
+      "phone": "0598010813",
+      "address": "564 Katrina Islands, Matthewport, GU 16549",
+      "description": "Away particularly against away nothing."
+    },
+    {
+      "id": "ebf42937-f312-4c7c-b326-f7b20830b3b7",
+      "name": "Denise",
+      "lastName": "Khan",
+      "email": "user_37f878efb4@example.com",
+      "phone": "0545369576",
+      "address": "USCGC Norris, FPO AA 61334",
+      "description": "Most report east investment seven director measure."
+    }
+  ]
+}

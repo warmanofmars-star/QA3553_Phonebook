@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sherri",
+  "lastName": "Cole",
+  "phone": "0515714109",
+  "email": "user_abaedd6b1e@example.com",
+  "address": "292 Higgins Brook Suite 140, Cookfort, NV 28890",
+  "description": "Remain light might."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c1095123-4aa7-4b1d-921c-6b9e2f6dba1e"
+}

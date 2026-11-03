@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "Campbell",
+  "phone": "0534807331",
+  "email": "user_9654562b6c@example.com",
+  "address": "51702 Lauren Place, Ruthfurt, ND 89545",
+  "description": "Plan pass item beat matter book choice."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4e44497b-b2d1-4d84-ab82-488899586b6e"
+}

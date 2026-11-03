@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Mercer",
+  "phone": "0512233851",
+  "email": "user_a5c587b397@example.com",
+  "address": "Unit 6050 Box 1516, DPO AP 29453",
+  "description": "Next free happy letter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ffe7684a-7ad8-4830-90cb-734ccaced394"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "787437c8-7a86-4002-9780-744c432399a3",
+      "name": "Sandra",
+      "lastName": "Gray",
+      "email": "user_e0e145f228@example.com",
+      "phone": "0519974704",
+      "address": "873 Ferguson Loop, Shawberg, NM 97380",
+      "description": "Whether help wrong movement."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+{
+  "name": "Morgan",
+  "lastName": "Grimes",
+  "phone": "0512387435",
+  "email": "user_2326e5808e@example.com",
+  "address": "92086 Lewis Islands Apt. 734, Hicksmouth, GA 68548",
+  "description": "Tough charge family suddenly degree check choose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2bd97e1d-debb-4aff-b8d7-7a0872ccd574"
+}

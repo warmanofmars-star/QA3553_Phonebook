@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "Smith",
+  "phone": "0516272586",
+  "email": "user_b3e9841b83@example.com",
+  "address": "2887 Alyssa Mountain, Solisville, DE 37669",
+  "description": "Station us once."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8809fa65-beb1-4423-bea8-4b270b9f448f"
+}

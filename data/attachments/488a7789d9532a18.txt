@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cde83e50-8cca-484a-b764-45cef0b61521",
+      "name": "Janet",
+      "lastName": "Winters",
+      "email": "user_eb364f32d8@example.com",
+      "phone": "0529184574",
+      "address": "37711 Sabrina Ranch Suite 754, Grayland, OR 56625",
+      "description": "[object Undefined]"
+    }
+  ]
+}

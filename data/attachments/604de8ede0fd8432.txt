@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "16d6e503-1956-4026-be3a-615d872f4881",
+      "name": "Karen",
+      "lastName": "Klein",
+      "email": "user_2ff5da322a@example.com",
+      "phone": "0519858116",
+      "address": "50990 Brian Cliff, Robertsbury, ID 38538",
+      "description": "Strategy open garden help industry research."
+    }
+  ]
+}
