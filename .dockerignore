@@ -18,6 +18,7 @@ allure-results
 allure-report
 logs
 screenshots
+video/
 
 # Локальные данные с кредами и выгрузки
 *.jsonl

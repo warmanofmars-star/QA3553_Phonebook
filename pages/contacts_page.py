@@ -116,7 +116,7 @@ class ContactsPage(BasePage):
         """
         element = self._wait().until(EC.element_to_be_clickable(locator))
         # Сочетание "выделить всё" зависит от ОС, на которой запущен БРАУЗЕР, а не тесты:
-        # с Mac через Selenoid браузер работает в Linux-контейнере и ждёт Ctrl, а не Cmd
+        # с Mac через Selenium Grid браузер работает в Linux-контейнере и ждёт Ctrl, а не Cmd
         browser_os = str(self.driver.capabilities.get("platformName", "")).lower()
         select_all = Keys.COMMAND if "mac" in browser_os else Keys.CONTROL
         element.send_keys(select_all + "a")

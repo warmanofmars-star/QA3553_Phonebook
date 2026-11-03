@@ -1,61 +1,76 @@
-# Тестовый стенд: Selenoid (браузеры в Docker) + контейнер с тестами.
+# Тестовый стенд: Selenium Grid 4 (хаб + узлы браузеров) и контейнер с тестами.
 #
-# Запуск:   docker compose up --build --exit-code-from qa-framework
-# Останов:  docker compose down
-# Браузер:  $env:BROWSER="firefox"; docker compose up ...   (PowerShell)
-#           BROWSER=firefox docker compose up ...             (bash)
+# Браузер выбирается ДВУМЯ переменными с одинаковым значением:
+#   COMPOSE_PROFILES — какие узлы браузеров запустить (у каждого узла свой профиль);
+#   BROWSER          — в каком браузере запускать тесты.
 #
-# Явное имя проекта: стенд не смешивается с Jenkins (docker-compose.jenkins.yml).
-# В Jenkins имя переопределяется переменной COMPOSE_PROJECT_NAME (см. Jenkinsfile) —
-# она приоритетнее этой строки, поэтому сборки Jenkins идут отдельным проектом.
+#   PowerShell:  $env:COMPOSE_PROFILES="firefox"; $env:BROWSER="firefox"; docker compose up --build --exit-code-from qa-framework
+#   bash:        COMPOSE_PROFILES=firefox BROWSER=firefox docker compose up --build --exit-code-from qa-framework
+#
+# Без COMPOSE_PROFILES узлы не стартуют, и тесты упадут с понятной ошибкой
+# (проверка готовности Grid в drivers/factory.py). Для локальной работы удобно
+# прописать COMPOSE_PROFILES=chrome в .env — docker compose читает его сам.
+#
+# Grid UI (кто подключён, какие сессии идут): http://localhost:4444/ui/
+# (косая черта в конце обязательна: без неё интерфейс не загружается)
+# Останов: docker compose down
+
 name: phonebook-tests
 
-networks:
-  qa-network:
-    # Фиксированное имя: Selenoid подключает к этой сети контейнеры с браузерами,
-    # которые сам же запускает (параметр -container-network ниже)
-    name: qa-network
-    driver: bridge
+# Общие настройки узлов браузеров (YAML-якорь: подставляется в каждый узел через <<: *node)
+x-node: &node
+  shm_size: 2gb                      # браузерам нужна большая разделяемая память, иначе вкладки падают
+  depends_on:
+    - selenium-hub
+  volumes:
+    - video-data:/videos             # сюда узел пишет видео сессий
+  environment:
+    - SE_EVENT_BUS_HOST=selenium-hub # через шину событий хаба узел регистрируется в Grid
+    - SE_NODE_GRID_URL=http://selenium-hub:4444
+    # Запись видео встроена в образ узла. Файл: /videos/<id сессии>.mp4
+    # (если тест не задаёт capability se:name). Отдельные видео-контейнеры не нужны
+    - SE_RECORD_VIDEO=true
+  deploy:
+    # По 2 узла выбранного браузера — под 2 параллельных воркера pytest (-n 2).
+    # Один узел = одна сессия: так стабильнее, и видео пишется ровно одной сессии
+    replicas: 2
 
 volumes:
-  video-data:
-    # Фиксированное имя: Selenoid передаёт его контейнерам записи видео
-    # (OVERRIDE_VIDEO_OUTPUT_DIR ниже), а те монтируют том по этому имени
-    name: video-data
+  video-data:                        # общий том: узлы пишут видео, тесты прикладывают его к Allure
 
 services:
-  selenoid:
-    build:
-      context: .
-      dockerfile: Dockerfile.selenoid    # Selenoid со встроенным selenoid/browsers.json
-    networks:
-      - qa-network
-    volumes:
-      # Selenoid сам запускает контейнеры с браузерами — ему нужен доступ к Docker
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "video-data:/opt/selenoid/video"
+  selenium-hub:
+    image: selenium/hub:4.51.0-20261010
     ports:
-      - "4444:4444"                      # доступ с хоста: локальный запуск тестов с USE_SELENOID=true
-    environment:
-      # Selenoid 1.11 собран со старым Docker-клиентом; без явной версии API
-      # современный Docker Engine отказывается с ним работать
-      - DOCKER_API_VERSION=1.41
-      # Видео пишут отдельные контейнеры video-recorder: им передаётся имя тома, куда писать
-      - OVERRIDE_VIDEO_OUTPUT_DIR=video-data
-    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-container-network", "qa-network"]
+      - "4444:4444"                  # Grid UI и подключение с хоста (локальный запуск с USE_GRID=true)
+
+  chrome:
+    <<: *node
+    image: selenium/node-chrome:4.51.0-20261010
+    platform: linux/amd64
+    profiles: [chrome]
+
+  firefox:
+    <<: *node
+    image: selenium/node-firefox:4.51.0-20261010
+    profiles: [firefox]
+
+  edge:
+    <<: *node
+    image: selenium/node-edge:4.51.0-20261010
+    platform: linux/amd64
+    profiles: [edge]
 
   qa-framework:
     build: .
     depends_on:
-      - selenoid                         # готовность Selenoid проверяет drivers/factory.py (/status)
-    networks:
-      - qa-network
+      - selenium-hub                 # готовность узлов проверяет drivers/factory.py (/status Grid)
     volumes:
       - "./allure-results:/app/allure-results"
-      - "video-data:/app/video"          # тот же том: тесты прикладывают видео к Allure
+      - "video-data:/app/video"      # тот же том: тесты находят видео по id сессии
     environment:
-      - USE_SELENOID=true
-      - SELENOID_HUB_URL=http://selenoid:4444/wd/hub
+      - USE_GRID=true
+      - GRID_URL=http://selenium-hub:4444
       - VIDEO_DIR=/app/video
       - BASE_URL=https://telranedu.web.app
       - API_URL=https://contactapp-telran-backend.herokuapp.com

@@ -4,8 +4,8 @@
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
-**72 tests** (31 API, 41 UI) in Python + pytest, running locally, in Docker with Selenoid,
-in GitHub Actions and in a self-hosted Jenkins.
+**72 tests** (31 API, 41 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
+(Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 
 This is a learning project built during a QA automation course. It was later refactored
 step by step after a code review against enterprise practices; the reasoning behind the main
@@ -51,6 +51,9 @@ where every defect is linked to the requirement it violates:
 | `USER_EXISTS_WORDING` | SRS F3 | Error text differs from the requirement |
 | `EMAIL_ERROR_WORDING` | SRS F7 | Error text differs from the requirement |
 
+All known bugs reproduce identically in Chrome, Firefox and Edge, so they are defects of the application,
+not of a particular browser.
+
 How the registry protects the test results:
 
 - **Strict xfail.** If a "known bug" test suddenly passes, the run fails with `XPASS` — the behaviour
@@ -84,13 +87,12 @@ api/            API client: single request() entry point, timeouts, masked Allur
 api_tests/      API, contract and security tests
 tests/          Selenium UI tests and Playwright tests
 pages/          Page Objects (public user actions; waits and locators are private)
-drivers/        WebDriver factory: local browsers or Selenoid
+drivers/        WebDriver factory: local browsers or Selenium Grid
 data/           test data generators, negative CSV data, known bugs registry
 models/         Contact and User dataclasses
 schemas/        JSON Schemas for API responses
 utils/          logging, Allure steps, waits, validators, preconditions
 ci/             script that merges cross-browser Allure results in GitHub Actions
-selenoid/       browsers.json for Selenoid
 ```
 
 ## Running the tests
@@ -109,7 +111,7 @@ playwright install chromium
 cp .env.example .env               # Windows: copy .env.example .env
 ```
 
-Set `USE_SELENOID=false` in `.env` to run browsers locally, then:
+Set `USE_GRID=false` in `.env` to run browsers locally, then:
 
 ```bash
 pytest -n 4 --alluredir=allure-results       # the whole suite in 4 parallel workers
@@ -121,18 +123,20 @@ allure serve allure-results                  # open the report
 Markers: `smoke`, `regression`, `api`, `ui`, `hybrid`, `security`, `playwright`.
 All settings are described in [`.env.example`](.env.example) and [`config.py`](config.py).
 
-### In Docker (Selenoid)
+### In Docker (Selenium Grid 4)
+
+The browser is selected by two variables with the same value — `chrome`, `firefox` or `edge`:
+`COMPOSE_PROFILES` starts the browser nodes, `BROWSER` tells the tests which browser to use.
 
 ```bash
-docker pull selenoid/vnc_chrome:128.0
-docker pull selenoid/vnc_firefox:125.0
-docker pull selenoid/video-recorder:latest-release
-docker compose up --build --exit-code-from qa-framework
+COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-from qa-framework
+COMPOSE_PROFILES=edge BROWSER=edge PYTEST_ADDOPTS='-m "smoke"' docker compose up --build --exit-code-from qa-framework
 ```
 
-Selenium tests run in browsers inside Selenoid containers, and a video of every session is attached
-to the Allure report. Browser and markers are passed through environment variables, for example
-`BROWSER=firefox PYTEST_ADDOPTS='-m "smoke"' docker compose up ...`.
+Selenium tests run on Selenium Grid nodes (a hub and two nodes of the selected browser). Each node records
+a video of its sessions, and the video is attached to the Allure report. Compose pulls the Grid images itself.
+While the stack is running, the Grid UI is available at `http://localhost:4444/ui/` (the trailing slash is required).
+The stack previously used Selenoid; it was replaced because the project is discontinued.
 More commands: [`commands.md`](commands.md).
 
 ## CI
@@ -141,8 +145,9 @@ More commands: [`commands.md`](commands.md).
 and on every pull request:
 
 - a linter job (ruff);
-- tests in Chrome and Firefox in parallel (matrix), each in Docker Compose with Selenoid;
-- one Allure report for both browsers with trend history, published to GitHub Pages from `main`
+- a secrets job (gitleaks) that scans only the new commits of the push or pull request;
+- tests in Chrome, Firefox and Edge in parallel (matrix), each in Docker Compose with Selenium Grid;
+- one Allure report for all browsers with trend history, published to GitHub Pages from `main`
   (for pull requests it is available as a build artifact);
 - a Telegram notification with the result and test counts.
 
@@ -159,6 +164,7 @@ infrastructure errors mark it `FAILURE`; the Allure plugin keeps the trend histo
 - **pre-commit** ([`.pre-commit-config.yaml`](.pre-commit-config.yaml)) — runs ruff, basic file checks and
   **gitleaks** before every commit. Besides the built-in gitleaks rules, a custom rule in
   [`.gitleaks.toml`](.gitleaks.toml) catches `.env`-style passwords, which the built-in rules do not detect.
+  The same gitleaks version and config run in CI on new commits, where the check cannot be skipped.
 
 ```bash
 pre-commit install            # once after cloning
@@ -167,20 +173,18 @@ pre-commit run --all-files    # check the whole project manually
 
 ## Known limitations
 
-- **Selenoid is discontinued.** The Aerokube project no longer releases new versions; the newest available
-  browser images are Chrome 128 and Firefox 125, and there is no Edge image. A migration to Selenium Grid 4
-  is planned.
-- **The Jenkins setup is for local learning only.** The container runs as root with access to the host
-  Docker socket (which effectively means root on the host), builds run on the controller itself,
+- **The Jenkins setup is for local learning only.** The test stack itself no longer needs the Docker
+  socket, but Jenkins still runs `docker compose` through the host Docker socket: its container runs
+  as root with access to it (which effectively means root on the host), builds run on the controller itself,
   and Jenkins is exposed through ngrok. In a production setup builds would run on ephemeral agents,
-  browsers would be a separate grid service, and Jenkins would not be publicly accessible.
+  the grid would be a shared long-running service, and Jenkins would not be publicly accessible.
 - **No `data-testid` attributes in the app.** Locators rely on stable prefixes of CSS Modules class names,
   e.g. `[class^='contact-item_card__']`; a frontend rebuild with different class prefixes would break them.
 - **Tests depend on an external training environment.** The frontend and the backend (on Heroku) are not
   part of this repository; if they are down, the tests fail.
 - **Playwright coverage is minimal:** two tests demonstrating the approach, including network mocking.
   The main UI suite uses Selenium.
-- **Videos are available only in Docker.** Selenoid writes them to a Docker volume that a local run
+- **Videos are available only in Docker.** Grid nodes write them to a Docker volume that a local run
   cannot access.
 - **Cosmetic issue in Allure:** every fixture shows an extra `<fixture>::<lambda>` teardown step with
   the *Unknown* status. It is an incompatibility between pytest 9 (which registers an internal finalizer

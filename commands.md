@@ -2,13 +2,13 @@
 
 
 ## 🏃‍♂️ Запуск тестов локально (Без Docker)
-Перед локальным запуском убедись, что в `.env` стоит `USE_SELENOID=false`
-(или переопредели на текущий сеанс PowerShell: `$env:USE_SELENOID="false"`).
+Перед локальным запуском убедись, что в `.env` стоит `USE_GRID=false`
+(или переопредели на текущий сеанс PowerShell: `$env:USE_GRID="false"`).
 
 **Запуск всех тестов (UI + API) параллельно в 4 потока с генерацией отчета:**
 `pytest -n 4 --clean-alluredir --alluredir=allure-results`
 
-**Запуск с выбором конкретного браузера (`chrome`, `firefox`, `edge` — Edge только локально, в Selenoid его нет):**
+**Запуск с выбором конкретного браузера (`chrome`, `firefox`, `edge`):**
 `pytest -n 4 --browser_name=firefox --clean-alluredir --alluredir=allure-results`
 
 **Быстрый прогон только API-слоя (без браузеров):**
@@ -60,24 +60,27 @@
 
 ---
 
-## 🐳 Запуск через Docker Compose (Изолированная среда)
-Значение `USE_SELENOID` в `.env` здесь не важно: docker-compose.yml сам передаёт контейнеру `USE_SELENOID=true`.
+## 🐳 Запуск через Docker Compose (Selenium Grid 4)
+Значение `USE_GRID` в `.env` здесь не важно: docker-compose.yml сам передаёт контейнеру `USE_GRID=true`.
+Образы хаба и узлов браузеров compose скачивает сам при первом запуске.
 
-**Полный запуск (Сборка образа -> Запуск Selenoid -> Прогон тестов -> Выход):**
-`docker compose up --build --exit-code-from qa-framework`
+Браузер задаётся **двумя** переменными с одинаковым значением (`chrome`, `firefox` или `edge`):
+`COMPOSE_PROFILES` — какие узлы браузеров запустить, `BROWSER` — в каком браузере идут тесты.
+
+**Полный запуск (Сборка образа -> Запуск Grid -> Прогон тестов -> Выход):**
+- В PowerShell: `$env:COMPOSE_PROFILES="chrome"; $env:BROWSER="chrome"; docker compose up --build --exit-code-from qa-framework`
+- В Bash: `COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-from qa-framework`
 
 **Запуск только части тестов (маркеры передаются через `PYTEST_ADDOPTS`):**
-- В PowerShell: `$env:PYTEST_ADDOPTS='-m "smoke"'; docker compose up --build --exit-code-from qa-framework`
-- В Bash: `PYTEST_ADDOPTS='-m "smoke"' docker compose up --build --exit-code-from qa-framework`
+- В PowerShell: `$env:COMPOSE_PROFILES="firefox"; $env:BROWSER="firefox"; $env:PYTEST_ADDOPTS='-m "smoke"'; docker compose up --build --exit-code-from qa-framework`
+- В Bash: `COMPOSE_PROFILES=firefox BROWSER=firefox PYTEST_ADDOPTS='-m "smoke"' docker compose up --build --exit-code-from qa-framework`
 
-**Запуск в изолированном Firefox через Docker Compose:**
-- В PowerShell (Windows):
-  `$env:BROWSER="firefox"; docker compose up --build --exit-code-from qa-framework`
-- В Bash / Linux:
-  `BROWSER=firefox docker compose up --build --exit-code-from qa-framework`
+**Grid UI (какие узлы подключены, какие сессии идут) — пока стенд запущен:**
+`http://localhost:4444/ui/` *(косая черта в конце обязательна: без неё интерфейс не загружается)*
 
 **Остановка и удаление контейнеров тестового стенда (после завершения работы):**
 `docker compose down -v --remove-orphans`
+*(Узлы браузеров входят в профили: чтобы `down` их увидел, нужен тот же `COMPOSE_PROFILES`, что при запуске)*
 *(Безопасно для Jenkins: он в отдельном проекте `phonebook-jenkins-server` и в «сироты» больше не попадает)*
 
 ---
@@ -88,12 +91,6 @@
 
 **Очистить диск от безымянных (dangling) слоев образов:**
 `docker image prune -f`
-
-**Скачать образы VNC-браузеров для Selenoid (Selenoid сам их не скачивает):**
-*(Это последние существующие версии: проект Selenoid больше не развивается)*
-`docker pull selenoid/vnc_chrome:128.0`
-`docker pull selenoid/vnc_firefox:125.0`
-`docker pull selenoid/video-recorder:latest-release`
 
 ---
 
@@ -110,7 +107,7 @@
 `ruff format .`
 
 **Проверить ВСЮ историю git на секреты (вывод без самих секретов):**
-`gitleaks git --redact` *(если gitleaks установлен отдельно; pre-commit проверяет только новые изменения)*
+`gitleaks git --redact` *(если gitleaks установлен отдельно; pre-commit проверяет только новые изменения, CI — только новые коммиты)*
 
 ---
 
