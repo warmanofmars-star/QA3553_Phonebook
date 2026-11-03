@@ -50,6 +50,12 @@ KNOWN_BUGS: dict[str, KnownBug] = {
         requirement="SRS T38–T39 (Swagger поле phone обязательным не считает)",
         description="Контакт без телефона сохраняется",
     ),
+    # RFC 6531 допускает нелатинские адреса, поэтому требование SRS стоит подтвердить
+    # у аналитика. Пока тесты следуют SRS
+    "EMAIL_NON_LATIN_ALLOWED": KnownBug(
+        requirement="SRS T6, T31",
+        description="Нелатинские буквы в email принимаются (и при регистрации, и в контактах)",
+    ),
     "EDIT_DESCRIPTION_BROKEN": KnownBug(
         requirement="SRS раздел 2 (Update contact with valid data); STD TC-00026, TC-00027",
         description="При изменении описания через форму редактирования сохраняется строка '[object Undefined]'",
@@ -57,6 +63,17 @@ KNOWN_BUGS: dict[str, KnownBug] = {
     "TYPE_COERCION": KnownBug(
         requirement="Swagger: ContactDto.name имеет type: string",
         description="Boolean в поле name молча приводится к строке, ответ 200",
+    ),
+    # ---------- Регистрация: правила пароля ----------
+    "PASSWORD_NO_MAX_LENGTH": KnownBug(
+        requirement="SRS T15",
+        description=(
+            "Пароль длиннее 15 символов принимается; верхнего предела нет (20, 30, 64 символа тоже регистрируются)"
+        ),
+    ),
+    "PASSWORD_NON_LATIN_ALLOWED": KnownBug(
+        requirement="SRS T10",
+        description="Нелатинские буквы в пароле принимаются",
     ),
     # ---------- API: контракт ответов ----------
     "NO_AUTH_403": KnownBug(

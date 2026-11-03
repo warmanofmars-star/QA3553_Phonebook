@@ -16,6 +16,7 @@ import pytest
 
 from api.contact_api import PhonebookAPI
 from data.data_generator import UserGenerator
+from data.known_bugs import known_bug
 
 pytestmark = [
     pytest.mark.api,
@@ -63,7 +64,7 @@ PWD_RULE_CASES = [
     pytest.param(lambda: _password(7), REJECT, ["T14"], id="len-7"),
     pytest.param(lambda: _password(8), ACCEPT, ["T14"], id="len-8"),
     pytest.param(lambda: _password(15), ACCEPT, ["T15"], id="len-15"),
-    pytest.param(lambda: _password(16), REJECT, ["T15"], id="len-16"),
+    pytest.param(lambda: _password(16), REJECT, ["T15"], id="len-16", marks=known_bug("PASSWORD_NO_MAX_LENGTH")),
     # ---------- Обязательные классы символов (T9, T11–T13) ----------
     pytest.param(lambda: _password(upper=False), REJECT, ["T11"], id="no-uppercase"),
     pytest.param(lambda: _password(lower=False), REJECT, ["T12"], id="no-lowercase"),
@@ -73,7 +74,13 @@ PWD_RULE_CASES = [
     pytest.param(lambda: _password(special="%"), REJECT, ["T9"], id="special-not-from-list"),
     # ---------- Только английские буквы (T10) ----------
     # Все признаки валидного пароля на месте, одна буква-заполнитель заменена кириллической
-    pytest.param(lambda: _password()[:-1] + "ж", REJECT, ["T10"], id="cyrillic-letter"),
+    pytest.param(
+        lambda: _password()[:-1] + "ж",
+        REJECT,
+        ["T10"],
+        id="cyrillic-letter",
+        marks=known_bug("PASSWORD_NON_LATIN_ALLOWED"),
+    ),
 ]
 
 
@@ -95,7 +102,13 @@ EMAIL_CASES = [
     pytest.param(lambda: f"{_unique()}@mail@example.com", REJECT, ["T3"], id="two-at"),
     pytest.param(lambda: f"@{_unique()}.com", REJECT, ["T4"], id="nothing-before-at"),
     pytest.param(lambda: f"{_unique()}@", REJECT, ["T5"], id="nothing-after-at"),
-    pytest.param(lambda: f"пользователь{_unique()}@example.com", REJECT, ["T6"], id="cyrillic"),
+    pytest.param(
+        lambda: f"пользователь{_unique()}@example.com",
+        REJECT,
+        ["T6"],
+        id="cyrillic",
+        marks=known_bug("EMAIL_NON_LATIN_ALLOWED"),
+    ),
 ]
 
 

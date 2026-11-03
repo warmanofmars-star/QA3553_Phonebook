@@ -97,7 +97,14 @@ CONTACT_CASES = [
     pytest.param("email", "user@mail@example.com", REJECT, ["T28"], id="email-two-at"),
     pytest.param("email", "@example.com", REJECT, ["T29"], id="email-nothing-before-at"),
     pytest.param("email", "user@", REJECT, ["T30"], id="email-nothing-after-at"),
-    pytest.param("email", "пользователь@example.com", REJECT, ["T31"], id="email-cyrillic"),
+    pytest.param(
+        "email",
+        "пользователь@example.com",
+        REJECT,
+        ["T31"],
+        id="email-cyrillic",
+        marks=known_bug("EMAIL_NON_LATIN_ALLOWED"),
+    ),
     # ---------- null вместо обязательного значения (T21, T26, T33, T38) ----------
     # null в name уже проверяет test_api_payload_validation.py
     pytest.param("lastName", None, REJECT, ["T21"], id="last-name-null"),
