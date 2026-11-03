@@ -3,7 +3,9 @@ import pytest
 
 from data.data_generator import ContactGenerator
 from data.known_bugs import known_bug
-from utils.validators import assert_secure_error
+from schemas.contact_schemas import ERROR_MESSAGE_SCHEMA
+from utils.preconditions import require
+from utils.validators import assert_json_schema, assert_secure_error
 
 pytestmark = [pytest.mark.api, pytest.mark.regression]
 
@@ -57,3 +59,24 @@ def test_api_contact_payload_variations(auth_api, mutate_func, expected_status, 
         response = auth_api.add_contact(payload)
 
     assert_secure_error(response, expected_status)
+
+
+@allure.epic("API Testing")
+@allure.feature("Contract")
+@allure.story("Error body matches ErrorMessageDto")
+@allure.severity(allure.severity_level.NORMAL)
+@allure.tag("API-CHECK-12")
+def test_api_validation_error_body(auth_api):
+    """Тело типичной ошибки валидации (400) соответствует ErrorMessageDto из Swagger,
+    а status в теле совпадает с HTTP-статусом ответа."""
+    payload = ContactGenerator.get_random_contact().to_api_payload()
+    payload["name"] = ""
+
+    response = auth_api.add_contact(payload)
+    require(response.status_code == 400, f"Предусловие: ожидалась ошибка валидации, получено {response.status_code}")
+
+    body = response.json()
+    assert_json_schema(body, ERROR_MESSAGE_SCHEMA, "Тело ошибки")
+    assert body["status"] == response.status_code, (
+        f"status в теле ({body['status']}) не совпадает с HTTP-статусом ({response.status_code})"
+    )
