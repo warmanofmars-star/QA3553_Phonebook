@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Crystal",
+  "lastName": "Smith",
+  "phone": "0536119241",
+  "email": "user_ffd8850a23@example.com",
+  "address": "USNS Malone, FPO AA 18338",
+  "description": "View throughout sound social success agent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 46691869-bdde-4b94-b7ac-f5671b265de1"
+}

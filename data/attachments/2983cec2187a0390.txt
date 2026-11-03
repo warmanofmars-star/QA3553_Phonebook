@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Williams",
+  "phone": "0578583036",
+  "email": "user_d0996b0575@example.com",
+  "address": "Unit 0594 Box 5530, DPO AP 90333",
+  "description": "Know travel home five hot."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d2252d77-5298-47da-a394-04c084b89ceb"
+}

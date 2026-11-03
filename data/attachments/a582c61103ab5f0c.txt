@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cathy",
+  "lastName": "Terrell",
+  "phone": "0511752141",
+  "email": "user_949a9a6b09@example.com",
+  "address": "099 Jason Ford Suite 530, Coreyshire, MN 19986",
+  "description": "Season partner rich lay."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2b811b87-409f-4dfd-acb5-6482e7a01b1e"
+}

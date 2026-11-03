@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Case",
+  "phone": "0586113931",
+  "email": "user_b3f3a342d7@example.com",
+  "address": "149 Barry Lane, New Sharon, NY 32051",
+  "description": "Example take woman mention place stop it Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 28789189-5404-4eef-a543-d2d4ef7d92c1"
+}

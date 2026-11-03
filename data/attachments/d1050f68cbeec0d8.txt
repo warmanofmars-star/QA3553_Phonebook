@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4d0fc380-a8eb-4b1a-937c-b3766735b67a",
+      "name": "Benjamin",
+      "lastName": "Tucker",
+      "email": "user_23d5dae5de@example.com",
+      "phone": "0524448104",
+      "address": "080 Atkins Spring Apt. 127, Shawfort, WV 30089",
+      "description": "Might author lot include look tend despite."
+    }
+  ]
+}

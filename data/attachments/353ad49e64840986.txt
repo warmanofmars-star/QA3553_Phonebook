@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "502ea074-8020-4337-93b1-0a54222f6972",
+      "name": "Jennifer",
+      "lastName": "Hayes",
+      "email": "user_d92f03f92e@example.com",
+      "phone": "0524192991",
+      "address": "639 Vasquez Crest Apt. 199, Michellechester, CA 54350",
+      "description": "Create join fine record end drug."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Madeline",
+  "lastName": "Cox",
+  "phone": "0522370737",
+  "email": "not_an_email",
+  "address": "358 Gilbert Row, New Kevin, VT 32447",
+  "description": "Official condition daughter south several."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T12:26:51",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

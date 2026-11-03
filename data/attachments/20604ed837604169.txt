@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brent",
+  "lastName": "Marsh",
+  "phone": "0512906151",
+  "email": "user_715b000e73@example.com",
+  "address": "17550 Kenneth Wells, Lauraland, IA 11757",
+  "description": "Degree parent nor gun start military."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8f440a79-9e87-43f1-86e8-589a29c3d1f9"
+}

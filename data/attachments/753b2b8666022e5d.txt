@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Karen",
+  "lastName": "Rose",
+  "phone": "0537819506",
+  "email": "user_02f9d458c7@example.com",
+  "address": "091 Stacy Circle, Riverafurt, PW 27701",
+  "description": "Conference into account sea reflect general down leave."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1eac8033-41a4-4307-979c-1286129fdbc5"
+}

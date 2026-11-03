@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7b18b5fa-356e-4873-97a8-0a1e894582ff",
+      "name": "Kristin",
+      "lastName": "Castillo",
+      "email": "user_b4aaefe7a4@example.com",
+      "phone": "0551563680",
+      "address": "91210 Cook Squares Apt. 108, Lake Justin, DC 15665",
+      "description": "Must appear dream condition."
+    }
+  ]
+}

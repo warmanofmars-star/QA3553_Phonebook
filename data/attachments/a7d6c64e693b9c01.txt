@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Guy",
+  "lastName": "Wilson",
+  "phone": "0528525070",
+  "email": "",
+  "address": "44599 Howard Pike Apt. 160, Mullinsfort, DC 78777",
+  "description": "Quickly data during skill also take."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5d293e11-8e49-4f69-b982-1ed2e219f964"
+}

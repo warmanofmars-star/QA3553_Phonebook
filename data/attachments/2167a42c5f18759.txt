@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Williams",
+  "email": "user_bc44f9ee2f@example.com",
+  "address": "15165 April Burgs Suite 108, South Jasonmouth, TN 84983",
+  "description": "Month close building whose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9fcb9c6b-d655-47aa-9fbf-d95c91962cda"
+}

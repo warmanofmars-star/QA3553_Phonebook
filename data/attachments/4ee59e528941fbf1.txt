@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lauren",
+  "lastName": "Larson",
+  "phone": "0532513586",
+  "email": "user_aceb8735b7@example.com",
+  "address": "6679 Miller Tunnel Apt. 710, South Chad, MN 63633",
+  "description": "About whole guy economy common skill forward mouth."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: faacd745-9407-40b2-ba18-c0c546719f58"
+}

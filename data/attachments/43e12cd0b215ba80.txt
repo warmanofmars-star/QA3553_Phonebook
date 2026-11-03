@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Clay",
+  "phone": "0569487772",
+  "email": "user_e095f05229@example.com",
+  "address": "57810 Daniel Dale Suite 193, Port Monica, OR 42169",
+  "description": "Past affect behind amount thing.",
+  "id": "6f830130-4eb4-4006-a558-674e368eed63"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9efa6ebf-fa05-47a1-a056-53defa2358e1"
+}

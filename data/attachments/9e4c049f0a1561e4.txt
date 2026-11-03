@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d7beeadc-44e4-45fa-ae9b-53adaa4937a5",
+      "name": "Edward",
+      "lastName": "Brown",
+      "email": "user_eb5901ada2@example.com",
+      "phone": "0555444776",
+      "address": "62365 Hanson Stravenue Apt. 666, Robertberg, GU 32823",
+      "description": "Practice visit approach court carry international mission."
+    },
+    {
+      "id": "51e72775-f079-4c89-8f8a-999d037b4815",
+      "name": "Sharon",
+      "lastName": "Kim",
+      "email": "user_42f8c8f75f@example.com",
+      "phone": "0525524389",
+      "address": "991 Gonzalez Port Suite 507, Brownview, IL 81777",
+      "description": "Amount upon public store challenge body."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d7beeadc-44e4-45fa-ae9b-53adaa4937a5",
+      "name": "Edward",
+      "lastName": "Brown",
+      "email": "user_eb5901ada2@example.com",
+      "phone": "0555444776",
+      "address": "62365 Hanson Stravenue Apt. 666, Robertberg, GU 32823",
+      "description": "Practice visit approach court carry international mission."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sandra",
+  "lastName": "Roman",
+  "phone": "0520073299",
+  "email": "user_10ccee61bc@example.com",
+  "address": "05077 April Plains, Lake Zacharyhaven, PA 52419",
+  "description": "Example tonight someone white just team region."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 28c05fec-918a-425b-9d53-a3578e35a02d"
+}

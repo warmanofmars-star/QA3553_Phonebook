@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tara",
+  "lastName": "Bell",
+  "phone": "0515030693",
+  "email": "user_8ad52d57f9@example.com",
+  "address": "9876 Caroline Summit Apt. 373, North Kimberly, UT 39387",
+  "description": "House bar cold yourself total list."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ac5ab31c-d94c-4d70-94c6-dd6e61f0401c"
+}

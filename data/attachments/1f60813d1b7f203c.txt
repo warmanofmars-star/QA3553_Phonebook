@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mackenzie",
+  "lastName": "Webster",
+  "phone": "0525474042",
+  "email": "user_80f5476806@example.com",
+  "address": "26240 Rebecca Mountain Apt. 104, South Brandon, MD 53318",
+  "description": "Southern often contain modern have paper."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9e8458b8-65d5-41b1-ba2a-a8054fa9c510"
+}

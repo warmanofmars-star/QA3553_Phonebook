@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "07a66ec7-0f45-4a3e-aac2-c35d23be7b3c",
+      "name": "Claire",
+      "lastName": "Lawson",
+      "email": "user_fc382a3465@example.com",
+      "phone": "0513657971",
+      "address": "82211 Nixon Spurs Suite 379, Lake Margarethaven, VA 77701",
+      "description": "Attention those not."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "92cbec28-934f-4670-99ee-bd2c1989f9a2",
+      "name": "Sean",
+      "lastName": "Patton",
+      "email": "user_68e37602a5@example.com",
+      "phone": "0518832102",
+      "address": "192 Lopez Manor Apt. 790, Stevenberg, CT 15362",
+      "description": "Congress middle later ten site."
+    }
+  ]
+}

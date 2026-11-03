@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (69 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "973a0ed4-77ab-4924-9c00-b1079b08b894",
+      "name": "Raymond",
+      "lastName": "Lambert",
+      "email": "user_fafa1782d0@example.com",
+      "phone": "0522417540",
+      "address": "3371 Taylor Village, Debraborough, OH 72741",
+      "description": "Officer relate leader what age cell."
+    }
+  ]
+}

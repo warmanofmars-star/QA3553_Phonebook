@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Williams",
+  "phone": "0526283508",
+  "email": "user_4d718de093@example.com",
+  "address": "7782 Anderson Stravenue Suite 303, New Wendyview, OK 15211",
+  "description": "Seven against community."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1811ef31-b74f-41bb-b420-548b7f89e0cd"
+}

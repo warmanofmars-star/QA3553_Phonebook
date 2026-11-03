@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Costa",
+  "phone": "0532611972",
+  "email": "user_3fb330e765@example.com",
+  "address": "829 Mosley Hills Apt. 275, Georgehaven, DC 56200",
+  "description": "Despite result east argue culture agent family enter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d992bfff-970b-404c-bc4f-8480ea20941c"
+}

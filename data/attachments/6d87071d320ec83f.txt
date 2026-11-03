@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Betty",
+  "lastName": "Campbell",
+  "phone": "0533236373",
+  "email": "user_f4ec3f8640@example.com",
+  "address": "30211 Coleman Plaza Suite 714, Stefaniefort, ME 09287",
+  "description": "Finish pay dream pressure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: aac218c4-c689-40a8-b4f0-74bd28bdf84a"
+}

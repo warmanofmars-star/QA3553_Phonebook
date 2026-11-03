@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Newman",
+  "phone": "0569150056",
+  "email": "user_9d1d1c2f2c@example.com",
+  "address": "8819 Salazar Spurs Suite 912, Port Manuel, IL 28115",
+  "description": "Stay operation face than against fast sure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: efa33521-5f0b-47af-b429-ad6e4f7f113f"
+}

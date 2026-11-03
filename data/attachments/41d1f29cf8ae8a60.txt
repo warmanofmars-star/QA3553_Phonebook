@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "28789189-5404-4eef-a543-d2d4ef7d92c1",
+      "name": "Maria",
+      "lastName": "Case",
+      "email": "user_b3f3a342d7@example.com",
+      "phone": "0586113931",
+      "address": "149 Barry Lane, New Sharon, NY 32051",
+      "description": "Example take woman mention place stop it Republican."
+    }
+  ]
+}

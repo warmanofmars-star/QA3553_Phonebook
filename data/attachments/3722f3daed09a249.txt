@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Reilly",
+  "phone": "0529539812",
+  "email": "user_4dea665051@example.com",
+  "address": "1948 Francisco Squares Apt. 096, Joelborough, AR 86355",
+  "description": "Continue yeah sport short test."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T12:26:40",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

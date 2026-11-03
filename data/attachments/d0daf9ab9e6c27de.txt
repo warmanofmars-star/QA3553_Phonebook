@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Sanchez",
+  "phone": "0523213599",
+  "email": "user_1ec2957948@example.com",
+  "address": "26540 Eric Point, Port Jamesberg, OK 34327",
+  "description": "Challenge news western middle too part peace."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7d907825-4229-4dda-a68f-9c37932615b1"
+}

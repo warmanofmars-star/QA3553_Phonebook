@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Richardson",
+  "phone": "0529830788",
+  "email": "",
+  "address": "078 Ronald Groves Suite 786, Turnerview, UT 09531",
+  "description": "Heart hard key onto another final."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ef3cf42d-775c-4e70-9b4b-58d916b0d3ee"
+}

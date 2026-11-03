@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lydia",
+  "lastName": "Mccormick",
+  "phone": "0528564586",
+  "email": "user_eb31d10c42@example.com",
+  "address": "8614 Davis Freeway Suite 580, Port Teresaton, TX 93734",
+  "description": "Hope learn glass letter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6cd1c310-dbde-484b-b41b-5e4553780064"
+}

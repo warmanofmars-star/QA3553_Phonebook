@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Heather",
+  "lastName": "Wood",
+  "phone": "0515488649",
+  "email": "user_b0f3f5b219@example.com",
+  "address": "78060 Christopher Loop, Lake Stephanie, MP 79312",
+  "description": "Officer product hard only suggest talk lose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 59abaca1-dcc5-40d9-920c-3ee09f524f2d"
+}

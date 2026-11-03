@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Smith",
+  "phone": "0532791466",
+  "email": "user_ed22ef18f0@example.com",
+  "address": "897 Jeremy Well Suite 601, New Anthonyfort, MA 96353",
+  "description": "Job class nor charge recently Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a09d9175-0477-4f86-b12c-3289408e2167"
+}

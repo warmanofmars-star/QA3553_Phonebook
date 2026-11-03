@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Lang",
+  "phone": "0532042890",
+  "email": "user_457b1ff865@example.com",
+  "address": "79145 Madden Courts Suite 556, North Peterview, MI 11833",
+  "description": "Choice prevent kind energy present stock industry."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8bd1fa6f-c167-4859-a54c-09c54a218263"
+}

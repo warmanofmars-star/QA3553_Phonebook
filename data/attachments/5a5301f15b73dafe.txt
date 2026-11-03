@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andre",
+  "lastName": "Curry",
+  "phone": "0560866543",
+  "email": "user_46b0337d28@example.com",
+  "address": "984 Jennifer Valleys Suite 435, Port Williamport, MA 68574",
+  "description": "Piece daughter discover though commercial left."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 53bd5060-8b27-4c2f-a1ca-ef6141e64e0a"
+}

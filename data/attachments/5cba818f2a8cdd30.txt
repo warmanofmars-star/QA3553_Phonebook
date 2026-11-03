@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ad63090c-0a98-4674-a462-584fe2c300ab",
+      "name": "Joshua",
+      "lastName": "Berry",
+      "email": "user_2bdc980c9f@example.com",
+      "phone": "0521634993",
+      "address": "87031 Morris Causeway Apt. 987, Hillchester, MI 94367",
+      "description": "Same building shoulder."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "40f8b5a8-9d38-4823-a8ae-646f958a343f",
+      "name": "Allison",
+      "lastName": "Ibarra",
+      "email": "user_752fba6d45@example.com",
+      "phone": "0527730145",
+      "address": "2086 Kayla Rapid Suite 781, South Johnbury, AZ 46686",
+      "description": "Nor green person clear others one."
+    },
+    {
+      "id": "963e9c20-6cbd-4453-a8ac-d02f16685219",
+      "name": "Tim",
+      "lastName": "Solis",
+      "email": "user_b5352cadec@example.com",
+      "phone": "0514242376",
+      "address": "4576 Perez Ridge, West Michael, KY 65326",
+      "description": "Minute certain claim quite."
+    },
+    {
+      "id": "271df181-40b4-40d8-968c-606cf82e782a",
+      "name": "Tamara",
+      "lastName": "Murphy",
+      "email": "user_f0d2a1adcf@example.com",
+      "phone": "0527538358",
+      "address": "39949 Case Village Suite 323, Port Priscilla, IL 62896",
+      "description": "Control senior around score capital."
+    }
+  ]
+}

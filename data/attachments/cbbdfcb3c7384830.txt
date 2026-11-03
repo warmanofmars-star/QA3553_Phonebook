@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rhonda",
+  "lastName": "Jackson",
+  "phone": "0512497837",
+  "email": "user_920b84031d@example.com",
+  "address": "1740 Maddox Club Suite 984, Michaelland, PA 46301",
+  "description": "Foot break opportunity television adult recent end."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 97eb6f71-e482-44cb-b8d8-e992b3395c25"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patricia",
+  "lastName": "Harris",
+  "phone": "0527863064",
+  "email": "user_f122fdffe0@example.com",
+  "address": "5273 Keith Port, Port Christopher, OR 05259",
+  "description": "Money certain west thus citizen five."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6d6e0da1-9367-4532-b944-b0a628d7cdd4"
+}

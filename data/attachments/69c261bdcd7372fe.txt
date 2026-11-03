@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "daaf85af-3f40-4fd9-9250-66033e3b07cc",
+      "name": "Marie",
+      "lastName": "Harvey",
+      "email": "user_5e8975684a@example.com",
+      "phone": "0511726823",
+      "address": "833 Soto Mountain Apt. 649, South Aaron, MO 19615",
+      "description": "Old maintain chair against trouble number."
+    },
+    {
+      "id": "38466cc9-c1c8-4cec-ab52-97e906c0dd1d",
+      "name": "Jill",
+      "lastName": "Rodriguez",
+      "email": "user_1a67772b2c@example.com",
+      "phone": "0526752699",
+      "address": "2957 Maldonado Course, Harrisborough, KY 70851",
+      "description": "Fill occur debate local new relationship."
+    },
+    {
+      "id": "d490436f-77cd-41f8-bb19-7970488f9666",
+      "name": "Lisa",
+      "lastName": "Carter",
+      "email": "user_39f03e8854@example.com",
+      "phone": "0522927538",
+      "address": "93112 Vasquez Land, Rasmussenview, TN 98944",
+      "description": "Ability little organization television member."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "74fe768e-8c91-4ad8-bd3e-a5b086f515a6",
+      "name": "Ryan",
+      "lastName": "Bowen",
+      "email": "user_4855daea13@example.com",
+      "phone": "0563727357",
+      "address": "63146 Carlos Mountain, Natalieport, HI 71588",
+      "description": "Scientist book range pretty."
+    }
+  ]
+}

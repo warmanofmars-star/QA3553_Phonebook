@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bryan",
+  "lastName": "Washington",
+  "phone": "0519022786",
+  "email": "user_35227c1ecf@example.com",
+  "address": "827 James Shores, Reynoldsmouth, WI 82425",
+  "description": "Material result business per least many scene."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2f414739-8278-43c8-a044-8bb70f841c5e"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "Claudia",
+  "lastName": "Webb",
+  "phone": "0528155014",
+  "email": "user_56f9a4fcc9@example.com",
+  "address": "003 Martin Cape, Flemingshire, GA 69729",
+  "description": "People every could economy want worry."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2349ede4-0f57-4fb6-b153-5a81dfcfdada"
+}

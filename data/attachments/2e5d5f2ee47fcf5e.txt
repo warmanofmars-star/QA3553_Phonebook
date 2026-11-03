@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a0f9ca90-72e3-4232-a537-12839f01be75",
+      "name": "Jessica",
+      "lastName": "Howell",
+      "email": "user_ccac958f72@example.com",
+      "phone": "0589862121",
+      "address": "53751 Robert Grove, Butlermouth, IA 57478",
+      "description": "Reach exist fly represent according movement."
+    }
+  ]
+}

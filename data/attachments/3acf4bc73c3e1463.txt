@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f8419247-2938-4ce9-9c21-ad653808f385",
+      "name": "James",
+      "lastName": "Harmon",
+      "email": "user_6447862140@example.com",
+      "phone": "0525788095",
+      "address": "83802 Baker Hills, Victortown, PR 87493",
+      "description": "What only reflect simple."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Douglas",
+  "lastName": "Combs",
+  "phone": "0593458211",
+  "email": "user_dff8457040@example.com",
+  "address": "476 Gallagher Corners, East Mario, AZ 02508",
+  "description": "Drug already decision simply ground."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 29eedd0e-779a-4d9a-8f3b-0ca5b237bbd7"
+}

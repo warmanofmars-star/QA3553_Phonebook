@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "46691869-bdde-4b94-b7ac-f5671b265de1",
+      "name": "Crystal",
+      "lastName": "Smith",
+      "email": "user_ffd8850a23@example.com",
+      "phone": "0536119241",
+      "address": "USNS Malone, FPO AA 18338",
+      "description": "View throughout sound social success agent."
+    }
+  ]
+}

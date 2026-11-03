@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4ba08fa1-8179-482c-89b6-6f7d95447be3",
+      "name": "Teresa",
+      "lastName": "Harris",
+      "email": "user_cf7e8f3af1@example.com",
+      "phone": "0529107188",
+      "address": "9215 Rivas Mountain Apt. 099, South Stephanieton, NE 48827",
+      "description": "Rule total stop unit building lawyer magazine."
+    }
+  ]
+}

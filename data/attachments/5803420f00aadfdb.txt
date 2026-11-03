@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Monique",
+  "lastName": "Wright",
+  "phone": "0586024683",
+  "email": "user_1cc649e85a@example.com",
+  "address": "7991 Bauer Pike, South Danielside, MS 96509",
+  "description": "Piece learn opportunity bit city easy really."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7a3a874b-8f52-4a9a-aedc-ba9986c4ec4e"
+}

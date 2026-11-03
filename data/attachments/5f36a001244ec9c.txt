@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0c685b48-4bee-4907-9d9e-fed4ee119591",
+      "name": "Jason",
+      "lastName": "Levy",
+      "email": "user_047ac1ea93@example.com",
+      "phone": "0518047719",
+      "address": "0127 Johnson Road Apt. 516, Tamaraburgh, CO 47587",
+      "description": "Option according two concern I."
+    }
+  ]
+}

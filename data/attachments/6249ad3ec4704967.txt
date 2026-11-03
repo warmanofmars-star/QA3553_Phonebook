@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katie",
+  "lastName": "Allison",
+  "phone": "0517324688",
+  "email": "user_9c72c96e9b@example.com",
+  "address": "Unit 6074 Box 0908, DPO AE 23612",
+  "description": "Occur cell leader skill write sing."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e39897c0-64a0-4350-abb4-2c31388232df"
+}

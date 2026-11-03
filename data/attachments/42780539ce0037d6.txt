@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kim",
+  "lastName": "Figueroa",
+  "phone": "0549746367",
+  "email": "user_bbaf7b14f9@example.com",
+  "address": "196 Joseph Mission Suite 372, Sullivanville, DC 14382",
+  "description": "Computer marriage way."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1133823b-47b1-4458-a924-ba30f1dc47ca"
+}

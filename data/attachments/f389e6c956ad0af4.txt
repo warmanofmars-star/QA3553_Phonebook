@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5090627c-462f-418a-8964-a536c7f3ecc6",
+      "name": "Jessica",
+      "lastName": "Miller",
+      "email": "user_adc2746a0e@example.com",
+      "phone": "0533278518",
+      "address": "24615 Johnson Track, North Hollyborough, DC 44055",
+      "description": "Down week blue old benefit in."
+    }
+  ]
+}

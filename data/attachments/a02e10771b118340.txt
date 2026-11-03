@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Justin",
+  "lastName": "Cooper",
+  "phone": "123",
+  "email": "user_0cc9e4024f@example.com",
+  "address": "363 Brianna Canyon, Schneiderstad, SD 74549",
+  "description": "Amount perform child enter card often marriage."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-03T12:26:38",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

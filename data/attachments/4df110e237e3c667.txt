@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Eric",
+  "lastName": "Cunningham",
+  "phone": "0513191621",
+  "email": "user_2a345586bd@example.com",
+  "address": "8133 Chelsea Rapid Apt. 602, North Lauren, TX 06592",
+  "description": "Remain drop station but condition happy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f2c721ca-4333-4dfa-bf44-f3b003984f27"
+}

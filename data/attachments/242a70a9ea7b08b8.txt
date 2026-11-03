@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Benjamin",
+  "lastName": "Tucker",
+  "phone": "0524448104",
+  "email": "user_23d5dae5de@example.com",
+  "address": "080 Atkins Spring Apt. 127, Shawfort, WV 30089",
+  "description": "Might author lot include look tend despite."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4d0fc380-a8eb-4b1a-937c-b3766735b67a"
+}

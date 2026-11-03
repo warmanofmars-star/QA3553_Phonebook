@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Anderson",
+  "phone": "0525263208",
+  "email": "user_dda6c9a2c1@example.com",
+  "address": "3204 Cunningham Springs Apt. 675, Lake Sarahfort, MO 04765",
+  "description": "House save break either."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 391b8f25-3f70-4efb-923d-bc7b982893d9"
+}
