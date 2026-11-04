@@ -4,7 +4,7 @@
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
-**174 tests** (130 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
+**189 tests** (130 API, 59 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
 (Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 
 This is a learning project built during a QA automation course. It was later refactored
@@ -84,6 +84,39 @@ How the registry protects the test results:
 - **Security checks are separate from contract checks.** For example, the BOLA test verifies that the other
   user's data is intact and has no xfail; the exact status code is checked by a separate contract test.
 
+## Observations: bad behaviour without a requirement
+
+The SRS says nothing about backend failures (non-functional requirements: *Nil*). Playwright tests in
+[`tests/test_playwright_resilience.py`](tests/test_playwright_resilience.py) intercept the network
+([`utils/network_faults.py`](utils/network_faults.py): error status, a held request, a dropped connection)
+and fall into three categories:
+
+| Category | Registry | Meaning | In the run |
+|---|---|---|---|
+| Known bug | [`data/known_bugs.py`](data/known_bugs.py) | Violates a requirement (SRS, Swagger) | strict xfail |
+| Observation | [`data/observations.py`](data/observations.py) | No requirement; the expectation comes from general UX principles or HTTP semantics. **Not a requirement violation** — a decision for the analyst | strict xfail, tag `OBS-<KEY>` |
+| Good behaviour | — | The application already behaves well; the test keeps it that way | passes |
+
+Observations by importance:
+
+| # | Key | What happens | Source of the expectation |
+|---:|---|---|---|
+| 1 | `DOUBLE_SUBMIT` | Save is not disabled while the request is pending: a double click sends two `POST /v1/contacts` and creates two identical contacts (the duplicate itself is the known bug `DUPLICATE_CONTACT`, SRS T45) | UX: protect forms from double submission |
+| 2 | `SILENT_FAILURE` | A 500 or a dropped connection on add, edit or delete shows no message at all | UX: visibility of system status |
+| 3 | `EDIT_FORM_CLOSES_ON_FAILURE` | On a failed `PUT` the edit form closes as if saved; the entered values are lost | UX: do not lose user input |
+| 4 | `ENDLESS_LOADING` | A 500 on the contact list leaves `Loading...` forever | UX: loading ends with data, an empty state or an error |
+| 5 | `EXPIRED_SESSION_NO_REDIRECT` | A 401 on the contact list keeps the user on `/contacts` with `Loading...` and *Sign Out* | HTTP 401 semantics (RFC 9110) |
+| 6 | `UNHANDLED_NETWORK_ERROR` | A dropped connection on `POST` raises an unhandled `Failed to fetch` in the page | Frontend practice: fetch errors are handled |
+
+Protected good behaviour: a failed `PUT` keeps the old value in the card and on the backend; a failed
+`DELETE` keeps the card and the contact; a failed `POST` creates nothing and keeps the form data;
+an empty list shows *No Contacts here!*; a slow list shows `Loading...` first, then the contacts.
+
+Not covered by tests: a failed login (500) reports the error twice and differently — the page shows
+*Login Failed with code 500* and an alert shows *Undefined Error 500*.
+
+The coverage matrix lists observations in a separate section; they do not count towards SRS coverage.
+
 ## Key design decisions
 
 - **A fresh user for every test.** The `temp_user` fixture registers a new user via API, so tests are
@@ -107,10 +140,10 @@ api_tests/      API, contract and security tests
 tests/          Selenium UI tests and Playwright tests
 pages/          Page Objects (public user actions; waits and locators are private)
 drivers/        WebDriver factory: local browsers or Selenium Grid
-data/           test data generators, negative CSV data, known bugs registry
+data/           test data generators, negative CSV data, known bugs and observations registries
 models/         Contact and User dataclasses
 schemas/        JSON Schemas for API responses
-utils/          logging, Allure steps, waits, validators, preconditions
+utils/          logging, Allure steps, waits, validators, preconditions, network faults for Playwright
 ci/             script that merges cross-browser Allure results in GitHub Actions
 ```
 
@@ -177,8 +210,8 @@ and on every pull request:
   UI tests by browser (`[CHROME]`, `[FIREFOX]`, `[EDGE]`);
 - a Telegram notification with the result of each part and test counts.
 
-The two expressions complement each other, so every test runs in exactly one job: 132 tests once
-plus 42 UI tests × 3 browsers = 258 test runs per pipeline (without the split: 174 × 3 = 522).
+The two expressions complement each other, so every test runs in exactly one job: 147 tests once
+plus 42 UI tests × 3 browsers = 273 test runs per pipeline (without the split: 189 × 3 = 567).
 A manual run (`workflow_dispatch`) accepts a `test_marker`; it is combined with each job's expression
 as `(marker) and (expression)`. A job left with no tests by the marker succeeds without running anything;
 in every other run (push, pull request, manual run without a marker) an empty selection fails the job,
