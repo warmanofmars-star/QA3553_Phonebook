@@ -78,6 +78,11 @@
 **Grid UI (какие узлы подключены, какие сессии идут) — пока стенд запущен:**
 `http://localhost:4444/ui/` *(косая черта в конце обязательна: без неё интерфейс не загружается)*
 
+**Другой порт хоста для Grid (если 4444 занят):**
+- В PowerShell: `$env:GRID_HOST_PORT="4446"; $env:COMPOSE_PROFILES="chrome"; $env:BROWSER="chrome"; docker compose up --build --exit-code-from qa-framework`
+- В Bash: `GRID_HOST_PORT=4446 COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-from qa-framework`
+*(Grid UI тогда — `http://localhost:4446/ui/`. По умолчанию 4444; сборки Jenkins используют 4445 — см. Jenkinsfile, — поэтому локальный стенд и сборка Jenkins больше не роняют друг друга. Тестам внутри compose порт хоста не важен: они ходят к `selenium-hub:4444`. При локальном запуске тестов с хоста через Grid (`USE_GRID=true`) поменяй и `GRID_URL` в `.env`)*
+
 **Только API- и Playwright-тесты, без Selenium Grid (как job «Tests (api)» в GitHub Actions):**
 - В Bash: `PYTEST_ADDOPTS='-m "api or playwright"' docker compose run --rm --no-deps --build qa-framework`
 

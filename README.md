@@ -155,6 +155,9 @@ COMPOSE_PROFILES=edge BROWSER=edge PYTEST_ADDOPTS='-m "smoke"' docker compose up
 Selenium tests run on Selenium Grid nodes (a hub and two nodes of the selected browser). Each node records
 a video of its sessions, and the video is attached to the Allure report. Compose pulls the Grid images itself.
 While the stack is running, the Grid UI is available at `http://localhost:4444/ui/` (the trailing slash is required).
+The host port is set by `GRID_HOST_PORT` (default `4444`); Jenkins builds use `4445`, so a local stack and
+a Jenkins build on the same machine do not take each other's port. The tests reach the hub inside the compose
+network as `selenium-hub:4444`, so the host port does not affect them.
 The stack previously used Selenoid; it was replaced because the project is discontinued.
 More commands: [`commands.md`](commands.md).
 
