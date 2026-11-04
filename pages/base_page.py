@@ -12,7 +12,7 @@
 """
 
 import allure
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
@@ -23,6 +23,15 @@ from utils.allure_steps import step
 from utils.logger import get_logger
 
 Locator = tuple[str, str]
+
+
+class UiStateError(Exception):
+    """Интерфейс не пришёл в ожидаемое состояние: форма не открылась, поле не приняло ввод...
+
+    Намеренно НЕ AssertionError. Известные баги помечены строгим xfail с
+    raises=AssertionError, и сбой синхронизации теста с интерфейсом не должен
+    прятаться за известным багом: он падает как обычный FAILED.
+    """
 
 
 class BasePage:
@@ -88,6 +97,33 @@ class BasePage:
     # ==========================================
     def _wait(self, timeout: float | None = None) -> WebDriverWait:
         return WebDriverWait(self.driver, timeout or self.DEFAULT_TIMEOUT)
+
+    def _wait_for(self, condition, timeout: float | None = None) -> bool:
+        """Ждёт, пока condition() вернёт истину. False — не дождались.
+
+        Элементы React-страницы перерисовываются, поэтому исчезнувший или
+        «протухший» элемент внутри condition — повод проверить ещё раз, а не ошибка.
+        """
+        wait = WebDriverWait(
+            self.driver,
+            timeout or self.DEFAULT_TIMEOUT,
+            ignored_exceptions=(NoSuchElementException, StaleElementReferenceException),
+        )
+        try:
+            wait.until(lambda _driver: condition())
+            return True
+        except TimeoutException:
+            return False
+
+    def _attach_screenshot(self, name: str) -> None:
+        """Скриншот текущего момента в Allure — чтобы видеть состояние ровно в момент ошибки."""
+        allure.attach(self.driver.get_screenshot_as_png(), name=name, attachment_type=allure.attachment_type.PNG)
+
+    def _fail(self, message: str, error: type[Exception] = UiStateError):
+        """Ошибка с фактическим состоянием и скриншотом момента ошибки."""
+        self.logger.error(message)
+        self._attach_screenshot(f"Скриншот: {message[:80]}")
+        raise error(message)
 
     def _find(self, locator: Locator) -> WebElement:
         """Элемент, присутствующий в DOM."""

@@ -26,6 +26,12 @@ def _saved_fields(api, contact: Contact) -> dict:
     return {key: stored.get(key) for key in contact.to_api_payload()}
 
 
+def _describe_saved(entered: Contact, saved: dict) -> str:
+    """Что ввели и что лежит на бэкенде — по каждому введённому полю."""
+    entered_payload = {key: value for key, value in entered.to_api_payload().items() if value is not None}
+    return "; ".join(f"{key}: ввели {value!r}, на бэкенде {saved.get(key)!r}" for key, value in entered_payload.items())
+
+
 # Как в STD: каждое поле меняется отдельным кейсом (TC-0021 ... TC-0026).
 # Это не формальность: если бы все поля проверялись одним тестом, известный баг
 # в описании сделал бы xfail весь тест — и спрятал бы поломку любого другого поля.
@@ -46,18 +52,21 @@ EDIT_FIELD_CASES = [
 def test_edit_contact_single_field(authenticated_driver, auth_api, created_contact, field, test_case):
     """Изменение одного поля сохраняется, а остальные поля остаются прежними."""
     allure.dynamic.tag(test_case)
-    new_value = getattr(ContactGenerator.get_random_contact(), field)
+    # Новое значение гарантированно отличается от старого: иначе сохранение того же
+    # значения было бы неотличимо от поломки ("изменения не сохранились")
+    new_value = getattr(ContactGenerator.get_contact_different_from(created_contact), field)
+    change = Contact(**{field: new_value})
     expected = replace(created_contact, **{field: new_value})
 
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
-    contacts_page.edit_contact(created_contact.phone, Contact(**{field: new_value}))
+    contacts_page.edit_contact(created_contact, change)
 
     with allure.step("Проверить через API, что изменилось только нужное поле"):
         before = created_contact.to_api_payload()
         changed = eventually(lambda: _saved_fields(auth_api, created_contact) != before, timeout=5)
-        assert changed, "Изменения не сохранились на бэкенде"
         actual = _saved_fields(auth_api, created_contact)
+        assert changed, f"Изменение поля {field} не сохранилось на бэкенде: {_describe_saved(change, actual)}"
         assert actual == expected.to_api_payload(), (
             f"Сохранённые данные отличаются от ожидаемых:\n{actual}\n!=\n{expected.to_api_payload()}"
         )
@@ -70,11 +79,12 @@ def test_edit_contact_single_field(authenticated_driver, auth_api, created_conta
 @known_bug("EDIT_DESCRIPTION_BROKEN")
 def test_edit_contact_all_fields(authenticated_driver, auth_api, created_contact):
     """Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле."""
-    expected = replace(ContactGenerator.get_random_contact(), id=created_contact.id)
+    # Каждое поле гарантированно отличается от старого значения
+    expected = replace(ContactGenerator.get_contact_different_from(created_contact), id=created_contact.id)
 
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
-    contacts_page.edit_contact(created_contact.phone, expected)
+    contacts_page.edit_contact(created_contact, expected)
 
     assert contacts_page.is_card_displayed(expected.phone), "Изменённый контакт не появился в списке"
 
@@ -83,8 +93,8 @@ def test_edit_contact_all_fields(authenticated_driver, auth_api, created_contact
             lambda: _stored_contact(auth_api, created_contact.id).get("phone") == expected.phone,
             timeout=5,
         )
-        assert updated, "Изменения не сохранились на бэкенде"
         actual = _saved_fields(auth_api, created_contact)
+        assert updated, f"Изменения не сохранились на бэкенде: {_describe_saved(expected, actual)}"
         assert actual == expected.to_api_payload(), (
             f"Сохранённые данные отличаются от введённых:\n{actual}\n!=\n{expected.to_api_payload()}"
         )
@@ -102,7 +112,7 @@ def test_edit_contact_duplicate_phone(authenticated_driver, auth_api, create_con
 
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
-    contacts_page.edit_contact(contact_2.phone, Contact(phone=contact_1.phone))  # меняем только телефон
+    contacts_page.edit_contact(contact_2, Contact(phone=contact_1.phone), expect_saved=False)  # только телефон
 
     duplicate_saved = eventually(
         lambda: _stored_contact(auth_api, contact_2.id).get("phone") == contact_1.phone,
@@ -123,7 +133,7 @@ def test_edit_contact_duplicate_email(authenticated_driver, auth_api, create_con
 
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
-    contacts_page.edit_contact(contact_2.phone, Contact(email=contact_1.email))  # меняем только email
+    contacts_page.edit_contact(contact_2, Contact(email=contact_1.email), expect_saved=False)  # только email
 
     duplicate_saved = eventually(
         lambda: _stored_contact(auth_api, contact_2.id).get("email") == contact_1.email,
@@ -163,7 +173,7 @@ def test_edit_contact_clear_required_fields(authenticated_driver, auth_api, crea
 
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
-    contacts_page.edit_contact(created_contact.phone, Contact(**{field: ""}))
+    contacts_page.edit_contact(created_contact, Contact(**{field: ""}), expect_saved=False)
 
     empty_saved = eventually(
         lambda: _stored_contact(auth_api, created_contact.id).get(api_key) == "",
@@ -187,7 +197,7 @@ def test_edit_contact_blank_address(authenticated_driver, auth_api, created_cont
     """
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()
-    contacts_page.edit_contact(created_contact.phone, Contact(address="   "))
+    contacts_page.edit_contact(created_contact, Contact(address="   "), expect_saved=False)
 
     address_changed = eventually(
         lambda: _stored_contact(auth_api, created_contact.id).get("address") != created_contact.address,
