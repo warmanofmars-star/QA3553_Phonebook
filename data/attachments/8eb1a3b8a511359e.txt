@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Smith",
+  "phone": "0538470841",
+  "email": "user_1a967eed74@example.com",
+  "address": "PSC 4475, Box 7008, APO AE 01384",
+  "description": "Ahead newspaper concern behind ever provide never."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5f602260-d008-4c0e-9625-c851d05da9fc"
+}

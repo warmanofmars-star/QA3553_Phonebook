@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sabrina",
+  "lastName": "Jones",
+  "phone": "0542317745",
+  "email": "user_d42dcc3974@example.com",
+  "address": "00508 Johnson Terrace, Andreastad, ME 82401",
+  "description": "Action brother such early main safe."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7dc6cc0c-3930-4937-be6c-3392cab6f411"
+}

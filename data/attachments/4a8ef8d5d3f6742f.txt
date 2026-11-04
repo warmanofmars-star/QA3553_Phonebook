@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b3a10e42-bdae-404d-b8ae-908fa1499f19",
+      "name": "Jennifer",
+      "lastName": "Miller",
+      "email": "user_293f8bc456@example.com",
+      "phone": "0525346861",
+      "address": "05427 Santana Vista, Collinsfort, NV 33207",
+      "description": "None sport possible south might decade program."
+    }
+  ]
+}

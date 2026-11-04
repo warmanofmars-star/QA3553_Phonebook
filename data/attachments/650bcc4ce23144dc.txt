@@ -1,0 +1,22 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Emma",
+  "lastName": "Decker",
+  "phone": "0519764426",
+  "email": "user_07610f956f@example.com",
+  "address": "20119 Erika Lodge Suite 702, Alanfurt, IN 31229",
+  "description": "Serve that operation teach decade.",
+  "id": "13a1db7b-44f3-4882-9747-ba5e0ddd11f0"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:19",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 13a1db7b-44f3-4882-9747-ba5e0ddd11f0 not found in your contacts!",
+  "path": "/v1/contacts"
+}

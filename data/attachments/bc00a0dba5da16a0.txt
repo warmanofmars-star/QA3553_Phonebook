@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Curtis",
+  "phone": "0527119481",
+  "email": "user_c712a3d90a@example.com",
+  "address": "820 Anita Route, Michellebury, IN 75257",
+  "description": "Order few church color or stand discover."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 84de4d8c-8748-4a7c-8768-8a3426a95066"
+}

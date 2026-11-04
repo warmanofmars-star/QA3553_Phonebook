@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "687ed926-4577-4f8d-b089-5cd16b2fa697",
+      "name": "Renee",
+      "lastName": "Hickman",
+      "email": "user_e338ed9c8f@example.com",
+      "phone": "0533180253",
+      "address": "117 Cline Squares Suite 342, Adamside, HI 51259",
+      "description": "Next report return hold radio by."
+    },
+    {
+      "id": "91722a0f-7606-4b6e-8601-ea26c077e1ab",
+      "name": "Robert",
+      "lastName": "Nguyen",
+      "email": "user_33a9937bbf@example.com",
+      "phone": "0530403270",
+      "address": "655 George Stravenue Apt. 199, South Chris, NM 21956",
+      "description": "Many stop federal identify step reality."
+    }
+  ]
+}

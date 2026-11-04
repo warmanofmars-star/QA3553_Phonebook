@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (15 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "Hudson",
+  "phone": "0525205470",
+  "email": "user@mail@example.com",
+  "address": "PSC 0243, Box 7977, APO AP 30875",
+  "description": "Appear enter wife office cold trial."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:13",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

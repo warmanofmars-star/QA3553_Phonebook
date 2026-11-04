@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (79 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Parks",
+  "phone": "0550154418",
+  "email": "user_b8d5ee04eb@example.com",
+  "address": "200 Dawson Throughway Apt. 814, Port Roy, NJ 48052",
+  "description": "Staff these great resource he during decade.",
+  "id": "d723df20-a7fb-499a-a065-41f928fd084d"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

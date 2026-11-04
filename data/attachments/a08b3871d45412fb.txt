@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3f53cb07-bcca-4cfe-93e7-5a6f6fb205d2",
+      "name": "David",
+      "lastName": "Myers",
+      "email": "user_157409423c@example.com",
+      "phone": "0531248381",
+      "address": "030 Andrea Common, Robinchester, NH 20846",
+      "description": "Financial author consider why lose."
+    }
+  ]
+}

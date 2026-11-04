@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Peter",
+  "lastName": "Hicks",
+  "phone": "0548450450",
+  "email": "user_06af285ebd@example.com",
+  "address": "9483 Molly Villages, Caitlinfurt, MS 04806",
+  "description": "Then stand theory learn course."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 448512fc-2dc5-42b5-bd10-0e8701f8763c"
+}

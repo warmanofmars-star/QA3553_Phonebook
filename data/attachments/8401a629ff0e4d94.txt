@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Donald",
+  "lastName": "Reeves",
+  "phone": "0514551577",
+  "email": "user_cdaf51977e@example.com",
+  "address": "05947 Kristin Stravenue, New Kennethchester, CO 66099",
+  "description": "Child act oil indeed right."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 411ad109-5a13-45da-b644-378156f2f467"
+}

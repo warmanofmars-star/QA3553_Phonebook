@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4206f8ad-08be-45f3-bd63-c72ce816e354",
+      "name": "Felicia",
+      "lastName": "Taylor",
+      "email": "user_e5bcd7dab0@example.com",
+      "phone": "0529353000",
+      "address": "1818 Jeffrey Springs Apt. 799, Ortizfort, KY 80457",
+      "description": "Speech begin family per morning act store."
+    }
+  ]
+}

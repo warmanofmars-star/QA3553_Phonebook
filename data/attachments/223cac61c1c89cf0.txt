@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patrick",
+  "lastName": "Brown",
+  "phone": null,
+  "email": "user_57a3f1a3d7@example.com",
+  "address": "608 Carla Ranch, Williammouth, NM 13603",
+  "description": "Senior commercial life on number."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ac9e1c1d-008a-4911-86bb-01a05539b975"
+}

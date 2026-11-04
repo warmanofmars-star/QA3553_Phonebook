@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julie",
+  "lastName": "Myers",
+  "email": "user_bb55e1223b@example.com",
+  "address": "Unit 6097 Box 5247, DPO AP 05707",
+  "description": "Late ten serious democratic order both add."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3b77de0b-4782-4c6b-8fc2-edf83d4938f7"
+}

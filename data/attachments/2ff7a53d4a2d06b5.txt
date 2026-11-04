@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kim",
+  "lastName": "Schmidt",
+  "phone": "0527090375",
+  "email": "user_34414e65d1@example.com",
+  "address": "38727 Rose View Apt. 384, West Brandi, MP 90177",
+  "description": "Explain economy central discussion people."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8367e7a5-e85b-4d90-b6d0-ed3b14a07352"
+}

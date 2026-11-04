@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Ray",
+  "phone": "0591241362",
+  "email": "user_12e2f3e822@example.com",
+  "address": "13012 Baker Mountains, Valenciaview, NJ 87104",
+  "description": "Doctor why woman beat effect their sport."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 14395693-560c-4005-acda-0c348e72486d"
+}

@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Jimenez",
+  "email": "user_2716a01a1e@example.com",
+  "address": "29228 Thornton Vista Suite 003, Davistown, KS 54111",
+  "description": "Building personal example their about anyone member."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 01c4df0d-f8a4-45a6-987f-3fd17c3742b3"
+}

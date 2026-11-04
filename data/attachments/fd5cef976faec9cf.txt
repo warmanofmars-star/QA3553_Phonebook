@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ac96f2cd-2a04-4119-a823-6790ac02147d",
+      "name": "James",
+      "lastName": "Garner",
+      "email": "user_8cf9109d49@example.com",
+      "phone": "0522939410",
+      "address": "4962 Wong Shores, Nicholastown, PR 22989",
+      "description": "Ask get drug produce."
+    }
+  ]
+}

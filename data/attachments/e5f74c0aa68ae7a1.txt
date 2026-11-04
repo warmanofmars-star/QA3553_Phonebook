@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "33f70f46-7c3e-4255-9ade-52a9bfebec9f",
+      "name": "Michael",
+      "lastName": "Brewer",
+      "email": "user_71bf5715b8@example.com",
+      "phone": "0514510652",
+      "address": "9605 Holloway Motorway, Port Kimberlyport, WI 11629",
+      "description": "Field hotel usually figure poor blue sense."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ec3f78ae-acae-4dfc-a5cb-535e6d1a4ac3",
+      "name": "Misty",
+      "lastName": "Mcdonald",
+      "email": "user_c47a3fa63c@example.com",
+      "phone": "0528920578",
+      "address": "892 Joseph Tunnel Apt. 114, Port Damon, AL 48260",
+      "description": "Set force suffer land campaign stuff hotel."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Miller",
+  "phone": "0535281941",
+  "email": "user_f7b4949881@example.com",
+  "address": "2600 Michael Summit Apt. 165, West Larrychester, AS 42043",
+  "description": "Character building less society decision road hot."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 478a057c-31e0-4b22-a971-e9b38fb61daf"
+}

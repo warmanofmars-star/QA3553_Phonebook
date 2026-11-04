@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Courtney",
+  "lastName": "Dennis",
+  "phone": "0526917947",
+  "email": "user_158bdd592c@example.com",
+  "address": "USCGC Mcintosh, FPO AE 20590",
+  "description": "Course who one unit have street couple."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9ba9869b-80c3-4a7d-80a5-a651ad438c09"
+}

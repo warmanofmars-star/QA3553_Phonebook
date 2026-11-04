@@ -1,0 +1,20 @@
+12:04:06 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+12:04:06 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+12:04:10 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (375 ms)
+12:04:10 [INFO   ] API: Токен добавлен в заголовки сессии
+12:04:10 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+12:04:10 [INFO   ] STEP: Войти как user_36df768d73@example.com
+12:04:11 [INFO   ] API: POST /v1/contacts -> 200 (88 ms)
+12:04:12 [INFO   ] API: GET /v1/contacts -> 200 (88 ms)
+12:04:12 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+12:04:12 [INFO   ] STEP: Открыть карточку контакта 0582445125
+12:04:12 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+12:04:12 [INFO   ] STEP: Изменить поля формы редактирования
+12:04:12 [INFO   ] STEP: Изменить поле name на 'Jessica'
+12:04:13 [INFO   ] STEP: Изменить поле last_name на 'Santos'
+12:04:13 [INFO   ] STEP: Изменить поле phone на '0520354743'
+12:04:13 [INFO   ] STEP: Изменить поле email на 'user_c0277317f3@example.com'
+12:04:13 [INFO   ] STEP: Изменить поле address на '1039 David Forge, Adamland, TN 53012'
+12:04:13 [INFO   ] STEP: Изменить поле description на 'State especially keep issue late.'
+12:04:18 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'State especially keep issue late.', фактически '[object Undefined]'
+12:04:21 [INFO   ] DRIVER: Видео 66cc23c7-21b6-4ea2-92eb-95688ca16621.mp4 прикреплено к отчёту

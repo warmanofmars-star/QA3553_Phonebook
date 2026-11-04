@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "33007c6c-d0bf-464d-a920-47cac560f917",
+      "name": "John",
+      "lastName": "12345",
+      "email": "user_129e734180@example.com",
+      "phone": "0517247102",
+      "address": "428 Julia Green, North Samuelport, AZ 48611",
+      "description": "Set house grow choose."
+    }
+  ]
+}

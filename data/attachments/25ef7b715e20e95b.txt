@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Davis",
+  "phone": "0531225042",
+  "email": "user_0c39765613@example.com",
+  "address": "960 Jesse Stream Apt. 291, Oneillville, KS 75089",
+  "description": "Approach agreement those degree popular pick."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 284a0236-1894-4de5-a4df-07692d44ba31"
+}

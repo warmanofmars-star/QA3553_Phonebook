@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fa32d00a-f5b0-4445-9874-85ec84433b6d",
+      "name": "Brandi",
+      "lastName": "Gomez",
+      "email": "user_b10c9a3728@example.com",
+      "phone": "0542544469",
+      "address": "569 Williams Tunnel, Maldonadoshire, RI 98810",
+      "description": "Stay certain contain possible."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a6de86f9-1a92-42d9-8e6d-d1bd10b2414c",
+      "name": "Sharon",
+      "lastName": "Myers",
+      "email": "user_454f8cc1b1@example.com",
+      "phone": "0532975081",
+      "address": "C",
+      "description": "Letter success box policy college attorney cold."
+    }
+  ]
+}

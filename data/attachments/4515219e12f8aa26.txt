@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Williamson",
+  "phone": "0523845314",
+  "email": "user_fdd4dcb707@example.com",
+  "address": "067 Ricardo Greens, Brewerfurt, NH 54661",
+  "description": "Prepare the she agreement me economic sell technology."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8c6e26fd-3b2d-4e9f-8537-0f75eba1ad7a"
+}

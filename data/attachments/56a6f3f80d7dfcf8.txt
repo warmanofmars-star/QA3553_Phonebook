@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Teresa",
+  "lastName": "Tran",
+  "phone": "0519484559",
+  "email": "user_2a4362bf0b@example.com",
+  "address": "090 Renee Coves, New Alanhaven, OH 36420",
+  "description": "Operation PM deep may if."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2b92b13f-ed3b-470e-8cb5-b948bbce4bd7"
+}

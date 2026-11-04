@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Snyder",
+  "phone": "0532642616",
+  "email": "user_a21d39345b@example.com",
+  "address": "9672 Foster Freeway, Donside, MA 25622",
+  "description": "Among spring in point worker imagine."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: afb18490-df5e-497c-a2cf-2d8fa036d735"
+}

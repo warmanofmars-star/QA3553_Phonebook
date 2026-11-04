@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nathan",
+  "lastName": "Shields",
+  "phone": "0533480321",
+  "email": "user_6a8fb9f726@example.com",
+  "address": "53358 Anna Plaza Apt. 930, Aprilmouth, WY 74412",
+  "description": "Trial book box when agree budget become professor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 64242733-0a2a-49d2-b69a-cde0838e3a35"
+}

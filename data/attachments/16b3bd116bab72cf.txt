@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dc340e4b-0c3b-4c53-bb77-33555ebfd588",
+      "name": "Cody",
+      "lastName": "Wilson",
+      "email": "user_6758dc94a7@example.com",
+      "phone": "0522878765",
+      "address": "152 Nicholas Route Apt. 636, Fosterborough, ID 87308",
+      "description": "Senior present pattern."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Sutton",
+  "phone": "0520259215",
+  "email": "user_99b6b1eb4f@example.com",
+  "address": "32694 Nicholas Ports Apt. 377, Port Victoriabury, WI 41790",
+  "description": "Child international across above write local manage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1cd8d06d-dcb2-4142-a93e-c52e02fe32da"
+}

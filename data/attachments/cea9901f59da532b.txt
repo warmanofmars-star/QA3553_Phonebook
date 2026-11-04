@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Frey",
+  "phone": "0527588912",
+  "email": "a@b",
+  "address": "996 Ryan Hills, South Nicholasbury, NV 56574",
+  "description": "Lead live by really."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f37606f0-8deb-420b-a18a-9ee951a339fe"
+}

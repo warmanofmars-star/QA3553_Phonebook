@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "89d7b539-09ec-4c9d-be63-7915d39359f7",
+      "name": "Rebecca",
+      "lastName": "Christensen",
+      "email": "user_2ad11b5a69@example.com",
+      "phone": "0531989438",
+      "address": "Unit 9998 Box 7399, DPO AE 82811",
+      "description": "Necessary staff throughout across."
+    },
+    {
+      "id": "e723713d-3845-408d-82b7-32b50ba5da15",
+      "name": "Brett",
+      "lastName": "Brown",
+      "email": "user_e2249ece77@example.com",
+      "phone": "0573325094",
+      "address": "08833 Klein Course Suite 350, Lake Kenneth, CO 55716",
+      "description": "Should heavy morning wonder."
+    },
+    {
+      "id": "f7c148e6-f1d1-4057-b354-233963c5d2cb",
+      "name": "Elizabeth",
+      "lastName": "Wade",
+      "email": "user_0e42d4ad25@example.com",
+      "phone": "0516022863",
+      "address": "965 Ruiz Villages, Penamouth, NV 02777",
+      "description": "Cold dream until reduce maybe partner whole."
+    }
+  ]
+}

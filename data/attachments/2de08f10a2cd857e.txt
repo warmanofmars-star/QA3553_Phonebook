@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "81ba6a7f-d36a-44e0-8c4c-60672a8239d4",
+      "name": "Kristen",
+      "lastName": "Carter",
+      "email": "user_027375dfda@example.com",
+      "phone": "0527556738",
+      "address": "2053 Greene Garden Apt. 946, West Kimberlymouth, WI 30461",
+      "description": "Car easy service out."
+    },
+    {
+      "id": "d52ea710-dd36-4387-83e5-b6a670f05180",
+      "name": "Shelby",
+      "lastName": "Wright",
+      "email": "user_1163bc0d3f@example.com",
+      "phone": "0533955252",
+      "address": "69331 Melissa Motorway Suite 947, Lake Aprilport, TN 02694",
+      "description": "Take here my."
+    }
+  ]
+}

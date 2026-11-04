@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brittany",
+  "lastName": "Miller",
+  "phone": "123",
+  "email": "user_de7fe67874@example.com",
+  "address": "5387 Jones Motorway, Curtisfurt, SD 46606",
+  "description": "Set TV shoulder most your policy somebody."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:12",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

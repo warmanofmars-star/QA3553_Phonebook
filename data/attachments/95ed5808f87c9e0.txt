@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cb47d755-f5e9-4fbc-b219-486eaf1722a6",
+      "name": "Mitchell",
+      "lastName": "Flores",
+      "email": "пользователь@example.com",
+      "phone": "0530846710",
+      "address": "3992 Phillips Brooks Apt. 740, South Sara, AL 26828",
+      "description": "Vote administration central dream."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tonya",
+  "lastName": "Sawyer",
+  "phone": "0517868086",
+  "email": "user_61c4bf5ef8@example.com",
+  "address": "7199 David Station Apt. 848, New Sheliahaven, NE 43641",
+  "description": "Drive add message."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2df3c9d2-f16b-4c54-b16d-3c0acf2b0c83"
+}

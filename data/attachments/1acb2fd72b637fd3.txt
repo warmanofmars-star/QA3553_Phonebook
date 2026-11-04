@@ -1,0 +1,13 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword
+Статус: 200 (183 ms)
+
+--- Тело запроса ---
+{
+  "username": "user_7e8b5757e4@example.com",
+  "password": "********"
+}
+
+--- Тело ответа ---
+{
+  "token": "********"
+}

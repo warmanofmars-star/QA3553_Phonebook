@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "880f5cf0-5743-4118-bee7-4947ded129a6",
+      "name": "Ray",
+      "lastName": "Rivera",
+      "email": "user_66932a8906@example.com",
+      "phone": "0532950886",
+      "address": "0219 Young Springs, Taylorberg, NH 18565",
+      "description": "Only them evening environment hold our enter."
+    }
+  ]
+}

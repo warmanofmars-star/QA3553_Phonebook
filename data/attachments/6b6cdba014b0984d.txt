@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cc79c8d6-1fd5-4563-be9f-9a8266cc1e29",
+      "name": "Christina",
+      "lastName": "Sawyer",
+      "email": "user_eb8becfa65@example.com",
+      "phone": "0558311572",
+      "address": "776 Francisco Route Apt. 481, North Ericfort, MS 66573",
+      "description": "Purpose relate else."
+    }
+  ]
+}

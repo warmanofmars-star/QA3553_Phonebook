@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Janet",
+  "lastName": "Schmidt",
+  "phone": "0540930870",
+  "email": "user_5aacb6610f@example.com",
+  "address": "PSC 5930, Box 5816, APO AA 55374",
+  "description": "Work ahead area threat long main."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2743de12-fa65-42d5-ab6d-d7dd588acb22"
+}

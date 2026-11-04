@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmine",
+  "lastName": "Wood",
+  "phone": "0512438086",
+  "email": "user_b8556038b0@example.com",
+  "address": "64475 Walker Union Apt. 498, Cherylton, ND 28167",
+  "description": "Budget behavior mention fill.",
+  "id": "d673dc14-cbcc-4bdf-ab75-6910f67edcab"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

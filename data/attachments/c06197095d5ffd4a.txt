@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Tran",
+  "phone": "0572599985",
+  "email": "user_28c0b5a47b@example.com",
+  "address": "PSC 6567, Box 8757, APO AA 18667",
+  "description": "Safe than pick trade."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e48a29f7-3175-4f85-84f2-e61c0fa00e3b"
+}

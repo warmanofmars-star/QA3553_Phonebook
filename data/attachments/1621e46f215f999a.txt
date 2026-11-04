@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kenneth",
+  "lastName": "Wilson",
+  "phone": "052423391867730",
+  "email": "user_72e2f242be@example.com",
+  "address": "631 Phillips Estates Suite 091, East Nicholasfort, MP 11946",
+  "description": "Major choice get act which.",
+  "id": "106ad380-78bb-4d8b-a190-73f15e7a4bc6"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

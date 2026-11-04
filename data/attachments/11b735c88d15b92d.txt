@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Escobar",
+  "phone": "0513202140",
+  "email": "user_042cdf3e83@example.com",
+  "address": "465 Dorsey Loop Suite 478, Sarahstad, ND 40165",
+  "description": "Up up lot develop doctor happy work organization."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 14272b88-3efc-4831-94f5-7ab51900ce59"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0b83cdde-7887-46a3-a27d-2a4daa054201",
+      "name": "Rick",
+      "lastName": "Lawson",
+      "email": "user_d2ff737c91@example.com",
+      "phone": "0524902758",
+      "address": "135 Smith Stream, Lesterbury, MN 86182",
+      "description": "Along Democrat want live current bar."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Emily",
+  "lastName": "Garza",
+  "phone": "0516382709",
+  "email": "user_c24f66c45c@example.com",
+  "address": "1009 Ronnie Prairie, Port Nancytown, PR 36993",
+  "description": "Strategy agent opportunity several bank type."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73ae7c1a-d8b9-47a6-9ec8-8b5f1dd484d5"
+}

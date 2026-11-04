@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Boyd",
+  "phone": "0517619857",
+  "email": "user_096e1df129@example.com",
+  "address": "211 Rivera Cliff Suite 664, Port Lauramouth, FM 44646",
+  "description": "Various sea ago kid moment."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1eda1a33-be50-4821-8e61-8c280bb21264"
+}

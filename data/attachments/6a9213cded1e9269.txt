@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Taylor",
+  "lastName": "Stevens",
+  "phone": "0533199897",
+  "email": "@example.com",
+  "address": "648 Jessica Hill Apt. 289, Cameronburgh, FL 92152",
+  "description": "Employee radio sit two learn little."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:13",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

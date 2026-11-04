@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Wright",
+  "phone": "0510078454",
+  "email": "user_33a584c08d@example.com",
+  "address": "833 David Plaza, Michaelshire, WA 67477",
+  "description": "Decide think parent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2054a32b-3c75-4f2a-ac17-e7b7663c6252"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "208d9f41-f4eb-4b5e-9589-4d1272feca2f",
+      "name": "Krystal",
+      "lastName": "White",
+      "email": "user_03a4db1524@example.com",
+      "phone": "0567447616",
+      "address": "72344 Nicholas Parkways, North Amyport, MD 25982",
+      "description": "Situation stop personal look race."
+    }
+  ]
+}

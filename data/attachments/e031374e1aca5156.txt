@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c81e8c3e-30c4-4140-a239-a97cd727f679",
+      "name": "Tammy",
+      "lastName": "Coffey",
+      "email": "user_3773a32ff7@example.com",
+      "phone": "0582024813",
+      "address": "34787 Cook Drive Suite 016, Stacytown, OK 91536",
+      "description": "Show clear reveal."
+    },
+    {
+      "id": "f83af0b6-6b66-4ef7-93d5-528627b6d55e",
+      "name": "Robert",
+      "lastName": "Roach",
+      "email": "user_4c2bc5c136@example.com",
+      "phone": "0582024813",
+      "address": "42574 Derrick Inlet Apt. 713, East Andrewborough, VI 13696",
+      "description": "Land term could exist admit bar back."
+    }
+  ]
+}

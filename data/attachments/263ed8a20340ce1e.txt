@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erin",
+  "lastName": "Lee",
+  "phone": "057919670907621",
+  "email": "user_6f7b79f624@example.com",
+  "address": "573 Juan Village Suite 590, Michaelchester, AK 96412",
+  "description": "Though institution commercial water now and."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 705b361c-5a60-4be4-8a2b-ffe7349b0a12"
+}

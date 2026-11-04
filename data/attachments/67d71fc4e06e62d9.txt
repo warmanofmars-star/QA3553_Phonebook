@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "817ebfd7-95d1-4825-85ff-0906fc17fd1b",
+      "name": "Tina",
+      "lastName": "Sims",
+      "email": "user_b6d9660de8@example.com",
+      "phone": "0525082951",
+      "address": "116 Rodgers Stravenue Apt. 296, Port Paul, IL 36833",
+      "description": "Avoid inside create place business write."
+    }
+  ]
+}

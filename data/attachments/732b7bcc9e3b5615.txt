@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e325435a-8304-4374-a4d0-732885ea489d",
+      "name": "Katherine",
+      "lastName": "B",
+      "email": "user_642a5d2357@example.com",
+      "phone": "0518135287",
+      "address": "PSC 0760, Box 0687, APO AP 95361",
+      "description": "Need finally pressure bar maintain surface."
+    }
+  ]
+}

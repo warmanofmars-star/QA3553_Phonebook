@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ab6f2897-448c-42d4-bea2-dd663aed026c",
+      "name": "Michael",
+      "lastName": "Morgan",
+      "email": "user_423f8d4263@example.com",
+      "phone": "0523673588",
+      "address": "597 Ramos Plain, Princechester, NE 51238",
+      "description": "War show modern question walk."
+    },
+    {
+      "id": "cd348f28-bf7d-460c-9ab7-c5c731af3dee",
+      "name": "Johnny",
+      "lastName": "Miles",
+      "email": "user_0e09375803@example.com",
+      "phone": "0524856854",
+      "address": "31850 Zuniga Glens, Walterchester, AK 14055",
+      "description": "Thing form another sound beyond whose national."
+    }
+  ]
+}

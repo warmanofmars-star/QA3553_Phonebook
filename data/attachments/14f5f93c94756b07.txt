@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Oscar",
+  "lastName": "Cain",
+  "phone": "0529197886",
+  "email": "user_cc48596c73@example.com",
+  "address": "82124 James Ports Suite 576, West Amy, OK 09614",
+  "description": "Evening real article."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bb385297-cd42-4c07-8fa6-d3d89f60ef5d"
+}

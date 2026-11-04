@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wesley",
+  "lastName": "York",
+  "phone": "0515404727",
+  "email": "user_3341522777@example.com",
+  "address": "74807 Brian Flats, Wellsview, TX 42503",
+  "description": "Particularly record catch ok another sell bed."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 689fe967-fe2f-4c6b-9b10-696c54bf92ef"
+}

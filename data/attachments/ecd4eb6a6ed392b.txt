@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "White",
+  "phone": "0567447616",
+  "email": "user_03a4db1524@example.com",
+  "address": "72344 Nicholas Parkways, North Amyport, MD 25982",
+  "description": "Situation stop personal look race."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 208d9f41-f4eb-4b5e-9589-4d1272feca2f"
+}

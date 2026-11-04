@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0527582512",
+  "email": "user_b539045209@example.com",
+  "address": "93331 Dixon Causeway Apt. 825, Port Victoriaside, RI 85893",
+  "description": "Certain enjoy travel produce career state."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d9b196a6-06ab-413f-91b9-ba6734bff2e0"
+}

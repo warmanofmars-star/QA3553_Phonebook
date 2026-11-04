@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Ochoa",
+  "phone": "0514747118",
+  "email": "",
+  "address": "03136 Smith Loop, South Robert, NM 15277",
+  "description": "Raise carry drug project teach."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 583c1844-c066-4f81-a63b-c732ce14de37"
+}

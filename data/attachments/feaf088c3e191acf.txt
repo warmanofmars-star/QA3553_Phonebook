@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Mitchell",
+  "phone": "0519394005",
+  "email": "user_8c71dc0619@example.com",
+  "address": "790 Derek Terrace, Lake Diamond, MO 83770",
+  "description": "Anything along catch across simple."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d098897e-16a1-44a7-b18a-5d307461a036"
+}

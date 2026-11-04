@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmine",
+  "lastName": "Berger",
+  "phone": "0524425017",
+  "email": "@example.com",
+  "address": "16921 Smith Hills Apt. 092, South Sarahfurt, KS 29085",
+  "description": "Every learn firm ground sure ten plant from."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:08",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

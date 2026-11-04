@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "Fleming",
+  "phone": "0526997722",
+  "email": "user_2afde1abe0@example.com",
+  "address": "33476 Ashley Plains Suite 124, West Aaronborough, NV 74081",
+  "description": "First everything significant score whatever born."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2a28e539-76f0-4b41-9db4-6a65128c7f09"
+}

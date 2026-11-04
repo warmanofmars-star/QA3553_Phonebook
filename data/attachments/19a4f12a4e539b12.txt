@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a71ac212-e9aa-410f-a8b5-91bd1dfb8c5d",
+      "name": "A",
+      "lastName": "Walls",
+      "email": "user_351abe0449@example.com",
+      "phone": "0511362253",
+      "address": "976 Nancy Meadows Apt. 974, South Victoriaberg, HI 15879",
+      "description": "Mr soldier often follow guy."
+    }
+  ]
+}

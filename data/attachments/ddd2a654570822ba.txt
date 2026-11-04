@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Crawford",
+  "phone": "0531450286",
+  "email": "user_1070d4c1bc@example.com",
+  "address": "29980 Martinez Key, East Patrickhaven, AK 06267",
+  "description": "Newspaper too along."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cb5c8ebd-286d-473e-aeac-ed98b04550f8"
+}

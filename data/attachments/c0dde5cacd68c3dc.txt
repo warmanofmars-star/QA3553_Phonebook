@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jill",
+  "lastName": "Contreras",
+  "phone": "0522927080",
+  "email": "user_e7f515861f@example.com",
+  "address": "64918 Dunn Branch Apt. 388, South Brandonland, NE 22931",
+  "description": "Answer explain most commercial house I teach."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e14710d6-e8f4-466d-be4f-5d2f729d91c7"
+}

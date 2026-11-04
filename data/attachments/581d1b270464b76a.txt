@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (26 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cameron",
+  "lastName": "Rodriguez",
+  "phone": "0528424937",
+  "email": "user_68d29814d6@example.com",
+  "address": null,
+  "description": "Owner western agent third special identify."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:08",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "address": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

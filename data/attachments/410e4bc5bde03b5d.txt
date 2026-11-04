@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tiffany",
+  "lastName": "Thompson",
+  "phone": "0538326871",
+  "email": "user_85ad1722b5@example.com",
+  "address": "73749 Jennifer Shoal, Crawfordbury, IL 52199",
+  "description": "Police party serve.",
+  "id": "9ebc2e6a-8288-4277-ba6f-78897b97dc75"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 66644988-f6c4-4d67-95c3-b8dabfbb985b"
+}

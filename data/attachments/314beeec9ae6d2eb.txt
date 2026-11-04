@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f05af294-9c8b-4692-99b2-67cb03088d93",
+      "name": "David",
+      "lastName": "Smith",
+      "email": "user_37ab780e83@example.com",
+      "phone": "0573715899",
+      "address": "24467 Brown Drive, Briannaside, KS 63301",
+      "description": "People fall action some wear fire idea."
+    },
+    {
+      "id": "0b984175-fe2e-438f-8975-c86747d3ddb9",
+      "name": "Robert",
+      "lastName": "Torres",
+      "email": "user_ebdb359b8d@example.com",
+      "phone": "0517376179",
+      "address": "28059 Reed Pike, West Walter, WV 32319",
+      "description": "Discuss mind black past."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7dc6cc0c-3930-4937-be6c-3392cab6f411",
+      "name": "Sabrina",
+      "lastName": "Jones",
+      "email": "user_d42dcc3974@example.com",
+      "phone": "0588020154",
+      "address": "00508 Johnson Terrace, Andreastad, ME 82401",
+      "description": "Action brother such early main safe."
+    }
+  ]
+}

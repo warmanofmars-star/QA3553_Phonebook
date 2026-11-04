@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2b92b13f-ed3b-470e-8cb5-b948bbce4bd7",
+      "name": "Teresa",
+      "lastName": "Tran",
+      "email": "user_2a4362bf0b@example.com",
+      "phone": "0519484559",
+      "address": "090 Renee Coves, New Alanhaven, OH 36420",
+      "description": "Operation PM deep may if."
+    }
+  ]
+}

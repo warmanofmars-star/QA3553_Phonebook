@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tammy",
+  "lastName": "Coffey",
+  "phone": "0582024813",
+  "email": "user_3773a32ff7@example.com",
+  "address": "34787 Cook Drive Suite 016, Stacytown, OK 91536",
+  "description": "Show clear reveal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c81e8c3e-30c4-4140-a239-a97cd727f679"
+}

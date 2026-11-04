@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patrick",
+  "lastName": "Smith",
+  "phone": "0523138586",
+  "email": "user_c8f2c7441c@example.com",
+  "address": "6927 Katie Stream, Joshuatown, ID 67343",
+  "description": "Change similar few hit recognize."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 32708c7c-35a5-49e4-b28e-5d12580e0b92"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jose",
+  "lastName": "Hall",
+  "phone": "050-1234567",
+  "email": "user_643b0b5563@example.com",
+  "address": "3874 Curtis Glens, Eugeneland, IL 19490",
+  "description": "Relate good source thousand eat every course."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:12",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

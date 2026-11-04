@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Johnny",
+  "lastName": "Miles",
+  "phone": "0524856854",
+  "email": "user_0e09375803@example.com",
+  "address": "31850 Zuniga Glens, Walterchester, AK 14055",
+  "description": "Thing form another sound beyond whose national."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cd348f28-bf7d-460c-9ab7-c5c731af3dee"
+}

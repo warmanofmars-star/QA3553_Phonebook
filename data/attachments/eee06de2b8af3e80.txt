@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2b200b10-047e-410c-940d-1518627eb271",
+      "name": "Melanie",
+      "lastName": "Allen",
+      "email": "user_651a00bdd4@example.com",
+      "phone": "0529328214",
+      "address": "C",
+      "description": "Thing today music follow option."
+    }
+  ]
+}

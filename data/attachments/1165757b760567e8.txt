@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2a28e539-76f0-4b41-9db4-6a65128c7f09",
+      "name": "Christina",
+      "lastName": "Fleming",
+      "email": "user_2afde1abe0@example.com",
+      "phone": "0526997722",
+      "address": "33476 Ashley Plains Suite 124, West Aaronborough, NV 74081",
+      "description": "First everything significant score whatever born."
+    }
+  ]
+}

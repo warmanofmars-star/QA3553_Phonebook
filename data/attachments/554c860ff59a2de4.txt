@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tracy",
+  "lastName": "Russell",
+  "phone": "0532926711",
+  "email": "user_cdf896efc3@example.com",
+  "address": "12164 Emily Islands, Aprilmouth, SC 05248",
+  "description": "Laugh point artist."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e62e9e97-00ff-4645-bb3a-25dd81d38b85"
+}

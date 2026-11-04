@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Patton",
+  "phone": "0532363060",
+  "email": "user_f66f2020b6@example.com",
+  "address": "59965 Jessica Passage, North Jaime, OK 30496",
+  "description": "Current exactly report until might."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:13",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

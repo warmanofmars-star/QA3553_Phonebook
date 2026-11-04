@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c8b86384-3155-4fa1-ab41-044909c53853",
+      "name": "Darrell",
+      "lastName": "Mclean",
+      "email": "user_f686fa4134@example.com",
+      "phone": "0578295479",
+      "address": "6639 Laura Tunnel Suite 422, Velazquezton, PA 01652",
+      "description": "Majority standard resource well."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deborah",
+  "lastName": "Perry",
+  "phone": "0519325185",
+  "email": "user_bf9ee5030b@example.com",
+  "address": "7873 Barajas Avenue, Brittanyhaven, MS 61133",
+  "description": "Notice live size sister image cold water."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5a7c6271-c495-4480-9f9b-6cc9d77b8484"
+}

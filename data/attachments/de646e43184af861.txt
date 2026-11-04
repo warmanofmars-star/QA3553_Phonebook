@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Renee",
+  "lastName": "Walsh",
+  "phone": "0527929501",
+  "email": "user_903c0cdde2@example.com",
+  "address": "USNV Lawrence, FPO AE 14048",
+  "description": "Government energy trial easy party future inside."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d7eeacd6-7216-4bda-8af5-2761c8d4c335"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "02e1fb12-b911-48b3-87b4-1ef308c173a6",
+      "name": "Brandi",
+      "lastName": "Roberson",
+      "email": "user_75a96e40db@example.com",
+      "phone": "0530764226",
+      "address": "3071 Mcguire Overpass, Janetmouth, ND 01172",
+      "description": "Summer teacher ahead foot free receive."
+    }
+  ]
+}

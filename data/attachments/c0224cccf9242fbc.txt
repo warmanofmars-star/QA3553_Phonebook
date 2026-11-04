@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Myers",
+  "phone": "0531248381",
+  "email": "user_157409423c@example.com",
+  "address": "030 Andrea Common, Robinchester, NH 20846",
+  "description": "Financial author consider why lose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3f53cb07-bcca-4cfe-93e7-5a6f6fb205d2"
+}

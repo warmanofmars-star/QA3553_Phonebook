@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "32708c7c-35a5-49e4-b28e-5d12580e0b92",
+      "name": "Patrick",
+      "lastName": "Smith",
+      "email": "user_c8f2c7441c@example.com",
+      "phone": "0523138586",
+      "address": "6927 Katie Stream, Joshuatown, ID 67343",
+      "description": "Change similar few hit recognize."
+    }
+  ]
+}

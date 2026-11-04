@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e862b0af-3358-44f9-b5e6-4e5ba502fca5",
+      "name": "Daniel",
+      "lastName": "Case",
+      "email": "a@b",
+      "phone": "0514354213",
+      "address": "54122 Goodwin Canyon, North Danielmouth, IN 31151",
+      "description": "Approach design action record national as personal beyond."
+    }
+  ]
+}

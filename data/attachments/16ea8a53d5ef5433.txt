@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Parker",
+  "phone": "0533455432",
+  "email": "user_f0aa41bfbb@example.com",
+  "address": "7836 Michael Plain, Tonyamouth, ME 11128",
+  "description": "Town wait protect group similar."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: aa1ec7f0-e4b2-4e13-92f6-04335f248410"
+}

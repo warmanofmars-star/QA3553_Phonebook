@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jack",
+  "lastName": "Ford",
+  "phone": "0522877477",
+  "email": "user_20a7b3290d@example.com",
+  "address": "31543 Matthew Path, Jacquelinefurt, PR 40621",
+  "description": "Scientist include red eat miss such possible."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3616cc0a-7d1f-4f8a-a1d9-f85e3b0781de"
+}

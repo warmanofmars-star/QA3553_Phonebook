@@ -1,0 +1,22 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (58 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Everett",
+  "phone": "0514216551",
+  "email": "user_5a091e1049@example.com",
+  "address": "291 Heather Port Apt. 897, Bartonburgh, CT 16193",
+  "description": "Teach four whatever bar seek change seven."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:15",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

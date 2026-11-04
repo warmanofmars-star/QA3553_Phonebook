@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Johnathan",
+  "lastName": "Brown",
+  "phone": "0549920092",
+  "email": "user_d3bedca14d@example.com",
+  "address": "433 Todd Port, Port Paula, OK 03295",
+  "description": "Fight hit unit response medical evidence store."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 88c3c43c-e68d-49d3-a8d8-1d2a99689172"
+}

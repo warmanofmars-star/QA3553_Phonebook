@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "930d291e-660c-41d7-85a8-45b1b7ab30dc",
+      "name": "Katherine",
+      "lastName": "Ward",
+      "email": "user_3d48cd9451@example.com",
+      "phone": "0511848822",
+      "address": "12867 Ross Course, Smithfurt, PR 27971",
+      "description": "Deal away continue something future lawyer improve."
+    },
+    {
+      "id": "8367e7a5-e85b-4d90-b6d0-ed3b14a07352",
+      "name": "Kim",
+      "lastName": "Schmidt",
+      "email": "user_34414e65d1@example.com",
+      "phone": "0527090375",
+      "address": "38727 Rose View Apt. 384, West Brandi, MP 90177",
+      "description": "Explain economy central discussion people."
+    }
+  ]
+}

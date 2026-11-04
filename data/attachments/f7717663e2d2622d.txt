@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julia",
+  "lastName": "Ruiz",
+  "phone": "0528515006",
+  "email": "user_0ed60811fa@example.com",
+  "address": "4966 Daniel Views Suite 276, South Dawnview, KY 21722",
+  "description": "Commercial education almost."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1c9ff76b-89b5-45fe-83c4-7b9bc0142539"
+}

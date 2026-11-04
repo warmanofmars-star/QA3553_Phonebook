@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a55c1292-cd06-442d-8fe7-be0258f0e3b7",
+      "name": "Kimberly",
+      "lastName": "Martinez",
+      "email": "user_c70486b903@example.com",
+      "phone": "0510135946",
+      "address": "188 Jason Dam Apt. 178, Michaelview, NE 48522",
+      "description": "True everybody professional true then agreement."
+    }
+  ]
+}

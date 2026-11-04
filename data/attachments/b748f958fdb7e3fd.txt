@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "04ce4c87-578a-4d93-8515-3c3e6a38a66d",
+      "name": "Eugene",
+      "lastName": "Kerr",
+      "email": "user_1a9587b94c@example.com",
+      "phone": "0545645867",
+      "address": "Unit 2483 Box 4484, DPO AE 47174",
+      "description": "Book state model experience response day."
+    }
+  ]
+}

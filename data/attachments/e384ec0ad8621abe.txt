@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Nguyen",
+  "phone": "0530403270",
+  "email": "user_33a9937bbf@example.com",
+  "address": "655 George Stravenue Apt. 199, South Chris, NM 21956",
+  "description": "Many stop federal identify step reality."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 91722a0f-7606-4b6e-8601-ea26c077e1ab"
+}

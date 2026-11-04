@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c3f95cf9-05c2-4d77-8429-e89f91454991",
+      "name": "Taylor",
+      "lastName": "Snyder",
+      "email": "user_1357180d64@example.com",
+      "phone": "0530340487",
+      "address": "85499 Lopez Fords, West John, SC 84178",
+      "description": "Either report everybody training."
+    },
+    {
+      "id": "bb806777-682e-4f60-bbe1-0398992f40f4",
+      "name": "Emily",
+      "lastName": "Stewart",
+      "email": "user_5218bda11d@example.com",
+      "phone": "0569252445",
+      "address": "599 Justin Forks, East Rachelstad, MP 79222",
+      "description": "Bad page course be word."
+    }
+  ]
+}

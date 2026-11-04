@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Morgan",
+  "phone": "0523673588",
+  "email": "user_423f8d4263@example.com",
+  "address": "597 Ramos Plain, Princechester, NE 51238",
+  "description": "War show modern question walk."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ab6f2897-448c-42d4-bea2-dd663aed026c"
+}

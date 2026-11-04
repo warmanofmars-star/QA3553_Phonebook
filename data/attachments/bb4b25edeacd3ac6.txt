@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "689fe967-fe2f-4c6b-9b10-696c54bf92ef",
+      "name": "Wesley",
+      "lastName": "York",
+      "email": "user_3341522777@example.com",
+      "phone": "0515404727",
+      "address": "74807 Brian Flats, Wellsview, TX 42503",
+      "description": "Particularly record catch ok another sell bed."
+    }
+  ]
+}

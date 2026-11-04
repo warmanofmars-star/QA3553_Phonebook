@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Lee",
+  "phone": "0521068048",
+  "email": "user_2135236728@example.com",
+  "address": "186 Justin Manor, Port Bonnie, DC 24606",
+  "description": "Week camera child Mrs pattern individual drive gas."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4e17f363-d0b5-4cd0-a43c-90669712dcba"
+}

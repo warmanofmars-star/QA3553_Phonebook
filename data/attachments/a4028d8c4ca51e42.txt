@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "621bfe89-e072-4330-b69a-d00893d67ac8",
+      "name": "Megan",
+      "lastName": "Martinez",
+      "email": "user_87fdc78370@example.com",
+      "phone": "0512156827",
+      "address": "49532 Shah Bridge, Lake Brandon, MA 62944",
+      "description": "Nation what create describe medical community situation difficult."
+    },
+    {
+      "id": "342f6de7-fb83-4b7c-a645-e28808df1152",
+      "name": "Cody",
+      "lastName": "Salas",
+      "email": "user_8846f753da@example.com",
+      "phone": "0532339249",
+      "address": "336 Cheryl Harbors Suite 699, Greenville, RI 07139",
+      "description": "Make forget first discuss still stage modern."
+    }
+  ]
+}

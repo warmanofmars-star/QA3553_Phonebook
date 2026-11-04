@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lucas",
+  "lastName": "Ortiz",
+  "phone": "0559032561",
+  "email": "user_6a906a030f@example.com",
+  "address": "67055 Kimberly Courts, Kimberlyburgh, HI 98958",
+  "description": "Even expect according positive character specific."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e1b33222-b7b2-4127-9823-0a323bc06e98"
+}

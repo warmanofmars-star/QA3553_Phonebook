@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bryan",
+  "lastName": "Collins",
+  "phone": "0570849470",
+  "email": "user_2533a70c37@example.com",
+  "address": "328 Russell Spur, Samuelberg, SC 90843",
+  "description": "Before money while hour."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 215b089d-ba80-4a17-8d78-1575b95d92b9"
+}

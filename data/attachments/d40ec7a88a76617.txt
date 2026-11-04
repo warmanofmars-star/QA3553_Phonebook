@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2c196185-b1fe-4004-a2bc-44e3014b99d4",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Silva",
+      "email": "user_6daac14b44@example.com",
+      "phone": "0529574290",
+      "address": "4440 White Valley, Kevinview, MO 92405",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

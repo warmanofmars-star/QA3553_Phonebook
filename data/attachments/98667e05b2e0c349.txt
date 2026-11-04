@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a4f5a5ef-8058-490d-b664-d5fdeca745b6",
+      "name": "Sydney",
+      "lastName": "Peck",
+      "email": "user_37fac6bd0e@example.com",
+      "phone": "0585775749",
+      "address": "3019 Ellis Centers, Markfort, CT 04661",
+      "description": "Increase into fire decision enter one."
+    },
+    {
+      "id": "84de4d8c-8748-4a7c-8768-8a3426a95066",
+      "name": "David",
+      "lastName": "Curtis",
+      "email": "user_c712a3d90a@example.com",
+      "phone": "0527119481",
+      "address": "820 Anita Route, Michellebury, IN 75257",
+      "description": "Order few church color or stand discover."
+    }
+  ]
+}

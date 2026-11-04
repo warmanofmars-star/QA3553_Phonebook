@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (16 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Jones",
+  "phone": "059233799",
+  "email": "user_5bb3cd29a4@example.com",
+  "address": "337 Rachel Throughway, Thompsonside, NC 60761",
+  "description": "National miss camera window."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:10",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

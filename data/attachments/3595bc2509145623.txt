@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Williams",
+  "phone": "0515589447",
+  "email": "",
+  "address": "74526 Suarez Mountains Suite 878, Crawfordland, WI 46573",
+  "description": "Everyone nice price where usually continue guess."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 49dbab00-cdfa-4c6f-b6be-3d21c34969d9"
+}

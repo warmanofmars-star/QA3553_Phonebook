@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "401ba926-fff3-4143-91c1-5f63e28e0260",
+      "name": "Matthew",
+      "lastName": "Edwards",
+      "email": "user_f938d58297@example.com",
+      "phone": "0520168442",
+      "address": "9394 Jefferson Fields, Port Joshuaton, AZ 81354",
+      "description": "Professional media bar nature network."
+    }
+  ]
+}

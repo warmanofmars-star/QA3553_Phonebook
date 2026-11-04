@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Sanders",
+  "phone": "0526483060",
+  "email": "user_cf769b57b2@example.com",
+  "address": "17795 Turner Ports, Richardburgh, PR 14375",
+  "description": "Stage laugh than lot sister."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5e35c1b2-c6f4-4d9f-84e5-d1ea8f1072da"
+}

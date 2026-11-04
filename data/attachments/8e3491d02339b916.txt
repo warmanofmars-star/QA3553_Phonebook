@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kelly",
+  "lastName": "Fisher",
+  "phone": "0527241400",
+  "email": "user_669ef0b4f4@example.com",
+  "address": "3054 Taylor Glens Suite 330, New Robert, AL 39032",
+  "description": "Under where save manager."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b34e5146-3d3c-437a-b5cb-5202a2f49421"
+}

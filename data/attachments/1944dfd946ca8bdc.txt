@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gerald",
+  "lastName": "Pham",
+  "phone": "0514340220",
+  "email": "user_0a3939f824@example.com",
+  "address": "89457 Romero Garden Suite 889, Nicoleland, MN 22034",
+  "description": "Keep painting note beautiful treatment four.",
+  "id": "deb7f838-55ac-4809-8275-03664838706a"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

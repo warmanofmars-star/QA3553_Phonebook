@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Rowe",
+  "phone": "+972501234567",
+  "email": "user_8a23fe6316@example.com",
+  "address": "63761 Brian Cliffs Suite 725, Chenbury, IL 89207",
+  "description": "His spring interesting from per central."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:06",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

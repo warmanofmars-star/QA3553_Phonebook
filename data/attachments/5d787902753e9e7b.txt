@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cindy",
+  "lastName": "Sanchez",
+  "phone": "0529313581",
+  "email": "user_31d6f06d61@example.com",
+  "address": "02887 Brett Glens, Lake Melissafurt, IN 23357",
+  "description": "Citizen support skill same step able year."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 13a1db7b-44f3-4882-9747-ba5e0ddd11f0"
+}

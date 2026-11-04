@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "B",
+  "phone": "0518135287",
+  "email": "user_642a5d2357@example.com",
+  "address": "PSC 0760, Box 0687, APO AP 95361",
+  "description": "Need finally pressure bar maintain surface."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e325435a-8304-4374-a4d0-732885ea489d"
+}

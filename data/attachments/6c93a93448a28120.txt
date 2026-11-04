@@ -1,0 +1,10 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/689fe967-fe2f-4c6b-9b10-696c54bf92ef
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "message": "Contact was deleted!"
+}

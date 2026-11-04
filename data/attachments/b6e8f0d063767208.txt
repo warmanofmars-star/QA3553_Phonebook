@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Novak",
+  "phone": "0582438875",
+  "email": "user_e8fde29bef@example.com",
+  "address": "13083 Chelsea Causeway Suite 957, East Kathleen, MS 71898",
+  "description": "Audience arrive street never figure wish continue."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a491c6ed-1e94-4341-9a4f-37f7c7fee8e4"
+}

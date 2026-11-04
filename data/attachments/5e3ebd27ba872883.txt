@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/cdbd70b2-9480-417b-963c-8acc48bd2733
+Статус: 400 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:18",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: cdbd70b2-9480-417b-963c-8acc48bd2733 not found in your contacts!",
+  "path": "/v1/contacts/cdbd70b2-9480-417b-963c-8acc48bd2733"
+}

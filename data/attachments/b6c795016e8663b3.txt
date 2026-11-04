@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Cain",
+  "phone": "0511208790",
+  "email": "user_a25dac5061@example.com",
+  "address": "125 Smith Light Suite 834, Camachoton, MS 53022",
+  "description": "Feel focus forget seem leader specific."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f68b661d-b23d-458b-bfec-1bebab7e4de3"
+}

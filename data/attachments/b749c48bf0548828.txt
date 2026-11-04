@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "28953be4-3167-436a-81cc-937905700e5f",
+      "name": "Heather",
+      "lastName": "Sanders",
+      "email": "user_957f83e7f8@example.com",
+      "phone": "0521375405",
+      "address": "C",
+      "description": "Upon heavy benefit ground some."
+    }
+  ]
+}

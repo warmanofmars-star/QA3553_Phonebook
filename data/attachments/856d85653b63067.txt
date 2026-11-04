@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "25256c3c-5bef-4060-ba87-608d604eeb92",
+      "name": "Mary",
+      "lastName": "Fleming",
+      "email": "user_23ee14af7f@example.com",
+      "phone": "0525359299",
+      "address": "0257 Stephanie Plaza Apt. 402, North Grace, NV 62300",
+      "description": "Cost positive or meeting hospital consider development."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rick",
+  "lastName": "Lawson",
+  "phone": "0524902758",
+  "email": "user_d2ff737c91@example.com",
+  "address": "135 Smith Stream, Lesterbury, MN 86182",
+  "description": "Along Democrat want live current bar."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0b83cdde-7887-46a3-a27d-2a4daa054201"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jose",
+  "lastName": "Crosby",
+  "phone": "0526520362",
+  "email": "user_dad74f700d@example.com",
+  "address": "431 Roberts Village Suite 731, South Marc, AS 46077",
+  "description": "Understand everybody future his."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fb63639d-b0a7-465a-8182-d159c3a2282d"
+}

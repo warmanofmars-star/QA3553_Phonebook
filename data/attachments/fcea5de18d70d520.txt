@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5a7c6271-c495-4480-9f9b-6cc9d77b8484",
+      "name": "Deborah",
+      "lastName": "Perry",
+      "email": "user_bf9ee5030b@example.com",
+      "phone": "0519325185",
+      "address": "7873 Barajas Avenue, Brittanyhaven, MS 61133",
+      "description": "Notice live size sister image cold water."
+    },
+    {
+      "id": "6c5e5203-2ce4-4836-a86f-c01f11032c82",
+      "name": "Julia",
+      "lastName": "Walters",
+      "email": "user_1fbec46848@example.com",
+      "phone": "0519325185",
+      "address": "925 Jessica Mountains, North Kristina, MT 05424",
+      "description": "Pressure month upon wait."
+    }
+  ]
+}

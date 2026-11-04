@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Bray",
+  "phone": "0513447123",
+  "email": "user_1f8121b8b8@example.com",
+  "address": "291 Charles Landing, West Bonnie, ME 22557",
+  "description": "Near interview fight certainly return."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:02:16",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

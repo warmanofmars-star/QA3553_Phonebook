@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jaclyn",
+  "lastName": "Kim",
+  "phone": "051959543473309",
+  "email": "user_2901593608@example.com",
+  "address": "3925 Ryan Inlet Apt. 636, Deniseborough, MT 93079",
+  "description": "Doctor list act production particularly record floor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0cb04b2f-439c-4ab6-bf19-32e67efaa5b1"
+}
