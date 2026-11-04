@@ -15,7 +15,9 @@
   * параметры test_case ("TC-0007") и requirements (["T41"]) параметризованных тестов:
     эти тесты ставят теги через allure.dynamic.tag во время выполнения, при сборе
     таких тегов ещё нет — поэтому генератор читает те же значения из параметров;
-  * маркер known_bug (data/known_bugs.py): строгий xfail с причиной "[KEY] ...".
+  * маркер known_bug (data/known_bugs.py): строгий xfail с причиной "[KEY] ...";
+  * маркер observation (data/observations.py) и тег OBS-<KEY>: наблюдения — плохое
+    поведение без требования. Они идут отдельным разделом и в покрытие SRS не входят.
 
 Опечатка в теге (SRS-T50, TC-0099) или тег на непроверяемом пункте — ошибка генерации:
 иначе такой тест молча выпал бы из матрицы.
@@ -41,14 +43,17 @@ TEST_DIRS = ("api_tests", "tests")
 
 sys.path.insert(0, str(ROOT))  # чтобы импортировать реестр багов так же, как его импортируют тесты
 from data.known_bugs import KNOWN_BUGS  # noqa: E402
+from data.observations import OBSERVATIONS  # noqa: E402
 
 BUG_REASON = re.compile(r"^\[([A-Z0-9_]+)\]")
+OBSERVATION_REASON = re.compile(r"^\[OBS-([A-Z0-9_]+)\]")
 
 ICON_COVERED = "✅"
 ICON_BUG = "🐞"
 ICON_MISSING = "⬜"
 ICON_UNTESTABLE = "⚪"
 ICON_PARTIAL = "🟡"
+ICON_OBSERVED = "👁"
 
 
 class CoverageError(Exception):
@@ -65,6 +70,7 @@ class CollectedTest:
     param_id: str | None  # id параметризации или None
     tags: set[str] = field(default_factory=set)
     bugs: set[str] = field(default_factory=set)
+    observations: set[str] = field(default_factory=set)  # ключи из маркера observation
 
 
 class _Collector:
@@ -99,9 +105,11 @@ def _describe(item) -> CollectedTest:
             test.tags.update(f"SRS-{r}" for r in requirements)
 
     for mark in item.iter_markers("xfail"):
-        match = BUG_REASON.match(mark.kwargs.get("reason", ""))
-        if match:
+        reason = mark.kwargs.get("reason", "")
+        if match := BUG_REASON.match(reason):
             test.bugs.add(match.group(1))
+        elif match := OBSERVATION_REASON.match(reason):
+            test.observations.add(match.group(1))
     return test
 
 
@@ -195,6 +203,24 @@ def load_items() -> tuple[dict, dict[str, list[Item]]]:
     return index, {"srs": srs, "std": std, "api": api}
 
 
+def link_observations(tests: list[CollectedTest]) -> dict[str, list[CollectedTest]]:
+    """Тесты каждого наблюдения — по тегу OBS-<KEY>; маркер и тег должны совпадать."""
+    linked: dict[str, list[CollectedTest]] = {key: [] for key in OBSERVATIONS}
+    problems = []
+    for test in tests:
+        tagged = {tag.removeprefix("OBS-") for tag in test.tags if tag.startswith("OBS-")}
+        for key in sorted(tagged | test.observations):
+            if key not in OBSERVATIONS:
+                problems.append(f"{_full_name(test)}: наблюдение {key} не найдено в data/observations.py")
+            elif key not in tagged:
+                problems.append(f"{_full_name(test)}: маркер observation({key!r}) без тега OBS-{key}")
+            else:
+                linked[key].append(test)
+    if problems:
+        raise CoverageError("Наблюдения не согласуются с реестром:\n  " + "\n  ".join(problems))
+    return linked
+
+
 def link_tests(items: dict[str, list[Item]], tests: list[CollectedTest]) -> None:
     by_tag = {item.tag: item for group in items.values() for item in group}
     if len(by_tag) != sum(len(group) for group in items.values()):
@@ -251,10 +277,17 @@ def _compress_ids(labels: list[str]) -> str:
 
 
 class Renderer:
-    def __init__(self, index: dict, items: dict[str, list[Item]], tests: list[CollectedTest]) -> None:
+    def __init__(
+        self,
+        index: dict,
+        items: dict[str, list[Item]],
+        tests: list[CollectedTest],
+        observations: dict[str, list[CollectedTest]],
+    ) -> None:
         self.index = index
         self.items = items
         self.tests = tests
+        self.observations = observations
         self.params_total: dict[tuple[str, str], int] = {}
         for test in tests:
             key = (test.path, test.function)
@@ -267,10 +300,13 @@ class Renderer:
 
     # ---------- ячейки ----------
     def tests_cell(self, item: Item) -> str:
-        if not item.tests:
+        return self.tests_list(item.tests)
+
+    def tests_list(self, tests: list[CollectedTest]) -> str:
+        if not tests:
             return "—"
         groups: dict[tuple[str, str], list[CollectedTest]] = {}
-        for test in item.tests:
+        for test in tests:
             groups.setdefault((test.path, test.function), []).append(test)
 
         lines = []
@@ -347,6 +383,9 @@ class Renderer:
             f"на тестах из матрицы — {len(all_bugs)}; затрагивают пункты SRS — {len(srs_bugs)}: "
             + ", ".join(f"`{b}`" for b in srs_bugs)
             + ".",
+            f"- **Наблюдения без требований:** {len(OBSERVATIONS)} в реестре `data/observations.py`, "
+            f"с тестами — {sum(1 for tests in self.observations.values() if tests)} "
+            "(в покрытие SRS не входят, см. раздел в конце).",
             f"- **Не покрыты пункты SRS ({len(missing_srs)}):** {_compress_ids(missing_srs) or 'нет'}.",
             f"- **Не покрыты кейсы STD ({len(missing_std)}):** {_compress_ids(missing_std) or 'нет'}.",
             f"- **Не покрыты проверки API ({len(missing_api)}):** {', '.join(missing_api) or 'нет'}"
@@ -358,6 +397,30 @@ class Renderer:
     def table(self, header: str, items: list[Item]) -> list[str]:
         lines = [f"| {header} | Автотесты | Статус |", "|---|---|---|---|"]
         lines += [f"| {i.label} | {self.title_cell(i)} | {self.tests_cell(i)} | {self.status_cell(i)} |" for i in items]
+        return lines
+
+    def observations_section(self) -> list[str]:
+        lines = [
+            "## Наблюдения без требований",
+            "",
+            "Плохое поведение, о котором в требованиях ничего не сказано: это не нарушение требования,",
+            "а обоснованное ожидание (источник — в таблице). Реестр — `data/observations.py`, тег теста — `OBS-<KEY>`.",
+            "",
+            f"Статусы: {ICON_OBSERVED} наблюдается (строгий xfail) · {ICON_COVERED} поведение соответствует "
+            f"ожиданию · {ICON_MISSING} нет тестов.",
+            "",
+            "| Ключ | Источник ожидания | Автотесты | Статус |",
+            "|---|---|---|---|",
+        ]
+        for key, item in OBSERVATIONS.items():
+            tests = self.observations[key]
+            if not tests:
+                status = f"{ICON_MISSING} нет тестов"
+            elif any(key in test.observations for test in tests):
+                status = f"{ICON_OBSERVED} наблюдается — {_cell(item.description)}"
+            else:
+                status = f"{ICON_COVERED} поведение соответствует ожиданию"
+            lines.append(f"| `{key}` | {_cell(item.source)} | {self.tests_list(tests)} | {status} |")
         return lines
 
     def gaps(self, section: str) -> list[str]:
@@ -390,6 +453,7 @@ class Renderer:
         lines += self.table("Кейс | Название", self.items["std"])
         lines += ["", "## 20 проверок API", "", "По статье «Как тестировать API: 20 проверок» (Хабр, Нетология).", ""]
         lines += self.table("№ | Проверка", self.items["api"])
+        lines += ["", *self.observations_section()]
         return "\n".join(lines) + "\n"
 
 
@@ -397,7 +461,8 @@ def build() -> str:
     index, items = load_items()
     tests = collect_tests()
     link_tests(items, tests)
-    return Renderer(index, items, tests).render()
+    observations = link_observations(tests)
+    return Renderer(index, items, tests, observations).render()
 
 
 def main() -> int:

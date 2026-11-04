@@ -15,9 +15,10 @@
 | Тест-кейсы STD | 34 | 33 | 33 (100%) | 12 | 0 | 1 |
 | Проверки API из статьи | 20 | 19 | 19 (100%) | 8 | 0 | 1 |
 
-Покрыто — на пункт есть хотя бы один автотест (✅ и 🐞). Всего автотестов: 174.
+Покрыто — на пункт есть хотя бы один автотест (✅ и 🐞). Всего автотестов: 189.
 
 - **Известные баги:** 15 в реестре `data/known_bugs.py`, на тестах из матрицы — 15; затрагивают пункты SRS — 9: `DUPLICATE_CONTACT`, `EMAIL_ERROR_WORDING`, `EMAIL_NON_LATIN_ALLOWED`, `EMAIL_NOT_REQUIRED`, `NO_ERROR_ON_EMPTY_FIELD`, `PASSWORD_NON_LATIN_ALLOWED`, `PASSWORD_NO_MAX_LENGTH`, `PHONE_NOT_REQUIRED`, `USER_EXISTS_WORDING`.
+- **Наблюдения без требований:** 6 в реестре `data/observations.py`, с тестами — 6 (в покрытие SRS не входят, см. раздел в конце).
 - **Не покрыты пункты SRS (0):** нет.
 - **Не покрыты кейсы STD (0):** нет.
 - **Не покрыты проверки API (0):** нет; частично — 14.
@@ -79,7 +80,7 @@
 | T42 | Телефон — не длиннее 15 цифр | `test_api_contact_field_validation` [phone-len-15, phone-len-16] | ✅ покрыто |
 | T43 | Спецсимволы в телефоне запрещены | `test_api_contact_field_validation` [phone-plus, phone-dash] | ✅ покрыто |
 | T44 | Буквы в телефоне запрещены | `test_api_contact_field_validation` [phone-letters] | ✅ покрыто |
-| T45 | Телефон не совпадает с телефоном ранее созданного контакта | `test_api_add_contact_duplicate` [phone]<br>`test_add_contact_duplicate_phone` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
+| T45 | Телефон не совпадает с телефоном ранее созданного контакта | `test_api_add_contact_duplicate` [phone]<br>`test_add_contact_duplicate_phone`<br>`test_double_click_creates_one_contact` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
 | T46 | Описание необязательно | `test_add_contact_success_required_fields_only` | ✅ покрыто |
 | T47 | В описании допускаются цифры | `test_api_contact_field_validation` [description-digits] | ✅ покрыто |
 | T48 | В описании допускаются спецсимволы и цифры | `test_api_contact_field_validation` [description-special] | ✅ покрыто |
@@ -226,3 +227,19 @@
 | 18 | Побочные эффекты в связанных сущностях | — | ⚪ неприменимо — В нашем API нет связанных сущностей (склада, платежей и т.п.) — только контакты пользователя |
 | 19 | Повтор запроса и идемпотентность | `test_api_delete_idempotency` | ✅ покрыто |
 | 20 | Согласованность эндпоинтов в цепочке операций | `test_api_contact_lifecycle` | ✅ покрыто |
+
+## Наблюдения без требований
+
+Плохое поведение, о котором в требованиях ничего не сказано: это не нарушение требования,
+а обоснованное ожидание (источник — в таблице). Реестр — `data/observations.py`, тег теста — `OBS-<KEY>`.
+
+Статусы: 👁 наблюдается (строгий xfail) · ✅ поведение соответствует ожиданию · ⬜ нет тестов.
+
+| Ключ | Источник ожидания | Автотесты | Статус |
+|---|---|---|---|
+| `DOUBLE_SUBMIT` | Общие принципы UX: защита формы от повторной отправки | `test_double_click_sends_one_post` | 👁 наблюдается — Кнопка Save не блокируется на время запроса: двойной клик отправляет два POST /v1/contacts |
+| `SILENT_FAILURE` | Общие принципы UX: видимость состояния системы, сообщение об ошибке | `test_failure_is_shown_to_user` | 👁 наблюдается — При 500 или обрыве сети на добавление, редактирование и удаление интерфейс ничего не сообщает |
+| `EDIT_FORM_CLOSES_ON_FAILURE` | Общие принципы UX: не терять введённые пользователем данные | `test_edit_form_stays_open_on_put_failure` | 👁 наблюдается — При сбое PUT /v1/contacts форма редактирования закрывается, введённые значения пропадают |
+| `ENDLESS_LOADING` | Общие принципы UX: у загрузки есть конец — данные, пустое состояние или ошибка | `test_list_failure_does_not_load_forever` | 👁 наблюдается — При 500 на GET /v1/contacts список навсегда остаётся в состоянии 'Loading...' |
+| `EXPIRED_SESSION_NO_REDIRECT` | Семантика HTTP 401 (RFC 9110): запрос требует аутентификации | `test_expired_session_redirects_to_login` | 👁 наблюдается — При 401 на GET /v1/contacts интерфейс остаётся на /contacts с 'Loading...' и кнопкой Sign Out |
+| `UNHANDLED_NETWORK_ERROR` | Общие практики фронтенда: сетевые ошибки fetch перехватываются | `test_network_error_is_handled` | 👁 наблюдается — При обрыве сети на POST /v1/contacts на странице необработанное исключение 'Failed to fetch' |
