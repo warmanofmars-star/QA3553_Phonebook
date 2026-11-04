@@ -1,3 +1,6 @@
+import time
+from collections.abc import Callable
+
 import allure
 from playwright.sync_api import Locator, Page
 
@@ -30,6 +33,19 @@ class PwBasePage:
         self.logger.info("Ввод данных в поле формы...")
         with allure.step(f"Ввод текста '{display_value}'"):
             locator.fill(value)
+
+    def wait_until(self, condition: Callable[[], bool], timeout_ms: int) -> bool:
+        """Ждёт, пока condition() станет True; False — по таймауту (исключений не бросает).
+
+        Пауза — page.wait_for_timeout, а не time.sleep: синхронный Playwright обрабатывает
+        события страницы (ответы, диалоги, перехват сети) только во время своих вызовов.
+        """
+        deadline = time.monotonic() + timeout_ms / 1000
+        while not condition():
+            if time.monotonic() >= deadline:
+                return False
+            self.page.wait_for_timeout(250)
+        return True
 
     def click(self, locator: Locator, element_name: str = "Элемент"):
         """Универсальный клик с логированием"""
