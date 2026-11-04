@@ -165,10 +165,19 @@ and on every pull request:
 
 - a linter job (ruff);
 - a secrets job (gitleaks) that scans only the new commits of the push or pull request;
-- tests in Chrome, Firefox and Edge in parallel (matrix), each in Docker Compose with Selenium Grid;
-- one Allure report for all browsers with trend history, published to GitHub Pages from `main`
-  (for pull requests it is available as a build artifact);
-- a Telegram notification with the result and test counts.
+- API and Playwright tests (`-m "api or playwright"`) once, in Docker without Selenium Grid:
+  they do not use the matrix browser (Playwright always runs its own Chromium);
+- the remaining UI tests (`-m "not api and not playwright"`) in Chrome, Firefox and Edge in parallel (matrix),
+  each in Docker Compose with Selenium Grid;
+- one Allure report for all jobs with trend history, published to GitHub Pages from `main`
+  (for pull requests it is available as a build artifact); API and Playwright tests are labelled `[API]`,
+  UI tests by browser (`[CHROME]`, `[FIREFOX]`, `[EDGE]`);
+- a Telegram notification with the result of each part and test counts.
+
+The two expressions complement each other, so every test runs in exactly one job: 88 tests once
+plus 42 UI tests × 3 browsers = 214 test runs per pipeline (previously 130 × 3 = 390).
+A manual run (`workflow_dispatch`) accepts a `test_marker`; it is combined with each job's expression
+as `(marker) and (expression)`. A job left with no tests by the marker succeeds without running anything.
 
 Failed tests fail the pipeline; the report is generated anyway.
 

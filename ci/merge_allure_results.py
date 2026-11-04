@@ -1,20 +1,24 @@
 """
-Подготовка результатов Allure из нескольких браузеров к одному общему отчёту.
+Подготовка результатов Allure из нескольких job'ов CI к одному общему отчёту.
 
-Используется в GitHub Actions: тесты идут параллельно в матрице (chrome, firefox),
-каждый job сохраняет свою папку allure-results-<браузер>. Этот скрипт запускается
-перед `allure generate` и делает три вещи:
+Используется в GitHub Actions: UI-тесты идут параллельно в матрице браузеров
+(chrome, firefox, edge), а API- и Playwright-тесты — один раз в отдельном job.
+Каждый job сохраняет свою папку allure-results-<метка>: allure-results-chrome,
+allure-results-api и т. д. Этот скрипт запускается перед `allure generate`
+и делает три вещи:
 
-  1. Уникализирует тесты по браузеру. Один и тот же тест в Chrome и Firefox имеет
-     одинаковые historyId и testCaseId — Allure счёл бы их одним тестом с "ретраем"
-     и показал бы только один результат. Дописываем браузер к идентификаторам,
-     а к имени и сьюту — метку [CHROME] / [FIREFOX], чтобы различать их в отчёте.
-  2. Склеивает environment.properties всех браузеров в один:
-     Browser=chrome, firefox (Allure берёт только один такой файл).
+  1. Уникализирует тесты по метке папки. Один и тот же UI-тест в Chrome и Firefox
+     имеет одинаковые historyId и testCaseId — Allure счёл бы их одним тестом
+     с "ретраем" и показал бы только один результат. Дописываем метку к
+     идентификаторам, а к имени и сьюту — [CHROME] / [FIREFOX] / [API], чтобы
+     различать их в отчёте. Метка берётся из имени папки, поэтому тесты из
+     allure-results-api помечаются как [API], а не как браузер.
+  2. Склеивает environment.properties всех папок в один (Allure берёт только
+     один такой файл): разные значения ключа — через запятую.
   3. Пишет executor.json — блок Executors в отчёте со ссылкой на прогон CI.
 
 Запуск:
-    python ci/merge_allure_results.py allure-results-chrome allure-results-firefox
+    python ci/merge_allure_results.py allure-results-api allure-results-chrome allure-results-firefox
 """
 
 import json
@@ -36,7 +40,9 @@ def read_properties(path: Path) -> dict[str, str]:
 
 
 def tag_results_with_browser(folder: Path, browser: str) -> int:
-    """Дописывает браузер к идентификаторам и именам тестов. Возвращает число файлов."""
+    """Дописывает метку папки (браузер или "api") к идентификаторам и именам тестов.
+
+    Возвращает число файлов."""
     label = browser.upper()
     files = list(folder.glob("*-result.json"))
     for path in files:
@@ -100,14 +106,14 @@ def main(args: list[str]) -> int:
     folders = [Path(arg) for arg in args if Path(arg).is_dir()]
     missing = [arg for arg in args if not Path(arg).is_dir()]
     for arg in missing:
-        # Например, job одного браузера упал до сохранения результатов
+        # Например, job упал до сохранения результатов
         print(f"⚠ Папка {arg} не найдена — пропускаю")
     if not folders:
         print("❌ Нет ни одной папки с результатами")
         return 1
 
     for folder in folders:
-        browser = folder.name.removeprefix("allure-results-")
+        browser = folder.name.removeprefix("allure-results-")  # chrome, firefox, edge или api
         count = tag_results_with_browser(folder, browser)
         print(f"✅ {folder}: помечено результатов: {count} ({browser})")
 

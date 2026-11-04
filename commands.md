@@ -78,6 +78,9 @@
 **Grid UI (какие узлы подключены, какие сессии идут) — пока стенд запущен:**
 `http://localhost:4444/ui/` *(косая черта в конце обязательна: без неё интерфейс не загружается)*
 
+**Только API- и Playwright-тесты, без Selenium Grid (как job «Tests (api)» в GitHub Actions):**
+- В Bash: `PYTEST_ADDOPTS='-m "api or playwright"' docker compose run --rm --no-deps --build qa-framework`
+
 **Остановка и удаление контейнеров тестового стенда (после завершения работы):**
 `docker compose down -v --remove-orphans`
 *(Узлы браузеров входят в профили: чтобы `down` их увидел, нужен тот же `COMPOSE_PROFILES`, что при запуске)*
