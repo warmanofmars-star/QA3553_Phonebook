@@ -119,3 +119,51 @@ def test_api_registration_email(make_email, expectation, requirements):
     """POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден."""
     allure.dynamic.tag(*(f"SRS-{r}" for r in requirements))
     _assert_registration(make_email(), UserGenerator.generate_valid_password(), expectation)
+
+
+# Обязательность полей регистрации (T1, T2, T7, T8). Путь запроса совпадает с PhonebookAPI.register,
+# но тело собираем вручную: через register нельзя отправить запрос без поля
+REGISTRATION_PATH = "/v1/user/registration/usernamepassword"
+LOGIN_PATH = "/v1/user/login/usernamepassword"
+ABSENT = object()  # поля нет в теле запроса (в отличие от пустой строки)
+
+REQUIRED_FIELD_CASES = [
+    pytest.param("username", ABSENT, ["T1"], id="email-absent"),
+    pytest.param("username", "", ["T2"], id="email-empty"),
+    pytest.param("password", ABSENT, ["T7"], id="password-absent"),
+    pytest.param("password", "", ["T8"], id="password-empty"),
+]
+
+
+@allure.story("Required fields")
+@allure.tag("API-CHECK-9")
+@allure.severity(allure.severity_level.CRITICAL)
+@pytest.mark.parametrize("key, value, requirements", REQUIRED_FIELD_CASES)
+def test_api_registration_required_fields(key, value, requirements):
+    """POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
+
+    Второе поле валидно. Состояние проверяем так:
+      * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
+      * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
+        можно было бы занять повторной регистрацией)."""
+    allure.dynamic.tag(*(f"SRS-{r}" for r in requirements))
+    email = UserGenerator.generate_valid_email()
+    password = UserGenerator.generate_valid_password()
+    payload = {"username": email, "password": password}
+    if value is ABSENT:
+        del payload[key]
+    else:
+        payload[key] = value
+
+    response = PhonebookAPI().request("POST", REGISTRATION_PATH, json=payload)
+
+    if key == "password":
+        retry = PhonebookAPI().register(email, password)
+        assert retry.status_code == 200, (
+            f"Email {email} занят после регистрации без пароля — пользователь создан "
+            f"(ответ {response.status_code}, повторная регистрация {retry.status_code})"
+        )
+    else:
+        login = PhonebookAPI().request("POST", LOGIN_PATH, json=payload)
+        assert login.status_code != 200, f"Создан пользователь без email (ответ регистрации {response.status_code})"
+    assert response.status_code == 400, f"Ожидался 400, получен {response.status_code}: {response.text}"

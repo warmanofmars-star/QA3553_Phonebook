@@ -44,17 +44,20 @@ KNOWN_BUGS: dict[str, KnownBug] = {
     ),
     "EMAIL_NOT_REQUIRED": KnownBug(
         requirement="SRS T26–T27, T64–T65 (Swagger поле email обязательным не считает)",
-        description="Контакт с пустым email сохраняется (и при создании, и при редактировании)",
+        description="Контакт с пустым, null или отсутствующим email сохраняется (и при создании, и при редактировании)",
     ),
     "PHONE_NOT_REQUIRED": KnownBug(
-        requirement="SRS T38–T39 (Swagger поле phone обязательным не считает)",
-        description="Контакт без телефона сохраняется",
+        requirement="SRS T38–T39, T76–T77 (Swagger поле phone обязательным не считает)",
+        description="Контакт без телефона (поле отсутствует или null) сохраняется — при создании и при редактировании",
     ),
     # RFC 6531 допускает нелатинские адреса, поэтому требование SRS стоит подтвердить
     # у аналитика. Пока тесты следуют SRS
     "EMAIL_NON_LATIN_ALLOWED": KnownBug(
-        requirement="SRS T6, T31",
-        description="Нелатинские буквы в email принимаются (и при регистрации, и в контактах)",
+        requirement="SRS T6, T31, T69",
+        description=(
+            "Нелатинские буквы в email принимаются: при регистрации, "
+            "а в контактах — и при создании, и при редактировании"
+        ),
     ),
     "EDIT_DESCRIPTION_BROKEN": KnownBug(
         requirement="SRS раздел 2 (Update contact with valid data); STD TC-0026, TC-0027",

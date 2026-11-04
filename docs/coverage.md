@@ -11,14 +11,14 @@
 
 | | Всего | Проверяемых | Покрыто | из них 🐞 с известным багом | ⬜ Не покрыто | ⚪ Непроверяемо / неприменимо |
 |---|---:|---:|---:|---:|---:|---:|
-| Требования SRS | 97 | 95 | 65 (68%) | 18 | 30 | 2 |
+| Требования SRS | 97 | 95 | 95 (100%) | 21 | 0 | 2 |
 | Тест-кейсы STD | 34 | 33 | 33 (100%) | 12 | 0 | 1 |
 | Проверки API из статьи | 20 | 19 | 19 (100%) | 8 | 0 | 1 |
 
-Покрыто — на пункт есть хотя бы один автотест (✅ и 🐞). Всего автотестов: 130.
+Покрыто — на пункт есть хотя бы один автотест (✅ и 🐞). Всего автотестов: 174.
 
 - **Известные баги:** 15 в реестре `data/known_bugs.py`, на тестах из матрицы — 15; затрагивают пункты SRS — 9: `DUPLICATE_CONTACT`, `EMAIL_ERROR_WORDING`, `EMAIL_NON_LATIN_ALLOWED`, `EMAIL_NOT_REQUIRED`, `NO_ERROR_ON_EMPTY_FIELD`, `PASSWORD_NON_LATIN_ALLOWED`, `PASSWORD_NO_MAX_LENGTH`, `PHONE_NOT_REQUIRED`, `USER_EXISTS_WORDING`.
-- **Не покрыты пункты SRS (30):** T1, T2, T7, T8, T47, T48, T54, T56–T59, T61–T64, T66–T69, T71, T73–T76, T78, T81, T82, T84–T86.
+- **Не покрыты пункты SRS (0):** нет.
 - **Не покрыты кейсы STD (0):** нет.
 - **Не покрыты проверки API (0):** нет; частично — 14.
 
@@ -30,14 +30,14 @@
 
 | Пункт | Пересказ | Автотесты | Статус |
 |---|---|---|---|
-| T1 | Email при регистрации обязателен | — | ⬜ не покрыто |
-| T2 | Email при регистрации не может быть пустым | — | ⬜ не покрыто |
+| T1 | Email при регистрации обязателен | `test_api_registration_required_fields` [email-absent] | ✅ покрыто |
+| T2 | Email при регистрации не может быть пустым | `test_api_registration_required_fields` [email-empty] | ✅ покрыто |
 | T3 | В email ровно один символ @ | `test_api_registration_email` [two-at] | ✅ покрыто |
 | T4 | До @ есть хотя бы один символ | `test_api_registration_email` [one-char-before-at, nothing-before-at] | ✅ покрыто |
 | T5 | После @ есть хотя бы один символ | `test_api_registration_email` [one-char-after-at, nothing-after-at] | ✅ покрыто |
 | T6 | Буквы в email — только латиница | `test_api_registration_email` [cyrillic] | 🐞 покрыто, известный баг `EMAIL_NON_LATIN_ALLOWED` |
-| T7 | Пароль при регистрации обязателен | — | ⬜ не покрыто |
-| T8 | Пароль не может быть пустым | — | ⬜ не покрыто |
+| T7 | Пароль при регистрации обязателен | `test_api_registration_required_fields` [password-absent] | ✅ покрыто |
+| T8 | Пароль не может быть пустым | `test_api_registration_required_fields` [password-empty] | ✅ покрыто |
 | T9 | В пароле есть хотя бы один спецсимвол из набора @ $ # ^ & * ! | `test_api_registration_password` [no-special, special-not-from-list] | ✅ покрыто |
 | T10 | Буквы в пароле — только латиница | `test_api_registration_password` [cyrillic-letter] | 🐞 покрыто, известный баг `PASSWORD_NON_LATIN_ALLOWED` |
 | T11 | В пароле есть хотя бы одна заглавная буква | `test_api_registration_password` [no-uppercase] | ✅ покрыто |
@@ -81,46 +81,46 @@
 | T44 | Буквы в телефоне запрещены | `test_api_contact_field_validation` [phone-letters] | ✅ покрыто |
 | T45 | Телефон не совпадает с телефоном ранее созданного контакта | `test_api_add_contact_duplicate` [phone]<br>`test_add_contact_duplicate_phone` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
 | T46 | Описание необязательно | `test_add_contact_success_required_fields_only` | ✅ покрыто |
-| T47 | В описании допускаются цифры | — | ⬜ не покрыто |
-| T48 | В описании допускаются спецсимволы и цифры | — | ⬜ не покрыто |
+| T47 | В описании допускаются цифры | `test_api_contact_field_validation` [description-digits] | ✅ покрыто |
+| T48 | В описании допускаются спецсимволы и цифры | `test_api_contact_field_validation` [description-special] | ✅ покрыто |
 
 ### Update Contact — Редактирование контакта: правила полей (T54–T86)
 
 | Пункт | Пересказ | Автотесты | Статус |
 |---|---|---|---|
-| T54 | Имя контакта обязательно | — | ⬜ не покрыто |
-| T55 | Имя не может быть пустым | `test_edit_contact_clear_required_fields` [name] | ✅ покрыто |
-| T56 | В имени допускаются цифры | — | ⬜ не покрыто |
-| T57 | В имени допускаются спецсимволы | — | ⬜ не покрыто |
-| T58 | Имя — не короче 1 символа | — | ⬜ не покрыто |
-| T59 | Фамилия обязательна | — | ⬜ не покрыто |
-| T60 | Фамилия не может быть пустой | `test_edit_contact_clear_required_fields` [last_name] | ✅ покрыто |
-| T61 | В фамилии допускаются цифры | — | ⬜ не покрыто |
-| T62 | В фамилии допускаются спецсимволы | — | ⬜ не покрыто |
-| T63 | Фамилия — не короче 1 символа | — | ⬜ не покрыто |
-| T64 | Email контакта обязателен *(в SRS опечатка: «Customer email» вместо email контакта)* | — | ⬜ не покрыто |
-| T65 | Email контакта не может быть пустым | `test_edit_contact_clear_required_fields` [email] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
-| T66 | В email контакта ровно один символ @ | — | ⬜ не покрыто |
-| T67 | До @ есть хотя бы один символ | — | ⬜ не покрыто |
-| T68 | После @ есть хотя бы один символ | — | ⬜ не покрыто |
-| T69 | Буквы в email контакта — только латиница | — | ⬜ не покрыто |
+| T54 | Имя контакта обязательно | `test_api_update_contact_field_validation` [name-null, name-absent] | ✅ покрыто |
+| T55 | Имя не может быть пустым | `test_api_update_contact_field_validation` [name-spaces, name-empty]<br>`test_edit_contact_clear_required_fields` [name] | ✅ покрыто |
+| T56 | В имени допускаются цифры | `test_api_update_contact_field_validation` [name-digits] | ✅ покрыто |
+| T57 | В имени допускаются спецсимволы | `test_api_update_contact_field_validation` [name-special] | ✅ покрыто |
+| T58 | Имя — не короче 1 символа | `test_api_update_contact_field_validation` [name-1-char] | ✅ покрыто |
+| T59 | Фамилия обязательна | `test_api_update_contact_field_validation` [last-name-null, last-name-absent] | ✅ покрыто |
+| T60 | Фамилия не может быть пустой | `test_api_update_contact_field_validation` [last-name-spaces]<br>`test_edit_contact_clear_required_fields` [last_name] | ✅ покрыто |
+| T61 | В фамилии допускаются цифры | `test_api_update_contact_field_validation` [last-name-digits] | ✅ покрыто |
+| T62 | В фамилии допускаются спецсимволы | `test_api_update_contact_field_validation` [last-name-special] | ✅ покрыто |
+| T63 | Фамилия — не короче 1 символа | `test_api_update_contact_field_validation` [last-name-1-char] | ✅ покрыто |
+| T64 | Email контакта обязателен *(в SRS опечатка: «Customer email» вместо email контакта)* | `test_api_update_contact_field_validation` [email-null, email-absent] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
+| T65 | Email контакта не может быть пустым | `test_api_update_contact_field_validation` [email-empty]<br>`test_edit_contact_clear_required_fields` [email] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
+| T66 | В email контакта ровно один символ @ | `test_api_update_contact_field_validation` [email-two-at, email-no-at] | ✅ покрыто |
+| T67 | До @ есть хотя бы один символ | `test_api_update_contact_field_validation` [email-min-a@b, email-nothing-before-at] | ✅ покрыто |
+| T68 | После @ есть хотя бы один символ | `test_api_update_contact_field_validation` [email-min-a@b, email-nothing-after-at] | ✅ покрыто |
+| T69 | Буквы в email контакта — только латиница | `test_api_update_contact_field_validation` [email-cyrillic] | 🐞 покрыто, известный баг `EMAIL_NON_LATIN_ALLOWED` |
 | T70 | Email не совпадает с email ранее созданного контакта | `test_edit_contact_duplicate_email` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
-| T71 | Адрес обязателен | — | ⬜ не покрыто |
-| T72 | Адрес не может быть пустым | `test_edit_contact_clear_required_fields` [address]<br>`test_edit_contact_blank_address` | ✅ покрыто |
-| T73 | В адресе допускаются цифры | — | ⬜ не покрыто |
-| T74 | В адресе допускаются спецсимволы | — | ⬜ не покрыто |
-| T75 | Адрес — не короче 1 символа | — | ⬜ не покрыто |
-| T76 | Телефон обязателен *(в SRS опечатка: «Phone Number address»)* | — | ⬜ не покрыто |
-| T77 | Телефон не может быть пустым | `test_edit_contact_clear_required_fields` [phone] | ✅ покрыто |
-| T78 | Телефон состоит только из цифр | — | ⬜ не покрыто |
-| T79 | Телефон — не короче 10 цифр | `test_api_update_contact_phone_length` [phone-len-9, phone-len-10] | ✅ покрыто |
-| T80 | Телефон — не длиннее 15 цифр | `test_api_update_contact_phone_length` [phone-len-15, phone-len-16] | ✅ покрыто |
-| T81 | Спецсимволы в телефоне запрещены | — | ⬜ не покрыто |
-| T82 | Буквы в телефоне запрещены | — | ⬜ не покрыто |
+| T71 | Адрес обязателен | `test_api_update_contact_field_validation` [address-null, address-absent] | ✅ покрыто |
+| T72 | Адрес не может быть пустым | `test_api_update_contact_field_validation` [address-spaces]<br>`test_edit_contact_clear_required_fields` [address]<br>`test_edit_contact_blank_address` | ✅ покрыто |
+| T73 | В адресе допускаются цифры | `test_api_update_contact_field_validation` [address-digits] | ✅ покрыто |
+| T74 | В адресе допускаются спецсимволы | `test_api_update_contact_field_validation` [address-special] | ✅ покрыто |
+| T75 | Адрес — не короче 1 символа | `test_api_update_contact_field_validation` [address-1-char] | ✅ покрыто |
+| T76 | Телефон обязателен *(в SRS опечатка: «Phone Number address»)* | `test_api_update_contact_field_validation` [phone-null, phone-absent] | 🐞 покрыто, известный баг `PHONE_NOT_REQUIRED` |
+| T77 | Телефон не может быть пустым | `test_api_update_contact_field_validation` [phone-spaces]<br>`test_edit_contact_clear_required_fields` [phone] | ✅ покрыто |
+| T78 | Телефон состоит только из цифр | `test_api_update_contact_field_validation` [phone-letters, phone-plus, phone-dash, phone-space] | ✅ покрыто |
+| T79 | Телефон — не короче 10 цифр | `test_api_update_contact_field_validation` [phone-len-9, phone-len-10] | ✅ покрыто |
+| T80 | Телефон — не длиннее 15 цифр | `test_api_update_contact_field_validation` [phone-len-15, phone-len-16] | ✅ покрыто |
+| T81 | Спецсимволы в телефоне запрещены | `test_api_update_contact_field_validation` [phone-plus, phone-dash] | ✅ покрыто |
+| T82 | Буквы в телефоне запрещены | `test_api_update_contact_field_validation` [phone-letters] | ✅ покрыто |
 | T83 | Телефон не совпадает с телефоном ранее созданного контакта | `test_edit_contact_duplicate_phone` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
-| T84 | Описание необязательно | — | ⬜ не покрыто |
-| T85 | В описании допускаются цифры | — | ⬜ не покрыто |
-| T86 | В описании допускаются спецсимволы | — | ⬜ не покрыто |
+| T84 | Описание необязательно | `test_api_update_contact_field_validation` [description-absent] | ✅ покрыто |
+| T85 | В описании допускаются цифры | `test_api_update_contact_field_validation` [description-digits] | ✅ покрыто |
+| T86 | В описании допускаются спецсимволы | `test_api_update_contact_field_validation` [description-special] | ✅ покрыто |
 
 ### Login — Регистрация и вход: сообщения об ошибках (F1–F4)
 
@@ -214,7 +214,7 @@
 | 6 | Обязательные поля запроса | `test_api_contact_payload_variations` [no-name, no-phone] | 🐞 покрыто, известный баг `PHONE_NOT_REQUIRED` |
 | 7 | Пустые строки, строки из пробелов, null | `test_api_contact_payload_variations` [name-empty, name-null, phone-spaces, email-empty] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
 | 8 | Неверный тип или формат входных данных — без молчаливого приведения | `test_api_contact_payload_variations` [name-boolean, phone-short, email-invalid]<br>`test_api_wrong_content_type_is_client_error` | 🐞 покрыто, известный баг `TYPE_COERCION`, `WRONG_CONTENT_TYPE_500` |
-| 9 | Граничные значения и классы эквивалентности | `test_api_contact_field_validation`<br>`test_api_update_contact_phone_length`<br>`test_api_registration_password`<br>`test_api_registration_email` | 🐞 покрыто, известный баг `EMAIL_NON_LATIN_ALLOWED`, `EMAIL_NOT_REQUIRED`, `PASSWORD_NON_LATIN_ALLOWED`, `PASSWORD_NO_MAX_LENGTH`, `PHONE_NOT_REQUIRED` |
+| 9 | Граничные значения и классы эквивалентности | `test_api_contact_field_validation`<br>`test_api_update_contact_field_validation`<br>`test_api_registration_password`<br>`test_api_registration_email`<br>`test_api_registration_required_fields` | 🐞 покрыто, известный баг `EMAIL_NON_LATIN_ALLOWED`, `EMAIL_NOT_REQUIRED`, `PASSWORD_NON_LATIN_ALLOWED`, `PASSWORD_NO_MAX_LENGTH`, `PHONE_NOT_REQUIRED` |
 | 10 | Неизвестные и серверные поля в запросе: клиент не меняет защищённые свойства *(Неизвестные поля Swagger не запрещает — их игнорирование нормально; подмену серверного поля id проверяет тест mass assignment)* | `test_api_mass_assignment_foreign_id` | ✅ покрыто |
 | 11 | Свой корректный код ошибки для каждой причины | `test_api_add_contact_duplicate`<br>`test_api_invalid_tokens`<br>`test_api_login_negative`<br>`test_api_contact_payload_variations`<br>`test_api_delete_missing_contact_returns_404` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT`, `EMAIL_NOT_REQUIRED`, `NOT_FOUND_400`, `NO_AUTH_403`, `PHONE_NOT_REQUIRED`, `TYPE_COERCION` |
 | 12 | Тело ошибки: стабильная структура, status в теле равен HTTP-статусу | `test_api_validation_error_body` | ✅ покрыто |
