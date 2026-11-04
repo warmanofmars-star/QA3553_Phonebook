@@ -140,7 +140,9 @@ CLEAR_FIELD_CASES = [
     pytest.param("last_name", "lastName", "TC-0029", id="last_name"),
     pytest.param("email", "email", "TC-0030", id="email", marks=known_bug("EMAIL_NOT_REQUIRED")),
     pytest.param("phone", "phone", "TC-0031", id="phone"),
-    pytest.param("address", "address", "TC-0032", id="address"),
+    # Адрес — TC-0033 (как и адрес из пробелов ниже). TC-0032 в STD — «некорректное описание»,
+    # а по SRS T84–T86 некорректного описания не бывает, поэтому такого теста нет
+    pytest.param("address", "address", "TC-0033", id="address"),
 ]
 
 
@@ -170,10 +172,11 @@ def test_edit_contact_clear_required_fields(authenticated_driver, auth_api, crea
 def test_edit_contact_blank_address(authenticated_driver, auth_api, created_contact):
     """SRS T72, F14: адрес из одних пробелов — это blank, система не сохраняет такие данные.
 
-    Пустой адрес проверяет TC-0032, здесь — пробелы: формально поле заполнено, но по T72
-    это blank. В ожидаемом результате TC-0033 в STD упомянуто поле Name — это копипаст
-    из SRS, где все F10–F14 заканчиваются словами "to the name field". Тест следует
-    смыслу F14 и T72: проверяем адрес.
+    Пустой адрес проверяет test_edit_contact_clear_required_fields (тот же TC-0033),
+    здесь — пробелы: формально поле заполнено, но по T72 это blank. В ожидаемом
+    результате TC-0033 в STD упомянуто поле Name — это копипаст из SRS, где все
+    F10–F14 заканчиваются словами "to the name field". Тест следует смыслу F14 и T72:
+    проверяем адрес.
     """
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()

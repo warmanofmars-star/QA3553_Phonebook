@@ -34,7 +34,7 @@ def _expect_alert(page: LoginPage, expected: str) -> None:
 @pytest.mark.smoke
 @allure.story("Login success")
 @allure.severity(allure.severity_level.BLOCKER)
-@allure.tag("TC-0006")
+@allure.tag("TC-0005")
 def test_login_success(driver, temp_user):
     login_page = LoginPage(driver)
     login_page.open()
@@ -50,8 +50,8 @@ def test_login_success(driver, temp_user):
     "scenario, test_case",
     [
         pytest.param("invalid_email", "TC-0007", id="TC-0007-invalid-email"),
-        pytest.param("wrong_password", "TC-0008", id="TC-0008-wrong-password"),
-        pytest.param("unregistered", "TC-0009", id="TC-0009-unregistered-user"),
+        pytest.param("wrong_password", "TC-0006", id="TC-0006-wrong-password"),
+        pytest.param("unregistered", "TC-0008", id="TC-0008-unregistered-user"),
     ],
 )
 def test_login_negative(driver, temp_user, scenario, test_case):
@@ -106,8 +106,9 @@ def test_registration_success(driver):
         pytest.param(
             "existing_email",
             USER_ALREADY_EXISTS,
-            "TC-0005",
-            id="TC-0005-existing-email-new-password",
+            # Отдельного кейса в STD нет: это вариант TC-0004 (зарегистрированные данные)
+            "TC-0004",
+            id="TC-0004-existing-email-new-password",
             marks=known_bug("USER_EXISTS_WORDING"),
         ),
     ],
