@@ -57,7 +57,7 @@ KNOWN_BUGS: dict[str, KnownBug] = {
         description="Нелатинские буквы в email принимаются (и при регистрации, и в контактах)",
     ),
     "EDIT_DESCRIPTION_BROKEN": KnownBug(
-        requirement="SRS раздел 2 (Update contact with valid data); STD TC-00026, TC-00027",
+        requirement="SRS раздел 2 (Update contact with valid data); STD TC-0026, TC-0027",
         description="При изменении описания через форму редактирования сохраняется строка '[object Undefined]'",
     ),
     "TYPE_COERCION": KnownBug(

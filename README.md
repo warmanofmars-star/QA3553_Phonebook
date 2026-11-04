@@ -57,7 +57,7 @@ where every defect is linked to the requirement it violates:
 | `DUPLICATE_CONTACT` | SRS T32, T45, T70, T83; Swagger 409 | Duplicate email / phone is saved |
 | `EMAIL_NOT_REQUIRED` | SRS T26–T27, T64–T65 | Contact with an empty email is saved |
 | `PHONE_NOT_REQUIRED` | SRS T38–T39 | Contact without a phone is saved |
-| `EDIT_DESCRIPTION_BROKEN` | STD TC-00026, TC-00027 | Editing the description in UI saves `[object Undefined]` |
+| `EDIT_DESCRIPTION_BROKEN` | STD TC-0026, TC-0027 | Editing the description in UI saves `[object Undefined]` |
 | `CUSTOMER_CAN_CLEAR_ALL` | SRS, section 2 | A regular user can delete all contacts (BFLA) |
 | `WRONG_CONTENT_TYPE_500` | HTTP semantics | `text/plain` body crashes the server with 500 |
 | `NO_AUTH_403` | Swagger 401 | Missing `Authorization` header returns 403 |
