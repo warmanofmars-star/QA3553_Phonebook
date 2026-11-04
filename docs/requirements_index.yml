@@ -1,0 +1,480 @@
+# Справочник требований проекта: источник для матрицы покрытия (ci/coverage_matrix.py).
+#
+# Здесь КРАТКИЙ ПЕРЕСКАЗ требований своими словами, а не текст документов:
+# сами SRS и STD лежат только локально в docs/requirements/ и в git не попадают.
+#
+# Как тест попадает в матрицу — тегом Allure:
+#   SRS-T41, SRS-F3   — пункт SRS          @allure.tag("SRS-T41")
+#   TC-0012           — кейс STD           @allure.tag("TC-0012")
+#   API-CHECK-15      — проверка API       @allure.tag("API-CHECK-15")
+# Для параметризованных тестов теги задаются параметрами test_case и requirements
+# (см. ci/coverage_matrix.py). Тег ставится, только если assert теста прямо проверяет пункт.
+#
+# testable: false + reason — пункт нельзя проверить в нашем окружении; в покрытии не учитывается.
+
+srs:
+  document: Phone Book SRS 2.0 (docs/requirements/, только локально)
+  sections:
+    - id: Customer
+      title: "Регистрация пользователя: email и пароль (T1–T15)"
+    - id: New Contact
+      title: "Создание контакта: правила полей (T16–T48)"
+    - id: Update Contact
+      title: "Редактирование контакта: правила полей (T54–T86)"
+    - id: Login
+      title: "Регистрация и вход: сообщения об ошибках (F1–F4)"
+    - id: Add
+      title: "Добавление контакта: сообщения об ошибках (F5–F9)"
+    - id: Update
+      title: "Редактирование контакта: невалидные данные не сохраняются (F10–F14)"
+    - id: Manager
+      title: "Действия менеджера (F15–F16)"
+  # Пропуски в нумерации самого документа: это не потерянные требования
+  numbering_gaps:
+    - ids: T49–T53
+      note: В SRS этих номеров нет — после T48 сразу идёт T54
+
+  requirements:
+  # ---------- Customer: регистрация (T1–T15) ----------
+  - id: T1
+    section: Customer
+    summary: Email при регистрации обязателен
+  - id: T2
+    section: Customer
+    summary: Email при регистрации не может быть пустым
+  - id: T3
+    section: Customer
+    summary: В email ровно один символ @
+  - id: T4
+    section: Customer
+    summary: До @ есть хотя бы один символ
+  - id: T5
+    section: Customer
+    summary: После @ есть хотя бы один символ
+  - id: T6
+    section: Customer
+    summary: Буквы в email — только латиница
+  - id: T7
+    section: Customer
+    summary: Пароль при регистрации обязателен
+  - id: T8
+    section: Customer
+    summary: Пароль не может быть пустым
+  - id: T9
+    section: Customer
+    summary: "В пароле есть хотя бы один спецсимвол из набора @ $ # ^ & * !"
+  - id: T10
+    section: Customer
+    summary: Буквы в пароле — только латиница
+  - id: T11
+    section: Customer
+    summary: В пароле есть хотя бы одна заглавная буква
+  - id: T12
+    section: Customer
+    summary: В пароле есть хотя бы одна строчная буква
+  - id: T13
+    section: Customer
+    summary: В пароле есть хотя бы одна цифра
+  - id: T14
+    section: Customer
+    summary: Длина пароля — не меньше 8 символов
+  - id: T15
+    section: Customer
+    summary: Длина пароля — не больше 15 символов
+  # ---------- New Contact: создание контакта (T16–T48) ----------
+  - id: T16
+    section: New Contact
+    summary: Имя контакта обязательно
+  - id: T17
+    section: New Contact
+    summary: Имя не может быть пустым
+  - id: T18
+    section: New Contact
+    summary: В имени допускаются цифры
+  - id: T19
+    section: New Contact
+    summary: В имени допускаются спецсимволы
+  - id: T20
+    section: New Contact
+    summary: Имя — не короче 1 символа
+  - id: T21
+    section: New Contact
+    summary: Фамилия обязательна
+  - id: T22
+    section: New Contact
+    summary: Фамилия не может быть пустой
+    note: "в SRS опечатка: «Contact name» вместо фамилии"
+  - id: T23
+    section: New Contact
+    summary: В фамилии допускаются цифры
+  - id: T24
+    section: New Contact
+    summary: В фамилии допускаются спецсимволы
+  - id: T25
+    section: New Contact
+    summary: Фамилия — не короче 1 символа
+  - id: T26
+    section: New Contact
+    summary: Email контакта обязателен
+    note: "в SRS опечатка: «Customer email» вместо email контакта"
+  - id: T27
+    section: New Contact
+    summary: Email контакта не может быть пустым
+  - id: T28
+    section: New Contact
+    summary: В email контакта ровно один символ @
+  - id: T29
+    section: New Contact
+    summary: До @ есть хотя бы один символ
+  - id: T30
+    section: New Contact
+    summary: После @ есть хотя бы один символ
+  - id: T31
+    section: New Contact
+    summary: Буквы в email контакта — только латиница
+  - id: T32
+    section: New Contact
+    summary: Email не совпадает с email ранее созданного контакта
+  - id: T33
+    section: New Contact
+    summary: Адрес обязателен
+  - id: T34
+    section: New Contact
+    summary: Адрес не может быть пустым
+  - id: T35
+    section: New Contact
+    summary: В адресе допускаются цифры
+  - id: T36
+    section: New Contact
+    summary: В адресе допускаются спецсимволы
+  - id: T37
+    section: New Contact
+    summary: Адрес — не короче 1 символа
+    note: "в SRS опечатка: «Contact name» вместо адреса"
+  - id: T38
+    section: New Contact
+    summary: Телефон обязателен
+    note: "в SRS опечатка: «Phone Number address»"
+  - id: T39
+    section: New Contact
+    summary: Телефон не может быть пустым
+  - id: T40
+    section: New Contact
+    summary: Телефон состоит только из цифр
+  - id: T41
+    section: New Contact
+    summary: Телефон — не короче 10 цифр
+  - id: T42
+    section: New Contact
+    summary: Телефон — не длиннее 15 цифр
+  - id: T43
+    section: New Contact
+    summary: Спецсимволы в телефоне запрещены
+  - id: T44
+    section: New Contact
+    summary: Буквы в телефоне запрещены
+  - id: T45
+    section: New Contact
+    summary: Телефон не совпадает с телефоном ранее созданного контакта
+  - id: T46
+    section: New Contact
+    summary: Описание необязательно
+  - id: T47
+    section: New Contact
+    summary: В описании допускаются цифры
+  - id: T48
+    section: New Contact
+    summary: В описании допускаются спецсимволы и цифры
+  # ---------- Update Contact: редактирование контакта (T54–T86) ----------
+  - id: T54
+    section: Update Contact
+    summary: Имя контакта обязательно
+  - id: T55
+    section: Update Contact
+    summary: Имя не может быть пустым
+  - id: T56
+    section: Update Contact
+    summary: В имени допускаются цифры
+  - id: T57
+    section: Update Contact
+    summary: В имени допускаются спецсимволы
+  - id: T58
+    section: Update Contact
+    summary: Имя — не короче 1 символа
+  - id: T59
+    section: Update Contact
+    summary: Фамилия обязательна
+  - id: T60
+    section: Update Contact
+    summary: Фамилия не может быть пустой
+  - id: T61
+    section: Update Contact
+    summary: В фамилии допускаются цифры
+  - id: T62
+    section: Update Contact
+    summary: В фамилии допускаются спецсимволы
+  - id: T63
+    section: Update Contact
+    summary: Фамилия — не короче 1 символа
+  - id: T64
+    section: Update Contact
+    summary: Email контакта обязателен
+    note: "в SRS опечатка: «Customer email» вместо email контакта"
+  - id: T65
+    section: Update Contact
+    summary: Email контакта не может быть пустым
+  - id: T66
+    section: Update Contact
+    summary: В email контакта ровно один символ @
+  - id: T67
+    section: Update Contact
+    summary: До @ есть хотя бы один символ
+  - id: T68
+    section: Update Contact
+    summary: После @ есть хотя бы один символ
+  - id: T69
+    section: Update Contact
+    summary: Буквы в email контакта — только латиница
+  - id: T70
+    section: Update Contact
+    summary: Email не совпадает с email ранее созданного контакта
+  - id: T71
+    section: Update Contact
+    summary: Адрес обязателен
+  - id: T72
+    section: Update Contact
+    summary: Адрес не может быть пустым
+  - id: T73
+    section: Update Contact
+    summary: В адресе допускаются цифры
+  - id: T74
+    section: Update Contact
+    summary: В адресе допускаются спецсимволы
+  - id: T75
+    section: Update Contact
+    summary: Адрес — не короче 1 символа
+  - id: T76
+    section: Update Contact
+    summary: Телефон обязателен
+    note: "в SRS опечатка: «Phone Number address»"
+  - id: T77
+    section: Update Contact
+    summary: Телефон не может быть пустым
+  - id: T78
+    section: Update Contact
+    summary: Телефон состоит только из цифр
+  - id: T79
+    section: Update Contact
+    summary: Телефон — не короче 10 цифр
+  - id: T80
+    section: Update Contact
+    summary: Телефон — не длиннее 15 цифр
+  - id: T81
+    section: Update Contact
+    summary: Спецсимволы в телефоне запрещены
+  - id: T82
+    section: Update Contact
+    summary: Буквы в телефоне запрещены
+  - id: T83
+    section: Update Contact
+    summary: Телефон не совпадает с телефоном ранее созданного контакта
+  - id: T84
+    section: Update Contact
+    summary: Описание необязательно
+  - id: T85
+    section: Update Contact
+    summary: В описании допускаются цифры
+  - id: T86
+    section: Update Contact
+    summary: В описании допускаются спецсимволы
+  # ---------- Login: регистрация и вход, сообщения (F1–F4) ----------
+  - id: F1
+    section: Login
+    summary: "Невалидные данные при регистрации — сообщение «Wrong email or password»"
+  - id: F2
+    section: Login
+    summary: "Невалидные данные при входе — сообщение «Wrong email or password»"
+  - id: F3
+    section: Login
+    summary: "Регистрация уже существующего пользователя — сообщение «User already exists»"
+  - id: F4
+    section: Login
+    summary: "Вход незарегистрированного пользователя — сообщение «Wrong email or password»"
+  # ---------- Add: добавление контакта, сообщения (F5–F9) ----------
+  - id: F5
+    section: Add
+    summary: "Пустое имя — сообщение «Name cannot be empty!»"
+  - id: F6
+    section: Add
+    summary: "Пустая фамилия — сообщение «Last Name cannot be empty!»"
+  - id: F7
+    section: Add
+    summary: "Некорректный email — сообщение «Email not valid: must have format email!»"
+  - id: F8
+    section: Add
+    summary: "Некорректный телефон — сообщение о том, что нужны только цифры, длина от 10 до 15"
+  - id: F9
+    section: Add
+    summary: "Пустой адрес — сообщение «Address cannot be empty!»"
+  # ---------- Update: редактирование, невалидное не сохраняется (F10–F14) ----------
+  # Все F10–F14 в SRS заканчиваются словами «to the name field» — копипаст, смысл — по названию поля
+  - id: F10
+    section: Update
+    summary: Очищенное имя при редактировании не сохраняется
+  - id: F11
+    section: Update
+    summary: Очищенная фамилия при редактировании не сохраняется
+  - id: F12
+    section: Update
+    summary: Некорректный email при редактировании не сохраняется
+  - id: F13
+    section: Update
+    summary: Некорректный телефон при редактировании не сохраняется
+  - id: F14
+    section: Update
+    summary: Очищенный адрес при редактировании не сохраняется
+  # ---------- Manager (F15–F16) ----------
+  - id: F15
+    section: Manager
+    summary: "Менеджер удаляет контакт по несуществующему id — сообщение «Contact does not exist!»"
+    testable: false
+    reason: Роль Manager — учётной записи менеджера у проекта нет
+  - id: F16
+    section: Manager
+    summary: "Менеджер удаляет все контакты с неверным токеном — сообщение «Wrong authorization token!»"
+    testable: false
+    reason: Роль Manager — учётной записи менеджера у проекта нет
+
+std:
+  document: Phone Book STD (ручные тест-кейсы)
+  numbering_gaps:
+    - ids: TC-0010
+      note: В STD этого номера нет — после TC-0009 сразу идёт TC-0011
+    - ids: TC-0020
+      note: В STD этого номера нет — после TC-0019 сразу идёт TC-0021
+  cases:
+    - id: TC-0001
+      title: Незарегистрированный пользователь регистрируется с валидными данными
+    - id: TC-0002
+      title: Регистрация с невалидным email и валидным паролем отклоняется
+    - id: TC-0003
+      title: Регистрация с валидным email и невалидным паролем отклоняется
+    - id: TC-0004
+      title: Повторная регистрация с уже зарегистрированными данными отклоняется
+    - id: TC-0005
+      title: Зарегистрированный пользователь входит с валидными данными
+    - id: TC-0006
+      title: Вход с верным email и неверным паролем отклоняется
+    - id: TC-0007
+      title: Вход с невалидным email и верным паролем отклоняется
+    - id: TC-0008
+      title: Незарегистрированный пользователь не может войти
+    - id: TC-0009
+      title: Авторизованный пользователь выходит из системы
+    - id: TC-0011
+      title: Добавление контакта со всеми полями
+      note: в STD название обрезано
+    - id: TC-0012
+      title: Добавление контакта только с обязательными полями
+    - id: TC-0013
+      title: Контакт с невалидным именем не добавляется
+    - id: TC-0014
+      title: Контакт с невалидной фамилией не добавляется
+    - id: TC-0015
+      title: Контакт с невалидным email не добавляется
+    - id: TC-0016
+      title: Контакт с невалидным телефоном не добавляется
+    - id: TC-0017
+      title: Контакт с невалидным адресом не добавляется
+    - id: TC-0018
+      title: Контакт с повторяющимся email не добавляется
+    - id: TC-0019
+      title: Контакт с повторяющимся телефоном не добавляется
+    - id: TC-0021
+      title: Изменение только имени на валидное
+    - id: TC-0022
+      title: Изменение только фамилии на валидную
+    - id: TC-0023
+      title: Изменение только email на валидный
+    - id: TC-0024
+      title: Изменение только телефона на валидный
+    - id: TC-0025
+      title: Изменение только адреса на валидный
+    - id: TC-0026
+      title: Изменение только описания на валидное
+    - id: TC-0027
+      title: Изменение всех полей на валидные
+    - id: TC-0028
+      title: Имя, изменённое на некорректное, не сохраняется
+    - id: TC-0029
+      title: Фамилия, изменённая на некорректную, не сохраняется
+    - id: TC-0030
+      title: Email, изменённый на некорректный, не сохраняется
+    - id: TC-0031
+      title: Телефон, изменённый на некорректный, не сохраняется
+    - id: TC-0032
+      title: Описание, изменённое на некорректное, не сохраняется
+      testable: false
+      reason: "Противоречит SRS T84–T86: описание необязательно и допускает любые символы — некорректного описания не бывает"
+    - id: TC-0033
+      title: Адрес, изменённый на некорректный, не сохраняется
+    - id: TC-0034
+      title: Email, совпадающий с email другого контакта, при редактировании не сохраняется
+    - id: TC-0035
+      title: Телефон, совпадающий с телефоном другого контакта, при редактировании не сохраняется
+    - id: TC-0036
+      title: Удаление существующего контакта
+
+# Статья «Как тестировать API: 20 проверок» (Хабр, Нетология). Названия — пересказ.
+# applicable: false + reason — проверка не имеет смысла для нашего API;
+# partial — какую часть проверки сделать нельзя (покрытие будет отмечено как частичное).
+api_checks:
+  - id: 1
+    title: Код успешного ответа соответствует контракту
+  - id: 2
+    title: "Структура ответа: обязательные поля на месте, лишних нет"
+    note: >-
+      Swagger не запрещает дополнительные свойства, поэтому «лишние» поля контракт не нарушают;
+      обязательные поля и типы проверяет JSON Schema
+  - id: 3
+    title: Типы и форматы полей ответа
+  - id: 4
+    title: Значения в ответе соответствуют запросу и данным системы
+  - id: 5
+    title: Бизнес-логика ответа; в ответах нет закрытых данных (пароли, хеши, лишние поля)
+  - id: 6
+    title: Обязательные поля запроса
+  - id: 7
+    title: Пустые строки, строки из пробелов, null
+  - id: 8
+    title: Неверный тип или формат входных данных — без молчаливого приведения
+  - id: 9
+    title: Граничные значения и классы эквивалентности
+  - id: 10
+    title: "Неизвестные и серверные поля в запросе: клиент не меняет защищённые свойства"
+    note: >-
+      Неизвестные поля Swagger не запрещает — их игнорирование нормально; подмену серверного
+      поля id проверяет тест mass assignment
+  - id: 11
+    title: Свой корректный код ошибки для каждой причины
+  - id: 12
+    title: "Тело ошибки: стабильная структура, status в теле равен HTTP-статусу"
+  - id: 13
+    title: Ошибка не раскрывает стек, SQL, пути, секреты
+  - id: 14
+    title: "Аутентификация: токена нет, токен испорчен, токен истёк"
+    partial: Истёкший токен получить нельзя — срок жизни токена нами не управляется
+  - id: 15
+    title: "Доступ к чужому объекту (BOLA): чтение, изменение, удаление"
+  - id: 16
+    title: Доступ к функции по роли (BFLA)
+  - id: 17
+    title: Состояние объекта после операции
+  - id: 18
+    title: Побочные эффекты в связанных сущностях
+    applicable: false
+    reason: В нашем API нет связанных сущностей (склада, платежей и т.п.) — только контакты пользователя
+  - id: 19
+    title: Повтор запроса и идемпотентность
+  - id: 20
+    title: Согласованность эндпоинтов в цепочке операций
