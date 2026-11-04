@@ -4,7 +4,7 @@
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
-**130 tests** (86 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
+**174 tests** (130 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
 (Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 
 This is a learning project built during a QA automation course. It was later refactored
@@ -39,12 +39,12 @@ by [`ci/coverage_matrix.py`](ci/coverage_matrix.py) (tests are collected, not ru
 
 | Source | Testable | Covered | of them hit a known bug | Not covered |
 |---|---:|---:|---:|---:|
-| SRS (T1–T48, T54–T86, F1–F16) | 95 of 97 | 65 (68%) | 18 | 30 |
+| SRS (T1–T48, T54–T86, F1–F16) | 95 of 97 | 95 (100%) | 21 | 0 |
 | STD test cases | 33 of 34 | 33 (100%) | 12 | 0 |
 | API checks ("20 checks" article) | 19 of 20 | 19 (100%), check 14 partially | 8 | 0 |
 
 Not testable: F15, F16 (Manager role — no manager account), TC-0032 (contradicts SRS T84–T86),
-API check 18 (no related entities in this API). Most uncovered SRS items are the edit-form field rules (T54–T86).
+API check 18 (no related entities in this API).
 
 ## Known bugs
 
@@ -56,7 +56,7 @@ where every defect is linked to the requirement it violates:
 |---|---|---|
 | `DUPLICATE_CONTACT` | SRS T32, T45, T70, T83; Swagger 409 | Duplicate email / phone is saved |
 | `EMAIL_NOT_REQUIRED` | SRS T26–T27, T64–T65 | Contact with an empty email is saved |
-| `PHONE_NOT_REQUIRED` | SRS T38–T39 | Contact without a phone is saved |
+| `PHONE_NOT_REQUIRED` | SRS T38–T39, T76–T77 | Contact without a phone is saved (create and update) |
 | `EDIT_DESCRIPTION_BROKEN` | STD TC-0026, TC-0027 | Editing the description in UI saves `[object Undefined]` |
 | `CUSTOMER_CAN_CLEAR_ALL` | SRS, section 2 | A regular user can delete all contacts (BFLA) |
 | `WRONG_CONTENT_TYPE_500` | HTTP semantics | `text/plain` body crashes the server with 500 |
@@ -64,7 +64,7 @@ where every defect is linked to the requirement it violates:
 | `NOT_FOUND_400` | Swagger 404 | Missing or foreign contact returns 400 |
 | `PASSWORD_NO_MAX_LENGTH` | SRS T15 | Password longer than 15 characters is accepted; there is no upper limit |
 | `PASSWORD_NON_LATIN_ALLOWED` | SRS T10 | Non-Latin letters in the password are accepted |
-| `EMAIL_NON_LATIN_ALLOWED` | SRS T6, T31 | Non-Latin letters in the email are accepted (registration and contacts) |
+| `EMAIL_NON_LATIN_ALLOWED` | SRS T6, T31, T69 | Non-Latin letters in the email are accepted (registration and contacts) |
 | `TYPE_COERCION` | Swagger `type: string` | Boolean in `name` is silently accepted |
 | `NO_ERROR_ON_EMPTY_FIELD` | SRS F5, F6, F9 | Empty required field shows no error message |
 | `USER_EXISTS_WORDING` | SRS F3 | Error text differs from the requirement |
@@ -177,8 +177,8 @@ and on every pull request:
   UI tests by browser (`[CHROME]`, `[FIREFOX]`, `[EDGE]`);
 - a Telegram notification with the result of each part and test counts.
 
-The two expressions complement each other, so every test runs in exactly one job: 88 tests once
-plus 42 UI tests × 3 browsers = 214 test runs per pipeline (previously 130 × 3 = 390).
+The two expressions complement each other, so every test runs in exactly one job: 132 tests once
+plus 42 UI tests × 3 browsers = 258 test runs per pipeline (without the split: 174 × 3 = 522).
 A manual run (`workflow_dispatch`) accepts a `test_marker`; it is combined with each job's expression
 as `(marker) and (expression)`. A job left with no tests by the marker succeeds without running anything;
 in every other run (push, pull request, manual run without a marker) an empty selection fails the job,
