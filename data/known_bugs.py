@@ -58,7 +58,10 @@ KNOWN_BUGS: dict[str, KnownBug] = {
     ),
     "EDIT_DESCRIPTION_BROKEN": KnownBug(
         requirement="SRS раздел 2 (Update contact with valid data); STD TC-0026, TC-0027",
-        description="При изменении описания через форму редактирования сохраняется строка '[object Undefined]'",
+        description=(
+            "При изменении описания через форму редактирования сохраняется строка '[object Undefined]'. "
+            "Она появляется уже в поле формы сразу после ввода — баг фронтенда, а не бэкенда"
+        ),
     ),
     "TYPE_COERCION": KnownBug(
         requirement="Swagger: ContactDto.name имеет type: string",
