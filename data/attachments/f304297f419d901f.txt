@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4f772884-32fd-446d-8ea1-50b0fc0df5a2",
+      "name": "Amanda",
+      "lastName": "Ryan",
+      "email": "user_ea7ccbec7a@example.com",
+      "phone": "0519654579",
+      "address": "447 Crystal Point Apt. 897, Port Robert, NH 89907",
+      "description": "Growth reality suggest can government."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0d910036-ad57-4609-9c8f-31c9c077d145",
+      "name": "Jimmy",
+      "lastName": "Oconnor",
+      "email": "user_9743be3ff6@example.com",
+      "phone": "0598010060",
+      "address": "569 Eddie Summit, South Melindabury, WA 07013",
+      "description": "Officer likely green and."
+    }
+  ]
+}

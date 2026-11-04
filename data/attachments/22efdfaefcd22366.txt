@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c7173f03-b230-41f8-847c-b4f1fb900fde",
+      "name": "Catherine",
+      "lastName": "Copeland",
+      "email": "user_18df043516@example.com",
+      "phone": "0529213898",
+      "address": "628 Amy Way, East Rebeccahaven, VA 94917",
+      "description": "Hit trial off research daughter."
+    }
+  ]
+}

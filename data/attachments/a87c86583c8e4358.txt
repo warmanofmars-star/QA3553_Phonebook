@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ea95ffee-5741-4932-a7d3-bc6ead2fd0c8",
+      "name": "Francis",
+      "lastName": "Santiago",
+      "email": "user_d185cdd91f@example.com",
+      "phone": "0526296528",
+      "address": "819 Phillips Mills Apt. 931, South Janettown, UT 62139",
+      "description": "Character how institution throughout together defense."
+    }
+  ]
+}

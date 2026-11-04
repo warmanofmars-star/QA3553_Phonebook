@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Glenn",
+  "phone": "0524430479",
+  "email": "user_8fd5aa29c6@example.com",
+  "address": "072 Joshua Overpass, West Alanborough, KY 79449",
+  "description": "Leave international draw budget."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 93ca23af-64a3-4b16-98db-0fd6233cc9e3"
+}

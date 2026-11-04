@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a47b4501-d547-4c96-9f09-67b4958ef124",
+      "name": "Beth",
+      "lastName": "Thompson",
+      "email": "user_9ccc0a7936@example.com",
+      "phone": "0511292406",
+      "address": "945 Alison Hills, Parkerfurt, PW 84099",
+      "description": "Deal full dinner exist."
+    }
+  ]
+}

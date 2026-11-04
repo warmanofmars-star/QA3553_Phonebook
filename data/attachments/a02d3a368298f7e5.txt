@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Lynch",
+  "phone": "0520826419",
+  "email": "user_1d45070586@example.com",
+  "address": "7523 Le Valley Suite 787, Lake Ashley, CO 06517",
+  "description": "Some apply various above amount college."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fd8eda62-9820-4d71-815b-1f8d358fa141"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e1f224af-c178-444f-84cb-626315aaae5b",
+      "name": "William",
+      "lastName": "Collins",
+      "email": "user_feacd9e1cf@example.com",
+      "phone": "0590978168",
+      "address": "8429 Kenneth Crossroad, North Anthonyland, NV 40848",
+      "description": "Spend another fire start strong."
+    }
+  ]
+}

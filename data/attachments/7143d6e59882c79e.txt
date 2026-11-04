@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Underwood",
+  "phone": "0524741051",
+  "email": "user_b61c9dc3c0@example.com",
+  "address": "5369 Barnes Valleys, Hickmanstad, NM 73105",
+  "description": "Check father eight value."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d6154427-3d06-4b41-b9b2-1aae14f79683"
+}

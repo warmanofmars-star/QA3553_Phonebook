@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6a5d585c-7d7d-46c1-975e-fd89258032a7",
+      "name": "Michael",
+      "lastName": "Jones",
+      "email": "user_aab983d03e@example.com",
+      "phone": "0536088891",
+      "address": "428 Walker Isle, Crawfordview, OH 59903",
+      "description": "Threat ask begin wrong number."
+    },
+    {
+      "id": "548b9487-a55b-43f9-8344-f9af8d27e986",
+      "name": "Nancy",
+      "lastName": "Curtis",
+      "email": "user_9f35b5b36e@example.com",
+      "phone": "0516418159",
+      "address": "9006 Eric Lodge Suite 769, Transide, ME 71355",
+      "description": "Sell similar treat it son."
+    }
+  ]
+}

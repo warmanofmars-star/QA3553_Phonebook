@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2efce839-b569-4780-b333-4f8b9e743c4b",
+      "name": "Courtney",
+      "lastName": "Chen",
+      "email": "user_b2511f09fd@example.com",
+      "phone": "0550209904",
+      "address": "2250 Davis Motorway Suite 084, Port Jamesshire, PW 58713",
+      "description": "Bank nearly consumer another those."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "145c2119-4d24-4eff-930a-034c61375b6f",
+      "name": "Tony",
+      "lastName": "Williams",
+      "email": "user_92e594c52f@example.com",
+      "phone": "0568125518",
+      "address": "924 Evans Club, South Teresaview, GU 36268",
+      "description": "International drive blood."
+    },
+    {
+      "id": "ed3d94e0-bc45-47c0-b926-bcbbc6e2e968",
+      "name": "Joshua",
+      "lastName": "Anderson",
+      "email": "user_92e594c52f@example.com",
+      "phone": "0543513929",
+      "address": "8003 Diaz Estate Apt. 535, Ashleyton, MD 34696",
+      "description": "Name middle fly trade whom manage."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Beth",
+  "lastName": "Thompson",
+  "phone": "0511292406",
+  "email": "user_9ccc0a7936@example.com",
+  "address": "945 Alison Hills, Parkerfurt, PW 84099",
+  "description": "Deal full dinner exist."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a47b4501-d547-4c96-9f09-67b4958ef124"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gregory",
+  "lastName": "Hall",
+  "phone": "0525741081",
+  "email": "user_264d813060@example.com",
+  "address": "2803 Brittany Valleys Suite 404, North Wandatown, WY 13464",
+  "description": "Thousand guess moment officer husband voice social."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3ccfccb8-641f-4fcd-ac7f-42034c61bf2e"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (105 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "de2b1b77-6464-4132-90d6-ba4a132a8744",
+      "name": "Linda",
+      "lastName": "Bruce",
+      "email": "user_23c6a5a327@example.com",
+      "phone": "0555661779",
+      "address": "60111 Rodriguez Squares Apt. 834, Joeland, NJ 79823",
+      "description": "Identify fast court avoid thousand from bed."
+    }
+  ]
+}

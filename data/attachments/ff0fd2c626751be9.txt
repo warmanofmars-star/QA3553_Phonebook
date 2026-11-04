@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+{
+  "name": "Aimee",
+  "lastName": "Hawkins",
+  "phone": "0532939047",
+  "email": "user_820c3571aa@example.com",
+  "address": "400 Christopher Garden, Wadeberg, IN 83115",
+  "description": "To yet serve."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bf93dcef-e6bf-4f79-b24a-4835fd2a5cb5"
+}

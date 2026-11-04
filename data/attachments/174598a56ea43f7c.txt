@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Perry",
+  "phone": "0536539370",
+  "email": "user_698d233342@example.com",
+  "address": "USNS Moore, FPO AE 94716",
+  "description": "Push us newspaper growth amount."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ee4e1aab-9339-45a0-953f-f658eb4907d1"
+}

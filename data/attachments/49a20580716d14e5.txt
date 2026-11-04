@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Pineda",
+  "phone": "0562265136",
+  "email": "@example.com",
+  "address": "25708 Crawford Valley Suite 998, Sanchezview, AL 49145",
+  "description": "Peace our evidence never news lawyer involve recent."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T16:46:27",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

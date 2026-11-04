@@ -1,0 +1,22 @@
+16:49:29 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+16:49:29 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+16:49:31 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (446 ms)
+16:49:31 [INFO   ] API: Токен добавлен в заголовки сессии
+16:49:31 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+16:49:31 [INFO   ] STEP: Войти как user_71a7b441cc@example.com
+16:49:32 [INFO   ] API: POST /v1/contacts -> 200 (115 ms)
+16:49:32 [INFO   ] API: GET /v1/contacts -> 200 (111 ms)
+16:49:32 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+16:49:32 [INFO   ] STEP: Открыть карточку контакта 0521265898
+16:49:33 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+16:49:33 [INFO   ] STEP: Изменить поля формы редактирования
+16:49:33 [INFO   ] STEP: Изменить поле address на '   '
+16:49:33 [INFO   ] STEP: Нажать Save в форме редактирования
+16:49:34 [INFO   ] API: GET /v1/contacts -> 200 (109 ms)
+16:49:35 [INFO   ] API: GET /v1/contacts -> 200 (110 ms)
+16:49:36 [INFO   ] API: GET /v1/contacts -> 200 (109 ms)
+16:49:37 [INFO   ] API: GET /v1/contacts -> 200 (109 ms)
+16:49:38 [INFO   ] API: GET /v1/contacts -> 200 (109 ms)
+16:49:39 [INFO   ] API: GET /v1/contacts -> 200 (109 ms)
+16:49:39 [INFO   ] API: GET /v1/contacts -> 200 (109 ms)
+16:49:42 [INFO   ] DRIVER: Видео 8760dfda6c13d89085cea2c06fd6c9a6.mp4 прикреплено к отчёту

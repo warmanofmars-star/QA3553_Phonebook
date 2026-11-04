@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0f3c4c22-e27e-4334-9867-b180036b53ea",
+      "name": "Dawn",
+      "lastName": "Cole",
+      "email": "user_7e07a3ada2@example.com",
+      "phone": "0510104324",
+      "address": "95888 Ryan Walk Suite 385, Lake Raymondborough, MT 48226",
+      "description": "Admit trouble matter different."
+    }
+  ]
+}

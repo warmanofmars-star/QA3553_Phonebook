@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "William",
+  "lastName": "Wood",
+  "phone": "0519549345",
+  "email": "user_331503e3c5@example.com",
+  "address": "74627 Mark Walk Apt. 469, Stevensonville, IN 10225",
+  "description": "Ten house ability data focus possible may author."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b2ef1000-631b-4bcd-87b0-46b97a7c9c51"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Hicks",
+  "phone": "0599416083",
+  "email": "user_e86fe4a1c1@example.com",
+  "address": "7161 Andrea Row, Shieldsberg, AL 06219",
+  "description": "Old middle do work factor question example."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 721c5aa6-1028-49c0-9bac-aaf861738aea"
+}

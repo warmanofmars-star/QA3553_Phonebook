@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Justin",
+  "lastName": "Jones",
+  "phone": "0583902926",
+  "email": "user_141c852949@example.com",
+  "address": "6823 Jason Terrace, Melissahaven, NJ 83286",
+  "description": "Real anything when purpose look."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f52c3a9b-8340-4b2f-ae14-46ddf2df05a9"
+}

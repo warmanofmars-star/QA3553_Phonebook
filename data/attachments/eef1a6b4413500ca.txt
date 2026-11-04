@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "702b93cd-3ce2-4902-b28b-4075c1a053b4",
+      "name": "Karen",
+      "lastName": "Hicks",
+      "email": "user_34fcd044dc@example.com",
+      "phone": "0515701530",
+      "address": "749 Daniel Pike, Patriciabury, NM 90029",
+      "description": "Like local eight bar small discussion."
+    }
+  ]
+}

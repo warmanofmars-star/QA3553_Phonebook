@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0b8c7872-879f-4102-aac7-f0932304926a",
+      "name": "Matthew",
+      "lastName": "B",
+      "email": "user_a56977ba02@example.com",
+      "phone": "0525991509",
+      "address": "60782 Sandra Corner Suite 171, Cynthiatown, MT 40755",
+      "description": "Spring candidate approach size same record."
+    }
+  ]
+}

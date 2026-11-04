@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Frances",
+  "lastName": "Lucas",
+  "phone": "0586447508",
+  "email": "user_162553a039@example.com",
+  "address": "19362 Micheal Creek Suite 275, Emilychester, MO 64884",
+  "description": "Nice avoid suffer hold another design same second."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 614dddac-3785-4642-926b-5666e0f7799d"
+}

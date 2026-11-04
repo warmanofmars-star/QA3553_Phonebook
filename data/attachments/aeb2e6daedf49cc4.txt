@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Boyer",
+  "phone": "0590437558",
+  "email": "user_9a8bc05fdd@example.com",
+  "address": "1654 Dennis Ways Suite 608, Kathleenville, AR 68527",
+  "description": "Article south case follow they true.",
+  "id": "027ab4b7-3400-4aad-9016-892e786fc069"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

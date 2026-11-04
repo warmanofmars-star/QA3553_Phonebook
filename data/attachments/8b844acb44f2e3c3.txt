@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "17a524d3-d94d-4fa6-b5ea-467a1547cf83",
+      "name": "Bryan",
+      "lastName": "Steele",
+      "email": "user_8c29706130@example.com",
+      "phone": "0525078814",
+      "address": "913 Ralph Hill Suite 112, Port Lindseyview, VA 56374",
+      "description": "Sell beyond decide north."
+    }
+  ]
+}

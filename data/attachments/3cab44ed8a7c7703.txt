@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Ramos",
+  "phone": "0520018534",
+  "email": "user_5d7eeb5f71@example.com",
+  "address": "46130 Larsen Causeway, Robertsonstad, NH 83988",
+  "description": "Look expert compare condition drug lawyer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b4688cc7-eb28-4b5a-8594-6bf62fae4696"
+}

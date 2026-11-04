@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "11e720ac-58ac-4c5c-9890-036b816a5b4c",
+      "name": "Alejandro",
+      "lastName": "Vasquez",
+      "email": "user_1d93d33c0d@example.com",
+      "phone": "0519907294",
+      "address": "624 Shaun Tunnel, New Reginaldberg, LA 93937",
+      "description": "State identify red big health."
+    },
+    {
+      "id": "86daeae9-d22e-41df-a5c6-df5e1f22459d",
+      "name": "Natasha",
+      "lastName": "Nolan",
+      "email": "user_9d8db840f4@example.com",
+      "phone": "0519907294",
+      "address": "37807 Wendy Square, Timothyfort, FM 22734",
+      "description": "Inside then perhaps."
+    }
+  ]
+}

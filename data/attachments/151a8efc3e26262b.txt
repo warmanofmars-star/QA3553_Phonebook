@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Johnson",
+  "phone": "0523586666",
+  "email": "user_d57299d21d@example.com",
+  "address": "41137 Anthony Island Suite 650, Chanstad, VT 83731",
+  "description": "Pretty recent imagine hundred make."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5fe068ff-f3c9-4966-94a1-9130139070dc"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tony",
+  "lastName": "Williams",
+  "phone": "0568125518",
+  "email": "user_92e594c52f@example.com",
+  "address": "924 Evans Club, South Teresaview, GU 36268",
+  "description": "International drive blood."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 145c2119-4d24-4eff-930a-034c61375b6f"
+}

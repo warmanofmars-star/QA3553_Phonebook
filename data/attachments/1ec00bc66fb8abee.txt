@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Brown",
+  "phone": "0518740916",
+  "email": "user_ea3ef61266@example.com",
+  "address": "22614 Kelsey Mountains, East Jodimouth, FM 37530",
+  "description": "Result see sign interview second."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a1a4c6f6-7485-4240-ad7b-14ee174be6ec"
+}

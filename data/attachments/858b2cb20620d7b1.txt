@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "01777767-e7ca-447e-8e06-cdf58ea10ec1",
+      "name": "Pamela",
+      "lastName": "Terry",
+      "email": "a@b",
+      "phone": "0518180986",
+      "address": "152 Frost Mill Apt. 022, New Patriciaport, GA 76937",
+      "description": "Writer machine necessary."
+    }
+  ]
+}

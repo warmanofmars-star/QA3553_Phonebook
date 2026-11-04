@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3058afe5-badf-4b1b-bd3b-18016284446d",
+      "name": "Erin",
+      "lastName": "Hayes",
+      "email": "user_2f925ed672@example.com",
+      "phone": "0518682529",
+      "address": "718 Brandon Trafficway Suite 458, Port Annehaven, VT 03351",
+      "description": "Skin goal wind popular state western."
+    }
+  ]
+}

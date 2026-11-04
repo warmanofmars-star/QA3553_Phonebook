@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Meghan",
+  "lastName": "Davis",
+  "phone": "0517451180",
+  "email": "user_8f04d5326b@example.com",
+  "address": "2429 Jeremy Dale Apt. 870, Adamsburgh, FM 30157",
+  "description": "Record loss forget south before hotel."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a215feee-a6b0-4702-aae2-f8733c4130b4"
+}

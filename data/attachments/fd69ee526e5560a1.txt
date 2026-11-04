@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bethany",
+  "lastName": "Mcdonald",
+  "phone": "0531017982",
+  "email": "user_53d33021f1@example.com",
+  "address": "!@#$%^&*()_+-=",
+  "description": "Value today before decide have trial.",
+  "id": "e0b8a61e-169f-4323-afe3-05e59a7effdd"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kelly",
+  "lastName": "Calderon",
+  "phone": "050 1234567",
+  "email": "user_374f9d9e31@example.com",
+  "address": "3788 Meyer Port, New Jennifershire, IN 65338",
+  "description": "Government address piece thank check seven college."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T16:46:26",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

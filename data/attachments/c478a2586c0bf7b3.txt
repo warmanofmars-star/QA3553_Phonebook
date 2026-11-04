@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1a4817c1-2c39-40b2-a3fe-ce6428bc95ce",
+      "name": "Lisa",
+      "lastName": "Smith",
+      "email": "user_f15005c916@example.com",
+      "phone": "0516168417",
+      "address": "USNS Jenkins, FPO AP 16020",
+      "description": "Guy generation environment political she number over."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f0922caa-2c91-45b6-be18-733b170d9cee",
+      "name": "Ann",
+      "lastName": "Brown",
+      "email": "user_cf294cb24d@example.com",
+      "phone": "052101753179929",
+      "address": "039 Warren Gardens, Nicholasport, RI 32219",
+      "description": "Lawyer pretty lay just statement institution."
+    }
+  ]
+}

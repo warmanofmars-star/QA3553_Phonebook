@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Burns",
+  "phone": "0567373668",
+  "email": "user_3c24133e97@example.com",
+  "address": "48168 Dean Islands Apt. 613, South Catherineville, AZ 25721",
+  "description": "Activity someone become loss hold."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3e9708cf-321c-4bf5-aab0-3a70a4802888"
+}

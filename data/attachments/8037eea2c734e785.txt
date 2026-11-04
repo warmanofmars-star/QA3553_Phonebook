@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Zachary",
+  "lastName": "Alexander",
+  "phone": "0522538306",
+  "email": "user_c881c8f0c7@example.com",
+  "address": "33786 Hoffman Flat Suite 654, South Theresatown, MP 27871",
+  "description": "Seven suddenly lose station space let.",
+  "id": "510c77e3-76a9-4b59-bc50-bd954f08c069"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

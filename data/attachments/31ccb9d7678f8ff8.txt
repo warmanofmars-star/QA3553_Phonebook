@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandon",
+  "lastName": "Harvey",
+  "phone": "0520496577",
+  "email": "user_2f91d134fd@example.com",
+  "address": "397 Carolyn Falls Suite 823, Douglasborough, TN 49370",
+  "description": "Term throw today detail start assume employee."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 52ec9fc4-7a90-444c-89a3-9df588c82f7b"
+}

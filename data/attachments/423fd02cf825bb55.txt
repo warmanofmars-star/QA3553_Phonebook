@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wesley",
+  "lastName": "Ballard",
+  "phone": "0511415315",
+  "email": "user_e031b535eb@example.com",
+  "address": "85268 Ronald Rapid, Lake Jamiemouth, FM 21156",
+  "description": "In wall thought reality."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dbe503f6-b50e-4c28-b952-bcf2fa9f0d3d"
+}

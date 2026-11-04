@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Anderson",
+  "phone": "0543513929",
+  "email": "user_8efff643a8@example.com",
+  "address": "8003 Diaz Estate Apt. 535, Ashleyton, MD 34696",
+  "description": "Name middle fly trade whom manage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed3d94e0-bc45-47c0-b926-bcbbc6e2e968"
+}

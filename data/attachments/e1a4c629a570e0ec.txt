@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "60cf9461-6610-4a66-bef2-c16841f0548b",
+      "name": "Justin",
+      "lastName": "Frost",
+      "email": "user_224bd71ea2@example.com",
+      "phone": "0519763995",
+      "address": "469 King Plain, Melissamouth, MI 11230",
+      "description": "Yeah article fly act must pick if."
+    }
+  ]
+}

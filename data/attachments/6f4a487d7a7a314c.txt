@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "12345",
+  "phone": "0530954993",
+  "email": "user_c780f30575@example.com",
+  "address": "6077 Pamela Canyon, Garciabury, VT 82416",
+  "description": "Focus weight small.",
+  "id": "2e4b52eb-55b0-4644-9466-8f93ad780726"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

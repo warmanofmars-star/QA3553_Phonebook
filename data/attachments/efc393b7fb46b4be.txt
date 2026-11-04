@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Juarez",
+  "phone": "0524341336",
+  "email": "user_e6fd2221dc@example.com",
+  "address": "69444 Melinda Stream Apt. 772, North Maryport, MD 81254",
+  "description": "Mission cultural most way stop amount."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7a1e4470-af38-45e5-8966-e40b0fa609fe"
+}

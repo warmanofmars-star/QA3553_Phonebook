@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Carrillo",
+  "phone": "0559922966",
+  "email": "user_4d04f15772@example.com",
+  "address": "3242 Manuel Junctions Apt. 531, Lawrencechester, RI 41541",
+  "description": "Imagine better back career nothing in."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5e4a7dab-c1a8-4057-a7c7-59bb6c986e36"
+}

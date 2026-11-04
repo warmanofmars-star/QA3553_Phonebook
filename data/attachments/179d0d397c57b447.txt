@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dawn",
+  "lastName": "Cole",
+  "phone": "0510104324",
+  "email": "user_7e07a3ada2@example.com",
+  "address": "95888 Ryan Walk Suite 385, Lake Raymondborough, MT 48226",
+  "description": "Admit trouble matter different."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0f3c4c22-e27e-4334-9867-b180036b53ea"
+}

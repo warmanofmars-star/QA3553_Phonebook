@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dawn",
+  "lastName": "   ",
+  "phone": "0510104324",
+  "email": "user_7e07a3ada2@example.com",
+  "address": "95888 Ryan Walk Suite 385, Lake Raymondborough, MT 48226",
+  "description": "Admit trouble matter different.",
+  "id": "0f3c4c22-e27e-4334-9867-b180036b53ea"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T16:46:36",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

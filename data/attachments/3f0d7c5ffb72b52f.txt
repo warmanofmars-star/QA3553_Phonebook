@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julian",
+  "lastName": "Santos",
+  "phone": "0525304435",
+  "email": "user_499b70a7b9@example.com",
+  "address": "492 Gonzalez Square, Port Sheryl, RI 55101",
+  "description": "Public wonder PM air exactly argue."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0b0a36f7-c314-40ef-876a-67d1e59258ec"
+}

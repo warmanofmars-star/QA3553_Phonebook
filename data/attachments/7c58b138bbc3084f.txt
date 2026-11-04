@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "745c34c0-c776-4a9f-a37a-b8dd93a7e74a",
+      "name": "Michael",
+      "lastName": "Aguirre",
+      "email": "user_ec9dacd7a6@example.com",
+      "phone": "0516059846",
+      "address": "74096 Whitney Ports, North Tammymouth, WV 06740",
+      "description": "Yes let attorney up player."
+    }
+  ]
+}

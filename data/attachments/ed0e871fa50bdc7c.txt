@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Blake",
+  "phone": "0576417782",
+  "email": "user_b7d9d74d36@example.com",
+  "address": "38645 Caitlin Lock, Fredericktown, IL 51294",
+  "description": "Family protect summer manage forward south."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4f7b32ad-596a-4002-9240-c0922698a447"
+}

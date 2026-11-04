@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bobby",
+  "lastName": "Williams",
+  "phone": "0532161983",
+  "email": "user_f84d26f5ed@example.com",
+  "address": "63244 Priscilla Passage Suite 361, Kimberlymouth, AR 54860",
+  "description": "General return attack down."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 21b12b5f-1f23-44fe-8e88-e30b6708c241"
+}

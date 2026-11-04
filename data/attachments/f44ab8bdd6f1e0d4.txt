@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a742f83e-481c-4c0c-9499-2fb5ca8d394d",
+      "name": "Duane",
+      "lastName": "Gill",
+      "email": "user_5df415120b@example.com",
+      "phone": "0510675501",
+      "address": "9733 Steven Lodge, Kennethside, AK 18155",
+      "description": "They individual region."
+    }
+  ]
+}

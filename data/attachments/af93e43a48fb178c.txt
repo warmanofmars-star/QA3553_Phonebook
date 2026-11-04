@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cynthia",
+  "lastName": "Villarreal",
+  "phone": "0530730938",
+  "email": "user_994863fff4@example.com",
+  "address": "333 Ramsey Viaduct, North Dianebury, IA 48257",
+  "description": "At cultural wish art."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 45e9f549-8ad0-49f7-84e3-d0c58ac4cb91"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Webb",
+  "phone": "0522159104",
+  "email": "user_7fde830c4a@example.com",
+  "address": "819 Cook Highway, Mariatown, MN 61933",
+  "description": "!@#$%^&*()_+-=12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 112bde9d-5790-4fa0-9418-0dbe85f93847"
+}

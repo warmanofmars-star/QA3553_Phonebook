@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f7c672ee-b93e-4984-887f-20a89cb83c0c",
+      "name": "Cynthia",
+      "lastName": "Alvarez",
+      "email": "user_bc70698151@example.com",
+      "phone": "0516147351",
+      "address": "9461 Vanessa Hollow Suite 138, North Matthew, TX 87842",
+      "description": "Attorney federal develop marriage bill."
+    }
+  ]
+}

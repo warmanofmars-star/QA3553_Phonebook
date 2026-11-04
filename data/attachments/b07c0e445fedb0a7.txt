@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Smith",
+  "phone": "0516168417",
+  "email": "user_f15005c916@example.com",
+  "address": "USNS Jenkins, FPO AP 16020",
+  "description": "Guy generation environment political she number over."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1a4817c1-2c39-40b2-a3fe-ce6428bc95ce"
+}

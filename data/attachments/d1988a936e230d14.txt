@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Terry",
+  "phone": "0518180986",
+  "email": "a@b",
+  "address": "152 Frost Mill Apt. 022, New Patriciaport, GA 76937",
+  "description": "Writer machine necessary.",
+  "id": "01777767-e7ca-447e-8e06-cdf58ea10ec1"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

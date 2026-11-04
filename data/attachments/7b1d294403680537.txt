@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1a4817c1-2c39-40b2-a3fe-ce6428bc95ce",
+      "name": "Lisa",
+      "lastName": "Smith",
+      "email": "user_f15005c916@example.com",
+      "phone": "0516168417",
+      "address": "USNS Jenkins, FPO AP 16020",
+      "description": "Guy generation environment political she number over."
+    },
+    {
+      "id": "7bf3ef5a-3961-4452-9f6e-16d314148d53",
+      "name": "Justin",
+      "lastName": "Garcia",
+      "email": "user_74f4c3f38d@example.com",
+      "phone": "0523298313",
+      "address": "5705 Brandon Parks Apt. 872, Jamiestad, GA 49991",
+      "description": "Various agreement manage dinner could."
+    }
+  ]
+}

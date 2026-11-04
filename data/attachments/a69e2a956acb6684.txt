@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5efad72f-dc17-4cf9-afc1-66b30d3824cf",
+      "name": "Melanie",
+      "lastName": "Frye",
+      "email": "user_100085958a@example.com",
+      "phone": "0590427415",
+      "address": "285 Steven Forges, Stewartview, OH 85515",
+      "description": "Modern data soldier body this."
+    },
+    {
+      "id": "dd841c9f-ad83-418d-907e-5c940f097646",
+      "name": "John",
+      "lastName": "Edwards",
+      "email": "user_85eccbabe0@example.com",
+      "phone": "0529003158",
+      "address": "871 Michelle Plaza, Lewisland, VI 98218",
+      "description": "Seem feel level question all."
+    },
+    {
+      "id": "5fe068ff-f3c9-4966-94a1-9130139070dc",
+      "name": "Mark",
+      "lastName": "Johnson",
+      "email": "user_d57299d21d@example.com",
+      "phone": "0523586666",
+      "address": "41137 Anthony Island Suite 650, Chanstad, VT 83731",
+      "description": "Pretty recent imagine hundred make."
+    }
+  ]
+}

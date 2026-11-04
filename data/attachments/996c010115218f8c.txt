@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6a1e8bb2-cafb-4973-8ac6-71b7d9b55c1d",
+      "name": "Angela",
+      "lastName": "Smith",
+      "email": "пользователь@example.com",
+      "phone": "0569322656",
+      "address": "453 Robert Centers Apt. 631, Kathrynton, MT 14703",
+      "description": "Expert every quickly necessary their official six."
+    }
+  ]
+}

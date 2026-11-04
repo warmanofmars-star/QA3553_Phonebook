@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "86131abc-c6c9-41de-a03e-22d2c52162d8",
+      "name": "Sara",
+      "lastName": "Taylor",
+      "email": "user_55c545ab27@example.com",
+      "phone": "0518404582",
+      "address": "78532 Scott Fork Suite 723, East Tracey, MS 31310",
+      "description": "Page reduce camera interesting eye beat measure."
+    }
+  ]
+}

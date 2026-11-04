@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Danielle",
+  "lastName": "Webb",
+  "phone": "0520256371",
+  "email": "user_d946a19fd3@example.com",
+  "address": "49587 Katrina Throughway, Lake Joan, CA 59562",
+  "description": "Fish because early structure behavior quite tough age."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9b937a30-35c2-4908-b006-16a9174b627e"
+}

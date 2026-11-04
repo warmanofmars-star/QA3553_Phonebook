@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Whitney",
+  "lastName": "Shaffer",
+  "phone": "0522061147",
+  "email": "user_c878e862e6@example.com",
+  "address": "553 Miller Knolls Suite 068, Edwardburgh, OK 93207",
+  "description": "Leave follow risk early where."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 746887f5-4667-49c1-9a56-c27b542cc4a7"
+}

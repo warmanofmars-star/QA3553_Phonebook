@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "74ede633-7797-4324-9ada-a3195350a821",
+      "name": "Renee",
+      "lastName": "Peterson",
+      "email": "user_4388419a66@example.com",
+      "phone": "0521611239",
+      "address": "279 Santos Inlet Suite 213, Lake Latoyaside, WI 94264",
+      "description": "Central how build store decade easy."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "041edb0d-9be4-452c-b7f2-a6b4058cab2f",
+      "name": "Nicholas",
+      "lastName": "Morales",
+      "email": "user_d0be6e411b@example.com",
+      "phone": "0521230198",
+      "address": "823 James Well, Vanessaberg, NV 96176",
+      "description": "Institution area dog would society southern."
+    },
+    {
+      "id": "f52c3a9b-8340-4b2f-ae14-46ddf2df05a9",
+      "name": "Justin",
+      "lastName": "Jones",
+      "email": "user_141c852949@example.com",
+      "phone": "0583902926",
+      "address": "6823 Jason Terrace, Melissahaven, NJ 83286",
+      "description": "Real anything when purpose look."
+    }
+  ]
+}

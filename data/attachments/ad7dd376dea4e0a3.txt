@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3f27b16a-05be-452c-84f0-b81161535ac1",
+      "name": "Kyle",
+      "lastName": "Morrow",
+      "email": "user_83e1947b7f@example.com",
+      "phone": "0584193006",
+      "address": "91066 Brown Point Suite 957, Samanthamouth, VA 50817",
+      "description": "Bill significant trial fish receive upon."
+    }
+  ]
+}

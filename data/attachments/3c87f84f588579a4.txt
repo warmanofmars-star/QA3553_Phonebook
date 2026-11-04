@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4fad61b6-aeb5-4f0b-a80c-4b4dc41b06c6",
+      "name": "Daniel",
+      "lastName": "Robinson",
+      "email": "user_fb949a230f@example.com",
+      "phone": "0523554412",
+      "address": "135 Williams Cove, Michaelfurt, NC 55775",
+      "description": "Almost themselves spring far stop."
+    }
+  ]
+}

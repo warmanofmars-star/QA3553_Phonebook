@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2140361b-4029-41bb-84aa-f8ae39c6f0b0",
+      "name": "Samuel",
+      "lastName": "Rodriguez",
+      "email": "user_0506434bf5@example.com",
+      "phone": "0532715966",
+      "address": "167 Douglas Curve Apt. 248, Hernandezbury, HI 56639",
+      "description": "Fact claim often head."
+    },
+    {
+      "id": "0b0a36f7-c314-40ef-876a-67d1e59258ec",
+      "name": "Julian",
+      "lastName": "Santos",
+      "email": "user_499b70a7b9@example.com",
+      "phone": "0525304435",
+      "address": "492 Gonzalez Square, Port Sheryl, RI 55101",
+      "description": "Public wonder PM air exactly argue."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9b937a30-35c2-4908-b006-16a9174b627e",
+      "name": "Danielle",
+      "lastName": "Webb",
+      "email": "user_d946a19fd3@example.com",
+      "phone": "0520256371",
+      "address": "49587 Katrina Throughway, Lake Joan, CA 59562",
+      "description": "Fish because early structure behavior quite tough age."
+    }
+  ]
+}

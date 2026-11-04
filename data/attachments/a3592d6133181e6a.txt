@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patricia",
+  "lastName": "Henry",
+  "phone": "0529947514",
+  "email": "user_de9a8aec3b@example.com",
+  "address": "41855 Shannon Creek Apt. 190, Lake Denisefurt, MP 73879",
+  "description": "Society drive business policy their sing throughout."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4b024e8a-5b44-408a-8c61-28a86649bc00"
+}

@@ -1,0 +1,22 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Mann",
+  "phone": "0536318237",
+  "email": "user_1a197dffce@example.com",
+  "address": "9127 Sullivan Locks Suite 100, Port Andrewbury, MT 25348",
+  "description": "See about with life.",
+  "id": "9c80c42a-880f-480e-b329-509ce71b7d2a"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T16:46:50",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 9c80c42a-880f-480e-b329-509ce71b7d2a not found in your contacts!",
+  "path": "/v1/contacts"
+}

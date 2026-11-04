@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Byrd",
+  "phone": "0525991509",
+  "email": "user_a56977ba02@example.com",
+  "address": "60782 Sandra Corner Suite 171, Cynthiatown, MT 40755",
+  "description": "Spring candidate approach size same record."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0b8c7872-879f-4102-aac7-f0932304926a"
+}

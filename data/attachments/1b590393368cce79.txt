@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melanie",
+  "lastName": "Frye",
+  "phone": "0590427415",
+  "email": "user_100085958a@example.com",
+  "address": "285 Steven Forges, Stewartview, OH 85515",
+  "description": "Modern data soldier body this."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5efad72f-dc17-4cf9-afc1-66b30d3824cf"
+}

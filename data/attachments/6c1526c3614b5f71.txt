@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "Becker",
+  "phone": "0530892129",
+  "email": "user_0bac29955d@example.com",
+  "address": "0489 John Corner, Medinaton, IA 30456",
+  "description": "Task ten enjoy movement growth Congress food."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d096e6f4-3d59-4068-beea-139694818dd3"
+}

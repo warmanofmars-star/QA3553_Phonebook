@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dennis",
+  "lastName": "Johnston",
+  "phone": "0599193668",
+  "email": "user_4236f878b8@example.com",
+  "address": "6834 Fitzgerald Summit, New Moniqueside, MT 78777",
+  "description": "Scene almost movement option box after three."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b227ca13-5f56-4678-94b3-6e8ab51f7dc3"
+}

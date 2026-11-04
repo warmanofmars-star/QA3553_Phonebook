@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "83f075b3-4fd1-4f87-bcb4-b5bc845ae1e9",
+      "name": "Betty",
+      "lastName": "Mosley",
+      "email": "user_5b1194654f@example.com",
+      "phone": "0514820930",
+      "address": "783 Joy Fields, West Amberfort, HI 71606",
+      "description": "Cover push case student institution allow information."
+    }
+  ]
+}

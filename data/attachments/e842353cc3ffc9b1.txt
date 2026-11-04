@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amy",
+  "lastName": "Davis",
+  "phone": "0518257497",
+  "email": "user_40af1536fe@example.com",
+  "address": "55535 Phillips Mill Apt. 374, Jonathanmouth, WA 12501",
+  "description": "Reveal still society girl sea."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ce6dac60-ba67-48c9-bcb6-8ff78ba7e490"
+}

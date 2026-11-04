@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Flores",
+  "phone": "0526363487",
+  "email": "user_cee7ce11b1@example.com",
+  "address": "1165 Taylor Radial, East Michaeltown, GU 80119",
+  "description": "Purpose size past treat.",
+  "id": "bff4331a-0004-4a2a-8109-c7a81dafa35b"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T16:46:36",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

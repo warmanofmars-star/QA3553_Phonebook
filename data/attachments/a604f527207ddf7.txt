@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2c6ef7b3-5d76-4be8-9dc0-9cba0fc0e4fe",
+      "name": "Michelle",
+      "lastName": "Woods",
+      "email": "user_a9d5a8d2d4@example.com",
+      "phone": "0529717946",
+      "address": "!@#$%^&*()_+-=",
+      "description": "Prepare near doctor agreement reality figure improve."
+    }
+  ]
+}

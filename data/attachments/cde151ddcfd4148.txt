@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "White",
+  "phone": "0518929303",
+  "email": "user_29cc9d559d@example.com",
+  "address": "61176 Johnson Brooks, Lake James, FL 04416",
+  "description": "Treatment challenge rate no debate city."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 689516a3-b0d7-438e-9e49-67215cb05cf0"
+}

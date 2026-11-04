@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a742f83e-481c-4c0c-9499-2fb5ca8d394d",
+      "name": "Duane",
+      "lastName": "Gill",
+      "email": "user_5df415120b@example.com",
+      "phone": "0510675501",
+      "address": "9733 Steven Lodge, Kennethside, AK 18155",
+      "description": "They individual region."
+    },
+    {
+      "id": "3e9708cf-321c-4bf5-aab0-3a70a4802888",
+      "name": "Richard",
+      "lastName": "Burns",
+      "email": "user_3c24133e97@example.com",
+      "phone": "0567373668",
+      "address": "48168 Dean Islands Apt. 613, South Catherineville, AZ 25721",
+      "description": "Activity someone become loss hold."
+    },
+    {
+      "id": "b58a89a9-90db-485b-91a9-b64b05cb0d05",
+      "name": "Kimberly",
+      "lastName": "Buckley",
+      "email": "user_7702737942@example.com",
+      "phone": "0593007089",
+      "address": "0367 Gomez Point Apt. 632, Ginahaven, AK 67777",
+      "description": "Hard work close necessary certainly."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bff4331a-0004-4a2a-8109-c7a81dafa35b",
+      "name": "Kimberly",
+      "lastName": "Flores",
+      "email": "user_cee7ce11b1@example.com",
+      "phone": "0526363487",
+      "address": "1165 Taylor Radial, East Michaeltown, GU 80119",
+      "description": "Purpose size past treat."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "235a1216-c0d9-42af-ad7d-f421f8a6746a",
+      "name": "Scott",
+      "lastName": "Contreras",
+      "email": "user_be2cdf8a52@example.com",
+      "phone": "0515725910",
+      "address": "4452 Brewer Island Suite 192, North Margaretfurt, VA 02857",
+      "description": "Current modern kid full have at."
+    },
+    {
+      "id": "ab32d826-87b8-46f8-b94b-dc003c7e4aa8",
+      "name": "Sarah",
+      "lastName": "Rosario",
+      "email": "user_be2cdf8a52@example.com",
+      "phone": "0590820665",
+      "address": "3744 John Landing Suite 249, East Robert, FM 13329",
+      "description": "Brother almost Republican company page administration somebody."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "36878419-f5b4-45a1-8e35-0d4f6f8a1265",
+      "name": "Lindsey",
+      "lastName": "Lewis",
+      "email": "user_09545559db@example.com",
+      "phone": "0519329700",
+      "address": "265 Maxwell Meadows Apt. 697, Stephanieshire, NY 08681",
+      "description": "Add lot plant."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samuel",
+  "lastName": "Rodriguez",
+  "phone": "0532715966",
+  "email": "user_0506434bf5@example.com",
+  "address": "167 Douglas Curve Apt. 248, Hernandezbury, HI 56639",
+  "description": "Fact claim often head."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2140361b-4029-41bb-84aa-f8ae39c6f0b0"
+}

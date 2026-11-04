@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "94475aa2-cc0c-46cd-b2d4-45679f60f342",
+      "name": "Toni",
+      "lastName": "Chandler",
+      "email": "user_2cbbe827b6@example.com",
+      "phone": "0517719167",
+      "address": "239 Fuentes Divide, North Paul, FM 91046",
+      "description": "Though two side movie experience relationship during."
+    }
+  ]
+}

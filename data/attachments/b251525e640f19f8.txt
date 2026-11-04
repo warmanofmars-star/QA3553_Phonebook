@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e30c8b9b-9ec3-4451-858f-01b840b526da",
+      "name": "Stacy",
+      "lastName": "Riley",
+      "email": "user_8546ab179d@example.com",
+      "phone": "0518655315",
+      "address": "00963 Gregory Harbor, Joseburgh, MH 53527",
+      "description": "Foot policy remember air."
+    }
+  ]
+}

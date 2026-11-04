@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Garza",
+  "phone": "0519234868",
+  "email": "user_fca37ceedc@example.com",
+  "address": "861 Diaz Place Suite 015, Stevenland, AL 29366",
+  "description": "Activity wonder account once speak land guy direction."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e9258359-6585-4c7a-bc99-446d75346e8e"
+}

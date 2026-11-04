@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alejandro",
+  "lastName": "Vasquez",
+  "phone": "0519907294",
+  "email": "user_1d93d33c0d@example.com",
+  "address": "624 Shaun Tunnel, New Reginaldberg, LA 93937",
+  "description": "State identify red big health."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 11e720ac-58ac-4c5c-9890-036b816a5b4c"
+}

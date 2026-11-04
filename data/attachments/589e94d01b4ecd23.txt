@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/45e9f549-8ad0-49f7-84e3-d0c58ac4cb91
+Статус: 400 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T16:46:50",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 45e9f549-8ad0-49f7-84e3-d0c58ac4cb91 not found in your contacts!",
+  "path": "/v1/contacts/45e9f549-8ad0-49f7-84e3-d0c58ac4cb91"
+}

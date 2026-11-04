@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bc24e509-c1ed-4ff1-9437-dd2ec95c508d",
+      "name": "Lori",
+      "lastName": "Barnes",
+      "email": "user_e07f233d99@example.com",
+      "phone": "0512102983",
+      "address": "69272 Robin Ford Suite 268, North Sean, NE 72110",
+      "description": "Bit themselves century member."
+    }
+  ]
+}

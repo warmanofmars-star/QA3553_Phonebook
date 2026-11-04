@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brenda",
+  "lastName": "Fernandez",
+  "phone": "0531815002",
+  "email": "user_10b973a3de@example.com",
+  "address": "638 Wallace Mill Apt. 602, South David, AK 26774",
+  "description": "Loss gun eye item thousand up.",
+  "id": "9b3dafa9-bed9-4b6e-8ace-c9a8a1bb5c2f"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 713dd3fa-e566-4d07-bbec-57b545716261"
+}

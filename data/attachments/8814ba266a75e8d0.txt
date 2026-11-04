@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4640562d-7552-435a-aac1-b5315659fb61",
+      "name": "Roberto",
+      "lastName": "Fox",
+      "email": "user_dcdf9a86c3@example.com",
+      "phone": "0528837201",
+      "address": "3376 Sean Manors, Kingview, PR 60833",
+      "description": "Add detail theory surface system."
+    }
+  ]
+}

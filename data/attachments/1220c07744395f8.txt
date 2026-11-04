@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Davidson",
+  "phone": "0533877906",
+  "email": null,
+  "address": "170 Roberts Knoll, Arnoldborough, WI 94445",
+  "description": "But threat each discuss image hold of."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a2988933-cfd9-49af-be31-ab3a191f9879"
+}

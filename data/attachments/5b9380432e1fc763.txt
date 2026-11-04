@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Rogers",
+  "phone": "0518243578",
+  "email": "user_f0cc472dd8@example.com",
+  "address": "946 Gallagher Bridge Suite 342, Lopezhaven, VA 19559",
+  "description": "Support civil benefit or Mrs let year."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7c3dd336-43ce-420e-8e7a-d9b5c143cb4c"
+}

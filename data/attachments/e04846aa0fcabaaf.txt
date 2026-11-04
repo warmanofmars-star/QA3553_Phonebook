@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Scott",
+  "lastName": "Harvey",
+  "phone": "0531869012",
+  "email": "user_b922ab4ef2@example.com",
+  "address": "68089 Michelle Manor Suite 292, Port Steven, NH 02148",
+  "description": "Goal child hit bag tend."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 80a1bdfb-9bcf-4df2-8da2-5fa26a345b1b"
+}

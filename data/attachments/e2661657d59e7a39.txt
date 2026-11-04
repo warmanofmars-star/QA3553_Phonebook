@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a65ee972-2eee-41c3-89b2-e2db75c59768",
+      "name": "Gregory",
+      "lastName": "Marsh",
+      "email": "user_b0bf91c389@example.com",
+      "phone": "0520811786",
+      "address": "8587 Martinez Mills, Lake Taylortown, NH 23019",
+      "description": "His night so him."
+    }
+  ]
+}

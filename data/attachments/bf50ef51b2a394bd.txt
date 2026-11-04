@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Victoria",
+  "lastName": "Davis",
+  "phone": "0537477599",
+  "email": "user_01d608bb3a@example.com",
+  "address": "6550 Farrell View Suite 010, Fergusonmouth, UT 80406",
+  "description": "Order back organization whole middle hundred."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e8c73aec-02da-4c10-af83-8b5f4eaa6ded"
+}

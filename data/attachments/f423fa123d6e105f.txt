@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Calvin",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0529978192",
+  "email": "user_fac2e2f25f@example.com",
+  "address": "2730 Boyd Overpass, Jimenezville, ME 36000",
+  "description": "Last red drug eye."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c067a12d-5507-488a-90af-f01faee50e36"
+}
