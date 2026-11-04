@@ -14,6 +14,7 @@ from utils.validators import assert_json_schema, assert_secure_error
 @allure.feature("Contacts CRUD")
 @allure.story("Create Contact")
 @allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-1", "API-CHECK-2", "API-CHECK-3")
 def test_api_add_contact(auth_api):
     contact = ContactGenerator.get_random_contact()
 
@@ -28,7 +29,7 @@ def test_api_add_contact(auth_api):
 @allure.feature("Contacts Validation")
 @allure.story("Create Duplicate Contact")
 @allure.severity(allure.severity_level.NORMAL)
-@allure.tag("TC-0018", "TC-0019")
+@allure.tag("TC-0018", "TC-0019", "SRS-T32", "SRS-T45", "API-CHECK-11", "API-CHECK-13")
 @known_bug("DUPLICATE_CONTACT")
 def test_api_add_contact_duplicate(auth_api):
     """Повторное создание контакта с теми же данными должно отклоняться с 409 (SRS T32, T45; Swagger)."""

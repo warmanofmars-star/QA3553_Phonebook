@@ -11,6 +11,7 @@ from utils.validators import assert_secure_error
 @allure.feature("Authentication Controller")
 @allure.story("Login Success")
 @allure.severity(allure.severity_level.BLOCKER)
+@allure.tag("API-CHECK-1")
 def test_api_login_success(temp_user):
     """Позитивный тест: Успешная авторизация через API (Sandbox)"""
     user = temp_user.user
@@ -28,6 +29,7 @@ def test_api_login_success(temp_user):
 @allure.epic("API Testing")
 @allure.feature("Authentication Controller")
 @allure.story("Login Negative")
+@allure.tag("API-CHECK-11", "API-CHECK-13")
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize(
     "scenario_key, expected_status, scenario",

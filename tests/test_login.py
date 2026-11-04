@@ -49,9 +49,9 @@ def test_login_success(driver, temp_user):
 @pytest.mark.parametrize(
     "scenario, test_case",
     [
-        pytest.param("invalid_email", "TC-0007", id="TC-0007-invalid-email"),
-        pytest.param("wrong_password", "TC-0006", id="TC-0006-wrong-password"),
-        pytest.param("unregistered", "TC-0008", id="TC-0008-unregistered-user"),
+        pytest.param("invalid_email", "TC-0007", id="TC-0007-invalid-email", marks=allure.tag("SRS-F2")),
+        pytest.param("wrong_password", "TC-0006", id="TC-0006-wrong-password", marks=allure.tag("SRS-F2")),
+        pytest.param("unregistered", "TC-0008", id="TC-0008-unregistered-user", marks=allure.tag("SRS-F4")),
     ],
 )
 def test_login_negative(driver, temp_user, scenario, test_case):
@@ -94,14 +94,26 @@ def test_registration_success(driver):
 @pytest.mark.parametrize(
     "scenario, expected_alert, test_case",
     [
-        pytest.param("invalid_email", WRONG_CREDENTIALS, "TC-0002", id="TC-0002-invalid-email"),
-        pytest.param("invalid_password", WRONG_CREDENTIALS, "TC-0003", id="TC-0003-invalid-password"),
+        pytest.param(
+            "invalid_email",
+            WRONG_CREDENTIALS,
+            "TC-0002",
+            id="TC-0002-invalid-email",
+            marks=allure.tag("SRS-F1"),
+        ),
+        pytest.param(
+            "invalid_password",
+            WRONG_CREDENTIALS,
+            "TC-0003",
+            id="TC-0003-invalid-password",
+            marks=allure.tag("SRS-F1"),
+        ),
         pytest.param(
             "existing_user",
             USER_ALREADY_EXISTS,
             "TC-0004",
             id="TC-0004-existing-user",
-            marks=known_bug("USER_EXISTS_WORDING"),
+            marks=[known_bug("USER_EXISTS_WORDING"), allure.tag("SRS-F3")],
         ),
         pytest.param(
             "existing_email",
@@ -109,7 +121,7 @@ def test_registration_success(driver):
             # Отдельного кейса в STD нет: это вариант TC-0004 (зарегистрированные данные)
             "TC-0004",
             id="TC-0004-existing-email-new-password",
-            marks=known_bug("USER_EXISTS_WORDING"),
+            marks=[known_bug("USER_EXISTS_WORDING"), allure.tag("SRS-F3")],
         ),
     ],
 )

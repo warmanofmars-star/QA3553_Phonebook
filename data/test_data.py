@@ -1,6 +1,7 @@
 import csv
 from pathlib import Path
 
+import allure
 import pytest
 
 from data.known_bugs import known_bug
@@ -17,6 +18,8 @@ def load_negative_contacts() -> list:
       scenario       — короткое имя сценария, вместе с test_case образует id теста
       name ... description — данные формы
       expected_error — текст ошибки ПО ТРЕБОВАНИЮ (SRS F5–F9), а не по факту приложения
+      requirement    — пункты SRS, которые проверяет строка (через пробел: "F7" или "F8 T41");
+                       становятся тегами SRS-... в Allure и в матрице покрытия docs/coverage.md
       known_bug      — ключ из data/known_bugs.py, если сценарий упирается в известный дефект
 
     Раньше загрузчик сам решал, какие строки xfail, по признаку "какое поле пустое".
@@ -34,6 +37,11 @@ def load_negative_contacts() -> list:
                 description=row["description"],
             )
             marks = [known_bug(row["known_bug"])] if row["known_bug"] else []
+            # Статический тег (а не allure.dynamic): его видно уже при сборе тестов,
+            # без запуска — на этом строится ci/coverage_matrix.py
+            requirements = row["requirement"].split()
+            if requirements:
+                marks.append(allure.tag(*(f"SRS-{r}" for r in requirements)))
             params.append(
                 pytest.param(
                     contact,

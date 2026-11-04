@@ -14,37 +14,80 @@ pytestmark = [pytest.mark.api, pytest.mark.regression]
 @allure.feature("Payload Validation")
 @allure.story("Negative Contract Testing (DDT)")
 @allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-11", "API-CHECK-13")
 @pytest.mark.parametrize(
     "mutate_func, expected_status, scenario",
     [
+        # Теги — пункты SRS и номера проверок API, которые проверяет именно этот сценарий
         # Отсутствие обязательного поля
-        (lambda p: p.pop("name", None), 400, "Без обязательного поля name"),
+        pytest.param(
+            lambda p: p.pop("name", None),
+            400,
+            "Без обязательного поля name",
+            id="no-name",
+            marks=allure.tag("SRS-T16", "API-CHECK-6"),
+        ),
         pytest.param(
             lambda p: p.pop("phone", None),
             400,
             "Без телефона (SRS T38)",
-            marks=known_bug("PHONE_NOT_REQUIRED"),
+            id="no-phone",
+            marks=[known_bug("PHONE_NOT_REQUIRED"), allure.tag("SRS-T38", "API-CHECK-6")],
         ),
         # Пустые и null значения
-        (lambda p: p.update({"name": ""}), 400, "Пустая строка в name"),
-        (lambda p: p.update({"name": None}), 400, "Null в обязательном поле name"),
-        (lambda p: p.update({"phone": "   "}), 400, "Пробелы вместо телефона"),
+        pytest.param(
+            lambda p: p.update({"name": ""}),
+            400,
+            "Пустая строка в name",
+            id="name-empty",
+            marks=allure.tag("SRS-T17", "API-CHECK-7"),
+        ),
+        pytest.param(
+            lambda p: p.update({"name": None}),
+            400,
+            "Null в обязательном поле name",
+            id="name-null",
+            marks=allure.tag("SRS-T16", "API-CHECK-7"),
+        ),
+        pytest.param(
+            lambda p: p.update({"phone": "   "}),
+            400,
+            "Пробелы вместо телефона",
+            id="phone-spaces",
+            marks=allure.tag("SRS-T39", "API-CHECK-7"),
+        ),
         pytest.param(
             lambda p: p.update({"email": ""}),
             400,
             "Пустой email (SRS T27)",
-            marks=known_bug("EMAIL_NOT_REQUIRED"),
+            id="email-empty",
+            marks=[known_bug("EMAIL_NOT_REQUIRED"), allure.tag("SRS-T27", "API-CHECK-7")],
         ),
         # Неправильный тип данных
         pytest.param(
             lambda p: p.update({"name": True}),
             400,
             "Boolean вместо строки в name",
-            marks=known_bug("TYPE_COERCION"),
+            id="name-boolean",
+            marks=[known_bug("TYPE_COERCION"), allure.tag("API-CHECK-8")],
         ),
         # Граничные и недопустимые значения
-        (lambda p: p.update({"phone": "123"}), 400, "Слишком короткий телефон (вне паттерна Swagger)"),
-        (lambda p: p.update({"email": "not_an_email"}), 400, "Невалидный формат email"),
+        pytest.param(
+            lambda p: p.update({"phone": "123"}),
+            400,
+            "Слишком короткий телефон (вне паттерна Swagger)",
+            id="phone-short",
+            marks=allure.tag("SRS-T41", "API-CHECK-8"),
+        ),
+        # Без SRS-тега: в адресе нет @ вовсе, а T28 говорит о «только одном @» —
+        # прямой связи с конкретным пунктом нет
+        pytest.param(
+            lambda p: p.update({"email": "not_an_email"}),
+            400,
+            "Невалидный формат email",
+            id="email-invalid",
+            marks=allure.tag("API-CHECK-8"),
+        ),
         # Сценарий "лишние поля -> 400" удалён: Swagger лишние поля не запрещает,
         # игнорировать неизвестные поля — нормальное поведение. Настоящая проверка
         # mass assignment — test_api_mass_assignment_foreign_id в test_api_security_logic.py
