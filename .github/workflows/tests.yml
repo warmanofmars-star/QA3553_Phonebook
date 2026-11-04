@@ -117,8 +117,10 @@ jobs:
   # — каждый тест попадает ровно в один job. Маркер ручного запуска добавляется к
   # выражению через and, и он, и выражение берутся в скобки: иначе "smoke or api"
   # превратилось бы в "smoke or (api and ...)" и отобрало бы лишнее.
-  # Если маркер не оставил тестов одному из job'ов (например, test_marker=api для
-  # матрицы), pytest выходит с кодом 5 — это не ошибка, job считается успешным.
+  # Пустой отбор (код выхода pytest 5) — ошибка, а не успех: если выражение разбиения
+  # сломается (опечатка, переименованный маркер), job отберёт 0 тестов и иначе стал бы
+  # зелёным, ничего не проверив. Единственное исключение — ручной запуск с test_marker:
+  # маркер вправе не оставить тестов одному из job'ов (например, test_marker=api для матрицы).
 
   # ==========================================
   # JOB 1: API И PLAYWRIGHT — ОДИН РАЗ, БЕЗ SELENIUM GRID
@@ -135,12 +137,17 @@ jobs:
       - name: Запускаем API- и Playwright-тесты в Docker (без Grid)
         env:
           PYTEST_ADDOPTS: ${{ inputs.test_marker && format('-m "({0}) and (api or playwright)"', inputs.test_marker) || '-m "api or playwright"' }}
+          # Пустой отбор допустим только при ручном запуске с маркером (см. разбиение выше)
+          ALLOW_EMPTY: ${{ github.event_name == 'workflow_dispatch' && inputs.test_marker != '' }}
         # run --no-deps: стартует только контейнер с тестами, хаб и узлы Grid не нужны.
         # -T: без псевдотерминала (в CI его нет). Код выхода — код pytest
         run: |
           code=0
           docker compose run --rm --no-deps --build -T qa-framework || code=$?
-          if [ "$code" -eq 5 ]; then echo "Маркер не отобрал API- и Playwright-тестов — пропускаю"; exit 0; fi
+          if [ "$code" -eq 5 ]; then
+            if [ "$ALLOW_EMPTY" = "true" ]; then echo "Маркер не отобрал API- и Playwright-тестов — пропускаю"; exit 0; fi
+            echo "::error::Job не отобрал ни одного теста — проверь выражение -m ($PYTEST_ADDOPTS)"
+          fi
           exit "$code"
 
       - name: Возвращаем себе права на результаты
@@ -183,6 +190,7 @@ jobs:
           # Маркер передаётся как данные, а не вклеивается в текст shell-команды.
           # API и Playwright сюда не входят: они в job api-tests (см. разбиение выше)
           PYTEST_ADDOPTS: ${{ inputs.test_marker && format('-m "({0}) and not api and not playwright"', inputs.test_marker) || '-m "not api and not playwright"' }}
+          ALLOW_EMPTY: ${{ github.event_name == 'workflow_dispatch' && inputs.test_marker != '' }}
         # Здесь больше НЕТ continue-on-error: упавшие тесты делают job и весь прогон красным.
         # Отчёт при этом всё равно соберётся: следующие шаги помечены if: always().
         # Именно up, а не run: run стартует только depends_on сервиса (хаб), а узлы
@@ -191,7 +199,10 @@ jobs:
         run: |
           code=0
           docker compose up --build --exit-code-from qa-framework || code=$?
-          if [ "$code" -eq 5 ]; then echo "Маркер не отобрал UI-тестов — пропускаю"; exit 0; fi
+          if [ "$code" -eq 5 ]; then
+            if [ "$ALLOW_EMPTY" = "true" ]; then echo "Маркер не отобрал UI-тестов — пропускаю"; exit 0; fi
+            echo "::error::Job не отобрал ни одного теста — проверь выражение -m ($PYTEST_ADDOPTS)"
+          fi
           exit "$code"
 
       - name: Возвращаем себе права на результаты

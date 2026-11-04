@@ -180,7 +180,9 @@ and on every pull request:
 The two expressions complement each other, so every test runs in exactly one job: 88 tests once
 plus 42 UI tests × 3 browsers = 214 test runs per pipeline (previously 130 × 3 = 390).
 A manual run (`workflow_dispatch`) accepts a `test_marker`; it is combined with each job's expression
-as `(marker) and (expression)`. A job left with no tests by the marker succeeds without running anything.
+as `(marker) and (expression)`. A job left with no tests by the marker succeeds without running anything;
+in every other run (push, pull request, manual run without a marker) an empty selection fails the job,
+so a broken split expression cannot turn the pipeline green without testing anything.
 
 Failed tests fail the pipeline; the report is generated anyway.
 
