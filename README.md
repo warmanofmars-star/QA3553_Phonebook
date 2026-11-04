@@ -4,7 +4,7 @@
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
-**129 tests** (85 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
+**130 tests** (86 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
 (Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 
 This is a learning project built during a QA automation course. It was later refactored
