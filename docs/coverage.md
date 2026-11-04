@@ -15,7 +15,7 @@
 | Тест-кейсы STD | 34 | 33 | 33 (100%) | 12 | 0 | 1 |
 | Проверки API из статьи | 20 | 19 | 19 (100%) | 8 | 0 | 1 |
 
-Покрыто — на пункт есть хотя бы один автотест (✅ и 🐞). Всего автотестов: 129.
+Покрыто — на пункт есть хотя бы один автотест (✅ и 🐞). Всего автотестов: 130.
 
 - **Известные баги:** 15 в реестре `data/known_bugs.py`, на тестах из матрицы — 15; затрагивают пункты SRS — 9: `DUPLICATE_CONTACT`, `EMAIL_ERROR_WORDING`, `EMAIL_NON_LATIN_ALLOWED`, `EMAIL_NOT_REQUIRED`, `NO_ERROR_ON_EMPTY_FIELD`, `PASSWORD_NON_LATIN_ALLOWED`, `PASSWORD_NO_MAX_LENGTH`, `PHONE_NOT_REQUIRED`, `USER_EXISTS_WORDING`.
 - **Не покрыты пункты SRS (30):** T1, T2, T7, T8, T47, T48, T54, T56–T59, T61–T64, T66–T69, T71, T73–T76, T78, T81, T82, T84–T86.
@@ -66,7 +66,7 @@
 | T29 | До @ есть хотя бы один символ | `test_api_contact_field_validation` [email-min-a@b, email-nothing-before-at] | ✅ покрыто |
 | T30 | После @ есть хотя бы один символ | `test_api_contact_field_validation` [email-min-a@b, email-nothing-after-at] | ✅ покрыто |
 | T31 | Буквы в email контакта — только латиница | `test_api_contact_field_validation` [email-cyrillic] | 🐞 покрыто, известный баг `EMAIL_NON_LATIN_ALLOWED` |
-| T32 | Email не совпадает с email ранее созданного контакта | `test_api_add_contact_duplicate` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
+| T32 | Email не совпадает с email ранее созданного контакта | `test_api_add_contact_duplicate` [email] | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
 | T33 | Адрес обязателен | `test_api_contact_field_validation` [address-null] | ✅ покрыто |
 | T34 | Адрес не может быть пустым | `test_api_contact_field_validation` [address-spaces] | ✅ покрыто |
 | T35 | В адресе допускаются цифры | `test_api_contact_field_validation` [address-digits] | ✅ покрыто |
@@ -79,7 +79,7 @@
 | T42 | Телефон — не длиннее 15 цифр | `test_api_contact_field_validation` [phone-len-15, phone-len-16] | ✅ покрыто |
 | T43 | Спецсимволы в телефоне запрещены | `test_api_contact_field_validation` [phone-plus, phone-dash] | ✅ покрыто |
 | T44 | Буквы в телефоне запрещены | `test_api_contact_field_validation` [phone-letters] | ✅ покрыто |
-| T45 | Телефон не совпадает с телефоном ранее созданного контакта | `test_api_add_contact_duplicate`<br>`test_add_contact_duplicate_phone` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
+| T45 | Телефон не совпадает с телефоном ранее созданного контакта | `test_api_add_contact_duplicate` [phone]<br>`test_add_contact_duplicate_phone` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
 | T46 | Описание необязательно | `test_add_contact_success_required_fields_only` | ✅ покрыто |
 | T47 | В описании допускаются цифры | — | ⬜ не покрыто |
 | T48 | В описании допускаются спецсимволы и цифры | — | ⬜ не покрыто |
@@ -181,8 +181,8 @@
 | TC-0015 | Контакт с невалидным email не добавляется | `test_add_contact_negative` [TC-0015-empty-email, TC-0015-invalid-email] | 🐞 покрыто, известный баг `EMAIL_ERROR_WORDING`, `EMAIL_NOT_REQUIRED` |
 | TC-0016 | Контакт с невалидным телефоном не добавляется | `test_add_contact_negative` [TC-0016-empty-phone, TC-0016-letters-in-phone, TC-0016-short-phone] | ✅ покрыто |
 | TC-0017 | Контакт с невалидным адресом не добавляется | `test_add_contact_negative` [TC-0017-empty-address] | 🐞 покрыто, известный баг `NO_ERROR_ON_EMPTY_FIELD` |
-| TC-0018 | Контакт с повторяющимся email не добавляется | `test_api_add_contact_duplicate` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
-| TC-0019 | Контакт с повторяющимся телефоном не добавляется | `test_api_add_contact_duplicate`<br>`test_add_contact_duplicate_phone` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
+| TC-0018 | Контакт с повторяющимся email не добавляется | `test_api_add_contact_duplicate` [email] | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
+| TC-0019 | Контакт с повторяющимся телефоном не добавляется | `test_api_add_contact_duplicate` [phone]<br>`test_add_contact_duplicate_phone` | 🐞 покрыто, известный баг `DUPLICATE_CONTACT` |
 | TC-0021 | Изменение только имени на валидное | `test_edit_contact_single_field` [name] | ✅ покрыто |
 | TC-0022 | Изменение только фамилии на валидную | `test_edit_contact_single_field` [last_name] | ✅ покрыто |
 | TC-0023 | Изменение только email на валидный | `test_edit_contact_single_field` [email] | ✅ покрыто |
