@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Wiggins",
+  "phone": "0520951609",
+  "email": "user_dd739997ab@example.com",
+  "address": "8369 Moore Green, Lake Stacey, NJ 06601",
+  "description": "Spend detail fish professional line someone how."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 61973be8-b6cc-458a-bf3e-f5b8ed338a01"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6d5eb159-d70b-4558-8887-43e8c22ca927",
+      "name": "Michael",
+      "lastName": "Moore",
+      "email": "a@b",
+      "phone": "0510046715",
+      "address": "USNV Taylor, FPO AE 52214",
+      "description": "Enough certainly evening south oil guess."
+    }
+  ]
+}

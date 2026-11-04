@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tammy",
+  "lastName": "Melendez",
+  "phone": "05012abcde",
+  "email": "user_bfb39e2ab9@example.com",
+  "address": "07230 David Pike, Gardnerville, UT 78141",
+  "description": "System community market."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:18",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

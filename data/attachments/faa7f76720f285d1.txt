@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Johnson",
+  "phone": "0521314563",
+  "email": "user_e64061f576@example.com",
+  "address": "962 Myers Inlet, Andreaborough, VI 00748",
+  "description": "Pattern organization statement."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e1508182-bc07-4472-96c8-a5185f3dd3f1",
+      "name": "Luis",
+      "lastName": "Ferrell",
+      "email": "user_5394b2f9d1@example.com",
+      "phone": "0580868410",
+      "address": "PSC 4193, Box 7323, APO AA 40593",
+      "description": "Certainly position newspaper up spend north society should."
+    },
+    {
+      "id": "5721467b-6850-4fcd-9b88-328f2c2f97ab",
+      "name": "Mary",
+      "lastName": "Lee",
+      "email": "user_93d66993d1@example.com",
+      "phone": "0511534171",
+      "address": "PSC 9086, Box 6939, APO AA 56267",
+      "description": "Law task reflect girl those."
+    }
+  ]
+}

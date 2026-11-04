@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "William",
+  "lastName": "Gaines",
+  "phone": "0511051878",
+  "email": "user_8cf69b0008@example.com",
+  "address": "Unit 8304 Box 5137, DPO AE 06190",
+  "description": "Eat community home pattern kitchen expert method."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1ef38ed5-391c-4d88-89dc-05f2637bf96c"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a0d56058-82f2-4079-b880-39706347a486",
+      "name": "Debra",
+      "lastName": "Vargas",
+      "email": "user_399ad22481@example.com",
+      "phone": "0575782620",
+      "address": "28694 Michael Gateway Suite 036, Angelaborough, MI 62403",
+      "description": ""
+    }
+  ]
+}

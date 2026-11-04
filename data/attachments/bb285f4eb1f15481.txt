@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Lowe",
+  "phone": "0567331411",
+  "email": "user_234fb0168e@example.com",
+  "address": "39286 Nicole Way, Thomasstad, OK 10356",
+  "description": "Think tax media teach rate modern daughter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ecd36bad-7c90-406e-a5cc-9dba5d6c9d1a"
+}

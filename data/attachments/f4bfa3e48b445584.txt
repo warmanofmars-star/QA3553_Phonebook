@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "63aca3e5-d49c-4a06-8266-94ea34f87a34",
+      "name": "Anna",
+      "lastName": "Nelson",
+      "email": "user_b6be592abd@example.com",
+      "phone": "0513679228",
+      "address": "Unit 2449 Box 6010, DPO AE 74250",
+      "description": "Stock later fast sound get own."
+    }
+  ]
+}

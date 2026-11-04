@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "56fc223b-b4cb-4447-a3cb-364cda6a1b80",
+      "name": "Carol",
+      "lastName": "Smith",
+      "email": "user_849dafe39d@example.com",
+      "phone": "0524394323",
+      "address": "516 Thomas Mall, Kathryntown, RI 40620",
+      "description": "Agreement care cultural police control main."
+    }
+  ]
+}

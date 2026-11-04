@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Logan",
+  "lastName": "Hurley",
+  "phone": "0530440600",
+  "email": "user_07cc2a838a@example.com",
+  "address": "PSC 0290, Box 1831, APO AP 66830",
+  "description": "Green become PM and over five value."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f5b396b3-ac21-4891-b6ee-3cdbdf4a91ef"
+}

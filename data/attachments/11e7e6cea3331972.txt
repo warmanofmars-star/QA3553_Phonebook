@@ -1,0 +1,11 @@
+21:25:48 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (203 ms)
+21:25:48 [INFO   ] API: Токен добавлен в заголовки сессии
+21:25:48 [INFO   ] API: POST /v1/contacts -> 200 (46 ms)
+21:25:48 [INFO   ] API: GET /v1/contacts -> 200 (44 ms)
+21:25:48 [INFO   ] PW: Переход по ссылке: https://telranedu.web.app/login
+21:25:49 [INFO   ] PW: Ввод данных в поле формы...
+21:25:49 [INFO   ] PW: Ввод данных в поле формы...
+21:25:49 [INFO   ] PW: Клик по элементу: 'Login'
+21:25:49 [INFO   ] STEP: Дождаться перехода на страницу контактов
+21:25:49 [INFO   ] STEP: Открыть карточку контакта 0528221182
+21:25:49 [INFO   ] STEP: Изменить имя контакта на 'ChangedWhitney' и нажать Save

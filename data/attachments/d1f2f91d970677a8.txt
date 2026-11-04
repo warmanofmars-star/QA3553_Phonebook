@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a991777a-ab37-412c-abd9-fa49a023ef5c",
+      "name": "Melinda",
+      "lastName": "Chen",
+      "email": "user_a530d2d9fa@example.com",
+      "phone": "0523602592",
+      "address": "067 Allen Park, Brendachester, OH 12396",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5c59f2cd-4da5-4ebe-b0da-a44fccc17def",
+      "name": "William",
+      "lastName": "Mccarty",
+      "email": "user_d5608e458e@example.com",
+      "phone": "0549668891",
+      "address": "0644 Katherine Lodge Suite 052, Markside, PW 09728",
+      "description": "Win treat chair enjoy movement piece budget."
+    }
+  ]
+}

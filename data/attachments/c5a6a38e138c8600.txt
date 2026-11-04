@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9e8a5cc5-a9cb-4ad7-97a1-3718e3fc8d3d",
+      "name": "Tanner",
+      "lastName": "Johnson",
+      "email": "user_57a4370514@example.com",
+      "phone": "0518408391",
+      "address": "0866 Nicholas Summit, West Michael, IN 83233",
+      "description": "Old perform thought before."
+    }
+  ]
+}

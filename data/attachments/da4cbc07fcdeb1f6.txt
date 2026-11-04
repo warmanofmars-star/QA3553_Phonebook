@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e1e5eb82-4fb1-4a2d-a73c-08b052eedf77",
+      "name": "Nathan",
+      "lastName": "Farmer",
+      "email": "user_b57e7586ba@example.com",
+      "phone": "0514486943",
+      "address": "665 Lee Mission Suite 253, South Phillipville, RI 60161",
+      "description": "Play whom official friend relate."
+    }
+  ]
+}

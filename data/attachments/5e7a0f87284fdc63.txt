@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Gonzalez",
+  "phone": "0533603322",
+  "email": "user_0f408e1036@example.com",
+  "address": "35698 Jennifer Inlet Suite 972, Liuville, MP 96533",
+  "description": "Question without week close amount born."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 50dca300-21f3-4052-aa3e-5809a46c2e9b"
+}

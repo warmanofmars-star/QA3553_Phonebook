@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lauren",
+  "lastName": "Cunningham",
+  "phone": "0568946524",
+  "email": "user_4697d3f820@example.com",
+  "address": "731 Jesse Stream Suite 148, West Ginaview, FL 39284",
+  "description": "Treat special laugh task same others knowledge."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1d2d43dc-7924-4763-a5a0-10773cceed56"
+}

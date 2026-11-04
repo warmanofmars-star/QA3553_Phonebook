@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9a29c06b-b6aa-4806-91e3-309b3e517e8f",
+      "name": "Judith",
+      "lastName": "Williams",
+      "email": "user_e89fa66656@example.com",
+      "phone": "0523513648",
+      "address": "59452 Hurst Lakes Suite 197, New John, WI 55352",
+      "description": "Entire affect certain note opportunity between member."
+    }
+  ]
+}

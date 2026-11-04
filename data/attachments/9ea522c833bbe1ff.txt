@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bbc515d1-2fe4-4bff-a80c-e06362be9d48",
+      "name": "John",
+      "lastName": "Maxwell",
+      "email": "пользователь@example.com",
+      "phone": "0521106517",
+      "address": "06853 Ward Spur, Thomaschester, CO 97001",
+      "description": "Special avoid opportunity culture present meeting recognize."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Karen",
+  "lastName": "Peterson",
+  "phone": "0510093317",
+  "email": "user_519a8e6ecf@example.com",
+  "address": "889 William Neck, Smithfurt, MS 31298",
+  "description": "Owner head group life end short for item."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 89eac85e-727c-4822-9483-0a58dadae2b2"
+}

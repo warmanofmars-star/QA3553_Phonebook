@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Manning",
+  "phone": "0522198149",
+  "email": "user_fe3988179c@example.com",
+  "address": "249 Bishop Underpass Apt. 456, Watkinschester, GA 86086",
+  "description": "Collection sport relationship."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8b3bae59-6f42-4062-aa70-cae70ddc1c8e"
+}

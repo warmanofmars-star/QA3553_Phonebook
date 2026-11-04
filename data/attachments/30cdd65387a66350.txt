@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ef39901b-72d8-4674-930a-5f49da258a81",
+      "name": "Paul",
+      "lastName": "Lee",
+      "email": "user_dddcec2b1c@example.com",
+      "phone": "0526807043",
+      "address": "Unit 9237 Box 6127, DPO AP 14204",
+      "description": "Discover couple level pattern son laugh energy."
+    }
+  ]
+}

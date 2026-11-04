@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Danielle",
+  "lastName": "Anderson",
+  "phone": "0571134484",
+  "email": "user_9b675b04fe@example.com",
+  "address": "321 Michael Freeway, Atkinsonshire, IN 07569",
+  "description": "Finally environment probably nation process marriage serious."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ae74946c-eff6-4f64-86cd-3ac1ca99a2b9"
+}

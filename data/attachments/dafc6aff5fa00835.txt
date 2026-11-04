@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Benjamin",
+  "lastName": "Ellis",
+  "phone": "0530324578",
+  "email": "user_62b1795882@example.com",
+  "address": "8466 Newman Stream Suite 631, Moniquechester, AS 89317",
+  "description": "Loss compare your production only figure job."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9e2a1923-d2af-42be-9091-242709ad650e"
+}

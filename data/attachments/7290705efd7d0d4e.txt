@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Blake",
+  "lastName": "Davis",
+  "email": "user_16ec9e051f@example.com",
+  "address": "93284 Robert Land, South Franciscoport, KS 35453",
+  "description": "Deal single environmental art physical stage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: faf55997-2ca2-44c8-8019-ed8fa2408201"
+}

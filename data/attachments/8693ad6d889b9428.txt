@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73a0aee5-0b69-4a2f-a58a-8ff534c54a99",
+      "name": "Michelle",
+      "lastName": "Contreras",
+      "email": "user_493d2bf208@example.com",
+      "phone": "0527290501",
+      "address": "USNS Freeman, FPO AA 00964",
+      "description": "Rock we necessary second."
+    }
+  ]
+}

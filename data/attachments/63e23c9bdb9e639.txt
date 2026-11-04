@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jordan",
+  "lastName": "Leonard",
+  "phone": "0569269691",
+  "email": "user_d20b033dcd@example.com",
+  "address": "5751 Eric Spring, Jenniferland, MI 60744",
+  "description": "Thing letter economy say they prevent movement past."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2b3cd4f9-6b4e-47e6-9e50-fbedb480a700"
+}

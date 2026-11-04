@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "83e7c81e-f7c9-4529-88e4-ab7bc0af30db",
+      "name": "Omar",
+      "lastName": "Roberts",
+      "email": "user_ff2f77d454@example.com",
+      "phone": "0513513457",
+      "address": "574 Flynn Prairie Suite 812, Sanchezmouth, NC 83505",
+      "description": "Few quickly bed station more."
+    },
+    {
+      "id": "6ccf3db0-f43e-4b86-95cd-9cc6775e2aca",
+      "name": "Christian",
+      "lastName": "Coleman",
+      "email": "user_6690173493@example.com",
+      "phone": "0513513457",
+      "address": "8419 Webb Branch, Richardstown, ND 68505",
+      "description": "Act crime western because ready."
+    }
+  ]
+}

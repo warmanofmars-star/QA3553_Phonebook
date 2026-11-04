@@ -1,0 +1,18 @@
+21:25:56 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (204 ms)
+21:25:56 [INFO   ] API: Токен добавлен в заголовки сессии
+21:25:56 [INFO   ] PW: Переход по ссылке: https://telranedu.web.app/login
+21:25:56 [INFO   ] PW: Ввод данных в поле формы...
+21:25:56 [INFO   ] PW: Ввод данных в поле формы...
+21:25:56 [INFO   ] PW: Клик по элементу: 'Login'
+21:25:56 [INFO   ] STEP: Дождаться перехода на страницу контактов
+21:25:56 [INFO   ] STEP: Открыть форму добавления через меню ADD
+21:25:56 [INFO   ] STEP: Заполнить форму добавления контакта 0521347865
+21:25:56 [ERROR  ] asyncio: Task was destroyed but it is pending!
+task: <Task pending name='Task-219' coro=<Page._on_route() running at /usr/local/lib/python3.14/site-packages/playwright/_impl/_page.py:310> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[Connection.dispatch.<locals>._done_callback() at /usr/local/lib/python3.14/site-packages/playwright/_impl/_connection.py:542]>
+21:25:56 [ERROR  ] asyncio: Task was destroyed but it is pending!
+task: <Task pending name='Task-217' coro=<Page._on_route() running at /usr/local/lib/python3.14/site-packages/playwright/_impl/_page.py:310> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[Connection.dispatch.<locals>._done_callback() at /usr/local/lib/python3.14/site-packages/playwright/_impl/_connection.py:542]>
+21:25:57 [INFO   ] STEP: Дважды кликнуть по Save
+21:25:58 [INFO   ] API: GET /v1/contacts -> 200 (44 ms)
+21:25:58 [INFO   ] API: GET /v1/contacts -> 200 (43 ms)
+21:25:58 [INFO   ] API: GET /v1/contacts -> 200 (43 ms)
+21:25:58 [INFO   ] API: GET /v1/contacts -> 200 (43 ms)

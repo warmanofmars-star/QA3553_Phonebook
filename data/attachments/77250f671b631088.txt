@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "30f1f069-b622-4674-b1f9-71bbcc90c8f1",
+      "name": "Annette",
+      "lastName": "Rivera",
+      "email": "user_616337451c@example.com",
+      "phone": "0524296350",
+      "address": "043 Bridget Flats, New Krystalview, MP 13419",
+      "description": "Program training radio senior."
+    }
+  ]
+}

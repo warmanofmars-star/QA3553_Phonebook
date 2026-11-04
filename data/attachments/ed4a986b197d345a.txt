@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Martin",
+  "lastName": "Glover",
+  "phone": "0515603929",
+  "email": "user_af4bb8f3cc@example.com",
+  "address": "7264 Morse Loop, Lake Ebonyberg, SD 99740",
+  "description": "White staff despite us participant organization loss."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b12723b0-3a42-43e5-8e72-ad4cc409e920"
+}

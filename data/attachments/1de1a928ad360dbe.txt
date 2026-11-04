@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Theresa",
+  "lastName": "Hawkins",
+  "phone": "   ",
+  "email": "user_52af7233cf@example.com",
+  "address": "14973 Eric Court Apt. 925, Dustinchester, MD 57590",
+  "description": "Store room most as."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

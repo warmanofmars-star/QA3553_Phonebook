@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Robinson",
+  "phone": "0519478807",
+  "email": "user_f35e2c2b85@example.com",
+  "address": "75913 James Camp, Steventon, ID 63786",
+  "description": "Account shoulder from still education."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5b206f5e-87c4-4533-aec2-b5fe95409170"
+}

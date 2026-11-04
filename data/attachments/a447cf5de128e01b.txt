@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "50dca300-21f3-4052-aa3e-5809a46c2e9b",
+      "name": "Kyle",
+      "lastName": "Gonzalez",
+      "email": "user_0f408e1036@example.com",
+      "phone": "0533603322",
+      "address": "35698 Jennifer Inlet Suite 972, Liuville, MP 96533",
+      "description": "Question without week close amount born."
+    }
+  ]
+}

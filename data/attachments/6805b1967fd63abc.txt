@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (17 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steve",
+  "lastName": "Kelly",
+  "phone": "0511488694",
+  "email": "not_an_email",
+  "address": "190 Janet Courts, Baileyville, FL 82920",
+  "description": "Around next whether drug behind several Mr.",
+  "id": "aa41525d-f29c-437e-b702-681e0f12ccba"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:25",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

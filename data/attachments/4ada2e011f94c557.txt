@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lucas",
+  "lastName": "Duffy",
+  "phone": "0533144250",
+  "email": "user_9cf248ef8d@example.com",
+  "address": "987 Vega Orchard Apt. 424, East Donald, ID 65434",
+  "description": "Clear think prevent Congress human recently kind."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3c49121b-8466-4864-9592-1a5ec9aefc36"
+}

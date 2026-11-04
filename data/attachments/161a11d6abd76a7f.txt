@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "44f507b6-9917-4d26-a4c9-4ad405a0c9b4",
+      "name": "Ashley",
+      "lastName": "Manning",
+      "email": "user_ac5fad3f0d@example.com",
+      "phone": "0515164941",
+      "address": "945 Todd Port Suite 060, Jonathanchester, NJ 95745",
+      "description": "Choice poor adult offer political."
+    }
+  ]
+}

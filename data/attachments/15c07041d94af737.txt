@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Curtis",
+  "lastName": "Durham",
+  "phone": "0522395566",
+  "email": "user_8969944b2f@example.com",
+  "address": "74461 Harrison Bypass Apt. 886, Lake Meredithville, WY 96656",
+  "description": "Education especially coach phone next."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 66152487-1035-4f8c-b69a-dbb5ff0c4d77"
+}

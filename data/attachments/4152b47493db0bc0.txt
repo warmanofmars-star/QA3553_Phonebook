@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Stevens",
+  "phone": "0592446423",
+  "email": "user_3a9ecc6397@example.com",
+  "address": "5264 Kimberly Valley, New Sheilaport, MT 77088",
+  "description": "Most the morning story."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 50fb1bb6-860e-42a5-8437-6f7c13ad4467"
+}

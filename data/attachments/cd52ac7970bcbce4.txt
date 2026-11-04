@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (8 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Nguyen",
+  "phone": "0523874100",
+  "email": "user_6854b67c67@example.com",
+  "address": "670 Dustin Haven, North John, ID 36517",
+  "description": "Race girl never eight strategy evening key politics."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

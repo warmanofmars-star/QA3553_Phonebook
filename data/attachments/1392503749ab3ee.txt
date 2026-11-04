@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Thomas",
+  "phone": "0522615923",
+  "email": "user_ea05b20c9c@example.com",
+  "address": "6086 Wendy Station Suite 899, New Jeffreystad, FM 98975",
+  "description": "Doctor small argue population."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 882923d0-831e-46f7-b97e-8e7190401bac"
+}

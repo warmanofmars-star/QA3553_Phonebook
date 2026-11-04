@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/user/registration/usernamepassword
+Статус: 400 (40 ms)
+
+--- Тело запроса ---
+{
+  "password": "********"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:33",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "username": "must not be blank"
+  },
+  "path": "/v1/user/registration/usernamepassword"
+}

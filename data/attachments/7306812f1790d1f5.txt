@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fdc41525-ac04-498f-820c-65a06498b2a2",
+      "name": "Alejandro",
+      "lastName": "Keller",
+      "email": "user_f2689ed169@example.com",
+      "phone": "0516587288",
+      "address": "63638 Clark Street Suite 011, Port Christopher, OK 91551",
+      "description": "Prevent receive station room start lawyer wind close."
+    }
+  ]
+}

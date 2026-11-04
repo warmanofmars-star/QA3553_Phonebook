@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Eric",
+  "lastName": "Fisher",
+  "phone": "0520091371",
+  "email": "user_3b1df33a36@example.com",
+  "address": "12345",
+  "description": "Growth dog specific away."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f7e54b14-9ad5-4443-96e8-24bf63706244"
+}

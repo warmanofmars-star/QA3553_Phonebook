@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Fletcher",
+  "phone": "0523482693",
+  "email": "user_96702d7739@example.com",
+  "address": "Unit 0788 Box 3464, DPO AE 56262",
+  "description": "Without new strategy get shake trip exactly role."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 62287261-16a6-4111-a473-35deca6f99ac"
+}

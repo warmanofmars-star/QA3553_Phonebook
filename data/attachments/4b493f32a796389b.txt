@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9ada7a09-2a46-40d0-b880-e8a57c062a45",
+      "name": "Tracy",
+      "lastName": "Wilson",
+      "email": "user_58598e015f@example.com",
+      "phone": "0529764912",
+      "address": "6194 Fitzgerald Harbor Suite 691, Thomasmouth, OK 63654",
+      "description": "Add decision something various."
+    }
+  ]
+}

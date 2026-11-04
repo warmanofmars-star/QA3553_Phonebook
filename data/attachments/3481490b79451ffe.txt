@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Hughes",
+  "phone": "0510057642",
+  "email": "user_a274a28aa9@example.com",
+  "address": "702 David Well Suite 702, Lake Julie, WV 70941",
+  "description": "Phone main participant attention even."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7b9b8f80-c968-40cb-96cd-773ea222194a"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Luis",
+  "lastName": "Ferrell",
+  "phone": "0580868410",
+  "email": "user_5394b2f9d1@example.com",
+  "address": "PSC 4193, Box 7323, APO AA 40593",
+  "description": "Certainly position newspaper up spend north society should."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e1508182-bc07-4472-96c8-a5185f3dd3f1"
+}

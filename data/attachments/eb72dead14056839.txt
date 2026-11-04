@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0fdbedb9-bb93-4f74-a2a1-cbef53729d6d",
+      "name": "Robert",
+      "lastName": "Meyers",
+      "email": "user_188b5c1acc@example.com",
+      "phone": "0530430086",
+      "address": "34427 Anderson Rapids, West George, UT 35058",
+      "description": "Those goal subject though movie notice together."
+    }
+  ]
+}

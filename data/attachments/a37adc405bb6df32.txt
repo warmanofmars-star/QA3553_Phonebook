@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Angela",
+  "lastName": "Wilson",
+  "phone": "0512542876",
+  "email": "user_509efc4f85@example.com",
+  "address": "7328 Price Village, North Kathrynshire, KS 75694",
+  "description": "But similar most education conference nature say."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1fb727fb-104e-489f-8290-76ddc1cdb10d"
+}

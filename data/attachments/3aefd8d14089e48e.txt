@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Lyons",
+  "phone": "0525617899",
+  "email": "user_8aed6b01f1@example.com",
+  "address": "5916 Mills Tunnel, Gregorystad, MI 43332",
+  "description": "Wife growth experience carry soon land."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ece71deb-95c5-4e67-ae8c-5e48571e5cc9"
+}

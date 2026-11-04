@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Debra",
+  "lastName": "Martin",
+  "phone": "0521428620",
+  "email": "user_798169fc1c@example.com",
+  "address": "9438 Ryan Squares, Alishaside, VI 85093",
+  "description": "Television again company weight throw civil responsibility allow."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8bc6a874-3269-4ff6-a2b3-290f45926218"
+}

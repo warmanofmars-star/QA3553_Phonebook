@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f14eb3a9-31b9-49b0-b65a-89522708c22c",
+      "name": "Aaron",
+      "lastName": "Hill",
+      "email": "user_2ee8fa5f09@example.com",
+      "phone": "0520718276",
+      "address": "02478 Cody Field Apt. 174, New Brandon, DE 04161",
+      "description": "!@#$%^&*()_+-=12345"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7925127c-3ac5-463b-961f-158e47072971",
+      "name": "Linda",
+      "lastName": "Faulkner",
+      "email": "user_f18d49bed2@example.com",
+      "phone": "0516849592",
+      "address": "593 Green Island Suite 626, Port Paulburgh, PR 42564",
+      "description": "If hotel see including economy loss adult."
+    }
+  ]
+}

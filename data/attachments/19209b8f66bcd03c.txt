@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": "   ",
+  "lastName": "Smith",
+  "phone": "0530889938",
+  "email": "user_82949bebf9@example.com",
+  "address": "22965 Peterson Square, East Josephland, PA 69733",
+  "description": "Option while language short part total."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:19",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

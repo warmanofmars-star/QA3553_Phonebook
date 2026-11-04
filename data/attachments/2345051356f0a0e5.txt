@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Wells",
+  "phone": "0574912957",
+  "email": "user_d7c82029d3@example.com",
+  "address": "69184 Banks Junction, Cherryport, OK 23837",
+  "description": "Phone ok pass."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c0bb443d-280b-46b5-88c7-14a6c14f3899"
+}

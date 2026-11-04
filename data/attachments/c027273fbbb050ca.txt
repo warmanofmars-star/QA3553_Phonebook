@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Denise",
+  "lastName": "Singleton",
+  "phone": "0579255132",
+  "email": "user_a119d367ca@example.com",
+  "address": "1462 Smith Manor, South Elizabeth, NC 60314",
+  "description": "Marriage part share strong buy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f72c085e-ddf9-418e-9933-08d2ae2a48bb"
+}

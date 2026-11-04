@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amy",
+  "lastName": "Webster",
+  "phone": "0515953411",
+  "email": "user_e78850209a@example.com",
+  "address": "1502 Andrew Prairie Suite 844, Adrianside, AS 82255",
+  "description": "Other down Mrs not theory leave spring."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f03f8466-b2d3-4198-8e3d-b9df68b1fa9e"
+}

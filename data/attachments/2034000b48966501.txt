@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deanna",
+  "lastName": "Jackson",
+  "phone": "0532436457",
+  "email": "user_1191ad10be@example.com",
+  "address": "557 Kyle Ridges, Martinezmouth, VA 76073",
+  "description": "Smile common yet measure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 37cca5cb-2524-4f2c-ad3d-b69b80ef07f2"
+}

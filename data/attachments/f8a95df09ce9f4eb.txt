@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Stein",
+  "phone": "0518358718",
+  "email": "user_86ff560f38@example.com",
+  "address": "8170 Rice Lakes Suite 164, Port James, AS 73538",
+  "description": "Green wrong as pass score top."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5803ff10-2510-4971-99dd-87d2baabdc77"
+}

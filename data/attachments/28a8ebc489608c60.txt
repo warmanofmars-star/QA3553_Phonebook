@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Logan",
+  "lastName": "Scott",
+  "phone": "0565663748",
+  "email": "user_4602c5d5b1@example.com",
+  "address": "1274 Kim Rapids, Gilmoreshire, OK 87548",
+  "description": "Mr similar actually real."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 91243de1-4508-400b-9a87-f06c941f8465"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "132dfe9f-5ded-408a-98b9-6189d959c1a2",
+      "name": "Renee",
+      "lastName": "Winters",
+      "email": "user_9e1953e0b1@example.com",
+      "phone": "0524837133",
+      "address": "847 Gina Drives, North William, ME 45824",
+      "description": "12345"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "89c7c257-86d4-4111-b8e9-f36ab9bb7376",
+      "name": "Becky",
+      "lastName": "Gonzales",
+      "email": "user_1b8360ec54@example.com",
+      "phone": "0512611917",
+      "address": "USNV Thomas, FPO AA 06282",
+      "description": "Energy he energy fact budget."
+    }
+  ]
+}

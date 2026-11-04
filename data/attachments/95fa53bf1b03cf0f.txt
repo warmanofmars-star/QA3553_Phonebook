@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (101 ms)
+
+--- Тело запроса ---
+{
+  "name": "Catherine",
+  "lastName": "Jimenez",
+  "phone": "0511362488",
+  "email": "user_3ec3f216b8@example.com",
+  "address": "15596 Moore River, Hugheschester, WA 21628",
+  "description": "Property look rock ground nor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f44f53c0-3f68-49bc-93d8-7b88b22b1987"
+}

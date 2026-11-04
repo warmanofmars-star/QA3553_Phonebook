@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melanie",
+  "lastName": "Barnes",
+  "phone": "0517929723",
+  "email": "user_54ce69ddb1@example.com",
+  "address": "606 Jacobs Villages, North Ashlee, NM 68918",
+  "description": "Bag difficult billion here."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3064370d-e2d7-48fd-86d4-9bd3f9cfb91c"
+}

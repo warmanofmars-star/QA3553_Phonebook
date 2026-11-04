@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+{
+  "name": "Courtney",
+  "lastName": "Petersen",
+  "phone": "0527937486",
+  "email": "user_4b1edad83a@example.com",
+  "address": "6743 Burns Springs, Harringtonville, AS 54204",
+  "description": "Authority type remember machine will few everything."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4c7fe0e4-5519-460f-b8da-310d4d073eef"
+}

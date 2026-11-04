@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bruce",
+  "lastName": "Miller",
+  "phone": "0530563280",
+  "email": "user_48a6b9d028@example.com",
+  "address": "355 Charles Grove Suite 901, Nicolehaven, PA 58036",
+  "description": "Position early opportunity base however simple."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 27e7b4fd-f4d0-472b-99b8-77a083dbc902"
+}

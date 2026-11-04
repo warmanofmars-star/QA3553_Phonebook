@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3e2dd6f7-cfd3-403e-85ed-aa114e87ab83",
+      "name": "Kimberly",
+      "lastName": "Davis",
+      "email": "user_809848c366@example.com",
+      "phone": "0515283818",
+      "address": "9658 Danielle Lodge Apt. 372, Normanfort, FM 35029",
+      "description": "Star its them hour character whole."
+    }
+  ]
+}

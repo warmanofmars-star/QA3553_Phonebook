@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alexandria",
+  "lastName": "Daniels",
+  "phone": "0518152260",
+  "email": "",
+  "address": "578 Zimmerman Ways Suite 528, East Robertborough, MH 85124",
+  "description": "Interview big despite manage write figure never almost.",
+  "id": "fd873fe9-f29d-4d32-aca8-9461db82b0f1"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

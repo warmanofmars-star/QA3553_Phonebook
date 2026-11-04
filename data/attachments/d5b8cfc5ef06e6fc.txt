@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Jackson",
+  "phone": "0524578760",
+  "email": "user_2a4bae455b@example.com",
+  "address": "1610 Anderson Track, West Jackchester, OK 45158",
+  "description": "Season standard memory road."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9897f7a7-72af-4604-bbf4-8c4fb9ebac9b"
+}

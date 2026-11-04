@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Douglas",
+  "lastName": "Levy",
+  "phone": "0529029248",
+  "email": "user_5a65b95d24@example.com",
+  "address": "531 Luis Highway, East Kevinside, CT 42342",
+  "description": "As situation watch remember think."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 056e2590-3098-4e4f-bd29-b3b162de2ea2"
+}

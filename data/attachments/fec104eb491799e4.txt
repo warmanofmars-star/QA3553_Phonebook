@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f5b396b3-ac21-4891-b6ee-3cdbdf4a91ef",
+      "name": "Logan",
+      "lastName": "Hurley",
+      "email": "user_07cc2a838a@example.com",
+      "phone": "0530440600",
+      "address": "PSC 0290, Box 1831, APO AP 66830",
+      "description": "Green become PM and over five value."
+    }
+  ]
+}

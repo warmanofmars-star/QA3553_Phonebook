@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julie",
+  "lastName": "Pham",
+  "phone": "0533493953",
+  "email": "a@b",
+  "address": "85194 Kyle Mountains Suite 488, East Loriville, GU 50003",
+  "description": "Mind everyone check."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c899aa09-66ec-4e51-960a-26c4c6b6ca62"
+}

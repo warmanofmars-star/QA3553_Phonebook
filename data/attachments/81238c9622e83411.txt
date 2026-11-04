@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tracy",
+  "lastName": "Wilson",
+  "phone": "0529764912",
+  "email": "user_58598e015f@example.com",
+  "address": "6194 Fitzgerald Harbor Suite 691, Thomasmouth, OK 63654",
+  "description": "Add decision something various."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9ada7a09-2a46-40d0-b880-e8a57c062a45"
+}

@@ -1,0 +1,17 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Smith",
+  "email": "user_fc2f97c82d@example.com",
+  "address": "67665 Christian Tunnel Suite 971, South Eric, UT 85134",
+  "description": "Accept itself drug.",
+  "id": "ddf611bb-5716-4472-90e9-cd0f7b87ceb0"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

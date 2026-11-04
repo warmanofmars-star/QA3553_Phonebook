@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+{
+  "name": "Virginia",
+  "lastName": "Schneider",
+  "phone": "0525677737",
+  "email": "user_7976b92abc@example.com",
+  "address": "1573 Hernandez Trace Suite 137, South Ashley, SD 28966",
+  "description": "Cultural onto child very say."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0bcecdd5-fb48-4ab3-9651-e7a51566343a"
+}

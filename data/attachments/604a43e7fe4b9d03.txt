@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fd873fe9-f29d-4d32-aca8-9461db82b0f1",
+      "name": "Alexandria",
+      "lastName": "Daniels",
+      "email": "user_4f2b8d66a4@example.com",
+      "phone": "0518152260",
+      "address": "578 Zimmerman Ways Suite 528, East Robertborough, MH 85124",
+      "description": "Interview big despite manage write figure never almost."
+    }
+  ]
+}

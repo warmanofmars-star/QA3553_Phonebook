@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Kelly",
+  "phone": "0531297508",
+  "email": "user_eea45207c3@example.com",
+  "address": "3055 Schwartz Rapid, Nicolemouth, MI 61814",
+  "description": "Will deal account assume read myself."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4bb6ec2e-fe97-40af-a16e-4d0c5deb7122"
+}

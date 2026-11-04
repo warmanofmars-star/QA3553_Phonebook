@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "da150c0f-8ccd-43ad-ac02-c71f66d9ada4",
+      "name": "Dennis",
+      "lastName": "Bell",
+      "email": "user_82b1f1197a@example.com",
+      "phone": "0585554662",
+      "address": "1328 Davila Turnpike Suite 143, Port Rachel, GU 67065",
+      "description": "Season various visit property."
+    }
+  ]
+}

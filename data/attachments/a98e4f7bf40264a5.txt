@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lee",
+  "lastName": "Carr",
+  "phone": "0517705096",
+  "email": "user_a119d367ca@example.com",
+  "address": "6019 Amber Isle, North Carl, WA 05360",
+  "description": "Likely quality think author difficult body century."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 92393c36-7430-4a60-9234-c2a7244cb200"
+}

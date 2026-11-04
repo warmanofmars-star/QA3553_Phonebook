@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "628310ec-d385-4c48-ad38-e7b650ecd5b7",
+      "name": "Cole",
+      "lastName": "Campbell",
+      "email": "user_982ad1040c@example.com",
+      "phone": "0524578760",
+      "address": "58437 Taylor Junction, Stephanieton, OR 06195",
+      "description": "Serious they create service room growth."
+    },
+    {
+      "id": "9897f7a7-72af-4604-bbf4-8c4fb9ebac9b",
+      "name": "Christopher",
+      "lastName": "Jackson",
+      "email": "user_2a4bae455b@example.com",
+      "phone": "0524578760",
+      "address": "1610 Anderson Track, West Jackchester, OK 45158",
+      "description": "Season standard memory road."
+    }
+  ]
+}

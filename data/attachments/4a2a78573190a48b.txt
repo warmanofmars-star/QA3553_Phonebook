@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lauren",
+  "lastName": "Allen",
+  "phone": "0511262257",
+  "email": "user_379a9fa895@example.com",
+  "address": "51681 Alicia Mountains, Markhaven, CT 54234",
+  "description": "Role country create center modern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5ecc7685-40c1-4d33-9e15-1be9622f7e90"
+}

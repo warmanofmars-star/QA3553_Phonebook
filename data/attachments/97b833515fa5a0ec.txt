@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Frank",
+  "phone": "0528186967",
+  "email": "user_cf92b0eb08@example.com",
+  "address": "06644 Gregory Street Suite 549, East Angelaport, ME 41384",
+  "description": "Personal share teach vote age half behind fast."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9df4103f-b9a6-4251-95f6-74d427fbcd70"
+}

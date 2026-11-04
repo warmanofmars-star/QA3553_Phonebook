@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chase",
+  "lastName": "Walker",
+  "phone": "0524897527",
+  "email": "user_1f0fbb5459@example.com",
+  "address": "4218 Jonathan Track, Port Alexandra, PW 33087",
+  "description": "Together spend effort expect sure appear far."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9c21e75b-3e5d-44e2-a306-cbd7ef2f6762"
+}

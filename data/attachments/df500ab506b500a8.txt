@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bfbc6d2a-5a1e-4e5e-b4bb-4a24eeffe83d",
+      "name": "Amanda",
+      "lastName": "Hernandez",
+      "email": "user_dfd8427186@example.com",
+      "phone": "0524208405",
+      "address": "1186 Nancy Circle Suite 094, Port John, PW 22824",
+      "description": "Tell unit face area model keep exactly."
+    }
+  ]
+}

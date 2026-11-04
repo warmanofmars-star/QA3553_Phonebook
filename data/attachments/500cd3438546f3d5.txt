@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Elizabeth",
+  "lastName": "Miller",
+  "phone": "0552119678",
+  "email": "user_47c12e04b7@example.com",
+  "address": "49074 Chen Courts, Lewistown, KS 30879",
+  "description": "Billion health finally industry modern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b3c74891-17be-4353-9826-2597c515d17c"
+}

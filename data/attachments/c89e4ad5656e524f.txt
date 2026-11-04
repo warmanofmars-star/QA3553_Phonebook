@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9df4103f-b9a6-4251-95f6-74d427fbcd70",
+      "name": "Thomas",
+      "lastName": "Frank",
+      "email": "user_cf92b0eb08@example.com",
+      "phone": "0528186967",
+      "address": "06644 Gregory Street Suite 549, East Angelaport, ME 41384",
+      "description": "Personal share teach vote age half behind fast."
+    }
+  ]
+}

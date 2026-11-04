@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tammy",
+  "lastName": "   ",
+  "phone": "0588794399",
+  "email": "user_2566644f55@example.com",
+  "address": "5459 Santos Square Apt. 313, Lake Kyleland, UT 70685",
+  "description": "Do lawyer score care outside single."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:16",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

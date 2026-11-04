@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "phone": "0510806411",
+  "email": "user_30485b1696@example.com",
+  "address": "5040 Browning Pass, Lake Paul, TN 55472",
+  "description": "Why push book remember.",
+  "id": "0e58dd9c-3dd8-4056-b302-f2f3cdf2e77e"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:28",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

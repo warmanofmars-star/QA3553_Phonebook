@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alejandro",
+  "lastName": "Rodriguez",
+  "phone": "0516587288",
+  "email": "user_f2689ed169@example.com",
+  "address": "63638 Clark Street Suite 011, Port Christopher, OK 91551",
+  "description": "Prevent receive station room start lawyer wind close."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fdc41525-ac04-498f-820c-65a06498b2a2"
+}

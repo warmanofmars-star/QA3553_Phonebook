@@ -1,0 +1,8 @@
+21:28:41 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+21:28:41 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+21:28:42 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (379 ms)
+21:28:42 [INFO   ] API: Токен добавлен в заголовки сессии
+21:28:42 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+21:28:43 [INFO   ] STEP: Зарегистрироваться как user_a4c4194d39@example.com
+21:28:44 [INFO   ] UI: Текст Alert: 'User already exist'
+21:28:47 [INFO   ] DRIVER: Видео 04ca540e8462c803a1271fe35f8976a9.mp4 прикреплено к отчёту

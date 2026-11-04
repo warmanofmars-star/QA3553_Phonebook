@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kenneth",
+  "lastName": "Sanchez",
+  "phone": "0561263591",
+  "email": "user_3813408163@example.com",
+  "address": "03629 Jennifer Extensions, Schmidtburgh, PR 18551",
+  "description": "Your star high remember serve."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a0c5c37f-21df-4f31-8230-6230689adf84"
+}

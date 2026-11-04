@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "B",
+  "phone": "0512594781",
+  "email": "user_2f1a7ea26c@example.com",
+  "address": "997 Woods Islands Suite 198, Maryhaven, IN 28179",
+  "description": "Wish field song source administration law result."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f4a011db-9106-471a-bf0d-4a1bc074ef8d"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a1ed945b-c954-4320-90af-2197c9188e3c",
+      "name": "Tina",
+      "lastName": "Bean",
+      "email": "user_106bcb3b99@example.com",
+      "phone": "0526665088",
+      "address": "24694 Chen Harbors Apt. 974, Lake Elizabethtown, ME 17546",
+      "description": "Really yeah certain former after."
+    }
+  ]
+}

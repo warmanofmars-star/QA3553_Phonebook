@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b2ebf2ae-e271-47a5-ae95-b5d8ea5f3970",
+      "name": "Linda",
+      "lastName": "Sanchez",
+      "email": "user_ea68948207@example.com",
+      "phone": "0522404192",
+      "address": "445 Heather Spur, Trujillostad, DE 74460",
+      "description": "Today whether two by movie recently."
+    }
+  ]
+}

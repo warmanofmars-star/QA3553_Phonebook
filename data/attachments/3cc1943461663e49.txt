@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "James",
+  "phone": "0515716122",
+  "email": "user_5e148bb496@example.com",
+  "address": "69192 Jessica Rapid, South Gina, ID 20680",
+  "description": "Beat begin six name art situation open.",
+  "id": "e8c87ba4-0946-43b8-9435-fa0e9ecf1a57"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

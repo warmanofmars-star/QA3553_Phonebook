@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bailey",
+  "lastName": "Mendez",
+  "phone": "0520455668",
+  "email": "user_f94f6f147b@example.com",
+  "address": "46431 Martinez Shores, Port Craigfurt, AR 29226",
+  "description": "Hospital community like until."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 817a2506-9424-4404-b648-f2768f7c87df"
+}

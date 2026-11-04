@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (18 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bradley",
+  "lastName": "Walker",
+  "phone": "0517171959",
+  "email": "not_an_email",
+  "address": "55555 Gray Park, Mcgrathtown, VT 08247",
+  "description": "Range half nation certainly."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:30",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

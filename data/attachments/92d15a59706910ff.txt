@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Whitney",
+  "lastName": "Cooper",
+  "phone": "0589192514",
+  "email": "user_7bb97fecac@example.com",
+  "address": "00320 Mccormick Keys Apt. 286, Lake Johnburgh, KY 23373",
+  "description": "Already threat worry alone old."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 006ccaf9-0664-4e81-ad05-04aa72fbc933"
+}

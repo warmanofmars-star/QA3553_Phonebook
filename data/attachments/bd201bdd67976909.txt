@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Renee",
+  "lastName": "Winters",
+  "phone": "0524837133",
+  "email": "user_9e1953e0b1@example.com",
+  "address": "847 Gina Drives, North William, ME 45824",
+  "description": "Quite attorney smile yes season."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 132dfe9f-5ded-408a-98b9-6189d959c1a2"
+}

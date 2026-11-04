@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Brooks",
+  "phone": "0517116249",
+  "email": "user_70b5547505@example.com",
+  "address": "691 Christopher Overpass Suite 854, Lake Christopher, CT 34169",
+  "description": "Foot have weight national condition seek able."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1ad8d003-055a-4ef4-80f6-0e0979003776"
+}

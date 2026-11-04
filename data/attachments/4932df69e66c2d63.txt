@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6c8e48ed-90ec-44ad-8e98-974e9cfb00d1",
+      "name": "Amanda",
+      "lastName": "Brown",
+      "email": "user_5cc44eab40@example.com",
+      "phone": "0528852388",
+      "address": "C",
+      "description": "Whom create reflect material organization go."
+    }
+  ]
+}

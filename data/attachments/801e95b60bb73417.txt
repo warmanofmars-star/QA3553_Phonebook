@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5803ff10-2510-4971-99dd-87d2baabdc77",
+      "name": "Joshua",
+      "lastName": "Stein",
+      "email": "user_86ff560f38@example.com",
+      "phone": "0518358718",
+      "address": "8170 Rice Lakes Suite 164, Port James, AS 73538",
+      "description": "Green wrong as pass score top."
+    }
+  ]
+}

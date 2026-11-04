@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a630f033-76d8-415c-96ea-203cd8a380d2",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Thompson",
+      "email": "user_2e145b894a@example.com",
+      "phone": "0527719162",
+      "address": "834 Cooley Run, Fosterport, AS 53517",
+      "description": "Understand their president health since between."
+    }
+  ]
+}

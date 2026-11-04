@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jerry",
+  "lastName": "Wright",
+  "phone": "0525567644",
+  "email": "user_5c128e9975@example.com",
+  "address": "521 Megan Mountain, North Johnshire, NY 62218",
+  "description": "Television design civil option treat training whose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: adcddab7-b655-45b6-9a44-48318c9efa6d"
+}

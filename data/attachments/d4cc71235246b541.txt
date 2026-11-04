@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jay",
+  "lastName": "Ingram",
+  "phone": "0521866249",
+  "email": null,
+  "address": "265 John Gateway, New Kathy, PA 48794",
+  "description": "Thing ago citizen these use under able garden."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cc002807-166a-4cd4-ae9f-f712959b5ba1"
+}

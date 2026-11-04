@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+{
+  "name": "Hayden",
+  "lastName": "Parks",
+  "phone": "0517230615",
+  "email": "user_f731d81304@example.com",
+  "address": "0154 Dustin Dam Suite 105, East Matthew, OK 58800",
+  "description": "Age short perform keep my blood."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d2c37d7e-c731-448a-b617-da095d25e0f0"
+}

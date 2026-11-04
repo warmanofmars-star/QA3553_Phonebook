@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cd5c0159-21f4-4f60-a3a5-ae7bb87f32e1",
+      "name": "Jennifer",
+      "lastName": "Williams",
+      "email": "user_7b16669380@example.com",
+      "phone": "0536064077",
+      "address": "88707 Contreras Stream Apt. 958, North Catherine, VI 11804",
+      "description": "Guy somebody without above this set town."
+    }
+  ]
+}

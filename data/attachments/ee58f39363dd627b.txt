@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Grace",
+  "lastName": "Young",
+  "phone": "0571918364",
+  "email": "user_003d1c6a00@example.com",
+  "address": "869 Samantha Place, Lake Jeremystad, UT 39810",
+  "description": "And yard process guy claim light because."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f1b50128-dd5f-4be0-9337-b9afd13bcff4"
+}

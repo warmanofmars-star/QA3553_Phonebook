@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Daugherty",
+  "phone": "0510044320",
+  "email": "user_bcc414038f@example.com",
+  "address": "58711 Warner Mills, Morrisport, GA 88192",
+  "description": "Politics unit idea movement whole nation."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 736ed6a1-6232-4ecd-9fbd-0038de494177"
+}

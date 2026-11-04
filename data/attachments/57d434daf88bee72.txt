@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "59719598-244b-4c2c-b355-7225686beb1d",
+      "name": "Michael",
+      "lastName": "Ward",
+      "email": "user_5d1fe8ac83@example.com",
+      "phone": "0512337861",
+      "address": "59485 Juan Lake, West Robertmouth, VT 45164",
+      "description": "Commercial drug whether at wonder."
+    },
+    {
+      "id": "24a29281-2e6c-4c52-9d6f-93260c6cf2db",
+      "name": "Sherri",
+      "lastName": "Salas",
+      "email": "user_cbbd2e243b@example.com",
+      "phone": "0512821980",
+      "address": "75085 Franklin Path, Tammychester, KS 71831",
+      "description": "Close born both ten where forget."
+    }
+  ]
+}

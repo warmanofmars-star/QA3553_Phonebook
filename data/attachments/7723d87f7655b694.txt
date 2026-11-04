@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a79e5c6f-5c2b-42ba-bfd3-3d92bafc796f",
+      "name": "Samuel",
+      "lastName": "Cruz",
+      "email": "user_1c91e18598@example.com",
+      "phone": "0541404163",
+      "address": "261 Hudson Park Suite 130, Port Deannaside, CA 96252",
+      "description": "Senior seek no wide."
+    }
+  ]
+}

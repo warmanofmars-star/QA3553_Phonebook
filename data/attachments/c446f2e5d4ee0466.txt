@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Annette",
+  "lastName": "Rivera",
+  "phone": "0524296350",
+  "email": "user_616337451c@example.com",
+  "address": "043 Bridget Flats, New Krystalview, MP 13419",
+  "description": "Program training radio senior."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 30f1f069-b622-4674-b1f9-71bbcc90c8f1"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brittany",
+  "lastName": "Gonzales",
+  "phone": "0521997915",
+  "email": "user_12a4f0d2d7@example.com",
+  "address": "676 Taylor Rapids, Susanfort, MH 12331",
+  "description": "Language international strategy relationship until miss news either."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b8a2ab8c-ed3b-4fbb-b252-a2aa96b2488a"
+}

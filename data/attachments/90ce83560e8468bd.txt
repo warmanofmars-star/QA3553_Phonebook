@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Smith",
+  "phone": "0530076920",
+  "email": "user_d158e4125c@example.com",
+  "address": "671 Wilson Roads Suite 853, Howardton, NC 44718",
+  "description": "Structure us research cell expert knowledge outside."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d52ba696-dd57-475e-afc8-ac308c634b7d"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nathan",
+  "lastName": "Farmer",
+  "phone": "0514486943",
+  "email": "user_b57e7586ba@example.com",
+  "address": "665 Lee Mission Suite 253, South Phillipville, RI 60161",
+  "description": "Play whom official friend relate."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e1e5eb82-4fb1-4a2d-a73c-08b052eedf77"
+}

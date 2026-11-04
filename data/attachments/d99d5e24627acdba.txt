@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebekah",
+  "lastName": "Weber",
+  "phone": "0510153942",
+  "email": "user_d057182605@example.com",
+  "address": "USCGC Christensen, FPO AA 08183",
+  "description": "12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 50c3c986-9f8d-46b3-8679-400ff322e428"
+}

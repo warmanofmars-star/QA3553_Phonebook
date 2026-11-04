@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a0c5c37f-21df-4f31-8230-6230689adf84",
+      "name": "Kenneth",
+      "lastName": "Sanchez",
+      "email": "user_3813408163@example.com",
+      "phone": "0561263591",
+      "address": "03629 Jennifer Extensions, Schmidtburgh, PR 18551",
+      "description": "Your star high remember serve."
+    },
+    {
+      "id": "54b64c03-23af-4539-b11c-2e0d2a39c346",
+      "name": "Denise",
+      "lastName": "Mcdaniel",
+      "email": "user_58b09faad3@example.com",
+      "phone": "0561263591",
+      "address": "06587 Murray Spurs, Brownfurt, MT 52049",
+      "description": "Position cold detail future ago benefit."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f72c085e-ddf9-418e-9933-08d2ae2a48bb",
+      "name": "Denise",
+      "lastName": "Singleton",
+      "email": "user_a119d367ca@example.com",
+      "phone": "0579255132",
+      "address": "1462 Smith Manor, South Elizabeth, NC 60314",
+      "description": "Marriage part share strong buy."
+    },
+    {
+      "id": "92393c36-7430-4a60-9234-c2a7244cb200",
+      "name": "Lee",
+      "lastName": "Carr",
+      "email": "user_a119d367ca@example.com",
+      "phone": "0517705096",
+      "address": "6019 Amber Isle, North Carl, WA 05360",
+      "description": "Likely quality think author difficult body century."
+    }
+  ]
+}

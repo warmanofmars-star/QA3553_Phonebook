@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "09038de3-d249-4358-96bd-13e8bd22427c",
+      "name": "Colleen",
+      "lastName": "Mosley",
+      "email": "user_2bd22f3e19@example.com",
+      "phone": "0537203964",
+      "address": "097 Jennifer Garden Suite 825, Briantown, WY 56471",
+      "description": "Western beautiful assume key fall."
+    }
+  ]
+}

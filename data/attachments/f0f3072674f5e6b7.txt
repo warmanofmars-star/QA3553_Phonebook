@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "Deleon",
+  "phone": "0543871221",
+  "email": "user_d67f33215f@example.com",
+  "address": "508 Ball Summit Apt. 058, New Danielhaven, NV 03764",
+  "description": "Republican me million industry."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 023540ea-624b-4e86-bd86-aa3ce873ac30"
+}

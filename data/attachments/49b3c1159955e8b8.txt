@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f03f8466-b2d3-4198-8e3d-b9df68b1fa9e",
+      "name": "Amy",
+      "lastName": "Webster",
+      "email": "user_e78850209a@example.com",
+      "phone": "0515953411",
+      "address": "1502 Andrew Prairie Suite 844, Adrianside, AS 82255",
+      "description": "Other down Mrs not theory leave spring."
+    },
+    {
+      "id": "9c21e75b-3e5d-44e2-a306-cbd7ef2f6762",
+      "name": "Chase",
+      "lastName": "Walker",
+      "email": "user_1f0fbb5459@example.com",
+      "phone": "0524897527",
+      "address": "4218 Jonathan Track, Port Alexandra, PW 33087",
+      "description": "Together spend effort expect sure appear far."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Sims",
+  "phone": "0515331854",
+  "email": "user_32501ee4c4@example.com",
+  "address": "817 Anderson Meadows, South Jessica, HI 95131",
+  "description": "Already girl blue staff."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f5b0cb80-25ee-46f1-baab-a476d085cdd0"
+}

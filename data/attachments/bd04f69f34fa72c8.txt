@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e88e169d-c33d-470c-a2f5-11e6a9f17270",
+      "name": "Kim",
+      "lastName": "Chambers",
+      "email": "user_35d15b78bc@example.com",
+      "phone": "0520075180",
+      "address": "98073 William Mews Suite 235, Theresaburgh, WA 81776",
+      "description": "Pretty defense price accept truth need."
+    }
+  ]
+}

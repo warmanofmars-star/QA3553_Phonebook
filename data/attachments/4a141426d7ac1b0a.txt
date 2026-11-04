@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmin",
+  "lastName": "Wright",
+  "phone": "0574956029",
+  "email": "user_50cb7ef0f8@example.com",
+  "address": "95953 Marie Garden, Sergioton, AK 65813",
+  "description": "Catch necessary do Republican far clearly long begin."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9bd1db1b-3cef-46bf-ba12-c43bad459a7b"
+}

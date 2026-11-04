@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Moore",
+  "phone": "0510046715",
+  "email": "user_bc543902d4@example.com",
+  "address": "USNV Taylor, FPO AE 52214",
+  "description": "Enough certainly evening south oil guess."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6d5eb159-d70b-4558-8887-43e8c22ca927"
+}

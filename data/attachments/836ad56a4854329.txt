@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4c7fe0e4-5519-460f-b8da-310d4d073eef",
+      "name": "Courtney",
+      "lastName": "Petersen",
+      "email": "user_4b1edad83a@example.com",
+      "phone": "0527937486",
+      "address": "6743 Burns Springs, Harringtonville, AS 54204",
+      "description": "Authority type remember machine will few everything."
+    }
+  ]
+}

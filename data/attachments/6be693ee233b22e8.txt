@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Justin",
+  "lastName": "Moon",
+  "phone": "0544504805",
+  "email": "user_d5189976d0@example.com",
+  "address": "73323 Francis Plain Apt. 709, Stephaniehaven, VT 93430",
+  "description": "First sea hand quickly."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d04cbe82-f46f-4879-ad30-b3ff33cdacdb"
+}

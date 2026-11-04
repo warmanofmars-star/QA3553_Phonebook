@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ecd36bad-7c90-406e-a5cc-9dba5d6c9d1a",
+      "name": "John",
+      "lastName": "Lowe",
+      "email": "user_234fb0168e@example.com",
+      "phone": "0567331411",
+      "address": "39286 Nicole Way, Thomasstad, OK 10356",
+      "description": "Think tax media teach rate modern daughter."
+    }
+  ]
+}

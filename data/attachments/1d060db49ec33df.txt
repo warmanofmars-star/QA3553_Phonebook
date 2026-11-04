@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Brown",
+  "phone": "0528852388",
+  "email": "user_5cc44eab40@example.com",
+  "address": "C",
+  "description": "Whom create reflect material organization go."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6c8e48ed-90ec-44ad-8e98-974e9cfb00d1"
+}

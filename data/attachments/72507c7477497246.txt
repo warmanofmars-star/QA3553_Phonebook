@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "078bf021-66f8-4bb8-9072-d9fbb5ce2b3e",
+      "name": "Lisa",
+      "lastName": "Fischer",
+      "email": "user_feaba4f2c0@example.com",
+      "phone": "0511398119",
+      "address": "93262 Andrade Valley, New Kimberly, FM 33996",
+      "description": "Chance maybe series place wish receive movie."
+    },
+    {
+      "id": "d22cba0e-7a2b-41ef-8491-e154ac000f64",
+      "name": "Erica",
+      "lastName": "Miller",
+      "email": "user_fbf2fb8605@example.com",
+      "phone": "0554828197",
+      "address": "58015 Rebecca Fall, Michaelstad, MA 99212",
+      "description": "Why particularly strong several country chance his throughout."
+    }
+  ]
+}

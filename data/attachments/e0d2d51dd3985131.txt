@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Marcus",
+  "lastName": "Figueroa",
+  "phone": null,
+  "email": "user_61dbc7fe53@example.com",
+  "address": "Unit 2833 Box 3133, DPO AP 93273",
+  "description": "Allow office tree person white song let."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 57edabfc-695f-40c1-a17a-b1285348badb"
+}

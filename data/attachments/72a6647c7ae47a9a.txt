@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cc002807-166a-4cd4-ae9f-f712959b5ba1",
+      "name": "Jay",
+      "lastName": "Ingram",
+      "email": null,
+      "phone": "0521866249",
+      "address": "265 John Gateway, New Kathy, PA 48794",
+      "description": "Thing ago citizen these use under able garden."
+    }
+  ]
+}

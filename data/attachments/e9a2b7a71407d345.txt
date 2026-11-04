@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "82715018-02f9-4837-b2eb-2d3aeb4f5413",
+      "name": "Joshua",
+      "lastName": "Taylor",
+      "email": "user_68b868087d@example.com",
+      "phone": "0514713755",
+      "address": "521 Long Stream, Wubury, RI 54205",
+      "description": "Certainly improve can indeed always painting."
+    }
+  ]
+}

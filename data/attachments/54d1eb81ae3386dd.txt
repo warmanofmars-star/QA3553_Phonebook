@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b7f92257-ff60-425e-b0a2-c42fc0e52f07",
+      "name": "Brittney",
+      "lastName": "Singleton",
+      "email": "user_025bf8ebb1@example.com",
+      "phone": "0533890861",
+      "address": "6512 Curtis Stravenue Suite 269, Royville, SC 13319",
+      "description": "Pressure bank source history."
+    }
+  ]
+}

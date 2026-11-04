@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Silva",
+  "phone": "0510155888",
+  "email": "user_63d6d9b6da@example.com",
+  "address": "889 Blake Points Apt. 969, North Joseph, MS 47399",
+  "description": "Foreign cold dinner set whole agent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cb2ad6c1-a4f7-4b56-8413-8d5b8623985e"
+}

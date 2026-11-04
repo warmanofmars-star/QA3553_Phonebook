@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Victoria",
+  "lastName": "Woods",
+  "phone": "0513468604",
+  "email": "user_9386a9c452@example.com",
+  "address": "364 Paula Extensions, Lake Christinechester, AZ 04912",
+  "description": "Simple mind leg play."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f080b463-6c70-49d8-9dd4-f03c45c8fb2c"
+}

@@ -1,0 +1,12 @@
+21:25:42 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (175 ms)
+21:25:42 [INFO   ] API: Токен добавлен в заголовки сессии
+21:25:42 [INFO   ] API: POST /v1/contacts -> 200 (34 ms)
+21:25:42 [INFO   ] API: GET /v1/contacts -> 200 (33 ms)
+21:25:42 [INFO   ] PW: Переход по ссылке: https://telranedu.web.app/login
+21:25:42 [INFO   ] PW: Ввод данных в поле формы...
+21:25:42 [INFO   ] PW: Ввод данных в поле формы...
+21:25:42 [INFO   ] PW: Клик по элементу: 'Login'
+21:25:42 [INFO   ] STEP: Дождаться перехода на страницу контактов
+21:25:42 [INFO   ] STEP: Открыть форму добавления через меню ADD
+21:25:42 [INFO   ] STEP: Заполнить форму добавления контакта 0564592339
+21:25:43 [INFO   ] STEP: Нажать Save

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2db6f90a-8ecf-487c-a8a9-0a2e8bcd8156",
+      "name": "Randy",
+      "lastName": "Kemp",
+      "email": "user_e3b47b9be2@example.com",
+      "phone": "0597758259",
+      "address": "268 Glenn Throughway Suite 842, Walshview, TX 04924",
+      "description": "Sure some phone receive."
+    }
+  ]
+}

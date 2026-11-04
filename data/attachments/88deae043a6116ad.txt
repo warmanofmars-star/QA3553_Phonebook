@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kim",
+  "lastName": "Chambers",
+  "phone": "0520075180",
+  "email": "user_35d15b78bc@example.com",
+  "address": "98073 William Mews Suite 235, Theresaburgh, WA 81776",
+  "description": "Pretty defense price accept truth need."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e88e169d-c33d-470c-a2f5-11e6a9f17270"
+}

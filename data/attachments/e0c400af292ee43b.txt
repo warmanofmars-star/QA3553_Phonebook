@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0bcecdd5-fb48-4ab3-9651-e7a51566343a",
+      "name": "Virginia",
+      "lastName": "Schneider",
+      "email": "user_7976b92abc@example.com",
+      "phone": "0525677737",
+      "address": "1573 Hernandez Trace Suite 137, South Ashley, SD 28966",
+      "description": "Cultural onto child very say."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2df9d291-606d-4593-94e9-25cec1edc183",
+      "name": "Melissa",
+      "lastName": "Jones",
+      "email": "user_1bf0172c9e@example.com",
+      "phone": "0532787540",
+      "address": "015 Rachel Cliff Suite 041, Webbstad, UT 66375",
+      "description": "Become happen truth name require knowledge."
+    }
+  ]
+}

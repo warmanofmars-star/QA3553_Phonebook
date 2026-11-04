@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jonathan",
+  "lastName": "Brown",
+  "phone": "0559809090",
+  "email": "user_b9d36cdecf@example.com",
+  "address": "3621 Ramos Village, Iantown, CT 40506",
+  "description": "Wide air see beyond family suddenly say."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b49cada8-bc27-44b1-a5cf-2616250b798f"
+}

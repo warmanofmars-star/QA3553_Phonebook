@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "817a2506-9424-4404-b648-f2768f7c87df",
+      "name": "Bailey",
+      "lastName": "Mendez",
+      "email": "user_f94f6f147b@example.com",
+      "phone": "0520455668",
+      "address": "46431 Martinez Shores, Port Craigfurt, AR 29226",
+      "description": "Hospital community like until."
+    }
+  ]
+}

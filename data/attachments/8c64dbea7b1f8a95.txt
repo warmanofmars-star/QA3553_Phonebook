@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Hernandez",
+  "phone": "0524208405",
+  "email": "user_dfd8427186@example.com",
+  "address": "1186 Nancy Circle Suite 094, Port John, PW 22824",
+  "description": "Tell unit face area model keep exactly."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bfbc6d2a-5a1e-4e5e-b4bb-4a24eeffe83d"
+}

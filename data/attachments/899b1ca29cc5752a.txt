@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (18 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Reed",
+  "phone": "+972501234567",
+  "email": "user_cf658b2cd7@example.com",
+  "address": "9945 Briggs Islands, Guerrerofort, DC 38575",
+  "description": "Most receive put bed involve."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:18",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

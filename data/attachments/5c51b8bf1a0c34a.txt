@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a14a55d6-d1a2-402a-99fa-8574798eaf05",
+      "name": "Lori",
+      "lastName": "Boyd",
+      "email": "user_0d0dc8b67f@example.com",
+      "phone": "0524020393",
+      "address": "17152 Timothy Hill Suite 147, North Lisa, NV 91793",
+      "description": "Rate owner result prepare somebody since."
+    }
+  ]
+}

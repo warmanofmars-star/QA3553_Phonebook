@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (18 ms)
+
+--- Тело запроса ---
+{
+  "name": "Leslie",
+  "lastName": "Martinez",
+  "phone": "0525555655",
+  "email": "user_0a97098e38@example.com",
+  "address": "   ",
+  "description": "Front management will clearly main majority mean."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:18",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "address": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

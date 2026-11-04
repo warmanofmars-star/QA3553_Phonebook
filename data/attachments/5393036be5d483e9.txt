@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f222e2c8-0b2d-412c-9f42-34387a5ab0b7",
+      "name": "Virginia",
+      "lastName": "Camacho",
+      "email": "user_d02391eb7b@example.com",
+      "phone": "0523108114",
+      "address": "6705 Bruce Pike, East Vicki, NM 65529",
+      "description": "Ready maybe me sing smile common discover news."
+    }
+  ]
+}

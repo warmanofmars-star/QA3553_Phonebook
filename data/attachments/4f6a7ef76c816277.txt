@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Denise",
+  "lastName": "Mcdaniel",
+  "phone": "0533192138",
+  "email": "user_58b09faad3@example.com",
+  "address": "06587 Murray Spurs, Brownfurt, MT 52049",
+  "description": "Position cold detail future ago benefit."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 54b64c03-23af-4539-b11c-2e0d2a39c346"
+}

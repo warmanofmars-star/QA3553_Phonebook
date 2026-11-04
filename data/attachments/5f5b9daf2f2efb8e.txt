@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f76687a0-af58-47e9-a2a7-10b8b0e4cf68",
+      "name": "Jean",
+      "lastName": "Andersen",
+      "email": "user_44ffad170c@example.com",
+      "phone": "0532445134",
+      "address": "7019 Barbara Track Apt. 408, Port Cassandrahaven, MN 89564",
+      "description": "American eat bag edge ready affect while support."
+    },
+    {
+      "id": "c5f151bc-8da2-4a16-9a73-8d5e9ab5c5a8",
+      "name": "Katie",
+      "lastName": "Johnson",
+      "email": "user_ae26600c90@example.com",
+      "phone": "0532445134",
+      "address": "8024 Chandler Extension Apt. 504, Penaview, IL 89111",
+      "description": "Itself improve exist order put attack pass."
+    }
+  ]
+}

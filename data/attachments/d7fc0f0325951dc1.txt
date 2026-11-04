@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Smith",
+  "phone": "0514713755",
+  "email": "user_68b868087d@example.com",
+  "address": "521 Long Stream, Wubury, RI 54205",
+  "description": "Certainly improve can indeed always painting."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 82715018-02f9-4837-b2eb-2d3aeb4f5413"
+}

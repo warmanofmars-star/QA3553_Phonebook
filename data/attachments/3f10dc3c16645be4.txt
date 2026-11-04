@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alyssa",
+  "lastName": "Gutierrez",
+  "phone": "0510079230",
+  "email": "user_c091dd3461@example.com",
+  "address": "1633 Kari Branch, West Alexander, MH 36816",
+  "description": "Standard us drive."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 79e41307-5927-452b-9df4-ce7884553268"
+}

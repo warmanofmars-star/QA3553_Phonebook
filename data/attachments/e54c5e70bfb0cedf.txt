@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Linda",
+  "lastName": "Torres",
+  "phone": "0522404192",
+  "email": "user_ea68948207@example.com",
+  "address": "445 Heather Spur, Trujillostad, DE 74460",
+  "description": "Today whether two by movie recently."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b2ebf2ae-e271-47a5-ae95-b5d8ea5f3970"
+}

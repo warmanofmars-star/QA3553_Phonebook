@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "90d5e99a-1dfb-4572-bee4-63c250e63303",
+      "name": "Jennifer",
+      "lastName": "Ochoa",
+      "email": "user_deadf6dfd3@example.com",
+      "phone": "0547347986",
+      "address": "776 Kyle Prairie, Johnstonborough, MD 74677",
+      "description": "Term have city system fight she might on."
+    }
+  ]
+}

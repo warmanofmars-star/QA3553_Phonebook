@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0519479552",
+  "email": "user_1f8637f8c3@example.com",
+  "address": "5177 Young Station Apt. 920, West Ariel, IN 45882",
+  "description": "Pattern deal firm art effect must real."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a10f8301-9453-4184-868e-8a99b8f2a01f"
+}

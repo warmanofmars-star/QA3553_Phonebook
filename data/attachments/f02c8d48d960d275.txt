@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "62287261-16a6-4111-a473-35deca6f99ac",
+      "name": "Daniel",
+      "lastName": "Fletcher",
+      "email": "user_96702d7739@example.com",
+      "phone": "0523482693",
+      "address": "Unit 0788 Box 3464, DPO AE 56262",
+      "description": "Without new strategy get shake trip exactly role."
+    }
+  ]
+}

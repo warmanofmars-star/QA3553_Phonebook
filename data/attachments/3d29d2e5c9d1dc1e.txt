@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Morris",
+  "phone": "0527070433",
+  "email": "user_e6c00f7a55@example.com",
+  "address": "09320 Amanda Highway Apt. 553, North Davidshire, MD 99003",
+  "description": "Dark guy allow in some step lay."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d7b394cd-0ffe-4b03-bfa6-4cd632eb23cc"
+}

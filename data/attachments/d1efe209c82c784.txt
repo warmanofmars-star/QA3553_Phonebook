@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gabriela",
+  "lastName": "Davis",
+  "phone": "0512564549",
+  "email": "user@",
+  "address": "0125 Meyers Lake, South Andrew, WA 59049",
+  "description": "Fact campaign number of.",
+  "id": "ccae6b97-cbf3-4da5-a8ef-b4cb8af680ad"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:25",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

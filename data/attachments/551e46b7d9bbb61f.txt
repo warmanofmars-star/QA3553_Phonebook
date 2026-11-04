@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ccae6b97-cbf3-4da5-a8ef-b4cb8af680ad",
+      "name": "Gabriela",
+      "lastName": "Davis",
+      "email": "user_a84f716270@example.com",
+      "phone": "0512564549",
+      "address": "0125 Meyers Lake, South Andrew, WA 59049",
+      "description": "Fact campaign number of."
+    }
+  ]
+}

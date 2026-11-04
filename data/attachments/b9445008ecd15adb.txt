@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Keith",
+  "lastName": "Fields",
+  "phone": "0520046360",
+  "email": "user_ef4182600d@example.com",
+  "address": "2712 Williams Gardens Suite 175, Williamstad, VA 70395",
+  "description": "Bank risk defense stand case senior."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ede54a05-da1a-4520-960d-7af6f49a7551"
+}

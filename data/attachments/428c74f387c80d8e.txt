@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erica",
+  "lastName": "Thornton",
+  "phone": "0531098282",
+  "email": "user_a194c99185@example.com",
+  "address": "49743 Mullins Locks, New Jenna, MO 52214",
+  "description": "Perhaps save perform call various."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e5ed681a-4675-476c-b50a-e813d1f85724"
+}

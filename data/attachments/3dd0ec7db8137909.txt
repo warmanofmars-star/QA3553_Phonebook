@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joy",
+  "lastName": "Lewis",
+  "phone": "0597257825",
+  "email": "user_d9be42e1d3@example.com",
+  "address": "938 Jessica Knolls Apt. 604, East Nathanland, SD 24705",
+  "description": "Share civil everybody why during imagine world notice."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 719b03f1-7f00-436c-a2db-f6a8dff96730"
+}

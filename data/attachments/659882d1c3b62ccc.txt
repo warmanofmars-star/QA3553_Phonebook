@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michele",
+  "lastName": "Rodgers",
+  "phone": "050-1234567",
+  "email": "user_ae1bae0004@example.com",
+  "address": "02738 Jennifer Passage Suite 041, South Nicholas, NY 07916",
+  "description": "Field visit since financial hope."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:18",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

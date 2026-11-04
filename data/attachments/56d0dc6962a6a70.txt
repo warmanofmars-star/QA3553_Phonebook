@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "abae413c-073a-4f95-b00b-79a2e9306b77",
+      "name": "Renee",
+      "lastName": "Robinson",
+      "email": "user_b751671c67@example.com",
+      "phone": "0581669562",
+      "address": "7028 Henson Lodge Suite 715, North Janeview, CT 13232",
+      "description": "Expert half fire Mrs international."
+    }
+  ]
+}

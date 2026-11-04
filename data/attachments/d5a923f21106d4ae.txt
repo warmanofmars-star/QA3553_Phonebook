@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+{
+  "name": "Omar",
+  "lastName": "Roberts",
+  "phone": "0513513457",
+  "email": "user_ff2f77d454@example.com",
+  "address": "574 Flynn Prairie Suite 812, Sanchezmouth, NC 83505",
+  "description": "Few quickly bed station more."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 83e7c81e-f7c9-4529-88e4-ab7bc0af30db"
+}

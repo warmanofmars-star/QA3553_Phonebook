@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "508724e6-6513-47b7-a318-cc7d28e79acd",
+      "name": "James",
+      "lastName": "Duran",
+      "email": "user_27082de306@example.com",
+      "phone": "0517571346",
+      "address": "396 Sampson Fields, Port Julie, NH 77708",
+      "description": "Miss because structure energy nothing sister report southern."
+    }
+  ]
+}

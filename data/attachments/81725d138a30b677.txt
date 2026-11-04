@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c113e4eb-fd9c-4916-8d21-bc22c981d007",
+      "name": "Tammy",
+      "lastName": "Jackson",
+      "email": "user_90fa30ae9c@example.com",
+      "phone": "0539313664",
+      "address": "4442 Hardy Fall Suite 793, Mccarthyshire, ME 96788",
+      "description": "Yet bag school allow south term."
+    },
+    {
+      "id": "9bd1db1b-3cef-46bf-ba12-c43bad459a7b",
+      "name": "Jasmin",
+      "lastName": "Wright",
+      "email": "user_50cb7ef0f8@example.com",
+      "phone": "0574956029",
+      "address": "95953 Marie Garden, Sergioton, AK 65813",
+      "description": "Catch necessary do Republican far clearly long begin."
+    }
+  ]
+}

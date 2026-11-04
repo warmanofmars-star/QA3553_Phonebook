@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bc5f9450-9f80-49fa-aa17-8231b95645f3",
+      "name": "Kenneth",
+      "lastName": "Chavez",
+      "email": "user_9777e188b8@example.com",
+      "phone": "0511289854",
+      "address": "868 Ferrell Pass Suite 488, New Mary, TX 98349",
+      "description": "Sound picture sure adult factor while possible."
+    }
+  ]
+}

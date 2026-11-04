@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Edward",
+  "lastName": "Armstrong",
+  "phone": "0576461764",
+  "email": "user_7e64671709@example.com",
+  "address": "38898 Kristin Points, Port Robert, IA 98598",
+  "description": "Quickly carry edge include rule particular accept."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 492beb16-9df3-4202-bca0-79d85c1b6ef0"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samuel",
+  "lastName": "Cruz",
+  "phone": "0541404163",
+  "email": "user_1c91e18598@example.com",
+  "address": "261 Hudson Park Suite 130, Port Deannaside, CA 96252",
+  "description": "Senior seek no wide."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a79e5c6f-5c2b-42ba-bfd3-3d92bafc796f"
+}

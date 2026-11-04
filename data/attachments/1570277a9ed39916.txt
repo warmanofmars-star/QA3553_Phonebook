@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Davis",
+  "phone": "0515283818",
+  "email": "user_809848c366@example.com",
+  "address": "9658 Danielle Lodge Apt. 372, Normanfort, FM 35029",
+  "description": "Star its them hour character whole."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3e2dd6f7-cfd3-403e-85ed-aa114e87ab83"
+}

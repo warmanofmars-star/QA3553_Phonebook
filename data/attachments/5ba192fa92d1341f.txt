@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a6e7eb49-c7b2-420d-b9f7-0af123f52203",
+      "name": "Jared",
+      "lastName": "Smith",
+      "email": "user_a68876d8f1@example.com",
+      "phone": "0532621406",
+      "address": "002 Robert Ways, New Wendy, GU 82542",
+      "description": "Ahead husband management thought turn yet enough."
+    }
+  ]
+}

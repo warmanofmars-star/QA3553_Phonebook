@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Coleman",
+  "phone": "0524363405",
+  "email": "@example.com",
+  "address": "0938 Brittany Avenue Apt. 656, East Michael, WY 52929",
+  "description": "Your peace participant soon education range yard."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:19",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": null,
+  "phone": "0511329232",
+  "email": "user_530c298886@example.com",
+  "address": "042 Smith Village, Deckershire, IA 62676",
+  "description": "Hospital avoid try either ask."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:21",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

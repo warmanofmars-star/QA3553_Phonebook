@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jean",
+  "lastName": "Andersen",
+  "phone": "0532445134",
+  "email": "user_44ffad170c@example.com",
+  "address": "7019 Barbara Track Apt. 408, Port Cassandrahaven, MN 89564",
+  "description": "American eat bag edge ready affect while support."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f76687a0-af58-47e9-a2a7-10b8b0e4cf68"
+}

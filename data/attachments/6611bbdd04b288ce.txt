@@ -1,0 +1,17 @@
+21:27:07 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+21:27:07 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+21:27:08 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (374 ms)
+21:27:08 [INFO   ] API: Токен добавлен в заголовки сессии
+21:27:08 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+21:27:08 [INFO   ] STEP: Войти как user_b287125bf5@example.com
+21:27:09 [INFO   ] API: POST /v1/contacts -> 200 (98 ms)
+21:27:09 [INFO   ] API: GET /v1/contacts -> 200 (95 ms)
+21:27:09 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+21:27:09 [INFO   ] STEP: Открыть карточку контакта 0523513648
+21:27:10 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+21:27:10 [INFO   ] STEP: Изменить поля формы редактирования
+21:27:10 [INFO   ] STEP: Изменить поле address на '59452 Hurst Lakes Suite 197, New John, WI 55352'
+21:27:10 [INFO   ] STEP: Нажать Save в форме редактирования
+21:27:11 [INFO   ] API: GET /v1/contacts -> 200 (97 ms)
+21:27:11 [INFO   ] API: GET /v1/contacts -> 200 (96 ms)
+21:27:14 [INFO   ] DRIVER: Видео daaa006c237e908dc1c65ef8c196a78f.mp4 прикреплено к отчёту

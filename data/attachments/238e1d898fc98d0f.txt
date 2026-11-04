@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c011000b-4ae5-447e-b6a6-e126d2512edf",
+      "name": "Ashley",
+      "lastName": "Jacobson",
+      "email": "user_50acf06548@example.com",
+      "phone": "0525195710",
+      "address": "380 Robinson Fields Apt. 431, Vazquezside, KY 08280",
+      "description": "Common remain though agency."
+    },
+    {
+      "id": "e6d4391a-66be-4e0b-b5c1-db7219b3b5c8",
+      "name": "Nicholas",
+      "lastName": "Thomas",
+      "email": "user_ca4aebaec5@example.com",
+      "phone": "0575277761",
+      "address": "22865 Cardenas Walks Apt. 655, West Brandi, DC 20835",
+      "description": "Floor compare remain same present."
+    },
+    {
+      "id": "5fd711c1-ac22-43bc-bee3-d3e064d712b8",
+      "name": "Brian",
+      "lastName": "Johnson",
+      "email": "user_0a52011209@example.com",
+      "phone": "0515176571",
+      "address": "3602 Christina Village, Port Kelseyberg, MT 47019",
+      "description": "Dinner drive allow program spring."
+    }
+  ]
+}

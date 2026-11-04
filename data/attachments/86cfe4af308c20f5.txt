@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Hughes",
+  "phone": "0524335536",
+  "email": "user_d3a45fa066@example.com",
+  "address": "101 Yvonne Brook Apt. 674, Port Taylorshire, FL 06329",
+  "description": "Task college majority chair money capital upon."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 069c7d22-8071-4897-adae-ce32642ec1ea"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Phillip",
+  "lastName": "Wilkins",
+  "phone": "0532832547",
+  "email": "user_0f90ee028a@example.com",
+  "address": null,
+  "description": "Clearly see discover agreement."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:20",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "address": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

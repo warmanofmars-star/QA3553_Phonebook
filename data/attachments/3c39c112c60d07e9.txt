@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paul",
+  "lastName": "Lee",
+  "phone": "0526807043",
+  "email": "user_dddcec2b1c@example.com",
+  "address": "Unit 9237 Box 6127, DPO AP 14204",
+  "description": "Discover couple level pattern son laugh energy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ef39901b-72d8-4674-930a-5f49da258a81"
+}

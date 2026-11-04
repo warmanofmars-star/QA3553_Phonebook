@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Stephens",
+  "phone": "0583733910",
+  "email": "user_970c5f2651@example.com",
+  "address": "53548 Jackson Canyon Apt. 910, Lake Joannaborough, WV 83477",
+  "description": "Again chance hospital away."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 56065f80-355f-41cc-9f11-7beb929b4810"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Sanders",
+  "phone": "0519050411",
+  "email": "user_baa71d29a6@example.com",
+  "address": "78559 Perez Junctions Suite 986, Katelynville, OH 29976",
+  "description": "Recognize entire south."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cc587cd3-26b3-45c2-8ef6-5c411efc0929"
+}

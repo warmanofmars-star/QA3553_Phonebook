@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Duran",
+  "phone": "0517571346",
+  "email": "user_27082de306@example.com",
+  "address": "396 Sampson Fields, Port Julie, NH 77708",
+  "description": "Miss because structure energy nothing sister report southern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 508724e6-6513-47b7-a318-cc7d28e79acd"
+}

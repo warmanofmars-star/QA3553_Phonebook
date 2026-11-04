@@ -1,0 +1,20 @@
+21:27:41 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+21:27:41 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+21:27:43 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (352 ms)
+21:27:43 [INFO   ] API: Токен добавлен в заголовки сессии
+21:27:43 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+21:27:43 [INFO   ] STEP: Войти как user_ff175ac566@example.com
+21:27:45 [INFO   ] API: POST /v1/contacts -> 200 (88 ms)
+21:27:45 [INFO   ] API: GET /v1/contacts -> 200 (86 ms)
+21:27:45 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+21:27:45 [INFO   ] STEP: Открыть карточку контакта 0520046360
+21:27:46 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+21:27:46 [INFO   ] STEP: Изменить поля формы редактирования
+21:27:46 [INFO   ] STEP: Изменить поле name на 'Peter'
+21:27:46 [INFO   ] STEP: Изменить поле last_name на 'Bruce'
+21:27:46 [INFO   ] STEP: Изменить поле phone на '0517700467'
+21:27:46 [INFO   ] STEP: Изменить поле email на 'user_341ab4d238@example.com'
+21:27:46 [INFO   ] STEP: Изменить поле address на '76827 Mary Springs, East Connieview, TN 43544'
+21:27:46 [INFO   ] STEP: Изменить поле description на 'Leader huge according within carry.'
+21:27:52 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Leader huge according within carry.', фактически '[object Undefined]'
+21:27:56 [INFO   ] DRIVER: Видео 47758c5f-82bb-4f24-90c0-bddc943753ea.mp4 прикреплено к отчёту

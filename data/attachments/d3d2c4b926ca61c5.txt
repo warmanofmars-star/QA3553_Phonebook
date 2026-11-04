@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "056e2590-3098-4e4f-bd29-b3b162de2ea2",
+      "name": "Douglas",
+      "lastName": "Levy",
+      "email": "user_5a65b95d24@example.com",
+      "phone": "0529029248",
+      "address": "531 Luis Highway, East Kevinside, CT 42342",
+      "description": "As situation watch remember think."
+    }
+  ]
+}

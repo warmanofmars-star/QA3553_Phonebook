@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8bc6a874-3269-4ff6-a2b3-290f45926218",
+      "name": "Debra",
+      "lastName": "Martin",
+      "email": "user_798169fc1c@example.com",
+      "phone": "0521428620",
+      "address": "9438 Ryan Squares, Alishaside, VI 85093",
+      "description": "Television again company weight throw civil responsibility allow."
+    }
+  ]
+}

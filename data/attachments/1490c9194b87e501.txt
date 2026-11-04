@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (7 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wendy",
+  "lastName": "Barnes",
+  "phone": "0516960074",
+  "email": "user@mail@example.com",
+  "address": "2842 Rios Prairie Apt. 430, Port Darrenborough, CO 55421",
+  "description": "Character lay range million."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:19",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

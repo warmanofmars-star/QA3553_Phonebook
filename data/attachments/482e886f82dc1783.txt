@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steve",
+  "lastName": "Kelly",
+  "phone": "0511488694",
+  "email": "user_ccaf380bc7@example.com",
+  "address": "190 Janet Courts, Baileyville, FL 82920",
+  "description": "Around next whether drug behind several Mr."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: aa41525d-f29c-437e-b702-681e0f12ccba"
+}

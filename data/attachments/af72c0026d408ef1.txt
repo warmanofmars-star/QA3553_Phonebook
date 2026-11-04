@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tommy",
+  "lastName": "Newman",
+  "phone": "0562455030",
+  "email": "user_f3b7bc5378@example.com",
+  "address": "220 Anderson Orchard, North Michaelberg, VI 43028",
+  "description": "Fear goal its meeting interest no never degree."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5e01954b-0deb-4fc5-860b-431f480ea67b"
+}

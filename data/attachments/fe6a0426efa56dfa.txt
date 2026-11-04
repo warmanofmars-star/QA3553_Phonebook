@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Judith",
+  "lastName": "Harvey",
+  "phone": "0533928837",
+  "email": "user_8c632beab2@example.com",
+  "address": "558 Garcia Streets Suite 860, New Jaredberg, GA 51591",
+  "description": "Ball particularly whether west decision federal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b231507f-ab61-4876-9e27-1737182c56e0"
+}

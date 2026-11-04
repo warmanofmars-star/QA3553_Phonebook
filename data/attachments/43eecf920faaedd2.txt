@@ -1,0 +1,22 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julian",
+  "lastName": "Bailey",
+  "phone": "0525624142",
+  "email": "user_1a3861756e@example.com",
+  "address": "18994 Mckee Ridges Suite 077, Lake Tammy, NH 53467",
+  "description": "Ground full manage actually art crime central.",
+  "id": "2b3cd4f9-6b4e-47e6-9e50-fbedb480a700"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T21:25:34",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 2b3cd4f9-6b4e-47e6-9e50-fbedb480a700 not found in your contacts!",
+  "path": "/v1/contacts"
+}

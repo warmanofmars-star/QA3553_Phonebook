@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Juan",
+  "lastName": "Sloan",
+  "phone": "0516812031",
+  "email": "user_404f0ffe2b@example.com",
+  "address": "USNV Raymond, FPO AP 69657",
+  "description": "Admit each enter year nearly paper."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e8c87ba4-0946-43b8-9435-fa0e9ecf1a57"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Leonard",
+  "phone": "0531137962",
+  "email": "user_ec93606f59@example.com",
+  "address": "Unit 3988 Box 7553, DPO AE 11387",
+  "description": "Shoulder reveal establish wonder get."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 10ec627c-3f56-4640-9d3a-cbf4808699c5"
+}
