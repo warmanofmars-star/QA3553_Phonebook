@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3a9a3d4e-398e-4f95-954f-627306229f87",
+      "name": "Mike",
+      "lastName": "Lynch",
+      "email": "пользователь@example.com",
+      "phone": "0527566525",
+      "address": "3315 Chavez Ville Suite 581, Ashleyview, ID 29086",
+      "description": "Read certainly miss wear size."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0ee00cca-dd30-4b15-a378-68b7c518068c",
+      "name": "Laura",
+      "lastName": "Moore",
+      "email": "user_0bddbfd5a4@example.com",
+      "phone": "053600791172409",
+      "address": "051 Montoya Divide, Brownport, MD 31660",
+      "description": "Result example parent drive tend identify such."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Russell",
+  "phone": "0521819283",
+  "email": "user_6ba11b5746@example.com",
+  "address": "403 Armstrong Well Apt. 534, Carlosburgh, MI 69235",
+  "description": "Common information left of score enter way."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 89f83f9b-8137-41df-bfd0-4def0aee9072"
+}

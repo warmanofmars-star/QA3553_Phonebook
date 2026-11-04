@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Turner",
+  "phone": "0525159520",
+  "email": "user_968a0b0ae5@example.com",
+  "address": "861 Fred Ports Suite 348, East Jessemouth, AL 44652",
+  "description": "Contain production race article speak course."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8b756d6d-46b2-4079-85f6-4ab9833d5d44"
+}

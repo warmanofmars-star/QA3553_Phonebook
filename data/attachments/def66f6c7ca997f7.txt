@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Powell",
+  "phone": "0520566033",
+  "email": "user_d7b4b2da32@example.com",
+  "address": "223 Maria Grove, Mcgrathtown, IL 72428",
+  "description": "Tree career major everybody less guess sure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2ebd9584-9ff1-4992-8f9d-dbaf70137743"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lori",
+  "lastName": "Moore",
+  "phone": "0528760379",
+  "email": "user_b33bec7950@example.com",
+  "address": "163 Brown Junctions Suite 947, West Bradley, AL 03849",
+  "description": "Project successful news manage major."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 84f28174-b7a6-4853-b371-5b96663052ec"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Knight",
+  "phone": "0524747730",
+  "email": "user@",
+  "address": "2586 Christina Stream Apt. 159, Adrianside, NC 62341",
+  "description": "Little create new other goal economic four."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T15:36:58",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

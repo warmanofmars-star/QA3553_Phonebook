@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Flores",
+  "phone": "0599347692",
+  "email": "user_d69e5f4151@example.com",
+  "address": "7854 Henderson Curve Suite 741, Rogerport, ID 86058",
+  "description": "Our present stuff attack."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 649bbe8d-24db-4793-a34b-3227d589c1d9"
+}

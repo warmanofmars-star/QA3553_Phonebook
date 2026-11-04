@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Theresa",
+  "lastName": "Wallace",
+  "phone": "0522525950",
+  "email": "",
+  "address": "9183 Cassandra Lake, New Michelle, MA 63627",
+  "description": "Lead story base exactly."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 838f6f9a-4aca-4b7a-86d3-9d39f7f007a3"
+}

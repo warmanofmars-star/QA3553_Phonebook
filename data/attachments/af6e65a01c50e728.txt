@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chelsea",
+  "lastName": "Crawford",
+  "phone": "0522327572",
+  "email": "user_beabe3c1b9@example.com",
+  "address": "361 Raymond Trafficway, North Taylorville, NC 05729",
+  "description": "Until during area."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 74c80746-0ffd-4abe-9ae3-e0451d326747"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Stevenson",
+  "phone": "0519524999",
+  "email": "user_0d4672c328@example.com",
+  "address": "2527 Dakota Forges Apt. 234, Garrettborough, NH 02775",
+  "description": "Student receive still child teacher cup."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 24c54a62-11d7-4e42-b0b5-e01d7624fb70"
+}

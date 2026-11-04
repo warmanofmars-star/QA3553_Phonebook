@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f5defd50-b0ab-4ad5-8cca-e2e5c5b905a2",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Lopez",
+      "email": "user_02a9a96117@example.com",
+      "phone": "0511523793",
+      "address": "7326 Guerrero View, Watsonshire, SD 15341",
+      "description": "Most well it laugh guy alone order."
+    }
+  ]
+}

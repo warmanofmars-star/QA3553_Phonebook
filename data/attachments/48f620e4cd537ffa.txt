@@ -1,5 +1,0 @@
-12:41:03 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (195 ms)
-12:41:03 [INFO   ] API: Токен добавлен в заголовки сессии
-12:41:03 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (210 ms)
-12:41:03 [INFO   ] API: Токен добавлен в заголовки сессии
-12:41:03 [WARNING] API: DELETE /v1/contacts/00000000-0000-0000-0000-000000000000 -> 400 (46 ms)

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7c663685-70d9-4dd6-84ae-5f40bf27b482",
+      "name": "Erin",
+      "lastName": "Fisher",
+      "email": "a@b",
+      "phone": "0511491784",
+      "address": "4324 Gillespie Throughway, South Carolburgh, VA 45901",
+      "description": "Else today top listen."
+    }
+  ]
+}

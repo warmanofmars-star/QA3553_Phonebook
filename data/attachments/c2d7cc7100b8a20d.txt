@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brittany",
+  "lastName": "12345",
+  "phone": "0536427447",
+  "email": "user_d4f0bd8059@example.com",
+  "address": "48605 Brian Knoll Apt. 569, Huertabury, VT 73248",
+  "description": "Participant attorney quality pick morning."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 46937ca6-c8ff-4583-9858-c9803ee89a77"
+}

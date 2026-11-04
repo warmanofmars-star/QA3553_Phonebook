@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (105 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b885464a-3f11-48a3-8108-adb7cf71c48b",
+      "name": "Douglas",
+      "lastName": "Hensley",
+      "email": "user_3a24a11901@example.com",
+      "phone": "0520320444",
+      "address": "87130 Michael Hollow Suite 952, South Cheryl, OK 84230",
+      "description": "Kitchen particular any democratic dinner write."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Allen",
+  "phone": "0530179959",
+  "email": "user_985d7728da@example.com",
+  "address": "3544 Karla Circle Apt. 250, East James, ME 37791",
+  "description": "Benefit development significant thing firm evening."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7f3669d5-fff2-4784-aa1e-a196de28ca47"
+}

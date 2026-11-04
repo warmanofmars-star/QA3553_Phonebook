@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "500de2c6-4da9-4234-a465-a937c7dd3cc1",
+      "name": "Jane",
+      "lastName": "Young",
+      "email": "user_5aea380445@example.com",
+      "phone": "0516038864",
+      "address": "USCGC Wilson, FPO AA 40151",
+      "description": "Catch reveal risk trouble tax tough system."
+    }
+  ]
+}

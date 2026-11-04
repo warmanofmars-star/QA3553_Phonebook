@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Darrell",
+  "lastName": "Hernandez",
+  "phone": "0522825706",
+  "email": "not_an_email",
+  "address": "USCGC Lewis, FPO AA 67782",
+  "description": "More should not first book marriage buy leader."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T15:37:03",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

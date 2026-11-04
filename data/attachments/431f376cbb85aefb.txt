@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+{
+  "name": "Henry",
+  "lastName": "Buchanan",
+  "phone": "0515941893",
+  "email": "user_98f6d0157e@example.com",
+  "address": "832 Dawn Extension, Port Rhonda, VI 04567",
+  "description": "Born capital shake commercial."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0091cdff-170e-4f80-800b-e6fe887b0c91"
+}

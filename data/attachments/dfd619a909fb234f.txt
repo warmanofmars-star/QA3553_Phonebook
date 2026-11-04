@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "84f28174-b7a6-4853-b371-5b96663052ec",
+      "name": "Lori",
+      "lastName": "Moore",
+      "email": "user_b33bec7950@example.com",
+      "phone": "0528760379",
+      "address": "163 Brown Junctions Suite 947, West Bradley, AL 03849",
+      "description": "Project successful news manage major."
+    }
+  ]
+}

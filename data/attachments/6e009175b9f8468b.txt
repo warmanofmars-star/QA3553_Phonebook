@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f4755352-983f-46c8-805e-c82eaf843f1f",
+      "name": "Susan",
+      "lastName": "Taylor",
+      "email": "user_8288e39f2c@example.com",
+      "phone": "0580083446",
+      "address": "347 Marie Curve, New Michaelland, HI 14541",
+      "description": "Community media role important conference three."
+    }
+  ]
+}

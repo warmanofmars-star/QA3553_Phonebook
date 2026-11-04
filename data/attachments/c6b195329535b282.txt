@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "White",
+  "phone": null,
+  "email": "user_6c24f9597e@example.com",
+  "address": "698 Jones Knoll Apt. 404, Walkerside, CA 85724",
+  "description": "Senior ago early else region."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4348afe8-dccd-429a-a604-445701c3fd28"
+}

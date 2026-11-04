@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Abigail",
+  "lastName": "Torres",
+  "email": "user_c003b48ed8@example.com",
+  "address": "196 Gibson Roads, East Kathryn, KY 56406",
+  "description": "Positive discussion me name."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0fbcfc2c-845a-486a-938a-fdbf1e2f4a34"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (77 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Cameron",
+  "phone": "0511738675",
+  "email": "user_3cbb72a27f@example.com",
+  "address": "1112 Villarreal Turnpike, Robertsonstad, OR 82868",
+  "description": "Sit everything lead quite."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T15:37:04",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

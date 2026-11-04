@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (78 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Espinoza",
+  "phone": "0561230841631319",
+  "email": "user_4cd68a4b7c@example.com",
+  "address": "020 Graves Union, Padillaland, MI 18451",
+  "description": "Research second above really none."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T15:36:46",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

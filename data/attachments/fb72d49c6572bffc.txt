@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Downs",
+  "phone": "0515664261",
+  "email": "user_8eb18b2117@example.com",
+  "address": "832 Simmons Circles, East Robertmouth, VI 67403",
+  "description": "Outside wrong apply.",
+  "id": "1883db24-f619-4162-87f1-d1dfeea25bfd"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 130c1c5e-e8a7-430d-9dc0-da1a47b91c9e"
+}

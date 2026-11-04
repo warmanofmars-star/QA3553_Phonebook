@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Munoz",
+  "phone": "0585647526",
+  "email": "user_b5633cfa5a@example.com",
+  "address": "483 Chad Haven Suite 598, West Teresastad, MT 36251",
+  "description": "Exactly left prepare wonder later according design."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b83aa8ef-49d6-49f3-bf17-7311e136a87e"
+}
