@@ -60,9 +60,9 @@
 | T23 | В фамилии допускаются цифры | `test_api_contact_field_validation` [last-name-digits] | ✅ покрыто |
 | T24 | В фамилии допускаются спецсимволы | `test_api_contact_field_validation` [last-name-special] | ✅ покрыто |
 | T25 | Фамилия — не короче 1 символа | `test_api_contact_field_validation` [last-name-1-char] | ✅ покрыто |
-| T26 | Email контакта обязателен *(в SRS опечатка: «Customer email» вместо email контакта)* | `test_api_contact_field_validation` [email-null] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
-| T27 | Email контакта не может быть пустым | `test_api_contact_payload_variations` [email-empty] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
-| T28 | В email контакта ровно один символ @ | `test_api_contact_field_validation` [email-two-at] | ✅ покрыто |
+| T26 | Email контакта обязателен *(в SRS опечатка: «Customer email» вместо email контакта)* | `test_api_contact_field_validation` [email-null]<br>`test_add_contact_negative` [TC-0015-empty-email] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
+| T27 | Email контакта не может быть пустым | `test_api_contact_payload_variations` [email-empty]<br>`test_add_contact_negative` [TC-0015-empty-email] | 🐞 покрыто, известный баг `EMAIL_NOT_REQUIRED` |
+| T28 | В email контакта ровно один символ @ | `test_api_contact_field_validation` [email-two-at]<br>`test_api_contact_payload_variations` [email-invalid] | ✅ покрыто |
 | T29 | До @ есть хотя бы один символ | `test_api_contact_field_validation` [email-min-a@b, email-nothing-before-at] | ✅ покрыто |
 | T30 | После @ есть хотя бы один символ | `test_api_contact_field_validation` [email-min-a@b, email-nothing-after-at] | ✅ покрыто |
 | T31 | Буквы в email контакта — только латиница | `test_api_contact_field_validation` [email-cyrillic] | 🐞 покрыто, известный баг `EMAIL_NON_LATIN_ALLOWED` |

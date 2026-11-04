@@ -79,14 +79,13 @@ pytestmark = [pytest.mark.api, pytest.mark.regression]
             id="phone-short",
             marks=allure.tag("SRS-T41", "API-CHECK-8"),
         ),
-        # Без SRS-тега: в адресе нет @ вовсе, а T28 говорит о «только одном @» —
-        # прямой связи с конкретным пунктом нет
+        # T28 «only one @» — ровно один символ @: ноль тоже нарушение
         pytest.param(
             lambda p: p.update({"email": "not_an_email"}),
             400,
             "Невалидный формат email",
             id="email-invalid",
-            marks=allure.tag("API-CHECK-8"),
+            marks=allure.tag("SRS-T28", "API-CHECK-8"),
         ),
         # Сценарий "лишние поля -> 400" удалён: Swagger лишние поля не запрещает,
         # игнорировать неизвестные поля — нормальное поведение. Настоящая проверка
