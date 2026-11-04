@@ -1,20 +1,30 @@
-"""Граничные значения и классы эквивалентности полей контакта (SRS T16–T44, T78–T82).
+"""Граничные значения и классы эквивалентности полей контакта.
+
+Создание (POST) — SRS T16–T48, редактирование (PUT) — SRS T54–T86.
+
+Раздел SRS "Update Contact" повторяет "New Contact" со сдвигом номеров на 38:
+T(n) при создании = T(n+38) при редактировании (T16→T54 ... T48→T86). Поэтому
+классы значений описаны ОДНОЙ таблицей FIELD_CASES, а оба теста (POST и PUT) берут
+её же; номера требований для PUT получаются сдвигом (_update_requirements).
 
 Ожидания — только из SRS. Каждый сценарий проверяет ровно одно правило:
 остальные поля payload валидны (их генерирует ContactGenerator).
 
 Как проверяется результат:
-  * «принять»  — 200 и в списке появился ровно один новый контакт с теми же значениями;
-  * «отклонить» — список контактов не изменился (главное: невалидные данные не сохранены)
-    и сервер ответил 400. Состояние проверяется первым: если бэкенд сохранит
-    мусор, тест скажет именно об этом, а не о «неправильном коде ответа».
+  * «принять»  — 200 и сохранённый контакт содержит отправленные значения
+    (POST: в списке появился ровно один новый контакт; PUT: изменился контакт с тем же id);
+  * «отклонить» — состояние не изменилось (POST: список контактов тот же; PUT: сохранённый
+    контакт прежний) и сервер ответил 400. Состояние проверяется первым: если бэкенд
+    сохранит мусор, тест скажет именно об этом, а не о «неправильном коде ответа».
 
-Что уже покрыто в других файлах и здесь НЕ повторяется:
-  test_api_payload_validation.py — пустое и null имя, телефон из пробелов, телефон "123",
-  email без @, отсутствующие name/phone, пустой email.
+Что POST уже проверяет в других файлах и здесь для него НЕ повторяется (в таблице такие
+случаи помечены post=False и идут только в PUT-тест):
+  test_api_payload_validation.py — пустое и null имя, телефон из пробелов, отсутствующие
+  name/phone, пустой email, email без @.
 """
 
 import random
+from dataclasses import dataclass
 
 import allure
 import pytest
@@ -63,68 +73,161 @@ def _assert_rejected(api, payload: dict) -> None:
     assert response.status_code == 400, f"Ожидался 400, получен {response.status_code}: {response.text}"
 
 
-# (поле API, значение, ожидание, требования SRS)
-CONTACT_CASES = [
+def _stored_contact(api, contact_id: str) -> dict:
+    return next((c for c in api.get_contacts_list() if c.get("id") == contact_id), {})
+
+
+# Поле отсутствует в payload (в отличие от None, который уходит как null)
+ABSENT = object()
+
+# Сдвиг номеров между разделами SRS: New Contact (T16–T48) -> Update Contact (T54–T86)
+UPDATE_SHIFT = 38
+
+
+def _update_requirements(requirements: list[str]) -> list[str]:
+    """Номера требований раздела Update Contact по номерам раздела New Contact."""
+    shifted = []
+    for requirement in requirements:
+        number = int(requirement.removeprefix("T"))
+        if not 16 <= number <= 48:
+            raise ValueError(f"{requirement} не из раздела New Contact (T16–T48): сдвиг неприменим")
+        shifted.append(f"T{number + UPDATE_SHIFT}")
+    return shifted
+
+
+@dataclass(frozen=True)
+class FieldCase:
+    """Один класс значений поля контакта.
+
+    requirements — номера раздела New Contact; для PUT они сдвигаются на 38.
+    post=False — случай для POST уже проверен в другом файле (или не нужен), он только для PUT.
+    post_bug / put_bug — ключ известного бага для POST и PUT по отдельности: поведение
+    PUT на том же значении может отличаться от POST, поэтому ключи не общие.
+    """
+
+    id: str
+    field: str
+    value: object  # значение, функция без аргументов (случайные данные) или ABSENT
+    expectation: str
+    requirements: list[str]
+    post: bool = True
+    post_bug: str | None = None
+    put_bug: str | None = None
+
+
+FIELD_CASES = [
     # ---------- Телефон: длина (T41, T42) ----------
-    pytest.param("phone", lambda: _phone(9), REJECT, ["T41"], id="phone-len-9"),
-    pytest.param("phone", lambda: _phone(10), ACCEPT, ["T41"], id="phone-len-10"),
-    pytest.param("phone", lambda: _phone(15), ACCEPT, ["T42"], id="phone-len-15"),
-    pytest.param("phone", lambda: _phone(16), REJECT, ["T42"], id="phone-len-16"),
+    FieldCase("phone-len-9", "phone", lambda: _phone(9), REJECT, ["T41"]),
+    FieldCase("phone-len-10", "phone", lambda: _phone(10), ACCEPT, ["T41"]),
+    FieldCase("phone-len-15", "phone", lambda: _phone(15), ACCEPT, ["T42"]),
+    FieldCase("phone-len-16", "phone", lambda: _phone(16), REJECT, ["T42"]),
     # ---------- Телефон: только цифры (T40, T43, T44) ----------
-    pytest.param("phone", "05012abcde", REJECT, ["T40", "T44"], id="phone-letters"),
-    pytest.param("phone", "+972501234567", REJECT, ["T40", "T43"], id="phone-plus"),
-    pytest.param("phone", "050-1234567", REJECT, ["T40", "T43"], id="phone-dash"),
-    pytest.param("phone", "050 1234567", REJECT, ["T40"], id="phone-space"),
+    FieldCase("phone-letters", "phone", "05012abcde", REJECT, ["T40", "T44"]),
+    FieldCase("phone-plus", "phone", "+972501234567", REJECT, ["T40", "T43"]),
+    FieldCase("phone-dash", "phone", "050-1234567", REJECT, ["T40", "T43"]),
+    FieldCase("phone-space", "phone", "050 1234567", REJECT, ["T40"]),
     # ---------- Имя (T17–T20) ----------
-    pytest.param("name", "A", ACCEPT, ["T20"], id="name-1-char"),
-    pytest.param("name", "   ", REJECT, ["T17"], id="name-spaces"),
-    pytest.param("name", "12345", ACCEPT, ["T18"], id="name-digits"),
-    pytest.param("name", "!@#$%^&*()_+-=", ACCEPT, ["T19"], id="name-special"),
+    FieldCase("name-1-char", "name", "A", ACCEPT, ["T20"]),
+    FieldCase("name-spaces", "name", "   ", REJECT, ["T17"]),
+    FieldCase("name-digits", "name", "12345", ACCEPT, ["T18"]),
+    FieldCase("name-special", "name", "!@#$%^&*()_+-=", ACCEPT, ["T19"]),
     # ---------- Фамилия (T22–T25) ----------
-    pytest.param("lastName", "B", ACCEPT, ["T25"], id="last-name-1-char"),
+    FieldCase("last-name-1-char", "lastName", "B", ACCEPT, ["T25"]),
     # T22 в SRS говорит "Contact name" — опечатка: пункт в разделе фамилии, тег по смыслу
-    pytest.param("lastName", "   ", REJECT, ["T22"], id="last-name-spaces"),
-    pytest.param("lastName", "12345", ACCEPT, ["T23"], id="last-name-digits"),
-    pytest.param("lastName", "!@#$%^&*()_+-=", ACCEPT, ["T24"], id="last-name-special"),
+    FieldCase("last-name-spaces", "lastName", "   ", REJECT, ["T22"]),
+    FieldCase("last-name-digits", "lastName", "12345", ACCEPT, ["T23"]),
+    FieldCase("last-name-special", "lastName", "!@#$%^&*()_+-=", ACCEPT, ["T24"]),
     # ---------- Адрес (T34–T37) ----------
     # T37 в SRS говорит "Contact name" — опечатка: пункт в разделе адреса, тег по смыслу
-    pytest.param("address", "C", ACCEPT, ["T37"], id="address-1-char"),
-    pytest.param("address", "   ", REJECT, ["T34"], id="address-spaces"),
-    pytest.param("address", "12345", ACCEPT, ["T35"], id="address-digits"),
-    pytest.param("address", "!@#$%^&*()_+-=", ACCEPT, ["T36"], id="address-special"),
+    FieldCase("address-1-char", "address", "C", ACCEPT, ["T37"]),
+    FieldCase("address-spaces", "address", "   ", REJECT, ["T34"]),
+    FieldCase("address-digits", "address", "12345", ACCEPT, ["T35"]),
+    FieldCase("address-special", "address", "!@#$%^&*()_+-=", ACCEPT, ["T36"]),
     # ---------- Email (T28–T31) ----------
-    pytest.param("email", "a@b", ACCEPT, ["T29", "T30"], id="email-min-a@b"),
-    pytest.param("email", "user@mail@example.com", REJECT, ["T28"], id="email-two-at"),
-    pytest.param("email", "@example.com", REJECT, ["T29"], id="email-nothing-before-at"),
-    pytest.param("email", "user@", REJECT, ["T30"], id="email-nothing-after-at"),
-    pytest.param(
+    FieldCase("email-min-a@b", "email", "a@b", ACCEPT, ["T29", "T30"]),
+    FieldCase("email-two-at", "email", "user@mail@example.com", REJECT, ["T28"]),
+    FieldCase("email-nothing-before-at", "email", "@example.com", REJECT, ["T29"]),
+    FieldCase("email-nothing-after-at", "email", "user@", REJECT, ["T30"]),
+    FieldCase(
+        "email-cyrillic",
         "email",
         "пользователь@example.com",
         REJECT,
         ["T31"],
-        id="email-cyrillic",
-        marks=known_bug("EMAIL_NON_LATIN_ALLOWED"),
+        post_bug="EMAIL_NON_LATIN_ALLOWED",
+        put_bug="EMAIL_NON_LATIN_ALLOWED",
     ),
+    # ---------- Описание (T47, T48) ----------
+    FieldCase("description-digits", "description", "12345", ACCEPT, ["T47"]),
+    FieldCase("description-special", "description", "!@#$%^&*()_+-=12345", ACCEPT, ["T48"]),
     # ---------- null вместо обязательного значения (T21, T26, T33, T38) ----------
-    # null в name уже проверяет test_api_payload_validation.py
-    pytest.param("lastName", None, REJECT, ["T21"], id="last-name-null"),
-    pytest.param("email", None, REJECT, ["T26"], id="email-null", marks=known_bug("EMAIL_NOT_REQUIRED")),
-    pytest.param("address", None, REJECT, ["T33"], id="address-null"),
-    pytest.param("phone", None, REJECT, ["T38"], id="phone-null", marks=known_bug("PHONE_NOT_REQUIRED")),
+    # null в name для POST проверяет test_api_payload_validation.py
+    FieldCase("last-name-null", "lastName", None, REJECT, ["T21"]),
+    FieldCase(
+        "email-null", "email", None, REJECT, ["T26"], post_bug="EMAIL_NOT_REQUIRED", put_bug="EMAIL_NOT_REQUIRED"
+    ),
+    FieldCase("address-null", "address", None, REJECT, ["T33"]),
+    FieldCase(
+        "phone-null", "phone", None, REJECT, ["T38"], post_bug="PHONE_NOT_REQUIRED", put_bug="PHONE_NOT_REQUIRED"
+    ),
+    # ---------- Только для PUT ----------
+    # Для POST эти классы проверены в test_api_payload_validation.py или в таблице не нужны
+    FieldCase("name-null", "name", None, REJECT, ["T16"], post=False),
+    FieldCase("name-absent", "name", ABSENT, REJECT, ["T16"], post=False),
+    FieldCase("name-empty", "name", "", REJECT, ["T17"], post=False),
+    FieldCase("last-name-absent", "lastName", ABSENT, REJECT, ["T21"], post=False),
+    FieldCase("email-absent", "email", ABSENT, REJECT, ["T26"], post=False, put_bug="EMAIL_NOT_REQUIRED"),
+    FieldCase("email-empty", "email", "", REJECT, ["T27"], post=False, put_bug="EMAIL_NOT_REQUIRED"),
+    FieldCase("email-no-at", "email", "not_an_email", REJECT, ["T28"], post=False),
+    FieldCase("address-absent", "address", ABSENT, REJECT, ["T33"], post=False),
+    FieldCase("phone-absent", "phone", ABSENT, REJECT, ["T38"], post=False, put_bug="PHONE_NOT_REQUIRED"),
+    FieldCase("phone-spaces", "phone", "   ", REJECT, ["T39"], post=False),
+    FieldCase("description-absent", "description", ABSENT, ACCEPT, ["T46"], post=False),
 ]
+
+
+def _params(*, update: bool) -> list:
+    """Параметры pytest для POST или PUT: тот же набор классов, свои баги и номера SRS."""
+    params = []
+    for case in FIELD_CASES:
+        if not update and not case.post:
+            continue
+        bug = case.put_bug if update else case.post_bug
+        requirements = _update_requirements(case.requirements) if update else case.requirements
+        params.append(
+            pytest.param(
+                case.field,
+                case.value,
+                case.expectation,
+                requirements,
+                id=case.id,
+                marks=known_bug(bug) if bug else (),
+            )
+        )
+    return params
+
+
+def _build_payload(base: dict, field: str, value) -> dict:
+    """Копия payload с одним изменённым полем.
+
+    Случайные значения (телефоны) генерируются при запуске, а не при сборе тестов:
+    иначе воркеры pytest-xdist собрали бы разные данные."""
+    payload = dict(base)
+    if value is ABSENT:
+        payload.pop(field, None)
+    else:
+        payload[field] = value() if callable(value) else value
+    return payload
 
 
 @allure.story("Create contact: boundary values and equivalence classes")
 @allure.tag("API-CHECK-9")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("field, value, expectation, requirements", CONTACT_CASES)
+@pytest.mark.parametrize("field, value, expectation, requirements", _params(update=False))
 def test_api_contact_field_validation(auth_api, field, value, expectation, requirements):
     """POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны."""
     allure.dynamic.tag(*(f"SRS-{r}" for r in requirements))
-    payload = ContactGenerator.get_random_contact().to_api_payload()
-    # Случайные значения (телефоны) генерируются при запуске, а не при сборе тестов:
-    # иначе воркеры pytest-xdist собрали бы разные данные
-    payload[field] = value() if callable(value) else value
+    payload = _build_payload(ContactGenerator.get_random_contact().to_api_payload(), field, value)
 
     if expectation == ACCEPT:
         _assert_accepted(auth_api, payload)
@@ -132,34 +235,30 @@ def test_api_contact_field_validation(auth_api, field, value, expectation, requi
         _assert_rejected(auth_api, payload)
 
 
-# Длина телефона при редактировании (T79, T80): те же границы, что при создании
-UPDATE_PHONE_CASES = [
-    pytest.param(9, REJECT, ["T79"], id="phone-len-9"),
-    pytest.param(10, ACCEPT, ["T79"], id="phone-len-10"),
-    pytest.param(15, ACCEPT, ["T80"], id="phone-len-15"),
-    pytest.param(16, REJECT, ["T80"], id="phone-len-16"),
-]
-
-
-@allure.story("Update contact: phone length boundaries")
+@allure.story("Update contact: boundary values and equivalence classes")
 @allure.tag("API-CHECK-9")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.parametrize("length, expectation, requirements", UPDATE_PHONE_CASES)
-def test_api_update_contact_phone_length(auth_api, created_contact, length, expectation, requirements):
-    """PUT /v1/contacts: телефон граничной длины."""
+@pytest.mark.parametrize("field, value, expectation, requirements", _params(update=True))
+def test_api_update_contact_field_validation(auth_api, created_contact, field, value, expectation, requirements):
+    """PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+    Меняется ровно одно поле существующего контакта, остальные остаются прежними."""
     allure.dynamic.tag(*(f"SRS-{r}" for r in requirements))
     original = created_contact.to_api_payload()
-    payload = {**original, "phone": _phone(length)}
+    payload = _build_payload(original, field, value)
 
     response = auth_api.update_contact(payload)
-    stored = next((c for c in auth_api.get_contacts_list() if c.get("id") == created_contact.id), {})
-    stored_phone = stored.get("phone")
+    stored = _stored_contact(auth_api, created_contact.id)
 
     if expectation == ACCEPT:
-        assert response.status_code == 200, f"Валидный телефон отклонён: {response.status_code} {response.text}"
-        assert stored_phone == payload["phone"], f"Телефон не обновился: сохранено {stored_phone!r}"
+        assert response.status_code == 200, f"Валидное значение отклонено: {response.status_code} {response.text}"
+        actual = {key: stored.get(key) for key in payload}
+        assert actual == payload, f"Сохранённые данные отличаются от отправленных:\n{actual}\n!=\n{payload}"
     else:
-        assert stored_phone == original["phone"], (
-            f"Сохранён телефон длины {length}: {stored_phone!r} (ответ {response.status_code})"
+        # Состояние первым: контакт должен остаться прежним целиком, а не только изменяемое поле
+        actual = {key: stored.get(key) for key in original}
+        assert actual == original, (
+            f"Контакт изменился при невалидном значении поля {field} (ответ {response.status_code}):\n"
+            f"было {original}\nстало {actual}"
         )
         assert response.status_code == 400, f"Ожидался 400, получен {response.status_code}: {response.text}"
