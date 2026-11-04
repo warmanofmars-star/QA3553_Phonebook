@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Griffin",
+  "phone": "0519352899",
+  "email": "user_3d4be16c7a@example.com",
+  "address": "7417 Francis Street, Johnshire, UT 64826",
+  "description": "Remember report by reflect."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 96efc866-e765-49d0-b40a-4069605c6d4e"
+}

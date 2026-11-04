@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aa34cef0-14bf-4922-b6c5-5e5ba71542e9",
+      "name": "Brian",
+      "lastName": "Hunter",
+      "email": "user_369fe4ff6d@example.com",
+      "phone": "0531534139",
+      "address": "2384 Tiffany Points, East Heather, ID 22884",
+      "description": "Onto cultural dinner action major own involve."
+    }
+  ]
+}

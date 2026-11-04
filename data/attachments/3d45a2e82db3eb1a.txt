@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Rowland",
+  "phone": "0571870122",
+  "email": "user_89b1c8163d@example.com",
+  "address": "07238 Carson Loop Apt. 635, Tristanborough, RI 57583",
+  "description": "Finally just organization all campaign music pretty."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed93796e-7c0f-4b9c-9c73-7547aa01b400"
+}

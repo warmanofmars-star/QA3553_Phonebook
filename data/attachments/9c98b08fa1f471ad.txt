@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b2afdae3-a774-4bb0-a617-2ea7ca52e69a",
+      "name": "Kristina",
+      "lastName": "Coleman",
+      "email": "user_b3423f66fe@example.com",
+      "phone": "0515283497",
+      "address": "5552 Chung Vista, Melissaborough, VI 57923",
+      "description": "Office but start successful."
+    }
+  ]
+}

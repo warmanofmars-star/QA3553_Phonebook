@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "99db8ff9-efca-4db5-a536-b578f71bd998",
+      "name": "Jeff",
+      "lastName": "Schroeder",
+      "email": "user_502e504c63@example.com",
+      "phone": "0532644132",
+      "address": "97654 Mccormick Expressway, North Loretta, MD 92650",
+      "description": "Good feeling technology table."
+    }
+  ]
+}

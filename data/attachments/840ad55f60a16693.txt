@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cassidy",
+  "lastName": "Ferguson",
+  "phone": "0511004761",
+  "email": "user_c1e3b064d7@example.com",
+  "address": "6901 Ramirez Ford, New Tracy, HI 43352",
+  "description": "Decade sing fast only able behind culture price."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8a8b079f-4235-41b3-a71c-15586c1235ab"
+}

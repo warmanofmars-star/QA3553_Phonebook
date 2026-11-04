@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Jacobs",
+  "email": "user_d350c9168c@example.com",
+  "address": "3913 Jennifer Point, Lake Kelliberg, ME 11910",
+  "description": "Seek main see boy military."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c31ae016-8f23-4fd4-a17c-db629b5593f1"
+}

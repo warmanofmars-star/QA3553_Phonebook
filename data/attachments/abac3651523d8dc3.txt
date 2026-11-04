@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Barry",
+  "lastName": "Christensen",
+  "phone": "0533507063",
+  "email": "user_51137b7c56@example.com",
+  "address": "3914 Jensen Rest Apt. 545, Rowlandchester, MH 98378",
+  "description": "Late film top value."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 09d4a4c5-c010-41ab-94e2-b6d7ab2cdd1b"
+}

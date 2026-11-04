@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f1297283-fc52-40db-8ce8-f6f8492481a9",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Chavez",
+      "email": "user_ec434ee683@example.com",
+      "phone": "0567014568",
+      "address": "USCGC Parker, FPO AE 04062",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

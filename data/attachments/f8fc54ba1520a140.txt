@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicholas",
+  "lastName": "Ashley",
+  "phone": "0539611309",
+  "email": "user_17fea354a7@example.com",
+  "address": "3953 Morgan Coves, East Brandonshire, KY 72681",
+  "description": "Product research scene not."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c09612e5-50dd-4e6e-b6a4-a7fa248cb529"
+}

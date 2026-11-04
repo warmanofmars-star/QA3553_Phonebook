@@ -1,0 +1,20 @@
+12:42:23 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+12:42:23 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+12:42:24 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (186 ms)
+12:42:24 [INFO   ] API: Токен добавлен в заголовки сессии
+12:42:24 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+12:42:24 [INFO   ] STEP: Войти как user_c46a952320@example.com
+12:42:25 [INFO   ] API: POST /v1/contacts -> 200 (33 ms)
+12:42:25 [INFO   ] API: GET /v1/contacts -> 200 (34 ms)
+12:42:25 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+12:42:25 [INFO   ] STEP: Открыть карточку контакта 0532644132
+12:42:26 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+12:42:26 [INFO   ] STEP: Изменить поля формы редактирования
+12:42:26 [INFO   ] STEP: Изменить поле name на 'Valerie'
+12:42:26 [INFO   ] STEP: Изменить поле last_name на 'Robinson'
+12:42:26 [INFO   ] STEP: Изменить поле phone на '0510270532'
+12:42:26 [INFO   ] STEP: Изменить поле email на 'user_32f85d164d@example.com'
+12:42:27 [INFO   ] STEP: Изменить поле address на '522 Smith Track Suite 803, Mirandaburgh, NJ 57406'
+12:42:27 [INFO   ] STEP: Изменить поле description на 'Activity continue maintain risk wife one.'
+12:42:32 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Activity continue maintain risk wife one.', фактически '[object Undefined]'
+12:42:35 [INFO   ] DRIVER: Видео 73d1b6e08ab61a061bdf5fd9f651a841.mp4 прикреплено к отчёту

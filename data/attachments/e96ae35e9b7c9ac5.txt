@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Pierce",
+  "phone": "0530949812",
+  "email": "user_26500e1e9a@example.com",
+  "address": "94032 Robert Hollow Apt. 893, Angelborough, CO 91561",
+  "description": "Far building threat identify feeling able political."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: efad7ef8-b23d-4409-95e9-879c477c16ba"
+}

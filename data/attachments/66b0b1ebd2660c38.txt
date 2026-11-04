@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b6312229-93e2-49ba-9399-c502c725c4ef",
+      "name": "Douglas",
+      "lastName": "Morris",
+      "email": "a@b",
+      "phone": "0511493273",
+      "address": "81244 Turner Plain Suite 902, East Lindsey, AL 12549",
+      "description": "Face collection daughter agree."
+    }
+  ]
+}

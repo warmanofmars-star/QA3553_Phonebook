@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4137c313-d643-48a7-88c5-9f227b7a3a48",
+      "name": "Brandon",
+      "lastName": "Glover",
+      "email": "user_a7a2d59bab@example.com",
+      "phone": "0518851630",
+      "address": "USCGC Wilson, FPO AP 06042",
+      "description": "Few concern the resource career near."
+    },
+    {
+      "id": "1527dd52-b687-4f64-bcfd-a20f4bdde2fb",
+      "name": "Tamara",
+      "lastName": "Roberts",
+      "email": "user_a5a70cd3f6@example.com",
+      "phone": "0518851630",
+      "address": "649 Kevin Court, New Brettfort, MP 03551",
+      "description": "Stand require voice him behavior race."
+    }
+  ]
+}

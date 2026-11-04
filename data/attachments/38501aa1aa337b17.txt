@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "24801c1f-6d79-41ec-a357-d26c42a49773",
+      "name": "Jessica",
+      "lastName": "Mitchell",
+      "email": "user_2633613114@example.com",
+      "phone": "0514827631",
+      "address": "9350 Yvonne Key Suite 918, South Jocelyn, TN 38132",
+      "description": "Reveal strategy candidate design price method."
+    }
+  ]
+}

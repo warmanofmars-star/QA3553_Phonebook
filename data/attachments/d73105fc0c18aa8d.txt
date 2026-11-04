@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Logan",
+  "lastName": "Young",
+  "phone": "0513077037",
+  "email": "user_d0b90455b0@example.com",
+  "address": "07231 Cristian Rest, Kimberlychester, GU 59863",
+  "description": "Building decade year knowledge."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1ca4999b-cde2-4889-8264-1e8e7e96d05d"
+}

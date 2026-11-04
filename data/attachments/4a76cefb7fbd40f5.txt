@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Hinton",
+  "phone": "0515192010",
+  "email": "user_3496815010@example.com",
+  "address": "3565 Laura Islands, East Donaldland, VA 11678",
+  "description": "Teacher certainly want employee."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 69bf0997-ed0d-4fd5-a988-c25441cef26f"
+}

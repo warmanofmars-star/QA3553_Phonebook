@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "851ea9f3-b63c-420d-9863-f7e072681f82",
+      "name": "Richard",
+      "lastName": "!@#$%^&*()_+-=",
+      "email": "user_bd18f504ce@example.com",
+      "phone": "0582531552",
+      "address": "055 Ronald Road, New Jenniferhaven, NM 99917",
+      "description": "Fly food interest indeed."
+    }
+  ]
+}

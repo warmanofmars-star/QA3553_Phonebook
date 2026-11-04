@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "09d4a4c5-c010-41ab-94e2-b6d7ab2cdd1b",
+      "name": "Barry",
+      "lastName": "Christensen",
+      "email": "user_51137b7c56@example.com",
+      "phone": "0533507063",
+      "address": "3914 Jensen Rest Apt. 545, Rowlandchester, MH 98378",
+      "description": "Late film top value."
+    },
+    {
+      "id": "77ab8d7f-9b3b-4be7-9938-cdbc9ce79d57",
+      "name": "Herbert",
+      "lastName": "Jones",
+      "email": "user_dd829dc732@example.com",
+      "phone": "0522837706",
+      "address": "3202 Barnes Corners Apt. 321, Sawyerburgh, NV 01213",
+      "description": "Thought nation over matter deal."
+    },
+    {
+      "id": "de0f730e-0f44-4111-b178-ef7ee92ee55c",
+      "name": "Nathan",
+      "lastName": "Harris",
+      "email": "user_8b4baf4296@example.com",
+      "phone": "0544286469",
+      "address": "74421 Bennett Manor, Cartertown, GA 03164",
+      "description": "Affect including energy free no message until."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5986c847-5af7-4879-b819-3204d46ff1fa",
+      "name": "John",
+      "lastName": "Harrington",
+      "email": "user_5ddc4e0f4f@example.com",
+      "phone": "0530998217",
+      "address": "142 Robinson Port, Lake Janet, HI 38375",
+      "description": "Way drug each possible whether around."
+    }
+  ]
+}

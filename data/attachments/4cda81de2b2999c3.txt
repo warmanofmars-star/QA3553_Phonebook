@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Yolanda",
+  "lastName": "Sims",
+  "phone": "0539804060",
+  "email": "user_fa12456e15@example.com",
+  "address": "53628 Wang Ports, East Mindyfort, LA 43939",
+  "description": "Audience establish attention education capital."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1b52dcd5-3383-4cfd-b770-95c3da949e62"
+}

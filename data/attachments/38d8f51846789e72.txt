@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "01eed97d-65da-479e-9a4b-f3e3286079ac",
+      "name": "Russell",
+      "lastName": "Dorsey",
+      "email": "user_71124f7db3@example.com",
+      "phone": "0524009620",
+      "address": "127 Campbell Wells, New Jessicafort, FM 85031",
+      "description": ""
+    }
+  ]
+}

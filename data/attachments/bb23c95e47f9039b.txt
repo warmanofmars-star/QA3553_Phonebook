@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kristi",
+  "lastName": "Lester",
+  "phone": "0595240933",
+  "email": "user_3d4be16c7a@example.com",
+  "address": "Unit 1771 Box 7408, DPO AE 86893",
+  "description": "Political data challenge loss."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: da915f14-ee27-4e72-833f-8b1f29074d74"
+}

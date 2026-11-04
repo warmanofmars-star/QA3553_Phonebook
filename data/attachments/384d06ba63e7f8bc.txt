@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Emily",
+  "lastName": "Dyer",
+  "phone": "0527416029",
+  "email": "user_f8f312242e@example.com",
+  "address": "49700 John Hills Apt. 234, Kaylatown, UT 44680",
+  "description": "Beyond task measure car throw author already."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c8cf5cfd-2b12-407a-8f84-c6b2bb5d7f84"
+}

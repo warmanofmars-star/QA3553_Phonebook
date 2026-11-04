@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Kelly",
+  "phone": "0524178555",
+  "email": "not_an_email",
+  "address": "089 Ronnie Course, West Tonya, NV 76433",
+  "description": "Price instead per wear represent charge not."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:40:53",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Leah",
+  "lastName": "York",
+  "phone": "0528603983",
+  "email": "user_3b5e5f5f05@example.com",
+  "address": "96715 Michael Summit Apt. 271, Taylorport, CO 88206",
+  "description": "Person whom sound would number four."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b0a86513-31d4-4cc7-ae5c-c0a625361661"
+}

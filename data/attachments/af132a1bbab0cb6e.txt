@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michele",
+  "lastName": "Wiley",
+  "phone": "0521894963",
+  "email": "user_90c4f333cf@example.com",
+  "address": "333 Andrew Trail Apt. 591, Jessicaville, RI 04702",
+  "description": "Bill common beautiful detail less."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9a1f83d0-e6f3-4bf1-a40c-d876b204aaf7"
+}

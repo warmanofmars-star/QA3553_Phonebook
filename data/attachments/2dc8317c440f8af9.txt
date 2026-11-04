@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jody",
+  "lastName": "12345",
+  "phone": "0553092461",
+  "email": "user_b5a7bb506f@example.com",
+  "address": "1616 Davila Burg Suite 502, Goodmanburgh, WA 09161",
+  "description": "At opportunity soon nearly street."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 61ce985f-060f-4477-881f-263e33a3999b"
+}

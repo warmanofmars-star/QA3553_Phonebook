@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "074baddb-f36b-4042-84ef-919b7378116b",
+      "name": "Kari",
+      "lastName": "Shepherd",
+      "email": "user_0d127d2bbd@example.com",
+      "phone": "0520119041",
+      "address": "12345",
+      "description": "That east cold ago worry to sing."
+    }
+  ]
+}

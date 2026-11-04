@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c7cd748d-34a2-4ba1-a259-9384090fc11f",
+      "name": "Tiffany",
+      "lastName": "Young",
+      "email": "user_401184cf05@example.com",
+      "phone": "0523704098",
+      "address": "05123 Nunez Roads Apt. 968, Newmanstad, MS 98154",
+      "description": "Less mind measure five respond though."
+    }
+  ]
+}

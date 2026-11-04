@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "07b53d6a-5ae0-45c0-bf04-998ffa8b31b8",
+      "name": "Jessica",
+      "lastName": "Powell",
+      "email": "user_ac53a6fd3a@example.com",
+      "phone": "0513208334",
+      "address": "606 Nelson Parks Apt. 894, North Andrea, FM 78043",
+      "description": "Be population fund trial eye."
+    }
+  ]
+}

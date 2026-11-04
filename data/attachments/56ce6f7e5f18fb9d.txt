@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Pugh",
+  "phone": "0583916141",
+  "email": "user_9ff767b84e@example.com",
+  "address": "534 Webster Loop Suite 277, South Christopher, KY 35186",
+  "description": "Grow writer think."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0f395887-12a2-4eee-bf7b-21ce7d8e8559"
+}

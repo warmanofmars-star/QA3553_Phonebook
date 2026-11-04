@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amy",
+  "lastName": "Sanders",
+  "phone": "0525091717",
+  "email": "user_c382c04956@example.com",
+  "address": "952 Tiffany Cape Apt. 868, New Donna, GA 80061",
+  "description": "During at during pick."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cf0abde0-d00d-4532-8b03-f04690d17d52"
+}

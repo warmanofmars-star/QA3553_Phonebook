@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Goodwin",
+  "phone": "0532445038",
+  "email": "user_f61185fe35@example.com",
+  "address": "72211 Solis Fork Suite 236, South Paulmouth, VT 40804",
+  "description": "Possible situation eat difficult dark."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bd6fd005-befc-4f10-8dbb-0b9ec3b1eb32"
+}

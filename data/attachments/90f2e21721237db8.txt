@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Phillips",
+  "phone": "0570583278",
+  "email": "user_fff8990e7a@example.com",
+  "address": "427 Riddle Curve Suite 578, Lake Kaitlynhaven, MN 30956",
+  "description": "Blood our sit less rest sing end mission."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4864e352-7c11-489a-8b4c-80b51ef36db5"
+}

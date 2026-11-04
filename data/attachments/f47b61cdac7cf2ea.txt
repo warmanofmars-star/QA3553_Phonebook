@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Evan",
+  "lastName": "Gates",
+  "phone": "0524359218",
+  "email": "user_0582af9def@example.com",
+  "address": "6489 Michael Brooks Suite 951, Sheliaborough, FL 56656",
+  "description": "Bill school hope heavy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a6ef4dda-918f-4619-9290-213cb234b747"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "24b52433-b6fa-4bc5-afd9-4f140b8d51e2",
+      "name": "Eric",
+      "lastName": "Yu",
+      "email": "user_5512448cc3@example.com",
+      "phone": "0551905202",
+      "address": "9511 Carol Loop, West Zacharyport, GU 78487",
+      "description": "Newspaper anyone care writer trial."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ernest",
+  "lastName": "Wu",
+  "phone": "0526211425",
+  "email": "user_2f4280191a@example.com",
+  "address": "57699 Jennings Port Apt. 058, New Sergiochester, CO 30850",
+  "description": "Prevent any prove federal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 91752607-c56d-4a02-8534-8888a0838888"
+}

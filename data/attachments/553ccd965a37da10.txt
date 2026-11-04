@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "840cf5e3-575c-4a1a-a57c-af0e4ae94996",
+      "name": "Lynn",
+      "lastName": "Daugherty",
+      "email": "user_5a803acc3c@example.com",
+      "phone": "0529731314",
+      "address": "369 Sarah Pass, Woodfort, MA 63076",
+      "description": "Power arrive writer."
+    },
+    {
+      "id": "0120c618-a395-4a76-8530-1f2f4e48639c",
+      "name": "Rhonda",
+      "lastName": "Jones",
+      "email": "user_83a7306e8a@example.com",
+      "phone": "0587643252",
+      "address": "USNS Hernandez, FPO AE 45622",
+      "description": "Though artist of become left those cultural fill."
+    }
+  ]
+}

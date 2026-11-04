@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d060556c-b01f-4cb2-9adf-2bac00c0cfeb",
+      "name": "Christopher",
+      "lastName": "Little",
+      "email": "user_7ba3eb535d@example.com",
+      "phone": "054758961858101",
+      "address": "30183 Heather Summit Suite 808, Port Adam, CT 92716",
+      "description": "Crime charge rather mouth PM many."
+    }
+  ]
+}

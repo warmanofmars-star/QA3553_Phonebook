@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sara",
+  "lastName": "Welch",
+  "phone": "0596415858",
+  "email": "user_df866f7500@example.com",
+  "address": "103 Ricky Village Suite 192, Lake Christiefort, NY 41422",
+  "description": "Hundred happen actually although job."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 65b4093b-0b5a-48f0-a049-4624623bb550"
+}

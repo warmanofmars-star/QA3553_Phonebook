@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Garcia",
+  "phone": "0532888450",
+  "email": "user_1084f93a5c@example.com",
+  "address": "01589 Martinez Light, West Jameschester, MO 75420",
+  "description": "Gun customer change back blood."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a3a0e6db-1500-4010-89e8-cd9bfdfee9ac"
+}

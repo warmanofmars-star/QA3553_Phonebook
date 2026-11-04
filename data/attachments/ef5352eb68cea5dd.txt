@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Smith",
+  "phone": "0565707609",
+  "email": "user_3d971724f7@example.com",
+  "address": "301 Powell Court, Lake William, SC 75310",
+  "description": "Then street admit management join."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bdb9346c-0c72-4a60-a87e-3305736a51b2"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "14c0c483-6996-4720-9d86-c48f549928ce",
+      "name": "Lindsay",
+      "lastName": "Johnson",
+      "email": "user_a4b64306d0@example.com",
+      "phone": "0511508900",
+      "address": "360 Roberto Keys, Marialand, MD 37197",
+      "description": "Different ready police treat either guy painting final."
+    },
+    {
+      "id": "75e444c9-822a-4860-86e9-a55f6fd34a39",
+      "name": "Martin",
+      "lastName": "Bryant",
+      "email": "user_9bbd6d5f77@example.com",
+      "phone": "0511019012",
+      "address": "4333 Jacqueline Lights Apt. 627, North Victoriashire, KS 24624",
+      "description": "Pretty according land strategy evidence."
+    }
+  ]
+}

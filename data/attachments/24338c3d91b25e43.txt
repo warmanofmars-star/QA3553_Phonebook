@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (16 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Robinson",
+  "phone": "0515033906",
+  "email": "user_3605241e34@example.com",
+  "address": "343 Christine Common Suite 939, Jenniferhaven, AR 98435",
+  "description": "Career sure memory local on."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:40:56",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

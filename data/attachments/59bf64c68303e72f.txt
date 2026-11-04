@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Garcia",
+  "phone": "0529850529",
+  "email": "user_0d3d5ffe42@example.com",
+  "address": "14539 John Manor Suite 415, West Madisonstad, MO 64639",
+  "description": "Floor the number sit run firm."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4c1d343a-7189-431b-9614-3cbea27f67d8"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3babefc2-e299-459f-b10d-27f671e3dfd8",
+      "name": "Megan",
+      "lastName": "Alvarez",
+      "email": "user_3d895a33c6@example.com",
+      "phone": "0510739934",
+      "address": "41437 Brenda Village Apt. 602, Rubenland, TN 59586",
+      "description": "Author road page cell response."
+    },
+    {
+      "id": "0daff317-164c-41b9-bb30-6abd36af0c71",
+      "name": "Joseph",
+      "lastName": "Sullivan",
+      "email": "user_e94c9ddb2f@example.com",
+      "phone": "0510739934",
+      "address": "Unit 4954 Box 2497, DPO AA 81255",
+      "description": "When small response maintain general pick."
+    }
+  ]
+}

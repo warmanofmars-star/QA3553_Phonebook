@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Jackson",
+  "phone": "0548815520",
+  "email": "user_f5a80a0887@example.com",
+  "address": "697 Anna Rue Apt. 737, Popeland, AS 32179",
+  "description": "Ability responsibility manager thus seek."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 123a6f89-d835-476c-9cac-ae1c67c00d38"
+}

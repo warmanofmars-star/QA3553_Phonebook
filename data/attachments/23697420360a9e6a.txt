@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fe2e5f7f-8983-4c09-8a66-e54aaafe4c7b",
+      "name": "A",
+      "lastName": "Carroll",
+      "email": "user_d0665d2057@example.com",
+      "phone": "0515778289",
+      "address": "9963 Samantha Divide Apt. 290, West Trevormouth, CO 31830",
+      "description": "Personal off structure something allow."
+    }
+  ]
+}

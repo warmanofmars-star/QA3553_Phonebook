@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (15 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "   ",
+  "phone": "0517771455",
+  "email": "user_bd31238d0f@example.com",
+  "address": "67591 Samantha Manors Suite 514, West Morgan, IA 42460",
+  "description": "Address project whole alone smile sign."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:40:51",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

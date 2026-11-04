@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Krueger",
+  "phone": "0515053771",
+  "email": "user_4b25ed4a0a@example.com",
+  "address": "042 Roach Port, Port Amanda, NM 38387",
+  "description": "Home staff statement season art exactly glass."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c53b251c-3695-4cd0-a5c5-3ec1d430f4a1"
+}

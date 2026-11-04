@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shaun",
+  "lastName": "Miller",
+  "phone": "0516656836",
+  "email": "user@",
+  "address": "Unit 7564 Box 1515, DPO AE 59795",
+  "description": "Speak environmental remain same business."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:40:36",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

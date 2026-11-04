@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Gentry",
+  "phone": "0586334539",
+  "email": "user_a78d78adbf@example.com",
+  "address": "613 Russell Run, Scottshire, CT 44620",
+  "description": "Fact thank action firm read."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9e37b044-f6c0-4a15-a921-e846ea3b6687"
+}

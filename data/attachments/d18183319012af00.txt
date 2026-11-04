@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2620d157-abbd-43fc-9de1-1d9135bcea3e",
+      "name": "Kathleen",
+      "lastName": "Taylor",
+      "email": "user_052bab3517@example.com",
+      "phone": "0522605657",
+      "address": "27634 Cook Fields, Port Rachaelview, MT 22853",
+      "description": "Anyone already recent season."
+    }
+  ]
+}

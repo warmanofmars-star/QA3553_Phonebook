@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "95777545-9194-40f0-a86c-fa98d9b57e93",
+      "name": "Sarah",
+      "lastName": "Thompson",
+      "email": "user_a3376f1228@example.com",
+      "phone": "0513187138",
+      "address": "016 Sanchez Groves, Jenniferfurt, NV 68875",
+      "description": "Base environment set cultural."
+    }
+  ]
+}

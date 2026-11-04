@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Hunter",
+  "phone": "0532645108",
+  "email": "user_2526007d77@example.com",
+  "address": "238 Rodriguez Square, North Troy, WY 25289",
+  "description": "Course budget despite spring tree."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5b69dcb9-a324-4c5f-b2d6-a51f347ce062"
+}

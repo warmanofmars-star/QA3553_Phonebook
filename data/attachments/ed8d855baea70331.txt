@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0752cabf-69d6-4bf6-aa62-e38c0c4abc0f",
+      "name": "Michael",
+      "lastName": "Brown",
+      "email": "user_809e64e16a@example.com",
+      "phone": "0518289828",
+      "address": "3312 James Square, West Michael, DC 88265",
+      "description": "Cold country car serious receive would."
+    }
+  ]
+}

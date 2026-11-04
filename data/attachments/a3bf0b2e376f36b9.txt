@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Theresa",
+  "lastName": "Smith",
+  "phone": "0523479616",
+  "email": "user_ec92145e0e@example.com",
+  "address": "C",
+  "description": "Laugh wear project free partner community garden."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b9d6f62d-8c57-4cb2-94dd-35ab4820dc5b"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1c05a007-0c82-4fce-9b7c-ca2b64fecd4f",
+      "name": "Mark",
+      "lastName": "Ryan",
+      "email": "user_b4ccef31d7@example.com",
+      "phone": "0571745067",
+      "address": "5234 Robert Squares Apt. 413, East Jason, GA 20493",
+      "description": "Maintain subject inside."
+    }
+  ]
+}

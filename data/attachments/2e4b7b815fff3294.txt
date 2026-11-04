@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Debbie",
+  "lastName": "Simpson",
+  "phone": "0518079758",
+  "email": "user_3be6621ff1@example.com",
+  "address": "1224 Farrell Expressway, West Steven, OH 36826",
+  "description": "Every put forget Democrat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 58b08808-3e90-430e-afa5-0a85ddc715be"
+}

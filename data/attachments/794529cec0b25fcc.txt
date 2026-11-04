@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Edwin",
+  "lastName": "Torres",
+  "phone": "0510686451",
+  "email": null,
+  "address": "7077 Kent Locks, Lake Mark, MS 03502",
+  "description": "Eat like opportunity turn."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2a53d3e5-aa43-4a89-a954-9a51e8adacb1"
+}

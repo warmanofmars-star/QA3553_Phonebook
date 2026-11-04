@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "41fcffcd-f145-4809-bf74-1aef75486975",
+      "name": "Joanne",
+      "lastName": "Patel",
+      "email": "user_6c25276862@example.com",
+      "phone": "054107115445762",
+      "address": "77301 Thomas Street, West Carrieshire, DE 72612",
+      "description": "Today again dream low road together."
+    }
+  ]
+}

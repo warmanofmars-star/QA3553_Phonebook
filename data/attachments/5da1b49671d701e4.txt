@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lynn",
+  "lastName": "Daugherty",
+  "phone": "0529731314",
+  "email": "user_5a803acc3c@example.com",
+  "address": "369 Sarah Pass, Woodfort, MA 63076",
+  "description": "Power arrive writer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 840cf5e3-575c-4a1a-a57c-af0e4ae94996"
+}

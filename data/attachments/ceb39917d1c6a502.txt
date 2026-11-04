@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e536a3b5-fdc9-464d-b0ad-a11f0b57b527",
+      "name": "Colleen",
+      "lastName": "Hernandez",
+      "email": "user_0d6c063078@example.com",
+      "phone": "0521124759",
+      "address": "617 Sexton Trail, New Troyton, NH 76422",
+      "description": "Type mother message game form."
+    }
+  ]
+}

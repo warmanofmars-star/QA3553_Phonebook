@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Harrington",
+  "phone": "0530998217",
+  "email": "user_5ddc4e0f4f@example.com",
+  "address": "142 Robinson Port, Lake Janet, HI 38375",
+  "description": "Way drug each possible whether around."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5986c847-5af7-4879-b819-3204d46ff1fa"
+}

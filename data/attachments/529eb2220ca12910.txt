@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e10ebb46-94fb-414d-9058-f65e3f269d5a",
+      "name": "Taylor",
+      "lastName": "Brown",
+      "email": "user_6bcf36104f@example.com",
+      "phone": "0515478183",
+      "address": "533 Cassidy Square, Markland, DC 86022",
+      "description": "Create middle against trouble box."
+    }
+  ]
+}

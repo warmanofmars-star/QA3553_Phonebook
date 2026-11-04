@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aa9a9a99-6e69-4a77-ace6-a53d5e5e23c3",
+      "name": "Stephen",
+      "lastName": "Hall",
+      "email": "user_b5264e807b@example.com",
+      "phone": "0521068731",
+      "address": "0832 William Glens Suite 134, South Katie, GU 09893",
+      "description": "Amount western explain common figure."
+    },
+    {
+      "id": "c2dd4686-7960-48be-8514-4d5320a0b95e",
+      "name": "Marcus",
+      "lastName": "Wilkerson",
+      "email": "user_1a5eb4444e@example.com",
+      "phone": "0524726343",
+      "address": "6008 Angela Mission Apt. 929, Perryton, WY 39518",
+      "description": "Hotel dark city understand medical law girl."
+    }
+  ]
+}

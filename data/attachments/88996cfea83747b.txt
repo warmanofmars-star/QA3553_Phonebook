@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (16 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": null,
+  "phone": "0513155723",
+  "email": "user_d748c73942@example.com",
+  "address": "66859 Nancy Spur, Hortonshire, RI 83139",
+  "description": "Company help with course."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:40:53",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

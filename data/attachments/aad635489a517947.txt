@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5300352f-3c35-4fc5-895b-51acfa6beed6",
+      "name": "Lucas",
+      "lastName": "Hartman",
+      "email": "user_9f012a3014@example.com",
+      "phone": "0537573245",
+      "address": "43365 Gary Unions, West Carl, SC 20031",
+      "description": "Minute movie condition month major heavy."
+    }
+  ]
+}

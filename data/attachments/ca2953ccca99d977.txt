@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Pena",
+  "phone": "0515404255",
+  "email": null,
+  "address": "467 Laura Lakes Apt. 254, West Catherine, WI 07891",
+  "description": "But opportunity start mention."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 951bfced-67d6-4dd7-99a9-950e9dee5d46"
+}

@@ -1,0 +1,11 @@
+12:41:25 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+12:41:25 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+12:41:26 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (168 ms)
+12:41:26 [INFO   ] API: Токен добавлен в заголовки сессии
+12:41:26 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+12:41:26 [INFO   ] STEP: Войти как user_8d3e75f822@example.com
+12:41:27 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/add
+12:41:27 [INFO   ] STEP: Заполнить форму контакта (телефон 0501234567)
+12:41:28 [INFO   ] STEP: Нажать Save
+12:41:28 [INFO   ] UI: Текст Alert: 'Email not valid: must be a well-formed email address'
+12:41:31 [INFO   ] DRIVER: Видео 66bf3770401c29dab3eac8e31c86db51.mp4 прикреплено к отчёту

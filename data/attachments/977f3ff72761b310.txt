@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Crawford",
+  "phone": "0524564113",
+  "email": "user_8621e2eda4@example.com",
+  "address": "9596 Melanie Greens, Port Cheryl, NJ 61669",
+  "description": "Stand behavior seven simple."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0cad0cbb-00da-4c08-992b-690a917ed507"
+}

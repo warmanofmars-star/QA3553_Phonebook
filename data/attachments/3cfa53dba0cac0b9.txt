@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Kramer",
+  "phone": "0514794064",
+  "email": "user_26d35de702@example.com",
+  "address": "592 Arias Meadows, Clarkbury, AK 36325",
+  "description": "Model majority study most."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cab14cca-a7a3-4ef1-9c8c-89393b3caebf"
+}

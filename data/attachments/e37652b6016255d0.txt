@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2ef813a3-6095-4a0e-b343-fbe01b46057b",
+      "name": "Jillian",
+      "lastName": "Bartlett",
+      "email": "",
+      "phone": "0516086672",
+      "address": "263 Jeffrey Crescent, South William, DC 13211",
+      "description": "Organization continue four ahead their newspaper."
+    }
+  ]
+}

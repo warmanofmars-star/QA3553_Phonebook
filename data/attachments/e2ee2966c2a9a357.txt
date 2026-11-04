@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "acf53073-44d6-4a44-ae4a-0a22dc6e8256",
+      "name": "Levi",
+      "lastName": "Mccoy",
+      "email": "user_4dfdcb0c9a@example.com",
+      "phone": "0515283337",
+      "address": "446 Gallegos Meadows Apt. 495, Jensenmouth, TX 44169",
+      "description": "Chance goal election election."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "292cc2ad-f457-4860-b6e2-caa71c9219cc",
+      "name": "Karina",
+      "lastName": "Johnson",
+      "email": "user_18fe458c29@example.com",
+      "phone": "0521133572",
+      "address": "58060 Fisher Ways Apt. 925, Amandatown, PW 76517",
+      "description": "Day but long bar."
+    }
+  ]
+}

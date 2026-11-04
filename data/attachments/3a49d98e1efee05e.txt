@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Tanner",
+  "phone": "0526172320",
+  "email": "user_f060c51878@example.com",
+  "address": "4120 Taylor Radial, Huntberg, OK 18419",
+  "description": "Life view floor someone loss floor father model."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a69061e0-db97-494b-ac85-2a6de2dfa49a"
+}

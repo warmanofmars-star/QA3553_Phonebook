@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0517229754",
+  "email": "user_b20e0e833d@example.com",
+  "address": "USS Miller, FPO AA 36581",
+  "description": "Better during also head message."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4ad69a29-2ea2-4dcd-b4a5-2bdf612eaa3b"
+}

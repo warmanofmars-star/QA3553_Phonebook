@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "584fd8d9-ddbd-4867-a966-0d070463a97a",
+      "name": "Omar",
+      "lastName": "Medina",
+      "email": "user_b1ab2f96e0@example.com",
+      "phone": "0583174139",
+      "address": "74159 Amber Fords, West Louisberg, WV 28742",
+      "description": "Line spend investment decision community act."
+    }
+  ]
+}

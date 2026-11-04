@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c68b204e-a30f-43d3-b983-774c661c6122",
+      "name": "Mary",
+      "lastName": "Sharp",
+      "email": "user_b2c11c35ae@example.com",
+      "phone": "0519170442",
+      "address": "PSC 8936, Box 0061, APO AE 46430",
+      "description": "Person college admit thing speak for themselves clearly."
+    }
+  ]
+}

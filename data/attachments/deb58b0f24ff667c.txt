@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brett",
+  "lastName": "Hale",
+  "phone": "0557374589",
+  "email": "user_46ff633a9b@example.com",
+  "address": "22344 Madeline Crossing, Port Christine, LA 38072",
+  "description": "Ahead mouth drug possible."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1f5e3fed-9eec-422e-b93b-826fed0c0d9b"
+}

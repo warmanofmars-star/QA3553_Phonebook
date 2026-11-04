@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Sims",
+  "phone": "0512079467",
+  "email": "user_6eb97872ec@example.com",
+  "address": "85955 Ingram Knolls Suite 692, Steelestad, RI 69059",
+  "description": "Leg wide able write.",
+  "id": "4de059a7-c5df-49c7-87c5-d007bc174859"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

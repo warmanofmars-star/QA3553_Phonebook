@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wendy",
+  "lastName": "Mccoy",
+  "phone": null,
+  "email": "user_e3c7855d6a@example.com",
+  "address": "96788 Yvonne Trafficway, Taylorshire, CT 23650",
+  "description": "Bank decision wind form number plan remain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e5d403ac-d2fb-4bbd-8031-4ac2ede95f47"
+}

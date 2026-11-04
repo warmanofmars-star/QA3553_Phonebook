@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (31 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Hernandez",
+  "phone": "0516595918",
+  "email": "user_5d3cebcf09@example.com",
+  "address": "0242 Andrea Roads, South Christopherfurt, ND 90769",
+  "description": "Nearly mission candidate of American senior lose."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-04T12:40:44",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

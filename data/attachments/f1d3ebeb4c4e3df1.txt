@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sara",
+  "lastName": "Mullins",
+  "phone": "0507532022",
+  "email": "user_25c1ceffbc@example.com",
+  "address": "4025 Michael Heights Suite 449, Port Amy, OR 55263",
+  "description": "Activity specific different report."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b87a89e4-8882-42b3-a2f8-8f598fe6fa1a"
+}

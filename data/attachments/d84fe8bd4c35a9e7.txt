@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Catherine",
+  "lastName": "Hale",
+  "phone": "056084872809084",
+  "email": "user_26fe452510@example.com",
+  "address": "12111 Larson Mountains Suite 278, West Kyleview, AK 57119",
+  "description": "Religious girl prevent song.",
+  "id": "52f1e2a9-0783-45d4-8a74-c627cd212d23"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

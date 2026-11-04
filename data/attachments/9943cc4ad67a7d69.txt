@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jodi",
+  "lastName": "Stewart",
+  "phone": "0529080297",
+  "email": "user_c20e760c9e@example.com",
+  "address": "5020 Griffin Rapids Suite 953, Port Catherine, AL 91486",
+  "description": "Market song rule size production read industry."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3572f503-d0e1-4eae-b560-5b2c90fd22c5"
+}

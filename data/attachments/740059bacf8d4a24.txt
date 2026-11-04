@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7d4ca6c6-ad6d-4f69-9e20-856e4d74d951",
+      "name": "Daniel",
+      "lastName": "Dominguez",
+      "email": "user_1986d81f9a@example.com",
+      "phone": "0512255268",
+      "address": "782 William Plaza Apt. 631, Brewerchester, TN 52819",
+      "description": "Face particularly whatever arrive bed offer where next."
+    }
+  ]
+}

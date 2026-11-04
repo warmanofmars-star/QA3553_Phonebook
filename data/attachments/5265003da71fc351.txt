@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f9818238-468a-4d76-9a78-41d8b1703403",
+      "name": "Robin",
+      "lastName": "Bell",
+      "email": null,
+      "phone": "0511775652",
+      "address": "1314 Bond Spring, Derekville, SD 12693",
+      "description": "Others beyond north gas thus."
+    }
+  ]
+}

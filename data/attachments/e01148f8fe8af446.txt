@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4f07e85f-3527-4245-9691-1587d5866ac1",
+      "name": "Steven",
+      "lastName": "Cameron",
+      "email": "user_71633d8fc1@example.com",
+      "phone": "0563028703",
+      "address": "8536 Sarah Falls, Paulville, NH 71863",
+      "description": "Around TV mind number force stand."
+    }
+  ]
+}

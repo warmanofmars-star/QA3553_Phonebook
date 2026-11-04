@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rhonda",
+  "lastName": "Jones",
+  "phone": "0587643252",
+  "email": "user_83a7306e8a@example.com",
+  "address": "USNS Hernandez, FPO AE 45622",
+  "description": "Though artist of become left those cultural fill."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0120c618-a395-4a76-8530-1f2f4e48639c"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "B",
+  "phone": "0516848285",
+  "email": "user_d19b0e1a69@example.com",
+  "address": "867 Lisa Groves Apt. 744, Daniellemouth, MH 91569",
+  "description": "Street citizen leave contain wrong include history."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2ee5e46a-b6d1-4a62-9aec-eaf3d81c0037"
+}

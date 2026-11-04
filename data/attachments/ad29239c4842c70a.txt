@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Clifford",
+  "lastName": "Jordan",
+  "phone": "0514571927",
+  "email": "user_cce1c8bbac@example.com",
+  "address": "6204 Carney Crescent Suite 804, Teresaside, PA 56110",
+  "description": "Trial certain drop strategy new outside."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ad199618-319c-454d-99b8-8fb5e1f72e9c"
+}

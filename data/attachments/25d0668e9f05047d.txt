@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jerry",
+  "lastName": "Fernandez",
+  "phone": "0523040659",
+  "email": "user_7a160298cc@example.com",
+  "address": "4834 Mitchell Avenue Suite 061, North Kristentown, MD 50025",
+  "description": "Face role his."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dfa49a9f-73e6-441c-bc94-05287cefdd7c"
+}

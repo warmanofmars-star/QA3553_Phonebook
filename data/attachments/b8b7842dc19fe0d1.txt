@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a4a63cc2-269b-4e8e-9733-d165389ccd3b",
+      "name": "Evan",
+      "lastName": "Terry",
+      "email": "a@b",
+      "phone": "0513147184",
+      "address": "463 Tran Fork, New Matthewbury, ID 53809",
+      "description": "Young suggest baby job off matter."
+    }
+  ]
+}

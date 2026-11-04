@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "69bf0997-ed0d-4fd5-a988-c25441cef26f",
+      "name": "Stephanie",
+      "lastName": "Hinton",
+      "email": "user_3496815010@example.com",
+      "phone": "0515192010",
+      "address": "3565 Laura Islands, East Donaldland, VA 11678",
+      "description": "Teacher certainly want employee."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+12:41:51 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+12:41:51 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+12:41:51 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (268 ms)
+12:41:51 [INFO   ] API: Токен добавлен в заголовки сессии
+12:41:51 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/login
+12:41:52 [INFO   ] STEP: Войти как user_faa68a2dee@example.com
+12:41:52 [INFO   ] API: POST /v1/contacts -> 200 (59 ms)
+12:41:52 [INFO   ] API: GET /v1/contacts -> 200 (56 ms)
+12:41:52 [INFO   ] UI: Открываем страницу: https://telranedu.web.app/contacts
+12:41:52 [INFO   ] STEP: Открыть карточку контакта 0554627165
+12:41:53 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+12:41:53 [INFO   ] STEP: Изменить поля формы редактирования
+12:41:53 [INFO   ] STEP: Изменить поле name на 'Ashley'
+12:41:53 [INFO   ] STEP: Изменить поле last_name на 'Humphrey'
+12:41:53 [INFO   ] STEP: Изменить поле phone на '0524983338'
+12:41:53 [INFO   ] STEP: Изменить поле email на 'user_0e5dd7796d@example.com'
+12:41:53 [INFO   ] STEP: Изменить поле address на '9864 Daniel Stravenue, North David, HI 58804'
+12:41:54 [INFO   ] STEP: Изменить поле description на 'Lawyer head around why eat operation goal.'
+12:41:59 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Lawyer head around why eat operation goal.', фактически '[object Undefined]'
+12:42:02 [INFO   ] DRIVER: Видео 2cb1b519494598c06ea8996e49c85d0f.mp4 прикреплено к отчёту

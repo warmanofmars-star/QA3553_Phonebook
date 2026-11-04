@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aaba474f-1de8-4967-a41d-57c1cf6bd95a",
+      "name": "12345",
+      "lastName": "Sexton",
+      "email": "user_f2f4e766f1@example.com",
+      "phone": "0517496889",
+      "address": "62137 Shelton Fields, New Marioside, WI 64477",
+      "description": "Half whether them respond."
+    }
+  ]
+}

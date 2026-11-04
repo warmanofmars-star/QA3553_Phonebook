@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robin",
+  "lastName": "Bell",
+  "phone": "0511775652",
+  "email": null,
+  "address": "1314 Bond Spring, Derekville, SD 12693",
+  "description": "Others beyond north gas thus."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f9818238-468a-4d76-9a78-41d8b1703403"
+}

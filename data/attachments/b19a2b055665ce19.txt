@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Teresa",
+  "lastName": "Jacobson",
+  "phone": "0521894963",
+  "email": "user_47203dbd38@example.com",
+  "address": "5150 Kennedy Forest Suite 408, Annaborough, FL 78397",
+  "description": "Hour catch account explain body."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f7b18405-0365-4d86-ac95-6578a3487cd7"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "B",
+  "phone": "0533421331",
+  "email": "user_7ed90a7cc8@example.com",
+  "address": "56021 Hayden Path, New William, ND 57565",
+  "description": "Buy home move force action."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 603f5662-7d18-4d57-a18d-594581323a1b"
+}

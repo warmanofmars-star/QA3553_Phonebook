@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "96658fab-37d6-4068-9d5a-9afcf92f87ff",
+      "name": "Rachael",
+      "lastName": "Wilson",
+      "email": "user_e98a5995ee@example.com",
+      "phone": "0532628689",
+      "address": "3394 Cheyenne Springs, West Jameshaven, GA 72775",
+      "description": "Relationship wish painting method perhaps coach fact."
+    }
+  ]
+}

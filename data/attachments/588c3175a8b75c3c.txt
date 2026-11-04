@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Colleen",
+  "lastName": "Hernandez",
+  "phone": "0521124759",
+  "email": "user_0d6c063078@example.com",
+  "address": "617 Sexton Trail, New Troyton, NH 76422",
+  "description": "Type mother message game form."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e536a3b5-fdc9-464d-b0ad-a11f0b57b527"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9a1f83d0-e6f3-4bf1-a40c-d876b204aaf7",
+      "name": "Michele",
+      "lastName": "Wiley",
+      "email": "user_90c4f333cf@example.com",
+      "phone": "0521894963",
+      "address": "333 Andrew Trail Apt. 591, Jessicaville, RI 04702",
+      "description": "Bill common beautiful detail less."
+    },
+    {
+      "id": "f7b18405-0365-4d86-ac95-6578a3487cd7",
+      "name": "Teresa",
+      "lastName": "Jacobson",
+      "email": "user_47203dbd38@example.com",
+      "phone": "0521894963",
+      "address": "5150 Kennedy Forest Suite 408, Annaborough, FL 78397",
+      "description": "Hour catch account explain body."
+    }
+  ]
+}

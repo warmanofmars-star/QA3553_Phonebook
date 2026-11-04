@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "37eefacb-b354-495a-ae2d-c325d375c2f4",
+      "name": "Joanne",
+      "lastName": "Moran",
+      "email": "user_1953eff27f@example.com",
+      "phone": "0516384929",
+      "address": "257 Eric Skyway, Wongview, RI 12948",
+      "description": "Country by article forward artist boy."
+    }
+  ]
+}

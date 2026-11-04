@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Odonnell",
+  "phone": "0513743914",
+  "email": "user_a2060bb567@example.com",
+  "address": "8804 Eric Manors Suite 892, New Andrewside, CA 83706",
+  "description": "A rule actually series today consider they."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d769d093-d2d3-48ca-87c5-288be28fb30e"
+}

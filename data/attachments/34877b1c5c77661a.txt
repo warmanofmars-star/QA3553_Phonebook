@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "91752607-c56d-4a02-8534-8888a0838888",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Wu",
+      "email": "user_2f4280191a@example.com",
+      "phone": "0526211425",
+      "address": "57699 Jennings Port Apt. 058, New Sergiochester, CO 30850",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

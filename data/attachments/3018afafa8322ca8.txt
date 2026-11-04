@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7a4c42e6-40e8-4180-8e2d-3378f30f29b9",
+      "name": "Diana",
+      "lastName": "Morgan",
+      "email": "user_74db3c6295@example.com",
+      "phone": "0556973000",
+      "address": "550 Nicole Camp, Horneville, MI 09046",
+      "description": "Seek heart significant summer common carry cut."
+    }
+  ]
+}

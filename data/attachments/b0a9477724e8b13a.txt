@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0f6910a1-6708-4a99-acc2-69f4dd6bf58d",
+      "name": "Ashley",
+      "lastName": "Perez",
+      "email": "user_bac366ea74@example.com",
+      "phone": "0521106073",
+      "address": "924 Prince Drive, Elaineview, PR 73208",
+      "description": "Meeting alone town move interview."
+    }
+  ]
+}
