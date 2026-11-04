@@ -155,6 +155,9 @@ COMPOSE_PROFILES=edge BROWSER=edge PYTEST_ADDOPTS='-m "smoke"' docker compose up
 Selenium tests run on Selenium Grid nodes (a hub and two nodes of the selected browser). Each node records
 a video of its sessions, and the video is attached to the Allure report. Compose pulls the Grid images itself.
 While the stack is running, the Grid UI is available at `http://localhost:4444/ui/` (the trailing slash is required).
+The host port is set by `GRID_HOST_PORT` (default `4444`); Jenkins builds use `4445`, so a local stack and
+a Jenkins build on the same machine do not take each other's port. The tests reach the hub inside the compose
+network as `selenium-hub:4444`, so the host port does not affect them.
 The stack previously used Selenoid; it was replaced because the project is discontinued.
 More commands: [`commands.md`](commands.md).
 
@@ -165,10 +168,21 @@ and on every pull request:
 
 - a linter job (ruff);
 - a secrets job (gitleaks) that scans only the new commits of the push or pull request;
-- tests in Chrome, Firefox and Edge in parallel (matrix), each in Docker Compose with Selenium Grid;
-- one Allure report for all browsers with trend history, published to GitHub Pages from `main`
-  (for pull requests it is available as a build artifact);
-- a Telegram notification with the result and test counts.
+- API and Playwright tests (`-m "api or playwright"`) once, in Docker without Selenium Grid:
+  they do not use the matrix browser (Playwright always runs its own Chromium);
+- the remaining UI tests (`-m "not api and not playwright"`) in Chrome, Firefox and Edge in parallel (matrix),
+  each in Docker Compose with Selenium Grid;
+- one Allure report for all jobs with trend history, published to GitHub Pages from `main`
+  (for pull requests it is available as a build artifact); API and Playwright tests are labelled `[API]`,
+  UI tests by browser (`[CHROME]`, `[FIREFOX]`, `[EDGE]`);
+- a Telegram notification with the result of each part and test counts.
+
+The two expressions complement each other, so every test runs in exactly one job: 88 tests once
+plus 42 UI tests × 3 browsers = 214 test runs per pipeline (previously 130 × 3 = 390).
+A manual run (`workflow_dispatch`) accepts a `test_marker`; it is combined with each job's expression
+as `(marker) and (expression)`. A job left with no tests by the marker succeeds without running anything;
+in every other run (push, pull request, manual run without a marker) an empty selection fails the job,
+so a broken split expression cannot turn the pipeline green without testing anything.
 
 Failed tests fail the pipeline; the report is generated anyway.
 

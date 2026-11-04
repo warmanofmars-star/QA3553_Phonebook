@@ -107,7 +107,65 @@ jobs:
             git /repo --config /repo/.gitleaks.toml --redact --verbose --log-opts="$LOG_OPTS"
 
   # ==========================================
-  # JOB 1: ТЕСТЫ В НЕСКОЛЬКИХ БРАУЗЕРАХ ПАРАЛЛЕЛЬНО (МАТРИЦА)
+  # РАЗБИЕНИЕ ТЕСТОВ МЕЖДУ JOB'АМИ
+  # ==========================================
+  # API- и Playwright-тестам браузер из матрицы не нужен (Playwright всегда берёт свой
+  # chromium), поэтому они идут ОДИН раз в отдельном job без Selenium Grid. Матрица
+  # получает всё остальное. Выражения взаимно дополняют друг друга:
+  #   api-tests:      api or playwright
+  #   test-execution: not api and not playwright
+  # — каждый тест попадает ровно в один job. Маркер ручного запуска добавляется к
+  # выражению через and, и он, и выражение берутся в скобки: иначе "smoke or api"
+  # превратилось бы в "smoke or (api and ...)" и отобрало бы лишнее.
+  # Пустой отбор (код выхода pytest 5) — ошибка, а не успех: если выражение разбиения
+  # сломается (опечатка, переименованный маркер), job отберёт 0 тестов и иначе стал бы
+  # зелёным, ничего не проверив. Единственное исключение — ручной запуск с test_marker:
+  # маркер вправе не оставить тестов одному из job'ов (например, test_marker=api для матрицы).
+
+  # ==========================================
+  # JOB 1: API И PLAYWRIGHT — ОДИН РАЗ, БЕЗ SELENIUM GRID
+  # ==========================================
+  api-tests:
+    name: Tests (api)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Скачиваем код проекта
+        uses: actions/checkout@v7
+
+      - name: Запускаем API- и Playwright-тесты в Docker (без Grid)
+        env:
+          PYTEST_ADDOPTS: ${{ inputs.test_marker && format('-m "({0}) and (api or playwright)"', inputs.test_marker) || '-m "api or playwright"' }}
+          # Пустой отбор допустим только при ручном запуске с маркером (см. разбиение выше)
+          ALLOW_EMPTY: ${{ github.event_name == 'workflow_dispatch' && inputs.test_marker != '' }}
+        # run --no-deps: стартует только контейнер с тестами, хаб и узлы Grid не нужны.
+        # -T: без псевдотерминала (в CI его нет). Код выхода — код pytest
+        run: |
+          code=0
+          docker compose run --rm --no-deps --build -T qa-framework || code=$?
+          if [ "$code" -eq 5 ]; then
+            if [ "$ALLOW_EMPTY" = "true" ]; then echo "Маркер не отобрал API- и Playwright-тестов — пропускаю"; exit 0; fi
+            echo "::error::Job не отобрал ни одного теста — проверь выражение -m ($PYTEST_ADDOPTS)"
+          fi
+          exit "$code"
+
+      - name: Возвращаем себе права на результаты
+        if: always()
+        run: sudo chown -R "$USER:$USER" allure-results || true
+
+      - name: Сохраняем сырые результаты Allure
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          # Имя папки после скачивания — allure-results-api: по нему скрипт склейки
+          # помечает эти тесты как [API], а не как браузер
+          name: allure-results-api
+          path: allure-results
+          retention-days: 3
+
+  # ==========================================
+  # JOB 2: UI-ТЕСТЫ В НЕСКОЛЬКИХ БРАУЗЕРАХ ПАРАЛЛЕЛЬНО (МАТРИЦА)
   # ==========================================
   test-execution:
     name: Tests (${{ matrix.browser }})
@@ -129,14 +187,23 @@ jobs:
           COMPOSE_PROFILES: ${{ matrix.browser }}
           BROWSER: ${{ matrix.browser }}
           # pytest сам дочитывает аргументы из переменной PYTEST_ADDOPTS.
-          # Маркер передаётся как данные, а не вклеивается в текст shell-команды
-          PYTEST_ADDOPTS: ${{ inputs.test_marker && format('-m "{0}"', inputs.test_marker) || '' }}
+          # Маркер передаётся как данные, а не вклеивается в текст shell-команды.
+          # API и Playwright сюда не входят: они в job api-tests (см. разбиение выше)
+          PYTEST_ADDOPTS: ${{ inputs.test_marker && format('-m "({0}) and not api and not playwright"', inputs.test_marker) || '-m "not api and not playwright"' }}
+          ALLOW_EMPTY: ${{ github.event_name == 'workflow_dispatch' && inputs.test_marker != '' }}
         # Здесь больше НЕТ continue-on-error: упавшие тесты делают job и весь прогон красным.
         # Отчёт при этом всё равно соберётся: следующие шаги помечены if: always().
         # Именно up, а не run: run стартует только depends_on сервиса (хаб), а узлы
         # браузеров в depends_on не входят — их запускает профиль. --exit-code-from
         # останавливает стенд после тестов и возвращает код выхода pytest
-        run: docker compose up --build --exit-code-from qa-framework
+        run: |
+          code=0
+          docker compose up --build --exit-code-from qa-framework || code=$?
+          if [ "$code" -eq 5 ]; then
+            if [ "$ALLOW_EMPTY" = "true" ]; then echo "Маркер не отобрал UI-тестов — пропускаю"; exit 0; fi
+            echo "::error::Job не отобрал ни одного теста — проверь выражение -m ($PYTEST_ADDOPTS)"
+          fi
+          exit "$code"
 
       - name: Возвращаем себе права на результаты
         # Контейнер пишет файлы от root; без этого upload-artifact не сможет их прочитать
@@ -152,11 +219,11 @@ jobs:
           retention-days: 3
 
   # ==========================================
-  # JOB 2: ОБЩИЙ ОТЧЁТ, ПУБЛИКАЦИЯ И УВЕДОМЛЕНИЕ
+  # JOB 3: ОБЩИЙ ОТЧЁТ, ПУБЛИКАЦИЯ И УВЕДОМЛЕНИЕ
   # ==========================================
   allure-report:
     name: Allure report
-    needs: test-execution
+    needs: [api-tests, test-execution]
     if: always()              # отчёт нужен именно тогда, когда тесты упали
     runs-on: ubuntu-22.04
     timeout-minutes: 15
@@ -167,10 +234,10 @@ jobs:
       - name: Скачиваем код проекта (нужен скрипт склейки)
         uses: actions/checkout@v7
 
-      - name: Скачиваем результаты всех браузеров
+      - name: Скачиваем результаты всех job'ов
         uses: actions/download-artifact@v8
         with:
-          pattern: allure-results-*   # каждый артефакт — в свою папку allure-results-<браузер>
+          pattern: allure-results-*   # каждый артефакт — в свою папку allure-results-<api|браузер>
 
       - name: Забираем прошлый отчёт (история для графика трендов)
         uses: actions/checkout@v7
@@ -179,7 +246,7 @@ jobs:
           ref: gh-pages
           path: previous-report
 
-      - name: Склеиваем результаты браузеров и добавляем историю
+      - name: Склеиваем результаты API и браузеров и добавляем историю
         run: |
           python3 ci/merge_allure_results.py allure-results-*
           # Allure строит тренды из папки history прошлого отчёта, положенной в результаты
@@ -217,7 +284,8 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
-          TESTS_RESULT: ${{ needs.test-execution.result }}
+          API_RESULT: ${{ needs.api-tests.result }}
+          UI_RESULT: ${{ needs.test-execution.result }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           IS_MAIN: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
@@ -226,13 +294,13 @@ jobs:
 
           # Цифры берём из сгенерированного отчёта (xfail Allure считает как skipped)
           STATS=$(python3 -c "import json; s = json.load(open('allure-report/widgets/summary.json'))['statistic']; print(f\"Прошли: {s['passed']}, упали: {s['failed'] + s['broken']}, известные баги/пропуски: {s['skipped']}\")" 2>/dev/null || echo "Отчёт не сформирован")
-          if [ "$TESTS_RESULT" = "success" ]; then ICON="✅"; else ICON="🔴"; fi
+          if [ "$API_RESULT" = "success" ] && [ "$UI_RESULT" = "success" ]; then ICON="✅"; else ICON="🔴"; fi
           if [ "$IS_MAIN" = "true" ]; then REPORT="$PAGES_URL"; else REPORT="$RUN_URL (артефакт allure-report)"; fi
 
           TEXT="$ICON Phonebook — GitHub Actions
           Событие: $GITHUB_EVENT_NAME, ветка: $GITHUB_REF_NAME
-          Браузеры: chrome, firefox, edge
-          Результат: $TESTS_RESULT
+          API и Playwright (один раз): $API_RESULT
+          UI в chrome, firefox, edge: $UI_RESULT
           $STATS
           Отчёт: $REPORT"
 
