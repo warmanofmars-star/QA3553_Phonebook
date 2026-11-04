@@ -82,3 +82,24 @@ class ContactGenerator:
 
         data.update(overrides)
         return Contact(**data)
+
+    @staticmethod
+    def get_contact_different_from(original: Contact, attempts: int = 50) -> Contact:
+        """Случайный контакт, у которого КАЖДОЕ поле отличается от поля original.
+
+        Faker выбирает имена с весами по частоте, поэтому «новое» имя может совпасть
+        со старым. Тогда тест редактирования сохранил бы то же значение, и падение
+        «изменения не сохранились» нельзя было бы отличить от настоящей поломки.
+        id не копируется: его при необходимости проставляет тест.
+        """
+        changed = {}
+        for field in ("name", "last_name", "phone", "email", "address", "description"):
+            old = getattr(original, field)
+            for _ in range(attempts):
+                value = getattr(ContactGenerator.get_random_contact(), field)
+                if value != old:
+                    changed[field] = value
+                    break
+            else:
+                raise RuntimeError(f"За {attempts} попыток не удалось получить {field}, отличное от {old!r}")
+        return Contact(**changed)

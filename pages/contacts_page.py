@@ -1,3 +1,6 @@
+from dataclasses import replace
+
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
@@ -83,29 +86,134 @@ class ContactsPage(BasePage):
     # ==========================================
     # Редактирование
     # ==========================================
-    @step("Нажать Edit")
-    def start_editing(self) -> None:
+    # Точки синхронизации — по состоянию интерфейса, а не по времени:
+    #   1. после Edit форма открыта И заполнена данными контакта — только тогда вводим
+    #      (иначе React может заполнить поля уже после ввода и затереть его);
+    #   2. после ввода каждого поля его value равен введённому;
+    #   3. после Save форма закрылась, а в карточке — новые значения.
+    # Повторных попыток ввода нет намеренно: если состояние не наступило, это ошибка,
+    # и она должна быть видна, а не замаскирована вторым вводом.
+    def edit_contact(self, contact: Contact, changes: Contact, *, expect_saved: bool = True) -> None:
+        """Полный сценарий редактирования: открыть карточку, Edit, изменить поля, Save.
+
+        contact — контакт в том виде, в каком он сейчас сохранён: по нему проверяется,
+        что форма заполнилась, а после Save — что карточка показывает новые значения.
+        changes — новые значения (None — поле не трогаем, "" — очистить).
+        expect_saved=False — для негативных сценариев (невалидные данные, дубликаты):
+        после Save интерфейс не проверяется, что сохранилось — проверяет тест через API.
+        """
+        self.open_details(contact.phone)
+        self.start_editing(contact)
+        self.fill_edit_form(changes, contact)
+        self.save_edit()
+        if expect_saved:
+            new_values = {f: getattr(changes, f) for f in ContactFormLocators.FIELDS if getattr(changes, f) is not None}
+            self._wait_saved(contact, replace(contact, **new_values))
+
+    @step("Нажать Edit и дождаться формы с данными контакта")
+    def start_editing(self, contact: Contact) -> None:
         self._click(self._EDIT_BTN)
+        if not self._is_visible(ContactFormLocators.FIELDS["name"]):
+            self._fail("Форма редактирования не открылась: поле Name не появилось после Edit")
+
+        expected = {f: getattr(contact, f) for f in ContactFormLocators.FIELDS if getattr(contact, f) is not None}
+        if not self._wait_for(lambda: self._form_values(expected) == expected):
+            mismatch = self._describe_mismatch(expected, self._form_values(expected))
+            self._fail(f"Форма редактирования не заполнилась данными контакта: {mismatch}")
 
     @step("Изменить поля формы редактирования")
-    def fill_edit_form(self, contact: Contact) -> None:
-        """Меняет поля, у которых в contact задано значение (None — поле не трогаем).
-        Пустая строка "" очищает поле."""
-        for field, locator in ContactFormLocators.FIELDS.items():
-            value = getattr(contact, field)
+    def fill_edit_form(self, changes: Contact, current: Contact) -> None:
+        """Меняет поля, у которых в changes задано значение (None — поле не трогаем).
+        Пустая строка "" очищает поле. current — значения в форме до ввода."""
+        for field in ContactFormLocators.FIELDS:
+            value = getattr(changes, field)
             if value is not None:
-                self._replace_text(locator, value)
+                self.change_field(field, value, previous=getattr(current, field))
+
+    # Значения полей контакта — не секрет, поэтому их можно показывать в шаге:
+    # без этого по отчёту нельзя понять, что именно тест вводил
+    @step("Изменить поле {field} на '{value}'")
+    def change_field(self, field: str, value: str, previous: str | None = None) -> None:
+        locator = ContactFormLocators.FIELDS[field]
+        self._replace_text(locator, value)
+        if self._wait_for(lambda: self._find(locator).get_attribute("value") == value):
+            return
+
+        actual = self._find(locator).get_attribute("value")
+        state = f"поле {field}: ожидалось {value!r}, фактически {actual!r}"
+        if actual == (previous or ""):
+            # В поле вернулось прежнее значение: форма перезаписала ввод (гонка с заполнением
+            # формы) или ввод не дошёл до поля. Это сбой синхронизации — UiStateError
+            self._fail(f"Форма перезаписала ввод прежним значением: {state}")
+        # В поле не введённое и не прежнее значение — приложение само исказило ввод.
+        # Это результат действия, а не сбой синхронизации, поэтому AssertionError.
+        # Так выглядит известный баг описания: вместо текста — '[object Undefined]'
+        self._fail(f"Приложение изменило введённое значение: {state}", AssertionError)
 
     @step("Нажать Save в форме редактирования")
     def save_edit(self) -> None:
         self._click(self._SAVE_EDIT_BTN)
 
-    def edit_contact(self, phone: str, changes: Contact) -> None:
-        """Полный сценарий редактирования: открыть карточку, Edit, изменить поля, Save."""
-        self.open_details(phone)
-        self.start_editing()
-        self.fill_edit_form(changes)
-        self.save_edit()
+    def _wait_saved(self, before: Contact, expected: Contact) -> None:
+        """После Save: форма закрылась, а в карточке — новые значения изменённых полей."""
+        with allure.step("Дождаться закрытия формы и новых значений в карточке"):
+            if not self._is_gone(ContactFormLocators.FIELDS["name"]):
+                self._fail("После Save форма редактирования не закрылась")
+
+            fields = [f for f in ContactFormLocators.FIELDS if getattr(expected, f) != getattr(before, f)]
+            wanted = self._details_view(expected, fields)
+            if not self._wait_for(lambda: self._details_shown(fields) == wanted):
+                actual = self._details_shown(fields)
+                stale = [key for key in wanted if actual.get(key) == self._details_view(before, fields).get(key)]
+                prefix = "в карточке осталось старое значение" if stale else "в карточке другое значение"
+                # AssertionError, а не UiStateError: ввод уже подтверждён (value полей
+                # проверены), значит карточка показывает не то, что сохранил пользователь —
+                # это результат действия, а не сбой синхронизации. Так проявляется и
+                # известный баг описания (EDIT_DESCRIPTION_BROKEN: '[object Undefined]')
+                self._fail(f"После Save {prefix}: {self._describe_mismatch(wanted, actual)}", AssertionError)
+
+    # ---------- чтение формы и карточки ----------
+    def _form_values(self, fields) -> dict[str, str]:
+        """Текущие value полей формы редактирования."""
+        return {f: self._find(ContactFormLocators.FIELDS[f]).get_attribute("value") for f in fields}
+
+    @staticmethod
+    def _details_view(contact: Contact, fields: list[str]) -> dict[str, str]:
+        """Как поля контакта выглядят в панели деталей: имя и фамилия — один заголовок."""
+        view = {}
+        for field in fields:
+            if field in ("name", "last_name"):
+                view["full_name"] = f"{contact.name} {contact.last_name}".strip()
+            else:
+                view[field] = getattr(contact, field)
+        return view
+
+    def _details_shown(self, fields: list[str]) -> dict[str, str]:
+        """Что панель деталей показывает сейчас (только для нужных полей).
+
+        Разметка панели: <h2>Имя Фамилия</h2>, затем строки телефона, email и адреса,
+        затем <h3>Description: ...</h3> и кнопки Edit / Remove.
+        """
+        panel = self._find_visible(self._DETAILS)
+        full_name = panel.find_element(By.TAG_NAME, "h2").text.strip()
+        lines = [line.strip() for line in panel.text.splitlines() if line.strip()]
+        description = next(
+            (line.removeprefix("Description:").strip() for line in lines if line.startswith("Description:")), ""
+        )
+        plain = [line for line in lines if line != full_name and not line.startswith("Description:")]
+        plain = [line for line in plain if line not in ("Edit", "Remove")]
+        values = dict(zip(("phone", "email", "address"), plain, strict=False))
+        values.update(full_name=full_name, description=description)
+        return {key: values.get(key) for key in self._details_view(Contact(), fields)}
+
+    @staticmethod
+    def _describe_mismatch(expected: dict, actual: dict) -> str:
+        parts = [
+            f"поле {key}: ожидалось {value!r}, фактически {actual.get(key)!r}"
+            for key, value in expected.items()
+            if actual.get(key) != value
+        ]
+        return "; ".join(parts) or "расхождений нет (состояние успело измениться)"
 
     def _replace_text(self, locator, text: str) -> None:
         """Надёжная замена текста в поле React-формы.
