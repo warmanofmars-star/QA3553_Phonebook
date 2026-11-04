@@ -10,6 +10,7 @@ from data.known_bugs import known_bug
 @allure.feature("Contacts CRUD")
 @allure.story("Delete Contact")
 @allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-1", "API-CHECK-17")
 def test_api_delete_contact(auth_api, created_contact):
     response_delete = auth_api.delete_contact(created_contact.id)
     assert response_delete.status_code == 200, (
@@ -26,6 +27,7 @@ def test_api_delete_contact(auth_api, created_contact):
 @allure.feature("BFLA (Broken Function Level Authorization)")
 @allure.story("Customer cannot delete all contacts")
 @allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-16")
 @known_bug("CUSTOMER_CAN_CLEAR_ALL")
 def test_api_customer_cannot_clear_all_contacts(auth_api, create_contact):
     """SRS, раздел 2, модуль 'Delete all contact': Customer — Can't, только Manager.

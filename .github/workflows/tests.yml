@@ -28,14 +28,14 @@ concurrency:
 
 jobs:
   # ==========================================
-  # JOB 0: ЛИНТЕР (параллельно с тестами, занимает секунды)
+  # JOB 0: ЛИНТЕР И МАТРИЦА ПОКРЫТИЯ (параллельно с тестами, занимает минуту-две)
   # ==========================================
   # Те же проверки, что делает pre-commit локально. Локальный хук можно обойти
   # (git commit --no-verify) или просто не установить — проверку в CI обойти нельзя
   lint:
     name: Lint (ruff)
     runs-on: ubuntu-22.04
-    timeout-minutes: 5
+    timeout-minutes: 10              # установка зависимостей для сбора тестов — около минуты
     steps:
       - name: Скачиваем код проекта
         uses: actions/checkout@v7
@@ -45,6 +45,25 @@ jobs:
           python3 -m pip install --quiet ruff==0.17.1   # та же версия, что в requirements-dev.txt
           ruff check --output-format=github .           # замечания появятся прямо в diff PR
           ruff format --check .
+
+      # Генератору матрицы нужен pytest со всеми плагинами и conftest.py проекта:
+      # он собирает тесты (не запуская их). Python — тот же, что в Docker-образе с тестами
+      - name: Ставим Python и зависимости проекта
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Устанавливаем зависимости
+        run: python -m pip install --quiet -r requirements-dev.txt
+
+      # Матрица docs/coverage.md строится из тегов тестов. Если тесты или справочник
+      # требований изменились, а матрицу не пересобрали — шаг упадёт и покажет расхождение
+      - name: Проверяем, что матрица покрытия актуальна
+        run: python ci/coverage_matrix.py --check
 
   # ==========================================
   # JOB 0.1: ПОИСК СЕКРЕТОВ В НОВЫХ КОММИТАХ (параллельно с тестами)

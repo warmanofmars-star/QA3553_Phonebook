@@ -45,6 +45,7 @@ def _get_contact(api, contact_id):
 @allure.epic("API Security")
 @allure.feature("BOLA (Broken Object Level Authorization)")
 @allure.story("Delete other user's contact")
+@allure.tag("API-CHECK-13", "API-CHECK-15")
 @allure.severity(allure.severity_level.BLOCKER)
 def test_api_bola_cannot_delete_others_contact(temp_user, second_user):
     """Пользователь A не может удалить контакт пользователя B."""
@@ -67,6 +68,7 @@ def test_api_bola_cannot_delete_others_contact(temp_user, second_user):
 @allure.epic("API Security")
 @allure.feature("BOLA (Broken Object Level Authorization)")
 @allure.story("Update other user's contact")
+@allure.tag("API-CHECK-13", "API-CHECK-15")
 @allure.severity(allure.severity_level.BLOCKER)
 def test_api_bola_cannot_update_others_contact(temp_user, second_user):
     """Пользователь A не может изменить контакт пользователя B через PUT."""
@@ -89,6 +91,7 @@ def test_api_bola_cannot_update_others_contact(temp_user, second_user):
 @allure.epic("API Security")
 @allure.feature("Mass Assignment")
 @allure.story("Client-supplied id on create")
+@allure.tag("API-CHECK-10")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_api_mass_assignment_foreign_id(temp_user, second_user):
     """В ContactDto (Swagger) есть поле id. Нельзя, чтобы клиент мог им управлять:
@@ -117,6 +120,7 @@ def test_api_mass_assignment_foreign_id(temp_user, second_user):
 @allure.feature("Contract")
 @allure.story("Contact not found -> 404")
 @allure.severity(allure.severity_level.MINOR)
+@allure.tag("API-CHECK-11", "API-CHECK-13")
 @known_bug("NOT_FOUND_400")
 @pytest.mark.parametrize("scenario", ["foreign", "nonexistent"])
 def test_api_delete_missing_contact_returns_404(temp_user, second_user, scenario):
@@ -134,6 +138,7 @@ def test_api_delete_missing_contact_returns_404(temp_user, second_user, scenario
 @allure.epic("API Logic")
 @allure.feature("Idempotency")
 @allure.story("Double DELETE operation")
+@allure.tag("API-CHECK-13", "API-CHECK-19")
 @allure.severity(allure.severity_level.NORMAL)
 def test_api_delete_idempotency(auth_api, created_contact):
     """Повторный DELETE того же контакта не должен ни падать, ни рапортовать об успехе.
@@ -152,6 +157,7 @@ def test_api_delete_idempotency(auth_api, created_contact):
 @allure.epic("API Security")
 @allure.feature("HTTP Protocol")
 @allure.story("Unsupported HTTP method")
+@allure.tag("API-CHECK-13")
 @allure.severity(allure.severity_level.NORMAL)
 def test_api_unsupported_method_is_rejected(auth_api, created_contact):
     """POST на эндпоинт, который принимает только DELETE, должен быть отклонён
@@ -170,6 +176,7 @@ def test_api_unsupported_method_is_rejected(auth_api, created_contact):
 @allure.feature("HTTP Protocol")
 @allure.story("Unsupported Content-Type")
 @allure.severity(allure.severity_level.NORMAL)
+@allure.tag("API-CHECK-8", "API-CHECK-13")
 @known_bug("WRONG_CONTENT_TYPE_500")
 def test_api_wrong_content_type_is_client_error(auth_api):
     """Тело text/plain вместо JSON — ошибка клиента, сервер должен ответить 4xx (в идеале 415), а не падать."""

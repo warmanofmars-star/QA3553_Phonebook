@@ -11,6 +11,7 @@ pytestmark = [pytest.mark.api, pytest.mark.security, pytest.mark.regression]
 @allure.epic("API Security")
 @allure.feature("Authentication")
 @allure.story("Check Token Validation")
+@allure.tag("API-CHECK-11", "API-CHECK-13", "API-CHECK-14")
 @pytest.mark.parametrize(
     "auth_header, expected_status, scenario",
     [

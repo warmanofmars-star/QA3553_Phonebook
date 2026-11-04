@@ -4,7 +4,7 @@
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
 UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
-**129 tests** (85 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
+**130 tests** (86 API, 44 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
 (Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 
 This is a learning project built during a QA automation course. It was later refactored
@@ -28,7 +28,23 @@ with a React frontend and a REST backend.
 
 Expected behaviour comes from the project documentation, not from the current behaviour of the app:
 the **SRS** (requirements T1–T86, F1–F16), the **Swagger** contract and the manual test design (**STD**,
-test cases TC-0001…TC-0036). UI tests are tagged with their STD case id in the Allure report.
+test cases TC-0001…TC-0036). Tests are tagged in the Allure report with the SRS items (`SRS-T41`),
+STD cases (`TC-0012`) and API checks (`API-CHECK-15`) they verify.
+
+## Coverage
+
+The requirements coverage matrix — **[docs/coverage.md](docs/coverage.md)** — is generated from the test tags
+by [`ci/coverage_matrix.py`](ci/coverage_matrix.py) (tests are collected, not run); requirement summaries live in
+[`docs/requirements_index.yml`](docs/requirements_index.yml). CI fails if the matrix is out of date.
+
+| Source | Testable | Covered | of them hit a known bug | Not covered |
+|---|---:|---:|---:|---:|
+| SRS (T1–T48, T54–T86, F1–F16) | 95 of 97 | 65 (68%) | 18 | 30 |
+| STD test cases | 33 of 34 | 33 (100%) | 12 | 0 |
+| API checks ("20 checks" article) | 19 of 20 | 19 (100%), check 14 partially | 8 | 0 |
+
+Not testable: F15, F16 (Manager role — no manager account), TC-0032 (contradicts SRS T84–T86),
+API check 18 (no related entities in this API). Most uncovered SRS items are the edit-form field rules (T54–T86).
 
 ## Known bugs
 
@@ -41,7 +57,7 @@ where every defect is linked to the requirement it violates:
 | `DUPLICATE_CONTACT` | SRS T32, T45, T70, T83; Swagger 409 | Duplicate email / phone is saved |
 | `EMAIL_NOT_REQUIRED` | SRS T26–T27, T64–T65 | Contact with an empty email is saved |
 | `PHONE_NOT_REQUIRED` | SRS T38–T39 | Contact without a phone is saved |
-| `EDIT_DESCRIPTION_BROKEN` | STD TC-00026, TC-00027 | Editing the description in UI saves `[object Undefined]` |
+| `EDIT_DESCRIPTION_BROKEN` | STD TC-0026, TC-0027 | Editing the description in UI saves `[object Undefined]` |
 | `CUSTOMER_CAN_CLEAR_ALL` | SRS, section 2 | A regular user can delete all contacts (BFLA) |
 | `WRONG_CONTENT_TYPE_500` | HTTP semantics | `text/plain` body crashes the server with 500 |
 | `NO_AUTH_403` | Swagger 401 | Missing `Authorization` header returns 403 |

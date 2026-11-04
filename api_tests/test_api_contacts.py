@@ -11,6 +11,7 @@ from utils.validators import assert_json_schema
 @allure.feature("Contacts CRUD")
 @allure.story("Get All Contact")
 @allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-1", "API-CHECK-2", "API-CHECK-3", "API-CHECK-4")
 def test_api_get_all_contacts(auth_api, created_contact):
     response = auth_api.get_contacts()
     assert response.status_code == 200, f"Ошибка при получении контактов: {response.text}"
@@ -31,6 +32,7 @@ def test_api_get_all_contacts(auth_api, created_contact):
 @allure.feature("Contacts CRUD")
 @allure.story("Update Contact")
 @allure.severity(allure.severity_level.CRITICAL)
+@allure.tag("API-CHECK-1", "API-CHECK-4", "API-CHECK-17")
 def test_api_update_contact(auth_api, created_contact):
     # Payload уже содержит id: created_contact знает его после создания
     updated_payload = created_contact.to_api_payload()

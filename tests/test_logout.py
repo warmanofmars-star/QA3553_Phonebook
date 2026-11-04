@@ -10,7 +10,7 @@ pytestmark = [pytest.mark.ui, allure.epic("UI Testing"), allure.feature("Authent
 @pytest.mark.smoke
 @allure.story("Logout")
 @allure.severity(allure.severity_level.CRITICAL)
-@allure.tag("TC-0010")
+@allure.tag("TC-0009")
 def test_logout_success(authenticated_driver):
     """Авторизованный пользователь может выйти из системы."""
     ContactsPage(authenticated_driver).sign_out()

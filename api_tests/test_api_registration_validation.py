@@ -83,6 +83,7 @@ PASSWORD_CASES = [
 
 
 @allure.story("Password rules")
+@allure.tag("API-CHECK-9")
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize("make_password, expectation, requirements", PASSWORD_CASES)
 def test_api_registration_password(make_password, expectation, requirements):
@@ -111,6 +112,7 @@ EMAIL_CASES = [
 
 
 @allure.story("Email rules")
+@allure.tag("API-CHECK-9")
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize("make_email, expectation, requirements", EMAIL_CASES)
 def test_api_registration_email(make_email, expectation, requirements):

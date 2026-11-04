@@ -32,7 +32,7 @@ def _describe_saved(entered: Contact, saved: dict) -> str:
     return "; ".join(f"{key}: ввели {value!r}, на бэкенде {saved.get(key)!r}" for key, value in entered_payload.items())
 
 
-# Как в STD: каждое поле меняется отдельным кейсом (TC-00021 ... TC-00026).
+# Как в STD: каждое поле меняется отдельным кейсом (TC-0021 ... TC-0026).
 # Это не формальность: если бы все поля проверялись одним тестом, известный баг
 # в описании сделал бы xfail весь тест — и спрятал бы поломку любого другого поля.
 EDIT_FIELD_CASES = [
@@ -103,7 +103,7 @@ def test_edit_contact_all_fields(authenticated_driver, auth_api, created_contact
 @pytest.mark.regression
 @allure.story("Edit with duplicate phone")
 @allure.severity(allure.severity_level.NORMAL)
-@allure.tag("TC-0035")
+@allure.tag("TC-0035", "SRS-T83")
 @known_bug("DUPLICATE_CONTACT")
 def test_edit_contact_duplicate_phone(authenticated_driver, auth_api, create_contact):
     """SRS T83: при редактировании телефон не должен повторять телефон другого контакта."""
@@ -124,7 +124,7 @@ def test_edit_contact_duplicate_phone(authenticated_driver, auth_api, create_con
 @pytest.mark.regression
 @allure.story("Edit with duplicate email")
 @allure.severity(allure.severity_level.NORMAL)
-@allure.tag("TC-0034")
+@allure.tag("TC-0034", "SRS-T70")
 @known_bug("DUPLICATE_CONTACT")
 def test_edit_contact_duplicate_email(authenticated_driver, auth_api, create_contact):
     """SRS T70: при редактировании email не должен повторять email другого контакта."""
@@ -146,11 +146,20 @@ def test_edit_contact_duplicate_email(authenticated_driver, auth_api, create_con
 # Известным багом помечен только email: бэкенд отклоняет пустые name/lastName/phone/address
 # (400, данные не меняются), а пустой email сохраняет.
 CLEAR_FIELD_CASES = [
-    pytest.param("name", "name", "TC-0028", id="name"),
-    pytest.param("last_name", "lastName", "TC-0029", id="last_name"),
-    pytest.param("email", "email", "TC-0030", id="email", marks=known_bug("EMAIL_NOT_REQUIRED")),
-    pytest.param("phone", "phone", "TC-0031", id="phone"),
-    pytest.param("address", "address", "TC-0032", id="address"),
+    # Теги SRS: F10–F14 (невалидное не сохраняется) и правило «не может быть пустым» для этого поля
+    pytest.param("name", "name", "TC-0028", id="name", marks=allure.tag("SRS-F10", "SRS-T55")),
+    pytest.param("last_name", "lastName", "TC-0029", id="last_name", marks=allure.tag("SRS-F11", "SRS-T60")),
+    pytest.param(
+        "email",
+        "email",
+        "TC-0030",
+        id="email",
+        marks=[known_bug("EMAIL_NOT_REQUIRED"), allure.tag("SRS-F12", "SRS-T65")],
+    ),
+    pytest.param("phone", "phone", "TC-0031", id="phone", marks=allure.tag("SRS-F13", "SRS-T77")),
+    # Адрес — TC-0033 (как и адрес из пробелов ниже). TC-0032 в STD — «некорректное описание»,
+    # а по SRS T84–T86 некорректного описания не бывает, поэтому такого теста нет
+    pytest.param("address", "address", "TC-0033", id="address", marks=allure.tag("SRS-F14", "SRS-T72")),
 ]
 
 
@@ -176,14 +185,15 @@ def test_edit_contact_clear_required_fields(authenticated_driver, auth_api, crea
 @pytest.mark.regression
 @allure.story("Blank address")
 @allure.severity(allure.severity_level.NORMAL)
-@allure.tag("TC-0033")
+@allure.tag("TC-0033", "SRS-T72", "SRS-F14")
 def test_edit_contact_blank_address(authenticated_driver, auth_api, created_contact):
     """SRS T72, F14: адрес из одних пробелов — это blank, система не сохраняет такие данные.
 
-    Пустой адрес проверяет TC-0032, здесь — пробелы: формально поле заполнено, но по T72
-    это blank. В ожидаемом результате TC-0033 в STD упомянуто поле Name — это копипаст
-    из SRS, где все F10–F14 заканчиваются словами "to the name field". Тест следует
-    смыслу F14 и T72: проверяем адрес.
+    Пустой адрес проверяет test_edit_contact_clear_required_fields (тот же TC-0033),
+    здесь — пробелы: формально поле заполнено, но по T72 это blank. В ожидаемом
+    результате TC-0033 в STD упомянуто поле Name — это копипаст из SRS, где все
+    F10–F14 заканчиваются словами "to the name field". Тест следует смыслу F14 и T72:
+    проверяем адрес.
     """
     contacts_page = ContactsPage(authenticated_driver)
     contacts_page.open()

@@ -41,7 +41,7 @@ def test_add_contact_success_all_fields(authenticated_driver, auth_api):
 @pytest.mark.regression
 @allure.story("Add contact with required fields only")
 @allure.severity(allure.severity_level.CRITICAL)
-@allure.tag("TC-0012")
+@allure.tag("TC-0012", "SRS-T46")
 def test_add_contact_success_required_fields_only(authenticated_driver, auth_api):
     """SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями."""
     # description=None: Page Object не трогает поле, как пользователь, который его пропустил
@@ -89,7 +89,7 @@ def test_add_contact_negative(authenticated_driver, contact, expected_error, tes
 @pytest.mark.hybrid
 @allure.story("Add contact with duplicate phone")
 @allure.severity(allure.severity_level.NORMAL)
-@allure.tag("TC-0019")
+@allure.tag("TC-0019", "SRS-T45")
 @known_bug("DUPLICATE_CONTACT")
 def test_add_contact_duplicate_phone(authenticated_driver, auth_api, create_contact):
     """SRS T45: телефон не должен повторять телефон ранее созданного контакта.

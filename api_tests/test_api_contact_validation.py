@@ -115,6 +115,7 @@ CONTACT_CASES = [
 
 
 @allure.story("Create contact: boundary values and equivalence classes")
+@allure.tag("API-CHECK-9")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.parametrize("field, value, expectation, requirements", CONTACT_CASES)
 def test_api_contact_field_validation(auth_api, field, value, expectation, requirements):
@@ -141,6 +142,7 @@ UPDATE_PHONE_CASES = [
 
 
 @allure.story("Update contact: phone length boundaries")
+@allure.tag("API-CHECK-9")
 @allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.parametrize("length, expectation, requirements", UPDATE_PHONE_CASES)
 def test_api_update_contact_phone_length(auth_api, created_contact, length, expectation, requirements):
