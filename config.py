@@ -94,7 +94,7 @@ class Settings:
         """Собирает настройки из окружения. Вызывается один раз при импорте модуля."""
         return cls(
             # rstrip("/"): чтобы f"{api_url}/v1/..." никогда не давал двойной слэш
-            base_url=_env_str("BASE_URL", "https://telranedu.web.app").rstrip("/"),
+            base_url=_env_str("BASE_URL", "https://telranedu.pages.dev").rstrip("/"),
             api_url=_env_str("API_URL", "https://contactapp-telran-backend.herokuapp.com").rstrip("/"),
             user_email=_env_str("USER_EMAIL"),
             user_password=_env_str("USER_PASSWORD"),
