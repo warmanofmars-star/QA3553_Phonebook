@@ -3,7 +3,7 @@
 [![Tests](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml/badge.svg)](https://github.com/warmanofmars-star/QA3553_Phonebook/actions/workflows/tests.yml)
 **Live Allure report:** [warmanofmars-star.github.io/QA3553_Phonebook](https://warmanofmars-star.github.io/QA3553_Phonebook/)
 
-UI and API test automation for the [Phonebook](https://telranedu.web.app) training web application:
+UI and API test automation for the [Phonebook](https://telranedu.pages.dev) training web application:
 **189 tests** (130 API, 59 UI) in Python + pytest, running locally, in Docker with Selenium Grid 4
 (Chrome, Firefox, Edge), in GitHub Actions and in a self-hosted Jenkins.
 

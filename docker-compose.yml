@@ -77,7 +77,7 @@ services:
       - USE_GRID=true
       - GRID_URL=http://selenium-hub:4444
       - VIDEO_DIR=/app/video
-      - BASE_URL=https://telranedu.web.app
+      - BASE_URL=https://telranedu.pages.dev
       - API_URL=https://contactapp-telran-backend.herokuapp.com
       # Параметры запуска от CI (GitHub Actions, Jenkins) или от тебя (см. шапку файла)
       - BROWSER=${BROWSER:-chrome}
