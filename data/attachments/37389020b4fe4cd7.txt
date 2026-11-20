@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gabriel",
+  "lastName": "Rose",
+  "phone": "0532307236",
+  "email": "user_cff984e124@example.com",
+  "address": "4946 Phillips Loop, Lake Lorimouth, WA 74007",
+  "description": "National every listen range beautiful life eye."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eebe0d84-866d-494b-b669-428cd8374be9"
+}

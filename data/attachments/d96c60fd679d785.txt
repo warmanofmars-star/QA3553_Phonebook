@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e910c3be-b233-4893-92b3-4c4c0981a71b",
+      "name": "Scott",
+      "lastName": "Morris",
+      "email": "user_8a3811ea47@example.com",
+      "phone": "0520859463",
+      "address": "Unit 2750 Box 4761, DPO AE 16670",
+      "description": "Sense minute relate nice reduce lawyer radio miss."
+    },
+    {
+      "id": "38837aa6-93a0-4ebc-ae0e-c80e87662d53",
+      "name": "Stacey",
+      "lastName": "Torres",
+      "email": "user_0a8b9c7ade@example.com",
+      "phone": "0519998342",
+      "address": "18841 Smith Tunnel Apt. 124, Ingramhaven, KY 20155",
+      "description": "Operation serve growth modern marriage take teacher."
+    }
+  ]
+}

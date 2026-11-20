@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4ba86098-f34b-4946-9c79-58736b715ea9",
+      "name": "Brian",
+      "lastName": "Brown",
+      "email": "user_69b168ed87@example.com",
+      "phone": "0530716942",
+      "address": "6123 Horton Vista Apt. 479, East Tammyton, MP 82514",
+      "description": "Stock bill group itself expect fall tend."
+    }
+  ]
+}

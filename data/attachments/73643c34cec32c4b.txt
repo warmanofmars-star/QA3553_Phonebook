@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Turner",
+  "email": "user_a239a77018@example.com",
+  "address": "1890 Matthew Expressway, Port David, CO 67267",
+  "description": "Actually man develop available against argue week."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3903edb7-bccb-42fe-af6a-47be98ffa1ed"
+}

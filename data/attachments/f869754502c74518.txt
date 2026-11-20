@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samuel",
+  "lastName": "Vaughn",
+  "phone": "0576367941",
+  "email": "user_8d2c2a5dec@example.com",
+  "address": "3021 Burke Shoals Suite 987, Lambertside, CA 91920",
+  "description": "If full data more position."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed0bdf0c-788e-448c-aac4-b31487f743f9"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Judy",
+  "lastName": "Adams",
+  "phone": "0533760173",
+  "email": "user_ea66ac51e7@example.com",
+  "address": "3535 Sara Keys, Palmerland, VA 45527",
+  "description": "Our certainly cell plant television bank recognize."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0ab13cee-7f28-475d-abb5-de67a1f3f88f"
+}

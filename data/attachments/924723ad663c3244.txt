@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1544510b-e880-4f76-a4db-aaeedb265ac0",
+      "name": "Connie",
+      "lastName": "Horton",
+      "email": "user_aa588a2587@example.com",
+      "phone": "0516922073",
+      "address": "Unit 5166 Box 7589, DPO AP 57136",
+      "description": "Operation trade trouble enough."
+    }
+  ]
+}

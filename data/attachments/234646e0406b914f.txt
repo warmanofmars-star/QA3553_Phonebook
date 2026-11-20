@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c4c5253b-6335-4c71-b0bf-6cf31c305177",
+      "name": "Jennifer",
+      "lastName": "Thompson",
+      "email": "user_f764a83e77@example.com",
+      "phone": "0525622584",
+      "address": "PSC 2241, Box 2347, APO AE 67166",
+      "description": "Nothing think soon."
+    },
+    {
+      "id": "e76c9b9c-0cbd-4d9a-b9ce-58ba2d2d6c6b",
+      "name": "Stephen",
+      "lastName": "Romero",
+      "email": "user_4439b4055c@example.com",
+      "phone": "0522850420",
+      "address": "68902 Harvey Crest Suite 268, South Benjaminhaven, IA 27499",
+      "description": "Position set other."
+    }
+  ]
+}

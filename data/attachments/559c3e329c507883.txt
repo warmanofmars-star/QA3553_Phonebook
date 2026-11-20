@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b8dfb535-842c-46bf-ba89-e0b9902838c0",
+      "name": "Brooke",
+      "lastName": "Bell",
+      "email": "user_7fbdca5d94@example.com",
+      "phone": "0594310213",
+      "address": "4723 Kerri Springs, Port Michaelland, NJ 02430",
+      "description": "Yet knowledge line responsibility movement."
+    }
+  ]
+}

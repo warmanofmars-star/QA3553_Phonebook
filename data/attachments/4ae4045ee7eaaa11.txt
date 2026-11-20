@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "37a1c970-5520-4a54-b859-67286b0e0ee2",
+      "name": "Jonathan",
+      "lastName": "Coleman",
+      "email": "user_befbe8c85e@example.com",
+      "phone": "0514006273",
+      "address": "56146 Marks Dam Apt. 488, North Patrick, NH 61560",
+      "description": "We environment old."
+    }
+  ]
+}

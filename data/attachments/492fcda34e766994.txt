@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gregory",
+  "lastName": "Williams",
+  "phone": "0565778744",
+  "email": "user_d2957b57c0@example.com",
+  "address": "0147 John Glens Suite 251, Youngview, NY 95961",
+  "description": "Really none name way within hundred."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b60b1898-d2ef-42f1-8b08-675ab3b9830d"
+}

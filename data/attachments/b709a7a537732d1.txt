@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Swanson",
+  "phone": "0524695732",
+  "email": "user_de26905841@example.com",
+  "address": "9482 Jennifer Ways Suite 006, West Clinton, NV 42799",
+  "description": "Any majority yourself despite national."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9c46d8b1-2b47-48b2-b521-381a7d4f1abf"
+}

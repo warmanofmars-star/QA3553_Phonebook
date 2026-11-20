@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Smith",
+  "phone": "0528637739",
+  "email": "user_8a1a7a9a75@example.com",
+  "address": "72291 Torres Mall, Scottchester, AZ 82268",
+  "description": "Impact challenge agree worker kind exactly."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5a64372c-e27b-4d95-a083-baf1fc679bcd"
+}

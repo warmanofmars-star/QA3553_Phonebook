@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "41a0bd16-95f7-4788-bb66-31929ecf814f",
+      "name": "Nancy",
+      "lastName": "Lee",
+      "email": "user_64766ffc1c@example.com",
+      "phone": "0530037189",
+      "address": "58253 Padilla Bypass, West Kara, IA 56816",
+      "description": "Especially material relationship name decade popular."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Hernandez",
+  "phone": "0532271970",
+  "email": "user_896811c0c1@example.com",
+  "address": "603 Larson Grove Apt. 367, West Brandon, CO 31027",
+  "description": "At owner management."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a599127e-da95-45df-8992-255361970cd4"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Serrano",
+  "phone": "0516031721",
+  "email": "user_2ab343f4c2@example.com",
+  "address": "39684 Amy Turnpike, West Raymond, IN 05880",
+  "description": "Interview pick coach record."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 13170d85-0eb2-4d3e-afab-1468d685d9a8"
+}

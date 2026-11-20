@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4018d0a6-7427-41c0-a5e5-954f9edde912",
+      "name": "Karen",
+      "lastName": "Bishop",
+      "email": "user_4afc1a2f35@example.com",
+      "phone": "0518528063",
+      "address": "96333 Erin Hollow Apt. 439, Tonyfort, WI 48595",
+      "description": "Want manage open large other."
+    }
+  ]
+}

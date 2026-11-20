@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "84a165e6-e195-483b-b085-179e37c78289",
+      "name": "Ronald",
+      "lastName": "Young",
+      "email": "user_d082f719d1@example.com",
+      "phone": "0540856809",
+      "address": "89233 Davis Springs, Hayesborough, TN 25803",
+      "description": "Perform international sure thus either stock."
+    }
+  ]
+}

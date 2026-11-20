@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7b607f77-b8c5-4d01-8559-dc8eaec5b4f0",
+      "name": "Emily",
+      "lastName": "Love",
+      "email": "пользователь@example.com",
+      "phone": "0532920491",
+      "address": "66302 James Ways Apt. 565, Currymouth, SD 90215",
+      "description": "Probably choose it little people Congress event speak."
+    }
+  ]
+}

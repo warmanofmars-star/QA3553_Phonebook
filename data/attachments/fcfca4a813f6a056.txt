@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (16 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Barnes",
+  "phone": "0561890604",
+  "email": "user@mail@example.com",
+  "address": "94072 Carson Union, South Jennifer, NC 39904",
+  "description": "Often kind car responsibility yet individual.",
+  "id": "464a9669-36c6-4214-bf07-6eb906c5a677"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:33:55",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

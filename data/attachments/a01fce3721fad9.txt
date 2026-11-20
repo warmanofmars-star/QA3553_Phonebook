@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "62fc9c6c-b7d7-49d9-976d-a763f9e1a0e2",
+      "name": "Stephen",
+      "lastName": "Robinson",
+      "email": "user_63855d68cb@example.com",
+      "phone": "0530977942",
+      "address": "09548 Melissa Neck Apt. 448, Michaelberg, MD 32667",
+      "description": "Change now car financial."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Taylor",
+  "phone": "0523241058",
+  "email": "user_dedea763dc@example.com",
+  "address": "419 Howard Corner, Sierraton, ID 04580",
+  "description": "Lose seek enter how spring speak foreign."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c53cd832-e15f-4021-b9af-afea8d06094b"
+}

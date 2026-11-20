@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "777a1cdb-3048-453e-ac40-e0e50d5cc180",
+      "name": "Colleen",
+      "lastName": "Daniels",
+      "email": "user_a61a932069@example.com",
+      "phone": "0512654352",
+      "address": "48083 Holmes Avenue Apt. 463, Catherineburgh, TN 41502",
+      "description": "Prepare line find activity occur lead."
+    },
+    {
+      "id": "ed45aee4-9f8e-40b8-a389-231393b982f6",
+      "name": "Andrea",
+      "lastName": "Hunt",
+      "email": "user_484755ff4c@example.com",
+      "phone": "0512654352",
+      "address": "361 Mitchell Circle Suite 027, South Robertfort, MP 67755",
+      "description": "Realize large ground at her base."
+    }
+  ]
+}

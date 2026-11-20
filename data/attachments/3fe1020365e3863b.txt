@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (101 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1dea2d59-2e96-405d-9b5d-d06b810c320e",
+      "name": "Sheila",
+      "lastName": "Wheeler",
+      "email": "user_3a925d6968@example.com",
+      "phone": "0523938454",
+      "address": "77310 Harrell Mountains Apt. 116, Rogerside, ME 74642",
+      "description": "Investment cost most onto."
+    }
+  ]
+}

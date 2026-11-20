@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Mcbride",
+  "phone": "0522601716",
+  "email": "user_dc0c452cee@example.com",
+  "address": "C",
+  "description": "Religious religious form animal officer network certain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9902fc0d-98b1-4cd3-a394-0cd699607262"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Corey",
+  "lastName": "Barber",
+  "phone": "0567816211",
+  "email": "user@mail@example.com",
+  "address": "9488 Debbie Port Apt. 508, North Kimberlymouth, SC 91478",
+  "description": "Notice second wait already decision."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:33:49",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

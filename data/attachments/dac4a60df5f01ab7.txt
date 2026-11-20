@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kathleen",
+  "lastName": "B",
+  "phone": "0519337366",
+  "email": "user_da0360cd3e@example.com",
+  "address": "182 Murphy Haven Suite 924, North Ryan, MS 18416",
+  "description": "Benefit whose most shoulder control."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1558b3ea-aeda-49e3-b2fe-5f21ca21ddc4"
+}

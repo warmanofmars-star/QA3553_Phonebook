@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (101 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Clark",
+  "phone": "0527794102",
+  "email": "user_be2becda63@example.com",
+  "address": "9233 Shaw Cliff, Lake Charles, HI 66560",
+  "description": "Trial say four type feel race community."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e888be01-5939-4ae0-983d-35155a7b6ee7"
+}

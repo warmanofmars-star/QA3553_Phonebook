@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Johnson",
+  "phone": "0533905938",
+  "email": "user_8aa1691c9c@example.com",
+  "address": "83366 Angela Ports, South Josephberg, PW 08964",
+  "description": "Side good view establish thank unit board."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e11476d5-c5c1-4d7c-8b82-5a4572269f94"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a147a690-259a-4479-8af1-9680d30675d8",
+      "name": "Clayton",
+      "lastName": "Taylor",
+      "email": "user_bf96285b25@example.com",
+      "phone": "0529109504",
+      "address": "50227 Scott Run Suite 475, Chenborough, ID 03423",
+      "description": "Across ability suggest lead argue eight speak."
+    }
+  ]
+}

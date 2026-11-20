@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Breanna",
+  "lastName": "Burton",
+  "phone": "0527780061",
+  "email": "user_a9eeac50dc@example.com",
+  "address": "556 Walker Mountain, East Charles, VI 49595",
+  "description": "Sign major natural evening."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fd0ede9b-6b53-4c76-b235-c5eb8761d48a"
+}

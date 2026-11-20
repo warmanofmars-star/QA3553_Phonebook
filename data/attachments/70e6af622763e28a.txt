@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "White",
+  "phone": "0593928056",
+  "email": "user_af27c57b1c@example.com",
+  "address": "114 Collins Ports Apt. 296, Chadbury, NV 06401",
+  "description": "High detail deal always situation use.",
+  "id": "3b171db3-bd58-4a10-a526-3c53e22978a6"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bryan",
+  "lastName": "Taylor",
+  "phone": "0531583809",
+  "email": "@example.com",
+  "address": "4538 Vaughn Viaduct Apt. 817, Lake John, NJ 69045",
+  "description": "Woman suffer seem character network."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:33:49",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

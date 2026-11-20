@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "   ",
+  "lastName": "Graham",
+  "phone": "0524269118",
+  "email": "user_6dae179cc9@example.com",
+  "address": "799 Garcia River, Edwardsborough, MA 72434",
+  "description": "Structure guy understand sign moment live."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:33:50",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

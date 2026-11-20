@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+{
+  "name": "Douglas",
+  "lastName": "Ramirez",
+  "phone": "0511826033",
+  "email": "a@b",
+  "address": "38380 Schaefer Springs Apt. 842, Kennethstad, RI 15702",
+  "description": "At guess assume identify plan whether have.",
+  "id": "d58edfe6-a20d-42b9-8a1a-df51100b2e58"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

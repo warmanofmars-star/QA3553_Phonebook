@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ece04294-a251-4d99-b8a3-835bbaf723b9",
+      "name": "Jordan",
+      "lastName": "Rojas",
+      "email": "user_2c1f4644ca@example.com",
+      "phone": "0511254463",
+      "address": "60222 Marquez Ways Suite 239, Vanessaburgh, IA 21352",
+      "description": "Happen either first Republican."
+    }
+  ]
+}

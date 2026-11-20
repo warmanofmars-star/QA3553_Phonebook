@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e11476d5-c5c1-4d7c-8b82-5a4572269f94",
+      "name": "Mary",
+      "lastName": "Johnson",
+      "email": "user_8aa1691c9c@example.com",
+      "phone": "0533905938",
+      "address": "83366 Angela Ports, South Josephberg, PW 08964",
+      "description": "Side good view establish thank unit board."
+    }
+  ]
+}

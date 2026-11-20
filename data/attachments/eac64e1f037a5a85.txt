@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Martin",
+  "phone": "0523455673",
+  "email": "user_7207a16b75@example.com",
+  "address": "077 Kimberly Isle, Elizabethside, SD 90381",
+  "description": "Benefit part knowledge something more."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8fa516f8-36d3-4e77-a3a8-cbe16947aa24"
+}

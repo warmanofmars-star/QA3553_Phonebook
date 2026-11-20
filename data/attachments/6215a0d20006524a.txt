@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Harry",
+  "lastName": "Kim",
+  "phone": "0533244371",
+  "email": "user_369de08f2f@example.com",
+  "address": "02602 Melton Fields, Port Codybury, TN 94596",
+  "description": "You much ahead."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 147027e5-191d-4998-b643-6fe45ba114c7"
+}

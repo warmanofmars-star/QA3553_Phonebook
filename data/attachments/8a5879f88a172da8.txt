@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (101 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jordan",
+  "lastName": "Rojas",
+  "phone": "0511254463",
+  "email": "user_2c1f4644ca@example.com",
+  "address": "60222 Marquez Ways Suite 239, Vanessaburgh, IA 21352",
+  "description": "Happen either first Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ece04294-a251-4d99-b8a3-835bbaf723b9"
+}

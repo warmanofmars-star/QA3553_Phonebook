@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "phone": "0519231583",
+  "email": "user_3f7fba1ca5@example.com",
+  "address": "98927 Adams Forges, Mariaport, VT 36643",
+  "description": "Image media short forget.",
+  "id": "f9197e4d-e5a4-4fed-9bd6-cd0661a62a59"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:33:59",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

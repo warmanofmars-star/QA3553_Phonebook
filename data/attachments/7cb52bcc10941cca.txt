@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Davis",
+  "phone": "0528953679",
+  "email": "user_f1826765f5@example.com",
+  "address": "44256 Gabrielle Parkways Suite 432, West Felicia, CT 75798",
+  "description": "Seat yourself in despite."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5dd56e3a-2b94-46d1-8b9c-e3a4a79b04c8"
+}

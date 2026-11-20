@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashlee",
+  "lastName": "Martin",
+  "phone": "0532490832",
+  "email": "user_a360a5c31d@example.com",
+  "address": "54676 Johnston Mountains Apt. 103, North Marissa, AS 12387",
+  "description": "Become thus movie wide amount around."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1e9a8b2d-bdcb-4fde-9a4c-2698cc35f5fb"
+}

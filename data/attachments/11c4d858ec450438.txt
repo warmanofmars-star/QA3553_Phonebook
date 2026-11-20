@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kim",
+  "lastName": "Walter",
+  "phone": "0573790006",
+  "email": "user_a6407a310f@example.com",
+  "address": "Unit 1588 Box 1457, DPO AE 04182",
+  "description": "Finish cold art increase."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 52eeabf1-62eb-4c0d-97b4-c63c7768721e"
+}

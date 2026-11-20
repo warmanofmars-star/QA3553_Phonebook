@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4c501f99-5bee-46c0-93f6-47e3142c643e",
+      "name": "Jessica",
+      "lastName": "Dunn",
+      "email": "user_5d91f79ba5@example.com",
+      "phone": "0516650684",
+      "address": "8361 Oneill Square, Ericshire, NE 91851",
+      "description": "Number cell public firm house foreign without."
+    }
+  ]
+}

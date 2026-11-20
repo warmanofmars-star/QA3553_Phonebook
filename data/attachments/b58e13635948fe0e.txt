@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "West",
+  "phone": "0519316655",
+  "email": "user_4d6cb83450@example.com",
+  "address": "894 Lawrence Road Suite 172, Lake Nicole, MS 25582",
+  "description": "Ahead cold before our book surface."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 20823856-2522-4b34-9187-d47e65cf3c6e"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2cb0830a-22ef-48c1-98e9-bb20c3e9cf85",
+      "name": "Tamara",
+      "lastName": "Knight",
+      "email": "user_e5a9250c3f@example.com",
+      "phone": "0531374025",
+      "address": "4866 Hoffman Drive, New Christophermouth, WV 47580",
+      "description": "Child once once yard artist guy."
+    }
+  ]
+}

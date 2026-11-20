@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1d5370ed-5189-43f9-a4bf-22f5d555b1f1",
+      "name": "Michael",
+      "lastName": "Webster",
+      "email": "user_2442f2122b@example.com",
+      "phone": "0532384531",
+      "address": "4685 Lynn Rapids, Wrightland, CA 72281",
+      "description": "Chair people together final increase."
+    }
+  ]
+}

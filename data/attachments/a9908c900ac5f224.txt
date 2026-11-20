@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kenneth",
+  "lastName": "Murray",
+  "phone": "0518508517",
+  "email": "user_a6be40ea91@example.com",
+  "address": "581 Moore Forest, Angelaburgh, RI 80698",
+  "description": "Republican it reason receive."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5d9d87cc-5dd1-4501-91d2-03642f0eb530"
+}

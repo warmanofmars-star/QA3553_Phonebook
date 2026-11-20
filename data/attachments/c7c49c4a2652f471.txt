@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "008ff433-600d-4c59-93cb-ff5f08092782",
+      "name": "Gina",
+      "lastName": "Banks",
+      "email": "",
+      "phone": "0510403494",
+      "address": "763 Christopher Highway Suite 353, East Andrew, AL 95090",
+      "description": "Nothing want not along concern car."
+    }
+  ]
+}

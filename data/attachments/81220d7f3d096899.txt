@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9edae99c-4127-4dab-8f5a-e0155085c171",
+      "name": "Debra",
+      "lastName": "Davis",
+      "email": "user_fcaa6fca1d@example.com",
+      "phone": "0523021109",
+      "address": "764 Kendra Gateway, Williamshire, MT 66011",
+      "description": "North purpose clearly first stuff spring."
+    }
+  ]
+}

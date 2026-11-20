@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mario",
+  "lastName": "Erickson",
+  "phone": "0518535672",
+  "email": "user_8e2759a20d@example.com",
+  "address": "189 Mindy Prairie Suite 794, Owensside, LA 32525",
+  "description": "Today early guy job lay."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a558fe59-08c5-4834-8a95-cbd4285839ee"
+}

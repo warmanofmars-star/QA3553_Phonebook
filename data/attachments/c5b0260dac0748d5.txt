@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gail",
+  "lastName": "Buck",
+  "phone": "0514776537",
+  "email": "user_4b3ffb1fa4@example.com",
+  "address": "USNS Williams, FPO AP 53489",
+  "description": "Black and purpose tend attorney."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a201e871-1f5a-42dd-aaa5-c8c569df66d0"
+}

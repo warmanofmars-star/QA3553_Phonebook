@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Angela",
+  "lastName": "James",
+  "phone": "0528314805",
+  "email": "user_779bde6988@example.com",
+  "address": "15341 Laura Summit Apt. 070, Lake Jonathanville, GU 48519",
+  "description": "Well tell expect likely statement chair detail."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 61aba12f-f2f6-4e8a-a03b-3fc8a816ccab"
+}

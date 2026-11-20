@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kelsey",
+  "lastName": "Rodriguez",
+  "phone": "0511266910",
+  "email": "user_450aaf13d6@example.com",
+  "address": "33130 David Park, Stevehaven, NC 81358",
+  "description": "Green such property within growth make story agent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d17208c5-4165-4969-8dcc-0256f2d4e550"
+}

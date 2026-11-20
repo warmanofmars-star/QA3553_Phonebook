@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c9368567-5f3c-4935-b8e8-677c79eac86e",
+      "name": "Mark",
+      "lastName": "Rios",
+      "email": "user_b6e533f0ff@example.com",
+      "phone": "0518368163",
+      "address": "735 Dawn Highway Suite 708, Port Erinburgh, IL 17025",
+      "description": "His full this."
+    }
+  ]
+}

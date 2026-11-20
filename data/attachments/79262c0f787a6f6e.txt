@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9902fc0d-98b1-4cd3-a394-0cd699607262",
+      "name": "James",
+      "lastName": "Mcbride",
+      "email": "user_dc0c452cee@example.com",
+      "phone": "0522601716",
+      "address": "C",
+      "description": "Religious religious form animal officer network certain."
+    }
+  ]
+}

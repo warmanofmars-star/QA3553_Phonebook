@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b30a6f43-c302-4557-a930-d5c30ff7b4c4",
+      "name": "Stephanie",
+      "lastName": "Roberson",
+      "email": "user_130896f2a4@example.com",
+      "phone": "0595410111",
+      "address": "354 Dean Square Suite 433, South Christinaborough, MN 05983",
+      "description": "Late series particularly stuff top."
+    },
+    {
+      "id": "b8168072-d972-4a9a-9e17-f2a213e4a07a",
+      "name": "Jill",
+      "lastName": "Russell",
+      "email": "user_3befed740d@example.com",
+      "phone": "0522834162",
+      "address": "566 Martin Harbor Apt. 310, North Maria, MO 01368",
+      "description": "Both increase after according commercial."
+    }
+  ]
+}

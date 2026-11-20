@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tamara",
+  "lastName": "Knight",
+  "phone": "0531374025",
+  "email": "user_e5a9250c3f@example.com",
+  "address": "4866 Hoffman Drive, New Christophermouth, WV 47580",
+  "description": "Child once once yard artist guy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2cb0830a-22ef-48c1-98e9-bb20c3e9cf85"
+}

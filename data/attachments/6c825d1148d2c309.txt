@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Walters",
+  "phone": "0514319394",
+  "email": "user_fbd8fb2db4@example.com",
+  "address": "0556 Parker Vista Apt. 822, Castilloville, OH 47379",
+  "description": "Approach model about her property area."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 14ad9290-7140-4b71-a5a9-a14cc1291f51"
+}

@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Sanchez",
+  "phone": "0511616462",
+  "email": "user_e27be42331@example.com",
+  "address": "2029 Shields Station Apt. 700, Tammymouth, NY 86961",
+  "description": "Center chair billion hard those work remain.",
+  "id": "89b048ff-04f0-4258-98f5-4694ae627084"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

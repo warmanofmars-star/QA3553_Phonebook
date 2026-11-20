@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "01462ccc-1371-4faf-8f2c-36b02e4a9c7b",
+      "name": "James",
+      "lastName": "Ray",
+      "email": "user_d00e729362@example.com",
+      "phone": "0520681376",
+      "address": "USS Aguilar, FPO AE 63660",
+      "description": "Near statement value age item."
+    }
+  ]
+}

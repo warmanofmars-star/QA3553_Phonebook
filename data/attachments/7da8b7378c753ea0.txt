@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christian",
+  "lastName": "Williams",
+  "phone": "0524691371",
+  "email": "user_483c6cb2a4@example.com",
+  "address": "C",
+  "description": "Finish television sing oil others common.",
+  "id": "8e61063f-b6e4-4ada-9255-e46536e2565c"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

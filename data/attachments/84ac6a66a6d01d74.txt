@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "434df0c6-5408-4ed8-adca-6de19fb3d312",
+      "name": "Nicolas",
+      "lastName": "Berry",
+      "email": "user_4648905221@example.com",
+      "phone": null,
+      "address": "40972 Brown Wells, Lake Jamesmouth, WA 89448",
+      "description": "Age available they catch."
+    }
+  ]
+}

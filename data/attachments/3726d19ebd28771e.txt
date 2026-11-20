@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Danny",
+  "lastName": "Wilson",
+  "phone": "0547148598",
+  "email": "user_94191b1aeb@example.com",
+  "address": "27009 Klein Roads Suite 454, Port Christopherborough, MO 46350",
+  "description": "Possible national always factor military."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d0be72a3-1f78-4eea-9661-a9c0c50f36b7"
+}

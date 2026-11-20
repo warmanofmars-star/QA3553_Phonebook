@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+{
+  "name": "Linda",
+  "lastName": "Tate",
+  "phone": "0557702358",
+  "email": "user_12271d4358@example.com",
+  "address": "789 Stephanie Views, Stoutside, IL 71349",
+  "description": "Note PM husband such couple also walk."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9d8029ef-9cd0-403d-aab4-489e6fdb4116"
+}

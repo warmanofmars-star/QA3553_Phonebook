@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Garza",
+  "phone": "051543757017214",
+  "email": "user_1546f55d4b@example.com",
+  "address": "91288 Krueger Coves Suite 010, New Margarethaven, GA 40325",
+  "description": "Training production often sound hair."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 01ec1fca-1f8e-440d-8cbc-fd6549ab084a"
+}

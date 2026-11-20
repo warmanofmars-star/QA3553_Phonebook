@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6efd8b00-788e-4310-867a-53cee55c0446",
+      "name": "David",
+      "lastName": "12345",
+      "email": "user_84a16e8912@example.com",
+      "phone": "0530783884",
+      "address": "1199 Hodge Expressway Suite 782, Port Austinport, NM 99183",
+      "description": "Local message be."
+    }
+  ]
+}

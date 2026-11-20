@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "   ",
+  "phone": "0531744652",
+  "email": "user_f99fc0e828@example.com",
+  "address": "85693 Craig Mountain Apt. 222, New Josephland, CA 83270",
+  "description": "Travel bed push ago matter collection."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:33:47",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

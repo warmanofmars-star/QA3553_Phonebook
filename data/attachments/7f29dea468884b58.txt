@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5b9a3590-ab77-4ed9-9110-91785e575381",
+      "name": "Joshua",
+      "lastName": "Griffith",
+      "email": "user_96454b9e0b@example.com",
+      "phone": "0516658613",
+      "address": "20845 Griffin Islands, Masonhaven, GU 56648",
+      "description": "North mission its tree."
+    },
+    {
+      "id": "79a153e2-c0ca-4d25-bf05-9c6f0f948b80",
+      "name": "Joshua",
+      "lastName": "Griffith",
+      "email": "user_96454b9e0b@example.com",
+      "phone": "0516658613",
+      "address": "20845 Griffin Islands, Masonhaven, GU 56648",
+      "description": "North mission its tree."
+    }
+  ]
+}

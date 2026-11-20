@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e89766d1-b845-49a5-8a6c-4479bb0c34a9",
+      "name": "Lori",
+      "lastName": "Mills",
+      "email": "user_f74d777391@example.com",
+      "phone": "0527754616",
+      "address": "Unit 3569 Box 3277, DPO AE 41931",
+      "description": "Group culture fine choose join energy you."
+    }
+  ]
+}

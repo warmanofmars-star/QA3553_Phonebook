@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "245c845c-178f-4f39-943a-00bf927e6e35",
+      "name": "Darrell",
+      "lastName": "Garner",
+      "email": "user_dd37c162fa@example.com",
+      "phone": "0510678607",
+      "address": "374 King Loaf Apt. 351, East Georgeshire, WA 63941",
+      "description": "Stay defense surface."
+    }
+  ]
+}

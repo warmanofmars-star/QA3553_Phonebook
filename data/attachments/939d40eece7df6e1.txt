@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Nixon",
+  "phone": "0519887992",
+  "email": "not_an_email",
+  "address": "7877 Donald Coves, South Brittany, IA 06395",
+  "description": "Piece present imagine play."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:34:01",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

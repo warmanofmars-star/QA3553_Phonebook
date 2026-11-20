@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicolas",
+  "lastName": "Berry",
+  "phone": "0548476437",
+  "email": "user_4648905221@example.com",
+  "address": "40972 Brown Wells, Lake Jamesmouth, WA 89448",
+  "description": "Age available they catch."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 434df0c6-5408-4ed8-adca-6de19fb3d312"
+}

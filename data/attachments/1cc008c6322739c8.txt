@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Sheppard",
+  "phone": "0533313824",
+  "email": "user_d8a18c1d60@example.com",
+  "address": "76063 Tanya Fields, New Alicia, AL 66862",
+  "description": "Gun nor decide hour.",
+  "id": "3324995e-e88e-40c7-b9da-faa3d1bcd391"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

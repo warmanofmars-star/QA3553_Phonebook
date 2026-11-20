@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Stevens",
+  "phone": "0532034678",
+  "email": "user_f7d773f12c@example.com",
+  "address": "1243 Tonya Turnpike, Johnsonview, AK 41812",
+  "description": "Lay establish long why answer interview."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: be2022ba-0ad0-45ae-b4ae-5f69a3b12e1a"
+}

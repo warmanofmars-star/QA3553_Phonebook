@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Adam",
+  "lastName": "Guzman",
+  "phone": "0518837869",
+  "email": "user@",
+  "address": "1282 Williams Forge Suite 303, Rickystad, WA 69745",
+  "description": "Soon few adult large near so."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-20T11:33:50",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

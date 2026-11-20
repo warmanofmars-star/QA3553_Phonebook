@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7fa6cc78-a49f-495a-8418-2d9bc27f269a",
+      "name": "Mary",
+      "lastName": "Johnson",
+      "email": "user_df05c8bd5e@example.com",
+      "phone": "0516538396",
+      "address": "07319 Holly River, Grimesland, PR 65370",
+      "description": "Against indicate product question body note."
+    }
+  ]
+}

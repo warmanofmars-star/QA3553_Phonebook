@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "87ca8d18-d9d0-429a-acd6-cfacde86d8cd",
+      "name": "Ralph",
+      "lastName": "Morris",
+      "email": "user_91da0b1c66@example.com",
+      "phone": "0510524823",
+      "address": "3977 Dominguez Turnpike Suite 233, Annchester, PR 52169",
+      "description": "Before cover them anyone issue ever."
+    },
+    {
+      "id": "1f02dbad-ff7e-4721-a3d5-b68f06e9510b",
+      "name": "Jason",
+      "lastName": "Vazquez",
+      "email": "user_4e550c65c2@example.com",
+      "phone": "0514878649",
+      "address": "806 James Point Apt. 557, Solomonfort, DC 77133",
+      "description": "Rest hot shake animal perhaps which."
+    }
+  ]
+}

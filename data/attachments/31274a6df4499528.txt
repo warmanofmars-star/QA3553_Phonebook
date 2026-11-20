@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brittney",
+  "lastName": "Miller",
+  "phone": "0545762022",
+  "email": "user_dba17995a6@example.com",
+  "address": "03764 Sharon Shoal, Kimstad, ND 26430",
+  "description": "Affect forward statement."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 72cf3ef9-6bea-4cc4-9b49-471a278ca226"
+}

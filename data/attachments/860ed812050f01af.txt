@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a9267f43-3937-4a4c-a596-762edad66aed",
+      "name": "Christine",
+      "lastName": "Stone",
+      "email": "user_03daa827ff@example.com",
+      "phone": "0566719921",
+      "address": "309 Vaughn Turnpike, Carmenmouth, SC 08421",
+      "description": "Too age price eight."
+    },
+    {
+      "id": "f847594f-9b34-4457-84c0-7ea5bc7b60cd",
+      "name": "Nancy",
+      "lastName": "Sexton",
+      "email": "user_0466dd54fc@example.com",
+      "phone": "0566719921",
+      "address": "50598 Martinez Overpass, Brandonborough, FL 24125",
+      "description": "Manage system yet discover."
+    }
+  ]
+}

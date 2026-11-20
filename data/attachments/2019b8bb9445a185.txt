@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Beverly",
+  "lastName": "Johnston",
+  "phone": "0554639714",
+  "email": "user_0b34a43fb2@example.com",
+  "address": "5481 Cain Freeway, Parkermouth, UT 82490",
+  "description": "Run radio power probably peace value church deep."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: de7432ff-6bf2-4048-a5e8-dbba83ad8b59"
+}

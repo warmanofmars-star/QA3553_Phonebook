@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paula",
+  "lastName": "Nichols",
+  "phone": "0533315238",
+  "email": "user_d53a8b29c7@example.com",
+  "address": "3546 Hobbs Park Apt. 889, Nancyside, NM 43628",
+  "description": "Day relate set loss."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c7c4b932-8a7a-4cf4-b179-8b1e45d5e48f"
+}

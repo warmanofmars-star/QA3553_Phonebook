@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Rivera",
+  "phone": "0575572036",
+  "email": "user_0171fe0468@example.com",
+  "address": "3206 Murillo Hill Suite 814, Pachecohaven, PR 98040",
+  "description": "Month mean produce physical."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fccfeef7-9d4c-4c62-83b2-1af33f96c02f"
+}

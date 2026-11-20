@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e80cda94-421b-4f43-9497-737330293fa3",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Holt",
+      "email": "user_b76125be5a@example.com",
+      "phone": "0527503137",
+      "address": "3863 Holt Point Suite 540, Reedhaven, WY 34460",
+      "description": "Likely religious act avoid many."
+    }
+  ]
+}

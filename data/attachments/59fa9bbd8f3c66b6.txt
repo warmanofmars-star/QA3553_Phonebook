@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Loretta",
+  "lastName": "Sanchez",
+  "phone": "0511616462",
+  "email": "user_e27be42331@example.com",
+  "address": "2029 Shields Station Apt. 700, Tammymouth, NY 86961",
+  "description": "Center chair billion hard those work remain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 89b048ff-04f0-4258-98f5-4694ae627084"
+}

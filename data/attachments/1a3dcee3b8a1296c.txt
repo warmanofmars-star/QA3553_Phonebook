@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d1235f68-aa73-4cb9-a90b-102eea87105d",
+      "name": "Anthony",
+      "lastName": "Phillips",
+      "email": "user_2f97f18d66@example.com",
+      "phone": "0570900203",
+      "address": "0433 Bradley Drive, Morrisshire, KY 64697",
+      "description": "Play write size cover themselves."
+    },
+    {
+      "id": "7d349477-10f7-4ac9-ae5c-509f9600826e",
+      "name": "Rebecca",
+      "lastName": "Ferguson",
+      "email": "user_952835ca69@example.com",
+      "phone": "0570900203",
+      "address": "9119 Fuller Tunnel Suite 164, Port Stephen, VI 21879",
+      "description": "Treat see season next time."
+    }
+  ]
+}

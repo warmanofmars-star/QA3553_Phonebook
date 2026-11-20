@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "147027e5-191d-4998-b643-6fe45ba114c7",
+      "name": "Harry",
+      "lastName": "Kim",
+      "email": "user_369de08f2f@example.com",
+      "phone": "0533244371",
+      "address": "02602 Melton Fields, Port Codybury, TN 94596",
+      "description": "You much ahead."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Johnson",
+  "phone": "0516538396",
+  "email": "user_df05c8bd5e@example.com",
+  "address": "07319 Holly River, Grimesland, PR 65370",
+  "description": "Against indicate product question body note."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7fa6cc78-a49f-495a-8418-2d9bc27f269a"
+}

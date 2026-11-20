@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Thompson",
+  "phone": "0530245696",
+  "email": "user_276414c4b8@example.com",
+  "address": "81641 Mosley Manors, Michealland, HI 92462",
+  "description": "Last girl question imagine leave top."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 56ec4584-8bd7-40d7-b796-eaba67081e6a"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Lewis",
+  "phone": "0519103338",
+  "email": "user_db28ce5ed0@example.com",
+  "address": "0867 Miller Crossing, Melissafort, MA 31509",
+  "description": "Culture heavy popular bring movie."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f075d1ab-6e5f-4ad1-acc0-dafb1d11fc9b"
+}

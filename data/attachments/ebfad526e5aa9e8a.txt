@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Reginald",
+  "lastName": "Quinn",
+  "phone": "0598848127",
+  "email": "user_dc56eecf2e@example.com",
+  "address": "8818 Monica Manors, South Debbie, WY 91511",
+  "description": "Save subject adult trouble."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7ac38809-64b6-4ea9-a54d-3af8af0e187e"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tina",
+  "lastName": "Schwartz",
+  "phone": "0542547582",
+  "email": "user_5017bd8e07@example.com",
+  "address": "71108 Claudia Gateway, South Anna, VI 70740",
+  "description": "Like job left agreement seat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 323c1955-665b-4951-8cb8-cfc3dc1337ff"
+}
