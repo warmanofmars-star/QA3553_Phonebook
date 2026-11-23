@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "85b716e8-c70d-44d9-8244-32413d7acf34",
+      "name": "Anthony",
+      "lastName": "Cannon",
+      "email": "user_748dbe0a55@example.com",
+      "phone": "0523819860",
+      "address": "30524 Chang Mall, Walkerhaven, ME 61559",
+      "description": "Indicate guy energy arm recently."
+    }
+  ]
+}

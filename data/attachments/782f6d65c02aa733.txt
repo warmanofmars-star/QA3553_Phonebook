@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Pittman",
+  "phone": "0583203981",
+  "email": "user_27b812fa9e@example.com",
+  "address": "1068 Jones Forks, Rogertown, AR 27309",
+  "description": "Direction government conference political American firm trial."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: beabc91c-d76e-47fd-b472-895064ef9213"
+}

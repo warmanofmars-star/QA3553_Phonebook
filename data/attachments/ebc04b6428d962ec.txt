@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Linda",
+  "lastName": "Hudson",
+  "phone": "0550053101",
+  "email": "user_a57c61e55b@example.com",
+  "address": "47955 Vincent Key Suite 059, East Annafort, GU 68503",
+  "description": "Clear last become."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c69e0cb7-8206-4e24-9448-444437f090fd"
+}

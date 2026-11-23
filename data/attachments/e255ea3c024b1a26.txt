@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anthony",
+  "lastName": "Cannon",
+  "phone": "0523819860",
+  "email": "user_748dbe0a55@example.com",
+  "address": "30524 Chang Mall, Walkerhaven, ME 61559",
+  "description": "Indicate guy energy arm recently."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 85b716e8-c70d-44d9-8244-32413d7acf34"
+}

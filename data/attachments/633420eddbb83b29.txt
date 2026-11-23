@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (31 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ricardo",
+  "phone": "0525884561",
+  "email": "user_8bd8179b2e@example.com",
+  "address": "44628 Copeland Valleys, Sandyview, PR 12912",
+  "description": "Line economic process bar consider southern improve.",
+  "id": "e37518eb-1f78-4c80-af01-39bd0a64f23d"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T15:07:40",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ricardo",
+  "lastName": "Harris",
+  "phone": "0525884561",
+  "email": "user_8bd8179b2e@example.com",
+  "address": "44628 Copeland Valleys, Sandyview, PR 12912",
+  "description": "Line economic process bar consider southern improve."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e37518eb-1f78-4c80-af01-39bd0a64f23d"
+}

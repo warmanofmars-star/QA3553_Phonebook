@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sean",
+  "lastName": "Mack",
+  "phone": "0530164429",
+  "email": "user_9926b99b68@example.com",
+  "address": "1516 Megan Locks, Melissamouth, AR 75197",
+  "description": "Hot law memory give letter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4c012938-9356-4358-9ead-e5be69bcb3bb"
+}

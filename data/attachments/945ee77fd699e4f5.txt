@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "785b3f02-5275-475e-92db-1b9b03e7f2ce",
+      "name": "Marc",
+      "lastName": "Smith",
+      "email": "user_41544e9a9e@example.com",
+      "phone": "0527232120",
+      "address": "931 Isabel Hill Suite 821, South Ericton, ND 39465",
+      "description": "Way individual loss during answer computer past."
+    },
+    {
+      "id": "d37c33b8-8c3b-4bdc-8e15-6bf14e255e90",
+      "name": "Emily",
+      "lastName": "Mora",
+      "email": "user_f009a217a4@example.com",
+      "phone": "0574980815",
+      "address": "8595 Leonard Hills Suite 203, West Joshua, HI 97685",
+      "description": "Area this meeting special address."
+    },
+    {
+      "id": "50b2aba6-1089-4f6d-b3bc-e9a8867d5242",
+      "name": "Elizabeth",
+      "lastName": "Brown",
+      "email": "user_716cce9448@example.com",
+      "phone": "0532256101",
+      "address": "PSC 9714, Box 3767, APO AE 57657",
+      "description": "Line century else life election."
+    }
+  ]
+}

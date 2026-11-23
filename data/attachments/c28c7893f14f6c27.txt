@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Huang",
+  "phone": "0526321837",
+  "email": "user_77510f41ac@example.com",
+  "address": "6431 Ross Fort Suite 486, North Michaelhaven, KY 82996",
+  "description": "Wall foot development how heart recently be."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T15:07:46",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

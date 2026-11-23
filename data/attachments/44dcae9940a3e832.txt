@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (30 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Chen",
+  "phone": "0552069072",
+  "email": "user_8d69479d6c@example.com",
+  "address": "08155 Michael Road Apt. 302, Cassandraburgh, ND 49045",
+  "description": "Practice your discuss them.",
+  "id": "5c45afe4-4472-4084-ad0a-8f108896a5cd"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T15:07:40",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

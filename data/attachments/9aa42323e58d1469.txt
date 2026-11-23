@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Mahoney",
+  "phone": "0565921116",
+  "email": "user_d2df813d53@example.com",
+  "address": "955 Patrick Club Apt. 023, Lake Rachelburgh, IL 31935",
+  "description": "Land old protect eye identify."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 991bb44c-4e99-4304-8055-c624f452d919"
+}

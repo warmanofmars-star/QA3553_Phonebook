@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Williams",
+  "phone": "0516496583",
+  "email": "user_bda8c9e919@example.com",
+  "address": "96809 Shelby Ports Apt. 628, Scottstad, VT 59182",
+  "description": "Occur interview firm accept."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4a4e5e4e-8790-4f46-9ba1-389144cfa3ce"
+}

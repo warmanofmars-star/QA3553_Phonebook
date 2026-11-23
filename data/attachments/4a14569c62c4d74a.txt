@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Misty",
+  "lastName": "Meyer",
+  "phone": "0511342957",
+  "email": "user_7adae5c4b8@example.com",
+  "address": "3965 Mccoy Loop, Kathrynfurt, OK 44567",
+  "description": "Majority she worry left cold tree store."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 81360b73-b5f1-4bba-aa23-99714692778f"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Troy",
+  "lastName": "Morse",
+  "phone": "0556954009",
+  "email": "user_e223faa723@example.com",
+  "address": "634 Joseph Mountains, Traceyport, WV 80197",
+  "description": "Pass go focus."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 989044f8-a6e4-4e0e-9934-6ff768efd84f"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Susan",
+  "lastName": "Sullivan",
+  "phone": "0526528746",
+  "email": "user_b676fd953e@example.com",
+  "address": "3894 Caroline Isle, Simonton, OR 10761",
+  "description": "Issue bring low door."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ac2642c8-17d9-473a-9d13-d89362a430f6"
+}

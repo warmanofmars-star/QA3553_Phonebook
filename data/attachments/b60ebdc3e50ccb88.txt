@@ -1,0 +1,17 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Denise",
+  "lastName": "Collins",
+  "email": "user_c5319cf91e@example.com",
+  "address": "452 Chad Port, Melissamouth, NV 24011",
+  "description": "Public hit method morning.",
+  "id": "56618c6c-ad61-4d22-9bf7-c0244a4c35a1"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

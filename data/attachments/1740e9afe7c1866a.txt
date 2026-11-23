@@ -1,0 +1,22 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (33 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Fuller",
+  "phone": "0532608008",
+  "email": "user_708a1082e6@example.com",
+  "address": "3584 Sanchez Summit Suite 243, North Crystalview, NJ 55614",
+  "description": "Present goal themselves husband science her know southern."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T15:07:48",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

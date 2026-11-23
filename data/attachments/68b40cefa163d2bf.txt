@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Elizabeth",
+  "lastName": "Carter",
+  "phone": "0516983726",
+  "email": "user_eed0055aa4@example.com",
+  "address": "56251 Laura Shores Apt. 312, Lake Larrychester, OK 50524",
+  "description": "Follow together hand sound inside pretty little."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 574546d9-9238-42f8-8dfa-0049a5b9a046"
+}

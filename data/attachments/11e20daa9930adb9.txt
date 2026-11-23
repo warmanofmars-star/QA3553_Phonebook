@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9637dec1-bb47-4d41-a8df-5ff499072772",
+      "name": "Elizabeth",
+      "lastName": "Rodriguez",
+      "email": "a@b",
+      "phone": "0528464432",
+      "address": "2970 Eddie Inlet Suite 971, Flowersborough, PA 23035",
+      "description": "Five much fund wish memory Democrat listen."
+    }
+  ]
+}

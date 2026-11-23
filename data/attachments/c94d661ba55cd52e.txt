@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Oliver",
+  "phone": "0550852456",
+  "email": "user_be67bdc52b@example.com",
+  "address": "134 Brady Summit, Jefferymouth, VT 44305",
+  "description": "Door become few national goal including discover hospital."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7d140bfc-beec-4f89-8818-c3aefe35f503"
+}

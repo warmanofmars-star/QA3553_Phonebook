@@ -1,0 +1,20 @@
+15:10:04 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+15:10:04 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+15:10:07 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (297 ms)
+15:10:07 [INFO   ] API: Токен добавлен в заголовки сессии
+15:10:07 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+15:10:07 [INFO   ] STEP: Войти как user_933a358aee@example.com
+15:10:09 [INFO   ] API: POST /v1/contacts -> 200 (63 ms)
+15:10:09 [INFO   ] API: GET /v1/contacts -> 200 (60 ms)
+15:10:09 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+15:10:09 [INFO   ] STEP: Открыть карточку контакта 0565922641
+15:10:10 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+15:10:10 [INFO   ] STEP: Изменить поля формы редактирования
+15:10:10 [INFO   ] STEP: Изменить поле name на 'Madeline'
+15:10:10 [INFO   ] STEP: Изменить поле last_name на 'Garrett'
+15:10:10 [INFO   ] STEP: Изменить поле phone на '0531816296'
+15:10:11 [INFO   ] STEP: Изменить поле email на 'user_55727d18f8@example.com'
+15:10:11 [INFO   ] STEP: Изменить поле address на 'PSC 5622, Box 2540, APO AA 84243'
+15:10:11 [INFO   ] STEP: Изменить поле description на 'Face character piece save force million.'
+15:10:16 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Face character piece save force million.', фактически '[object Undefined]'
+15:10:20 [INFO   ] DRIVER: Видео 80fada98-449e-4aae-9c80-120960bb352d.mp4 прикреплено к отчёту

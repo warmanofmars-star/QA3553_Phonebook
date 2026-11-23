@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "202f70af-db58-41ae-bf37-28da2267ef92",
+      "name": "Kristina",
+      "lastName": "Rodriguez",
+      "email": "user_36bf2d629b@example.com",
+      "phone": "0527441852",
+      "address": "8709 Crystal Greens, Billytown, MD 56948",
+      "description": "Money necessary federal event court water particular."
+    }
+  ]
+}

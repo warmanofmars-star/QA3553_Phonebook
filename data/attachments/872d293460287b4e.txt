@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0ef21364-96f8-43ce-b42a-3399da308828",
+      "name": "Tiffany",
+      "lastName": "Hoover",
+      "email": "user_90b880ce8a@example.com",
+      "phone": "0512714704",
+      "address": "778 Johnson Springs, Lake Leslie, DE 70989",
+      "description": "But build bank business somebody budget with."
+    },
+    {
+      "id": "87a41152-b265-4c5f-9d15-7f0889f5af61",
+      "name": "Joshua",
+      "lastName": "Stevens",
+      "email": "user_2d74e082d6@example.com",
+      "phone": "0512714704",
+      "address": "315 Amy Trail Suite 173, Sarahborough, WA 32992",
+      "description": "Like score democratic myself."
+    }
+  ]
+}

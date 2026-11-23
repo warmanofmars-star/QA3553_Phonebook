@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2959c9b0-f71f-4b55-921d-859540564a74",
+      "name": "Patricia",
+      "lastName": "Hansen",
+      "email": "user_9e445c2f4a@example.com",
+      "phone": "0578958434",
+      "address": "260 Paula Cove Suite 789, Simpsonbury, FL 82838",
+      "description": "Tv both bad challenge yet example."
+    },
+    {
+      "id": "9f419f81-dded-4271-9edb-7d654755b555",
+      "name": "Blake",
+      "lastName": "Tucker",
+      "email": "user_fafa9600da@example.com",
+      "phone": "0521626769",
+      "address": "USNV Bass, FPO AP 78882",
+      "description": "Main pressure affect suggest."
+    }
+  ]
+}

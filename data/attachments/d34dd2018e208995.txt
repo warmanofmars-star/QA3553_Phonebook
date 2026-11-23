@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c05e495c-61c8-4e1e-8561-0d607204af4e",
+      "name": "Ashley",
+      "lastName": "Smith",
+      "email": "user_a5fea98859@example.com",
+      "phone": "0549433658",
+      "address": "73098 Thomas Ville Apt. 455, Lake Robert, TN 93620",
+      "description": "Dog during contain road upon dream start."
+    },
+    {
+      "id": "2b0cd4cd-208b-49e8-bb8c-c01dff1a541c",
+      "name": "Ashley",
+      "lastName": "Smith",
+      "email": "user_a5fea98859@example.com",
+      "phone": "0549433658",
+      "address": "73098 Thomas Ville Apt. 455, Lake Robert, TN 93620",
+      "description": "Dog during contain road upon dream start."
+    }
+  ]
+}

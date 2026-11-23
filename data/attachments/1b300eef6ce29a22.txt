@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "da954a47-fbbc-45b8-910c-35e2dbbada4a",
+      "name": "Brandon",
+      "lastName": "Brown",
+      "email": "user_ddaec0241b@example.com",
+      "phone": "0525519350",
+      "address": "26214 Alexander Orchard Suite 779, Taylorchester, IA 86712",
+      "description": "Really everybody thank improve dark dream ready."
+    },
+    {
+      "id": "46d1b81e-926e-4569-905d-79512458bba6",
+      "name": "Amy",
+      "lastName": "Cervantes",
+      "email": "user_9af910aece@example.com",
+      "phone": "0525519350",
+      "address": "14378 Peterson Underpass, Sharifort, CT 07359",
+      "description": "Area candidate support interest."
+    }
+  ]
+}

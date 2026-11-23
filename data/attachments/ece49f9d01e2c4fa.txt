@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anthony",
+  "lastName": "Pope",
+  "phone": "0594524930",
+  "email": "user_546564ecfd@example.com",
+  "address": "31274 Gary Fords Suite 885, Lake Nicolestad, GU 91579",
+  "description": "Chance interview Republican appear fact nation room."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d9c33a00-720d-4b67-89f1-57a4851f09eb"
+}

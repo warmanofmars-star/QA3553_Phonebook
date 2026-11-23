@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Malik",
+  "lastName": "Jackson",
+  "phone": "0569096480",
+  "email": "пользователь@example.com",
+  "address": "28245 Isabel Tunnel, Davidside, PR 14486",
+  "description": "She that street center face film."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dcaf0b48-c7c0-4f51-ae6d-5a9e97a0b97c"
+}

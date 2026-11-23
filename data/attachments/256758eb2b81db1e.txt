@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Laura",
+  "lastName": "Roberts",
+  "phone": "0525723611096891",
+  "email": "user_7c238ee140@example.com",
+  "address": "5968 Webb Views Suite 068, Marychester, TN 92500",
+  "description": "Senior interview move a."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T15:07:30",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

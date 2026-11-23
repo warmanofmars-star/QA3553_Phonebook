@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "09460d0c-baf1-495e-bb49-fe6ae4a93fb9",
+      "name": "Adam",
+      "lastName": "Allison",
+      "email": "user_0597bc87ba@example.com",
+      "phone": "0527597554",
+      "address": "PSC 5759, Box 4680, APO AP 26571",
+      "description": "Father realize college player visit."
+    },
+    {
+      "id": "14c26c6d-8338-4410-87cb-11607d8ee264",
+      "name": "Cory",
+      "lastName": "Lara",
+      "email": "user_598ae069fc@example.com",
+      "phone": "0525777149",
+      "address": "3071 Heidi Turnpike Suite 607, North Pennychester, AR 58251",
+      "description": "Item in everybody bank issue."
+    }
+  ]
+}

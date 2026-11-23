@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shelley",
+  "lastName": "Brandt",
+  "phone": "0519230525",
+  "email": "user_ceca9293fe@example.com",
+  "address": "650 Ashley Field, East Tonybury, MO 72092",
+  "description": "Middle identify scene language go."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: df437ca5-af26-4df9-be29-7bd2e0829c2d"
+}

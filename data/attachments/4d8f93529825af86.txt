@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jacqueline",
+  "lastName": "Martin",
+  "phone": "0518183507",
+  "email": "user_be67bdc52b@example.com",
+  "address": "2693 Peter Loaf, Port Amychester, KS 66349",
+  "description": "Central man security threat consider try wear inside."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ecd46a93-bc9a-43aa-b3ed-974278a7599d"
+}

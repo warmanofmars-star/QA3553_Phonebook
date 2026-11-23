@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "62ce2c07-493f-4c8b-8bf2-b43bd5625827",
+      "name": "Erika",
+      "lastName": "Le",
+      "email": "user_3c7098851b@example.com",
+      "phone": "0580563097",
+      "address": "644 Jacobs Spur Apt. 333, North David, PR 64612",
+      "description": "Family quickly spend program fill over."
+    }
+  ]
+}

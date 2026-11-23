@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f396637d-3331-4931-85a1-afb2918e5f6d",
+      "name": "Ryan",
+      "lastName": "Bishop",
+      "email": "user_f77fece411@example.com",
+      "phone": "0518221661",
+      "address": "815 Ryan Well, Port Shawn, GU 95222",
+      "description": "Protect drop eat economy according usually."
+    }
+  ]
+}

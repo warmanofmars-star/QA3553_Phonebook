@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Raymond",
+  "lastName": "Anderson",
+  "phone": "0523672905",
+  "email": "user_e764dbd97c@example.com",
+  "address": "146 Dustin Brooks, Lake Raymond, NH 22378",
+  "description": "Pattern bad head take."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0709a321-4f04-4a61-a20b-16a750953a3d"
+}

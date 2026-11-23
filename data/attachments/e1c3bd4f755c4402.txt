@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Robbins",
+  "phone": "0525500141",
+  "email": "user_94b2166365@example.com",
+  "address": "30535 Murphy Flats, Port Raymondchester, MO 34423",
+  "description": "Field culture apply them no arrive."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a527f436-6d37-4389-ad2c-70b9fd33cedf"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julie",
+  "lastName": "Preston",
+  "phone": "0533884438",
+  "email": "user_f600aeeccb@example.com",
+  "address": "1896 Robinson Ferry, East Wendymouth, DE 46922",
+  "description": "Official general even manager financial shoulder brother out."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b9771152-cfd8-4a46-b38c-cfe5e719a5ca"
+}

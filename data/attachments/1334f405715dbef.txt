@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b9caf770-649f-4cc0-bd86-9fe0e7d41e29",
+      "name": "Darius",
+      "lastName": "Wagner",
+      "email": "user_71afbcd190@example.com",
+      "phone": "0535187792",
+      "address": "2846 Mary Heights, Johnport, PW 11187",
+      "description": "Treat part ball woman."
+    }
+  ]
+}

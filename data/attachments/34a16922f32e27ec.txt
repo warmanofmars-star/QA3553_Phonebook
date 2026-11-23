@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anthony",
+  "lastName": "Brown",
+  "phone": "0523660804",
+  "email": "user_195e0776f8@example.com",
+  "address": "USS Blake, FPO AA 87831",
+  "description": "Impact often manager fine."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 52c62815-adbb-42d6-86aa-b34dc0556039"
+}

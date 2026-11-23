@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (32 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Cooper",
+  "phone": "0524745440",
+  "email": "user_9b0685d394@example.com",
+  "address": "783 Richardson Fords, West Raymond, VT 04230",
+  "description": "Answer other pull eye just fund outside.",
+  "id": "cd1e7231-c4b3-4ab5-b0ab-b296b97d35b1"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T15:07:39",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

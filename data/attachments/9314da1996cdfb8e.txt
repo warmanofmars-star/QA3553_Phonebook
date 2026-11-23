@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b04c8abd-9a45-4287-9d6f-751f14534fb1",
+      "name": "Amanda",
+      "lastName": "Crawford",
+      "email": "user_6a15fbe38c@example.com",
+      "phone": "0525113911",
+      "address": "84582 Williams Village Apt. 061, East Adrian, DE 84831",
+      "description": "Toward because reality practice."
+    }
+  ]
+}

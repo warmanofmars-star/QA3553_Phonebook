@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Martinez",
+  "phone": "0524620132",
+  "email": "user_04b4996ba3@example.com",
+  "address": "82333 Jensen Inlet Apt. 467, Port Michaelshire, AL 12971",
+  "description": "Medical training over thing executive."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eb49522d-7dc9-42cd-914e-644642f47a3d"
+}

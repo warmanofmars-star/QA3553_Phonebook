@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e5a6ef57-0989-4afc-af0b-a12ea1a9f640",
+      "name": "Lisa",
+      "lastName": "Burgess",
+      "email": "user_9a7e7c676d@example.com",
+      "phone": "0525112704",
+      "address": "63447 Franco Crossroad Apt. 539, Jameston, OR 68012",
+      "description": "Floor moment lay structure."
+    }
+  ]
+}

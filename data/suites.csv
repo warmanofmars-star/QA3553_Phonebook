@@ -1,335 +1,275 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","60","test_api_invalid_tokens[Basic dXNlcjpwYXNzd29yZA==-401-Подмена схемы (Basic вместо Bearer)] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
+"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","445","test_api_registration_email[two-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","151","test_api_contact_field_validation[phone-space] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","454","test_api_registration_password[no-lowercase] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","413","test_api_registration_password[len-7] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"Тело text/plain вместо JSON — ошибка клиента, сервер должен ответить 4xx (в идеале 415), а не падать.","33","test_api_wrong_content_type_is_client_error [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_security_logic (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","96","test_api_update_contact_field_validation[email-nothing-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Пользователь A не видит контакт пользователя B в своём списке.
+Отдельного GET по id в Swagger нет, поэтому чтение чужих данных возможно только через список.","180","test_api_bola_cannot_read_others_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","90","test_api_update_contact_field_validation[email-nothing-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","189","test_api_contact_field_validation[name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","151","test_api_update_contact_field_validation[phone-len-10] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","5860","Сбой действия виден пользователю: PUT 500 [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"","5874","Сбой действия виден пользователю: POST 500 [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","184","test_api_contact_field_validation[phone-len-15] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","959","test_pw_login_success[chromium] [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_login (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","159","test_api_contact_field_validation[email-nothing-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
+
+Второе поле валидно. Состояние проверяем так:
+  * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
+  * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
+    можно было бы занять повторной регистрацией).","374","test_api_registration_required_fields[password-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"Пользователь A не может изменить контакт пользователя B через PUT.","233","test_api_bola_cannot_update_others_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","139","test_api_invalid_tokens[Bearer invalid_token_12345-401-Абсолютно невалидный токен] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","96","test_api_update_contact_field_validation[last-name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","151","test_api_update_contact_field_validation[email-empty] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","95","test_api_update_contact_field_validation[name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","142","test_api_update_contact_field_validation[name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","151","test_api_contact_field_validation[phone-plus] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","60","test_api_get_all_contacts [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contacts (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","101","test_api_update_contact_field_validation[email-two-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","442","test_api_registration_password[no-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","180","test_api_contact_field_validation[email-min-a@b] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","178","test_api_contact_field_validation[email-cyrillic] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"POST на эндпоинт, который принимает только DELETE, должен быть отклонён
+ошибкой клиента и не должен ничего удалить.
+Раньше тест ожидал именно 405, но в Swagger 405 не описан, а 403 от Spring Security —
+тоже корректный отказ. Поэтому проверяем суть, а не конкретную цифру.","92","test_api_unsupported_method_is_rejected [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","127","test_api_invalid_tokens[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...-401-Синтаксически похожий, но фейковый JWT] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
+"","2822","Сбой PUT: форма редактирования не закрывается, введённое не теряется [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","88","test_api_update_contact_field_validation[last-name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","149","test_api_update_contact_field_validation[phone-len-15] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","125","test_api_invalid_tokens[None-401-Запрос вообще без заголовка Authorization] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_auth_security (API)","",""
+"","61","test_api_contact_payload_variations[no-phone] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_payload_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","157","test_api_update_contact_field_validation[name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","10841","401 на список: переход на страницу входа [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","176","test_api_contact_field_validation[description-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","148","test_api_contact_field_validation[email-nothing-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","156","test_api_contact_field_validation[name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","64","test_api_contact_payload_variations[name-boolean] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_payload_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","143","test_api_update_contact_field_validation[description-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","146","test_api_update_contact_field_validation[phone-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","457","test_api_registration_email[nothing-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"","5771","Сбой действия виден пользователю: POST обрыв сети [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","147","test_api_contact_field_validation[phone-len-9] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","152","test_api_update_contact_field_validation[email-cyrillic] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","192","test_api_contact_field_validation[last-name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","160","test_api_contact_field_validation[phone-len-16] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","141","test_api_contact_field_validation[address-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","518","test_api_registration_email[one-char-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","180","test_api_contact_field_validation[last-name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Swagger: DELETE /v1/contacts/{id} -> 404 'Contact not found'.
+Для пользователя A чужой контакт — тоже 'не найден'.","189","test_api_delete_missing_contact_returns_404[foreign] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_security_logic (API)","",""
+"Swagger: DELETE /v1/contacts/{id} -> 404 'Contact not found'.
+Для пользователя A чужой контакт — тоже 'не найден'.","60","test_api_delete_missing_contact_returns_404[nonexistent] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_security_logic (API)","",""
+"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","139","test_api_invalid_tokens[Basic dXNlcjpwYXNzd29yZA==-401-Подмена схемы (Basic вместо Bearer)] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
+"Ответы о контактах (создание и список) не содержат полей password/hash, токена и пароля.","124","test_api_contact_responses_do_not_expose_credentials [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","153","test_api_update_contact_field_validation[address-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","181","test_api_contact_field_validation[name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","468","test_api_registration_password[special-not-from-list] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","189","test_api_contact_field_validation[email-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","446","test_api_registration_password[no-digit] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
+
+Второе поле валидно. Состояние проверяем так:
+  * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
+  * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
+    можно было бы занять повторной регистрацией).","412","test_api_registration_required_fields[email-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"","33","test_api_contact_payload_variations[name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+"","60","test_api_contact_payload_variations[email-empty] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_payload_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","473","test_api_registration_email[nothing-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","91","test_api_update_contact_field_validation[address-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","35","test_api_contact_payload_variations[no-name] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","171","test_api_contact_field_validation[last-name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","10872","Сбой списка: нет вечной загрузки [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","89","test_api_update_contact_field_validation[phone-letters] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","490","test_api_registration_password[cyrillic-letter] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_registration_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","96","test_api_update_contact_field_validation[name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
+
+Второе поле валидно. Состояние проверяем так:
+  * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
+  * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
+    можно было бы занять повторной регистрацией).","451","test_api_registration_required_fields[email-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"","5914","Сбой действия виден пользователю: DELETE 500 [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","92","test_api_update_contact_field_validation[email-no-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Позитивный тест: Успешная авторизация через API (Sandbox)","216","test_api_login_success [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_login (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","89","test_api_update_contact_field_validation[phone-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","150","test_api_contact_field_validation[email-two-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","156","test_api_update_contact_field_validation[phone-absent] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"","2961","Сбой POST: контакт не создан, введённые данные остались в форме [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
+"Негативные тесты авторизации через API без утечки пароля в параметры отчета","358","test_api_login_negative[wrong_password-401-Неверный пароль] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_login (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","153","test_api_update_contact_field_validation[last-name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Повторный DELETE того же контакта не должен ни падать, ни рапортовать об успехе.
+Точный код ответа проверяет test_api_delete_missing_contact_returns_404.","128","test_api_delete_idempotency [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","150","test_api_update_contact_field_validation[name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","480","test_api_registration_password[len-8] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
+
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","147","test_api_update_contact_field_validation[address-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "SRS, раздел 2, модуль 'Delete all contact': Customer — Can't, только Manager.
 
 Раньше здесь был тест, проверявший ОБРАТНОЕ (что удаление проходит успешно),
 да ещё и на пустом списке: у нового sandbox-пользователя контактов нет,
 поэтому ""все удалены"" выполнялось всегда. Теперь контакты создаются заранее.
-","229","test_api_customer_cannot_clear_all_contacts [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_delete (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","113","test_api_contact_field_validation[last-name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+","379","test_api_customer_cannot_clear_all_contacts [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_delete (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","45","test_api_update_contact_field_validation[address-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"Swagger: DELETE /v1/contacts/{id} -> 404 'Contact not found'.
-Для пользователя A чужой контакт — тоже 'не найден'.","39","test_api_delete_missing_contact_returns_404[nonexistent] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","147","test_api_contact_field_validation[last-name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
-
-Второе поле валидно. Состояние проверяем так:
-  * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
-  * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
-    можно было бы занять повторной регистрацией).","290","test_api_registration_required_fields[email-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","152","test_api_update_contact_field_validation[address-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Негативные тесты авторизации через API без утечки пароля в параметры отчета","313","test_api_login_negative[wrong_email-401-Несуществующий email] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_login (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","126","test_api_update_contact_field_validation[name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","332","test_api_registration_password[no-lowercase] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"","52","test_api_get_all_contacts [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contacts (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","98","test_api_update_contact_field_validation[phone-len-16] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","166","test_api_contact_field_validation[address-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","109","test_api_update_contact_field_validation[phone-len-10] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","1543","Двойной клик по Save: ровно один POST [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
-"","98","test_api_delete_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_delete (API)","",""
-"Контакт, повторяющий email или телефон ранее созданного, не сохраняется,
-а сервер отвечает 409 (SRS T32, T45; Swagger: 409 Duplicate contact fields).","117","test_api_add_contact_duplicate[email] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_add_contact (API)","",""
-"Негативные тесты авторизации через API без утечки пароля в параметры отчета","289","test_api_login_negative[wrong_email-401-Несуществующий email] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_login (API)","",""
-"","5748","Сбой действия виден пользователю: PUT 500 [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","83","test_api_contact_field_validation[name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","59","test_api_add_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_add_contact (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","117","test_api_contact_field_validation[phone-plus] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","90","test_api_update_contact_field_validation[phone-len-9] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","63","test_api_add_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_add_contact (API)","",""
+"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","462","test_api_registration_email[cyrillic] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_registration_validation (API)","",""
+"","123","test_api_delete_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_delete (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","46","test_api_update_contact_field_validation[name-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","157","test_api_update_contact_field_validation[last-name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","146","test_api_contact_field_validation[last-name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","514","test_api_registration_password[len-16] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_registration_validation (API)","",""
+"POST -> список -> PUT -> список -> DELETE -> список.","456","test_api_contact_lifecycle [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_lifecycle (API)","",""
+"","36","test_api_contact_payload_variations[phone-short] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","484","test_api_registration_email[one-char-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"","1817","Двойной клик по Save: ровно один POST [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"В ContactDto (Swagger) есть поле id. Нельзя, чтобы клиент мог им управлять:
+создание контакта с id чужого контакта не должно перезаписать чужие данные.","306","test_api_mass_assignment_foreign_id [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+"","649","Пустой список: видно сообщение о пустом списке [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","172","test_api_contact_field_validation[last-name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","106","test_api_update_contact_field_validation[name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","118","test_api_contact_field_validation[name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
-
-Второе поле валидно. Состояние проверяем так:
-  * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
-  * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
-    можно было бы занять повторной регистрацией).","294","test_api_registration_required_fields[password-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","119","test_api_contact_field_validation[last-name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","118","test_api_contact_field_validation[phone-len-9] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","337","test_api_registration_password[len-16] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_registration_validation (API)","",""
-"","2107","Двойной клик по Save: на бэкенде ровно один контакт [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","93","test_api_update_contact_field_validation[name-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","47","test_api_update_contact_field_validation[last-name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","146","test_api_contact_field_validation[address-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","337","test_api_registration_password[cyrillic-letter] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_registration_validation (API)","",""
-"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","53","test_api_invalid_tokens[Bearer invalid_token_12345-401-Абсолютно невалидный токен] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","48","test_api_update_contact_field_validation[last-name-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"Повторный DELETE того же контакта не должен ни падать, ни рапортовать об успехе.
-Точный код ответа проверяет test_api_delete_missing_contact_returns_404.","79","test_api_delete_idempotency [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","114","test_api_contact_field_validation[name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","108","test_api_update_contact_field_validation[last-name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","114","test_api_contact_field_validation[email-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
-
-Второе поле валидно. Состояние проверяем так:
-  * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
-  * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
-    можно было бы занять повторной регистрацией).","332","test_api_registration_required_fields[email-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","312","test_api_registration_password[no-uppercase] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","112","test_api_contact_field_validation[last-name-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","86","test_api_contact_field_validation[last-name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","2786","Сбой DELETE: карточка осталась, контакт на бэкенде на месте [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
-"","469","Пустой список: видно сообщение о пустом списке [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
-"Пользователь A не может удалить контакт пользователя B.","152","test_api_bola_cannot_delete_others_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","331","test_api_registration_password[no-digit] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","103","test_api_update_contact_field_validation[phone-len-15] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","47","test_api_update_contact_field_validation[name-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","50","test_api_update_contact_field_validation[phone-dash] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","155","test_api_update_contact_field_validation[email-absent] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","147","test_api_contact_field_validation[phone-letters] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","148","test_api_contact_field_validation[phone-dash] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "Тело типичной ошибки валидации (400) соответствует ErrorMessageDto из Swagger,
-а status в теле совпадает с HTTP-статусом ответа.","13","test_api_validation_error_body [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+а status в теле совпадает с HTTP-статусом ответа.","37","test_api_validation_error_body [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+"","157","test_api_update_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contacts (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","71","test_api_update_contact_field_validation[address-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"Ответы регистрации и логина не содержат полей password/hash и самого пароля.","382","test_api_auth_responses_do_not_expose_password [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
-"Swagger: DELETE /v1/contacts/{id} -> 404 'Contact not found'.
-Для пользователя A чужой контакт — тоже 'не найден'.","140","test_api_delete_missing_contact_returns_404[foreign] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","321","test_api_registration_email[two-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","120","test_api_contact_field_validation[address-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"Пользователь A не может изменить контакт пользователя B через PUT.","168","test_api_bola_cannot_update_others_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","148","test_api_contact_field_validation[phone-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
-"POST -> список -> PUT -> список -> DELETE -> список.","293","test_api_contact_lifecycle [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_lifecycle (API)","",""
-"Позитивный тест: Успешная авторизация через API (Sandbox)","186","test_api_login_success [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_login (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","149","test_api_contact_field_validation[description-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","143","test_api_update_contact_field_validation[email-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","101","test_api_update_contact_field_validation[phone-absent] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","359","test_api_registration_password[len-8] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","111","test_api_contact_field_validation[email-min-a@b] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","104","test_api_update_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contacts (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","71","test_api_update_contact_field_validation[phone-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","106","test_api_update_contact_field_validation[email-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","81","test_api_contact_field_validation[email-two-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","10670","Сбой списка: нет вечной загрузки [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
-"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","88","test_api_invalid_tokens[None-401-Запрос вообще без заголовка Authorization] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_auth_security (API)","",""
-"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","332","test_api_registration_email[one-char-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","363","test_api_registration_password[len-15] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"","41","test_api_contact_payload_variations[name-boolean] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_payload_validation (API)","",""
-"","11","test_api_contact_payload_variations[phone-short] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","127","test_api_update_contact_field_validation[email-cyrillic] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","48","test_api_update_contact_field_validation[phone-letters] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","332","test_api_registration_email[one-char-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","401","test_api_registration_password[special-not-from-list] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"","23","test_api_contact_payload_variations[no-name] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","107","test_api_update_contact_field_validation[address-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","310","test_api_registration_password[no-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"","10606","401 на список: переход на страницу входа [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","51","test_api_update_contact_field_validation[email-two-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","113","test_api_contact_field_validation[phone-len-10] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","22","test_api_contact_payload_variations[phone-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","129","test_api_update_contact_field_validation[last-name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","83","test_api_contact_field_validation[email-nothing-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","10","test_api_contact_payload_variations[email-invalid] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
-"","10","test_api_contact_payload_variations[name-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","105","test_api_update_contact_field_validation[address-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","121","test_api_contact_field_validation[phone-space] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","331","test_api_registration_email[nothing-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","102","test_api_update_contact_field_validation[email-min-a@b] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","2783","Сбой PUT: карточка и бэкенд хранят старое значение [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
-"","53","test_api_contact_payload_variations[no-phone] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_payload_validation (API)","",""
-"","2647","Сбой PUT: форма редактирования не закрывается, введённое не теряется [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","107","test_api_update_contact_field_validation[description-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","148","test_api_contact_field_validation[description-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","72","test_api_update_contact_field_validation[email-nothing-after-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","110","test_api_contact_field_validation[address-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","48","test_api_update_contact_field_validation[email-nothing-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","117","test_api_contact_field_validation[address-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","102","test_api_update_contact_field_validation[name-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","49","test_api_update_contact_field_validation[email-no-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","1033","test_pw_login_success[chromium] [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_login (API)","",""
-"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","365","test_api_registration_email[cyrillic] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_registration_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","141","test_api_update_contact_field_validation[description-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "Контакт, повторяющий email или телефон ранее созданного, не сохраняется,
-а сервер отвечает 409 (SRS T32, T45; Swagger: 409 Duplicate contact fields).","112","test_api_add_contact_duplicate[phone] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_add_contact (API)","",""
+а сервер отвечает 409 (SRS T32, T45; Swagger: 409 Duplicate contact fields).","195","test_api_add_contact_duplicate[phone] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_add_contact (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","473","test_api_registration_password[len-15] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","180","test_api_contact_field_validation[description-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","47","test_api_update_contact_field_validation[phone-len-16] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","93","test_api_update_contact_field_validation[last-name-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","177","test_api_contact_field_validation[phone-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","159","test_api_invalid_tokens[Bearer -401-Заголовок есть, но токен пустой] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
+"","32","test_api_contact_payload_variations[email-invalid] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","185","test_api_contact_field_validation[address-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","33","test_api_contact_payload_variations[name-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+"","2913","Сбой DELETE: карточка осталась, контакт на бэкенде на месте [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","48","test_api_update_contact_field_validation[phone-len-9] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","106","test_api_update_contact_field_validation[email-absent] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","95","test_api_update_contact_field_validation[address-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "UI корректно отрисовывает данные, которые вернул бэкенд.
 
 Ответ на GET /v1/contacts подменяется, поэтому тест проверяет только
 отрисовку и не зависит от реальных данных пользователя.
-","1111","Изоляция UI: подмена ответа бэкенда (Mocking) [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_mocking (API)","",""
-"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","52","test_api_invalid_tokens[Bearer -401-Заголовок есть, но токен пустой] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
-"","5757","Сбой действия виден пользователю: POST 500 [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","111","test_api_contact_field_validation[name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+","832","Изоляция UI: подмена ответа бэкенда (Mocking) [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_mocking (API)","",""
+"Ответы регистрации и логина не содержат полей password/hash и самого пароля.","509","test_api_auth_responses_do_not_expose_password [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","47","test_api_update_contact_field_validation[address-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","151","test_api_update_contact_field_validation[last-name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","101","test_api_update_contact_field_validation[description-special] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","99","test_api_update_contact_field_validation[address-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","103","test_api_update_contact_field_validation[email-empty] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","146","test_api_update_contact_field_validation[description-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","186","test_api_contact_field_validation[phone-len-10] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","177","test_api_contact_field_validation[address-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","67","test_api_update_contact_field_validation[last-name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","2576","Обрыв сети: нет необработанных исключений страницы [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
-"","12","test_api_contact_payload_variations[name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","125","test_api_update_contact_field_validation[description-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","120","test_api_contact_field_validation[phone-dash] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"В ContactDto (Swagger) есть поле id. Нельзя, чтобы клиент мог им управлять:
-создание контакта с id чужого контакта не должно перезаписать чужие данные.","190","test_api_mass_assignment_foreign_id [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","116","test_api_contact_field_validation[email-nothing-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","148","test_api_contact_field_validation[email-cyrillic] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","111","test_api_contact_field_validation[address-1-char] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","71","test_api_update_contact_field_validation[name-null] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST на эндпоинт, который принимает только DELETE, должен быть отклонён
-ошибкой клиента и не должен ничего удалить.
-Раньше тест ожидал именно 405, но в Swagger 405 не описан, а 403 от Spring Security —
-тоже корректный отказ. Поэтому проверяем суть, а не конкретную цифру.","45","test_api_unsupported_method_is_rejected [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","90","test_api_update_contact_field_validation[name-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","187","test_api_contact_field_validation[name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Контакт, повторяющий email или телефон ранее созданного, не сохраняется,
+а сервер отвечает 409 (SRS T32, T45; Swagger: 409 Duplicate contact fields).","183","test_api_add_contact_duplicate[email] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_add_contact (API)","",""
+"","2827","Обрыв сети: нет необработанных исключений страницы [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"","33","test_api_contact_payload_variations[phone-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_payload_validation (API)","",""
+"","2940","Сбой PUT: карточка и бэкенд хранят старое значение [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
 "POST /v1/user/registration/usernamepassword: без email или пароля (или с пустым) пользователь не создаётся.
 
 Второе поле валидно. Состояние проверяем так:
   * пароль не принят — тот же email потом свободен: регистрация с валидным паролем даёт 200;
   * email не принят — входа с этим телом запроса нет (у пользователя нет логина, который
-    можно было бы занять повторной регистрацией).","228","test_api_registration_required_fields[password-empty] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"","51","test_api_contact_payload_variations[email-empty] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_payload_validation (API)","",""
-"Негативные тесты авторизации через API без утечки пароля в параметры отчета","249","test_api_login_negative[wrong_password-401-Неверный пароль] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_login (API)","",""
-"Ответы о контактах (создание и список) не содержат полей password/hash, токена и пароля.","99","test_api_contact_responses_do_not_expose_credentials [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","297","test_api_registration_password[len-7] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
+    можно было бы занять повторной регистрацией).","342","test_api_registration_required_fields[password-absent] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","49","test_api_update_contact_field_validation[phone-space] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","90","test_api_contact_field_validation[phone-len-16] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","2742","Сбой POST: контакт не создан, введённые данные остались в форме [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
-"","5614","Сбой действия виден пользователю: DELETE 500 [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","98","test_api_update_contact_field_validation[phone-space] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"Пользователь A не может удалить контакт пользователя B.","233","test_api_bola_cannot_delete_others_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
+"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","191","test_api_contact_field_validation[address-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","897","Медленный список: сначала индикатор загрузки, потом контакты [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","101","test_api_update_contact_field_validation[address-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","5695","Сбой действия виден пользователю: POST обрыв сети [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","144","test_api_update_contact_field_validation[email-min-a@b] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
+"","2271","Двойной клик по Save: на бэкенде ровно один контакт [API]","tests","2026-11-23","skipped","2026-11-23","","test_playwright_resilience (API)","",""
+"POST /v1/user/registration/usernamepassword: пароль меняет ровно один признак, email валиден.","447","test_api_registration_password[no-uppercase] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","106","test_api_update_contact_field_validation[phone-null] [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_contact_validation (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","84","test_api_contact_field_validation[phone-letters] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"Тело text/plain вместо JSON — ошибка клиента, сервер должен ответить 4xx (в идеале 415), а не падать.","11","test_api_wrong_content_type_is_client_error [API]","api_tests","2026-11-23","skipped","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/contacts: одно поле с граничным или «особым» значением, остальные валидны.","117","test_api_contact_field_validation[phone-len-15] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"","711","Медленный список: сначала индикатор загрузки, потом контакты [API]","tests","2026-11-23","passed","2026-11-23","","test_playwright_resilience (API)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","95","test_api_update_contact_field_validation[phone-dash] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
 
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","49","test_api_update_contact_field_validation[name-spaces] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"Проверка 14: Запрос без валидной аутентификации должен быть отклонен","57","test_api_invalid_tokens[Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...-401-Синтаксически похожий, но фейковый JWT] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_auth_security (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","48","test_api_update_contact_field_validation[phone-plus] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"PUT /v1/contacts: те же классы значений, что для POST (номера SRS сдвинуты на 38).
-
-Меняется ровно одно поле существующего контакта, остальные остаются прежними.","123","test_api_update_contact_field_validation[last-name-digits] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
-"Пользователь A не видит контакт пользователя B в своём списке.
-Отдельного GET по id в Swagger нет, поэтому чтение чужих данных возможно только через список.","132","test_api_bola_cannot_read_others_contact [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_security_logic (API)","",""
-"POST /v1/user/registration/usernamepassword: email на границе правил T3–T6, пароль валиден.","332","test_api_registration_email[nothing-before-at] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_registration_validation (API)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2106","test_edit_contact_single_field[email] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"Аноним, открывший /contacts напрямую, перенаправляется на вход и не видит контакты.
-
-Это проверка UX, а не защиты данных: настоящую защиту обеспечивает API
-(см. test_api_invalid_tokens) — фронтенд можно обойти, бэкенд нельзя.
-","505","test_anonymous_user_redirected_to_login [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_logout (CHROME)","",""
-"SRS T45: телефон не должен повторять телефон ранее созданного контакта.
-
-Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
-Результат проверяется через API: это источник правды о том, что сохранилось.
-","2254","test_add_contact_duplicate_phone [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
-"","1576","test_registration_negative[TC-0002-invalid-email] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
-"","1350","test_registration_negative[TC-0004-existing-user] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_login (CHROME)","",""
-"Удаление всех контактов пользователя через UI, по одному.
-
-Контакты создаются заранее: на пустом списке тест проходил бы всегда.
-","3325","test_delete_all_contacts [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (CHROME)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2014","test_edit_contact_single_field[address] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2112","test_edit_contact_single_field[last_name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"","1753","test_delete_contact [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (CHROME)","",""
-"","1423","test_login_success [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
-"","2240","test_login_negative[TC-0007-invalid-email] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
-"","2302","test_login_negative[TC-0008-unregistered-user] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
-"Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле.","7463","test_edit_contact_all_fields [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
-"SRS T70: при редактировании email не должен повторять email другого контакта.","2670","test_edit_contact_duplicate_email [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6608","test_edit_contact_clear_required_fields[phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","2388","test_edit_contact_clear_required_fields[email] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
-"Контакт, созданный на бэкенде, отображается в списке.
-
-Раньше контакт создавался через форму, и тест дублировал test_add_contact_success_all_fields.
-Теперь он проверяет отдельную вещь — отрисовку данных бэкенда в списке.
-","724","test_contact_is_visible_in_list [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (CHROME)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6578","test_edit_contact_clear_required_fields[address] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1536","test_add_contact_negative[TC-0016-letters-in-phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
-"","2618","test_login_negative[TC-0006-wrong-password] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
-"","1683","test_registration_negative[TC-0004-existing-email-new-password] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_login (CHROME)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1737","test_add_contact_negative[TC-0015-invalid-email] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","6620","test_add_contact_negative[TC-0017-empty-address] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","6011","test_add_contact_negative[TC-0014-empty-last-name] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
-"Последовательное удаление нескольких конкретных контактов.","2746","test_delete_multiple_contacts [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (CHROME)","",""
-"","1738","test_registration_negative[TC-0003-invalid-password] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
-"","1383","test_registration_success [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","6481","test_edit_contact_single_field[description] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2023","test_edit_contact_single_field[name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"Авторизованный пользователь может выйти из системы.","1157","test_logout_success [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_logout (CHROME)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6684","test_edit_contact_clear_required_fields[name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"Контакт, созданный через форму, появляется в списке и сохраняется со всеми полями.","2172","test_add_contact_success_all_fields [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1681","test_add_contact_negative[TC-0016-short-phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
-"SRS T83: при редактировании телефон не должен повторять телефон другого контакта.","2580","test_edit_contact_duplicate_phone [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
-"Панель деталей показывает все данные контакта.","869","test_open_contact_details [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (CHROME)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","6672","test_add_contact_negative[TC-0015-empty-email] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","6017","test_add_contact_negative[TC-0013-empty-name] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2020","test_edit_contact_single_field[phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+Меняется ровно одно поле существующего контакта, остальные остаются прежними.","90","test_api_update_contact_field_validation[phone-plus] [API]","api_tests","2026-11-23","passed","2026-11-23","","test_api_contact_validation (API)","",""
 "SRS T72, F14: адрес из одних пробелов — это blank, система не сохраняет такие данные.
 
 Пустой адрес проверяет test_edit_contact_clear_required_fields (тот же TC-0033),
@@ -337,59 +277,123 @@
 результате TC-0033 в STD упомянуто поле Name — это копипаст из SRS, где все
 F10–F14 заканчиваются словами ""to the name field"". Тест следует смыслу F14 и T72:
 проверяем адрес.
-","6712","test_edit_contact_blank_address [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6584","test_edit_contact_clear_required_fields[last_name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
-"SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями.","1550","test_add_contact_success_required_fields_only [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
+","6330","test_edit_contact_blank_address [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"","2393","test_login_negative[TC-0006-wrong-password] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
+"Контакт, созданный через форму, появляется в списке и сохраняется со всеми полями.","1765","test_add_contact_success_all_fields [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1872","test_edit_contact_single_field[phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6334","test_edit_contact_clear_required_fields[address] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"Последовательное удаление нескольких конкретных контактов.","2525","test_delete_multiple_contacts [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (CHROME)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1777","test_add_contact_negative[TC-0016-empty-phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
-"","2114","test_login_negative[TC-0008-unregistered-user] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1992","test_edit_contact_single_field[phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
-"Контакт, созданный через форму, появляется в списке и сохраняется со всеми полями.","1923","test_add_contact_success_all_fields [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6489","test_edit_contact_clear_required_fields[last_name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+а пользователь остаться на вкладке ADD.","1267","test_add_contact_negative[TC-0016-letters-in-phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
+"","1490","test_registration_negative[TC-0002-invalid-email] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
+"","1147","test_login_success [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6335","test_edit_contact_clear_required_fields[name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6398","test_edit_contact_clear_required_fields[last_name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
 "Удаление всех контактов пользователя через UI, по одному.
 
 Контакты создаются заранее: на пустом списке тест проходил бы всегда.
-","3261","test_delete_all_contacts [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (EDGE)","",""
-"Последовательное удаление нескольких конкретных контактов.","2620","test_delete_multiple_contacts [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (EDGE)","",""
+","2999","test_delete_all_contacts [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (CHROME)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6392","test_edit_contact_clear_required_fields[phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1309","test_add_contact_negative[TC-0015-invalid-email] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
+"","1060","test_registration_negative[TC-0003-invalid-password] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
+"","2141","test_login_negative[TC-0007-invalid-email] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1850","test_edit_contact_single_field[last_name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1667","test_edit_contact_single_field[address] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","5901","test_add_contact_negative[TC-0017-empty-address] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
+"","1442","test_delete_contact [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (CHROME)","",""
+"SRS T70: при редактировании email не должен повторять email другого контакта.","2333","test_edit_contact_duplicate_email [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
+"Авторизованный пользователь может выйти из системы.","1140","test_logout_success [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_logout (CHROME)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","6240","test_add_contact_negative[TC-0015-empty-email] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
+"Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле.","7255","test_edit_contact_all_fields [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
+"SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями.","1280","test_add_contact_success_required_fields_only [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
+"","1378","test_registration_negative[TC-0004-existing-email-new-password] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_login (CHROME)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1909","test_edit_contact_single_field[email] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","6381","test_edit_contact_single_field[description] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
+"SRS T83: при редактировании телефон не должен повторять телефон другого контакта.","2373","test_edit_contact_duplicate_phone [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
 "Аноним, открывший /contacts напрямую, перенаправляется на вход и не видит контакты.
 
 Это проверка UX, а не защиты данных: настоящую защиту обеспечивает API
 (см. test_api_invalid_tokens) — фронтенд можно обойти, бэкенд нельзя.
-","382","test_anonymous_user_redirected_to_login [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_logout (EDGE)","",""
+","407","test_anonymous_user_redirected_to_login [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_logout (CHROME)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","5908","test_add_contact_negative[TC-0013-empty-name] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
-"SRS T83: при редактировании телефон не должен повторять телефон другого контакта.","2501","test_edit_contact_duplicate_phone [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
-"","1310","test_registration_negative[TC-0003-invalid-password] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
-"","1377","test_registration_negative[TC-0004-existing-email-new-password] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_login (EDGE)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","2305","test_edit_contact_clear_required_fields[email] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
-"","2154","test_login_negative[TC-0007-invalid-email] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2127","test_edit_contact_single_field[name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
-"Панель деталей показывает все данные контакта.","820","test_open_contact_details [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (EDGE)","",""
-"","1541","test_delete_contact [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (EDGE)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2132","test_edit_contact_single_field[last_name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1282","test_add_contact_negative[TC-0016-letters-in-phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2015","test_edit_contact_single_field[address] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
-"SRS T70: при редактировании email не должен повторять email другого контакта.","2584","test_edit_contact_duplicate_email [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","6371","test_add_contact_negative[TC-0015-empty-email] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","6116","test_add_contact_negative[TC-0017-empty-address] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
-"Авторизованный пользователь может выйти из системы.","1136","test_logout_success [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_logout (EDGE)","",""
-"Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле.","7329","test_edit_contact_all_fields [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","5933","test_add_contact_negative[TC-0014-empty-last-name] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
-"SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями.","1319","test_add_contact_success_required_fields_only [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
+а пользователь остаться на вкладке ADD.","1895","test_add_contact_negative[TC-0016-short-phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
 "Контакт, созданный на бэкенде, отображается в списке.
 
 Раньше контакт создавался через форму, и тест дублировал test_add_contact_success_all_fields.
 Теперь он проверяет отдельную вещь — отрисовку данных бэкенда в списке.
-","658","test_contact_is_visible_in_list [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (EDGE)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","6540","test_edit_contact_single_field[description] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1897","test_edit_contact_single_field[email] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+","675","test_contact_is_visible_in_list [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (CHROME)","",""
+"","2171","test_login_negative[TC-0008-unregistered-user] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1652","test_add_contact_negative[TC-0016-short-phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6539","test_edit_contact_clear_required_fields[phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+а пользователь остаться на вкладке ADD.","5878","test_add_contact_negative[TC-0014-empty-last-name] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
+"","1057","test_registration_negative[TC-0004-existing-user] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_login (CHROME)","",""
+"SRS T45: телефон не должен повторять телефон ранее созданного контакта.
+
+Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
+Результат проверяется через API: это источник правды о том, что сохранилось.
+","2300","test_add_contact_duplicate_phone [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","5774","test_add_contact_negative[TC-0013-empty-name] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (CHROME)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1212","test_add_contact_negative[TC-0016-empty-phone] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (CHROME)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2070","test_edit_contact_single_field[name] [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (CHROME)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","1803","test_edit_contact_clear_required_fields[email] [CHROME]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (CHROME)","",""
+"Панель деталей показывает все данные контакта.","952","test_open_contact_details [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (CHROME)","",""
+"","1224","test_registration_success [CHROME]","tests","2026-11-23","passed","2026-11-23","","test_login (CHROME)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","5640","test_add_contact_negative[TC-0014-empty-last-name] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
+"","2020","test_login_negative[TC-0008-unregistered-user] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6387","test_edit_contact_clear_required_fields[address] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями.","1157","test_add_contact_success_required_fields_only [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
+"","1071","test_login_success [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
+"Контакт, созданный на бэкенде, отображается в списке.
+
+Раньше контакт создавался через форму, и тест дублировал test_add_contact_success_all_fields.
+Теперь он проверяет отдельную вещь — отрисовку данных бэкенда в списке.
+","669","test_contact_is_visible_in_list [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (EDGE)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6372","test_edit_contact_clear_required_fields[last_name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1724","test_edit_contact_single_field[name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"","1982","test_login_negative[TC-0007-invalid-email] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1739","test_edit_contact_single_field[phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1691","test_edit_contact_single_field[email] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","5791","test_add_contact_negative[TC-0017-empty-address] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
+"","965","test_registration_negative[TC-0004-existing-user] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_login (EDGE)","",""
+"SRS T70: при редактировании email не должен повторять email другого контакта.","2523","test_edit_contact_duplicate_email [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
+"","1137","test_registration_negative[TC-0003-invalid-password] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
+"Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле.","6570","test_edit_contact_all_fields [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
+"Удаление всех контактов пользователя через UI, по одному.
+
+Контакты создаются заранее: на пустом списке тест проходил бы всегда.
+","3006","test_delete_all_contacts [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (EDGE)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6449","test_edit_contact_clear_required_fields[name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1242","test_add_contact_negative[TC-0016-short-phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","6219","test_edit_contact_single_field[description] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6487","test_edit_contact_clear_required_fields[phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"Последовательное удаление нескольких конкретных контактов.","2465","test_delete_multiple_contacts [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (EDGE)","",""
+"Панель деталей показывает все данные контакта.","722","test_open_contact_details [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (EDGE)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1247","test_add_contact_negative[TC-0016-empty-phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
+"SRS T45: телефон не должен повторять телефон ранее созданного контакта.
+
+Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
+Результат проверяется через API: это источник правды о том, что сохранилось.
+","1888","test_add_contact_duplicate_phone [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1750","test_edit_contact_single_field[last_name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1120","test_add_contact_negative[TC-0015-invalid-email] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","5964","test_add_contact_negative[TC-0015-empty-email] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
+"","2043","test_login_negative[TC-0006-wrong-password] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
+"Аноним, открывший /contacts напрямую, перенаправляется на вход и не видит контакты.
+
+Это проверка UX, а не защиты данных: настоящую защиту обеспечивает API
+(см. test_api_invalid_tokens) — фронтенд можно обойти, бэкенд нельзя.
+","335","test_anonymous_user_redirected_to_login [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_logout (EDGE)","",""
+"","977","test_registration_success [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
 "SRS T72, F14: адрес из одних пробелов — это blank, система не сохраняет такие данные.
 
 Пустой адрес проверяет test_edit_contact_clear_required_fields (тот же TC-0033),
@@ -397,78 +401,72 @@ F10–F14 заканчиваются словами ""to the name field"". Те�
 результате TC-0033 в STD упомянуто поле Name — это копипаст из SRS, где все
 F10–F14 заканчиваются словами ""to the name field"". Тест следует смыслу F14 и T72:
 проверяем адрес.
-","6584","test_edit_contact_blank_address [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
-"","1358","test_registration_negative[TC-0002-invalid-email] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
-"","2358","test_login_negative[TC-0006-wrong-password] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
+","6609","test_edit_contact_blank_address [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","2247","test_edit_contact_clear_required_fields[email] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
+"Контакт, созданный через форму, появляется в списке и сохраняется со всеми полями.","1481","test_add_contact_success_all_fields [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1644","test_add_contact_negative[TC-0015-invalid-email] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6570","test_edit_contact_clear_required_fields[name] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+а пользователь остаться на вкладке ADD.","1105","test_add_contact_negative[TC-0016-letters-in-phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1577","test_add_contact_negative[TC-0016-empty-phone] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (EDGE)","",""
-"SRS T45: телефон не должен повторять телефон ранее созданного контакта.
-
-Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
-Результат проверяется через API: это источник правды о том, что сохранилось.
-","2199","test_add_contact_duplicate_phone [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
-"","1095","test_login_success [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
-"","1189","test_registration_negative[TC-0004-existing-user] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_login (EDGE)","",""
-"","1243","test_registration_success [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6467","test_edit_contact_clear_required_fields[address] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
-"","2747","test_login_negative[TC-0007-invalid-email] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2106","test_edit_contact_single_field[last_name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"","2625","test_login_negative[TC-0008-unregistered-user] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
-"Аноним, открывший /contacts напрямую, перенаправляется на вход и не видит контакты.
-
-Это проверка UX, а не защиты данных: настоящую защиту обеспечивает API
-(см. test_api_invalid_tokens) — фронтенд можно обойти, бэкенд нельзя.
-","458","test_anonymous_user_redirected_to_login [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_logout (FIREFOX)","",""
-"SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями.","1537","test_add_contact_success_required_fields_only [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
-"SRS T83: при редактировании телефон не должен повторять телефон другого контакта.","2836","test_edit_contact_duplicate_phone [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","6215","test_add_contact_negative[TC-0015-empty-email] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
-"SRS T70: при редактировании email не должен повторять email другого контакта.","2960","test_edit_contact_duplicate_email [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"","1700","test_login_success [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","6332","test_edit_contact_single_field[description] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","7155","test_edit_contact_clear_required_fields[address] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"Удаление всех контактов пользователя через UI, по одному.
-
-Контакты создаются заранее: на пустом списке тест проходил бы всегда.
-","3666","test_delete_all_contacts [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (FIREFOX)","",""
-"SRS T45: телефон не должен повторять телефон ранее созданного контакта.
-
-Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
-Результат проверяется через API: это источник правды о том, что сохранилось.
-","2235","test_add_contact_duplicate_phone [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1401","test_add_contact_negative[TC-0016-empty-phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2021","test_edit_contact_single_field[phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1902","test_edit_contact_single_field[name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"","1942","test_registration_success [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
-"","2537","test_login_negative[TC-0006-wrong-password] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
-"Контакт, созданный через форму, появляется в списке и сохраняется со всеми полями.","1856","test_add_contact_success_all_fields [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
-"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1169","test_add_contact_negative[TC-0016-letters-in-phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
-"","1523","test_registration_negative[TC-0004-existing-user] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_login (FIREFOX)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6726","test_edit_contact_clear_required_fields[name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+а пользователь остаться на вкладке ADD.","5693","test_add_contact_negative[TC-0013-empty-name] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (EDGE)","",""
+"","1016","test_registration_negative[TC-0002-invalid-email] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_login (EDGE)","",""
+"","1367","test_delete_contact [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (EDGE)","",""
+"Авторизованный пользователь может выйти из системы.","1077","test_logout_success [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_logout (EDGE)","",""
+"SRS T83: при редактировании телефон не должен повторять телефон другого контакта.","2378","test_edit_contact_duplicate_phone [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (EDGE)","",""
+"","1021","test_registration_negative[TC-0004-existing-email-new-password] [EDGE]","tests","2026-11-23","skipped","2026-11-23","","test_login (EDGE)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1796","test_edit_contact_single_field[address] [EDGE]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (EDGE)","",""
+"","2764","test_login_negative[TC-0006-wrong-password] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
+"","1768","test_registration_negative[TC-0004-existing-email-new-password] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_login (FIREFOX)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1940","test_edit_contact_single_field[phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"SRS T70: при редактировании email не должен повторять email другого контакта.","2949","test_edit_contact_duplicate_email [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"","2757","test_login_negative[TC-0007-invalid-email] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1776","test_edit_contact_single_field[name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле.","7374","test_edit_contact_all_fields [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"Авторизованный пользователь может выйти из системы.","1155","test_logout_success [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_logout (FIREFOX)","",""
+"Контакт, созданный через форму, появляется в списке и сохраняется со всеми полями.","1911","test_add_contact_success_all_fields [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
 "Контакт, созданный на бэкенде, отображается в списке.
 
 Раньше контакт создавался через форму, и тест дублировал test_add_contact_success_all_fields.
 Теперь он проверяет отдельную вещь — отрисовку данных бэкенда в списке.
-","709","test_contact_is_visible_in_list [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (FIREFOX)","",""
-"","1691","test_registration_negative[TC-0002-invalid-email] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
+","690","test_contact_is_visible_in_list [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (FIREFOX)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","5965","test_add_contact_negative[TC-0014-empty-last-name] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
+а пользователь остаться на вкладке ADD.","1595","test_add_contact_negative[TC-0016-short-phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
+"","1900","test_registration_negative[TC-0002-invalid-email] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6581","test_edit_contact_clear_required_fields[phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"SRS T46: описание необязательно — контакт без него сохраняется со всеми обязательными полями.","1409","test_add_contact_success_required_fields_only [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","2246","test_edit_contact_clear_required_fields[email] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"Панель деталей показывает все данные контакта.","866","test_open_contact_details [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (FIREFOX)","",""
+"Аноним, открывший /contacts напрямую, перенаправляется на вход и не видит контакты.
+
+Это проверка UX, а не защиты данных: настоящую защиту обеспечивает API
+(см. test_api_invalid_tokens) — фронтенд можно обойти, бэкенд нельзя.
+","461","test_anonymous_user_redirected_to_login [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_logout (FIREFOX)","",""
+"","1780","test_login_success [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
+"","1774","test_registration_negative[TC-0003-invalid-password] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6777","test_edit_contact_clear_required_fields[last_name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"","2983","test_login_negative[TC-0008-unregistered-user] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","5897","test_add_contact_negative[TC-0017-empty-address] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1990","test_edit_contact_single_field[address] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"","1588","test_delete_contact [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (FIREFOX)","",""
-"Последовательное удаление нескольких конкретных контактов.","2856","test_delete_multiple_contacts [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (FIREFOX)","",""
+а пользователь остаться на вкладке ADD.","6351","test_add_contact_negative[TC-0015-empty-email] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
+"","1732","test_registration_negative[TC-0004-existing-user] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_login (FIREFOX)","",""
+"SRS T45: телефон не должен повторять телефон ранее созданного контакта.
+
+Первый контакт создаётся через API (быстро и надёжно), дубликат — через UI.
+Результат проверяется через API: это источник правды о том, что сохранилось.
+","1126","test_add_contact_duplicate_phone [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
+"Последовательное удаление нескольких конкретных контактов.","2642","test_delete_multiple_contacts [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (FIREFOX)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6656","test_edit_contact_clear_required_fields[name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"","1912","test_registration_success [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1447","test_add_contact_negative[TC-0016-short-phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","7060","test_edit_contact_clear_required_fields[last_name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"Панель деталей показывает все данные контакта.","862","test_open_contact_details [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_contacts_page (FIREFOX)","",""
-"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1993","test_edit_contact_single_field[email] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6841","test_edit_contact_clear_required_fields[phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+а пользователь остаться на вкладке ADD.","5782","test_add_contact_negative[TC-0013-empty-name] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
+"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","6765","test_edit_contact_clear_required_fields[address] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1224","test_add_contact_negative[TC-0016-letters-in-phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1311","test_add_contact_negative[TC-0015-invalid-email] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
+"Удаление всех контактов пользователя через UI, по одному.
+
+Контакты создаются заранее: на пустом списке тест проходил бы всегда.
+","3358","test_delete_all_contacts [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (FIREFOX)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2028","test_edit_contact_single_field[address] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
 "SRS T72, F14: адрес из одних пробелов — это blank, система не сохраняет такие данные.
 
 Пустой адрес проверяет test_edit_contact_clear_required_fields (тот же TC-0033),
@@ -476,13 +474,15 @@ F10–F14 заканчиваются словами ""to the name field"". Те�
 результате TC-0033 в STD упомянуто поле Name — это копипаст из SRS, где все
 F10–F14 заканчиваются словами ""to the name field"". Тест следует смыслу F14 и T72:
 проверяем адрес.
-","7081","test_edit_contact_blank_address [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"Все поля контакта меняются за одно редактирование, каждое сохраняется в своё поле.","7217","test_edit_contact_all_fields [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"","1663","test_registration_negative[TC-0004-existing-email-new-password] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_login (FIREFOX)","",""
-"","1557","test_registration_negative[TC-0003-invalid-password] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_login (FIREFOX)","",""
+","6963","test_edit_contact_blank_address [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","1913","test_edit_contact_single_field[email] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"","1667","test_delete_contact [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_delete_contact (FIREFOX)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","1255","test_add_contact_negative[TC-0015-invalid-email] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
+а пользователь остаться на вкладке ADD.","6010","test_add_contact_negative[TC-0017-empty-address] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
 "Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
-а пользователь остаться на вкладке ADD.","5787","test_add_contact_negative[TC-0013-empty-name] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
-"SRS F10–F14: если обязательное поле очищено, система не сохраняет невалидные данные.","2326","test_edit_contact_clear_required_fields[email] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
-"Авторизованный пользователь может выйти из системы.","1134","test_logout_success [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_logout (FIREFOX)","",""
+а пользователь остаться на вкладке ADD.","5863","test_add_contact_negative[TC-0014-empty-last-name] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_add_contact (FIREFOX)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","2362","test_edit_contact_single_field[last_name] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"Невалидные данные формы: должен появиться Alert с текстом из SRS (F5–F9),
+а пользователь остаться на вкладке ADD.","1496","test_add_contact_negative[TC-0016-empty-phone] [FIREFOX]","tests","2026-11-23","passed","2026-11-23","","test_add_contact (FIREFOX)","",""
+"SRS T83: при редактировании телефон не должен повторять телефон другого контакта.","2545","test_edit_contact_duplicate_phone [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""
+"Изменение одного поля сохраняется, а остальные поля остаются прежними.","6525","test_edit_contact_single_field[description] [FIREFOX]","tests","2026-11-23","skipped","2026-11-23","","test_edit_contact (FIREFOX)","",""

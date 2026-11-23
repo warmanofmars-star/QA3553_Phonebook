@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carmen",
+  "lastName": "Johnson",
+  "phone": "0533284624",
+  "email": "user_6569acad57@example.com",
+  "address": "676 Black Squares, Tashachester, AL 63734",
+  "description": "Develop staff friend sometimes."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 49fb8eef-7fea-4473-b738-e0f61ae5bfa5"
+}

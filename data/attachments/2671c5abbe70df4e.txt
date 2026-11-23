@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Payne",
+  "phone": "0513775803",
+  "email": "user_da8b6905b1@example.com",
+  "address": "15808 Christopher Knolls, Millerfort, ME 69812",
+  "description": "Care issue especially."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e0411e90-d5f9-412e-b3b1-e1e2173789da"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9d24a2a1-2e21-4d9e-bcd7-db63f700001f",
+      "name": "Lori",
+      "lastName": "Hill",
+      "email": "user_3a4c59f80c@example.com",
+      "phone": null,
+      "address": "012 Simpson Drives Suite 724, Aguilarberg, GA 07299",
+      "description": "Southern section popular finally his three."
+    }
+  ]
+}

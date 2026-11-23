@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Marc",
+  "lastName": "Smith",
+  "phone": "0527232120",
+  "email": "user_41544e9a9e@example.com",
+  "address": "931 Isabel Hill Suite 821, South Ericton, ND 39465",
+  "description": "Way individual loss during answer computer past."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 785b3f02-5275-475e-92db-1b9b03e7f2ce"
+}

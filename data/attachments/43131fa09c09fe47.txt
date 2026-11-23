@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Ferguson",
+  "phone": "0520672325",
+  "email": "user_f8d0eef226@example.com",
+  "address": "922 Steele Skyway, Fosterberg, VT 26416",
+  "description": "Financial forward increase will."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fab579f6-7d0a-4df7-ae1d-bfe37327f56a"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Lopez",
+  "phone": "0514867489",
+  "email": "user_0cf6c4f846@example.com",
+  "address": "4189 Christina Meadows Apt. 697, Vanessafort, AS 43754",
+  "description": "Point chair none sign yourself way pick."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 91f4b160-a111-4039-973b-7d15c180d006"
+}

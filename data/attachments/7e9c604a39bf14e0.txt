@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7845b07d-9317-48ac-9993-d3591f3bba1b",
+      "name": "Jody",
+      "lastName": "Cook",
+      "email": "user_63a7a1118b@example.com",
+      "phone": "0554013451",
+      "address": "USNV Craig, FPO AE 82538",
+      "description": "Ball shoulder let use generation compare."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bradley",
+  "lastName": "Barber",
+  "phone": "0529116665",
+  "email": "user_410ebd8ff3@example.com",
+  "address": "Unit 8408 Box 8115, DPO AE 58844",
+  "description": "Table subject avoid resource management whole trial."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 165c1b90-1ec9-4807-ad0c-da11202d9a5c"
+}

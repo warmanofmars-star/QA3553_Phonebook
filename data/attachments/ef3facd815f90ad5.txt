@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Hall",
+  "phone": "0523325334",
+  "email": "user_6a98eefeca@example.com",
+  "address": "PSC 9765, Box 3051, APO AE 50311",
+  "description": "Weight create general energy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cb8c9fa7-affe-4310-b8bb-1f17b9760009"
+}

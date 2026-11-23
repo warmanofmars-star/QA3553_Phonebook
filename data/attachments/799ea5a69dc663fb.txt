@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paul",
+  "lastName": "Gutierrez",
+  "phone": "0513919882",
+  "email": "user_4844eb8bcc@example.com",
+  "address": "USNS Woods, FPO AE 75831",
+  "description": "Game federal statement must security American notice."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b90cc6cb-03b7-4e62-8e71-5b380f0b191f"
+}

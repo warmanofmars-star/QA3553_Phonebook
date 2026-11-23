@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Brown",
+  "phone": "0521070493",
+  "email": "user_309ea67c69@example.com",
+  "address": "9486 Bob Forest Suite 933, New Robert, PA 99406",
+  "description": "Decision economy attention again back run control ask."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 259f8b18-f3d2-4a1b-935f-3cd38cceb9f5"
+}

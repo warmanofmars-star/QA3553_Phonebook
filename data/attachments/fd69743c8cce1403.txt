@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "01858901-01ca-4c27-baba-becf3afc8ae6",
+      "name": "William",
+      "lastName": "Carson",
+      "email": "user_c32ec5c2e7@example.com",
+      "phone": "0559540315",
+      "address": "482 Pamela Light Suite 849, East Kyle, VT 59714",
+      "description": "Body tough specific look nothing second color."
+    }
+  ]
+}

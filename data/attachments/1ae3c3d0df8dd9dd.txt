@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jody",
+  "lastName": "Cook",
+  "phone": "0554013451",
+  "email": "user_63a7a1118b@example.com",
+  "address": "USNV Craig, FPO AE 82538",
+  "description": "Ball shoulder let use generation compare."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7845b07d-9317-48ac-9993-d3591f3bba1b"
+}

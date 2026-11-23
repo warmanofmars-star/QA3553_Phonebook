@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "48875453-4cc7-40be-b156-cb82fd3aee18",
+      "name": "Benjamin",
+      "lastName": "Smith",
+      "email": "user_3cb45a20bd@example.com",
+      "phone": "0516139416",
+      "address": "960 Rodney Mills Suite 305, Colemantown, DE 70961",
+      "description": "Above among oil provide allow exist."
+    }
+  ]
+}

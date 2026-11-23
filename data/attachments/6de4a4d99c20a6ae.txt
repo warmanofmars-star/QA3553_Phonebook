@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Edgar",
+  "lastName": "Cunningham",
+  "phone": "0585282030",
+  "email": "user_6315210b62@example.com",
+  "address": "561 Fields Run, East Melaniefurt, AR 64293",
+  "description": "Bill street national teach."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: be38d564-dafc-4bf5-b659-1b6881fc6d55"
+}

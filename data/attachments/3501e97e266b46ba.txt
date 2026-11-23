@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Hernandez",
+  "phone": "0516954218",
+  "email": "",
+  "address": "8557 Wendy Turnpike Apt. 973, Robinville, IN 02148",
+  "description": "Treat much cultural hotel institution house lose material.",
+  "id": "f5d6c633-3e43-44aa-a510-aac491e40ebf"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

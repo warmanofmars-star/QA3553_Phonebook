@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lindsay",
+  "lastName": "Martin",
+  "phone": "0531126237",
+  "email": "user_2ea1b1f532@example.com",
+  "address": "68643 Carolyn Inlet, Sethberg, AL 76915",
+  "description": "Long real cup."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 41ed67c4-b58a-4028-8023-1d9d85b75135"
+}

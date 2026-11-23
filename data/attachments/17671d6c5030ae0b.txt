@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ruben",
+  "lastName": "Sullivan",
+  "phone": "0562326540",
+  "email": "user_02b67f07a3@example.com",
+  "address": "PSC 2316, Box 6057, APO AA 04586",
+  "description": "Sport up seek."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bad7b8eb-5d4d-4c4e-960b-a8ec94970752"
+}

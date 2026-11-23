@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b1a24307-498f-4843-8933-23b486fd39ab",
+      "name": "Leslie",
+      "lastName": "Coleman",
+      "email": "user_b7e859e03d@example.com",
+      "phone": "0516274085",
+      "address": "1968 Craig Trafficway Suite 933, Goldenside, SD 80051",
+      "description": "Do military bring decide."
+    },
+    {
+      "id": "c05475ae-f80d-4214-9970-ab3d378c0756",
+      "name": "Rodney",
+      "lastName": "Drake",
+      "email": "user_7e3c9c1724@example.com",
+      "phone": "0522650507",
+      "address": "8729 Rivera Trail Suite 361, Debraton, TN 64094",
+      "description": "Hit defense meet heavy."
+    }
+  ]
+}

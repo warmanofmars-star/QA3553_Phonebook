@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ian",
+  "lastName": "Rojas",
+  "email": "user_b146e6520e@example.com",
+  "address": "318 Winters Ridges Suite 489, South Justinmouth, KY 03658",
+  "description": "Score long source while great tend."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f1ba93a8-53c6-4e86-a784-cd38af00c417"
+}

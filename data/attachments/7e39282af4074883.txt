@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrea",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0526093653",
+  "email": "user_ebdcd215b1@example.com",
+  "address": "668 Thomas Heights, New Kimberly, OK 72058",
+  "description": "Opportunity fill later career wear.",
+  "id": "8adea147-2bf3-4c8c-b5a1-22816deb3b91"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

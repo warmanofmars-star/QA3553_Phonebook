@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "12345",
+  "phone": "0513756191",
+  "email": "user_3012d80541@example.com",
+  "address": "95057 Benson Meadows Apt. 598, North Heather, KS 54342",
+  "description": "Like note food hand near voice long."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f2e0a6dc-d4d2-41d2-b4a7-25a2d2743a1b"
+}

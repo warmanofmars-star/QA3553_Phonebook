@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0789b11a-5237-42b3-90ae-93bc4f0e43ef",
+      "name": "Shannon",
+      "lastName": "Barber",
+      "email": "user_9793dc9987@example.com",
+      "phone": "0520407656",
+      "address": "05887 Herman Highway Suite 415, Mackenziechester, NE 42843",
+      "description": "Its former nice production difference show change determine."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rita",
+  "lastName": "Roberts",
+  "phone": "0564043918",
+  "email": "user_69766550cf@example.com",
+  "address": "4841 Lisa Island Suite 600, Thomasland, VA 13052",
+  "description": "Significant hand our concern suffer play so."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8964a42c-27fd-4e94-9190-cd9590db7bd1"
+}

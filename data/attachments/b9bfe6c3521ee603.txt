@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "Hatfield",
+  "phone": "0518119167",
+  "email": "user_3ba9562b9f@example.com",
+  "address": "0609 Vargas Road Apt. 224, Crystalstad, AS 91541",
+  "description": "Interesting spend care common stay manage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a64acd3c-834c-499a-866f-7b99a89b929a"
+}

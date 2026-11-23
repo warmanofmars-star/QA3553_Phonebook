@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Francisco",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0562877454",
+  "email": "user_a12f352f06@example.com",
+  "address": "327 Weaver Court Apt. 401, North Tyroneport, CT 12864",
+  "description": "Several away group program fear whole month."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7b5ac64a-36a5-4e1a-8209-e01d866b049b"
+}

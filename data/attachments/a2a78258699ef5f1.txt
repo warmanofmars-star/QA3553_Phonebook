@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e41ab3a7-1ad2-4262-a742-573f7ed44418",
+      "name": "Scott",
+      "lastName": "French",
+      "email": "user_9549bb09fa@example.com",
+      "phone": "0511272956",
+      "address": "37420 Harper Isle Suite 740, West Ambermouth, GU 25489",
+      "description": "West matter surface pretty yeah."
+    }
+  ]
+}

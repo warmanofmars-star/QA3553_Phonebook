@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Alexander",
+  "phone": "0532960799",
+  "email": "user_23f0cad988@example.com",
+  "address": "Unit 6598 Box 9494, DPO AP 91610",
+  "description": "Media language player once without contain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f8e28739-f322-4482-a5c8-2447369cc4fa"
+}

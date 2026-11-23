@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d0f57234-82a4-4ebd-b044-972fcd0aa54f",
+      "name": "Kevin",
+      "lastName": "Parker",
+      "email": "user_a9199e629b@example.com",
+      "phone": "0527812855",
+      "address": "008 Willis Turnpike, South Sheila, AL 92136",
+      "description": "Yet player leave perform individual from dark his."
+    }
+  ]
+}

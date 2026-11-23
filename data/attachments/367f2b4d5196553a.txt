@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "eb9ab628-51c5-4c8a-bd53-e80d4a64cbbc",
+      "name": "Stephen",
+      "lastName": "Sullivan",
+      "email": "user_4ec9f4048b@example.com",
+      "phone": "0536383525",
+      "address": "668 Jennifer Alley, North Cynthiaberg, GA 15763",
+      "description": "Really beat serve music song work reason."
+    }
+  ]
+}

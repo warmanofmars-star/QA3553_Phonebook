@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f52841ff-3910-44b0-98c9-c4be8698ce8c",
+      "name": "Kyle",
+      "lastName": "Cummings",
+      "email": "user_ba4a252dcc@example.com",
+      "phone": "0514005261",
+      "address": "2275 Alison Squares, Hansentown, FM 92796",
+      "description": "Product since money positive threat hard."
+    }
+  ]
+}

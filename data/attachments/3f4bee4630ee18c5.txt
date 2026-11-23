@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0ea6c68c-df1f-4b59-a8a5-87aea0baa570",
+      "name": "Dennis",
+      "lastName": "Cruz",
+      "email": "user_24202a79ac@example.com",
+      "phone": "0518356087",
+      "address": "204 Billy Expressway, Robertoton, MA 59037",
+      "description": "Forward discussion senior born reason decide."
+    }
+  ]
+}

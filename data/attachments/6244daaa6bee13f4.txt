@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Cruz",
+  "phone": "0512391688",
+  "email": "user_54b242db09@example.com",
+  "address": "8985 Webb Cove Apt. 493, Lake Lisabury, DC 21272",
+  "description": "Occur may suffer collection."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 00e47a7b-0bba-46ee-9bb5-813c98bce93d"
+}

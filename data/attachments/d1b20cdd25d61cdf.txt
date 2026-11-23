@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Lee",
+  "phone": "0533106823",
+  "email": "user_4ccf862c8e@example.com",
+  "address": "977 Jennifer Oval, Ernestport, GU 07109",
+  "description": "Teach fine red first onto read production camera."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e8dfbc32-c2e2-4650-9989-b0a0f620b5cd"
+}

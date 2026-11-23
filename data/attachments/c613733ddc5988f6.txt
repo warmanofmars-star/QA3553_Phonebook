@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Emily",
+  "lastName": "Saunders",
+  "phone": "0530810305",
+  "email": "user@",
+  "address": "80622 Miranda Fields Suite 831, East Jeanneside, IA 65855",
+  "description": "Color why capital necessary when hospital during.",
+  "id": "3a1db5a1-c4da-4bc7-92ec-6823b992e95b"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T15:07:35",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Lewis",
+  "phone": "0515085481",
+  "email": "user_ac2480c8c0@example.com",
+  "address": "29234 Pearson Gardens Suite 591, Port Rachel, TX 91308",
+  "description": "Thousand money base."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: df107d7b-024b-4bf3-b599-eddd04cd9372"
+}

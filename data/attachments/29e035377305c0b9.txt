@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Sullivan",
+  "phone": "053760802215159",
+  "email": "user_a88881ad18@example.com",
+  "address": "544 Paul Loaf, New Julia, ND 51901",
+  "description": "Public writer great player I."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 191e95aa-74ec-4bbc-a0fc-68312181aa6c"
+}

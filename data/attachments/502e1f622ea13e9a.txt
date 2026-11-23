@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Zachary",
+  "lastName": "Cummings",
+  "phone": "0514005261",
+  "email": "user_ba4a252dcc@example.com",
+  "address": "2275 Alison Squares, Hansentown, FM 92796",
+  "description": "Product since money positive threat hard."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f52841ff-3910-44b0-98c9-c4be8698ce8c"
+}

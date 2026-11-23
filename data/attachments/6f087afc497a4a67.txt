@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "18f723dd-80e7-439d-8535-0ca17093c9ce",
+      "name": "Daniel",
+      "lastName": "Baker",
+      "email": "user_b415f165a5@example.com",
+      "phone": "0527830066",
+      "address": "674 Edward Station Apt. 176, Kellyhaven, TX 51255",
+      "description": "Party foot deal."
+    }
+  ]
+}

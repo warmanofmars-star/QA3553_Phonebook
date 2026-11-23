@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Miller",
+  "phone": "0521590147",
+  "email": "user_5d3b1aa7f6@example.com",
+  "address": "6015 Jennings Manors Suite 337, Roberthaven, DC 01176",
+  "description": "Human space avoid manager capital."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 068312e0-de6a-4e1f-9d2f-17ecf4c756a1"
+}

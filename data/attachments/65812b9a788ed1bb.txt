@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rhonda",
+  "lastName": "Lopez",
+  "phone": "0535599449",
+  "email": "user_db871af81d@example.com",
+  "address": "868 Stone Green Suite 442, Margaretville, NC 57011",
+  "description": "Help huge positive team attorney."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: deca84b2-917d-4de5-8333-5ecbf82d51fa"
+}

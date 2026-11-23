@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8b461796-53d3-45b2-b141-03b053cf3826",
+      "name": "Daniel",
+      "lastName": "Watson",
+      "email": "user_c849a93983@example.com",
+      "phone": "0532309942",
+      "address": "1979 Morse Field, East Christineton, TX 20114",
+      "description": ""
+    }
+  ]
+}

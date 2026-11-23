@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e37518eb-1f78-4c80-af01-39bd0a64f23d",
+      "name": "Ricardo",
+      "lastName": "Harris",
+      "email": "user_8bd8179b2e@example.com",
+      "phone": "0525884561",
+      "address": "44628 Copeland Valleys, Sandyview, PR 12912",
+      "description": "Line economic process bar consider southern improve."
+    }
+  ]
+}

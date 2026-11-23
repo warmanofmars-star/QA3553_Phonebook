@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "33d76db1-72bf-49ad-a0cf-93c9311d324a",
+      "name": "Natalie",
+      "lastName": "Young",
+      "email": "user_67bc6a8e1d@example.com",
+      "phone": "0523623085",
+      "address": "8613 Jones Terrace Suite 682, Port Brandon, RI 71661",
+      "description": "Watch special she former career future."
+    }
+  ]
+}

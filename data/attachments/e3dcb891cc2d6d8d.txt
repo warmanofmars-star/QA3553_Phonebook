@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "165c1b90-1ec9-4807-ad0c-da11202d9a5c",
+      "name": "Bradley",
+      "lastName": "Barber",
+      "email": "user_410ebd8ff3@example.com",
+      "phone": "0529116665",
+      "address": "Unit 8408 Box 8115, DPO AE 58844",
+      "description": "Table subject avoid resource management whole trial."
+    }
+  ]
+}

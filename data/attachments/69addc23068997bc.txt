@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Harrell",
+  "phone": "0517553862",
+  "email": "user_441a698067@example.com",
+  "address": "22151 Estrada Divide, North Davidborough, AK 94068",
+  "description": "Father traditional final fact yes."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b326810d-7afd-45a0-8d17-d11ed0edf0b3"
+}

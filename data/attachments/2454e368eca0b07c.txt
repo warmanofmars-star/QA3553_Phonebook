@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Bishop",
+  "phone": "0518221661",
+  "email": "user_f77fece411@example.com",
+  "address": "815 Ryan Well, Port Shawn, GU 95222",
+  "description": "Protect drop eat economy according usually."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f396637d-3331-4931-85a1-afb2918e5f6d"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7845b07d-9317-48ac-9993-d3591f3bba1b",
+      "name": "Jody",
+      "lastName": "Cook",
+      "email": "user_63a7a1118b@example.com",
+      "phone": "0554013451",
+      "address": "USNV Craig, FPO AE 82538",
+      "description": "Ball shoulder let use generation compare."
+    },
+    {
+      "id": "a527f436-6d37-4389-ad2c-70b9fd33cedf",
+      "name": "Jennifer",
+      "lastName": "Robbins",
+      "email": "user_94b2166365@example.com",
+      "phone": "0525500141",
+      "address": "30535 Murphy Flats, Port Raymondchester, MO 34423",
+      "description": "Field culture apply them no arrive."
+    }
+  ]
+}

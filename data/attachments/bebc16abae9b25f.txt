@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Carter",
+  "phone": "0522268982",
+  "email": "user_17a8ad28bc@example.com",
+  "address": "9420 Timothy Parks Apt. 781, East Johnmouth, OH 48422",
+  "description": "Office here foot treatment civil."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e41f6a46-4c3a-4365-b856-ab86e7c6853f"
+}

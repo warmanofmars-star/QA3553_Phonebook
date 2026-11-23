@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Joyce",
+  "phone": "0524987996",
+  "email": "user_47c21e1252@example.com",
+  "address": "993 Roberts Valley Apt. 957, Michaelstad, PW 68468",
+  "description": "Successful scene reach dog always degree."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 14ae0262-bee8-42f2-b9fa-a8a3c0e5e4bc"
+}

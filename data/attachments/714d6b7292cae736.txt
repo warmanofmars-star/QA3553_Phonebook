@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cory",
+  "lastName": "Lara",
+  "phone": "0525777149",
+  "email": "user_598ae069fc@example.com",
+  "address": "3071 Heidi Turnpike Suite 607, North Pennychester, AR 58251",
+  "description": "Item in everybody bank issue."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 14c26c6d-8338-4410-87cb-11607d8ee264"
+}

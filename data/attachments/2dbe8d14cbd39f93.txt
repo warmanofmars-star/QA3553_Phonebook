@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (31 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6c9832f7-a25f-45c8-b1ab-19400a812b5d",
+      "name": "George",
+      "lastName": "Maldonado",
+      "email": "user_e8b98d7915@example.com",
+      "phone": "0514022896",
+      "address": "78723 Cook Circle, Robertmouth, MH 83233",
+      "description": "Every just see scene draw make final order."
+    }
+  ]
+}

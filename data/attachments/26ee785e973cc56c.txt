@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8c414006-4378-4be0-b92c-9be39aff94af",
+      "name": "Lauren",
+      "lastName": "Austin",
+      "email": "user_e8a1f731fc@example.com",
+      "phone": "0529147643",
+      "address": "11135 Chambers Manors Apt. 539, Thompsonberg, AR 14849",
+      "description": "Main every record together soldier."
+    }
+  ]
+}

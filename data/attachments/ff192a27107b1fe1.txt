@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "df107d7b-024b-4bf3-b599-eddd04cd9372",
+      "name": "David",
+      "lastName": "Lewis",
+      "email": "user_ac2480c8c0@example.com",
+      "phone": "0515085481",
+      "address": "29234 Pearson Gardens Suite 591, Port Rachel, TX 91308",
+      "description": "Thousand money base."
+    }
+  ]
+}

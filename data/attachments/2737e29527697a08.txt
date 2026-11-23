@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ccfa4afb-d807-40a6-8d8f-4c2301e7327b",
+      "name": "William",
+      "lastName": "Martinez",
+      "email": "user_7d5e8779b2@example.com",
+      "phone": "0514133069",
+      "address": "347 Eric Branch, Williamtown, NY 57306",
+      "description": "Feel because white fine."
+    }
+  ]
+}

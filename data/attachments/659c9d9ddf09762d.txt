@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5c45afe4-4472-4084-ad0a-8f108896a5cd",
+      "name": "Kathleen",
+      "lastName": "Chen",
+      "email": "user_8d69479d6c@example.com",
+      "phone": "0552069072",
+      "address": "08155 Michael Road Apt. 302, Cassandraburgh, ND 49045",
+      "description": "Practice your discuss them."
+    }
+  ]
+}
