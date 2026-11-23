@@ -17,6 +17,8 @@ SRS о поведении при сбоях ничего не говорит (н
 ответа на перехваченный запрос: даём приложению время "сделать плохое".
 """
 
+from collections.abc import Callable
+
 import allure
 import pytest
 from playwright.sync_api import Page
@@ -24,6 +26,7 @@ from playwright.sync_api import Page
 from data.data_generator import ContactGenerator
 from data.known_bugs import known_bug
 from data.observations import observation
+from models.contact import Contact
 from pages.pw_add_contact_page import PwAddContactPage
 from pages.pw_contacts_page import PwContactsPage
 from pages.pw_feedback import PwFeedback
@@ -56,13 +59,25 @@ def _stored(api, contact_id: str) -> dict | None:
     return next((c for c in api.get_contacts_list() if c.get("id") == contact_id), None)
 
 
-def _add_contact_via_form(page: Page, temp_user, *, double_click: bool = False):
-    """Вход, форма добавления, Save. Возвращает введённый контакт и страницу формы."""
+def _entered(*contacts: Contact) -> list[str]:
+    """Значения полей контактов, которые ввёл сам тест (через API или форму)."""
+    return [getattr(contact, field) for contact in contacts for field in PwAddContactPage.FIELD_NAMES]
+
+
+def _add_contact_via_form(
+    page: Page, temp_user, *, double_click: bool = False, before_save: Callable[[Contact], None] | None = None
+):
+    """Вход, форма добавления, Save. Возвращает введённый контакт и страницу формы.
+
+    before_save(контакт) вызывается между заполнением формы и Save.
+    """
     _login(page, temp_user)
     add_page = PwAddContactPage(page)
     add_page.open_from_menu()
     contact = ContactGenerator.get_random_contact()
     add_page.fill_form(contact)
+    if before_save:
+        before_save(contact)
     if double_click:
         add_page.double_click_save()
     else:
@@ -148,30 +163,39 @@ def test_slow_list_shows_loading_then_contacts(page: Page, temp_user, created_co
 # ==========================================
 # НАБЛЮДЕНИЯ (требований нет, ожидание обосновано — data/observations.py)
 # ==========================================
-def _fail_post(page, temp_user, created_contact, faults):
+# Каждый сценарий вызывает feedback.before_action() непосредственно перед сбойным действием:
+# сообщением об ошибке считается только то, что появилось после него (см. PwFeedback)
+def _fail_post(page, temp_user, created_contact, faults, feedback):
     requests = faults.respond(CONTACTS, "POST", 500)
-    _add_contact_via_form(page, temp_user)
+    _add_contact_via_form(
+        page, temp_user, before_save=lambda typed: feedback.before_action(*_entered(created_contact, typed))
+    )
     return requests
 
 
-def _abort_post(page, temp_user, created_contact, faults):
+def _abort_post(page, temp_user, created_contact, faults, feedback):
     requests = faults.abort(CONTACTS, "POST")
-    _add_contact_via_form(page, temp_user)
+    _add_contact_via_form(
+        page, temp_user, before_save=lambda typed: feedback.before_action(*_entered(created_contact, typed))
+    )
     return requests
 
 
-def _fail_put(page, temp_user, created_contact, faults):
+def _fail_put(page, temp_user, created_contact, faults, feedback):
     requests = faults.respond(CONTACTS, "PUT", 500)
     contacts = _login(page, temp_user)
     contacts.open_details(created_contact.phone)
-    contacts.edit_name("Changed" + created_contact.name)
+    new_name = "Changed" + created_contact.name
+    feedback.before_action(*_entered(created_contact), new_name)
+    contacts.edit_name(new_name)
     return requests
 
 
-def _fail_delete(page, temp_user, created_contact, faults):
+def _fail_delete(page, temp_user, created_contact, faults, feedback):
     requests = faults.respond(CONTACT_BY_ID, "DELETE", 500)
     contacts = _login(page, temp_user)
     contacts.open_details(created_contact.phone)
+    feedback.before_action(*_entered(created_contact))
     contacts.remove()
     return requests
 
@@ -192,7 +216,7 @@ def _fail_delete(page, temp_user, created_contact, faults):
 def test_failure_is_shown_to_user(page: Page, temp_user, created_contact, action, perform):
     faults = NetworkFaults(page)
     feedback = PwFeedback(page)
-    requests = perform(page, temp_user, created_contact, faults)
+    requests = perform(page, temp_user, created_contact, faults, feedback)
     faults.wait_for_requests(requests)
 
     assert feedback.error_shown(ERROR_WAIT_MS), f"{action}: пользователь не увидел сообщения об ошибке"
