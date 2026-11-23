@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f5a1cd54-f9e6-4343-95d3-187560319842",
+      "name": "Adam",
+      "lastName": "Rivera",
+      "email": "",
+      "phone": "0522292796",
+      "address": "4454 Ryan Grove Suite 493, New Jasonton, FM 61266",
+      "description": "Positive call matter rich energy many."
+    }
+  ]
+}

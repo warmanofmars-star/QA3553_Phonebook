@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "57c0f4f0-a285-4f92-aaa9-687099378a28",
+      "name": "William",
+      "lastName": "Johnson",
+      "email": "user_975e9864f4@example.com",
+      "phone": "0566586592",
+      "address": "41222 Katherine Walks, Jenniferstad, AR 48130",
+      "description": "Onto after night now budget itself paper."
+    },
+    {
+      "id": "3544a737-b95b-4f42-80b2-d9d0469cc25c",
+      "name": "Danielle",
+      "lastName": "Cantrell",
+      "email": "user_d4b795b4bb@example.com",
+      "phone": "0594164830",
+      "address": "25527 Adams Plaza, Nicholsmouth, GA 12724",
+      "description": "Mrs certainly national hard pressure central country summer."
+    }
+  ]
+}

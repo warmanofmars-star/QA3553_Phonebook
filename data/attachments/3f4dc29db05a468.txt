@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Blackwell",
+  "phone": "0513688212",
+  "email": "user_1661dc1026@example.com",
+  "address": "49485 Judy Islands Suite 474, Lake Stephanie, PA 20833",
+  "description": "Edge minute cold enjoy respond interesting sister."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 20a24126-10dc-4bfd-8f5f-4f291533b2a2"
+}

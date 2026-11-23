@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lori",
+  "lastName": "Reed",
+  "phone": "0541215528",
+  "email": "",
+  "address": "881 Castillo Roads Apt. 799, Codychester, IN 72506",
+  "description": "General day again."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 766e99f7-c366-4023-a915-d28407a8ea2a"
+}

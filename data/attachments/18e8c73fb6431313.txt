@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6421d8cb-be2e-4d6b-ad13-0246fe47e566",
+      "name": "Katie",
+      "lastName": "Warner",
+      "email": "user_31949e6611@example.com",
+      "phone": "0524179757",
+      "address": "049 Lee Bypass Apt. 239, Mendozaview, SD 29163",
+      "description": "Star experience building north fear movement."
+    }
+  ]
+}

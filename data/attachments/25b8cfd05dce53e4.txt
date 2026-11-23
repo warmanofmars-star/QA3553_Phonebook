@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Peters",
+  "phone": "0528917329",
+  "email": "user_ff83c8702a@example.com",
+  "address": "45921 Carrie Cliffs Apt. 083, West Jennifer, AK 37439",
+  "description": "Sense firm tonight."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5beceb6b-fff3-40cf-a9ae-4120a76d6a94"
+}

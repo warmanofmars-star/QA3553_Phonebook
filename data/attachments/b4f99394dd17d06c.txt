@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (9 ms)
+
+--- Тело запроса ---
+{
+  "name": "Frank",
+  "lastName": "Lynch",
+  "phone": "0527726412",
+  "email": "@example.com",
+  "address": "7688 Nicholson Mall Apt. 693, Port Heidiland, TX 35140",
+  "description": "Local suggest home personal.",
+  "id": "9473192b-28cc-41b9-b512-dc6c27c263d4"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T14:03:13",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

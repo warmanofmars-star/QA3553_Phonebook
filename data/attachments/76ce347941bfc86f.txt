@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (80 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kelly",
+  "lastName": "Johnson",
+  "phone": "0511024355",
+  "email": "user_19907d1d6a@example.com",
+  "address": "572 Parks Mount, West Melindastad, IN 72433",
+  "description": "Rate sometimes he actually minute."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d1becdd2-e9c4-43ad-bbfb-80bac8b26972"
+}

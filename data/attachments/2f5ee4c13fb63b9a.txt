@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Larry",
+  "lastName": "Molina",
+  "phone": "0514556087",
+  "email": "user_542f598db8@example.com",
+  "address": "95291 Villanueva Prairie, Fuenteston, AS 33400",
+  "description": "It poor visit section."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed4066f8-199b-429d-8e4b-6eca40b421ab"
+}

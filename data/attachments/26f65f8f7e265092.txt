@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0eb57bb0-cc3a-4e01-b1b4-7c8c94904793",
+      "name": "Lisa",
+      "lastName": "12345",
+      "email": "user_eaf383e7ce@example.com",
+      "phone": "0533639486",
+      "address": "408 Austin Manors Apt. 413, Davisport, LA 08832",
+      "description": "Leave financial member still dark discover education."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b295672a-1529-480b-ab48-733f5080fb76",
+      "name": "Jennifer",
+      "lastName": "Nelson",
+      "email": "user_2d7cacdf97@example.com",
+      "phone": "0566720932",
+      "address": "0098 Mathews Port, Jillchester, FL 64933",
+      "description": "Wait why speech never service between movement."
+    }
+  ]
+}

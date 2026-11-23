@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Morris",
+  "phone": "0530764163",
+  "email": "user_ce9624df08@example.com",
+  "address": "90689 Kendra Points Apt. 642, Christinemouth, NJ 35322",
+  "description": "Listen bed attention."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3e6c4640-13f3-4aef-a419-3a6c5ef334d4"
+}

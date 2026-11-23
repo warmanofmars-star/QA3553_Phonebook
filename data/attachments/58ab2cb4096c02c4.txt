@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mallory",
+  "lastName": "Allen",
+  "phone": "0529276128",
+  "email": "user_9f0e062363@example.com",
+  "address": "8836 Gary Ways Suite 190, Palmermouth, IA 48277",
+  "description": "Lawyer science soon major speech small most learn."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 370cc7d1-6579-4975-857b-7789c1eaaf3a"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Terrence",
+  "lastName": "Simpson",
+  "phone": "0521911279",
+  "email": "user_fe6375ab90@example.com",
+  "address": "36610 Bush Island Suite 612, Lake Julie, MO 94779",
+  "description": "Field question bar pick newspaper small."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f140cb04-d907-437b-97ec-18400d51c678"
+}

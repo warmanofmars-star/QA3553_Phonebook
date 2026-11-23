@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robin",
+  "lastName": "Green",
+  "phone": "0523072975",
+  "email": "пользователь@example.com",
+  "address": "52492 Brittney Highway Apt. 586, East Gary, AK 85202",
+  "description": "Ago believe politics today shoulder commercial message."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 051b11e2-cc09-4ff4-b3b5-5d97d97a6748"
+}

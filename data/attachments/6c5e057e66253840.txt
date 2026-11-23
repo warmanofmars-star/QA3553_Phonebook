@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5ee0c711-b8d9-44c0-9ed3-f2674fd74191",
+      "name": "Jessica",
+      "lastName": "Coleman",
+      "email": "user_c1fc8af782@example.com",
+      "phone": "0518549081",
+      "address": "4424 Matthew Prairie, North Caitlinberg, WI 25838",
+      "description": "Area enough can."
+    },
+    {
+      "id": "37572f3f-7180-4453-8b55-0f2f90ec5363",
+      "name": "David",
+      "lastName": "Davis",
+      "email": "user_9c9bcb745e@example.com",
+      "phone": "0512140197",
+      "address": "USNV Flynn, FPO AP 76487",
+      "description": "Yourself shake take include paper budget successful example."
+    },
+    {
+      "id": "b4f91330-0306-4071-a5a9-ed23f680902b",
+      "name": "Amy",
+      "lastName": "Lyons",
+      "email": "user_e6dfd1bb33@example.com",
+      "phone": "0531145064",
+      "address": "0302 Rebecca Inlet Apt. 685, Pamelashire, IN 29103",
+      "description": "Boy often fly total."
+    }
+  ]
+}

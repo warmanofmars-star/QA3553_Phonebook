@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2d13c7fe-3269-4945-adeb-38d0b8b3cdfd",
+      "name": "Carl",
+      "lastName": "Flowers",
+      "email": "user_4762e1f77d@example.com",
+      "phone": "0510459445",
+      "address": "2384 Travis Gardens, New Samanthaburgh, WA 14030",
+      "description": "Town speak year history."
+    }
+  ]
+}

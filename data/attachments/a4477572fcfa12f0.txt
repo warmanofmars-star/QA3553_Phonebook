@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ab8735ce-e89e-44d1-bd7a-1b97aad6247c",
+      "name": "Erin",
+      "lastName": "Christensen",
+      "email": "user_6e606d23ed@example.com",
+      "phone": "0518171146",
+      "address": "553 Jacob Fort, Timothyport, PW 74027",
+      "description": "Can agency join ready wind nor audience."
+    },
+    {
+      "id": "87e471c3-8f1f-496e-90ee-9c7d279a97b6",
+      "name": "Richard",
+      "lastName": "Skinner",
+      "email": "user_161827e8a2@example.com",
+      "phone": "0525238382",
+      "address": "3431 Smith Forks Apt. 240, Lake Danielview, MO 86705",
+      "description": "Surface her author six win."
+    }
+  ]
+}

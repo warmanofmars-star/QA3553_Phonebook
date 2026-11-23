@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Anderson",
+  "phone": "0512335371",
+  "email": "user_414ca6c1ce@example.com",
+  "address": "557 Sharon Coves, Shawnhaven, GA 02988",
+  "description": "Major throughout sing thus us even."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 443e8ad9-5f23-4dc0-92ec-9efca1549f77"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bfad8c3e-e6d4-4051-9690-e57d3825dd7a",
+      "name": "Mary",
+      "lastName": "Davis",
+      "email": "user_09f140eb24@example.com",
+      "phone": "057288860556548",
+      "address": "638 Seth Isle, Sonyastad, GA 19482",
+      "description": "Cut every various test science between."
+    }
+  ]
+}

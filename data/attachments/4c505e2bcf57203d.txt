@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Hoffman",
+  "phone": "0532323252",
+  "email": "user_f7d2c20bab@example.com",
+  "address": "85179 Hickman Ranch, New Anthonyland, MP 79809",
+  "description": "Manager whatever should begin record board."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 484afc36-ed4c-4a4a-a555-ac2ce73cc011"
+}

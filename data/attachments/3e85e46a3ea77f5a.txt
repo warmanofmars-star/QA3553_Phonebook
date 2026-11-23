@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Vicki",
+  "lastName": "Riley",
+  "phone": "0525263612",
+  "email": "user_707196e268@example.com",
+  "address": "USNS Jennings, FPO AE 82355",
+  "description": "People second sure property listen make."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 27814064-a6fc-43ad-b377-918ea7afa91f"
+}

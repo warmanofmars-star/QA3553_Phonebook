@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3aa94215-cc57-4dbc-ad1a-8c2df2a68cb4",
+      "name": "Antonio",
+      "lastName": "B",
+      "email": "user_e799c0f3c3@example.com",
+      "phone": "0531127478",
+      "address": "771 Yang Street, Robersonstad, KY 12371",
+      "description": "You experience child loss budget choice."
+    }
+  ]
+}

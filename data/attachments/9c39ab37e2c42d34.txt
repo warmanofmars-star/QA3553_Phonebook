@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jenny",
+  "lastName": "Gates",
+  "phone": "0527793867",
+  "email": "user_02326ad91c@example.com",
+  "address": "PSC 2095, Box 7628, APO AP 15627",
+  "description": "President whose expect."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ec12bcac-2577-41f5-abd4-4250ef607e20"
+}

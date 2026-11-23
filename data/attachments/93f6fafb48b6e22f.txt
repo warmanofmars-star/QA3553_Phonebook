@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6e00556d-05f2-4283-9023-038ee99c324a",
+      "name": "Lisa",
+      "lastName": "Howard",
+      "email": "user_f79b0f2fc6@example.com",
+      "phone": "0566377441",
+      "address": "28223 Caitlin Squares Suite 240, Teresabury, NY 85354",
+      "description": "Treatment picture long get dog."
+    }
+  ]
+}

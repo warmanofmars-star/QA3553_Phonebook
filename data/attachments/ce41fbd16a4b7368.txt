@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Day",
+  "phone": "0514056966",
+  "email": "user_e8c2187afd@example.com",
+  "address": "4525 Avila Street Apt. 948, Jenkinsland, PA 25522",
+  "description": "Risk guy police somebody adult almost."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9ef47e6d-9399-403c-8e94-3b80fb0c87e2"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8db391b3-7680-4454-afa7-7a906b486c21",
+      "name": "James",
+      "lastName": "Richard",
+      "email": "user_71744c06ec@example.com",
+      "phone": "0515855767",
+      "address": "307 Williams Forges Apt. 751, Kathyfort, MS 41332",
+      "description": "Reduce front role expert."
+    }
+  ]
+}

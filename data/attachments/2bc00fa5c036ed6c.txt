@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "adea7a34-cbab-43cd-a52d-72d5a64dcc02",
+      "name": "Miguel",
+      "lastName": "Hurst",
+      "email": "user_efe1cc89f2@example.com",
+      "phone": "0518613273",
+      "address": "546 Simpson Glens Suite 245, South Brandiland, NM 74435",
+      "description": "Song oil head land actually from sign note."
+    },
+    {
+      "id": "85fa1c30-f293-40f0-ad4d-80a1271ff105",
+      "name": "Miguel",
+      "lastName": "Hurst",
+      "email": "user_efe1cc89f2@example.com",
+      "phone": "0518613273",
+      "address": "546 Simpson Glens Suite 245, South Brandiland, NM 74435",
+      "description": "Song oil head land actually from sign note."
+    }
+  ]
+}

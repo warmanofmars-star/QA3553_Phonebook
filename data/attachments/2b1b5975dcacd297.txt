@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "74f85568-f7c7-4d94-af2e-becafa710e91",
+      "name": "Katie",
+      "lastName": "Perry",
+      "email": "user_d0ce52e099@example.com",
+      "phone": "0510966732",
+      "address": "79632 Debra Camp, New Rebeccaville, ME 28249",
+      "description": "Never Mrs time billion."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "051b11e2-cc09-4ff4-b3b5-5d97d97a6748",
+      "name": "Robin",
+      "lastName": "Green",
+      "email": "пользователь@example.com",
+      "phone": "0523072975",
+      "address": "52492 Brittney Highway Apt. 586, East Gary, AK 85202",
+      "description": "Ago believe politics today shoulder commercial message."
+    }
+  ]
+}

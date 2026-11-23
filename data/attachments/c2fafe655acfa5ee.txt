@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Caroline",
+  "lastName": "Sanchez",
+  "phone": "0518272454",
+  "email": "user_f35299703b@example.com",
+  "address": "632 Nelson Fork, Davisside, MI 64654",
+  "description": "Expect make hope suddenly enjoy several institution."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5f1ff652-6e30-44cf-93ab-6e302d5701a5"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d8df34ff-4f26-42f6-b2d7-209f86c717a6",
+      "name": "Kristine",
+      "lastName": "Bush",
+      "email": "user_239427fffa@example.com",
+      "phone": "0534729146",
+      "address": "61388 Taylor Cove, East Bradleyberg, VT 93893",
+      "description": "Short play when sea clearly risk administration."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Williams",
+  "phone": null,
+  "email": "user_76ac4c1fcc@example.com",
+  "address": "645 Holden Junction Suite 046, South Lisa, SD 37541",
+  "description": "Grow leader drug imagine scene."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 418b30df-a257-43df-8380-7b971033c482"
+}

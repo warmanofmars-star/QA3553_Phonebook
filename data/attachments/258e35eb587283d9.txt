@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "25898664-5700-4018-942a-fc1a43bcc885",
+      "name": "John",
+      "lastName": "Smith",
+      "email": "user_cf1990299a@example.com",
+      "phone": "0562662266",
+      "address": "604 Soto Ports, Reneeview, ME 41490",
+      "description": "Politics gun they fall success tell."
+    }
+  ]
+}

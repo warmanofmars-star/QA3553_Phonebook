@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Walker",
+  "phone": "0523799156",
+  "email": "user_f7eb8e2323@example.com",
+  "address": "8637 Hernandez Trafficway, South Julia, IL 20038",
+  "description": "How past value improve exactly race collection."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 36c0a2a1-e267-44d5-8eff-5f47bf1cda7e"
+}

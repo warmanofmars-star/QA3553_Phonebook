@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Lam",
+  "phone": "0584554134",
+  "email": "user_6a0729d38b@example.com",
+  "address": "12345",
+  "description": "Have bar game treat score big."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 30d402b0-2156-408f-b8e8-f1847ea6c5f2"
+}

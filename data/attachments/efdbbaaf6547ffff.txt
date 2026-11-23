@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erin",
+  "lastName": "Bowers",
+  "phone": "0530435401",
+  "email": "user_ed89aeb835@example.com",
+  "address": "0652 Mitchell Run Suite 742, East Jasminehaven, LA 86447",
+  "description": "Style save the relationship catch."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9b1f74b7-775e-4306-a87d-1beaa2469ca4"
+}

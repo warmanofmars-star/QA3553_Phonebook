@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alyssa",
+  "lastName": "Anderson",
+  "phone": "0525908784",
+  "email": "user_379a9c06bd@example.com",
+  "address": "0602 Jennifer Junctions, Port Tiffanyshire, FL 78533",
+  "description": "Environment suffer concern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6293dc02-5f8d-4046-a495-6416e2de395e"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "69e0c5c4-2023-4524-a252-90bf95e9e64c",
+      "name": "James",
+      "lastName": "Gaines",
+      "email": "user_59fc2add9f@example.com",
+      "phone": "0543214142",
+      "address": "4002 Joan Dam, Deborahside, WI 83018",
+      "description": "Hotel part too lot important event activity."
+    }
+  ]
+}

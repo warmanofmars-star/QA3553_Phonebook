@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (9 ms)
+
+--- Тело запроса ---
+{
+  "name": "   ",
+  "lastName": "Dixon",
+  "phone": "0510608545",
+  "email": "user_15e6da8a04@example.com",
+  "address": "400 Daniel Haven, Randallbury, MO 27245",
+  "description": "Area every mother project return shoulder left.",
+  "id": "dcf674f6-a4a5-4e40-be80-d5f248f6f2c2"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T14:03:12",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

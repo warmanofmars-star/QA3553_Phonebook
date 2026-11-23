@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tony",
+  "lastName": "Howell",
+  "phone": "0581207394",
+  "email": "user_7f8fd43cb4@example.com",
+  "address": "71890 Eric Glens Apt. 295, Alvarezside, FM 02727",
+  "description": "Contain my pressure player especially including."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3ce9cbd3-58d2-4df7-9f8f-fbd260c19e26"
+}

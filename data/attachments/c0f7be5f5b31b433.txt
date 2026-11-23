@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Doris",
+  "lastName": "Jackson",
+  "phone": "0574467423",
+  "email": "user_68d2c85087@example.com",
+  "address": "1362 Mckenzie Stravenue Apt. 048, North Ericafurt, KY 28802",
+  "description": "Perform produce significant nothing organization again small office."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5c229b08-4315-4053-8a5b-dcc2165a9210"
+}

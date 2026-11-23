@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Keith",
+  "lastName": "Medina",
+  "phone": "0522762438",
+  "email": "user_19b6dad43c@example.com",
+  "address": "95694 Pearson Meadow Suite 255, South Carrie, AL 91351",
+  "description": "Gas message star city experience."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 15a96967-ae99-461b-bb37-6a85dd3649fd"
+}

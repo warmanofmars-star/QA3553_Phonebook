@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (19 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katie",
+  "lastName": "   ",
+  "phone": "0524179757",
+  "email": "user_31949e6611@example.com",
+  "address": "049 Lee Bypass Apt. 239, Mendozaview, SD 29163",
+  "description": "Star experience building north fear movement.",
+  "id": "6421d8cb-be2e-4d6b-ad13-0246fe47e566"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T14:03:10",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

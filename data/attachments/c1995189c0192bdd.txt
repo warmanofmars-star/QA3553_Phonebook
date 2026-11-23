@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2e105f0d-0dea-4adc-a50a-2a11f76d2d2c",
+      "name": "Steven",
+      "lastName": "Anderson",
+      "email": "user_4d16c3cfc1@example.com",
+      "phone": "0513871045",
+      "address": "101 Livingston Vista Suite 096, East Kyleborough, MO 46498",
+      "description": "Me enjoy carry day lay."
+    }
+  ]
+}

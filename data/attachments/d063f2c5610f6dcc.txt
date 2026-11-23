@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "764f5065-ba04-4fed-95f7-3f50588ff46e",
+      "name": "James",
+      "lastName": "Banks",
+      "email": "user_0c33261bed@example.com",
+      "phone": "0529642232",
+      "address": "77514 Kathryn Neck, East Jenniferberg, TX 01743",
+      "description": "Man represent cover available address."
+    },
+    {
+      "id": "ccf17f61-69f0-4b66-a6b9-8d4842a385ec",
+      "name": "Stephanie",
+      "lastName": "Keller",
+      "email": "user_0c33261bed@example.com",
+      "phone": "0514105393",
+      "address": "492 Isabella Well, Daltonfort, CO 72807",
+      "description": "Vote painting new consumer."
+    }
+  ]
+}

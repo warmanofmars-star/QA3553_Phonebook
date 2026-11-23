@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Johnny",
+  "lastName": "Brown",
+  "phone": "0523116637",
+  "email": "user_2675c36b1c@example.com",
+  "address": "0212 Jordan Lane Suite 473, Oliviamouth, AS 04975",
+  "description": "Respond fact discussion street interview."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 03f01228-e21c-4c25-914c-720a9f3c9b78"
+}

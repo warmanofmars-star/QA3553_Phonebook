@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (9 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kristin",
+  "lastName": "Davidson",
+  "phone": "05012abcde",
+  "email": "user_72068f9467@example.com",
+  "address": "715 Lori Brook Suite 465, North Patriciaview, MD 54773",
+  "description": "Road bar near.",
+  "id": "715bed35-2875-40e3-a417-19799c671512"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T14:03:11",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

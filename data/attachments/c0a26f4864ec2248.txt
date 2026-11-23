@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tracy",
+  "lastName": "Williams",
+  "phone": "0589348540",
+  "email": "user_b1d5cefc57@example.com",
+  "address": "63412 Nunez Station Apt. 311, Lauratown, IA 02216",
+  "description": "Increase two available carry baby public enter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8c6c42cf-a8c3-4946-8d0c-86741ed33136"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4134e348-6f1d-4d85-9aa8-0abd881c3588",
+      "name": "Troy",
+      "lastName": "Watson",
+      "email": "user_abce82c7d3@example.com",
+      "phone": "0512440929",
+      "address": "3483 Short Trail, Port Jenniferstad, FM 95318",
+      "description": "Theory news whether president design ok crime."
+    }
+  ]
+}

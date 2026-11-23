@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ab526328-c8d5-4903-b017-3849ebf2174c",
+      "name": "Matthew",
+      "lastName": "Edwards",
+      "email": "user_be02c531ea@example.com",
+      "phone": "0514895555",
+      "address": "2557 Romero Avenue Suite 353, Port Annhaven, CT 83731",
+      "description": "Third state we red let evidence human."
+    },
+    {
+      "id": "db94be47-3a00-410b-b78a-bf3417cf3c9c",
+      "name": "James",
+      "lastName": "Carroll",
+      "email": "user_e90ef4cbed@example.com",
+      "phone": "0514743135",
+      "address": "56734 Dave Cape Apt. 721, Susanmouth, IL 89141",
+      "description": "Hope level continue."
+    }
+  ]
+}

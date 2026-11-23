@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nancy",
+  "lastName": "Jackson",
+  "phone": "0527817592",
+  "email": "a@b",
+  "address": "17469 Carr Port Apt. 694, Rachelside, WI 48033",
+  "description": "Either wear run improve want quickly born.",
+  "id": "82c91c3a-5ab8-4a0d-86fa-9107b7d577ea"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c5a28016-6fef-44e2-a30f-ce60317c7003",
+      "name": "Christopher",
+      "lastName": "Martin",
+      "email": "user_33ffb4e108@example.com",
+      "phone": "0526615203",
+      "address": "18319 Arthur Walk Apt. 892, New Carrieside, LA 82523",
+      "description": "Wish him certainly someone heart employee."
+    }
+  ]
+}

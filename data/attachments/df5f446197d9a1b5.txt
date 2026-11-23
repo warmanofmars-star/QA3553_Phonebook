@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Valerie",
+  "lastName": "Delgado",
+  "phone": "0530807266",
+  "email": "user_221671a019@example.com",
+  "address": "743 Carr Curve, Harrisstad, GA 38026",
+  "description": "Poor hand fall experience away enter."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c7c7b667-c32e-4320-9781-72b57bf0d262"
+}

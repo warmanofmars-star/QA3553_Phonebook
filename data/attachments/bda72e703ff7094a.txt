@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christine",
+  "lastName": "Hall",
+  "phone": "0583929681",
+  "email": "user_e9c1cdaabc@example.com",
+  "address": "51412 Adam Courts Apt. 401, Barrettstad, WA 44291",
+  "description": "Direction design job case."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5e73422e-d062-407c-8952-f81e2ada99e7"
+}

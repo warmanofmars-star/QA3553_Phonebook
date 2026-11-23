@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "770d63e6-17b6-4403-91dc-ca6d67bf6a4e",
+      "name": "Thomas",
+      "lastName": "Murray",
+      "email": "user_a412288b54@example.com",
+      "phone": "0521824444",
+      "address": "927 Stacey Fork, New Nicolemouth, RI 70217",
+      "description": "And federal teacher project try."
+    }
+  ]
+}

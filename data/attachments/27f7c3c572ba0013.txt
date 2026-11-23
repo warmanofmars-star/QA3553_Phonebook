@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Davis",
+  "phone": "057288860556548",
+  "email": "user_09f140eb24@example.com",
+  "address": "638 Seth Isle, Sonyastad, GA 19482",
+  "description": "Cut every various test science between."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bfad8c3e-e6d4-4051-9690-e57d3825dd7a"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7170f1b7-3fb6-4a63-a235-f55f7a19c6bb",
+      "name": "Jenna",
+      "lastName": "Murray",
+      "email": "user_4d53995bca@example.com",
+      "phone": "0522412359",
+      "address": "1900 Phyllis Mountain Suite 686, Patricktown, FL 78301",
+      "description": "Painting section push author her vote follow."
+    }
+  ]
+}

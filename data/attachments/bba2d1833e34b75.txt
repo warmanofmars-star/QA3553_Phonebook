@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1dab114f-0891-4f3f-89dd-af06cabea936",
+      "name": "Jessica",
+      "lastName": "Lopez",
+      "email": "user_56f87bcf82@example.com",
+      "phone": "0580183653",
+      "address": "70597 Ortiz Expressway Suite 081, Erikton, MI 20902",
+      "description": "Maybe sea sell between boy and."
+    }
+  ]
+}

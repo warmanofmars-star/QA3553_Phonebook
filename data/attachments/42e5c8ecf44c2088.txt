@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Velazquez",
+  "phone": "0521567675",
+  "email": "user_c85dbd471b@example.com",
+  "address": "65217 Michelle Stream Apt. 246, Velasquezburgh, CT 56740",
+  "description": "While left off staff."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bbe47a7d-f2aa-4d78-9fe2-a746b539cb17"
+}

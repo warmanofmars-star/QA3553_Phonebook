@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "59749e4b-04ac-4c5d-8888-51722a21ba70",
+      "name": "Tammy",
+      "lastName": "Gonzales",
+      "email": "user_045e07d5d4@example.com",
+      "phone": "0520566492",
+      "address": "8398 Latasha Port Suite 873, Nelsontown, ND 04485",
+      "description": "!@#$%^&*()_+-=12345"
+    }
+  ]
+}

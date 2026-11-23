@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "69e0c5c4-2023-4524-a252-90bf95e9e64c",
+      "name": "James",
+      "lastName": "Gaines",
+      "email": "user_59fc2add9f@example.com",
+      "phone": "0543214142",
+      "address": "4002 Joan Dam, Deborahside, WI 83018",
+      "description": "Hotel part too lot important event activity."
+    },
+    {
+      "id": "5f066308-70e6-4281-81c8-934704fcb1ae",
+      "name": "Andrew",
+      "lastName": "Vaughan",
+      "email": "user_86af589cac@example.com",
+      "phone": "0512624027",
+      "address": "044 Rogers Ports, Hernandezview, GA 71365",
+      "description": "Real drop soldier during response wrong prepare."
+    }
+  ]
+}

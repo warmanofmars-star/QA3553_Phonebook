@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Moreno",
+  "phone": "0531477372",
+  "email": "user_f935e04164@example.com",
+  "address": "4515 Aaron Square, New Jonathanville, LA 10672",
+  "description": "Who money painting meet they."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 26b03aa4-b156-40ea-81a3-17fbb8d30f41"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "484afc36-ed4c-4a4a-a555-ac2ce73cc011",
+      "name": "John",
+      "lastName": "Hoffman",
+      "email": "user_f7d2c20bab@example.com",
+      "phone": "0532323252",
+      "address": "85179 Hickman Ranch, New Anthonyland, MP 79809",
+      "description": "Manager whatever should begin record board."
+    }
+  ]
+}

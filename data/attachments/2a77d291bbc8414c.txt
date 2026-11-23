@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Carroll",
+  "phone": "0514743135",
+  "email": "user_e90ef4cbed@example.com",
+  "address": "56734 Dave Cape Apt. 721, Susanmouth, IL 89141",
+  "description": "Hope level continue."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: db94be47-3a00-410b-b78a-bf3417cf3c9c"
+}

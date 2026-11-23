@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (78 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Edwards",
+  "phone": "0514895555",
+  "email": "user_be02c531ea@example.com",
+  "address": "2557 Romero Avenue Suite 353, Port Annhaven, CT 83731",
+  "description": "Third state we red let evidence human."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ab526328-c8d5-4903-b017-3849ebf2174c"
+}

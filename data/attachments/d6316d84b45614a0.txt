@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erin",
+  "lastName": "Christensen",
+  "phone": "0518171146",
+  "email": "user_6e606d23ed@example.com",
+  "address": "553 Jacob Fort, Timothyport, PW 74027",
+  "description": "Can agency join ready wind nor audience."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ab8735ce-e89e-44d1-bd7a-1b97aad6247c"
+}

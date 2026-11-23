@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "50c4dba7-9535-4850-a488-43997a0e29c4",
+      "name": "Alexander",
+      "lastName": "Johnson",
+      "email": "user_4aaa0b9b3a@example.com",
+      "phone": "0527359190",
+      "address": "89670 Julie Walk Suite 425, West Kevin, MA 47546",
+      "description": ""
+    }
+  ]
+}

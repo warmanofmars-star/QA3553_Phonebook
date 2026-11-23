@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Bradley",
+  "phone": "0532022863",
+  "email": "user_8ef1b149e0@example.com",
+  "address": "361 Carlos Expressway, South Roystad, NV 44514",
+  "description": "Physical it month."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1d7d3fc9-26a6-4791-b847-4cecb495528f"
+}

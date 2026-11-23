@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ea59bdcf-eb2d-4fe1-a07c-8dbec7d1a796",
+      "name": "A",
+      "lastName": "Martin",
+      "email": "user_6299cd4fb6@example.com",
+      "phone": "0537012858",
+      "address": "16864 Sandra Mountain, Lake Yeseniahaven, SD 60925",
+      "description": "Per out central avoid."
+    }
+  ]
+}

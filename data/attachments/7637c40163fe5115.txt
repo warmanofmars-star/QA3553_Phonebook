@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Powell",
+  "phone": "0573881333",
+  "email": "user_4109285352@example.com",
+  "address": "0963 Sean Center Apt. 029, Palmerstad, ME 69629",
+  "description": "Someone personal call society region follow leader."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 01175c9e-dafb-4b99-8c9a-33f78e771848"
+}

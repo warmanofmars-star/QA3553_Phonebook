@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "93d8aaf2-975a-4e67-91a7-c1858b4a7249",
+      "name": "Jeremy",
+      "lastName": "Wright",
+      "email": "user_56f88a51a5@example.com",
+      "phone": "0593431085",
+      "address": "40518 Ann Turnpike Apt. 198, Millerbury, MT 90863",
+      "description": ""
+    }
+  ]
+}

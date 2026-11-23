@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Mullins",
+  "phone": "0518091447",
+  "email": "user_d69efc27dc@example.com",
+  "address": "92831 Frances Islands, Craigside, FM 79178",
+  "description": "Century control industry series."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f81a38cb-6e29-4685-a298-f0492f3e01e1"
+}

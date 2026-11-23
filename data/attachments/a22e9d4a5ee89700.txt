@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Taylor",
+  "lastName": "Rose",
+  "phone": "0523364327",
+  "email": "user_625d0b295e@example.com",
+  "address": "!@#$%^&*()_+-=",
+  "description": "Point quality during expect model environmental."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 136c94f2-c95e-496b-9df4-6646f37702db"
+}

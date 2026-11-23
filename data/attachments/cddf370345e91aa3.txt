@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (79 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shannon",
+  "lastName": "Franco",
+  "phone": "0568146577",
+  "email": "user_2e57133662@example.com",
+  "address": "38242 Charles Unions, Baxterstad, CO 38530",
+  "description": "We what will quickly media huge single."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 95dbfc73-230d-49f9-a786-6e66d9562290"
+}

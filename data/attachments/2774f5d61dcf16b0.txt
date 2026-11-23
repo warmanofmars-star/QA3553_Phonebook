@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "37a7beeb-37a3-4214-a28f-c95eddffc35c",
+      "name": "Dalton",
+      "lastName": "Bennett",
+      "email": "user_b4266be726@example.com",
+      "phone": "0524538836",
+      "address": "PSC 0360, Box 1003, APO AP 75309",
+      "description": "Leave go speech down physical figure."
+    }
+  ]
+}

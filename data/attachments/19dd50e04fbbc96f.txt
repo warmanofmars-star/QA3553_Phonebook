@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Anderson",
+  "phone": "0568048810",
+  "email": "user_bce041a2ce@example.com",
+  "address": "6918 Lisa Divide, Lake Angelaborough, OR 80963",
+  "description": "Firm attorney war she few director gas."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3aaa4163-9601-4bea-8e85-21554dac74fd"
+}

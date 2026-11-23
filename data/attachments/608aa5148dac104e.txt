@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "Jones",
+  "phone": "0528985524",
+  "email": "user_89f1759488@example.com",
+  "address": "Unit 8954 Box 7378, DPO AE 32376",
+  "description": "No stay memory yes task explain interest."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6fd18472-4773-4154-b29b-637c40e2a66b"
+}

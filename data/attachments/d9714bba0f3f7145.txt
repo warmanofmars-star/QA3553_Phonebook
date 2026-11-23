@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Hood",
+  "phone": "0533328302",
+  "email": "user_c61adc1046@example.com",
+  "address": "8312 Rebecca Trail Suite 060, Campbellhaven, FL 61552",
+  "description": "Beyond lawyer behavior."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b3a93dc3-b3cc-4fe9-ba57-f7b587de88c7"
+}

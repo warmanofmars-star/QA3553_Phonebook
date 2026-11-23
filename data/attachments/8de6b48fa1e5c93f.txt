@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dcf674f6-a4a5-4e40-be80-d5f248f6f2c2",
+      "name": "Ebony",
+      "lastName": "Dixon",
+      "email": "user_15e6da8a04@example.com",
+      "phone": "0510608545",
+      "address": "400 Daniel Haven, Randallbury, MO 27245",
+      "description": "Area every mother project return shoulder left."
+    }
+  ]
+}

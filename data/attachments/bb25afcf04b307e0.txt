@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dc0c71e6-cf55-4588-9ab2-38037e557661",
+      "name": "Luis",
+      "lastName": "Fields",
+      "email": "user_ecdd50fe46@example.com",
+      "phone": "0545982462",
+      "address": "456 Dana Roads Apt. 866, Codyberg, ND 31707",
+      "description": "Report able crime key Democrat decision test."
+    },
+    {
+      "id": "20a24126-10dc-4bfd-8f5f-4f291533b2a2",
+      "name": "Joshua",
+      "lastName": "Blackwell",
+      "email": "user_1661dc1026@example.com",
+      "phone": "0513688212",
+      "address": "49485 Judy Islands Suite 474, Lake Stephanie, PA 20833",
+      "description": "Edge minute cold enjoy respond interesting sister."
+    }
+  ]
+}

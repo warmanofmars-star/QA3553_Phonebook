@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bc1358a9-500c-4005-b3ae-c4117f57d0e5",
+      "name": "Deborah",
+      "lastName": "Thompson",
+      "email": "user_7e4f0cedf2@example.com",
+      "phone": "0571029133",
+      "address": "592 Wanda Meadows, Lake Karenview, KY 82506",
+      "description": "Thousand number clearly."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ronald",
+  "lastName": "Hoffman",
+  "phone": "0521361357",
+  "email": "user@",
+  "address": "0262 Yang View Suite 738, Port Janet, ID 83028",
+  "description": "Science over who particularly some.",
+  "id": "ee2f5d90-a3d5-4cfa-9ea3-9633ab6fca95"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-23T14:03:14",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

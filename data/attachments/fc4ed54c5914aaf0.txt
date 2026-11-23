@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brenda",
+  "lastName": "Avila",
+  "phone": "0584966504",
+  "email": "user_0ce99cc3af@example.com",
+  "address": "554 Brian Junctions Apt. 927, South Adam, OH 22880",
+  "description": "My follow ago girl however."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d48f08d0-13c7-42ba-bccd-56ba65e0003b"
+}

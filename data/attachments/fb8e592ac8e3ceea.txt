@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9473192b-28cc-41b9-b512-dc6c27c263d4",
+      "name": "Frank",
+      "lastName": "Lynch",
+      "email": "user_8486e5cb07@example.com",
+      "phone": "0527726412",
+      "address": "7688 Nicholson Mall Apt. 693, Port Heidiland, TX 35140",
+      "description": "Local suggest home personal."
+    }
+  ]
+}

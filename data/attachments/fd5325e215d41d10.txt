@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4c3f8ab7-4c43-4acd-ac68-e8b4f6fca73e",
+      "name": "Richard",
+      "lastName": "York",
+      "email": "user_5adc2b8bdb@example.com",
+      "phone": "0526426899",
+      "address": "056 Holmes Tunnel Suite 678, Rebeccaburgh, GU 83651",
+      "description": "Also present north less."
+    }
+  ]
+}

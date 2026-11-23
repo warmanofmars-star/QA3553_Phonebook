@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0545ecac-029b-4948-be2d-cfc1169d60da",
+      "name": "William",
+      "lastName": "Hall",
+      "email": "user_1f5bb63be4@example.com",
+      "phone": "0571078357",
+      "address": "79161 Ray Place Suite 547, West Marissa, SC 35489",
+      "description": "Treatment do certain both recognize administration."
+    }
+  ]
+}

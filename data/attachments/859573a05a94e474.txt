@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chris",
+  "lastName": "Fletcher",
+  "phone": "0554591107",
+  "email": "user_295f5d1e15@example.com",
+  "address": "6644 Hill Unions, Gabrielhaven, KS 30569",
+  "description": "Scene thus information hit significant check hope purpose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9daeae18-7b4f-40c5-b772-3a350710e558"
+}

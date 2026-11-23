@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Vang",
+  "phone": "0516479428",
+  "email": "user_fcd55feea7@example.com",
+  "address": "84751 Linda Fall Suite 068, Amberfurt, IL 39990",
+  "description": "Visit article provide Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5ba1fecb-ea10-4267-b013-79db6cd0a2db"
+}

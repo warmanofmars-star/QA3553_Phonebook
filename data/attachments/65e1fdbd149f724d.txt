@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nancy",
+  "lastName": "Jackson",
+  "phone": "0527817592",
+  "email": "user_5c08ed753f@example.com",
+  "address": "17469 Carr Port Apt. 694, Rachelside, WI 48033",
+  "description": "Either wear run improve want quickly born."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 82c91c3a-5ab8-4a0d-86fa-9107b7d577ea"
+}

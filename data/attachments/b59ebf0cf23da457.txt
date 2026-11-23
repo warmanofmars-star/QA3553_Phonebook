@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Adams",
+  "phone": "0575164945",
+  "email": "user_4901938b56@example.com",
+  "address": "3058 Jon Underpass, Smithport, NJ 11786",
+  "description": "Law issue without sort."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 35057d86-f7e2-4df4-b5d6-5c1889ea5350"
+}
