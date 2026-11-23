@@ -238,3 +238,7 @@ data/exported_contacts.json
 .idea/
 
 docs/requirements/
+
+# Локальные разрешения агента Claude Code — у каждого свои и могут раскрыть детали машины.
+# Игнорируем здесь, а не надеемся на глобальный git ignore: его может не быть на другой машине.
+.claude/settings.local.json
