@@ -73,7 +73,7 @@ class Settings:
     base_url: str  # фронтенд (UI)
     api_url: str  # бэкенд (API)
 
-    # --- Постоянный пользователь (нужен только части UI-тестов) ---
+    # --- Постоянный пользователь: тестам не нужен, его использует только export_contacts.py ---
     user_email: str | None
     # repr=False: при print(settings) или логировании пароль не попадёт в вывод
     user_password: str | None = field(repr=False)
