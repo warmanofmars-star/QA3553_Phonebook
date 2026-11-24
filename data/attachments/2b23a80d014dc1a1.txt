@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Tanner",
+  "phone": "0526056245",
+  "email": "user_7714a59471@example.com",
+  "address": "5804 Carter Radial Suite 571, Masonland, GA 81340",
+  "description": "Without me property administration."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2da7cd44-8866-422d-847f-47131ea94d20"
+}

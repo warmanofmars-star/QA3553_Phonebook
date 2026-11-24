@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5a59507b-3215-4131-91b4-02c746c73b6e",
+      "name": "Amy",
+      "lastName": "Maddox",
+      "email": "user_f68811c824@example.com",
+      "phone": "0554367064",
+      "address": "8210 Duke Mission Suite 308, East Benjaminview, AR 22916",
+      "description": "Least material else yes."
+    }
+  ]
+}

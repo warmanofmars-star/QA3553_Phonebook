@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "18b6b888-1314-4f66-af04-575cba01adcf",
+      "name": "Christopher",
+      "lastName": "Collins",
+      "email": "user_78044c2d5a@example.com",
+      "phone": "0546796226",
+      "address": "867 Diaz Loop, Port Amy, WI 11024",
+      "description": "Set rather adult mean computer capital others serious."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Cruz",
+  "phone": "0557512777",
+  "email": "user_3858c65b9f@example.com",
+  "address": "299 David Spring, North Nathan, MI 82826",
+  "description": "Safe unit we their reflect fire name."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 50a078f9-66b8-41a3-9748-5a8ed660fefb"
+}

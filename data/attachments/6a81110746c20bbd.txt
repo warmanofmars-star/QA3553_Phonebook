@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c9bd8ba3-5291-4e71-9b83-f2bd0ef9f857",
+      "name": "David",
+      "lastName": "Thompson",
+      "email": "user_b106e72f62@example.com",
+      "phone": "0525086062",
+      "address": "077 Garcia Bypass Suite 613, New Amberbury, PR 16814",
+      "description": "Dream range heart represent."
+    }
+  ]
+}

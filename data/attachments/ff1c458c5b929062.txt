@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5b8fca7c-f37d-4fb7-8786-032eff7f49cd",
+      "name": "Joel",
+      "lastName": "Adams",
+      "email": "user_2d09d24362@example.com",
+      "phone": "0533765017",
+      "address": "49823 Vicki Shores, New Joseph, CT 88158",
+      "description": "Tax environmental fine."
+    }
+  ]
+}

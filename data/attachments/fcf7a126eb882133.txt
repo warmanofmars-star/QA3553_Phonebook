@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Martin",
+  "phone": "0518838083",
+  "email": "user_5cdd99e486@example.com",
+  "address": "810 Smith Garden, Robertshire, CA 72785",
+  "description": "Lose health year themselves strategy drug future."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 34fde0e9-e6bb-4058-9761-cfe43b4552fe"
+}

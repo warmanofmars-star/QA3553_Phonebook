@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Crystal",
+  "lastName": "Johnson",
+  "phone": "0556552914",
+  "email": "user_9238a17d69@example.com",
+  "address": "041 Robert Plaza, Hooperhaven, OH 89744",
+  "description": "Agree wife lawyer example."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5c10f776-a8b5-4a43-880b-0eb2263c30e9"
+}

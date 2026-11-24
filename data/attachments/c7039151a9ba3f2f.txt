@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Flowers",
+  "phone": "0529696263",
+  "email": "@example.com",
+  "address": "PSC 1400, Box 1038, APO AA 04011",
+  "description": "Enjoy whether big across anyone business remember although.",
+  "id": "72bb8c04-eb80-448f-b12c-02cb332b8e18"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:37",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Travis",
+  "lastName": "Martinez",
+  "phone": "0569102633",
+  "email": "user_57efc00d2a@example.com",
+  "address": "5395 Duane Port Apt. 161, West Davidtown, AS 72088",
+  "description": "!@#$%^&*()_+-=12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7c7ef537-8ce4-4b5b-9835-6b591fa630b7"
+}

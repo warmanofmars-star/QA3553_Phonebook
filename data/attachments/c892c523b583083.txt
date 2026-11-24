@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9122b38a-5eab-4816-84c6-138a4440d409",
+      "name": "Katrina",
+      "lastName": "Warner",
+      "email": "user_b23af53560@example.com",
+      "phone": "0515152681",
+      "address": "598 Moon Drive Apt. 098, Rachelmouth, DE 36480",
+      "description": "Subject worker activity."
+    }
+  ]
+}

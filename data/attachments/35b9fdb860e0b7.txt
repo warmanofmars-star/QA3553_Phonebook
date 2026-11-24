@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "265d27e5-d150-479f-bc68-7f10f3165544",
+      "name": "Patricia",
+      "lastName": "Hampton",
+      "email": "user_14eee14183@example.com",
+      "phone": "0564117475",
+      "address": "6166 Ali Mountain Apt. 889, Lake Jennifer, CT 18069",
+      "description": "Onto author wear beyond final mission."
+    },
+    {
+      "id": "035c4e01-d8be-4693-ad46-9cae9fb1b4ef",
+      "name": "Michael",
+      "lastName": "Smith",
+      "email": "user_4541c5610e@example.com",
+      "phone": "0519384553",
+      "address": "423 Jennifer Gardens, Castrobury, RI 80669",
+      "description": "Live together yet enough determine hotel."
+    }
+  ]
+}

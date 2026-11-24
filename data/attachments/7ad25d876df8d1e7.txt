@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Allen",
+  "phone": "0566001498",
+  "email": "user_1d09f9d717@example.com",
+  "address": "272 Welch Station Apt. 918, Rodriguezberg, MT 73215",
+  "description": "Fast resource base decision group address avoid.",
+  "id": "1ac93b6f-aa54-4819-a2a2-2307c3b728a6"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:41",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

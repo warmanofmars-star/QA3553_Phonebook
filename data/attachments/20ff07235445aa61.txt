@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9878130d-97c5-4355-b79c-5e3309b61e06",
+      "name": "Jeffrey",
+      "lastName": "Crawford",
+      "email": "user_b1fa16a624@example.com",
+      "phone": "0514603140",
+      "address": "5937 Harrison Neck Suite 589, Deborahfort, AR 33726",
+      "description": "Again southern whole state laugh."
+    }
+  ]
+}

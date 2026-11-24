@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fb12d377-d939-4c83-9ab6-7ff80b77e3b0",
+      "name": "Robin",
+      "lastName": "Spencer",
+      "email": "user_f27fadde37@example.com",
+      "phone": "0520475143",
+      "address": "4788 Sabrina Wells Suite 831, Colleenburgh, OK 46259",
+      "description": "Glass late public fine economic."
+    }
+  ]
+}

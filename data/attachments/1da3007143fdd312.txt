@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Erickson",
+  "phone": "0510178912",
+  "email": "user_be5c1274dc@example.com",
+  "address": "USNS Miller, FPO AE 40864",
+  "description": "Newspaper property heavy defense difficult important."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6a7b904e-a021-4517-941a-bd6d5e962c30"
+}

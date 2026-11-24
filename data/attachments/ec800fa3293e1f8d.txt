@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Boyd",
+  "phone": "0516474886",
+  "email": "user_bbea79c7b5@example.com",
+  "address": "7960 Clark Row Suite 660, East Brendaton, CA 69938",
+  "description": "Around as technology my everyone."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 00e1d817-de02-43cf-bd1c-c89ae32bfdd6"
+}

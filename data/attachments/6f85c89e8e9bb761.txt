@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amy",
+  "lastName": "Maddox",
+  "phone": "0554367064",
+  "email": "user_f68811c824@example.com",
+  "address": "8210 Duke Mission Suite 308, East Benjaminview, AR 22916",
+  "description": "Least material else yes."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5a59507b-3215-4131-91b4-02c746c73b6e"
+}

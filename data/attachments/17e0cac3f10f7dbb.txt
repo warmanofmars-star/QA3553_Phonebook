@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Richardson",
+  "phone": "0585489350",
+  "email": "user_c2e25faef1@example.com",
+  "address": "8338 Tyler Street, New Justin, MH 13321",
+  "description": "Director case everything street analysis throughout summer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 679b1d51-e03a-456c-a9ac-1a2efc2a71a3"
+}

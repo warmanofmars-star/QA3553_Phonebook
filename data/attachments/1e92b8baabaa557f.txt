@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carrie",
+  "lastName": "Meyers",
+  "phone": "0532982812",
+  "email": "user_6ff2358548@example.com",
+  "address": "522 William Brooks Suite 369, Simsside, LA 62062",
+  "description": "Capital here push difficult of fish another sure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3b7892bf-94b4-4b48-9618-1d9561a5b88e"
+}

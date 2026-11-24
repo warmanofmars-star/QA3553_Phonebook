@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Smith",
+  "phone": "0556027463",
+  "email": "user_525dbc08ea@example.com",
+  "address": "23563 Ian Hills, Port Scottburgh, AK 43484",
+  "description": "Ok discover per."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5d8ca054-af78-4146-8f33-1ca2548b84a8"
+}

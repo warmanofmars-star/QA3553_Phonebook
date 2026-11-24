@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Colton",
+  "lastName": "Hobbs",
+  "phone": "0532541679",
+  "email": "user_68002dc121@example.com",
+  "address": "7807 Jacobs Neck Apt. 375, Sandratown, AZ 15253",
+  "description": "Site weight win simple join people store environment."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d5a2a953-9d8b-485b-bea8-a48b868c4d44"
+}

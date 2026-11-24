@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4d8b29c4-b644-4703-888f-1769b9f04428",
+      "name": "Tina",
+      "lastName": "Li",
+      "email": "user_092a21929c@example.com",
+      "phone": "0519642548",
+      "address": "885 Ryan Extension Suite 060, West Nicholeport, IN 10592",
+      "description": "Cup quite system out maintain."
+    }
+  ]
+}

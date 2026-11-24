@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "724034c5-80ec-4547-bd22-b2a403b5d76c",
+      "name": "David",
+      "lastName": "Mcguire",
+      "email": "user_8279658ce1@example.com",
+      "phone": "0527814794",
+      "address": "Unit 9569 Box 1521, DPO AE 53296",
+      "description": "Author the citizen almost office picture return thank."
+    }
+  ]
+}

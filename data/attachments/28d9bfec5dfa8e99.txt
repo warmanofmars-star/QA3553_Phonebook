@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Green",
+  "phone": "0510404002",
+  "email": "user_1744e0bf76@example.com",
+  "address": "3371 Stephanie Turnpike, Yateschester, MD 66480",
+  "description": "Finish room professor show."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 97312f34-6626-44b6-9813-34911a828e02"
+}

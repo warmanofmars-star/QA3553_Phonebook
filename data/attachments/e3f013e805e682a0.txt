@@ -1,0 +1,14 @@
+15:31:21 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+15:31:21 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+15:31:25 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (365 ms)
+15:31:25 [INFO   ] API: Токен добавлен в заголовки сессии
+15:31:25 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+15:31:26 [INFO   ] STEP: Зарегистрироваться как user_9a40c5b3ac@example.com
+15:31:27 [INFO   ] UI: Текст Alert: 'Wrong email or password format
+            Email must contains one @ and minimum 2 symbols after last dot
+            Password must contain at least one uppercase letter!
+            Password must contain at least one lowercase letter!
+            Password must contain at least one digit!
+            Password must contain at least one special symbol from [‘$’,’~’,’-‘,’_’]!'
+15:31:27 [INFO   ] STEP: Закрыть Alert (OK)
+15:31:30 [INFO   ] DRIVER: Видео 76e24630-95a9-42d0-b9dc-5ab03d3a030c.mp4 прикреплено к отчёту

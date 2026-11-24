@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "169e09e8-0839-4b7e-935f-ce36bfa563d2",
+      "name": "Matthew",
+      "lastName": "Choi",
+      "email": "user_9b85a7b005@example.com",
+      "phone": "0530516295",
+      "address": "3909 Garrett View, Lake Georgefort, TN 49070",
+      "description": "Including able myself use how focus simply."
+    }
+  ]
+}

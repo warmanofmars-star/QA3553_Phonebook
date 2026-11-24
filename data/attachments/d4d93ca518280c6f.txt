@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Miranda",
+  "phone": "050-1234567",
+  "email": "user_3b16334ca3@example.com",
+  "address": "94806 Mays Villages Apt. 691, Johnsonton, OK 94711",
+  "description": "Traditional involve watch computer use explain popular."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:31",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

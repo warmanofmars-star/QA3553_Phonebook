@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Vincent",
+  "lastName": "Clark",
+  "phone": "0526879663",
+  "email": "user_da88821e23@example.com",
+  "address": "7843 Sanchez Junction Apt. 580, East Rachel, MI 52427",
+  "description": "Bill every from perform."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 405b84fe-2111-4cd9-96ac-9d94c675f965"
+}

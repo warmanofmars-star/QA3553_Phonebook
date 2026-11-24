@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b53e5622-1002-4229-b81e-eec354fde30d",
+      "name": "Jennifer",
+      "lastName": "Perry",
+      "email": "user_24ea508b3f@example.com",
+      "phone": "0526312824",
+      "address": "6922 Ann Centers Apt. 897, Lake Juliamouth, OK 92664",
+      "description": "Explain seem during natural."
+    }
+  ]
+}

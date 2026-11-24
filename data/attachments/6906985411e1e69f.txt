@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c6076c2d-3b19-450b-a2fd-d61230195afb",
+      "name": "Katelyn",
+      "lastName": "Buchanan",
+      "email": "user_7d593f026b@example.com",
+      "phone": "0523412743",
+      "address": "9752 Thompson Light, Shelbychester, WI 14204",
+      "description": "Join whatever response ago born century lay."
+    }
+  ]
+}

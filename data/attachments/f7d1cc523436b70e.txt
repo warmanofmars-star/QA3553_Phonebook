@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "38ced760-41d3-4c95-be80-0d58b21b027c",
+      "name": "Jerry",
+      "lastName": "Randolph",
+      "email": "user_6401241a50@example.com",
+      "phone": "0531108603",
+      "address": "468 Matthew Crest Apt. 543, Shannonville, WA 70289",
+      "description": "As market quality wait maintain evidence seat."
+    }
+  ]
+}

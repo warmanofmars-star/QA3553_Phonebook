@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Nelson",
+  "phone": "0525741639",
+  "email": "user_d95a404b5b@example.com",
+  "address": "USCGC Lambert, FPO AA 35615",
+  "description": "Western find street they almost meet."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 65229c64-ed11-417b-8d63-0a412cef09bd"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c14f2b90-efcb-422a-b118-96ac16447789",
+      "name": "Richard",
+      "lastName": "Walker",
+      "email": "user_117f1b7115@example.com",
+      "phone": "0530376609",
+      "address": "3114 Scott Cliff, Barbarafurt, VI 31936",
+      "description": "Involve boy wait ground political street in."
+    }
+  ]
+}

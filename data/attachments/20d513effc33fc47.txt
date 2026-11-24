@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ed6aac4c-5105-4fe4-90ac-090607c9023d",
+      "name": "Rebecca",
+      "lastName": "Mills",
+      "email": "user_9e0adb72f2@example.com",
+      "phone": "0542260345",
+      "address": "12345",
+      "description": "Answer general identify coach Congress as agency."
+    }
+  ]
+}

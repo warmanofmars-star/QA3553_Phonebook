@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Diane",
+  "lastName": "Johns",
+  "phone": "0529900588",
+  "email": "user_b06a75b916@example.com",
+  "address": "USS White, FPO AA 82875",
+  "description": "Consider accept nor cell nearly travel catch trip."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1ca1f2a8-2b9e-488e-b624-2b4a8e12f153"
+}

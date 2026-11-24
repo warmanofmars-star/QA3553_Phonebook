@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e470e961-e9a8-49f8-9847-8132c6a3eff1",
+      "name": "Janet",
+      "lastName": "Green",
+      "email": "user_2e35c3f1de@example.com",
+      "phone": "0559923897",
+      "address": "333 Robert Circles, North Nicholasmouth, MP 66255",
+      "description": "Executive budget loss keep instead clear."
+    }
+  ]
+}

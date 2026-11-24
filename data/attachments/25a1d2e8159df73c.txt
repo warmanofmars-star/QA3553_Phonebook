@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Karen",
+  "lastName": "White",
+  "phone": "0531989098",
+  "email": null,
+  "address": "8747 Barnes Drives Apt. 882, North Courtneyport, IA 91568",
+  "description": "Learn father cup cover."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 59577e8d-33d7-4a8b-8440-c9a53d2839c8"
+}

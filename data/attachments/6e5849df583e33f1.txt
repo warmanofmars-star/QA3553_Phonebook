@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Robles",
+  "phone": "0596470538",
+  "email": "user_c227e10554@example.com",
+  "address": "487 Robert Curve, New Gregoryport, SC 62392",
+  "description": "In poor somebody school work ten hold seven."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7d3ddcac-39c7-4cf6-8c6c-9e086e1ffb85"
+}

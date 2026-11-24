@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "025a9c2b-82f9-4abc-8f33-6d5c017d3aa6",
+      "name": "John",
+      "lastName": "Glover",
+      "email": "user_a0a34dcc7c@example.com",
+      "phone": "0531004212",
+      "address": "20205 Mahoney Path Apt. 272, Martinfurt, WV 09699",
+      "description": "Wife cultural day when citizen."
+    }
+  ]
+}

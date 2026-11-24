@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brianna",
+  "lastName": "Raymond",
+  "phone": "0534615832",
+  "email": "user_a98f3f178a@example.com",
+  "address": "90807 Anna Oval, North William, GA 65460",
+  "description": "Add tree determine tree."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1dcda169-39d6-44c9-8c31-f198748581c2"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Tucker",
+  "phone": "0512684654",
+  "email": "user_9111855ef2@example.com",
+  "address": "0503 Shaw Dam Suite 337, Jenniferstad, NM 60973",
+  "description": "Whatever official adult produce win service use."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 390a6777-179e-4232-9752-fe4250ea20d2"
+}

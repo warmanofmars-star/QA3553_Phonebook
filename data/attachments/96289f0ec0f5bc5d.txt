@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Jones",
+  "phone": "0529960680",
+  "email": "user_0826bd8d67@example.com",
+  "address": "047 Brian Greens Suite 683, New Ruthview, GU 06553",
+  "description": "Think those raise gas audience near."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1dbda33f-cbf0-4b34-9757-66bac2de8144"
+}

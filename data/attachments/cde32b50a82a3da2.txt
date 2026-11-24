@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dd96d7f7-2609-4c06-8ca9-05282caba432",
+      "name": "Charles",
+      "lastName": "Fernandez",
+      "email": "user_226d5a56b2@example.com",
+      "phone": "0562728343",
+      "address": "8970 Patrick Valleys Suite 384, East Kayla, TX 34649",
+      "description": "Goal this site often."
+    }
+  ]
+}

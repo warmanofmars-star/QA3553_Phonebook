@@ -1,0 +1,22 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandon",
+  "lastName": "Thompson",
+  "phone": "0527460875",
+  "email": "user_a8996d4b49@example.com",
+  "address": "46046 Jeffrey Green, Wileyville, MP 83993",
+  "description": "Million fear although head process.",
+  "id": "65229c64-ed11-417b-8d63-0a412cef09bd"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:47",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 65229c64-ed11-417b-8d63-0a412cef09bd not found in your contacts!",
+  "path": "/v1/contacts"
+}

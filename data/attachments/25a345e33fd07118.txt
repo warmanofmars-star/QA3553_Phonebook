@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robin",
+  "lastName": "Spencer",
+  "phone": "0520475143",
+  "email": "user_f27fadde37@example.com",
+  "address": "4788 Sabrina Wells Suite 831, Colleenburgh, OK 46259",
+  "description": "Glass late public fine economic."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fb12d377-d939-4c83-9ab6-7ff80b77e3b0"
+}

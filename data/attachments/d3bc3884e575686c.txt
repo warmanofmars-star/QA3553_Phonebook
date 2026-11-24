@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aca916b7-4e07-4b43-906a-8e5a2acc32f7",
+      "name": "Anthony",
+      "lastName": "Grant",
+      "email": "user_aa2aa1577c@example.com",
+      "phone": "0560115441",
+      "address": "594 Reed Shore, East Anita, LA 76946",
+      "description": "Country lawyer process real film particular hope."
+    },
+    {
+      "id": "6e5e01d5-f277-4965-9a7c-2278614c449e",
+      "name": "Joshua",
+      "lastName": "Williamson",
+      "email": "user_419b711977@example.com",
+      "phone": "0553217846",
+      "address": "313 Daniel Plains Apt. 819, North Ericburgh, VI 90397",
+      "description": "Fight listen magazine approach pattern middle."
+    },
+    {
+      "id": "4eba9d41-82c7-4920-a8e0-d924de099a4e",
+      "name": "Shirley",
+      "lastName": "Jones",
+      "email": "user_b5e2399655@example.com",
+      "phone": "0521981072",
+      "address": "494 Johnson Lane Suite 892, West Gordonbury, DE 36839",
+      "description": "Defense shoulder arm experience movie its."
+    }
+  ]
+}

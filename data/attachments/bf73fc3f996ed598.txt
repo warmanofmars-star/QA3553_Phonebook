@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Marie",
+  "lastName": "Green",
+  "phone": "0580270076",
+  "email": "user_6c9b4fb2ec@example.com",
+  "address": "5515 Lisa Station, Lake Ryanfort, AS 16438",
+  "description": "Majority old material either world city part."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 17de33f9-cb72-4df6-9893-c464cbcb7aa2"
+}

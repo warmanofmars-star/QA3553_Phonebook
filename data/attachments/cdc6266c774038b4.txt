@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c7b6fa21-b1f0-49fb-b532-e89f30290eb2",
+      "name": "Diane",
+      "lastName": "Burns",
+      "email": "user_d455a464f2@example.com",
+      "phone": "0520310607",
+      "address": "657 Thomas Burgs Suite 796, Websterville, IN 23002",
+      "description": "Energy learn safe treat step phone employee."
+    }
+  ]
+}

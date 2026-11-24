@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sharon",
+  "lastName": "Nichols",
+  "phone": "0527086677",
+  "email": "user_c2084536db@example.com",
+  "address": "5939 Susan Underpass, Marybury, MP 70341",
+  "description": "Gas perhaps experience black not others."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 521de8f7-f8c4-4ba3-84b5-68025de8a5d7"
+}

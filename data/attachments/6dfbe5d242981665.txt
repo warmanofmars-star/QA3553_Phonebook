@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alicia",
+  "lastName": "Smith",
+  "phone": "0521378243",
+  "email": "user_6d041e9f6c@example.com",
+  "address": "6881 April Fields, West Andrea, GA 46454",
+  "description": "Three appear modern threat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f3f055b5-fee2-4753-a0f7-b6999bc7a5c1"
+}

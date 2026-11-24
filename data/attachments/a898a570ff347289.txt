@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shirley",
+  "lastName": "Jones",
+  "phone": "0521981072",
+  "email": "user_b5e2399655@example.com",
+  "address": "494 Johnson Lane Suite 892, West Gordonbury, DE 36839",
+  "description": "Defense shoulder arm experience movie its."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4eba9d41-82c7-4920-a8e0-d924de099a4e"
+}

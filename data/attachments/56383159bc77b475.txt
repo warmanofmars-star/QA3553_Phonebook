@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e656894e-adef-43f8-b56c-8ba48b98dd71",
+      "name": "David",
+      "lastName": "Pope",
+      "email": "user_e4f5aee276@example.com",
+      "phone": "0515809334",
+      "address": "12017 Julia Canyon Suite 287, Port Charles, IA 24035",
+      "description": "Two clear natural third energy PM."
+    }
+  ]
+}

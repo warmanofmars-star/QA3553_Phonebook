@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0bfdb398-9eb7-4a7f-b9bc-d67b72cfc1bf",
+      "name": "Kim",
+      "lastName": "Moore",
+      "email": "user_fdddb07c49@example.com",
+      "phone": "0578349317",
+      "address": "54553 Young Square, South Francisco, MP 62850",
+      "description": "Majority real religious energy."
+    }
+  ]
+}

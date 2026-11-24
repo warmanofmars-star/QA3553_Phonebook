@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Monroe",
+  "phone": "0510282443",
+  "email": "user_e02e43a342@example.com",
+  "address": "00271 Decker Junctions Suite 558, Hernandezchester, KY 21025",
+  "description": "Tree eat blood laugh add relate after."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:42",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

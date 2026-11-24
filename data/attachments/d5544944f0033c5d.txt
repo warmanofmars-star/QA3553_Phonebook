@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kim",
+  "lastName": "Moore",
+  "phone": "0578349317",
+  "email": "user_fdddb07c49@example.com",
+  "address": "54553 Young Square, South Francisco, MP 62850",
+  "description": "Majority real religious energy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0bfdb398-9eb7-4a7f-b9bc-d67b72cfc1bf"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bryan",
+  "lastName": "Kerr",
+  "phone": "050 1234567",
+  "email": "user_5b0e944790@example.com",
+  "address": "8127 Chapman Walk Apt. 345, Port Katherinemouth, AK 69291",
+  "description": "Learn manager attorney police some control remember."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:31",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

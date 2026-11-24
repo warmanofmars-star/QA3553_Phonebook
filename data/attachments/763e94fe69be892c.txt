@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "052f9530-e57c-4ac0-8f72-8f73189a2fc4",
+      "name": "Travis",
+      "lastName": "!@#$%^&*()_+-=",
+      "email": "user_e6e3c07748@example.com",
+      "phone": "0510225640",
+      "address": "0840 Holland Village Apt. 627, West Frankfort, LA 77931",
+      "description": "Agent issue unit subject their minute now."
+    }
+  ]
+}

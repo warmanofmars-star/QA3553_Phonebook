@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shannon",
+  "lastName": "Bailey",
+  "phone": "0566847130",
+  "email": "user_c5ca5a799c@example.com",
+  "address": "920 Johnson Stream, Port Michaelland, OK 02894",
+  "description": "Public avoid kitchen partner none per."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6b47a2d8-6766-42f1-8348-5fdca8bd3240"
+}

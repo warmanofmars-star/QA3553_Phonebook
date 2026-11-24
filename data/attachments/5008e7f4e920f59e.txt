@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b759be1c-4e82-4564-a0c8-068750e4992c",
+      "name": "Rebekah",
+      "lastName": "Alvarez",
+      "email": "user_78e17e9b19@example.com",
+      "phone": "0539148376",
+      "address": "488 Christopher Lock Apt. 172, Tarabury, WA 65723",
+      "description": "Prevent laugh Mrs discuss."
+    }
+  ]
+}

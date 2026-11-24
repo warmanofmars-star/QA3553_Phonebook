@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (195 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cynthia",
+  "lastName": "Gonzales",
+  "phone": "0587492219",
+  "email": "user_533b50dec2@example.com",
+  "address": "28164 Michelle Ranch, Thomasmouth, WI 98221",
+  "description": "Wife ahead young where even when message."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f67cad89-5784-43b2-a1e3-8440532e1c21"
+}

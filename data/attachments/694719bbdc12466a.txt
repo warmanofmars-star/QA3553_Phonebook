@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Gonzalez",
+  "phone": "0515986940",
+  "email": "user_24dfd4508e@example.com",
+  "address": "25936 Sara View, Austinland, TN 56562",
+  "description": "Police feel join ahead as free probably."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c9bfefa3-42bd-4d47-bf04-e07cf7744503"
+}

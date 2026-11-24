@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "546143c0-ae8b-4d8b-82b8-df5828e5f08a",
+      "name": "Robert",
+      "lastName": "B",
+      "email": "user_c441a46e66@example.com",
+      "phone": "0590512082",
+      "address": "50027 Cook Gateway, Port Michael, VT 98177",
+      "description": "Pretty part final movement."
+    }
+  ]
+}

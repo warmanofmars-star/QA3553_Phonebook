@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Elizabeth",
+  "lastName": "Bernard",
+  "phone": "0530608133",
+  "email": "user_592899b3ec@example.com",
+  "address": "74304 Hayes Circle Suite 741, Millerview, LA 58213",
+  "description": "Relate product especially win say ball your."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 96690d34-1b7a-4af3-88a4-21f0e057f50c"
+}

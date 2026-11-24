@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Teresa",
+  "lastName": "Rice",
+  "phone": "0527401221",
+  "email": "user_fbe04e6d75@example.com",
+  "address": "213 Jessica Divide, Lake Alexandra, WV 23344",
+  "description": "Create check guess drug phone."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 19521c75-3c80-442a-a9d2-5b4be833aff0"
+}

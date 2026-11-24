@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c7a49833-666b-4208-a898-774dad19b1d9",
+      "name": "Ryan",
+      "lastName": "Patterson",
+      "email": "user_5a71b16894@example.com",
+      "phone": "0521505214",
+      "address": "686 Rice Club Apt. 087, Watsonstad, MD 37220",
+      "description": "Including too age design son field answer."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Choi",
+  "phone": "0511028752",
+  "email": "user_3cbc4ac3f9@example.com",
+  "address": "3904 Heidi Rue, East Kimberlyhaven, DE 62967",
+  "description": "Read life such use fine."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3a74d352-4fa3-4fca-9a29-d519a65e5ad3"
+}

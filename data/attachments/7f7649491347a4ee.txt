@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "28229bfd-6bc9-46fa-b8f3-dd3374d9ddc4",
+      "name": "Stephanie",
+      "lastName": "Graham",
+      "email": "пользователь@example.com",
+      "phone": "0526833440",
+      "address": "5651 Raymond Forges, North Jennyburgh, AK 67345",
+      "description": "Successful glass difference style."
+    }
+  ]
+}

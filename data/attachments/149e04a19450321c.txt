@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ann",
+  "lastName": "Pierce",
+  "phone": "0517444884",
+  "email": "user_556091d094@example.com",
+  "address": "44109 Sean Extensions Suite 901, Williamschester, ME 27345",
+  "description": "Source their quite sign politics daughter drive whose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fac119bb-005e-4bb5-b1f3-b24b5b15c52b"
+}

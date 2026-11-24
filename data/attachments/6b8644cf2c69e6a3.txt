@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bd16e98a-1f0e-4afa-88d5-b5ec6ccecba9",
+      "name": "Jennifer",
+      "lastName": "Mejia",
+      "email": "user_bd3c8f5326@example.com",
+      "phone": "0511291541",
+      "address": "976 Elizabeth Road, New Jenniferton, ND 89675",
+      "description": "Serious learn provide child stop not up."
+    },
+    {
+      "id": "4ffcf44e-76db-4d8d-9728-c2fbea487d01",
+      "name": "Hunter",
+      "lastName": "Kemp",
+      "email": "user_b708ea694b@example.com",
+      "phone": "0576161671",
+      "address": "6529 Gordon Burg, New Lauraport, CO 76216",
+      "description": "Particular president modern event."
+    }
+  ]
+}

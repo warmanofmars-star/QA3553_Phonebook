@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fbf3ec2c-4487-4d2e-b3a9-b262098dbb84",
+      "name": "Kyle",
+      "lastName": "Lewis",
+      "email": "user_36910e6dab@example.com",
+      "phone": "0531396549",
+      "address": "44757 Lisa Rapid Suite 570, New Zachary, NE 64859",
+      "description": "Against spend join any stock go live could."
+    }
+  ]
+}

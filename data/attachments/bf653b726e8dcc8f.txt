@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Taylor",
+  "phone": "0510845479",
+  "email": "user_1cce87d8ae@example.com",
+  "address": "749 Foster Summit Suite 980, Johnfurt, CO 24584",
+  "description": "Address prepare ten tax."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 24878d5d-8c62-416f-922c-88bdd55f6116"
+}

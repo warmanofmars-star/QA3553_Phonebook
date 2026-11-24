@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carl",
+  "lastName": "Duncan",
+  "phone": "0564709576",
+  "email": "user_b4008fc8e4@example.com",
+  "address": "203 Atkinson Loaf, Lake Danielle, MO 50020",
+  "description": "Their up before white outside."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b19e6608-f0ae-45a8-8f8f-7b1f5bb7f1aa"
+}

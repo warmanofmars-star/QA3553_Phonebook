@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c7a49833-666b-4208-a898-774dad19b1d9",
+      "name": "Ryan",
+      "lastName": "Patterson",
+      "email": "user_5a71b16894@example.com",
+      "phone": "0521505214",
+      "address": "686 Rice Club Apt. 087, Watsonstad, MD 37220",
+      "description": "Including too age design son field answer."
+    },
+    {
+      "id": "96690d34-1b7a-4af3-88a4-21f0e057f50c",
+      "name": "Elizabeth",
+      "lastName": "Bernard",
+      "email": "user_592899b3ec@example.com",
+      "phone": "0530608133",
+      "address": "74304 Hayes Circle Suite 741, Millerview, LA 58213",
+      "description": "Relate product especially win say ball your."
+    },
+    {
+      "id": "db033b72-9279-4f6e-bd72-7bff45314d49",
+      "name": "Kelly",
+      "lastName": "Patton",
+      "email": "user_f364d938aa@example.com",
+      "phone": "0522789180",
+      "address": "103 Gonzalez Coves Suite 200, Port Angela, ID 71520",
+      "description": "Cause pressure technology debate guy seem take."
+    }
+  ]
+}

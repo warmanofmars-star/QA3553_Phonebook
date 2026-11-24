@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "72bb8c04-eb80-448f-b12c-02cb332b8e18",
+      "name": "Michael",
+      "lastName": "Flowers",
+      "email": "user_48f2b80b1a@example.com",
+      "phone": "0529696263",
+      "address": "PSC 1400, Box 1038, APO AA 04011",
+      "description": "Enjoy whether big across anyone business remember although."
+    }
+  ]
+}

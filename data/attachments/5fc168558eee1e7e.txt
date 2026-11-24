@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebekah",
+  "lastName": "Alvarez",
+  "phone": "0539148376",
+  "email": "user_78e17e9b19@example.com",
+  "address": "488 Christopher Lock Apt. 172, Tarabury, WA 65723",
+  "description": "Prevent laugh Mrs discuss."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b759be1c-4e82-4564-a0c8-068750e4992c"
+}

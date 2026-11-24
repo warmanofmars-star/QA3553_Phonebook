@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Murray",
+  "phone": "0516228444",
+  "email": "user_866a0e1595@example.com",
+  "address": "PSC 0245, Box 5140, APO AA 17805",
+  "description": "Sense strategy dream significant traditional contain seat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c14bd266-e5e7-4a77-8513-37114b6e497a"
+}

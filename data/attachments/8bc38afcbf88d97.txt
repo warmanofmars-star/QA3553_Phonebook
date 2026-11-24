@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maureen",
+  "lastName": "Schultz",
+  "phone": "0512307821",
+  "email": "user_6b5c24751c@example.com",
+  "address": "23798 Joseph Mews, Kevinborough, WA 84976",
+  "description": "Participant foot improve against."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 523759b3-a9bf-4162-b321-7b6f3b3bb3c6"
+}

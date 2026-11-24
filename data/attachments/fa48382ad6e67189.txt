@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jillian",
+  "lastName": "   ",
+  "phone": "0585488236",
+  "email": "user_c6dc22e57e@example.com",
+  "address": "747 Michael Lane Suite 552, Stevensfurt, AK 25136",
+  "description": "Can institution use reality generation at prove."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ca1eb97a-736b-4215-a2a5-87762995539c",
+      "name": "Sabrina",
+      "lastName": "Guerrero",
+      "email": "user_be2d8b128b@example.com",
+      "phone": "0519435253",
+      "address": "5842 Bailey Alley, New Teresaview, IL 03670",
+      "description": "Ask baby day talk put."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3b7892bf-94b4-4b48-9618-1d9561a5b88e",
+      "name": "Carrie",
+      "lastName": "Meyers",
+      "email": "user_6ff2358548@example.com",
+      "phone": "0532982812",
+      "address": "522 William Brooks Suite 369, Simsside, LA 62062",
+      "description": "Capital here push difficult of fish another sure."
+    }
+  ]
+}

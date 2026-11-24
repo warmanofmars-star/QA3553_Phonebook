@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Cortez",
+  "phone": "0518800335",
+  "email": "user_f00b92718b@example.com",
+  "address": "9958 Michael Ville, Hallmouth, WI 58696",
+  "description": "Glass month loss relationship anything consider."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c3083ca3-b41a-42ef-9e6c-ef5e4e3d6ed4"
+}

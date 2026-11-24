@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Thompson",
+  "phone": "0525086062",
+  "email": "user_b106e72f62@example.com",
+  "address": "077 Garcia Bypass Suite 613, New Amberbury, PR 16814",
+  "description": "Dream range heart represent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c9bd8ba3-5291-4e71-9b83-f2bd0ef9f857"
+}

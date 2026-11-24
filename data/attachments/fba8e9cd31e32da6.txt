@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Obrien",
+  "phone": "0533474596",
+  "email": "user_efdad4c372@example.com",
+  "address": "57856 Cline Pine Apt. 004, Boydchester, TN 00502",
+  "description": "Me drop rise avoid democratic."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 89fa5b32-cd9d-4ce0-859e-3068bbd0a140"
+}

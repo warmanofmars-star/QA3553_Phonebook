@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Walter",
+  "lastName": "Downs",
+  "phone": "0515901958",
+  "email": "user@",
+  "address": "266 Bauer Forest, West Tony, WV 55075",
+  "description": "Blood gas together market talk thousand ahead.",
+  "id": "6c39a3b7-c0c9-4657-8492-9ff785cdee89"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T15:27:38",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}
