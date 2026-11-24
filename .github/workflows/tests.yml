@@ -57,13 +57,28 @@ jobs:
             requirements.txt
             requirements-dev.txt
 
+      # Lock-файлы: requirements-dev.txt — слой поверх requirements.txt (-c, а не -r),
+      # поэтому ставятся оба
       - name: Устанавливаем зависимости
-        run: python -m pip install --quiet -r requirements-dev.txt
+        run: python -m pip install --quiet -r requirements.txt -r requirements-dev.txt
 
       # Матрица docs/coverage.md строится из тегов тестов. Если тесты или справочник
       # требований изменились, а матрицу не пересобрали — шаг упадёт и покажет расхождение
       - name: Проверяем, что матрица покрытия актуальна
         run: python ci/coverage_matrix.py --check
+
+      # Lock-файлы соответствуют requirements.in / requirements-dev.in: пересборка во временный
+      # каталог и сравнение пинов «имя==версия», а не текста — шапка и пометки «# via» зависят
+      # от версии pip-tools. Раннер — Linux, Python — тот же, что в образе (иначе скрипт
+      # откажется работать). Рабочее дерево не меняется; расхождение печатается по пакетам.
+      # !cancelled(): шаг идёт и после упавшей матрицы — видны все проблемы сразу
+      - name: Проверяем, что lock-файлы зависимостей актуальны
+        if: ${{ !cancelled() }}
+        run: |
+          if ! bash ci/lock_requirements.sh --check; then
+            echo "::error::Lock-файлы не соответствуют requirements.in / requirements-dev.in (расхождения — в логе выше). Пересобери их в контейнере (commands.md, «Обновить зависимости»): docker run --rm -v \"\${PWD}:/src\" -w /src <образ из FROM в Dockerfile> bash ci/lock_requirements.sh"
+            exit 1
+          fi
 
   # ==========================================
   # JOB 0.1: ПОИСК СЕКРЕТОВ В НОВЫХ КОММИТАХ (параллельно с тестами)

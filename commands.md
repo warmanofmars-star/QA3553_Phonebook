@@ -104,7 +104,7 @@
 
 ## 🧹 Качество кода (ruff, pre-commit, gitleaks)
 **Установка инструментов разработки и хуков (один раз после клонирования):**
-`pip install -r requirements-dev.txt`
+`pip install -r requirements.txt -r requirements-dev.txt`
 `pre-commit install`
 
 **Проверить весь проект теми же хуками, что срабатывают перед коммитом:**
@@ -116,6 +116,29 @@
 
 **Проверить ВСЮ историю git на секреты (вывод без самих секретов):**
 `gitleaks git --redact` *(если gitleaks установлен отдельно; pre-commit проверяет только новые изменения, CI — только новые коммиты)*
+
+---
+
+## 📦 Обновить зависимости
+Версии меняются только в `requirements.in` (тесты) и `requirements-dev.in` (ruff, pre-commit, PyYAML).
+`requirements.txt` и `requirements-dev.txt` — lock-файлы: всё дерево пакетов, генерирует pip-compile, руками
+не правятся. Пересборка — только в контейнере с образом из строки `FROM` в `Dockerfile`: pip-compile
+разрешает зависимости под текущие ОС и Python, на Windows в lock попали бы пакеты вроде colorama.
+
+**Пересобрать lock-файлы (PowerShell, из корня проекта):**
+`docker run --rm -v "${PWD}:/src" -w /src python:3.14-slim-bookworm bash ci/lock_requirements.sh`
+*(образ — тот же, что в `FROM` в `Dockerfile`; поменяли там — меняйте и здесь)*
+
+**Поднять один пакет до последней версии, допустимой исходником:**
+`docker run --rm -v "${PWD}:/src" -w /src python:3.14-slim-bookworm bash ci/lock_requirements.sh --upgrade-package requests`
+
+**Проверить, что lock-файлы соответствуют исходникам (то же делает job Lint):**
+`docker run --rm -v "${PWD}:/src" -w /src python:3.14-slim-bookworm bash ci/lock_requirements.sh --check`
+Код 0 — пины совпадают, 1 — расходятся (печатается, что добавится, исчезнет, изменится). Сравниваются пины
+«имя==версия», а не текст: шапка и пометки `# via` зависят от версии pip-tools.
+
+**Затем поставить обновлённое в venv:**
+`pip install -r requirements.txt -r requirements-dev.txt`
 
 ---
 

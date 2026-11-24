@@ -55,6 +55,12 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
   ожидания — приватные (`_click`, `_is_visible`...). В тестах нет локаторов и `WebDriverWait`.
 - **Каждому тесту — свой временный пользователь** (`temp_user`). Постоянный аккаунт из `.env`
   тестам не нужен.
+- **Зависимости правятся только в `requirements.in` / `requirements-dev.in`.** `requirements.txt`
+  и `requirements-dev.txt` — lock-файлы (всё дерево, pip-compile): руками не правятся, генерирует их
+  `ci/lock_requirements.sh` — только в контейнере с образом из `FROM` в `Dockerfile` (команда —
+  `commands.md`, «Обновить зависимости»). Установка — `pip install -r requirements.txt -r requirements-dev.txt`.
+  Актуальность проверяет job Lint (`ci/lock_requirements.sh --check`) — по пинам «имя==версия»,
+  а не по тексту. Без `--upgrade` и без хэшей.
 - Совместимость кода — Python 3.12+ (`target-version` в `pyproject.toml`), запуск — на 3.14.
 - **Требования проекта — в `docs/requirements/`** (SRS в PDF, лежит только локально,
   в git не попадает). Ожидаемые результаты тестов берутся оттуда; номера требований
