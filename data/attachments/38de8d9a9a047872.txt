@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (82 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Gonzalez",
+  "phone": "0593914188",
+  "email": "user_a446718a83@example.com",
+  "address": "38461 Jordan Pass Apt. 802, Port Juanville, LA 38566",
+  "description": "Arrive plan hope huge party per factor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7af34b62-5d0a-4439-a634-3622c5471ec3"
+}

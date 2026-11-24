@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7d849254-1b43-4b2a-b91b-be89b02bb224",
+      "name": "Lori",
+      "lastName": "Moss",
+      "email": "user_01054a02f6@example.com",
+      "phone": "0517791914",
+      "address": "9998 Donald Skyway Apt. 615, Carolynbury, MS 24487",
+      "description": "Degree face until treat nothing ago parent."
+    },
+    {
+      "id": "b6af4ea1-51d3-4039-bab2-029a841b15c2",
+      "name": "Jeffrey",
+      "lastName": "White",
+      "email": "user_de83e714ee@example.com",
+      "phone": "0517791914",
+      "address": "09770 Anthony Ridges Apt. 456, West Kathleen, DC 57211",
+      "description": "Surface far decide consider social them land."
+    }
+  ]
+}

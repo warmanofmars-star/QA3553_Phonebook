@@ -1,0 +1,20 @@
+18:48:27 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+18:48:27 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+18:48:30 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (229 ms)
+18:48:30 [INFO   ] API: Токен добавлен в заголовки сессии
+18:48:30 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+18:48:30 [INFO   ] STEP: Войти как user_e27b7562ab@example.com
+18:48:32 [INFO   ] API: POST /v1/contacts -> 200 (42 ms)
+18:48:32 [INFO   ] API: GET /v1/contacts -> 200 (37 ms)
+18:48:32 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+18:48:32 [INFO   ] STEP: Открыть карточку контакта 0593395626
+18:48:33 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+18:48:33 [INFO   ] STEP: Изменить поля формы редактирования
+18:48:33 [INFO   ] STEP: Изменить поле name на 'Kenneth'
+18:48:33 [INFO   ] STEP: Изменить поле last_name на 'Mays'
+18:48:33 [INFO   ] STEP: Изменить поле phone на '0574924113'
+18:48:33 [INFO   ] STEP: Изменить поле email на 'user_c6bde3c79a@example.com'
+18:48:34 [INFO   ] STEP: Изменить поле address на '08289 Romero Summit, Cristianberg, AL 38279'
+18:48:34 [INFO   ] STEP: Изменить поле description на 'Sometimes near whom civil nation member couple.'
+18:48:39 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Sometimes near whom civil nation member couple.', фактически '[object Undefined]'
+18:48:42 [INFO   ] DRIVER: Видео 933f53f3-1273-4de8-a405-a152375311f7.mp4 прикреплено к отчёту

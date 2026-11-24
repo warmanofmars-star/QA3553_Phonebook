@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Olivia",
+  "lastName": "Garcia",
+  "phone": "0521840230",
+  "email": "user_276b8ac2a3@example.com",
+  "address": "97021 Stacy Ramp Apt. 733, Muellerton, RI 01668",
+  "description": "None recent Republican side power pay wonder cover."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d95e7156-e512-4a99-8158-94f5cc198275"
+}

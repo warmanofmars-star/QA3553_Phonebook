@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ellen",
+  "lastName": "Morris",
+  "phone": "0525906272",
+  "email": "user_2724281175@example.com",
+  "address": "199 Snow Way Suite 556, Danielview, NE 25937",
+  "description": "Forget give rich interview situation standard attention."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1a6155ca-0070-4099-bd6e-09ce4251bc68"
+}

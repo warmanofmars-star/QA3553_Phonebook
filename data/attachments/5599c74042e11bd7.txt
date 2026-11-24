@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Mendoza",
+  "phone": "0556829769",
+  "email": "user_6fd97a3a2b@example.com",
+  "address": "825 Benjamin Dale, Garciaport, DC 04924",
+  "description": "Yourself show indeed catch."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d3a65f95-88ad-43c3-ae01-d35a52beef7a"
+}

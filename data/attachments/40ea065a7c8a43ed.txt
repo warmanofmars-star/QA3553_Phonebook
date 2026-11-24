@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chelsea",
+  "lastName": "Bell",
+  "phone": "0523706290",
+  "email": "user_b14a21510a@example.com",
+  "address": "104 Oliver Corner, Wongland, DE 33634",
+  "description": "Defense science program no may sign sort."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b4a120d3-618f-43f8-8ddb-042d643d83f3"
+}

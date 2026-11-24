@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shelia",
+  "lastName": "Hardin",
+  "phone": "0534018425",
+  "email": "user_cc048fc21c@example.com",
+  "address": "USNS Edwards, FPO AA 40079",
+  "description": "Film report lot contain purpose mind possible pick."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3434bd1b-318b-4077-a2e5-09ce6bd5b20c"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ddabff56-df1b-4b6f-b485-b5ab1b927fe1",
+      "name": "Adam",
+      "lastName": "Daniel",
+      "email": "user_f2c7370c61@example.com",
+      "phone": "0528321417",
+      "address": "04064 David Harbors, West Katherine, NM 40715",
+      "description": "Explain population investment."
+    }
+  ]
+}

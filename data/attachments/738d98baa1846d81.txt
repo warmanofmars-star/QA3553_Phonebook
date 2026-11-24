@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Lopez",
+  "phone": "0514886763",
+  "email": "user_80d13105b2@example.com",
+  "address": "03613 Melissa Rest, Dennisfort, TN 58741",
+  "description": "Same treatment notice learn."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 061b76ce-5d1e-4990-a34a-e5c3180848ee"
+}

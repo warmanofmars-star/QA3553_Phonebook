@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Walker",
+  "phone": "0523384712",
+  "email": "user_fb22a073a3@example.com",
+  "address": "450 Anderson Vista, Port Kayla, ME 45662",
+  "description": "East plant girl theory."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9bf44a2f-05f0-4e0d-a07c-9933490789a8"
+}

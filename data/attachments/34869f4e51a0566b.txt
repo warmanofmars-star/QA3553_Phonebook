@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Perry",
+  "phone": "0532729594",
+  "email": "user_dda59d424c@example.com",
+  "address": "2733 Foster Mill Apt. 372, South Robert, SC 50815",
+  "description": "Level particular require them several range fight we."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 92462cb5-56c3-45d6-830d-8e83352d7a0f"
+}

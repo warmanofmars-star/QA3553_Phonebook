@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paula",
+  "lastName": "Smith",
+  "phone": "0524919985",
+  "email": "user_d37fa453cd@example.com",
+  "address": "6668 Davidson Junction, Garciamouth, NC 90774",
+  "description": "Huge gas check role."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 77afcfe9-dfda-4f4e-98ba-5050893f113c"
+}

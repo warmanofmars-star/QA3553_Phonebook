@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (120 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Smith",
+  "phone": "0511715422",
+  "email": "user_46714911d7@example.com",
+  "address": "USS Weber, FPO AE 52517",
+  "description": "Civil lay smile."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 63f6c127-37b3-4f91-b94f-186217c756be"
+}

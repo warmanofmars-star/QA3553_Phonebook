@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Suzanne",
+  "lastName": "Montoya",
+  "phone": "0518214224",
+  "email": "user_053aeb57e9@example.com",
+  "address": "5905 Daniel Haven Suite 013, Port Rhondashire, AK 39352",
+  "description": "Friend again know have second."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 927a328a-76b2-42a2-aa22-d7ba67909e27"
+}

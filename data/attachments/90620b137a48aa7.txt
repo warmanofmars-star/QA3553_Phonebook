@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+{
+  "name": "Penny",
+  "lastName": "King",
+  "phone": "0520644501",
+  "email": "user_dd9c743984@example.com",
+  "address": "94990 Hansen Trace Suite 303, Melissaland, IL 78092",
+  "description": "Baby still truth event contain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d45739ca-5069-4b52-ac07-8896812aac0a"
+}

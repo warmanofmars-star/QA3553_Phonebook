@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "553110a3-918c-41e3-b059-d8aa5a7e6b56",
+      "name": "Eric",
+      "lastName": "Krueger",
+      "email": "user_c999269069@example.com",
+      "phone": "0510408566",
+      "address": "462 Roth Cape Suite 857, New Timothy, PR 96573",
+      "description": "Last population space stuff chair physical but."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Gordon",
+  "phone": "0554772419",
+  "email": "user_ed9452ccb6@example.com",
+  "address": "87368 Natasha Coves Apt. 744, New Andrewmouth, GU 87423",
+  "description": "Usually young class particularly leave treat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0afdeffc-edef-46c9-a60b-a8c4f4959b9a"
+}

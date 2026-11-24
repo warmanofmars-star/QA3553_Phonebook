@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3434bd1b-318b-4077-a2e5-09ce6bd5b20c",
+      "name": "Shelia",
+      "lastName": "Hardin",
+      "email": "user_cc048fc21c@example.com",
+      "phone": "0534018425",
+      "address": "USNS Edwards, FPO AA 40079",
+      "description": "Film report lot contain purpose mind possible pick."
+    }
+  ]
+}

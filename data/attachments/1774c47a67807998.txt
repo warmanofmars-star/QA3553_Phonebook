@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jacqueline",
+  "lastName": "Reeves",
+  "phone": "+972501234567",
+  "email": "user_a8fc9913a5@example.com",
+  "address": "2806 Angela Ford, Sherriport, AK 29318",
+  "description": "Alone design development garden keep.",
+  "id": "6c124454-994c-4399-87a1-115268ea7d41"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T18:46:10",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

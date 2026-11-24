@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Henry",
+  "phone": "0520624850",
+  "email": "user_47f33e03a9@example.com",
+  "address": "08612 Chambers Path Suite 789, South Elizabethville, MN 20275",
+  "description": "Buy I war current hope."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fce47893-90b9-4f8a-a706-f6b6c0d22e18"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "927a328a-76b2-42a2-aa22-d7ba67909e27",
+      "name": "Suzanne",
+      "lastName": "Montoya",
+      "email": "user_053aeb57e9@example.com",
+      "phone": "0518214224",
+      "address": "5905 Daniel Haven Suite 013, Port Rhondashire, AK 39352",
+      "description": "Friend again know have second."
+    },
+    {
+      "id": "97e40bcb-cd9f-43c4-9548-e136b002f449",
+      "name": "Andrew",
+      "lastName": "Wallace",
+      "email": "user_9988021eca@example.com",
+      "phone": "0520373873",
+      "address": "5357 Williams Village Apt. 141, Port Tiffanymouth, FL 14342",
+      "description": "Fund marriage wonder worry worry set."
+    }
+  ]
+}

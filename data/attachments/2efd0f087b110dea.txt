@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bobby",
+  "lastName": "Zimmerman",
+  "phone": "0529961267",
+  "email": "user_87c4dbde51@example.com",
+  "address": "C",
+  "description": "Heavy tough own all sign."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6d0e740a-2da6-40df-96ba-73f55809db38"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ed2b4136-2691-408c-8b4b-fd61c6a5cb76",
+      "name": "Chase",
+      "lastName": "Warren",
+      "email": "user_31a32a83d1@example.com",
+      "phone": "0515710564",
+      "address": "61136 Porter Manor Apt. 207, Lake Desiree, AK 56177",
+      "description": "He film environment Republican."
+    }
+  ]
+}

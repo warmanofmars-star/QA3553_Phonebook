@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Debra",
+  "lastName": "Munoz",
+  "phone": "0521963212",
+  "email": "user_1879a99410@example.com",
+  "address": "5260 Robbins Creek Suite 456, Nancystad, NH 33565",
+  "description": "Cut respond politics such statement lay."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6a76e31c-0b59-4d34-9c7b-c793ca1a71e0"
+}

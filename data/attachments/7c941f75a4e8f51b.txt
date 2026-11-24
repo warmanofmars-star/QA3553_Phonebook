@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "77a29b4b-bd28-4249-a2bd-17bc373828b5",
+      "name": "Morgan",
+      "lastName": "Moody",
+      "email": "user_d2987d3d4e@example.com",
+      "phone": "0528694249",
+      "address": "649 William Falls Apt. 155, Luischester, AR 57385",
+      "description": "None fine with something car true century."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "62179fde-0a51-493c-b31d-0725a9ec80a4",
+      "name": "Mark",
+      "lastName": "Silva",
+      "email": "user_4a3e39d600@example.com",
+      "phone": "0522389355",
+      "address": "15639 John Roads Apt. 046, Wyattton, MO 32168",
+      "description": "Hard because party probably woman fish."
+    },
+    {
+      "id": "e5bd3dc2-0154-44c1-9300-6916c4221397",
+      "name": "Robert",
+      "lastName": "Cortez",
+      "email": "user_a34e689458@example.com",
+      "phone": "0528238443",
+      "address": "746 Duffy Viaduct, Lake Regina, MN 27269",
+      "description": "Best work cold north station television."
+    }
+  ]
+}

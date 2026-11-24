@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Hampton",
+  "phone": "0517826998",
+  "email": "user_d69002e0db@example.com",
+  "address": "66761 Robin Common Apt. 300, Riverahaven, GA 18515",
+  "description": "Perform entire pull rest police at interest."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a4cd986d-a9ef-4346-b6f5-536498578ffc"
+}

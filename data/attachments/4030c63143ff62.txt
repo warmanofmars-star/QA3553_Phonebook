@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "974d6d68-2227-4d0d-8c2b-f4df30973d50",
+      "name": "Phillip",
+      "lastName": "Trujillo",
+      "email": "user_456af263d4@example.com",
+      "phone": "0524950188",
+      "address": "3312 Kayla Islands, Tiffanyside, MH 99172",
+      "description": "Civil experience effort onto audience open affect."
+    }
+  ]
+}

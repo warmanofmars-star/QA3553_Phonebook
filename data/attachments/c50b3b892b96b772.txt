@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (44 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Thomas",
+  "phone": "0511257141",
+  "email": "user_44b63fadad@example.com",
+  "address": "2201 Jackson Springs Suite 827, Port Tanyaview, FL 42029",
+  "description": "Environment space hair.",
+  "id": "5312198c-f2d6-4468-8618-d090a8129cde"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T18:46:14",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shawn",
+  "lastName": "Green",
+  "phone": "0517472472",
+  "email": "user_72733ba9c9@example.com",
+  "address": "264 Bradley Valley, Williamchester, CA 34262",
+  "description": "Week fight do scientist."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8bbfd758-b807-4774-9e48-b09d0028714a"
+}

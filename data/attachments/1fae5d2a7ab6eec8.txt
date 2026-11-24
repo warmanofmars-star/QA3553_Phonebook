@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "974d6d68-2227-4d0d-8c2b-f4df30973d50",
+      "name": "Phillip",
+      "lastName": "Trujillo",
+      "email": "user_456af263d4@example.com",
+      "phone": "0524950188",
+      "address": "3312 Kayla Islands, Tiffanyside, MH 99172",
+      "description": "Civil experience effort onto audience open affect."
+    },
+    {
+      "id": "b9015b93-82cd-4262-964c-180990b75c18",
+      "name": "Heather",
+      "lastName": "Krueger",
+      "email": "user_25f77c2545@example.com",
+      "phone": "0523980585",
+      "address": "Unit 6761 Box 3342, DPO AA 21058",
+      "description": "Go recent black not start."
+    }
+  ]
+}

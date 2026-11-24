@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Lang",
+  "phone": "0533429079",
+  "email": "user_42ecc9c94d@example.com",
+  "address": "911 Acosta Light, South Anthony, RI 43256",
+  "description": "State board assume him before."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 59454379-8472-4dcb-9b96-85ad33348d62"
+}

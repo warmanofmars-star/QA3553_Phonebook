@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (77 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Wood",
+  "phone": "0524415874",
+  "email": "user_89a735eba6@example.com",
+  "address": "1813 Smith Locks Suite 510, East Nicholas, LA 85300",
+  "description": "Rich adult there sing."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0687cdab-2b1f-4c1c-a298-00c28af401fb"
+}

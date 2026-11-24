@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (43 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "   ",
+  "phone": "0550528951",
+  "email": "user_9fd0156234@example.com",
+  "address": "447 Hughes Station Suite 652, Fitzgeraldton, VT 57571",
+  "description": "Step natural nature civil agreement."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T18:45:57",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

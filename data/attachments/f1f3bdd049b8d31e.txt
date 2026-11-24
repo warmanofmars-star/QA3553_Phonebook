@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bryan",
+  "lastName": "Stout",
+  "phone": "0522497584",
+  "email": "user_7740311097@example.com",
+  "address": "1384 Jennifer Spur, New Kimberlyshire, NJ 64922",
+  "description": "Dream yes apply risk member up."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 94b8dee1-a963-46f6-b1fe-4310e5b2790c"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (77 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christian",
+  "lastName": "Robles",
+  "phone": "0525709035",
+  "email": "user_2b0f0a6c28@example.com",
+  "address": "28553 Cross Stravenue, West Jessicashire, NV 42529",
+  "description": "As player serve represent black everybody."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73c58573-489f-42e6-b94c-f1212c97c93e"
+}

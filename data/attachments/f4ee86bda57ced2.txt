@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "60d16aec-3c73-48f8-a830-0414a4a442c3",
+      "name": "Troy",
+      "lastName": "Burns",
+      "email": "user_6283d473bc@example.com",
+      "phone": "0587804490",
+      "address": "12345",
+      "description": "Check away product last back role sort discover."
+    }
+  ]
+}

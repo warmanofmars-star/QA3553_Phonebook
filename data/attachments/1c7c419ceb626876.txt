@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Henry",
+  "phone": "0520045155",
+  "email": "user_27869fe6ac@example.com",
+  "address": "18301 Turner Burg, Davidtown, VA 69772",
+  "description": "!@#$%^&*()_+-=12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 69885907-2180-4218-89ef-c011636e13b3"
+}

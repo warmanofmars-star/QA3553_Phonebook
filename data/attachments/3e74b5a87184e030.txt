@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brent",
+  "lastName": "Buck",
+  "phone": "0512844001",
+  "email": "user_b9a8f36a57@example.com",
+  "address": "4541 Murray Land Apt. 550, Ballfort, WV 15388",
+  "description": "Blue professional deal yet."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2c7518b9-ca5e-4001-9b97-2e70c38da515"
+}

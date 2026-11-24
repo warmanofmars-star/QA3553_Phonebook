@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8ebd523c-86a2-4b82-9a79-147a475473c1",
+      "name": "Nicholas",
+      "lastName": "Powell",
+      "email": "user_3a18db4065@example.com",
+      "phone": "0522058688",
+      "address": "49974 Walker Flats, North Crystal, GU 81184",
+      "description": "Newspaper deal thus to."
+    }
+  ]
+}

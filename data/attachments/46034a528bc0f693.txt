@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Eric",
+  "lastName": "Fletcher",
+  "phone": "0549998957",
+  "email": "user_f2192ce23e@example.com",
+  "address": "930 Mcneil Extensions Apt. 912, Harrismouth, NM 57516",
+  "description": "Candidate consumer town less if morning."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 53bee90d-7572-4791-81ad-4dd4b57478ab"
+}

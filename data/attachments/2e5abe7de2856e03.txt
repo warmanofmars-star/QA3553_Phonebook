@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fbf4df21-e669-4eeb-af55-f33f145468ac",
+      "name": "12345",
+      "lastName": "Myers",
+      "email": "user_1e9b937973@example.com",
+      "phone": "0511897700",
+      "address": "8446 Andrew Knoll, West Ericstad, DC 29778",
+      "description": "Window seat wall would business away who."
+    }
+  ]
+}

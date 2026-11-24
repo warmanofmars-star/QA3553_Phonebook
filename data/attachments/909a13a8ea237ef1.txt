@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Cuevas",
+  "phone": "0535627130",
+  "email": "user_56f08a0886@example.com",
+  "address": "Unit 6665 Box 6394, DPO AE 61288",
+  "description": "Into summer someone feeling him."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9269cc6c-c641-4ae4-a624-81fc4e891405"
+}

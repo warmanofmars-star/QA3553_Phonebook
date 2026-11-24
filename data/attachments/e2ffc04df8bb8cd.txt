@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6a228625-2a17-4c8e-b969-a30751de45a0",
+      "name": "Jesse",
+      "lastName": "Matthews",
+      "email": "user_fefbf4c255@example.com",
+      "phone": "0511079164",
+      "address": "8254 Brian Isle, West Nathanielton, OH 80230",
+      "description": "Table either design."
+    }
+  ]
+}

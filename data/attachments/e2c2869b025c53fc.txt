@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+{
+  "name": "Holly",
+  "lastName": "Oliver",
+  "phone": "0521119929",
+  "email": "user_999f1e0bc8@example.com",
+  "address": "18148 Barbara Summit Apt. 437, Tiffanyland, NC 65723",
+  "description": "Such artist task affect truth."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 029eb635-a077-429e-93f9-a8d2325efcb3"
+}

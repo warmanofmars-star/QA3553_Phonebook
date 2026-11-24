@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+{
+  "name": "Danielle",
+  "lastName": "Lloyd",
+  "phone": "0500417268",
+  "email": "user_ab4f07b769@example.com",
+  "address": "Unit 3907 Box 0558, DPO AP 19157",
+  "description": "Executive stand nature fear clear ask agreement.",
+  "id": "51249fbe-eb32-4024-989f-21b23bea5420"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

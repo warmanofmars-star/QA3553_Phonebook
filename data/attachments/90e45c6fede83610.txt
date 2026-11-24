@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Allison",
+  "lastName": "Johnson",
+  "phone": "0530131588",
+  "email": "user_0354531bb1@example.com",
+  "address": "4805 Perkins Highway Apt. 073, Erikaton, ND 49875",
+  "description": "Fine you bar drug."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4b0135a5-b2b9-445e-bcff-6bea7944b84a"
+}

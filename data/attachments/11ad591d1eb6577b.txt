@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (80 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Taylor",
+  "phone": "0513441913",
+  "email": "user_e1f6c9ee3e@example.com",
+  "address": "708 Timothy Radial Apt. 849, Newmanburgh, MP 69078",
+  "description": "Expert available one now yet garden travel pattern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eb2f5d68-ece9-4b42-b427-553cfc0d6cca"
+}

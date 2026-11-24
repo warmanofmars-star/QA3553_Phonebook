@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Jackson",
+  "phone": "0513498839",
+  "email": "user_9cc9b61cac@example.com",
+  "address": "45836 Schwartz Lake, Lake Kimberlytown, AS 94207",
+  "description": "Explain discover section control scene."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5329c8a8-87ef-4037-8251-fa09898a885e"
+}

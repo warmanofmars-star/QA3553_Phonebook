@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b7bdfb5b-3de6-4480-8213-3bd753a582cb",
+      "name": "Marissa",
+      "lastName": "White",
+      "email": "user_53d6b3ffce@example.com",
+      "phone": "0515515920",
+      "address": "148 Jack Lock Apt. 708, East Christinafort, VI 63150",
+      "description": "Fight put beat once."
+    }
+  ]
+}

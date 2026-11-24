@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Silva",
+  "phone": "0522389355",
+  "email": "user_4a3e39d600@example.com",
+  "address": "15639 John Roads Apt. 046, Wyattton, MO 32168",
+  "description": "Hard because party probably woman fish."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 62179fde-0a51-493c-b31d-0725a9ec80a4"
+}

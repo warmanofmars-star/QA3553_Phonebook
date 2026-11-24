@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Stevens",
+  "phone": "0532038185",
+  "email": "user_3464a8d576@example.com",
+  "address": "47318 Pham Crossroad Suite 278, East Matthew, OH 10715",
+  "description": "Five response just professional cold ready worry."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ab51be01-8d9a-4c36-9590-bf4820a50ff7"
+}

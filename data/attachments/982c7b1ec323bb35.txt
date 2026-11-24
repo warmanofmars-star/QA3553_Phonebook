@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chase",
+  "lastName": "Warren",
+  "phone": "0515710564",
+  "email": "user_31a32a83d1@example.com",
+  "address": "166 Brittney Meadow Apt. 317, Bettyberg, CA 58399",
+  "description": "He film environment Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed2b4136-2691-408c-8b4b-fd61c6a5cb76"
+}

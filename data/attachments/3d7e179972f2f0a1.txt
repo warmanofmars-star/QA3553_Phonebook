@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (71 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73f4c8f4-fa76-4b63-a400-68722ecc2eba",
+      "name": "Donna",
+      "lastName": "Bailey",
+      "email": "a@b",
+      "phone": "0531455582",
+      "address": "2764 Vincent Union Suite 747, Bushberg, KS 53594",
+      "description": "Grow trade forget total game choice yeah."
+    }
+  ]
+}

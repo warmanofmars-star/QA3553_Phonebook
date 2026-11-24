@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "28d1f31f-13d2-40c9-a6b2-0d1266aef929",
+      "name": "Jamie",
+      "lastName": "Davis",
+      "email": "user_03fd84b299@example.com",
+      "phone": "0585391009",
+      "address": "313 Hughes Pine Apt. 594, Hannahberg, DC 85069",
+      "description": "If care scene thousand."
+    }
+  ]
+}

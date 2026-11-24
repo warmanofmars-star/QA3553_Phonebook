@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Davis",
+  "phone": "053083425495049",
+  "email": "user_3e45b90037@example.com",
+  "address": "9530 Jill Stream, Port Kevin, AS 91596",
+  "description": "Maintain order throw good expect road skin fight."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 955db382-9b9d-46ce-b655-01db86339814"
+}

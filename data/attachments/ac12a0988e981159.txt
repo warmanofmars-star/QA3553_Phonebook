@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "40102f19-77db-4629-b91f-355f867c5ceb",
+      "name": "Rachel",
+      "lastName": "Chang",
+      "email": "user_9a5ce2093a@example.com",
+      "phone": "0536820026",
+      "address": "0689 Cochran Fall, Wallsfort, RI 18250",
+      "description": "Bring letter cost."
+    }
+  ]
+}

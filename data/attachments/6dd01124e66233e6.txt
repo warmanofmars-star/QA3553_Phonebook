@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "William",
+  "lastName": "Jones",
+  "phone": "0511415164",
+  "email": "user_39baa94007@example.com",
+  "address": "8288 Joann Mountain, Bridgesport, GA 30673",
+  "description": "As two TV could itself edge."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 480bece9-5125-44b3-a230-81e4c34880c1"
+}

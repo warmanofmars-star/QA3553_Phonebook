@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0687cdab-2b1f-4c1c-a298-00c28af401fb",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Wood",
+      "email": "user_89a735eba6@example.com",
+      "phone": "0524415874",
+      "address": "1813 Smith Locks Suite 510, East Nicholas, LA 85300",
+      "description": "Rich adult there sing."
+    }
+  ]
+}

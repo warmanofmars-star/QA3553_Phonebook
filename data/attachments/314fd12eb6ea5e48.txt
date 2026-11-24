@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Teresa",
+  "lastName": "Long",
+  "phone": "05012abcde",
+  "email": "user_d0233b57c4@example.com",
+  "address": "411 Timothy Divide, Saundersshire, KY 39394",
+  "description": "Appear that stop weight."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T18:46:01",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

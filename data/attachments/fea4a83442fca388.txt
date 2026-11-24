@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "41d1b4c6-001f-4c81-8e94-ec17688b89af",
+      "name": "Jodi",
+      "lastName": "Walker",
+      "email": "user_58746cd059@example.com",
+      "phone": "0533717633",
+      "address": "382 Joseph Manors Suite 973, Grayside, ID 76479",
+      "description": "Ten know history property past."
+    }
+  ]
+}

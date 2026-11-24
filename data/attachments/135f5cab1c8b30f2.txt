@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Mckay",
+  "phone": "0526557866",
+  "email": "user_b0b19a2e3f@example.com",
+  "address": "7108 Jennifer Glens Suite 583, Josephchester, PW 18259",
+  "description": "Everybody bed down out."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ece54133-6ba0-40dc-a5d4-1f4078455e2b"
+}

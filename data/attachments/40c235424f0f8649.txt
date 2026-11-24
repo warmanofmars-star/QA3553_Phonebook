@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tanya",
+  "lastName": "Edwards",
+  "phone": "0528222739",
+  "email": "user_973870b470@example.com",
+  "address": "67230 Snow Light, West Ambermouth, PW 18437",
+  "description": "Something if better whether hotel according."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e6eece32-498b-4021-83a0-ec26cb813afc"
+}

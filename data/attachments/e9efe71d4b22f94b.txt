@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "19bc4a91-3351-453b-bac0-595fee03128d",
+      "name": "Melissa",
+      "lastName": "Newton",
+      "email": "user_09f83492e9@example.com",
+      "phone": "0586393414",
+      "address": "94253 Molly Springs, New Andrewtown, SD 22389",
+      "description": "Phone economic finish themselves yeah news."
+    }
+  ]
+}

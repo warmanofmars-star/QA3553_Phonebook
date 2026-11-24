@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Walker",
+  "phone": "0531186231",
+  "email": "user_9fd337f5c8@example.com",
+  "address": "0190 Tyler Way, Clarkborough, NH 20184",
+  "description": "Box small worker door."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 92039952-1093-4e47-ba86-467efa93e98c"
+}

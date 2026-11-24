@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (197 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Davis",
+  "phone": "0530283663",
+  "email": "user_dce9503f09@example.com",
+  "address": "Unit 1425 Box 3240, DPO AP 86854",
+  "description": "Stock institution almost report kind."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 320c8563-10a7-4acc-b51a-c57939fb7ac6"
+}

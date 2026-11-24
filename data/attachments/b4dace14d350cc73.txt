@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katelyn",
+  "lastName": "Miller",
+  "phone": "0533264558",
+  "email": "user_0d2ec788fb@example.com",
+  "address": "107 Christopher Isle, Heidiland, ID 31151",
+  "description": "Environment police choice leg fact not various."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 69b3d03c-508d-4528-b827-bc22b401ed71"
+}

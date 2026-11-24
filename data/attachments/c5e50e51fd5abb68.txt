@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (146 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Monroe",
+  "phone": "0523269057",
+  "email": "a@b",
+  "address": "252 John Trail Apt. 966, West Lindafort, IA 60957",
+  "description": "Also thousand expect.",
+  "id": "5fc56798-e923-4a99-97e8-3944dfa5a1ee"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anna",
+  "lastName": "Silva",
+  "phone": "0510697304",
+  "email": "user_fcabe96818@example.com",
+  "address": "0892 Cheryl Drives Apt. 179, South Miaside, NC 63676",
+  "description": "Against likely officer attention mean exist mention."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 93ee26ee-4e85-45e9-b074-bd7720282f77"
+}

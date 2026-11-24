@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (77 ms)
+
+--- Тело запроса ---
+{
+  "name": "Troy",
+  "lastName": "Burns",
+  "phone": "0587804490",
+  "email": "user_6283d473bc@example.com",
+  "address": "771 Ochoa Circle Suite 118, Rebeccaland, AR 01736",
+  "description": "Check away product last back role sort discover."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 60d16aec-3c73-48f8-a830-0414a4a442c3"
+}

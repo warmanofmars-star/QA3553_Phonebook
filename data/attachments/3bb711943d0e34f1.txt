@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jermaine",
+  "lastName": "Thomas",
+  "phone": "0511257141",
+  "email": "user_44b63fadad@example.com",
+  "address": "2201 Jackson Springs Suite 827, Port Tanyaview, FL 42029",
+  "description": "Environment space hair."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5312198c-f2d6-4468-8618-d090a8129cde"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73c58573-489f-42e6-b94c-f1212c97c93e",
+      "name": "Christian",
+      "lastName": "Robles",
+      "email": "user_2b0f0a6c28@example.com",
+      "phone": "0525709035",
+      "address": "28553 Cross Stravenue, West Jessicashire, NV 42529",
+      "description": "As player serve represent black everybody."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+18:49:17 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+18:49:18 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+18:49:19 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (471 ms)
+18:49:19 [INFO   ] API: Токен добавлен в заголовки сессии
+18:49:19 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+18:49:20 [INFO   ] STEP: Войти как user_4d807505fc@example.com
+18:49:21 [INFO   ] STEP: Нажать Sign Out
+18:49:25 [INFO   ] DRIVER: Видео 68091ad41c11dd78b512cb1c5bd21cc3.mp4 прикреплено к отчёту

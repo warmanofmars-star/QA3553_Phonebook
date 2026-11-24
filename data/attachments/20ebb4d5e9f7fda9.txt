@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "28783ba2-07c8-4b04-b1a7-59f1eaa23fb2",
+      "name": "Ashley",
+      "lastName": "Reyes",
+      "email": "",
+      "phone": "0587877121",
+      "address": "6718 Johnson Camp Apt. 961, Whiteheadside, CA 40504",
+      "description": "More side leave PM."
+    }
+  ]
+}

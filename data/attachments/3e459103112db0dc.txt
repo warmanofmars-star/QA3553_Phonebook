@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4ce45a8a-35e9-4110-a25d-545077c41531",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Skinner",
+      "email": "user_919ce92ad3@example.com",
+      "phone": "0528071394",
+      "address": "02757 Stevens River, Hernandezton, AL 40571",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

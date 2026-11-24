@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Cortez",
+  "phone": "0528238443",
+  "email": "user_a34e689458@example.com",
+  "address": "746 Duffy Viaduct, Lake Regina, MN 27269",
+  "description": "Best work cold north station television."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e5bd3dc2-0154-44c1-9300-6916c4221397"
+}

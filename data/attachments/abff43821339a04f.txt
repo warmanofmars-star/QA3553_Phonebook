@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ab487364-d880-4dea-ae6a-4755d5a26e69",
+      "name": "Michael",
+      "lastName": "Vega",
+      "email": "user_38e4b317e8@example.com",
+      "phone": "0531023034",
+      "address": "832 Scott Ways, New Garyfort, PW 63237",
+      "description": "Guess scientist government seem."
+    }
+  ]
+}

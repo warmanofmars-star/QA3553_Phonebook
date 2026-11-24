@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (44 ms)
+
+--- Тело запроса ---
+{
+  "name": "   ",
+  "lastName": "Krueger",
+  "phone": "0561625047",
+  "email": "user_bf83a71378@example.com",
+  "address": "401 Barbara Inlet Apt. 498, Figueroaborough, NJ 05750",
+  "description": "Between include medical financial behavior."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T18:46:04",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

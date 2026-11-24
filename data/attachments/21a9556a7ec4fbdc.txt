@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a514f8b8-d482-476c-b186-5894bd20ea1b",
+      "name": "Michael",
+      "lastName": "Robertson",
+      "email": "user_0a42ac8c57@example.com",
+      "phone": "0521133672",
+      "address": "675 Jessica Street Apt. 200, Ramirezberg, GU 55175",
+      "description": "Cut white pass information side little."
+    },
+    {
+      "id": "f1804c24-0c11-4074-a74a-7f31444996e3",
+      "name": "Donald",
+      "lastName": "Foster",
+      "email": "user_9ab5649516@example.com",
+      "phone": "0521133672",
+      "address": "74059 Jason Crossroad, Simmonsland, DC 14964",
+      "description": "Somebody play bring."
+    }
+  ]
+}

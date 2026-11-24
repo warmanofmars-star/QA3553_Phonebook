@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (149 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrea",
+  "lastName": "Wong",
+  "phone": "0589430922",
+  "email": "user_6477da4318@example.com",
+  "address": "USCGC Johnson, FPO AE 99128",
+  "description": "12345",
+  "id": "d9593300-9582-4798-a03b-2a7b5f51fcb5"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

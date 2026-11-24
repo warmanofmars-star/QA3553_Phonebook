@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Chang",
+  "phone": "0536820026",
+  "email": "@example.com",
+  "address": "0689 Cochran Fall, Wallsfort, RI 18250",
+  "description": "Bring letter cost.",
+  "id": "40102f19-77db-4629-b91f-355f867c5ceb"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T18:46:22",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

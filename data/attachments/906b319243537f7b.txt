@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "db4c02dd-1eb7-4861-8049-36f8fd888aa1",
+      "name": "Chris",
+      "lastName": "Manning",
+      "email": "user_6330f873eb@example.com",
+      "phone": "0548674322",
+      "address": "5216 Ronnie Creek, South Christopher, WY 13650",
+      "description": "Stay bag safe central perhaps teach."
+    }
+  ]
+}

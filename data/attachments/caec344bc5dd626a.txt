@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kirk",
+  "lastName": "Skinner",
+  "phone": "0528071394",
+  "email": "user_919ce92ad3@example.com",
+  "address": "02757 Stevens River, Hernandezton, AL 40571",
+  "description": "Pass lose stop need north dinner defense hospital."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4ce45a8a-35e9-4110-a25d-545077c41531"
+}

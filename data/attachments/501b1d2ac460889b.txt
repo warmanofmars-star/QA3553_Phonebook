@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Rollins",
+  "email": "user_73188082d3@example.com",
+  "address": "18341 Frazier Ridge Suite 377, Port Sylvia, AS 11651",
+  "description": "Head must player computer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 45d8d833-9363-4301-8d52-4e6d22a0cb1d"
+}

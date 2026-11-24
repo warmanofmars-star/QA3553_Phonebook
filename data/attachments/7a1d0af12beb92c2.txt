@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (85 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Brewer",
+  "phone": "0531674348",
+  "email": "user_14bf04f099@example.com",
+  "address": "6249 Kelsey Mills, Luisview, WV 71516",
+  "description": "Gun dinner their.",
+  "id": "86441fb5-4bc3-4ee7-8734-e0e3d7922ce4"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-24T18:46:13",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

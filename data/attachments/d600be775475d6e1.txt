@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (79 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8915c706-5a42-4eeb-b726-fbe3fdd68357",
+      "name": "Katelyn",
+      "lastName": "Marsh",
+      "email": "",
+      "phone": "0525072348",
+      "address": "USNS Brown, FPO AA 73356",
+      "description": "You likely gas foot."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (75 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amy",
+  "lastName": "Villa",
+  "phone": "0528201697",
+  "email": "user_8f6e9416e1@example.com",
+  "address": "181 Philip Stream Suite 689, Laurenfurt, MH 38486",
+  "description": "Well him wrong best."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cbac6af2-86ec-4784-a8a9-9e3f7bd09ee0"
+}

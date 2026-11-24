@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "13993f3b-8617-4786-8d85-ad6fa0bb6104",
+      "name": "Mary",
+      "lastName": "Alvarado",
+      "email": "user_7d01ea5bb3@example.com",
+      "phone": "0525449848",
+      "address": "9770 Elizabeth Mount, New Henry, UT 95724",
+      "description": "Purpose under talk down."
+    }
+  ]
+}

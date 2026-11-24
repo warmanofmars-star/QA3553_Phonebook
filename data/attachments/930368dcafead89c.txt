@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "02e5eae6-4bf2-43b2-b592-842fdcfd391d",
+      "name": "Wanda",
+      "lastName": "Hanna",
+      "email": "user_7c5fde1e07@example.com",
+      "phone": "0520263901",
+      "address": "670 Heather Gardens, Lake Jasonland, OH 36311",
+      "description": "Couple exist alone."
+    }
+  ]
+}

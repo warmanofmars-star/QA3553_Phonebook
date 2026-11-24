@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+{
+  "name": "Randy",
+  "lastName": "Austin",
+  "phone": "0516741240",
+  "email": "user_5fdcc2ae9e@example.com",
+  "address": "665 Edwards Motorway, New Lori, ME 67313",
+  "description": "Speech street Congress director thus play story appear."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f31d96f0-7a99-4604-b83f-319718bac83f"
+}

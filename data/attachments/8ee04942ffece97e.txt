@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jodi",
+  "lastName": "Walker",
+  "phone": "0533717633",
+  "email": "user_58746cd059@example.com",
+  "address": "382 Joseph Manors Suite 973, Grayside, ID 76479",
+  "description": "Ten know history property past."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 41d1b4c6-001f-4c81-8e94-ec17688b89af"
+}

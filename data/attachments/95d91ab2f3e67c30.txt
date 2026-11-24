@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Marissa",
+  "lastName": "White",
+  "phone": "0515515920",
+  "email": "user_53d6b3ffce@example.com",
+  "address": "148 Jack Lock Apt. 708, East Christinafort, VI 63150",
+  "description": "Fight put beat once."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b7bdfb5b-3de6-4480-8213-3bd753a582cb"
+}

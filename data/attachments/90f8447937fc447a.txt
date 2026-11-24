@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kenneth",
+  "lastName": "Brewer",
+  "phone": "0531674348",
+  "email": "user_14bf04f099@example.com",
+  "address": "6249 Kelsey Mills, Luisview, WV 71516",
+  "description": "Gun dinner their."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 86441fb5-4bc3-4ee7-8734-e0e3d7922ce4"
+}

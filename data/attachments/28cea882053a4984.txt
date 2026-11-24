@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (70 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d45739ca-5069-4b52-ac07-8896812aac0a",
+      "name": "Penny",
+      "lastName": "King",
+      "email": "user_dd9c743984@example.com",
+      "phone": "0520644501",
+      "address": "!@#$%^&*()_+-=",
+      "description": "Baby still truth event contain."
+    }
+  ]
+}

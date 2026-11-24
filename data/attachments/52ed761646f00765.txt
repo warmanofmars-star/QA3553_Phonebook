@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3b0d1152-82af-42a6-9f1c-c3afe0123640",
+      "name": "Suzanne",
+      "lastName": "Stephens",
+      "email": "user_da74bb17e2@example.com",
+      "phone": "0520509161",
+      "address": "65461 Debra Pine Apt. 963, Greerport, TX 38783",
+      "description": "Action commercial even save voice."
+    }
+  ]
+}

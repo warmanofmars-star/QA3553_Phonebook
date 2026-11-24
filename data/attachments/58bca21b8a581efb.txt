@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (78 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alexis",
+  "lastName": "Payne",
+  "phone": "0532934593",
+  "email": "user_551deb8f46@example.com",
+  "address": "20870 Michael Meadows Suite 114, New Kristinaton, VA 45415",
+  "description": "Drug in behavior light."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8c6d4384-bd60-4369-924f-3d8f2b0ca26f"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (118 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "26eea48c-9745-4a2b-872d-7b6d41ac6a9e",
+      "name": "Marcia",
+      "lastName": "Washington",
+      "email": "user_724b5cfbc3@example.com",
+      "phone": "0568160166",
+      "address": "52300 Timothy Mill Apt. 621, Lake Brian, CO 38894",
+      "description": ""
+    }
+  ]
+}

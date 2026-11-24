@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3ae64217-6fe8-41f4-b15c-f56d2398bf6f",
+      "name": "Paige",
+      "lastName": "Hunter",
+      "email": "user_bda1d462d5@example.com",
+      "phone": "0529753407",
+      "address": "5807 Obrien Lane, New Rachelberg, IN 60197",
+      "description": "Final arrive serve."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carol",
+  "lastName": "Lee",
+  "phone": "0531593449",
+  "email": "user_ba79d7f125@example.com",
+  "address": "099 Gordon Mountains Suite 145, North Sabrina, MO 50811",
+  "description": "Kitchen live care create draw."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fd918876-8801-45ce-a66e-44ec5cfef3be"
+}

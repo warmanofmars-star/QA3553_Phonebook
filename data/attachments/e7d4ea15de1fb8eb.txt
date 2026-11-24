@@ -1,0 +1,15 @@
+18:47:43 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+18:47:43 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+18:47:44 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (321 ms)
+18:47:44 [INFO   ] API: Токен добавлен в заголовки сессии
+18:47:44 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+18:47:45 [INFO   ] STEP: Войти как user_d1e08deefd@example.com
+18:47:46 [INFO   ] API: POST /v1/contacts -> 200 (84 ms)
+18:47:46 [INFO   ] API: GET /v1/contacts -> 200 (92 ms)
+18:47:46 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+18:47:46 [INFO   ] STEP: Открыть карточку контакта 0532038185
+18:47:47 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+18:47:47 [INFO   ] STEP: Изменить поля формы редактирования
+18:47:47 [INFO   ] STEP: Изменить поле description на 'Second measure half population skin common.'
+18:47:52 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Second measure half population skin common.', фактически '[object Undefined]'
+18:47:55 [INFO   ] DRIVER: Видео c103b12e7fd05cf4c919d0b9128ab1a6.mp4 прикреплено к отчёту

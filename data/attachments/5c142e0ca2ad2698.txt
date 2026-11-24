@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (80 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mia",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0563092543",
+  "email": "user_9b726092d6@example.com",
+  "address": "6438 Ryan Islands, Port Kennethtown, NM 46021",
+  "description": "Education six seven role."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 59d582d4-725c-4d14-8b2c-66999523ea3c"
+}
