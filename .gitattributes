@@ -1,0 +1,28 @@
+# Окончания строк. В репозитории все текстовые файлы хранятся с LF, и в рабочей копии тоже LF —
+# независимо от core.autocrlf на машине (Git для Windows по умолчанию ставит true и выкладывает CRLF).
+# Причина: рабочая папка монтируется в Linux-контейнеры и копируется в образ (Dockerfile, COPY . .),
+# файлы попадают на раннеры CI; там bash падает на shell-скриптах с CRLF ("\r": command not found),
+# а смешанные окончания строк засоряют diff.
+* text=auto eol=lf
+
+# Скрипты Windows, если появятся, исполняет cmd/PowerShell — им нужен CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Двоичные файлы: не нормализовать и не показывать текстовый diff.
+# Сейчас таких файлов в git нет — список с запасом, чтобы первая же картинка, PDF или архив
+# не были испорчены преобразованием окончаний строк.
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.bmp binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.7z binary
+*.mp4 binary
+*.webm binary
