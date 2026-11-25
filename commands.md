@@ -125,15 +125,18 @@
 не правятся. Пересборка — только в контейнере с образом из строки `FROM` в `Dockerfile`: pip-compile
 разрешает зависимости под текущие ОС и Python, на Windows в lock попали бы пакеты вроде colorama.
 
-**Пересобрать lock-файлы (PowerShell, из корня проекта):**
-`docker run --rm -v "${PWD}:/src" -w /src python:3.14-slim-bookworm bash ci/lock_requirements.sh`
-*(образ — тот же, что в `FROM` в `Dockerfile`; поменяли там — меняйте и здесь)*
+**Сначала — образ из строки `FROM` в `Dockerfile` (PowerShell, из корня проекта; один раз на сессию):**
+`$img = (Select-String -Path Dockerfile -Pattern '^FROM\s+(\S+)' | Select-Object -First 1).Matches[0].Groups[1].Value; $img`
+*(тег не вписан в команды руками: версия Python живёт только в `FROM`, поменяли там — команды подхватят сами)*
+
+**Пересобрать lock-файлы:**
+`docker run --rm -v "${PWD}:/src" -w /src $img bash ci/lock_requirements.sh`
 
 **Поднять один пакет до последней версии, допустимой исходником:**
-`docker run --rm -v "${PWD}:/src" -w /src python:3.14-slim-bookworm bash ci/lock_requirements.sh --upgrade-package requests`
+`docker run --rm -v "${PWD}:/src" -w /src $img bash ci/lock_requirements.sh --upgrade-package requests`
 
 **Проверить, что lock-файлы соответствуют исходникам (то же делает job Lint):**
-`docker run --rm -v "${PWD}:/src" -w /src python:3.14-slim-bookworm bash ci/lock_requirements.sh --check`
+`docker run --rm -v "${PWD}:/src" -w /src $img bash ci/lock_requirements.sh --check`
 Код 0 — пины совпадают, 1 — расходятся (печатается, что добавится, исчезнет, изменится). Сравниваются пины
 «имя==версия», а не текст: шапка и пометки `# via` зависят от версии pip-tools.
 

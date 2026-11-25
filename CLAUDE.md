@@ -61,7 +61,15 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
   `commands.md`, «Обновить зависимости»). Установка — `pip install -r requirements.txt -r requirements-dev.txt`.
   Актуальность проверяет job Lint (`ci/lock_requirements.sh --check`) — по пинам «имя==версия»,
   а не по тексту. Без `--upgrade` и без хэшей.
+- **У каждого инструмента — одно место версии.** ruff — `requirements-dev.in` (хуки ruff
+  в `.pre-commit-config.yaml` — `repo: local`, `language: system`; job Lint ставит ruff из lock-файла);
+  gitleaks — `rev` в `.pre-commit-config.yaml` (job Secrets читает оттуда тег образа; rev не вида
+  `vX.Y.Z` — красный шаг); Python для Docker — точный тег в `FROM` в `Dockerfile` (команды пересборки
+  lock-файлов в `commands.md` читают его оттуда). Дубли версий не заводи. Коммить из активированного
+  `.venv` — иначе хуки ruff не найдут ruff.
 - Совместимость кода — Python 3.12+ (`target-version` в `pyproject.toml`), запуск — на 3.14.
+  Локальный venv — `py -3.14 -m venv .venv` (Windows) или `python3.14 -m venv .venv`: просто `python`
+  может оказаться другой версией.
 - **Требования проекта — в `docs/requirements/`** (SRS в PDF, лежит только локально,
   в git не попадает). Ожидаемые результаты тестов берутся оттуда; номера требований
   (T1–T86, F1–F16) используются в тегах тестов, например `@allure.tag("SRS-T41")`.
