@@ -40,14 +40,9 @@ jobs:
       - name: Скачиваем код проекта
         uses: actions/checkout@v7
 
-      - name: Проверяем код линтером и форматтером
-        run: |
-          python3 -m pip install --quiet ruff==0.17.1   # та же версия, что в requirements-dev.txt
-          ruff check --output-format=github .           # замечания появятся прямо в diff PR
-          ruff format --check .
-
       # Генератору матрицы нужен pytest со всеми плагинами и conftest.py проекта:
-      # он собирает тесты (не запуская их). Python — тот же, что в Docker-образе с тестами
+      # он собирает тесты (не запуская их). Python — тот же, что в Docker-образе с тестами.
+      # ruff от версии интерпретатора не зависит (цель — в pyproject.toml)
       - name: Ставим Python и зависимости проекта
         uses: actions/setup-python@v7
         with:
@@ -58,20 +53,30 @@ jobs:
             requirements-dev.txt
 
       # Lock-файлы: requirements-dev.txt — слой поверх requirements.txt (-c, а не -r),
-      # поэтому ставятся оба
+      # поэтому ставятся оба. ruff — тоже отсюда: его версия записана только
+      # в requirements-dev.in (как и для локальных хуков ruff в .pre-commit-config.yaml)
       - name: Устанавливаем зависимости
         run: python -m pip install --quiet -r requirements.txt -r requirements-dev.txt
+
+      # Следующие шаги — с !cancelled(): идут и после упавшего соседа, в логе видны
+      # все проблемы сразу
+      - name: Проверяем код линтером (ruff check)
+        run: ruff check --output-format=github .    # замечания появятся прямо в diff PR
+
+      - name: Проверяем форматирование (ruff format --check)
+        if: ${{ !cancelled() }}
+        run: ruff format --check .
 
       # Матрица docs/coverage.md строится из тегов тестов. Если тесты или справочник
       # требований изменились, а матрицу не пересобрали — шаг упадёт и покажет расхождение
       - name: Проверяем, что матрица покрытия актуальна
+        if: ${{ !cancelled() }}
         run: python ci/coverage_matrix.py --check
 
       # Lock-файлы соответствуют requirements.in / requirements-dev.in: пересборка во временный
       # каталог и сравнение пинов «имя==версия», а не текста — шапка и пометки «# via» зависят
       # от версии pip-tools. Раннер — Linux, Python — тот же, что в образе (иначе скрипт
       # откажется работать). Рабочее дерево не меняется; расхождение печатается по пакетам.
-      # !cancelled(): шаг идёт и после упавшей матрицы — видны все проблемы сразу
       - name: Проверяем, что lock-файлы зависимостей актуальны
         if: ${{ !cancelled() }}
         run: |

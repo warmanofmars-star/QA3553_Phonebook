@@ -10,6 +10,7 @@
 # Если хук нашёл проблему, коммит не создаётся. Часть хуков исправляет файлы сама —
 # тогда достаточно проверить изменения, снова сделать `git add` и повторить коммит.
 # Версии (rev) зафиксированы: обновлять их стоит осознанно, командой `pre-commit autoupdate`.
+# Версия ruff — не здесь, а в requirements-dev.in (хуки ruff — local, см. ниже).
 
 repos:
   # Базовая гигиена файлов
@@ -25,13 +26,29 @@ repos:
         args: [--maxkb=1024]
       - id: detect-private-key         # приватные ключи (SSH, TLS)
 
-  # Линтер и форматтер Python (настройки — в pyproject.toml)
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.17.1                       # та же версия, что в requirements-dev.txt
+  # Линтер и форматтер Python (настройки — в pyproject.toml).
+  # language: system — ruff берётся из текущего окружения, поставленного из lock-файла
+  # requirements-dev.txt: единственный источник версии — requirements-dev.in (job Lint ставит
+  # ruff оттуда же). Раньше версия жила ещё в rev хука и в шаге job Lint, и три записи
+  # приходилось менять синхронно. Поэтому коммить из активированного .venv: без него ruff
+  # не найдётся, и хук упадёт.
+  # Поля хуков — как у прежнего хука astral-sh/ruff-pre-commit (entry с --force-exclude, types_or,
+  # require_serial)
+  - repo: local
     hooks:
       - id: ruff-check
-        args: [--fix]                  # исправимое — исправит сам
+        name: ruff check
+        entry: ruff check --force-exclude
+        language: system
+        types_or: [python, pyi, jupyter]
+        require_serial: true
+        args: [--fix]                  # исправимое — исправит сам, коммит всё равно остановится
       - id: ruff-format
+        name: ruff format
+        entry: ruff format --force-exclude
+        language: system
+        types_or: [python, pyi, jupyter, markdown]
+        require_serial: true
 
   # Поиск секретов в добавляемых изменениях: пароли, токены, ключи API.
   # Ровно та проблема, с которой начинался рефакторинг проекта.
