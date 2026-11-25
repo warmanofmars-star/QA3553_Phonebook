@@ -121,9 +121,38 @@ jobs:
           fi
           echo "Проверяемые коммиты: $LOG_OPTS"
 
-          # Официальный образ той же версии, что в .pre-commit-config.yaml.
+          # Версия образа — rev репозитория gitleaks в .pre-commit-config.yaml: единственный
+          # источник, хук и CI не разъедутся. setup-python и PyYAML в этом job нет — разбираем
+          # текст на stdlib: блок репозитория — от его строки «- repo:» до следующей.
+          # Закрыто по умолчанию: репозиторий найден не ровно один раз, rev в блоке не один
+          # или не вида vX.Y.Z — шаг падает, а не берёт версию «по умолчанию»
+          if ! GITLEAKS_VERSION=$(python3 - <<'PY'
+          import re
+          import sys
+
+          REPO = "https://github.com/gitleaks/gitleaks"
+          with open(".pre-commit-config.yaml", encoding="utf-8") as config_file:
+              text = config_file.read()
+          blocks = re.split(r"(?m)^[ \t]*-[ \t]+repo:", text)[1:]
+          found = [b for b in blocks if b.split("\n", 1)[0].split("#", 1)[0].strip().strip("'\"") == REPO]
+          if len(found) != 1:
+              sys.exit(f"репозиторий {REPO} в .pre-commit-config.yaml найден {len(found)} раз, нужен ровно один")
+          revs = re.findall(r"(?m)^[ \t]*rev:[ \t]*['\"]?([^'\"\s#]*)", found[0])
+          if len(revs) != 1:
+              sys.exit(f"у репозитория {REPO} строк rev: {len(revs)}, нужна ровно одна")
+          if re.fullmatch(r"v\d+\.\d+\.\d+", revs[0]) is None:
+              sys.exit(f"rev gitleaks {revs[0]!r} не вида vX.Y.Z")
+          print(revs[0])
+          PY
+          ); then
+            echo "::error::Не удалось прочитать версию gitleaks из .pre-commit-config.yaml (причина — выше)"
+            exit 1
+          fi
+          echo "gitleaks ${GITLEAKS_VERSION} (rev из .pre-commit-config.yaml)"
+
+          # Официальный образ этой версии.
           # --redact: найденный секрет не попадёт в публичный лог GitHub Actions
-          docker run --rm -v "$PWD:/repo" zricethezav/gitleaks:v8.30.1 \
+          docker run --rm -v "$PWD:/repo" "zricethezav/gitleaks:${GITLEAKS_VERSION}" \
             git /repo --config /repo/.gitleaks.toml --redact --verbose --log-opts="$LOG_OPTS"
 
   # ==========================================
