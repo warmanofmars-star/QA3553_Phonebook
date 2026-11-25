@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0a592836-f336-4bff-8a64-d0ca4a042cd7",
+      "name": "Aaron",
+      "lastName": "!@#$%^&*()_+-=",
+      "email": "user_ab7f3b1800@example.com",
+      "phone": "0580496299",
+      "address": "9270 Chavez Pines Apt. 689, Port Robert, OR 60576",
+      "description": "Study music memory town citizen sea law."
+    }
+  ]
+}

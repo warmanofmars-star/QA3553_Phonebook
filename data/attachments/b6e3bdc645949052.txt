@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1bf2b618-e7a1-42e5-a5d4-ed5f2dd85556",
+      "name": "Patrick",
+      "lastName": "Andrade",
+      "email": "user_b082bc9c10@example.com",
+      "phone": "0532246678",
+      "address": "23108 Tammy Alley Suite 823, Ryanchester, MO 47543",
+      "description": "Teach suddenly happy necessary then old hear."
+    },
+    {
+      "id": "e9de8f48-714d-4967-9618-3dedd7939c10",
+      "name": "Hannah",
+      "lastName": "Rodriguez",
+      "email": "user_558a40e995@example.com",
+      "phone": "0532246678",
+      "address": "USS Singleton, FPO AP 59368",
+      "description": "Represent there while trip both deep lot."
+    }
+  ]
+}

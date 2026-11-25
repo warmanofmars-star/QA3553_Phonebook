@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patricia",
+  "lastName": "Ryan",
+  "phone": "0513354135",
+  "email": "user_c02246d485@example.com",
+  "address": "4547 Cook Club, Markshaven, NE 42429",
+  "description": "Together time direction tend movement."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1adf3949-d065-4b17-bb1c-fe558faa688f"
+}

@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Burgess",
+  "phone": "0524478780",
+  "email": "a@b",
+  "address": "89504 Brown Street Apt. 878, Phamburgh, FL 29890",
+  "description": "Popular oil evidence far reason.",
+  "id": "494a64db-855a-4541-8fc6-8639a07f1f33"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

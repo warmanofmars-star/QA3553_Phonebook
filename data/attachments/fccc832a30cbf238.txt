@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e97b89df-2a27-40dc-bc81-82097aaf2272",
+      "name": "Alexis",
+      "lastName": "Casey",
+      "email": "user_808e61e9e4@example.com",
+      "phone": "0520170879",
+      "address": "9689 Jasmine Fork Apt. 562, Samuelchester, FL 68140",
+      "description": "Catch suggest everyone activity information memory."
+    },
+    {
+      "id": "43bcdbc0-a57e-4565-82f8-8add7f111a6e",
+      "name": "Dakota",
+      "lastName": "Pham",
+      "email": "user_89b9f6922c@example.com",
+      "phone": "0510376799",
+      "address": "69766 Wheeler Via Apt. 833, New Juanchester, TX 74496",
+      "description": "Own close measure company traditional he."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "45b14845-8735-4029-9f4e-25118a4ce149",
+      "name": "Christopher",
+      "lastName": "Long",
+      "email": "user_86f937beee@example.com",
+      "phone": "0531539415",
+      "address": "2646 Peter Squares Suite 688, Port Bethfurt, OH 64786",
+      "description": "North marriage whatever end process police speech wind."
+    }
+  ]
+}

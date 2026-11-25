@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Smith",
+  "phone": "0565487738",
+  "email": "user_9d58bd0d9a@example.com",
+  "address": "70765 Ryan Villages Apt. 021, New Anthony, DC 18542",
+  "description": "Region price yet road."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7cf10317-fcae-428c-871e-e63d1f2efeb1"
+}

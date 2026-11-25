@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Adriana",
+  "lastName": "Morrison",
+  "phone": "0526879053",
+  "email": "user_e42dd1d0be@example.com",
+  "address": "257 Sharp Mountains Suite 523, West Jamesside, NY 96121",
+  "description": "Though majority behind direction clear animal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b0e24a3b-114a-4d16-a39b-a63e100cf8c0"
+}

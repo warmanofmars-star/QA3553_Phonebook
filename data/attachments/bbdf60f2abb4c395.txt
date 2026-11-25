@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Moyer",
+  "phone": "0520755654",
+  "email": "user_7bdf663a94@example.com",
+  "address": "693 Vanessa Rue Suite 954, South Kelly, MI 81652",
+  "description": "Reduce Mr mention college."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 496dffa1-4273-4455-8eac-f20a320264f0"
+}

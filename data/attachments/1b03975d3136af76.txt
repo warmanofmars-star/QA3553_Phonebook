@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cheyenne",
+  "lastName": "Williams",
+  "phone": "0528080569",
+  "email": "user_d50ab051d2@example.com",
+  "address": "00198 Susan Passage Apt. 960, New Dawn, AS 74145",
+  "description": "Free box age."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a244d542-b920-4994-bf76-d447907f765d"
+}

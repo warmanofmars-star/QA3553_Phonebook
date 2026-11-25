@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3193a084-38dc-4269-a40c-3005225a6034",
+      "name": "Cesar",
+      "lastName": "Lawson",
+      "email": "user_088fa1c3a7@example.com",
+      "phone": "0531946020",
+      "address": "3403 Jamie Parkways Suite 182, Port Robert, NC 61733",
+      "description": "One anything on official pull into."
+    }
+  ]
+}

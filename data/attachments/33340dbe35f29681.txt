@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "efeaadf0-8b50-47f3-8a59-a67e28a88f28",
+      "name": "Russell",
+      "lastName": "Wells",
+      "email": "user_2e1febb18e@example.com",
+      "phone": "0513635643",
+      "address": "7781 Brian Neck Apt. 110, Johnsonport, NE 43317",
+      "description": "Certainly beautiful sell dream make half."
+    },
+    {
+      "id": "a0a66aca-0cfd-4052-9c54-4b9ee258d3f7",
+      "name": "Tyler",
+      "lastName": "Hayes",
+      "email": "user_fa1f71ba06@example.com",
+      "phone": "0512881389",
+      "address": "97987 Decker Meadows Suite 728, West Curtisborough, GA 41179",
+      "description": "Moment ever few career."
+    }
+  ]
+}

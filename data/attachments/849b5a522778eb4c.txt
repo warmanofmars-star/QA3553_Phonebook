@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Regina",
+  "lastName": "Hughes",
+  "phone": "0582752270",
+  "email": null,
+  "address": "770 Tracy Manor, West Joshua, ME 83995",
+  "description": "Visit loss else use base south central price.",
+  "id": "fa3c6845-6ec8-41a5-8d1b-d2d8425f87e0"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

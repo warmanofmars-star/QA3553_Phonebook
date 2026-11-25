@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "74427166-88e6-4c7a-a232-2c54aef1e3ad",
+      "name": "Tina",
+      "lastName": "Bridges",
+      "email": "user_77d315c9ae@example.com",
+      "phone": "0527671207",
+      "address": "790 Frazier Via Apt. 320, North Jamesville, DC 90548",
+      "description": "Stay analysis nation wide."
+    },
+    {
+      "id": "67469db8-1a6c-4665-971a-0eedbb2913e1",
+      "name": "Jeffrey",
+      "lastName": "Welch",
+      "email": "user_13624eccb2@example.com",
+      "phone": "0511196726",
+      "address": "6214 Robert Pines, Dawsonhaven, CO 27315",
+      "description": "Trade force early research contain quite."
+    }
+  ]
+}

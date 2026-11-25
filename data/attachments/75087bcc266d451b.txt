@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Laurie",
+  "lastName": "Cobb",
+  "phone": "0551566359",
+  "email": "user_6b36b29be4@example.com",
+  "address": "71440 Carpenter Radial, Jonathanberg, FL 28603",
+  "description": "Sort road item learn."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e391cad2-6051-490a-a4a7-1b47290f49bc"
+}

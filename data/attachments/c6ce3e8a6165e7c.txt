@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Todd",
+  "lastName": "Watson",
+  "phone": "0517470746",
+  "email": "user_8772fccce9@example.com",
+  "address": "832 Brady Track Suite 237, Smithburgh, AK 98677",
+  "description": "Throughout high pressure within wait maybe determine."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 95ad978c-1339-438a-ba35-e2d812d01149"
+}

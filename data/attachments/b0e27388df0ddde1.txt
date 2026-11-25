@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "30c1138c-a898-408b-bb37-65e2b02d395a",
+      "name": "Marissa",
+      "lastName": "Phillips",
+      "email": "user_e8649f714d@example.com",
+      "phone": "0587565510",
+      "address": "629 Jackson Forks, West Marcusmouth, IA 94494",
+      "description": "National head character."
+    }
+  ]
+}

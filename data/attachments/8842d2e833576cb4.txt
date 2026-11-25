@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Henry",
+  "lastName": "Bishop",
+  "phone": "0516707529",
+  "email": "user_aed7b04da0@example.com",
+  "address": "USNV Stanton, FPO AP 26522",
+  "description": "Center degree born top."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3321e989-ad0c-425d-a846-6df262e70bef"
+}

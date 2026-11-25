@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a244d542-b920-4994-bf76-d447907f765d",
+      "name": "Cheyenne",
+      "lastName": "Williams",
+      "email": "user_d50ab051d2@example.com",
+      "phone": "0528080569",
+      "address": "00198 Susan Passage Apt. 960, New Dawn, AS 74145",
+      "description": "Free box age."
+    }
+  ]
+}

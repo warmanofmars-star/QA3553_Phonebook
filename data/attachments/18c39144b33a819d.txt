@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Lee",
+  "phone": "0533573850",
+  "email": "user_443a916a8a@example.com",
+  "address": "304 Robert Station, Torresburgh, PA 15477",
+  "description": "Reason drug in sing pressure social new."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 036b3cf3-2c02-4c41-a7ce-93befa860278"
+}

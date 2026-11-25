@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Donald",
+  "lastName": "Caldwell",
+  "phone": "0520368946",
+  "email": "user_3f323fa683@example.com",
+  "address": "2681 Robert Throughway, Rangelborough, WA 70883",
+  "description": "Marriage chance market anything."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d1672145-9528-4435-bdfd-857cab73a445"
+}

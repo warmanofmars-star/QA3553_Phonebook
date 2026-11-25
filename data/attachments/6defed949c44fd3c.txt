@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f0219f85-66f4-41fa-af5e-0cc97eae93f7",
+      "name": "Nicole",
+      "lastName": "Mcdonald",
+      "email": "user_0fee7a6800@example.com",
+      "phone": "0598854394",
+      "address": "088 James Ridges Suite 491, Chadland, NV 91095",
+      "description": "12345"
+    }
+  ]
+}

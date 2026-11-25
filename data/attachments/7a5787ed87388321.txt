@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jerry",
+  "lastName": "Turner",
+  "phone": "0571612005",
+  "email": "user_97cabba79c@example.com",
+  "address": "830 Medina Shores Apt. 259, Andersonfurt, IA 03049",
+  "description": "Scientist yes somebody serve gun large."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 609e3d8f-f554-4406-a749-3f226da5f14c"
+}

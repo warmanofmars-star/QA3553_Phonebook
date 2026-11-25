@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6d4770ae-5f7d-448d-9aa4-7cb82608c054",
+      "name": "Jack",
+      "lastName": "Schaefer",
+      "email": "user_bac7c47884@example.com",
+      "phone": "0585191479",
+      "address": "22682 Jackson Rest Apt. 190, Owensshire, NH 47654",
+      "description": "More letter weight enjoy glass."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sue",
+  "lastName": "Lee",
+  "phone": "0530647942",
+  "email": "user_f76beeaf52@example.com",
+  "address": "45334 Peters Wells, West Kellifurt, DC 62122",
+  "description": "Citizen design feel system."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f935c8d6-4996-4065-9204-b927727eb1da"
+}

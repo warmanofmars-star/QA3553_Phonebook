@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (10 ms)
+
+--- Тело запроса ---
+{
+  "name": "Austin",
+  "lastName": "Villarreal",
+  "phone": "   ",
+  "email": "user_ea5b2c2b32@example.com",
+  "address": "8058 Diaz Creek Suite 903, Diamondton, GU 69015",
+  "description": "Walk watch challenge president painting show bag."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:10:06",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

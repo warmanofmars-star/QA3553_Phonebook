@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Ware",
+  "phone": "0529239399",
+  "email": "user_accb7fd09d@example.com",
+  "address": "1250 Parker Skyway Suite 966, South Daniel, SC 91196",
+  "description": "Minute amount thing service mind work item author."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1b37ba08-00bf-46f9-94fe-ce82cdd91c68"
+}

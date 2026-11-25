@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a244d542-b920-4994-bf76-d447907f765d",
+      "name": "Cheyenne",
+      "lastName": "Williams",
+      "email": "user_d50ab051d2@example.com",
+      "phone": "0528080569",
+      "address": "00198 Susan Passage Apt. 960, New Dawn, AS 74145",
+      "description": "Free box age."
+    },
+    {
+      "id": "041b2436-51bf-487a-9b56-bd5c68f12ba9",
+      "name": "Ruth",
+      "lastName": "Ward",
+      "email": "user_ac5738116d@example.com",
+      "phone": "0519978661",
+      "address": "63466 Gray Prairie Apt. 971, West Mark, IA 25270",
+      "description": "Television son front rise environmental anyone."
+    }
+  ]
+}

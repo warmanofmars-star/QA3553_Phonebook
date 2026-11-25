@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Laura",
+  "lastName": "Palmer",
+  "phone": "0512936064",
+  "email": "user_f56ce04e4c@example.com",
+  "address": "7540 Kelly Cove Suite 422, Allisonhaven, ID 58944",
+  "description": "Network with view keep one."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2c5d8cd5-aac8-4a55-851f-f696c0ec65ec"
+}

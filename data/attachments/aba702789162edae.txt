@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tyler",
+  "lastName": "Hayes",
+  "phone": "0512881389",
+  "email": "user_fa1f71ba06@example.com",
+  "address": "97987 Decker Meadows Suite 728, West Curtisborough, GA 41179",
+  "description": "Moment ever few career."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a0a66aca-0cfd-4052-9c54-4b9ee258d3f7"
+}

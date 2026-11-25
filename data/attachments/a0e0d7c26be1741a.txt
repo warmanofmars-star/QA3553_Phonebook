@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Watson",
+  "phone": "0510468072",
+  "email": "user_6c6e86d5fc@example.com",
+  "address": "14844 Cathy Mall Apt. 956, Jenniferside, DE 36205",
+  "description": "Million gas quickly place."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7b9bfd9a-c29c-4571-abc3-3647a0c0ba19"
+}

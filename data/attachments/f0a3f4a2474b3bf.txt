@@ -1,0 +1,12 @@
+14:10:49 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+14:10:49 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+14:10:52 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (208 ms)
+14:10:52 [INFO   ] API: Токен добавлен в заголовки сессии
+14:10:52 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+14:10:53 [INFO   ] STEP: Войти как user_c347f4e4fe@example.com
+14:10:54 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/add
+14:10:54 [INFO   ] STEP: Заполнить форму контакта (телефон abcdefghij)
+14:10:54 [INFO   ] STEP: Нажать Save
+14:10:55 [INFO   ] UI: Текст Alert: ' Phone not valid: Phone number must contain only digits! And length min 10, max 15!'
+14:10:55 [INFO   ] STEP: Закрыть Alert (OK)
+14:10:58 [INFO   ] DRIVER: Видео cd6c5f85-6c43-404a-9e26-b4ac80566d6c.mp4 прикреплено к отчёту

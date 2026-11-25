@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "482843ef-4492-42b4-b9bc-51688806d581",
+      "name": "Jared",
+      "lastName": "Watts",
+      "email": "user_0374775458@example.com",
+      "phone": "0514455964",
+      "address": "397 Kristina Ramp Suite 597, Hartmanland, NE 29409",
+      "description": ""
+    }
+  ]
+}

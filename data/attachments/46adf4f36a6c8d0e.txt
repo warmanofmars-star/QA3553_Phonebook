@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (11 ms)
+
+--- Тело запроса ---
+{
+  "name": "Zachary",
+  "lastName": "Dawson",
+  "phone": "0569803248",
+  "email": "not_an_email",
+  "address": "94745 Nancy Circle, Nicholasshire, WY 66323",
+  "description": "Side general about direction.",
+  "id": "c5dcc199-50ec-43ea-91e7-7138916b96f6"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:10:02",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Leslie",
+  "lastName": "Snyder",
+  "phone": "0513849625",
+  "email": "user_3c5dc338b7@example.com",
+  "address": "35760 Aguilar Shoals, Santiagofort, WA 28532",
+  "description": "Natural central movement apply heavy participant research."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 20333e6b-35fb-4b35-bbe7-01214e98bf62"
+}

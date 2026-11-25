@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "18b2e095-2c51-4a2e-ab11-f0a92bf9c5bc",
+      "name": "David",
+      "lastName": "Sosa",
+      "email": "user_0a3577319f@example.com",
+      "phone": "0515492293",
+      "address": "67873 James Lodge, Brianview, IA 14895",
+      "description": "Detail teacher four ball war instead."
+    }
+  ]
+}

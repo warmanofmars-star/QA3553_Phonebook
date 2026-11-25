@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bfac1b76-5074-4903-940b-136e15928ee0",
+      "name": "Cheryl",
+      "lastName": "Wright",
+      "email": "user_bebc1e7eaa@example.com",
+      "phone": "0591377241",
+      "address": "407 Bell Oval Apt. 970, North Kim, CA 92903",
+      "description": "School entire book charge exactly."
+    }
+  ]
+}

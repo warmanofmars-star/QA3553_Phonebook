@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tracey",
+  "lastName": "Massey",
+  "phone": "0513416753",
+  "email": "user_e6f33bc33a@example.com",
+  "address": "706 Jeffrey Extensions Suite 241, Hallborough, FL 86776",
+  "description": "Down house reality buy anything close particular."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8545a66c-b5bb-48af-8ce1-d4eec01e6ff2"
+}

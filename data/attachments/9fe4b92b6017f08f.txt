@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Debra",
+  "lastName": "Russell",
+  "phone": "0533254797",
+  "email": null,
+  "address": "360 Samuel Radial Apt. 983, Port Matthew, DE 47372",
+  "description": "Really item expect time."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2eaf7bf2-5f06-448d-ba9c-0aec97441750"
+}

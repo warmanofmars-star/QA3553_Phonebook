@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "90a4d86a-1bfb-4f1f-a1e7-7b3bf8e24eb1",
+      "name": "Jason",
+      "lastName": "Harris",
+      "email": "user_2f0e7b0565@example.com",
+      "phone": "0526321501",
+      "address": "221 Evans Springs, Gibsonton, TN 26972",
+      "description": "Help third PM here."
+    }
+  ]
+}

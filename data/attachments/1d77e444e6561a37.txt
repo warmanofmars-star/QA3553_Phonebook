@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1e281fe2-a20d-4307-bf83-43e01c758531",
+      "name": "Cindy",
+      "lastName": "Roberts",
+      "email": "",
+      "phone": "0559642796",
+      "address": "6447 Dalton Stream Suite 147, Melissaberg, NM 15645",
+      "description": "Kind leave of ten."
+    }
+  ]
+}

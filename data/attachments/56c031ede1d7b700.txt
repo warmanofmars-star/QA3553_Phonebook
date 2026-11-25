@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6f08c540-3262-4d28-a556-da8abd282cf0",
+      "name": "Beth",
+      "lastName": "Smith",
+      "email": "user_27d715d615@example.com",
+      "phone": "0532967236",
+      "address": "785 Dean Corner, Brewerfort, MS 54665",
+      "description": "Feel including skin phone."
+    }
+  ]
+}

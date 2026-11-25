@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6e25b40c-1207-4859-94b0-96840cc573e4",
+      "name": "Sara",
+      "lastName": "Peters",
+      "email": "user_f058142a9f@example.com",
+      "phone": "0522638740",
+      "address": "83356 Allen Turnpike Apt. 203, East Jessica, HI 29191",
+      "description": "All together usually."
+    }
+  ]
+}

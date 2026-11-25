@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7b9bfd9a-c29c-4571-abc3-3647a0c0ba19",
+      "name": "Kimberly",
+      "lastName": "Watson",
+      "email": "user_6c6e86d5fc@example.com",
+      "phone": "0510468072",
+      "address": "14844 Cathy Mall Apt. 956, Jenniferside, DE 36205",
+      "description": "Million gas quickly place."
+    },
+    {
+      "id": "6ee122e2-3d9a-4483-bec2-9cad799fd795",
+      "name": "Wendy",
+      "lastName": "Rivera",
+      "email": "user_e3a8b3c1c3@example.com",
+      "phone": "0526039410",
+      "address": "5823 Kayla Shoal, Ruizchester, ME 58782",
+      "description": "Decision understand government any budget yes project."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Robinson",
+  "phone": "0524729502",
+  "email": "user_df91f96a75@example.com",
+  "address": "6711 Tara Estates, Bryantburgh, LA 62230",
+  "description": "Blood item term hot democratic such plant lay."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ecded4fc-e73a-4e07-b008-33fc505ab033"
+}

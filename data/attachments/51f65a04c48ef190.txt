@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stacy",
+  "lastName": "Sanchez",
+  "phone": "0526653618",
+  "email": "user_b515976e07@example.com",
+  "address": "52410 Mcintyre Ferry Apt. 523, South Robert, TN 96954",
+  "description": "Marriage admit under seat hospital and information."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 726a1234-b766-4d54-8cd4-345ec428bada"
+}

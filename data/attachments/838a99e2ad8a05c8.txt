@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "07fa52a2-6cf0-4ede-b45e-4b649e929947",
+      "name": "Edward",
+      "lastName": "Johnson",
+      "email": "user_c736628767@example.com",
+      "phone": "0514139274",
+      "address": "1358 Copeland Stream, Port Masonton, NH 22874",
+      "description": "Event safe recognize."
+    },
+    {
+      "id": "31049dc8-4cc0-47ec-ab68-d075db355358",
+      "name": "Thomas",
+      "lastName": "Tucker",
+      "email": "user_7dd5be08d4@example.com",
+      "phone": "0514139274",
+      "address": "40428 Alexander Orchard, West Mirandamouth, NM 53907",
+      "description": "Teach ask play item."
+    }
+  ]
+}

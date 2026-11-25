@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7a32721c-083e-4322-b8d0-80c94adc32d6",
+      "name": "Michelle",
+      "lastName": "Gonzalez",
+      "email": "user_9544147680@example.com",
+      "phone": "0518150058",
+      "address": "7030 Matthews Extension Apt. 226, West Larrybury, PA 90951",
+      "description": "Discover above tax social tonight could traditional."
+    }
+  ]
+}

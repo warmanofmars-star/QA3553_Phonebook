@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bdd00cb7-075a-44f5-a9d9-9c6753f4a77c",
+      "name": "Renee",
+      "lastName": "Fuller",
+      "email": "user_2f2a663f9d@example.com",
+      "phone": "0510131189",
+      "address": "08669 Joseph Branch, Howardfort, TX 52116",
+      "description": "Development design every evening."
+    }
+  ]
+}

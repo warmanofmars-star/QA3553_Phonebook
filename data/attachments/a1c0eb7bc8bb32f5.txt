@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (20 ms)
+
+--- Тело запроса ---
+{
+  "name": "Caroline",
+  "lastName": "Gibbs",
+  "phone": "056870538",
+  "email": "user_81aed2e212@example.com",
+  "address": "10343 White Stravenue Suite 768, Steventown, ID 75108",
+  "description": "Seek attorney turn break check such actually."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:09:53",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

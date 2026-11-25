@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e39bf32a-501a-40fa-ade8-c9b55e4cfc85",
+      "name": "Jessica",
+      "lastName": "Miller",
+      "email": "user_9dc37bb6d6@example.com",
+      "phone": "052537141490926",
+      "address": "78138 Allen Skyway Apt. 154, Greeneborough, OR 36081",
+      "description": "Hand may media imagine social."
+    }
+  ]
+}

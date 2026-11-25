@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a050bfb3-fb0d-406c-adb3-f3ebf99b330e",
+      "name": "Allison",
+      "lastName": "Howard",
+      "email": "user_7cfa617594@example.com",
+      "phone": "0515417634",
+      "address": "9660 Garcia Underpass, East Thomas, SD 85021",
+      "description": "One work another wear for bar hear."
+    },
+    {
+      "id": "d1672145-9528-4435-bdfd-857cab73a445",
+      "name": "Donald",
+      "lastName": "Caldwell",
+      "email": "user_3f323fa683@example.com",
+      "phone": "0520368946",
+      "address": "2681 Robert Throughway, Rangelborough, WA 70883",
+      "description": "Marriage chance market anything."
+    }
+  ]
+}

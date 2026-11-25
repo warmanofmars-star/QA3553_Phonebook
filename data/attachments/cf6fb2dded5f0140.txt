@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7ae42dc5-8451-4d17-adaa-135908917d3d",
+      "name": "Jordan",
+      "lastName": "12345",
+      "email": "user_4fe7ac3bb7@example.com",
+      "phone": "0528799251",
+      "address": "788 Gregory Mountains, Port Carloshaven, NV 90403",
+      "description": "Send movement pretty although eat realize issue agree."
+    }
+  ]
+}

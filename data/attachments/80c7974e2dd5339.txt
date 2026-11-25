@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tina",
+  "lastName": "Bridges",
+  "phone": "0527671207",
+  "email": "user_77d315c9ae@example.com",
+  "address": "790 Frazier Via Apt. 320, North Jamesville, DC 90548",
+  "description": "Stay analysis nation wide."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 74427166-88e6-4c7a-a232-2c54aef1e3ad"
+}

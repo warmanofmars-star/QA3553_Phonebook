@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bd9f3bfe-9204-4bc8-be80-8b1cfd06689a",
+      "name": "Nathan",
+      "lastName": "Waller",
+      "email": "user_c70548ff37@example.com",
+      "phone": "0518110837",
+      "address": "00539 Eric Gateway Suite 609, Carolton, NV 78116",
+      "description": "!@#$%^&*()_+-=12345"
+    }
+  ]
+}

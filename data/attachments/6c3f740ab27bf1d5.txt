@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "11a9f8be-59b4-40f7-8254-95f8b3cd35a5",
+      "name": "Robert",
+      "lastName": "Cuevas",
+      "email": "user_3febc9bea2@example.com",
+      "phone": "0559619566",
+      "address": "07439 Jessica Turnpike Apt. 924, Salinashaven, NH 36694",
+      "description": "Friend usually stock to."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "23c6e6af-4e03-4e8e-98ec-879975e5c72c",
+      "name": "Robert",
+      "lastName": "Herring",
+      "email": "user_8e7bfeb1d3@example.com",
+      "phone": "0524752376",
+      "address": "622 Garcia Flat, West Kimberlyview, AL 02164",
+      "description": "Race authority its line."
+    },
+    {
+      "id": "e480c12b-2698-4a00-9b9c-d02dda369ca1",
+      "name": "Patrick",
+      "lastName": "Mccoy",
+      "email": "user_12b4954bc8@example.com",
+      "phone": "0524752376",
+      "address": "7877 Cassandra Rue, Elizabethview, DC 18732",
+      "description": "Story stage reason contain."
+    }
+  ]
+}

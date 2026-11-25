@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "985869e2-3fc8-465a-9781-40d5c671d972",
+      "name": "Larry",
+      "lastName": "Freeman",
+      "email": "user_bcde66def6@example.com",
+      "phone": "0510347055",
+      "address": "935 Ewing Station Apt. 733, West Mariahshire, PW 93390",
+      "description": "Decade door lead save risk expert Democrat great."
+    }
+  ]
+}

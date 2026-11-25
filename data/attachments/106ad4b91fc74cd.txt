@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Desiree",
+  "lastName": "Simon",
+  "phone": "0592234820",
+  "email": "user_92cd8c8653@example.com",
+  "address": "2220 Lawrence Square, Tammieton, AZ 92425",
+  "description": "Through economic myself all behind table rock."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 79e3238d-0006-4395-b845-d2b06bb64c1f"
+}

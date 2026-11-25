@@ -1,0 +1,11 @@
+14:10:43 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (193 ms)
+14:10:43 [INFO   ] API: Токен добавлен в заголовки сессии
+14:10:43 [INFO   ] API: POST /v1/contacts -> 200 (41 ms)
+14:10:43 [INFO   ] API: GET /v1/contacts -> 200 (39 ms)
+14:10:43 [INFO   ] PW: Переход по ссылке: https://telranedu.pages.dev/login
+14:10:43 [INFO   ] PW: Ввод данных в поле формы...
+14:10:43 [INFO   ] PW: Ввод данных в поле формы...
+14:10:43 [INFO   ] PW: Клик по элементу: 'Login'
+14:10:43 [INFO   ] STEP: Дождаться перехода на страницу контактов
+14:10:43 [INFO   ] STEP: Открыть карточку контакта 0522091049
+14:10:44 [INFO   ] STEP: Нажать Remove в карточке контакта

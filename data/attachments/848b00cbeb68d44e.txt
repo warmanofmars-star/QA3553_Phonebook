@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Madden",
+  "phone": "0511985047",
+  "email": "user_08b1524d2a@example.com",
+  "address": "401 Collins Spur, Lake Robert, IL 41738",
+  "description": "Product most would first lot."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a1fa707e-23d7-4247-b366-15259b05adde"
+}

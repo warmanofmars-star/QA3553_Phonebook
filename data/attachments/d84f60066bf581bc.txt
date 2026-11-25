@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (9 ms)
+
+--- Тело запроса ---
+{
+  "name": "Debbie",
+  "lastName": "King",
+  "phone": "0529427327",
+  "email": "user@",
+  "address": "35269 Castillo Brook, Baldwinborough, NJ 64851",
+  "description": "Career season public sell key traditional."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:09:55",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ac81218f-fa8b-4728-95bc-c71bf55ff367",
+      "name": "Andrew",
+      "lastName": "Carter",
+      "email": "user_160d50a72c@example.com",
+      "phone": "0510896318",
+      "address": "Unit 4925 Box 7146, DPO AA 23232",
+      "description": "Rich then much life or wall point."
+    }
+  ]
+}

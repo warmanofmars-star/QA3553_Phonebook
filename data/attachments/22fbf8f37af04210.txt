@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (9 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Ibarra",
+  "phone": "0527211456",
+  "email": "user@mail@example.com",
+  "address": "4604 Andrea Unions, Blackburgh, PW 24805",
+  "description": "Official base available we trip exist."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:09:55",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Snyder",
+  "phone": "0522091049",
+  "email": "user_1ad9f5e259@example.com",
+  "address": "845 Jackson Court, North Craig, KS 74054",
+  "description": "Common door class what man account."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8cfb7192-aa24-4f1a-b905-959f6ed56045"
+}

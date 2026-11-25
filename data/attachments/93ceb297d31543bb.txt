@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "494a64db-855a-4541-8fc6-8639a07f1f33",
+      "name": "Joshua",
+      "lastName": "Burgess",
+      "email": "user_0a54e6db59@example.com",
+      "phone": "0524478780",
+      "address": "89504 Brown Street Apt. 878, Phamburgh, FL 29890",
+      "description": "Popular oil evidence far reason."
+    }
+  ]
+}

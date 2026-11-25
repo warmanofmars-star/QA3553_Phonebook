@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "758dfcb1-17bd-4244-b32e-5c1b240179ed",
+      "name": "Johnathan",
+      "lastName": "Sanchez",
+      "email": "user_8009decffc@example.com",
+      "phone": "0529566172",
+      "address": "64675 Jeremy Land Apt. 800, New Chris, WV 25669",
+      "description": "Or city behind type actually."
+    }
+  ]
+}

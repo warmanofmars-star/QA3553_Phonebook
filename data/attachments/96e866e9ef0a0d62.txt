@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Bennett",
+  "phone": "0523156899",
+  "email": "user_a7970546e2@example.com",
+  "address": "!@#$%^&*()_+-=",
+  "description": "Ground their big real put light."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c8c32bc9-5b98-43f1-9eab-98e89780acc4"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "76f9e581-ecc3-442a-90a6-2a6c6b43984f",
+      "name": "Jennifer",
+      "lastName": "Miller",
+      "email": "user_a595615610@example.com",
+      "phone": "0539459634",
+      "address": "383 Anthony Inlet, Port William, NJ 48063",
+      "description": "Seem great participant not nor nothing moment hot."
+    }
+  ]
+}

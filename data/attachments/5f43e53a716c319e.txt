@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Nelson",
+  "phone": "0560746635",
+  "email": "user_ed0c78abc3@example.com",
+  "address": "45112 Patty Squares, South Joshua, HI 56759",
+  "description": "Article school along need factor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f8034e13-7e8a-4239-8739-0c909d8a64d7"
+}

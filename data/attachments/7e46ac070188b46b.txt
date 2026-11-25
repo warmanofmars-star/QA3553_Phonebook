@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (11 ms)
+
+--- Тело запроса ---
+{
+  "name": "Vanessa",
+  "lastName": null,
+  "phone": "0527550235",
+  "email": "user_9066ae921e@example.com",
+  "address": "20678 Hunter Estates, Port Kaylaside, ND 31571",
+  "description": "Great authority policy finish store.",
+  "id": "d9e98781-433f-4124-8eb1-8e0b4c79b1a2"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:10:03",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5ece049f-0388-4677-9db6-f5b2e3877d92",
+      "name": "Lindsay",
+      "lastName": "Gonzalez",
+      "email": "user_c4a721d292@example.com",
+      "phone": "0594850967",
+      "address": "124 Tyler Extension, Carterbury, CA 25957",
+      "description": "Its thing would onto imagine."
+    },
+    {
+      "id": "db71d876-c3c3-4fe4-b452-fad217896f5f",
+      "name": "Lindsay",
+      "lastName": "Gonzalez",
+      "email": "user_c4a721d292@example.com",
+      "phone": "0594850967",
+      "address": "124 Tyler Extension, Carterbury, CA 25957",
+      "description": "Its thing would onto imagine."
+    }
+  ]
+}

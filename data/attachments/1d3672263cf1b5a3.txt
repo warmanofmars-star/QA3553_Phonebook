@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maureen",
+  "lastName": "Taylor",
+  "phone": "0524304030",
+  "email": "user_372f39ff69@example.com",
+  "address": "038 Scott Courts, Wrightfurt, SC 76471",
+  "description": "Space news must first present understand serious."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 03d77fc3-1e68-4b31-83ad-06d13a88b366"
+}

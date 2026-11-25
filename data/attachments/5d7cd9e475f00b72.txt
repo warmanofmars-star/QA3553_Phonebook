@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c2f58e3e-3ee4-46a7-b998-038cfe955c9d",
+      "name": "Tonya",
+      "lastName": "Andrews",
+      "email": "user_267ff287c9@example.com",
+      "phone": "0533205852",
+      "address": "2565 Michael Corner Apt. 840, Lake Douglasborough, ND 14858",
+      "description": "Live various concern drive reduce weight interview."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paul",
+  "lastName": "Mason",
+  "phone": "0533779314",
+  "email": "user_5e6a8627e6@example.com",
+  "address": "8632 Horton Point Suite 993, West Brian, WY 53569",
+  "description": "Place service level out break Mr assume."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6b3e201c-ac97-4e8b-ae26-5ae2f1761169"
+}

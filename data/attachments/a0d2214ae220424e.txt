@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Owen",
+  "phone": "0525616698",
+  "email": "user_1a94589549@example.com",
+  "address": "873 Rodriguez Roads Apt. 024, Ryanville, MS 69250",
+  "description": "Even small way into."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3697888c-a070-439c-88df-caafa31936bb"
+}

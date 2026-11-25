@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Spencer",
+  "lastName": "Smith",
+  "phone": "0584279569",
+  "email": "user_f0c9018e3f@example.com",
+  "address": "0795 Newman Rapids Suite 703, East Charlesborough, NV 18854",
+  "description": "Cell fine teacher attention fight.",
+  "id": "7c5b2084-eaf3-438d-877d-81ce0b52293b"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

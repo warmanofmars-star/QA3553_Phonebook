@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "985869e2-3fc8-465a-9781-40d5c671d972",
+      "name": "Yolanda",
+      "lastName": "Mathews",
+      "email": "user_8c53a8a3ad@example.com",
+      "phone": "0519534471",
+      "address": "Unit 4598 Box 7013, DPO AP 43095",
+      "description": "Night effect different spring produce."
+    }
+  ]
+}

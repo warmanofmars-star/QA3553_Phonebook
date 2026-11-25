@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Russell",
+  "lastName": "Wells",
+  "phone": "0513635643",
+  "email": "user_2e1febb18e@example.com",
+  "address": "7781 Brian Neck Apt. 110, Johnsonport, NE 43317",
+  "description": "Certainly beautiful sell dream make half."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: efeaadf0-8b50-47f3-8a59-a67e28a88f28"
+}

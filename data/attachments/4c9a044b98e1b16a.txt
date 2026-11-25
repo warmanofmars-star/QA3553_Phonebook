@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4d707b16-1dd7-4d74-8951-dd386efd6ed3",
+      "name": "Paige",
+      "lastName": "Ramirez",
+      "email": "user_0dee04eadd@example.com",
+      "phone": "0595223027",
+      "address": "0792 Andrew Lights, Courtneyfurt, VT 67344",
+      "description": "Professor same everybody view phone coach."
+    }
+  ]
+}

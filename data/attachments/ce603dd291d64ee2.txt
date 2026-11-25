@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Cochran",
+  "phone": "0572484922",
+  "email": "user_4473c3b89b@example.com",
+  "address": "264 Stephens Haven Suite 066, New Anthony, MO 34165",
+  "description": "Win study adult add small still goal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8d00bb65-e6d1-4ea8-9c9d-5a99effddc90"
+}

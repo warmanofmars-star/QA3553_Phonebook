@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "036b3cf3-2c02-4c41-a7ce-93befa860278",
+      "name": "Ryan",
+      "lastName": "Lee",
+      "email": "user_443a916a8a@example.com",
+      "phone": "0533573850",
+      "address": "304 Robert Station, Torresburgh, PA 15477",
+      "description": "Reason drug in sing pressure social new."
+    },
+    {
+      "id": "aafc2354-c457-4fa6-9b75-72b04060a8a5",
+      "name": "Joshua",
+      "lastName": "Kent",
+      "email": "user_4ff97896fd@example.com",
+      "phone": "0512163323",
+      "address": "59109 Cantu Squares, Lake Andrew, AL 06634",
+      "description": "Account production animal pretty walk watch."
+    }
+  ]
+}

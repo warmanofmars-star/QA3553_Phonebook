@@ -1,0 +1,20 @@
+14:11:49 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+14:11:49 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+14:11:50 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (186 ms)
+14:11:50 [INFO   ] API: Токен добавлен в заголовки сессии
+14:11:50 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+14:11:50 [INFO   ] STEP: Войти как user_9b6c023679@example.com
+14:11:51 [INFO   ] API: POST /v1/contacts -> 200 (37 ms)
+14:11:51 [INFO   ] API: GET /v1/contacts -> 200 (31 ms)
+14:11:51 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+14:11:51 [INFO   ] STEP: Открыть карточку контакта 0511059733
+14:11:52 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+14:11:52 [INFO   ] STEP: Изменить поля формы редактирования
+14:11:52 [INFO   ] STEP: Изменить поле name на 'Mario'
+14:11:52 [INFO   ] STEP: Изменить поле last_name на 'Bright'
+14:11:52 [INFO   ] STEP: Изменить поле phone на '0522232834'
+14:11:53 [INFO   ] STEP: Изменить поле email на 'user_7530a3ca25@example.com'
+14:11:53 [INFO   ] STEP: Изменить поле address на '50057 Love Mill, Lake Sandra, MN 52346'
+14:11:53 [INFO   ] STEP: Изменить поле description на 'Social operation camera beautiful bad.'
+14:11:58 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Social operation camera beautiful bad.', фактически '[object Undefined]'
+14:12:01 [INFO   ] DRIVER: Видео a2e9437f5bd1e9a2a9590bcf2b7c7c3e.mp4 прикреплено к отчёту

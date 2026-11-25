@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Luke",
+  "lastName": "Hall",
+  "phone": "0517418538",
+  "email": "user_e88531d709@example.com",
+  "address": "372 Jones Gateway, Reyestown, CA 51786",
+  "description": "Film design up point industry power."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e0967bba-1766-4b0c-af12-77518375a79a"
+}

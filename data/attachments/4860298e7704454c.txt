@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2be691aa-6dd7-49ce-9969-73ae4c6c6d0c",
+      "name": "Brian",
+      "lastName": "Dixon",
+      "email": "user_7005dd28fe@example.com",
+      "phone": "0531195648",
+      "address": "09009 Sullivan Terrace, Lake Danielleville, PR 51962",
+      "description": "Create audience rich quite."
+    }
+  ]
+}

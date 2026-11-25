@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Heather",
+  "lastName": "B",
+  "phone": "0522447347",
+  "email": "user_939d819e8e@example.com",
+  "address": "4146 Mark Ways Suite 627, North Josephton, CT 92457",
+  "description": "Especially seat happen finish."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 814c3159-de7c-47d3-a915-3332d5a02b97"
+}

@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (20 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jack",
+  "phone": "0585191479",
+  "email": "user_bac7c47884@example.com",
+  "address": "22682 Jackson Rest Apt. 190, Owensshire, NH 47654",
+  "description": "More letter weight enjoy glass.",
+  "id": "6d4770ae-5f7d-448d-9aa4-7cb82608c054"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:10:05",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

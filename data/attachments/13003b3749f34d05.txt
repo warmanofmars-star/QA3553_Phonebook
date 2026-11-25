@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Jackson",
+  "phone": "0514147620",
+  "email": "user_1e5c6115d1@example.com",
+  "address": "838 Wendy Forest Apt. 816, Herreratown, NV 30143",
+  "description": "Them special think issue fill experience ago."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d8559a52-6cf4-4b68-9d59-bea8f75496d8"
+}

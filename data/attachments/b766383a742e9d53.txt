@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Susan",
+  "lastName": "Gomez",
+  "phone": "0528239466",
+  "email": "user_6efdddf282@example.com",
+  "address": "98941 Mitchell Motorway, Gutierrezfort, PR 97658",
+  "description": "Financial effect last own between main."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9c37fe17-13a0-49e2-89ea-e92538be8edf"
+}

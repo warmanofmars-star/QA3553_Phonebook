@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "74427166-88e6-4c7a-a232-2c54aef1e3ad",
+      "name": "Tina",
+      "lastName": "Bridges",
+      "email": "user_77d315c9ae@example.com",
+      "phone": "0527671207",
+      "address": "790 Frazier Via Apt. 320, North Jamesville, DC 90548",
+      "description": "Stay analysis nation wide."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Hannah",
+  "lastName": "Rodriguez",
+  "phone": "0534431344",
+  "email": "user_558a40e995@example.com",
+  "address": "USS Singleton, FPO AP 59368",
+  "description": "Represent there while trip both deep lot."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e9de8f48-714d-4967-9618-3dedd7939c10"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sabrina",
+  "lastName": "Thomas",
+  "phone": "0511422204",
+  "email": "user_02b85e7677@example.com",
+  "address": "85107 Walters Square Suite 887, East Pamelabury, ND 35804",
+  "description": "Man cost contain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: de6de148-38ae-4d5d-a75a-e56c95ce7c7c"
+}

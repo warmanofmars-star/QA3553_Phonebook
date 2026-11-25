@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gary",
+  "lastName": "Rios",
+  "phone": "0513201782",
+  "email": "user_4dd474752e@example.com",
+  "address": "57499 Orozco Island Suite 306, Lopezchester, HI 89919",
+  "description": "Adult meeting plan perhaps actually other decision."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bf8c3bf6-bc1a-40cb-9f39-d5e2f3c49917"
+}

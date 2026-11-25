@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nathan",
+  "lastName": "Shepherd",
+  "phone": "0559885659",
+  "email": "user_d912eaa44b@example.com",
+  "address": "2511 Xavier Way Suite 074, Lake Michelle, ME 74057",
+  "description": "Management check business policy none student."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 03a4ba75-8701-4fa3-a2cd-047762b5eabd"
+}

@@ -1,0 +1,22 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (10 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Hamilton",
+  "phone": "0526049993",
+  "email": "user_ddeb0c490e@example.com",
+  "address": "4053 Gregory Parks Apt. 361, Port Chelsealand, HI 86889",
+  "description": "Similar process realize feel ahead."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:10:07",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

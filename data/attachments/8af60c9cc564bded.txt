@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8c91455b-941d-46fd-8465-60dcdd587f52",
+      "name": "Christopher",
+      "lastName": "Pollard",
+      "email": "user_e89ba82c3d@example.com",
+      "phone": "0524626686",
+      "address": "5008 Jones Pike Suite 552, Jesusborough, LA 34783",
+      "description": "Sister rest good line."
+    }
+  ]
+}

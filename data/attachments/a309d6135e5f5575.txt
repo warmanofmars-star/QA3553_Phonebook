@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Dixon",
+  "phone": "0531195648",
+  "email": "user_9fdd7399ef@example.com",
+  "address": "09009 Sullivan Terrace, Lake Danielleville, PR 51962",
+  "description": "Create audience rich quite."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2be691aa-6dd7-49ce-9969-73ae4c6c6d0c"
+}

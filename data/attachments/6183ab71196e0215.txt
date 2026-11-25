@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6144091d-91f7-46c5-81c5-123087929286",
+      "name": "James",
+      "lastName": "Alvarez",
+      "email": "user_4bbf514933@example.com",
+      "phone": "0516113199",
+      "address": "888 Mary Glens Suite 327, Vaughnburgh, ID 48771",
+      "description": "Better call skin later image under deal."
+    }
+  ]
+}

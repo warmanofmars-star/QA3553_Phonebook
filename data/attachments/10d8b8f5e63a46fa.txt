@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Robinson",
+  "phone": "0516684159",
+  "email": "user_227f8cff29@example.com",
+  "address": "1212 Crawford Pass Suite 295, South Danielburgh, DE 36256",
+  "description": "Fact travel strong discussion."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 27695c1b-8aea-41dc-8314-a8cbfe3c084e"
+}

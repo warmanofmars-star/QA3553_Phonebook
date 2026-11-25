@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jordan",
+  "lastName": "12345",
+  "phone": "0528799251",
+  "email": "user_4fe7ac3bb7@example.com",
+  "address": "788 Gregory Mountains, Port Carloshaven, NV 90403",
+  "description": "Send movement pretty although eat realize issue agree."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7ae42dc5-8451-4d17-adaa-135908917d3d"
+}

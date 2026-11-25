@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samuel",
+  "lastName": "Brown",
+  "phone": "0550167618",
+  "email": "user_1c3838d455@example.com",
+  "address": "6513 Williams Forks Suite 133, Walkerton, NH 38043",
+  "description": "Painting yet word people."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 36a537fa-03c2-45b8-986b-ba640f4304cd"
+}

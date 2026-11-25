@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Kent",
+  "phone": "0512163323",
+  "email": "user_4ff97896fd@example.com",
+  "address": "59109 Cantu Squares, Lake Andrew, AL 06634",
+  "description": "Account production animal pretty walk watch."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: aafc2354-c457-4fa6-9b75-72b04060a8a5"
+}

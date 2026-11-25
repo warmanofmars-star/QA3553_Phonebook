@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (10 ms)
+
+--- Тело запроса ---
+{
+  "name": "   ",
+  "lastName": "Singleton",
+  "phone": "0510450177",
+  "email": "user_14ade8f03f@example.com",
+  "address": "32577 Pamela Neck, Erinstad, CO 76093",
+  "description": "Value accept after letter sing resource."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-25T14:09:55",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Thompson",
+  "phone": "0518292676",
+  "email": "user_2ca9775207@example.com",
+  "address": "27134 Richardson Junction Suite 615, Michellestad, CO 42155",
+  "description": "Lay at staff add practice task."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 69a2cb4a-3720-48e2-9237-be85954b4834"
+}

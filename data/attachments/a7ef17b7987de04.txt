@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Heather",
+  "lastName": "Spence",
+  "phone": "0510930262",
+  "email": "user_fca2a62bf1@example.com",
+  "address": "9086 Daniel Springs Apt. 608, East Shelley, TX 65471",
+  "description": "Serious paper me."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 111a005f-4851-4e5b-8fd5-6b9fdb4ecb63"
+}

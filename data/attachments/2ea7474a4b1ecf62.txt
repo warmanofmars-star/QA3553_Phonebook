@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Frank",
+  "lastName": "Ellis",
+  "phone": "0593180193",
+  "email": "user_82fe5ff5fe@example.com",
+  "address": "59382 Hanna Village Suite 251, Larrytown, MP 48692",
+  "description": "Better organization above training."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1940fab3-c88d-46f6-a5fc-a417d8139215"
+}

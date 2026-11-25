@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bruce",
+  "lastName": "Lin",
+  "phone": "0522552468",
+  "email": "user_21e903acf7@example.com",
+  "address": "94575 Kenneth Mountain, Morenohaven, DE 14481",
+  "description": "Ground whole type never alone."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 412b119a-3f15-4f86-bd71-6a0adba0cf5c"
+}

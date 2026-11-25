@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Butler",
+  "phone": "0513512532",
+  "email": "user_49c546da5a@example.com",
+  "address": "932 Gallagher Wells, East Cheyennestad, MD 54289",
+  "description": "Cut recent responsibility week player everything during pretty."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d1665089-e3b4-450e-bc27-8dc5d95d72a8"
+}

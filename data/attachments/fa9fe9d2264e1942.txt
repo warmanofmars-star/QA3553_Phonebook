@@ -1,0 +1,17 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "William",
+  "lastName": "Peterson",
+  "phone": "0512381158",
+  "address": "316 Kimberly Fords Apt. 526, Nguyenton, LA 74060",
+  "description": "Similar position sign body discuss wait type.",
+  "id": "02b41bf0-5af5-40b2-b879-47058d1d82a1"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

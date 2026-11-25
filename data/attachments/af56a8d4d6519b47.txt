@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jamie",
+  "lastName": "Rojas",
+  "phone": "0523124539",
+  "email": "user_bfe139de36@example.com",
+  "address": "21960 Brandi Station Apt. 729, Paulstad, FL 32286",
+  "description": "Explain be while generation my figure relationship."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 45d35a79-a7bf-4a78-8aa9-e454ce1eac29"
+}

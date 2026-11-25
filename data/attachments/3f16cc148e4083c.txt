@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9c37fe17-13a0-49e2-89ea-e92538be8edf",
+      "name": "Susan",
+      "lastName": "Gomez",
+      "email": "user_6efdddf282@example.com",
+      "phone": null,
+      "address": "98941 Mitchell Motorway, Gutierrezfort, PR 97658",
+      "description": "Financial effect last own between main."
+    }
+  ]
+}
