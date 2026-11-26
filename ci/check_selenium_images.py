@@ -37,9 +37,12 @@ GRID_TAG_PATTERN = re.compile(r"^4\.\d+\.\d+-\d{8}$")
 # намеренно: образ без тега (latest) — тоже нарушение, а не «не нашли образ».
 IMAGE_LINE = re.compile(r"""^\s*image:\s*["']?(selenium/[\w.-]+)(?::([^\s"'#]+))?["']?\s*(?:#.*)?$""")
 
-HINT = (
+# Две разные причины нарушения — две подсказки: тег не по схеме Grid чаще всего означает тег
+# версии браузера от Dependabot, а у образа без тега совета «вернуть схему Grid» мало — тег нужно вписать
+HINT_BROWSER_TAG = (
     "похоже на тег версии браузера — Grid-образы обновляются только внутри 4.x, см. commands.md, раздел про Dependabot"
 )
+HINT_NO_TAG = "образ без тега: укажите тег релиза Grid 4 вида 4.x.y-ГГГГММДД"
 
 
 def find_images(path: Path) -> list[tuple[int, str, str]]:
@@ -73,9 +76,11 @@ def main(args: list[str]) -> int:
 
     ok = True
     for file_name, number, image, tag in found:
-        if not GRID_TAG_PATTERN.match(tag):
-            shown = tag or "(без тега)"
-            print(f"❌ {file_name}:{number}: {image}:{shown} — тег не релиза Grid 4 (4.x.y-ГГГГММДД); {HINT}")
+        if not tag:
+            print(f"❌ {file_name}:{number}: {image} — {HINT_NO_TAG}")
+            ok = False
+        elif not GRID_TAG_PATTERN.match(tag):
+            print(f"❌ {file_name}:{number}: {image}:{tag} — тег не релиза Grid 4 (4.x.y-ГГГГММДД); {HINT_BROWSER_TAG}")
             ok = False
 
     tags = {tag for _, _, _, tag in found}
