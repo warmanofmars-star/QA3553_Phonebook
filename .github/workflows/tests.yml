@@ -333,10 +333,13 @@ jobs:
           npm install -g allure-commandline@2.46.1
           allure generate allure-results-* -o allure-report --clean
 
+      # Сторонний action на SHA коммита, а не на теге: он получает GITHUB_TOKEN с правом
+      # contents: write, а тег владелец может перевесить на другой код — SHA перевесить нельзя.
+      # Комментарий с версией — для людей; Dependabot обновляет SHA вместе с ним
       - name: Публикуем отчёт на GitHub Pages
         # Только для main: прогоны PR не должны подменять "официальный" отчёт
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
