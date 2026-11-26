@@ -73,3 +73,17 @@ repos:
     rev: v8.30.1                       # единственный источник версии: job Secrets читает её отсюда
     hooks:
       - id: gitleaks
+
+  # Свои проверки проекта
+  - repo: local
+    hooks:
+      # Образы selenium/* в docker-compose*.yml — на одном теге релиза Grid 4 (4.x.y-ГГГГММДД):
+      # Dependabot умеет уводить узлы на теги версий браузеров (подробности — в самом скрипте).
+      # pass_filenames: false — согласованность тегов проверяется по всем compose-файлам сразу.
+      # language: system — скрипт на stdlib, но запускается python из .venv, как и хуки ruff
+      - id: check-selenium-images
+        name: Selenium images share one Grid 4 tag
+        entry: python ci/check_selenium_images.py
+        language: system
+        pass_filenames: false
+        files: (^docker-compose.*\.ya?ml$|^ci/check_selenium_images\.py$)

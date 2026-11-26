@@ -73,6 +73,13 @@ jobs:
         if: ${{ !cancelled() }}
         run: python ci/coverage_matrix.py --check
 
+      # Образы selenium/* в docker-compose*.yml — на одном теге релиза Grid 4 (4.x.y-ГГГГММДД).
+      # Dependabot умеет уводить узлы на теги версий браузеров, а откат браузера тесты не ловят
+      # (подробности — в docstring скрипта). Только stdlib
+      - name: Проверяем, что образы Selenium на одном теге Grid 4
+        if: ${{ !cancelled() }}
+        run: python ci/check_selenium_images.py
+
       # Lock-файлы соответствуют requirements.in / requirements-dev.in: пересборка во временный
       # каталог и сравнение пинов «имя==версия», а не текста — шапка и пометки «# via» зависят
       # от версии pip-tools. Раннер — Linux, Python — тот же, что в образе (иначе скрипт
