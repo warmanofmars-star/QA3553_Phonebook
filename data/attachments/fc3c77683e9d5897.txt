@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (116 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Mendoza",
+  "phone": "0524970139",
+  "email": "user_e75f555104@example.com",
+  "address": "172 Ortiz Points, Karastad, MP 70583",
+  "description": "Both life fear during understand."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5a48f326-04bb-46e4-a7fa-fdf4ef6be33f"
+}

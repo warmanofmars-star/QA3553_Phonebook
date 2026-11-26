@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c116795c-8c7e-46f4-9947-eaab9058d378",
+      "name": "Andrew",
+      "lastName": "Wagner",
+      "email": "user_1ade7b8eaf@example.com",
+      "phone": "0517058065",
+      "address": "54378 Patel Mission Apt. 981, Melissaburgh, RI 03947",
+      "description": "Another specific late task west rock others read."
+    }
+  ]
+}

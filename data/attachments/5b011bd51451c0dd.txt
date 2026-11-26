@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Mack",
+  "phone": "0563315667",
+  "email": "user_29c735ec6f@example.com",
+  "address": "8799 Donald Plains, New Thomashaven, WY 92925",
+  "description": "On family place type ground."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2e3a3d95-3d4f-4416-91e2-878bf076819e"
+}

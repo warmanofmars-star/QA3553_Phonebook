@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (105 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandon",
+  "lastName": "White",
+  "phone": "0587418110",
+  "email": "user_347344749c@example.com",
+  "address": "PSC 0124, Box 4455, APO AA 45081",
+  "description": "Tough have natural."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6a6200a8-a619-439f-9425-6c4bab630a3d"
+}

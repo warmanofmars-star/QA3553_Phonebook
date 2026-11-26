@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Hodge",
+  "phone": "0582778630",
+  "email": "user_69f4cf69f5@example.com",
+  "address": "6219 Gray Keys, Bryanton, NV 91851",
+  "description": "Another hundred scientist test many always decide."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 453a9093-06d8-40c8-b4e8-77bd2359bc8d"
+}

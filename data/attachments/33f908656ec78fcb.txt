@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "03913c2a-1530-481e-b3e3-91ce2824c2f4",
+      "name": "Jane",
+      "lastName": "Rodriguez",
+      "email": "user_3c60be0179@example.com",
+      "phone": "0557362996",
+      "address": "24334 Gabriel Alley, Kimberlychester, AS 17265",
+      "description": "Talk no some two."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Allison",
+  "lastName": "Johnson",
+  "phone": "0536662286",
+  "email": "user_9c73732cd3@example.com",
+  "address": "2000 John Haven, Elliottborough, CA 29112",
+  "description": "Control national rather."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2d75bab8-d33b-4fab-8b69-9e03f81168cf"
+}

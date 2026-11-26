@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "91c800ea-e642-41fa-a8ea-cf8d903e5654",
+      "name": "Maria",
+      "lastName": "Brock",
+      "email": "user_6cfada14a9@example.com",
+      "phone": "0529746719",
+      "address": "79554 Mark Oval, Lake Carlaborough, OK 02455",
+      "description": "Majority beautiful teacher."
+    },
+    {
+      "id": "26605c3f-d381-44bf-97ed-799cde1655da",
+      "name": "Alicia",
+      "lastName": "Cook",
+      "email": "user_2784e362ed@example.com",
+      "phone": "0529746719",
+      "address": "46354 Savannah Underpass Apt. 435, East Karinaville, OR 61702",
+      "description": "Serve inside movie draw cold without very type."
+    }
+  ]
+}

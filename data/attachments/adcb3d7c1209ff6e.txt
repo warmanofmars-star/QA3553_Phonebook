@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Eric",
+  "lastName": "Hughes",
+  "phone": "0529130597",
+  "email": "user_ebd10727f5@example.com",
+  "address": "7915 Bell Squares, Jaredchester, TN 73183",
+  "description": "Sound style through second brother nor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 685022b1-c15d-411b-9ac7-46196a761e1f"
+}

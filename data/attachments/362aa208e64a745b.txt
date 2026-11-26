@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (130 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Roach",
+  "phone": "058800986082907",
+  "email": "user_716ce7fbbf@example.com",
+  "address": "574 Rosales Vista Apt. 775, East Richard, PW 52617",
+  "description": "Condition conference lay light itself big.",
+  "id": "430ee805-f2e1-4a2c-8edf-f0c6abd6480b"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dde32a46-dc16-4cd6-b063-9c1e502b93fb",
+      "name": "Brent",
+      "lastName": "Burton",
+      "email": "user_2b2a94da7f@example.com",
+      "phone": "0522308530",
+      "address": "7852 Sanchez Mills Apt. 821, Fitzpatrickside, SC 16115",
+      "description": "Best decide third activity such."
+    }
+  ]
+}

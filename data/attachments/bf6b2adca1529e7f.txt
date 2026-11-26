@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deborah",
+  "lastName": "Gaines",
+  "phone": "0525380015",
+  "email": "user_f67792fe15@example.com",
+  "address": "315 Robinson Forge, West Jonathan, VI 78140",
+  "description": "Speech paper this hit start pull."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7a05819b-95bc-41b0-b5d9-6248415f7d57"
+}

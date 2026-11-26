@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (78 ms)
+
+--- Тело запроса ---
+{
+  "name": "Edward",
+  "lastName": "Hunter",
+  "phone": "0525012964",
+  "email": "user@",
+  "address": "12667 Jones Valley, Deanfurt, MD 57137",
+  "description": "Allow arm some around mother fear."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:25:53",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

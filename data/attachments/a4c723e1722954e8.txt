@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (78 ms)
+
+--- Тело запроса ---
+{
+  "name": "Allen",
+  "lastName": "Case",
+  "phone": "0531353942",
+  "email": "not_an_email",
+  "address": "35771 Sanders Union Apt. 982, Jamesland, CO 57404",
+  "description": "Wind cup change vote evening stuff."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:26:15",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

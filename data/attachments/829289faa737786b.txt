@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kristin",
+  "lastName": "Bennett",
+  "phone": "0511082861",
+  "email": "user_b34c0f4db4@example.com",
+  "address": "04594 Pittman Branch Apt. 322, Krystalburgh, NH 80741",
+  "description": "Hear positive professor sea."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9140ed00-6d33-4083-b971-e97151a6ddd8"
+}

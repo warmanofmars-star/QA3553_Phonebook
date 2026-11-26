@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0946d413-c9bb-42b3-b49d-839856e7e000",
+      "name": "Duane",
+      "lastName": "Lawrence",
+      "email": "user_212601d121@example.com",
+      "phone": null,
+      "address": "65924 Matthews Heights Apt. 967, Richardville, PA 24766",
+      "description": "Quite last without resource I tough activity."
+    }
+  ]
+}

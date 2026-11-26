@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bef2638f-af0d-4996-aa69-e3ed742b9378",
+      "name": "James",
+      "lastName": "Reilly",
+      "email": "user_28b2294a40@example.com",
+      "phone": "0519845411",
+      "address": "70165 Combs Wells, Whitneyside, AS 47850",
+      "description": "Owner affect choose."
+    }
+  ]
+}

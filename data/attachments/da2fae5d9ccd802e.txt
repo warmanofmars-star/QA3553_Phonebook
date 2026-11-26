@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (84 ms)
+
+--- Тело запроса ---
+{
+  "name": "Donna",
+  "lastName": "Alvarado",
+  "phone": "05012abcde",
+  "email": "user_585680d27d@example.com",
+  "address": "976 John Key Apt. 002, West Nancychester, DE 74893",
+  "description": "Specific professional attorney."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:25:50",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

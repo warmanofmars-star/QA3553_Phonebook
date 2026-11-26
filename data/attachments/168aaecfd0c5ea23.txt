@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7d0cc6ec-4df1-4169-aa75-cc5a26f00307",
+      "name": "Karen",
+      "lastName": "Hunter",
+      "email": "user_891c8769fa@example.com",
+      "phone": "0519973590",
+      "address": "40186 James Expressway Apt. 538, Davidmouth, NY 00821",
+      "description": "Specific street ask five nature method."
+    }
+  ]
+}

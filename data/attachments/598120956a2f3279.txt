@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "396cf30f-1c4d-40f9-9ee8-372baa60491a",
+      "name": "Stephanie",
+      "lastName": "Martinez",
+      "email": "user_d7c7277906@example.com",
+      "phone": "0579329827",
+      "address": "1187 Melissa Ville, Annmouth, MO 69465",
+      "description": "Either we material challenge growth southern."
+    },
+    {
+      "id": "a5b5f73a-200b-4609-96ab-78136ff440b6",
+      "name": "Brian",
+      "lastName": "Harris",
+      "email": "user_384b7bb981@example.com",
+      "phone": "0532385739",
+      "address": "9926 Andrea Plaza Suite 081, Hamiltonborough, NE 22176",
+      "description": "Choice current decide fear."
+    }
+  ]
+}

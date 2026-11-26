@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (71 ms)
+
+--- Тело запроса ---
+{
+  "name": "   ",
+  "lastName": "Brown",
+  "phone": "0510466276",
+  "email": "user_04ffc97a10@example.com",
+  "address": "7898 Julie Coves, Phillipsland, CO 42182",
+  "description": "Final various threat trip."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:25:53",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

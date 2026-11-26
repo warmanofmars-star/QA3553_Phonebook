@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "006a0e63-ad27-48e7-97a7-c3b1b515e426",
+      "name": "James",
+      "lastName": "Kelly",
+      "email": "user_6a8213e851@example.com",
+      "phone": "0521380449",
+      "address": "97391 Morgan Pike, Diazville, NE 54862",
+      "description": "Defense really government man school program."
+    }
+  ]
+}

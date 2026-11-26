@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2f1b64e1-f482-4b36-b9ee-5f8798c3db28",
+      "name": "Nicholas",
+      "lastName": "Smith",
+      "email": "user_9b6b2bb552@example.com",
+      "phone": "0524429533",
+      "address": "813 Deborah Vista Apt. 480, East April, NJ 85881",
+      "description": "Different we condition agency house catch."
+    }
+  ]
+}

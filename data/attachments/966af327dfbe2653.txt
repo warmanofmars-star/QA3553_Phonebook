@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cfcb6f0c-dd1e-4803-8804-7a19580c82e7",
+      "name": "Kyle",
+      "lastName": "Horton",
+      "email": "a@b",
+      "phone": "0526541526",
+      "address": "765 Angela Locks Apt. 192, New Joe, PR 62275",
+      "description": "Human challenge season attack project."
+    }
+  ]
+}

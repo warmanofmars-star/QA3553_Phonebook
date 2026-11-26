@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (134 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kendra",
+  "lastName": "Travis",
+  "phone": "0523030955",
+  "email": "user_e225d9a3bf@example.com",
+  "address": "74237 Davis Green, Osbornebury, MT 40159",
+  "description": "!@#$%^&*()_+-=12345",
+  "id": "0fb450bc-0446-440b-84d8-bab8d561e3dd"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

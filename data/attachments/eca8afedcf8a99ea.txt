@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c68bf052-323d-42aa-b5a2-58e61bbfe985",
+      "name": "David",
+      "lastName": "Boyer",
+      "email": "user_4885714bf7@example.com",
+      "phone": "0573877862",
+      "address": "662 Howard Shore, Goodmanchester, AS 78904",
+      "description": "Include reason exist store."
+    }
+  ]
+}

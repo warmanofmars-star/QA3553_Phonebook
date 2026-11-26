@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aac27b2a-75b8-452c-b2af-2c2452b0c7c2",
+      "name": "James",
+      "lastName": "Harris",
+      "email": "user_214a87ad2a@example.com",
+      "phone": "0524542646",
+      "address": "121 Howell Drive Apt. 930, Mendezhaven, ND 37252",
+      "description": "Consider serious similar indeed current situation."
+    }
+  ]
+}

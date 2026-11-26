@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "93f57562-0203-43bb-b75d-4815cbc1a662",
+      "name": "Angela",
+      "lastName": "Jordan",
+      "email": "user_7935f7173e@example.com",
+      "phone": "0573677308",
+      "address": "5211 Virginia Divide, Allenton, VA 63172",
+      "description": "Bed skin throw sign again."
+    }
+  ]
+}

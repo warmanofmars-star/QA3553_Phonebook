@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "02428b63-e28c-419d-b2a2-e9e447a37faf",
+      "name": "Wayne",
+      "lastName": "Rodriguez",
+      "email": "user_bf461a95e3@example.com",
+      "phone": null,
+      "address": "94421 Jacob Throughway Suite 071, Spencerstad, NE 39279",
+      "description": "Behind view coach."
+    }
+  ]
+}

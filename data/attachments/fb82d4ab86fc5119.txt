@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chase",
+  "lastName": "Dawson",
+  "phone": "0528729321",
+  "email": "user_f6299c7953@example.com",
+  "address": "784 Mccarthy Expressway Apt. 738, South Marissa, CT 63179",
+  "description": "Relate may middle meet small system."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 292ea0ae-26b8-4843-963c-4481e9fa712e"
+}

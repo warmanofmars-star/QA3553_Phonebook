@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Bryant",
+  "phone": "0524183765",
+  "email": "user_b0eeb5a6d2@example.com",
+  "address": "USCGC Figueroa, FPO AE 24021",
+  "description": "Example knowledge hard design call style."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73034cc5-3cc0-41e0-8c7a-1935bfadd028"
+}

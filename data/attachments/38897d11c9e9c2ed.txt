@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maria",
+  "lastName": "Thompson",
+  "phone": "0527958287",
+  "email": "user_bb3a033417@example.com",
+  "address": "5529 Scott Park, New Catherinemouth, ME 42844",
+  "description": "City land accept movie."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d7f9ee5c-861d-4e92-b6ea-99b6f34b9d4a"
+}

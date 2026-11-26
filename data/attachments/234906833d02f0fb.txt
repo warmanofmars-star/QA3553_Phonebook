@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7886fbb7-a85b-431a-a799-f9e9fc54475d",
+      "name": "Connie",
+      "lastName": "Munoz",
+      "email": "user_a4c9abc8f3@example.com",
+      "phone": "0516413262",
+      "address": "4068 Amy Fords, Perezfort, DC 94501",
+      "description": "Society performance week leader collection we."
+    },
+    {
+      "id": "7a05819b-95bc-41b0-b5d9-6248415f7d57",
+      "name": "Deborah",
+      "lastName": "Gaines",
+      "email": "user_f67792fe15@example.com",
+      "phone": "0525380015",
+      "address": "315 Robinson Forge, West Jonathan, VI 78140",
+      "description": "Speech paper this hit start pull."
+    }
+  ]
+}

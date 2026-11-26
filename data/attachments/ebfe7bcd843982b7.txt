@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Cox",
+  "phone": "0529496824",
+  "email": "пользователь@example.com",
+  "address": "103 Jennifer Lodge, Michaelfort, CT 32473",
+  "description": "Energy economy add likely."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 802f74f4-5f4d-4bad-b0d5-2db003fb05ad"
+}

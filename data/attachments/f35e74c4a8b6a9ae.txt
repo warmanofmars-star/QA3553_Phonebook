@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Russell",
+  "lastName": "Harper",
+  "phone": "0519978615",
+  "email": "user_11ab98b94b@example.com",
+  "address": "5325 Graves Gardens, Andreaton, WA 79726",
+  "description": "There property like."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 84152ca0-fb5e-49fa-95b2-fc32a5434ef7"
+}

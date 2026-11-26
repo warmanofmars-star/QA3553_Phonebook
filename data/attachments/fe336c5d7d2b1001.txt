@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+{
+  "name": "Craig",
+  "lastName": "Jenkins",
+  "phone": "0520230265",
+  "email": "user_be5978c5a1@example.com",
+  "address": "551 Jeremy Islands, Lake Matthewton, SD 86594",
+  "description": "Blue compare actually police another example."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6de3ea7c-6601-4157-b9d1-d265329072eb"
+}

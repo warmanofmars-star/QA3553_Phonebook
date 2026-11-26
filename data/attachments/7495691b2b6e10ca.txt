@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aaaf0d07-d4ca-4287-8ab2-e329bb4a31a3",
+      "name": "Crystal",
+      "lastName": "Floyd",
+      "email": "user_abe9d3ca23@example.com",
+      "phone": "0572253523",
+      "address": "34306 Robinson Street, East Debratown, SC 75545",
+      "description": "Move crime Mrs dinner Republican while."
+    }
+  ]
+}

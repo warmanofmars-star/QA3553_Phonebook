@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lauren",
+  "lastName": "Ewing",
+  "phone": "0513220433",
+  "email": "user_c2f185dfe4@example.com",
+  "address": "9270 Barrett Dale, West Kevinfort, MA 97056",
+  "description": "Player discussion provide hotel provide scientist result."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a8e1d700-7001-4cf0-a0e8-8fbc8e86efaa"
+}

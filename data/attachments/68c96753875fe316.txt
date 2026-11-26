@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c16d4208-406f-4098-9bae-f7024e0f3046",
+      "name": "Robert",
+      "lastName": "Lawrence",
+      "email": "user_19e40cc4a8@example.com",
+      "phone": "0539858860",
+      "address": "USCGC Mckay, FPO AP 72215",
+      "description": "Break soon recent wish."
+    },
+    {
+      "id": "a38cbb32-168b-4286-8d3c-c68d34e783fd",
+      "name": "Larry",
+      "lastName": "Baker",
+      "email": "user_19e40cc4a8@example.com",
+      "phone": "0513875013",
+      "address": "0926 Sandra Plains, Collinsfurt, AS 74054",
+      "description": "Ball term personal you check easy."
+    }
+  ]
+}

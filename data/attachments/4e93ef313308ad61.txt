@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "69381e19-bf1b-45dc-b74b-06c4ce78fa33",
+      "name": "Brenda",
+      "lastName": "Vaughn",
+      "email": "user_5ab8bd827b@example.com",
+      "phone": "0595986998",
+      "address": "47042 Castillo Village Apt. 374, Stevenview, RI 85387",
+      "description": "Bag since yet performance trade know."
+    }
+  ]
+}

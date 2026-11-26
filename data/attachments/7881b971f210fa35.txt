@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Hood",
+  "email": "user_3a6794ce18@example.com",
+  "address": "735 Hall Village Suite 830, Lake Benjaminport, FM 09184",
+  "description": "Well everyone business budget ground measure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a18b60ac-8aee-4fbf-bfbd-b46073a72151"
+}

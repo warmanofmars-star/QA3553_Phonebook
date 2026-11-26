@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Gonzalez",
+  "phone": "0583631397",
+  "email": "user_4f1f55354a@example.com",
+  "address": "13471 Peters Mountain Suite 886, Lake Karenmouth, NE 53750",
+  "description": "Unit anything current expect both room real peace."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0cc293e5-ab1f-4eb6-89c6-9f437dddf0bf"
+}

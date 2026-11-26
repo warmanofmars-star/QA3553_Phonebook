@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (138 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Porter",
+  "phone": "0521889142",
+  "email": "user_38881d5cbf@example.com",
+  "address": "PSC 2782, Box 5835, APO AA 66911",
+  "description": "Knowledge produce traditional religious.",
+  "id": "d775d2d9-f51b-463e-86bf-1c380f832711"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

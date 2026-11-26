@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alex",
+  "lastName": "Kim",
+  "phone": "0592036457",
+  "email": "user_1175914f6b@example.com",
+  "address": "118 John Centers, Cochranbury, CO 20152",
+  "description": "Last challenge feeling."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c502fff1-ca4e-4bd3-ac03-96e08ddd8d32"
+}

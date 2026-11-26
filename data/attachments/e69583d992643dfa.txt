@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Angela",
+  "lastName": "Young",
+  "phone": "0515265331",
+  "email": "user_35c8a8f096@example.com",
+  "address": "5304 Deborah Locks, Port William, OH 60768",
+  "description": "Somebody station mission situation."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73373083-1602-49b4-84e0-5999c6b61442"
+}

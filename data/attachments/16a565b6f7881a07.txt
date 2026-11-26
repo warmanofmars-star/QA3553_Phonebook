@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cole",
+  "lastName": "Chandler",
+  "phone": "0532711769",
+  "email": "user_2751757204@example.com",
+  "address": "45527 Brittany Fields, Coxchester, CO 42793",
+  "description": "Chance thing experience play."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 27f413d8-5d17-4bc0-865a-1410daceac8c"
+}

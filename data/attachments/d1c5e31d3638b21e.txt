@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4afc67b7-fe37-4edc-967f-9ebc0e2fba4c",
+      "name": "David",
+      "lastName": "Hammond",
+      "email": "user_6b8f8635ad@example.com",
+      "phone": "0514023320",
+      "address": "1908 Donna Islands Suite 663, Kimberlyhaven, NH 19000",
+      "description": "However full shake write store suffer contain."
+    }
+  ]
+}

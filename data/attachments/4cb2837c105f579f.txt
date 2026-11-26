@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b5e734db-95b7-48af-b788-611e3095ced1",
+      "name": "Meredith",
+      "lastName": "Silva",
+      "email": "user_e0a0513571@example.com",
+      "phone": "0517423424",
+      "address": "015 James Extension Apt. 523, South Elizabethville, GU 01271",
+      "description": "Model visit ten upon rich old."
+    },
+    {
+      "id": "34c9c1df-5ffa-4250-8181-c831111c7640",
+      "name": "Olivia",
+      "lastName": "Jimenez",
+      "email": "user_bdff607186@example.com",
+      "phone": "0519072271",
+      "address": "60176 Kelsey Ridge Apt. 884, Georgeberg, MD 59398",
+      "description": "While reach join firm catch fine direction."
+    }
+  ]
+}

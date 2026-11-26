@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Santana",
+  "phone": "0518762133",
+  "email": "user_a561ba57af@example.com",
+  "address": "4761 Owens Locks, West Joseville, VA 68321",
+  "description": "Cost start talk law national."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6a6ce1ad-1c99-483b-b059-a592a4520d6f"
+}

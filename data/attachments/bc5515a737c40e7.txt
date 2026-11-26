@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Russell",
+  "phone": "0530994224",
+  "email": "user_cba1581263@example.com",
+  "address": "5403 Brittany Circles Apt. 046, Daniellehaven, SD 43426",
+  "description": "Until enough occur wide number professor perhaps."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 70df2887-6e41-463e-8d94-87e907758a3c"
+}

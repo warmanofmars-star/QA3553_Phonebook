@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "91c800ea-e642-41fa-a8ea-cf8d903e5654",
+      "name": "Maria",
+      "lastName": "Brock",
+      "email": "user_6cfada14a9@example.com",
+      "phone": "0529746719",
+      "address": "79554 Mark Oval, Lake Carlaborough, OK 02455",
+      "description": "Majority beautiful teacher."
+    }
+  ]
+}

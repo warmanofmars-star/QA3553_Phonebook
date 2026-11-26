@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Garcia",
+  "phone": "0555188120",
+  "email": "user_b56dae70d3@example.com",
+  "address": "17164 Lin Fords Apt. 098, Davistown, OH 51858",
+  "description": "Easy against action thing reveal peace off."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 88bbf204-8c44-4c2b-aba7-c1ec0945a62d"
+}

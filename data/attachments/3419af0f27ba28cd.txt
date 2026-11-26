@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c502fff1-ca4e-4bd3-ac03-96e08ddd8d32",
+      "name": "Alex",
+      "lastName": "Kim",
+      "email": "user_1175914f6b@example.com",
+      "phone": "0592036457",
+      "address": "118 John Centers, Cochranbury, CO 20152",
+      "description": "Last challenge feeling."
+    }
+  ]
+}

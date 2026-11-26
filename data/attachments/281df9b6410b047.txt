@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5e17b32a-9d19-48f2-aca5-ab3a8681bb44",
+      "name": "Thomas",
+      "lastName": "Crawford",
+      "email": "user_2c8d6a2bb7@example.com",
+      "phone": "0591317630",
+      "address": "PSC 1436, Box 0776, APO AE 59050",
+      "description": "Prepare building sell whatever professional protect."
+    },
+    {
+      "id": "32823ffd-caa1-45d3-b0d2-39668769a349",
+      "name": "Ronald",
+      "lastName": "Jackson",
+      "email": "user_d5329d7ca3@example.com",
+      "phone": "0526921884",
+      "address": "79488 Amanda Glens Suite 447, North Sheilaview, TX 17366",
+      "description": "Lead although know these expert blood president seem."
+    }
+  ]
+}

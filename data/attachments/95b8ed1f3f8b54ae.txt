@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Vincent",
+  "lastName": "Wilson",
+  "phone": "0527805984",
+  "email": "",
+  "address": "97401 Osborne Field, Port Jeanne, PR 44706",
+  "description": "Full many fear hotel reduce."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 82ade26a-74e6-4c89-b1c1-a452707ca8a5"
+}

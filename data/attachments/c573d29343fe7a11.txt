@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (83 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Floyd",
+  "phone": "0572253523",
+  "email": "user_abe9d3ca23@example.com",
+  "address": "34306 Robinson Street, East Debratown, SC 75545",
+  "description": "Move crime Mrs dinner Republican while.",
+  "id": "aaaf0d07-d4ca-4287-8ab2-e329bb4a31a3"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:26:05",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5e5e4033-31cd-432d-8f9b-2d85ca7e5f94",
+      "name": "Sonya",
+      "lastName": "Hernandez",
+      "email": "user_0c812112b4@example.com",
+      "phone": "0523056100",
+      "address": "Unit 3709 Box 5977, DPO AE 24000",
+      "description": "Cause common site rule."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Lawrence",
+  "phone": "0518413384",
+  "email": "user_8b2f5ac200@example.com",
+  "address": "Unit 1485 Box 2924, DPO AA 82766",
+  "description": "Cup unit old treatment for current energy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 18d35c54-92e0-45b3-83bf-1310cb4468f3"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jane",
+  "lastName": "Wilcox",
+  "phone": "0557362996",
+  "email": "user_3c60be0179@example.com",
+  "address": "24334 Gabriel Alley, Kimberlychester, AS 17265",
+  "description": "Talk no some two."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 03913c2a-1530-481e-b3e3-91ce2824c2f4"
+}

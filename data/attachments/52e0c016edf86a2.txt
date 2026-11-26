@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jerry",
+  "lastName": "Tucker",
+  "phone": "0520298015",
+  "email": "user_e1357a96e0@example.com",
+  "address": "1901 Sean Avenue, North Jessicafort, IL 25118",
+  "description": "Black similar production near major."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 035ac307-eae5-41c1-8382-fc28d9e27e09"
+}

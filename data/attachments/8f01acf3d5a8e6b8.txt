@@ -1,0 +1,15 @@
+14:27:20 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+14:27:20 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+14:27:21 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (208 ms)
+14:27:21 [INFO   ] API: Токен добавлен в заголовки сессии
+14:27:21 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+14:27:21 [INFO   ] STEP: Войти как user_88cf45a361@example.com
+14:27:22 [INFO   ] API: POST /v1/contacts -> 200 (40 ms)
+14:27:22 [INFO   ] API: GET /v1/contacts -> 200 (38 ms)
+14:27:22 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+14:27:22 [INFO   ] STEP: Открыть карточку контакта 0595986998
+14:27:23 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+14:27:23 [INFO   ] STEP: Изменить поля формы редактирования
+14:27:23 [INFO   ] STEP: Изменить поле description на 'Stage truth understand condition service rule that.'
+14:27:29 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Stage truth understand condition service rule that.', фактически '[object Undefined]'
+14:27:31 [INFO   ] DRIVER: Видео ddfc32ec71e2b0fce31eb7cf4920561d.mp4 прикреплено к отчёту

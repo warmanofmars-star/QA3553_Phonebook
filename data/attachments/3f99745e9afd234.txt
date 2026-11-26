@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (78 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Walker",
+  "phone": "0531165561",
+  "email": "@example.com",
+  "address": "611 Newman Pines, South Donna, CT 86857",
+  "description": "Us positive high another than she doctor."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:25:52",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

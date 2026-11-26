@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amy",
+  "lastName": "Duncan",
+  "phone": "0513103910",
+  "email": "user_255156da1a@example.com",
+  "address": "657 Lambert Union, Ruizbury, OH 87419",
+  "description": "Local model set even edge remember."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c595dd21-e9f8-4ba2-826d-9420920af16c"
+}

@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (83 ms)
+
+--- Тело запроса ---
+{
+  "name": "William",
+  "phone": "0516618524",
+  "email": "user_22bf9c7e5a@example.com",
+  "address": "3764 Fernandez Bridge Suite 832, Austinfurt, PA 07110",
+  "description": "Employee seek teacher require.",
+  "id": "fbbdbe3f-ca78-4bfd-8bc8-0eda7ac25064"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:26:06",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

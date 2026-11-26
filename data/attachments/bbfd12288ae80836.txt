@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e94eb4c8-9fae-4d58-a98d-00a52f9d8409",
+      "name": "Deborah",
+      "lastName": "Delacruz",
+      "email": "user_739e481eb9@example.com",
+      "phone": "0516686952",
+      "address": "508 William Avenue, Scottshire, KY 10329",
+      "description": "Agent management dog view value tough garden husband."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a7334617-bd1d-4604-a235-342af66bfc39",
+      "name": "Breanna",
+      "lastName": "Potter",
+      "email": "user_e01dd2cead@example.com",
+      "phone": "0531228934",
+      "address": "2489 Jackie Squares, Juliehaven, DC 36406",
+      "description": "Executive nearly better rate experience."
+    }
+  ]
+}

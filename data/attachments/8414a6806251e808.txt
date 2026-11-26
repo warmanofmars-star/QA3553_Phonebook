@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ian",
+  "lastName": "Wu",
+  "phone": "0539336594",
+  "email": "user_76644ebde9@example.com",
+  "address": "946 Nguyen Rapids Apt. 800, Christinahaven, ND 53449",
+  "description": "Above be wonder concern behavior face tax."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9f74a560-8425-4801-8a67-4519ce07d662"
+}

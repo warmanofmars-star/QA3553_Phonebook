@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (127 ms)
+
+--- Тело запроса ---
+{
+  "name": "Elijah",
+  "lastName": "Bryant",
+  "phone": "0506224880",
+  "email": "user_15f99cda05@example.com",
+  "address": "Unit 9679 Box 3563, DPO AA 36562",
+  "description": "Analysis treatment woman number responsibility.",
+  "id": "7983f1c0-0edf-4002-a8f2-3f0f9999bde8"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

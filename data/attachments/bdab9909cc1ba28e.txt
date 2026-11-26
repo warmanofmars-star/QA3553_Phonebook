@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dana",
+  "lastName": "Gardner",
+  "phone": "0519218121",
+  "email": "user_89a0ee5824@example.com",
+  "address": "89491 Ortiz Viaduct Suite 774, Port Ann, MP 76719",
+  "description": "Goal memory test certain appear himself."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 29d5d901-3e57-42d8-8cea-e52f15f88933"
+}

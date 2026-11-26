@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Young",
+  "phone": "0569304878",
+  "email": "user_8625b096a2@example.com",
+  "address": "839 Cruz Trace Apt. 095, South Roberttown, PA 69175",
+  "description": "Western woman real player improve suggest away whose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ab2371f8-e295-4365-9629-10c46e84d145"
+}

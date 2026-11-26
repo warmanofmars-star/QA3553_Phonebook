@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Howard",
+  "phone": "0521516893",
+  "email": "user_f1cfc8a093@example.com",
+  "address": "44303 Rachel Light, East Connie, MO 20789",
+  "description": "Theory together reduce read movement my."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9e8c593b-9f74-4ea3-bec6-8baf96180b9b"
+}

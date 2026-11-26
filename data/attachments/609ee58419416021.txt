@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "70df2887-6e41-463e-8d94-87e907758a3c",
+      "name": "Jessica",
+      "lastName": "Russell",
+      "email": "user_cba1581263@example.com",
+      "phone": "0530994224",
+      "address": "5403 Brittany Circles Apt. 046, Daniellehaven, SD 43426",
+      "description": "Until enough occur wide number professor perhaps."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "471882e1-7f49-400e-a673-9f30650befba",
+      "name": "Samantha",
+      "lastName": "Grimes",
+      "email": "user_e6955fcd04@example.com",
+      "phone": "0513376520",
+      "address": "167 Alexandra Mountain, Port Timothyfort, WV 22615",
+      "description": "Someone camera those."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Denise",
+  "lastName": "Noble",
+  "phone": "0526787651",
+  "email": "user_9d265efdcb@example.com",
+  "address": "61560 Vasquez Underpass Apt. 099, Daisyfurt, VI 46354",
+  "description": "All instead finish year think."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 51fd5e67-da54-4028-afb1-f1df4827197a"
+}

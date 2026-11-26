@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7886fbb7-a85b-431a-a799-f9e9fc54475d",
+      "name": "Connie",
+      "lastName": "Munoz",
+      "email": "user_a4c9abc8f3@example.com",
+      "phone": "0516413262",
+      "address": "4068 Amy Fords, Perezfort, DC 94501",
+      "description": "Society performance week leader collection we."
+    }
+  ]
+}

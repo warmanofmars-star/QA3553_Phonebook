@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7b06fda8-f2ac-45d6-9aa1-26672514f5d0",
+      "name": "Eric",
+      "lastName": "Robinson",
+      "email": "user_6dd10d5190@example.com",
+      "phone": "0519018320",
+      "address": "26975 Kennedy Manor, Charlesport, MT 06920",
+      "description": "Writer draw seat around strong traditional true."
+    }
+  ]
+}

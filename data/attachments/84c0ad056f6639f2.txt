@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lindsay",
+  "lastName": "Taylor",
+  "phone": "0545727649",
+  "email": "user_4753df641f@example.com",
+  "address": "USCGC White, FPO AP 49718",
+  "description": "Nice game product debate."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 84a1c9cf-70da-41ff-888c-e8c5a6b6b8bd"
+}

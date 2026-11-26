@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Eric",
+  "lastName": "Ware",
+  "phone": "0591933528",
+  "email": "user_7b2a196bcc@example.com",
+  "address": "11600 Richard Estate Suite 066, New Peterburgh, IL 83554",
+  "description": "South property white toward."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e8771160-ee43-4c8d-8102-0b70cf58414d"
+}

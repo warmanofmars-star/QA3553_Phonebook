@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d4515a31-68fa-4268-936b-c1a59f2b090f",
+      "name": "Samantha",
+      "lastName": "Dawson",
+      "email": null,
+      "phone": "0556982347",
+      "address": "6534 Sanchez Square, Velazquezside, ND 07973",
+      "description": "Thing find main off effect pressure."
+    }
+  ]
+}

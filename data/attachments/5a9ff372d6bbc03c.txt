@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Harris",
+  "phone": "0532385739",
+  "email": "user_384b7bb981@example.com",
+  "address": "9926 Andrea Plaza Suite 081, Hamiltonborough, NE 22176",
+  "description": "Choice current decide fear."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a5b5f73a-200b-4609-96ab-78136ff440b6"
+}

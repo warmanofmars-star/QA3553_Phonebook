@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2d75bab8-d33b-4fab-8b69-9e03f81168cf",
+      "name": "Allison",
+      "lastName": "Johnson",
+      "email": "user_9c73732cd3@example.com",
+      "phone": "0528128246",
+      "address": "2000 John Haven, Elliottborough, CA 29112",
+      "description": "Control national rather."
+    }
+  ]
+}

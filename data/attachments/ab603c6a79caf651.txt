@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dc79b238-7d04-4454-92f4-035a759458b6",
+      "name": "Heather",
+      "lastName": "Bullock",
+      "email": "user_db88e0033a@example.com",
+      "phone": "0526539711",
+      "address": "9980 Farley Villages, Ronaldport, CT 77274",
+      "description": ""
+    }
+  ]
+}

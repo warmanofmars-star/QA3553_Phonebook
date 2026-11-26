@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (84 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Bowers",
+  "phone": "0527308304",
+  "email": "user_f6c247084e@example.com",
+  "address": "47376 Michelle Spurs Suite 107, Lake Kennethtown, WA 15299",
+  "description": "People whose focus question next four."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T14:26:15",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

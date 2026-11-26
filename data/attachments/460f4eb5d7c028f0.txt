@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ab2371f8-e295-4365-9629-10c46e84d145",
+      "name": "Charles",
+      "lastName": "Young",
+      "email": "user_8625b096a2@example.com",
+      "phone": "0569304878",
+      "address": "839 Cruz Trace Apt. 095, South Roberttown, PA 69175",
+      "description": "Western woman real player improve suggest away whose."
+    },
+    {
+      "id": "e8771160-ee43-4c8d-8102-0b70cf58414d",
+      "name": "Eric",
+      "lastName": "Ware",
+      "email": "user_7b2a196bcc@example.com",
+      "phone": "0591933528",
+      "address": "11600 Richard Estate Suite 066, New Peterburgh, IL 83554",
+      "description": "South property white toward."
+    },
+    {
+      "id": "aa670c79-9051-4e9e-8125-60b40d121ad4",
+      "name": "Andrew",
+      "lastName": "Shepard",
+      "email": "user_a2a998a64c@example.com",
+      "phone": "0513853981",
+      "address": "19400 David Inlet, Mitchellbury, AK 60537",
+      "description": "Toward race go."
+    }
+  ]
+}

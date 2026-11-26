@@ -1,0 +1,15 @@
+14:28:01 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+14:28:01 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+14:28:04 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (313 ms)
+14:28:04 [INFO   ] API: Токен добавлен в заголовки сессии
+14:28:04 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+14:28:05 [INFO   ] STEP: Войти как user_6ee2a70ca1@example.com
+14:28:06 [INFO   ] API: POST /v1/contacts -> 200 (65 ms)
+14:28:06 [INFO   ] API: GET /v1/contacts -> 200 (63 ms)
+14:28:06 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+14:28:06 [INFO   ] STEP: Открыть карточку контакта 0519845411
+14:28:07 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+14:28:07 [INFO   ] STEP: Изменить поля формы редактирования
+14:28:07 [INFO   ] STEP: Изменить поле description на 'School alone serve lay create son.'
+14:28:12 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'School alone serve lay create son.', фактически '[object Undefined]'
+14:28:15 [INFO   ] DRIVER: Видео 70c9555f-544f-4ce7-83d8-c8aa2709248c.mp4 прикреплено к отчёту

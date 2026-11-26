@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Banks",
+  "phone": "0514757152",
+  "email": "user_673c131645@example.com",
+  "address": "PSC 4422, Box 9291, APO AP 97019",
+  "description": "Debate affect bill decision up speech."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 840fe683-992d-4a40-9e94-d0371a2ae81d"
+}

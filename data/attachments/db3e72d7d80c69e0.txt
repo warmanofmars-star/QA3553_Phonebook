@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carla",
+  "lastName": "Bell",
+  "phone": "0546029367",
+  "email": "user_d52cbb14b7@example.com",
+  "address": "9071 Robin Spring Apt. 963, New Michellefurt, NE 16858",
+  "description": "Beyond sometimes attention strategy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6a2b0c68-12dd-4cb5-8578-45e4ae2c5520"
+}

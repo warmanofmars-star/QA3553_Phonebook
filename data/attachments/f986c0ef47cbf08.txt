@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Gardner",
+  "phone": "0542451103",
+  "email": "user_12212c4865@example.com",
+  "address": "659 Weber Turnpike, New Joseph, FM 28806",
+  "description": "Spend head realize entire wear save too."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 93135cf8-e05b-459a-8769-546f7852afef"
+}

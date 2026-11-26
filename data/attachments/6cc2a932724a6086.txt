@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (105 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "93135cf8-e05b-459a-8769-546f7852afef",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Gardner",
+      "email": "user_12212c4865@example.com",
+      "phone": "0542451103",
+      "address": "659 Weber Turnpike, New Joseph, FM 28806",
+      "description": "Spend head realize entire wear save too."
+    }
+  ]
+}

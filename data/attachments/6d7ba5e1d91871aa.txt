@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lorraine",
+  "lastName": "Savage",
+  "phone": "0597735956",
+  "email": "user_c4d6dd111b@example.com",
+  "address": "4068 Krause Divide Apt. 551, New Jonathanton, IN 52898",
+  "description": "Film so this away join wide."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eb7c94bd-32f6-4468-a7be-28e6f8efdb2d"
+}

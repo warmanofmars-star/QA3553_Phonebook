@@ -1,0 +1,20 @@
+14:27:31 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+14:27:31 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+14:27:33 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (216 ms)
+14:27:33 [INFO   ] API: Токен добавлен в заголовки сессии
+14:27:33 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+14:27:33 [INFO   ] STEP: Войти как user_041832a354@example.com
+14:27:34 [INFO   ] API: POST /v1/contacts -> 200 (38 ms)
+14:27:34 [INFO   ] API: GET /v1/contacts -> 200 (38 ms)
+14:27:34 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+14:27:34 [INFO   ] STEP: Открыть карточку контакта 0519018320
+14:27:35 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+14:27:35 [INFO   ] STEP: Изменить поля формы редактирования
+14:27:35 [INFO   ] STEP: Изменить поле name на 'Alexander'
+14:27:35 [INFO   ] STEP: Изменить поле last_name на 'Smith'
+14:27:35 [INFO   ] STEP: Изменить поле phone на '0515639212'
+14:27:35 [INFO   ] STEP: Изменить поле email на 'user_ec57fd3bc1@example.com'
+14:27:36 [INFO   ] STEP: Изменить поле address на '587 Mitchell Fall, North Craig, MO 24392'
+14:27:36 [INFO   ] STEP: Изменить поле description на 'Choice cover final growth offer movement.'
+14:27:41 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Choice cover final growth offer movement.', фактически '[object Undefined]'
+14:27:44 [INFO   ] DRIVER: Видео 48dca67231a538c92ea65e683a602ac3.mp4 прикреплено к отчёту

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3c793730-a708-4968-b2e6-8e9577a4aa52",
+      "name": "Jeffrey",
+      "lastName": "Martinez",
+      "email": "user_524c1194f7@example.com",
+      "phone": "0516888057",
+      "address": "9824 Williams Groves Suite 242, South Kathleenland, CT 45081",
+      "description": "Low could easy second."
+    }
+  ]
+}

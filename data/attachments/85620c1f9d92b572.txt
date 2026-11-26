@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fac6701d-d9d2-4204-8cfa-573ca766db71",
+      "name": "Denise",
+      "lastName": "Blanchard",
+      "email": "user_8713a9587a@example.com",
+      "phone": "0531647182",
+      "address": "9751 Joseph Loop, Angelaborough, FL 06530",
+      "description": "Lawyer not plant data space summer reveal live."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7357f9ab-f239-4f48-8415-20aad20ad63c",
+      "name": "Jason",
+      "lastName": "Mendoza",
+      "email": "user_3bb6fc6852@example.com",
+      "phone": "0526440465",
+      "address": "655 Brooke Centers Apt. 318, Fischerport, NM 89675",
+      "description": "Bring lead some draw campaign cup everybody be."
+    }
+  ]
+}

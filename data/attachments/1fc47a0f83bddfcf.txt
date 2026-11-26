@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Melton",
+  "phone": "0527828650",
+  "email": "user_57dd20a66f@example.com",
+  "address": "0062 Wright Pines, East Ryanchester, AZ 50004",
+  "description": "Little or together ready process campaign."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e6421b5e-1aa6-499e-ab34-ec9cdba9fd05"
+}

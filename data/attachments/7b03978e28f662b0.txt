@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Olivia",
+  "lastName": "Boyle",
+  "phone": "059377097884678",
+  "email": "user_93c0d5f5f2@example.com",
+  "address": "87467 Ray Squares, Austinshire, NE 42439",
+  "description": "Behind bar each work quality apply how."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6a03f6c9-93d8-44e7-bd4c-0cc917248269"
+}
