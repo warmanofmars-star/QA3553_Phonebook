@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "288b65eb-b1d8-4136-aeaf-07b4533c3841",
+      "name": "Michael",
+      "lastName": "Moore",
+      "email": "user_e1658faa37@example.com",
+      "phone": "0595668265",
+      "address": "0532 Lester Garden Apt. 638, Amandahaven, UT 67247",
+      "description": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (88 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sandra",
+  "lastName": "Gray",
+  "phone": "0513402013",
+  "email": "user_95dd5e7724@example.com",
+  "address": "05285 Denise Pines, Lake Kellyhaven, WA 51394",
+  "description": "Court that sense again moment."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e19e0aa3-0ae9-4c68-966f-4bf04b7b72a0"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Newton",
+  "phone": "0514117362",
+  "email": "user_3f53a25c83@example.com",
+  "address": "33748 Lucas Summit Suite 061, Bobbyland, NJ 09500",
+  "description": "Draw machine in read off language."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73daa52d-8f72-4730-af65-ec455edc1e44"
+}

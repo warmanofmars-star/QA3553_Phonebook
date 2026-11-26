@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nancy",
+  "lastName": "Newton",
+  "phone": "0518253922",
+  "email": "user_76e747b90c@example.com",
+  "address": "236 Barker Parkway Suite 140, New Matthew, OK 57005",
+  "description": "Future movement building throughout large local."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ced7e48a-ad6a-4c9a-80b6-42b6c63d8f3b"
+}

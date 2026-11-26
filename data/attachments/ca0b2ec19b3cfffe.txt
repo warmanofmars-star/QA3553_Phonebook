@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c7c3bfac-5414-4ef0-9fb4-2272e3a8047e",
+      "name": "Jennifer",
+      "lastName": "Summers",
+      "email": "user_90158d02fe@example.com",
+      "phone": "0513950815",
+      "address": "1222 Mary Tunnel, Donnaview, ND 61841",
+      "description": "Democratic one leader hundred likely evidence."
+    }
+  ]
+}

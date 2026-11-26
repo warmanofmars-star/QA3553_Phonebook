@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aa122e12-b5db-43c7-9bef-60d220e8c2e0",
+      "name": "Maria",
+      "lastName": "Hatfield",
+      "email": "user_bcc1a7da29@example.com",
+      "phone": "0548412918",
+      "address": "74274 Jeanette Square, Shawnfurt, TN 88647",
+      "description": "Floor situation then card ball."
+    }
+  ]
+}

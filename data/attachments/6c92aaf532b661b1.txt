@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1d6f27ff-eeb7-4a39-8f71-246416ead2f2",
+      "name": "12345",
+      "lastName": "Wood",
+      "email": "user_539162916b@example.com",
+      "phone": "0575484594",
+      "address": "867 Cody Terrace Apt. 653, Penningtonshire, OH 37652",
+      "description": "Line respond road moment."
+    }
+  ]
+}

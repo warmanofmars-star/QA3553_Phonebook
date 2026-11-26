@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6d005514-c7ef-4768-9d98-3c626a6ff731",
+      "name": "Paul",
+      "lastName": "Long",
+      "email": "user_2e1f52ac3a@example.com",
+      "phone": "0552609163",
+      "address": "19108 Timothy Mountains, South Ryanstad, MH 54817",
+      "description": "Soon wear degree soldier machine win just than."
+    }
+  ]
+}

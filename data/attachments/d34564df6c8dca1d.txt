@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b589703a-1f61-41cc-ba9a-78dbe9b43f89",
+      "name": "Michael",
+      "lastName": "Clark",
+      "email": "user_35df216b37@example.com",
+      "phone": "0556378581",
+      "address": "C",
+      "description": "Rate election meeting certainly degree very letter."
+    }
+  ]
+}

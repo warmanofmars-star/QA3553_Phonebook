@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "21df8dc7-d015-4fe6-8309-ba8935b21344",
+      "name": "George",
+      "lastName": "Burch",
+      "email": "user_f97bf6ad2b@example.com",
+      "phone": "0547927520",
+      "address": "152 Larry Trail, South Sarahmouth, WA 26408",
+      "description": "Nor although pay financial agree together smile particularly."
+    }
+  ]
+}

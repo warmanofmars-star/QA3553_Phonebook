@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Little",
+  "phone": "123",
+  "email": "user_15c3d27f4d@example.com",
+  "address": "0702 Yang Radial Suite 740, Lake Karenhaven, MI 97872",
+  "description": "Foot role job president provide page discuss."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T16:55:04",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

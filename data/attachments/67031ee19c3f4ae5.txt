@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Wright",
+  "phone": "0542017192",
+  "email": "user_01625b8a1c@example.com",
+  "address": "0444 Jones Lodge Suite 015, Dianahaven, GU 03761",
+  "description": "Glass ok worker sure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eb394d6b-a62b-4066-a254-f95af121c804"
+}

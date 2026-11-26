@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (22 ms)
+
+--- Тело запроса ---
+{
+  "name": "Briana",
+  "phone": "0531719926",
+  "email": "user_8d632a87ec@example.com",
+  "address": "606 Randy Meadow, Thompsonfurt, CA 53246",
+  "description": "Effort guess phone.",
+  "id": "72ee041d-321a-4d7c-8c0b-a3847ec77617"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T16:55:02",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

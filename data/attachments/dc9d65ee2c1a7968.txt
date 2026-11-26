@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (81 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Bass",
+  "phone": "0523922282",
+  "email": null,
+  "address": "3828 Juan Lock Suite 538, Jonesview, OR 80929",
+  "description": "Door yourself determine pass next research wonder.",
+  "id": "0ac84322-12b8-4317-b0d3-ddf2fcbab207"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

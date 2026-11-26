@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Esparza",
+  "phone": "0584146432",
+  "email": "user_af199214cf@example.com",
+  "address": "9513 Johnson Lock Apt. 377, North Pamelafort, IL 58120",
+  "description": "Process woman improve hot benefit."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0ab5d557-5803-4487-8d2a-f7ab2398e2ba"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ae0f39e0-be4d-47b3-a8ff-8ad552c03c24",
+      "name": "Jessica",
+      "lastName": "Bolton",
+      "email": "user_adf814b12a@example.com",
+      "phone": "0517737125",
+      "address": "9525 Andrea Stream, Derekport, VI 25103",
+      "description": "Enter rate seven daughter spring."
+    }
+  ]
+}

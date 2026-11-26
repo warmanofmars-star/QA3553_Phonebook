@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ronnie",
+  "lastName": "Rios",
+  "phone": "0523945658",
+  "email": "user_ebbfd7bd00@example.com",
+  "address": "31921 Ryan Motorway Apt. 805, North Yolandaborough, PR 15991",
+  "description": "Compare happen general fast none."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d7a67bf0-b9b1-4280-8476-c799b5ea56bf"
+}

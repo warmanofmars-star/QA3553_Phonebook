@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "14b6d87a-e382-401c-9766-cb6df66ddefb",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Mcgee",
+      "email": "user_d18fbebbd5@example.com",
+      "phone": "0529811632",
+      "address": "11426 Burch Lights Apt. 185, South Hectorton, IL 69380",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

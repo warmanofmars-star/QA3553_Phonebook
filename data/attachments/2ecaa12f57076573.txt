@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (83 ms)
+
+--- Тело запроса ---
+{
+  "name": "Roy",
+  "lastName": "Moreno",
+  "phone": "0523962056",
+  "email": "user_a105abbf3c@example.com",
+  "address": "78966 Samantha Plains Apt. 833, Lake Sarahland, GU 98744",
+  "description": "!@#$%^&*()_+-=12345",
+  "id": "901c8bc3-dcf4-4bb6-9381-7fc613f7ec08"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

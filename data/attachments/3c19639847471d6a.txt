@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (82 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Arnold",
+  "phone": "053866302498870",
+  "email": "user_da693deefe@example.com",
+  "address": "1491 Marquez Lodge Suite 869, West Garrett, GU 19354",
+  "description": "Someone teacher situation process health south.",
+  "id": "da80ef6b-5220-4979-81a1-fa3cbf207d6d"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

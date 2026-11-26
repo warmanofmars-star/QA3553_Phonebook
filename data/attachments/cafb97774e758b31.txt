@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "43ee38b5-25a0-4d7d-9a31-de6580607f92",
+      "name": "Michelle",
+      "lastName": "Vega",
+      "email": "user_448ca40763@example.com",
+      "phone": "0510843556",
+      "address": "958 Cruz Garden, New Jamiebury, VI 03324",
+      "description": ""
+    }
+  ]
+}

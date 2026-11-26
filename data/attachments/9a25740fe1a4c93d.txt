@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Johnson",
+  "phone": "0529089498",
+  "email": "user_d877065fd5@example.com",
+  "address": "577 Browning Mission, Turnerbury, KY 12088",
+  "description": "Society action kind environment guy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0b3f85dc-3006-49a4-bc68-72feef70bf43"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fac6fda8-d5d7-4914-b4b1-fe4542c32605",
+      "name": "Alexis",
+      "lastName": "Hunter",
+      "email": "user_9a834c005c@example.com",
+      "phone": null,
+      "address": "560 Tyler Place, East Jamieport, MT 34463",
+      "description": "Toward total full."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sydney",
+  "lastName": "Rice",
+  "phone": "0577943483",
+  "email": "user_c24b176793@example.com",
+  "address": "51847 Zachary Heights Apt. 839, Rojasview, AL 03926",
+  "description": "Attack gun throughout sing fine his."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 859361d1-7b80-4d9b-9e98-406bcfa718f5"
+}

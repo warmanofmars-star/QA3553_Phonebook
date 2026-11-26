@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Lawson",
+  "phone": "0517861269",
+  "email": "user_cbf31ea783@example.com",
+  "address": "8625 Scott Drive, Jacobmouth, KY 40266",
+  "description": "One prevent fine spend style action."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8aa88efe-a373-4977-a206-b2dc60df5b9c"
+}

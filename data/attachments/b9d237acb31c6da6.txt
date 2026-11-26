@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b81e14c2-d105-4a76-829b-c514ec9fc941",
+      "name": "Gloria",
+      "lastName": "Hickman",
+      "email": "user_8d95c9ceda@example.com",
+      "phone": "0566974491",
+      "address": "050 April Stravenue, Davidburgh, MA 58196",
+      "description": "Try true meet agree."
+    }
+  ]
+}

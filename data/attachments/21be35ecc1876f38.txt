@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d7a67bf0-b9b1-4280-8476-c799b5ea56bf",
+      "name": "Ronnie",
+      "lastName": "Rios",
+      "email": "user_ebbfd7bd00@example.com",
+      "phone": "0523945658",
+      "address": "31921 Ryan Motorway Apt. 805, North Yolandaborough, PR 15991",
+      "description": "Compare happen general fast none."
+    }
+  ]
+}

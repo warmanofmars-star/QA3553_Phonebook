@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Selena",
+  "lastName": "Newman",
+  "phone": "0516990027",
+  "email": "user_5a281d1970@example.com",
+  "address": "3699 Timothy Lodge, North Molly, MA 97874",
+  "description": "Minute service forget current."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7d7fe5b5-575a-4ef2-aa32-e6edfcd1a05d"
+}

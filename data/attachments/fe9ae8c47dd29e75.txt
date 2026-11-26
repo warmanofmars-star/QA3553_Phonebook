@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Benjamin",
+  "lastName": "Simmons",
+  "phone": "0582186259",
+  "email": "user_2b4970edb5@example.com",
+  "address": "9992 Justin Rapids Suite 845, Bakerbury, KS 06071",
+  "description": "Instead after prepare growth economic join."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c77a8131-c028-4dc0-82ba-121aac122164"
+}

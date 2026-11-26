@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Stuart",
+  "phone": "0517998930",
+  "email": "user_dfe50c867f@example.com",
+  "address": "470 Dean Unions Apt. 431, Choiberg, OR 24264",
+  "description": "Reduce present reflect lay amount."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 93584507-1089-42c1-8b49-b103687ceec0"
+}

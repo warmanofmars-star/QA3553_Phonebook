@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fe17f516-5e77-48e3-a6e4-6174cbfd6439",
+      "name": "Julia",
+      "lastName": "!@#$%^&*()_+-=",
+      "email": "user_7eb7e7236c@example.com",
+      "phone": "0557599656",
+      "address": "69823 Eric Run Suite 538, Connieberg, ND 66309",
+      "description": "Congress brother high worry trouble information hundred."
+    }
+  ]
+}

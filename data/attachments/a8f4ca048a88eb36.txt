@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+{
+  "name": "Helen",
+  "lastName": "Martinez",
+  "phone": "0519002568",
+  "email": "user_1e9625ab85@example.com",
+  "address": "86816 Harry Prairie Suite 962, North Christopherville, AS 79998",
+  "description": "Force operation quality fight from interview name."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c863d8b1-8eaa-49d2-ac69-7af69a74c15e"
+}

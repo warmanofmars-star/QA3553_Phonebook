@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "72ee041d-321a-4d7c-8c0b-a3847ec77617",
+      "name": "Briana",
+      "lastName": "Mcbride",
+      "email": "user_8d632a87ec@example.com",
+      "phone": "0531719926",
+      "address": "606 Randy Meadow, Thompsonfurt, CA 53246",
+      "description": "Effort guess phone."
+    }
+  ]
+}

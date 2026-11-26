@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b04596c6-a3a4-4fc8-864f-8afef7a66850",
+      "name": "Hunter",
+      "lastName": "Davis",
+      "email": "user_a18cb74058@example.com",
+      "phone": "0526519557",
+      "address": "968 Adams Crossroad, East Juanburgh, VA 33225",
+      "description": "Moment this smile model know tonight."
+    },
+    {
+      "id": "12339ae3-dc8b-49c8-a398-aabd902c5b62",
+      "name": "Tina",
+      "lastName": "Allen",
+      "email": "user_cb676d2f46@example.com",
+      "phone": "0526519557",
+      "address": "6380 Moore Stream, Brendabury, WY 75275",
+      "description": "Result interview growth discussion able need whatever."
+    }
+  ]
+}

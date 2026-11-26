@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a59ec394-09ec-4c0c-a220-f0dff627a690",
+      "name": "Michael",
+      "lastName": "Meyer",
+      "email": "user_cbbc441bf6@example.com",
+      "phone": "0532426284",
+      "address": "933 Chase Village, Sharonmouth, MT 43081",
+      "description": "Claim lay could politics then."
+    }
+  ]
+}

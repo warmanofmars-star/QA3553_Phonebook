@@ -1,9 +1,0 @@
-14:29:25 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
-14:29:25 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
-14:29:28 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (292 ms)
-14:29:28 [INFO   ] API: Токен добавлен в заголовки сессии
-14:29:28 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
-14:29:28 [INFO   ] STEP: Войти как user_ceb4706ea3@example.com
-14:29:29 [INFO   ] UI: Текст Alert: 'Wrong email or password'
-14:29:29 [INFO   ] STEP: Закрыть Alert (OK)
-14:29:33 [INFO   ] DRIVER: Видео c921fc7c-48da-44c5-bd34-22779e56ec0a.mp4 прикреплено к отчёту

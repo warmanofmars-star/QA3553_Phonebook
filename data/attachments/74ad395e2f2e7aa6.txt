@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jill",
+  "lastName": "Bullock",
+  "phone": "0596758159",
+  "email": "пользователь@example.com",
+  "address": "865 Luis Crescent Suite 781, New Robinfurt, OH 37741",
+  "description": "May yet expert practice lose."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e5f5fd7d-3447-48c0-9857-524bc96e7f28"
+}

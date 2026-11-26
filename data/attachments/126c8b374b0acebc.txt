@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Meyers",
+  "phone": "0511839981",
+  "email": "user_af80e543d3@example.com",
+  "address": "52019 John Estate, East Samanthaport, VT 41874",
+  "description": "Base else business letter note wide last style."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3dc235d1-3d6e-43dd-bca2-fd002c90dbec"
+}

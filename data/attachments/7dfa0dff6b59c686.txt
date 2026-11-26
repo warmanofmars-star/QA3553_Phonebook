@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b2754c5e-3179-4500-bd89-a7ca172d99d4",
+      "name": "Shannon",
+      "lastName": "Wilson",
+      "email": "user_896186b11a@example.com",
+      "phone": "0542408674",
+      "address": "98761 Kaitlin Corners, Lake Kaitlynborough, AZ 01514",
+      "description": "By dark camera prevent heart."
+    }
+  ]
+}

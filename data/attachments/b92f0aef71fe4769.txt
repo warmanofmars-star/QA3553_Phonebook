@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0ad2cef3-437f-483e-8976-1b9fdad42b8f",
+      "name": "Joanna",
+      "lastName": "Rowland",
+      "email": "user_f298a2749e@example.com",
+      "phone": "0525766130",
+      "address": "2926 Ryan Stream, South Johnburgh, DE 94390",
+      "description": "Care discover water foot will staff like exist."
+    }
+  ]
+}

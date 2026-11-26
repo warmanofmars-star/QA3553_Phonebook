@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erin",
+  "lastName": "Peterson",
+  "phone": "0528570634",
+  "email": "user_38385ebe3f@example.com",
+  "address": "4742 Smith Flats Suite 593, Kristyshire, MH 64151",
+  "description": "Author military them one decade million financial."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4b278eb0-148f-47de-802e-fdb3724db301"
+}

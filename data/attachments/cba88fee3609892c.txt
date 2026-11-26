@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Johnson",
+  "phone": "0510134653",
+  "email": "user_952544592c@example.com",
+  "address": "23132 Adam Mill, North Jessica, OH 17746",
+  "description": "Subject skill growth agree possible see eight explain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 047b5281-1cde-441f-9703-9bb8a02fba2a"
+}

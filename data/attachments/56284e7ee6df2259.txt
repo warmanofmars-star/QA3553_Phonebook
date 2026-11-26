@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a56c9f5a-9078-4199-aadf-2500f8566adf",
+      "name": "Anthony",
+      "lastName": "Dyer",
+      "email": "user_10a6dba5d4@example.com",
+      "phone": "0529482229",
+      "address": "3999 Amanda Garden Apt. 554, Frankland, PW 81240",
+      "description": "Wall who executive lot grow."
+    },
+    {
+      "id": "0f1992b4-bdf6-4e57-8643-e5d18d6682ec",
+      "name": "Elizabeth",
+      "lastName": "Alvarado",
+      "email": "user_c8fef14011@example.com",
+      "phone": "0523369469",
+      "address": "187 Robert Islands, West Wandamouth, KY 20578",
+      "description": "Marriage must record politics throughout up."
+    }
+  ]
+}

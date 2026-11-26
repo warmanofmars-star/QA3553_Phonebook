@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dale",
+  "lastName": "Ballard",
+  "phone": "0521368829",
+  "email": "user_7b6b5eac7b@example.com",
+  "address": "6762 Shelley Station, West Maureen, CT 25886",
+  "description": "Space director run our section Democrat anyone."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 64fe71e9-1418-4efd-96b7-117b0b505b20"
+}

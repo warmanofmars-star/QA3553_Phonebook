@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (24 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Johnston",
+  "phone": "0599386900",
+  "email": "user_a14080d7cf@example.com",
+  "address": "771 Richards Fall Apt. 426, Doyleland, MI 67086",
+  "description": "Rather story single phone fast program."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T16:55:03",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

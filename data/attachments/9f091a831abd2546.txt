@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Abbott",
+  "phone": "0526800007",
+  "email": "user_270094f30d@example.com",
+  "address": "690 Anita Harbors, Nelsonport, CO 71960",
+  "description": "Least prove meeting into by tell actually."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2f1abae8-e6fe-4321-ba3e-800d11f094d0"
+}

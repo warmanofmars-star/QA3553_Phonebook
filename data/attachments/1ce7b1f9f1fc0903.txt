@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Jensen",
+  "phone": "0516440168",
+  "email": "user_fda19c718a@example.com",
+  "address": "71255 Jacqueline Divide, Ginaport, AS 27215",
+  "description": "Debate trip interesting human."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5e214aff-e76c-45d4-9d43-0ac0d9768176"
+}

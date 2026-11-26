@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Cunningham",
+  "phone": "0516756699",
+  "email": "user_ccec6d2967@example.com",
+  "address": "USNS Hodges, FPO AA 73130",
+  "description": "Push event both go."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b00de3a8-9ea0-460c-a6cd-0019ff222400"
+}

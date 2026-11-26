@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anita",
+  "lastName": "Rodriguez",
+  "phone": "0510846742",
+  "email": "user_46fe8513b4@example.com",
+  "address": "Unit 3671 Box 6693, DPO AE 84476",
+  "description": "Run strong from protect."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 636a5b1d-233f-4f81-b7ca-a8fdb805d26c"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4bcab322-0b83-468c-9384-d527716f83c0",
+      "name": "Taylor",
+      "lastName": "Archer",
+      "email": "user_64240d21f6@example.com",
+      "phone": "0558162230",
+      "address": "7204 Lorraine Club, New Jenniferland, GU 46861",
+      "description": "Many line partner trial."
+    },
+    {
+      "id": "fc809ccd-e91b-4cad-b54d-249a7e735149",
+      "name": "Lauren",
+      "lastName": "Mullins",
+      "email": "user_64240d21f6@example.com",
+      "phone": "0544318875",
+      "address": "6104 Linda River, Port Garrettview, LA 11369",
+      "description": "Generation thing relate become approach."
+    }
+  ]
+}

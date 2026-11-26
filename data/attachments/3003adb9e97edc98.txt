@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Randy",
+  "lastName": "Smith",
+  "phone": "0521068872",
+  "email": "user_238be70a99@example.com",
+  "address": "1134 Steven Rapid, Wademouth, AK 93592",
+  "description": "Who in affect."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 59584972-2e4a-4985-a909-48b12688f180"
+}

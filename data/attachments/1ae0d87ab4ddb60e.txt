@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicholas",
+  "lastName": "Rios",
+  "phone": "0529581395",
+  "email": "user_8b09314f2d@example.com",
+  "address": "PSC 2257, Box 3788, APO AE 70724",
+  "description": "Floor big culture end option perhaps glass hair."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cd23209f-227b-4049-9249-7dc197bc589b"
+}

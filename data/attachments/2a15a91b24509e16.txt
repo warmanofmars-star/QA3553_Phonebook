@@ -1,0 +1,2 @@
+16:55:07 [WARNING] API: POST /v1/user/registration/usernamepassword -> 400 (108 ms)
+16:55:07 [WARNING] API: POST /v1/user/login/usernamepassword -> 401 (294 ms)

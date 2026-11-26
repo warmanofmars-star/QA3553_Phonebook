@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7be78b16-66f0-4e87-a12b-a0f4d81e4046",
+      "name": "Melody",
+      "lastName": "Russo",
+      "email": "user_d02d1487ef@example.com",
+      "phone": "0528892361",
+      "address": "89427 Ortiz Walks, North Christopherview, MN 20837",
+      "description": "Size power nature a recently."
+    }
+  ]
+}

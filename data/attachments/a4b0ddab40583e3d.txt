@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "59584972-2e4a-4985-a909-48b12688f180",
+      "name": "Randy",
+      "lastName": "Smith",
+      "email": "user_238be70a99@example.com",
+      "phone": "0521068872",
+      "address": "1134 Steven Rapid, Wademouth, AK 93592",
+      "description": "Who in affect."
+    }
+  ]
+}

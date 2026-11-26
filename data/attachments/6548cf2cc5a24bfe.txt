@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Angel",
+  "lastName": "Foster",
+  "phone": "0530874575",
+  "email": "user_3e91aff115@example.com",
+  "address": "54427 Lawson Oval Suite 395, East Gregory, MS 76419",
+  "description": "Somebody man brother sister a must about."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ff7a8e47-8632-4e1b-9fe0-e001d2424354"
+}

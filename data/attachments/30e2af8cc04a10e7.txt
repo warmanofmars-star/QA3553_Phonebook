@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "156cf80c-0d59-4fde-a591-ea360da32276",
+      "name": "Ashley",
+      "lastName": "Miranda",
+      "email": "user_3d4c02bcb4@example.com",
+      "phone": "0529288066",
+      "address": "31201 Douglas Corners, New Charles, FL 36005",
+      "description": "Return agency above."
+    },
+    {
+      "id": "1445381c-55de-45aa-b85b-3af82cfb5097",
+      "name": "Sandra",
+      "lastName": "Martin",
+      "email": "user_c990ca5d62@example.com",
+      "phone": "0529288066",
+      "address": "116 Burgess Avenue, Port Rachel, RI 36934",
+      "description": "Quite happy thus prove."
+    }
+  ]
+}

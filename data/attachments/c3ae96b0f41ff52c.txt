@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tara",
+  "lastName": "12345",
+  "phone": "0511732379",
+  "email": "user_85e8072f7d@example.com",
+  "address": "1147 Natalie Courts Apt. 579, Allenbury, ID 14263",
+  "description": "Someone important their poor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fe3071da-3d05-4f7b-a758-e9680eaf03b9"
+}

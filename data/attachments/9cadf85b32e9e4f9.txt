@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "97bd90cf-e0b9-452c-b22c-11de2785ddbe",
+      "name": "Monica",
+      "lastName": "Terry",
+      "email": "user_afe2f30621@example.com",
+      "phone": "0518601453",
+      "address": "56797 Harrison Mount Suite 430, Chambersport, NC 43816",
+      "description": "Lay player significant notice."
+    },
+    {
+      "id": "e29d2367-6001-4d39-83cc-50233c07d65c",
+      "name": "Joseph",
+      "lastName": "Flores",
+      "email": "user_ae0385369d@example.com",
+      "phone": "0532256778",
+      "address": "135 Alexis Corners Apt. 616, Lake Eddie, PA 90299",
+      "description": "Picture organization will."
+    }
+  ]
+}

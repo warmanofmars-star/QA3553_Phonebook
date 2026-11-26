@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+{
+  "name": "Edwin",
+  "lastName": "Oconnor",
+  "phone": "0514586655",
+  "email": "user_c38a207aaf@example.com",
+  "address": "061 Dominguez Manors, Whitetown, IL 30206",
+  "description": "War involve forward particularly those responsibility boy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 15b45d8d-ab84-45c0-9fba-6d76ef45caca"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fe0b1e2d-91b9-41a6-bca0-7413cefa6b88",
+      "name": "Nicole",
+      "lastName": "Wright",
+      "email": "user_6a501f594f@example.com",
+      "phone": "0514533556",
+      "address": "3293 Johns Bypass Suite 864, North Coreyview, IL 97011",
+      "description": "System key do research car."
+    },
+    {
+      "id": "8a7afb55-6517-4922-bc24-332b84dafd61",
+      "name": "Andre",
+      "lastName": "Nelson",
+      "email": "user_5565d75bfd@example.com",
+      "phone": "0527087326",
+      "address": "57580 Cole Dale Suite 621, Loveberg, WA 59683",
+      "description": "Yeah career politics technology."
+    }
+  ]
+}

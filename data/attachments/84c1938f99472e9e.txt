@@ -1,0 +1,17 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (79 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bethany",
+  "lastName": "Garcia",
+  "phone": "0519467202",
+  "address": "702 Kerri Vista, Stoutside, TN 75739",
+  "description": "Simple back after human evidence sometimes both.",
+  "id": "9e5f1782-9ba2-4e6f-8bdc-ee77ee58f485"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

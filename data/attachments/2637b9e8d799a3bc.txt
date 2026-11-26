@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Wright",
+  "phone": "0527296568",
+  "email": "user_9c03cfbd19@example.com",
+  "address": "5242 Patrick Plaza Suite 107, Martinezbury, MI 77054",
+  "description": "Free tree crime tonight."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: daad747a-1ae3-49df-a4bd-98cb20d739be"
+}

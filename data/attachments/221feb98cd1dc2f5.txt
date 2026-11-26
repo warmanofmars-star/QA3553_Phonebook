@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fd3503e3-e655-4844-820e-dd49e8c15453",
+      "name": "Michael",
+      "lastName": "Morrison",
+      "email": "user_9bd40f1aa5@example.com",
+      "phone": "0523061608",
+      "address": "31893 Adam Route, Markview, IL 32025",
+      "description": "Sort front a difference go."
+    },
+    {
+      "id": "ab75f919-0756-4e15-8e89-3e92cd6668d0",
+      "name": "Antonio",
+      "lastName": "Lewis",
+      "email": "user_9bd40f1aa5@example.com",
+      "phone": "0530600569",
+      "address": "17583 Erin Glens, West Nancyfort, NM 10430",
+      "description": "Impact read oil prove month media."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gabrielle",
+  "lastName": "Cooper",
+  "phone": "0530510040",
+  "email": "user_eab687d20e@example.com",
+  "address": "621 Castillo Course Apt. 293, Jonesbury, PW 47579",
+  "description": "Ten hundred rest company discover."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b749ecee-79c9-4f6d-b398-9207203938ff"
+}

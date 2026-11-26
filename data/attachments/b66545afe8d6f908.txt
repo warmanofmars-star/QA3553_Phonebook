@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Church",
+  "phone": "0538910182",
+  "email": "user_333ddc64a8@example.com",
+  "address": "6182 Erica Mountain, Port Dwayne, OK 02400",
+  "description": "Rock play beautiful girl finally."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 75f0c214-6e9b-46d9-aeaf-0ddfa6bc6752"
+}

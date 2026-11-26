@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "021866ff-47dd-4759-8294-29a2cf029f93",
+      "name": "Cynthia",
+      "lastName": "Jefferson",
+      "email": "user_cc611036a2@example.com",
+      "phone": "0577655368",
+      "address": "8839 Mcfarland Summit Suite 758, Lake Eric, WA 42710",
+      "description": "Station real thousand bill."
+    },
+    {
+      "id": "eb394d6b-a62b-4066-a254-f95af121c804",
+      "name": "James",
+      "lastName": "Wright",
+      "email": "user_01625b8a1c@example.com",
+      "phone": "0542017192",
+      "address": "0444 Jones Lodge Suite 015, Dianahaven, GU 03761",
+      "description": "Glass ok worker sure."
+    }
+  ]
+}

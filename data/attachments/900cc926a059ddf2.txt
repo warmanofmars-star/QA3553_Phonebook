@@ -1,0 +1,20 @@
+16:57:21 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+16:57:21 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+16:57:24 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (461 ms)
+16:57:24 [INFO   ] API: Токен добавлен в заголовки сессии
+16:57:24 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+16:57:24 [INFO   ] STEP: Войти как user_18b5e14900@example.com
+16:57:26 [INFO   ] API: POST /v1/contacts -> 200 (117 ms)
+16:57:26 [INFO   ] API: GET /v1/contacts -> 200 (113 ms)
+16:57:26 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+16:57:26 [INFO   ] STEP: Открыть карточку контакта 0523967365
+16:57:27 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+16:57:27 [INFO   ] STEP: Изменить поля формы редактирования
+16:57:27 [INFO   ] STEP: Изменить поле name на 'Cody'
+16:57:27 [INFO   ] STEP: Изменить поле last_name на 'Hendrix'
+16:57:27 [INFO   ] STEP: Изменить поле phone на '0570471387'
+16:57:28 [INFO   ] STEP: Изменить поле email на 'user_9aa98a2036@example.com'
+16:57:28 [INFO   ] STEP: Изменить поле address на '67291 Hoffman Extension, Lake Samantha, AR 64372'
+16:57:28 [INFO   ] STEP: Изменить поле description на 'True per hope race clearly lose how.'
+16:57:33 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'True per hope race clearly lose how.', фактически '[object Undefined]'
+16:57:36 [INFO   ] DRIVER: Видео 831ffa7d-4dab-42b7-9085-49c950841ab3.mp4 прикреплено к отчёту

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jonathan",
+  "lastName": "Kemp",
+  "phone": "0515346784",
+  "email": "user_24c6505c8f@example.com",
+  "address": "195 Patterson Mount Suite 525, North Donaldbury, OR 56911",
+  "description": "Speech fire political cell while peace relate."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: be40172b-4ef1-4951-9828-c34ac8bd5c9e"
+}

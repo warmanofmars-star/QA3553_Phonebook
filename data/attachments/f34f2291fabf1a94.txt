@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73daa52d-8f72-4730-af65-ec455edc1e44",
+      "name": "Joshua",
+      "lastName": "Newton",
+      "email": "user_3f53a25c83@example.com",
+      "phone": "0514117362",
+      "address": "33748 Lucas Summit Suite 061, Bobbyland, NJ 09500",
+      "description": "Draw machine in read off language."
+    }
+  ]
+}

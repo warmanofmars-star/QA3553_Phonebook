@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8c06d1c3-0473-4d1f-8fb6-9493a842c16e",
+      "name": "Lori",
+      "lastName": "Johnson",
+      "email": "user_a1e7ed0f8d@example.com",
+      "phone": "0531634016",
+      "address": "84189 Alfred Rest Apt. 852, Audreyview, NJ 41558",
+      "description": "Buy action five girl."
+    },
+    {
+      "id": "d74c7a4b-3de0-44bc-858e-b56aa3c40d98",
+      "name": "Anthony",
+      "lastName": "Rose",
+      "email": "user_bcb3501c16@example.com",
+      "phone": "0533655927",
+      "address": "08321 Freeman Land, Hughesport, MS 05693",
+      "description": "Try through couple simply seat star student."
+    },
+    {
+      "id": "4ff460ed-37ec-4a45-9a6f-2086c2be90ad",
+      "name": "Monica",
+      "lastName": "Chavez",
+      "email": "user_4a39c1beb5@example.com",
+      "phone": "0526465855",
+      "address": "5885 Samuel Views Suite 294, New Jasminechester, KS 48518",
+      "description": "Office huge structure challenge school cover remain."
+    }
+  ]
+}

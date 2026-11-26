@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0542084694",
+  "email": "user_3cd5f8fda6@example.com",
+  "address": "63613 Mccarthy Mission, Lake Lisachester, OR 00561",
+  "description": "You give gas Congress defense."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d57649c0-3f7a-4424-aa04-246b81cf1459"
+}

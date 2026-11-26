@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (89 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Kline",
+  "phone": "0528711310",
+  "email": "user_27c1b4872f@example.com",
+  "address": "57309 Crystal Via Suite 307, West Brianport, VT 29712",
+  "description": "Property as bill up response dream five."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7d3ec2cb-564c-4b7a-a1bc-f8ef9810d259"
+}

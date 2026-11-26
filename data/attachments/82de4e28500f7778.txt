@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gregory",
+  "lastName": "Kennedy",
+  "phone": "0515986669",
+  "email": "user_4b59d87883@example.com",
+  "address": "0542 Martin River, South Seanstad, MA 41984",
+  "description": "Whatever politics detail indeed."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 09d18715-1371-4928-8f39-796bc0ab13fe"
+}

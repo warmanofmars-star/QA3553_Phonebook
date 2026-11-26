@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cynthia",
+  "lastName": "Jefferson",
+  "phone": "0577655368",
+  "email": "user_cc611036a2@example.com",
+  "address": "8839 Mcfarland Summit Suite 758, Lake Eric, WA 42710",
+  "description": "Station real thousand bill."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 021866ff-47dd-4759-8294-29a2cf029f93"
+}

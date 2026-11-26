@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Allen",
+  "phone": "0534001990",
+  "email": "user_a43c88075f@example.com",
+  "address": "808 Kyle Coves, Wagnerchester, PW 81343",
+  "description": "Break actually try deal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 67623833-21be-40a7-8ee0-dfd986fa72e7"
+}

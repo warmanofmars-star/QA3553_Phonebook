@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lori",
+  "lastName": "Johnson",
+  "phone": "0531634016",
+  "email": "user_a1e7ed0f8d@example.com",
+  "address": "84189 Alfred Rest Apt. 852, Audreyview, NJ 41558",
+  "description": "Buy action five girl."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8c06d1c3-0473-4d1f-8fb6-9493a842c16e"
+}

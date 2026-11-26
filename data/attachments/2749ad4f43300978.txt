@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ce370d70-2bfb-412d-b936-77a26eeff03a",
+      "name": "Robin",
+      "lastName": "Malone",
+      "email": null,
+      "phone": "0525632151",
+      "address": "PSC 8229, Box 9558, APO AE 75392",
+      "description": "Room tax quickly Mrs."
+    }
+  ]
+}

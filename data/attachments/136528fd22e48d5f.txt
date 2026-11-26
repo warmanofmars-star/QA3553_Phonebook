@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephen",
+  "lastName": "Hansen",
+  "phone": "0529611136",
+  "email": "user_0bbe1cbd0c@example.com",
+  "address": "65332 Jessica Streets Suite 662, New Jonathan, KS 22004",
+  "description": "Bad difficult popular husband back sell interest."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b4e4416c-e699-48bf-8d0c-311c2b0f46ea"
+}

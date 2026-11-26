@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1597f949-0d80-4a78-adb5-95f585471ca5",
+      "name": "Brian",
+      "lastName": "Robertson",
+      "email": "user_48c2a60bcb@example.com",
+      "phone": "0515873304",
+      "address": "5732 Penny Bridge Suite 282, Reedhaven, ID 62273",
+      "description": "Could later none modern rule western receive."
+    }
+  ]
+}

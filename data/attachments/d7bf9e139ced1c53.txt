@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Simmons",
+  "phone": "0528657310",
+  "email": "user_0cfcecf649@example.com",
+  "address": "Unit 7309 Box 9230, DPO AE 86395",
+  "description": "Else bit treat deal member decision."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3992cf3e-d8e6-410f-82b5-f45bd1b2b6b8"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Calvin",
+  "lastName": "Barrett",
+  "phone": "0578920595",
+  "email": "user_ed4033192b@example.com",
+  "address": "37493 Walker Knoll, Lynchton, SD 25917",
+  "description": "Attorney car effort indeed."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7bcc4c5a-f84c-44ee-87c4-b634f87f6fdd"
+}

@@ -1,0 +1,17 @@
+16:56:01 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+16:56:01 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+16:56:01 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (332 ms)
+16:56:01 [INFO   ] API: Токен добавлен в заголовки сессии
+16:56:01 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+16:56:02 [INFO   ] STEP: Войти как user_2df4cb98d5@example.com
+16:56:02 [INFO   ] API: POST /v1/contacts -> 200 (86 ms)
+16:56:03 [INFO   ] API: GET /v1/contacts -> 200 (84 ms)
+16:56:03 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+16:56:03 [INFO   ] STEP: Открыть карточку контакта 0517539498
+16:56:03 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+16:56:03 [INFO   ] STEP: Изменить поля формы редактирования
+16:56:03 [INFO   ] STEP: Изменить поле address на '3091 Laura Estates Apt. 200, New Timothyberg, VA 92157'
+16:56:03 [INFO   ] STEP: Нажать Save в форме редактирования
+16:56:04 [INFO   ] API: GET /v1/contacts -> 200 (86 ms)
+16:56:04 [INFO   ] API: GET /v1/contacts -> 200 (84 ms)
+16:56:07 [INFO   ] DRIVER: Видео 3e0ff75ae1023fcb321e2183405405eb.mp4 прикреплено к отчёту

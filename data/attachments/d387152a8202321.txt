@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ca99af29-dde0-4dc0-b3de-a153bffa9c2c",
+      "name": "Elizabeth",
+      "lastName": "Peterson",
+      "email": "user_b858979a88@example.com",
+      "phone": "0524395740",
+      "address": "603 Stacy Row, West Tarafort, IL 46279",
+      "description": "Lose book require own."
+    }
+  ]
+}

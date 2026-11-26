@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (80 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julie",
+  "lastName": "Moyer",
+  "phone": "0532655193",
+  "email": "a@b",
+  "address": "Unit 7437 Box 1467, DPO AP 97772",
+  "description": "Office picture record fast peace.",
+  "id": "bb1ee85f-653f-4a13-9179-6e33512de0f1"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

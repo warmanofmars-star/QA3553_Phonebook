@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2dca0062-76f4-43e7-9d42-07061a3604c1",
+      "name": "John",
+      "lastName": "Kramer",
+      "email": "user_2f18899b88@example.com",
+      "phone": "0512490777",
+      "address": "11476 Heather Mews, West Jamie, CT 58944",
+      "description": "Unit pay recent too save."
+    }
+  ]
+}

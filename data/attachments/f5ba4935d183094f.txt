@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "538cf7cf-83e5-4aa2-8d49-b5e11946ce11",
+      "name": "Nicholas",
+      "lastName": "Cummings",
+      "email": "user_c7fff71923@example.com",
+      "phone": "0511620962",
+      "address": "7114 Scott Village, Freemanstad, KY 77044",
+      "description": "Apply few herself policy."
+    }
+  ]
+}

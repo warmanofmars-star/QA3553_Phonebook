@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bef933f9-e915-4458-9155-b7d1ed21533a",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Hensley",
+      "email": "user_82db4cdc10@example.com",
+      "phone": "0519081458",
+      "address": "78639 Andrade Hills, New Oscarfort, NV 42892",
+      "description": "Street within everything affect develop."
+    }
+  ]
+}

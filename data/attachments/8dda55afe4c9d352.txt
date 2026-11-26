@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (101 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paul",
+  "lastName": "Ford",
+  "phone": "0548137481",
+  "email": "user_22b30184a8@example.com",
+  "address": "190 Bentley Square Apt. 869, West Jessicamouth, MI 63728",
+  "description": "Role guess bed."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6cfb0011-d0ab-48f0-a481-fdd6880bdbde"
+}

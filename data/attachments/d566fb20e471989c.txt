@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (25 ms)
+
+--- Тело запроса ---
+{
+  "name": "Victor",
+  "lastName": "Smith",
+  "phone": "   ",
+  "email": "user_6b59310d34@example.com",
+  "address": "69011 Philip Road, Bauerville, NH 23930",
+  "description": "Writer politics stay ball test early born.",
+  "id": "0708170d-5da0-4fe2-8a1e-7a93ba511fd5"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T16:55:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

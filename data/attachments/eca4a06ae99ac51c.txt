@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kaitlyn",
+  "lastName": "Shepard",
+  "phone": "0525336279",
+  "email": "user_8eb8ff251c@example.com",
+  "address": "7659 Robert Glens, Richardburgh, AZ 09141",
+  "description": "Attention trial nice nor popular style."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 94134684-14b6-4de9-be96-edad62cd176e"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Corey",
+  "lastName": "Barnett",
+  "phone": "0526702560",
+  "email": "user_0efe43680f@example.com",
+  "address": "078 Herring Mountains, Lisatown, MO 46034",
+  "description": "Strong hard study girl successful very attention."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d84dd1e4-a1cb-4583-bf09-56e81b12d0bc"
+}

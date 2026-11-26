@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Francis",
+  "phone": "0532827420",
+  "email": "user_ab79025417@example.com",
+  "address": "061 Johnny Extensions Suite 858, New Kimberly, LA 52893",
+  "description": "!@#$%^&*()_+-=12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1e9f0096-387c-41cd-a8fd-532463cf4dac"
+}

@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Smith",
+  "phone": "0517532995",
+  "email": "not_an_email",
+  "address": "4500 Armstrong Circles Apt. 414, New Debramouth, MO 65874",
+  "description": "Trouble north see."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T16:55:04",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

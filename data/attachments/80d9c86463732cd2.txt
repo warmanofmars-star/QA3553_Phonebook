@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jacob",
+  "lastName": "Watson",
+  "phone": "0582436002",
+  "email": "user_515d108d2a@example.com",
+  "address": "393 Owens Street Apt. 689, Lake David, MA 90854",
+  "description": "Quality live pay treat firm successful."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 38860e2a-54c9-41fa-a1c6-259241b9b37e"
+}

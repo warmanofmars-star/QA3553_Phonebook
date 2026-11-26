@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Mcgee",
+  "phone": "0529811632",
+  "email": "user_d18fbebbd5@example.com",
+  "address": "11426 Burch Lights Apt. 185, South Hectorton, IL 69380",
+  "description": "Deep hear case future sport down price."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 14b6d87a-e382-401c-9766-cb6df66ddefb"
+}

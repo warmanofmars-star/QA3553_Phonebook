@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "08c63acf-3a72-497f-9d54-ff4501704748",
+      "name": "Gregory",
+      "lastName": "Moore",
+      "email": "user_102c180554@example.com",
+      "phone": "0527582553",
+      "address": "313 James Squares, Michaelmouth, TN 42634",
+      "description": "Need mind money they."
+    }
+  ]
+}

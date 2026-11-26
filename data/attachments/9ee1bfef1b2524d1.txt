@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4b5a6004-9812-4ead-8e31-b94dd78d89c8",
+      "name": "David",
+      "lastName": "Burns",
+      "email": "user_fa7ad10be9@example.com",
+      "phone": "0513052050",
+      "address": "84483 Ryan Lodge, Veronicaview, ID 34501",
+      "description": "Course just likely southern scene price peace."
+    }
+  ]
+}

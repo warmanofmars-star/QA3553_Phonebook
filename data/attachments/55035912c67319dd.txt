@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alicia",
+  "lastName": "Parsons",
+  "phone": "0516692567",
+  "email": "user_2fe1dc57ff@example.com",
+  "address": "5612 Erik Pines, East Billy, DE 36778",
+  "description": "Per side investment try take professor no argue."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0b9acb5e-6817-435f-a338-59a3f45d681d"
+}
