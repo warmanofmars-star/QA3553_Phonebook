@@ -209,7 +209,11 @@ More commands: [`commands.md`](commands.md).
 **GitHub Actions** ([`.github/workflows/tests.yml`](.github/workflows/tests.yml)) runs on every push to `main`
 and on every pull request:
 
-- a linter job (ruff);
+- a lint job: `ruff check` and `ruff format --check`; the traceability matrix
+  [`docs/coverage.md`](docs/coverage.md) is up to date (`ci/coverage_matrix.py --check`); all `selenium/*` images
+  in `docker-compose*.yml` share one Selenium Grid 4 tag (`ci/check_selenium_images.py`); the lock files match
+  `requirements*.in` (`ci/lock_requirements.sh --check`, compares pinned versions); `.github/dependabot.yml`
+  and the workflows validate against their JSON schemas (check-jsonschema);
 - a secrets job (gitleaks) that scans only the new commits of the push or pull request;
 - API and Playwright tests (`-m "api or playwright"`) once, in Docker without Selenium Grid:
   they do not use the matrix browser (Playwright always runs its own Chromium);
@@ -237,8 +241,11 @@ infrastructure errors mark it `FAILURE`; the Allure plugin keeps the trend histo
 ## Code quality
 
 - **ruff** — linter and formatter, configured in [`pyproject.toml`](pyproject.toml); also checked in CI.
-- **pre-commit** ([`.pre-commit-config.yaml`](.pre-commit-config.yaml)) — runs ruff, basic file checks and
-  **gitleaks** before every commit. Besides the built-in gitleaks rules, a custom rule in
+- **pre-commit** ([`.pre-commit-config.yaml`](.pre-commit-config.yaml)) — runs before every commit: basic file
+  checks (whitespace, end of file, YAML/TOML syntax, merge conflict markers, large files, private keys), ruff,
+  the JSON-schema checks of `.github/dependabot.yml` and the workflows, the Selenium image tag check, and
+  **gitleaks**. ruff and check-jsonschema come from the project `.venv` (versions in `requirements-dev.in`),
+  so commit from the activated `.venv`. Besides the built-in gitleaks rules, a custom rule in
   [`.gitleaks.toml`](.gitleaks.toml) catches `.env`-style passwords, which the built-in rules do not detect.
   The same gitleaks version and config run in CI on new commits, where the check cannot be skipped.
 
@@ -246,6 +253,10 @@ infrastructure errors mark it `FAILURE`; the Allure plugin keeps the trend histo
 pre-commit install            # once after cloning
 pre-commit run --all-files    # check the whole project manually
 ```
+
+- **Dependabot** ([`.github/dependabot.yml`](.github/dependabot.yml)) — one grouped pull request per month for all
+  ecosystems (pip, pre-commit, GitHub Actions, Docker, Docker Compose), with a 14-day cooldown for new releases.
+  The repository owner reviews and merges the bot's pull requests; see [`commands.md`](commands.md) for how.
 
 ## Known limitations
 
