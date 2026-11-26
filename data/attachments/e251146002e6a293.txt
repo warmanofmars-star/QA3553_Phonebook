@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Huynh",
+  "phone": "0511821396",
+  "email": "user_fb7122ca0b@example.com",
+  "address": "7222 Acosta Circle Suite 293, Port Lindaland, PA 24501",
+  "description": "Nation hour politics everybody."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f97a7f53-5608-4c6f-aa6c-09600628c895"
+}

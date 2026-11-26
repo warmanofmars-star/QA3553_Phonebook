@@ -1,0 +1,20 @@
+18:17:33 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+18:17:33 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+18:17:34 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (252 ms)
+18:17:34 [INFO   ] API: Токен добавлен в заголовки сессии
+18:17:34 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+18:17:35 [INFO   ] STEP: Войти как user_76f359988e@example.com
+18:17:36 [INFO   ] API: POST /v1/contacts -> 200 (61 ms)
+18:17:36 [INFO   ] API: GET /v1/contacts -> 200 (57 ms)
+18:17:36 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+18:17:36 [INFO   ] STEP: Открыть карточку контакта 0527013547
+18:17:36 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+18:17:37 [INFO   ] STEP: Изменить поля формы редактирования
+18:17:37 [INFO   ] STEP: Изменить поле name на 'Emily'
+18:17:37 [INFO   ] STEP: Изменить поле last_name на 'Carr'
+18:17:37 [INFO   ] STEP: Изменить поле phone на '0519369779'
+18:17:37 [INFO   ] STEP: Изменить поле email на 'user_6f975610c9@example.com'
+18:17:37 [INFO   ] STEP: Изменить поле address на 'PSC 0266, Box 2316, APO AP 24425'
+18:17:37 [INFO   ] STEP: Изменить поле description на 'Entire Mrs arm enough.'
+18:17:43 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Entire Mrs arm enough.', фактически '[object Undefined]'
+18:17:46 [INFO   ] DRIVER: Видео 7cdb7d0a26fd7bc4e74086c367d06679.mp4 прикреплено к отчёту

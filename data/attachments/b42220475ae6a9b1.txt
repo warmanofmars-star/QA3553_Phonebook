@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shawn",
+  "lastName": "Martin",
+  "phone": "0515695881",
+  "email": "user_f0cf2cd2fb@example.com",
+  "address": "17299 Miller Extensions Suite 556, Devinchester, AR 04496",
+  "description": "Action camera same book onto moment control."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b2b108e6-9c90-40de-86c4-093d2c384828"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f6581002-261e-4041-8db7-bd593d6bf026",
+      "name": "12345",
+      "lastName": "Kelly",
+      "email": "user_2c36999c88@example.com",
+      "phone": "0515478409",
+      "address": "3516 Moore Wells Suite 938, West Davidborough, ND 79105",
+      "description": "Event father teacher born cup stand hand."
+    }
+  ]
+}

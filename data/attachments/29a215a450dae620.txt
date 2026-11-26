@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Mccarthy",
+  "phone": "0533947364",
+  "email": "user_12c44dc202@example.com",
+  "address": "59808 Lee Ridges Apt. 510, Laurenfurt, MD 49291",
+  "description": "Friend fish popular though represent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ae263942-2853-4e25-8948-7641877e50d0"
+}

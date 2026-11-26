@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christy",
+  "lastName": "Murphy",
+  "phone": "0515067961",
+  "email": "user_520f240aab@example.com",
+  "address": "7062 Kelly Cove, Denisechester, AK 07347",
+  "description": "Question soldier successful agreement service call rather."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4436bd57-6ae2-4446-ae2e-40424f7727fb"
+}

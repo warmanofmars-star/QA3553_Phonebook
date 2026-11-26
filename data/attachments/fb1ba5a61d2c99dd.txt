@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Simpson",
+  "phone": "0517242517",
+  "email": "user_84fea1c1d7@example.com",
+  "address": "4328 Natasha Gardens, Hendersonmouth, MO 18684",
+  "description": "Political focus state radio seven."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3e46d859-2aea-4e76-9441-b4b9d12194cc"
+}

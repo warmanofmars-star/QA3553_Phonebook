@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1dca6646-fbd5-4fab-b3aa-726a01707d3d",
+      "name": "Christopher",
+      "lastName": "Phelps",
+      "email": "user_8a6d2d8cb6@example.com",
+      "phone": "0530409597",
+      "address": "073 Thomas Route, Kathymouth, NH 32596",
+      "description": "But campaign everything."
+    }
+  ]
+}

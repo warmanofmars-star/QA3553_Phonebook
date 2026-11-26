@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b07af956-5a1d-4b8b-b819-6c8cc44ab58e",
+      "name": "Robert",
+      "lastName": "George",
+      "email": "user_f8515e47e6@example.com",
+      "phone": "0516341131",
+      "address": "469 John Divide Apt. 408, North Michaelberg, AL 14667",
+      "description": "Choice add including quickly."
+    },
+    {
+      "id": "35658404-d97b-45fb-b698-2b254e7b62c9",
+      "name": "Karen",
+      "lastName": "Schwartz",
+      "email": "user_591711187a@example.com",
+      "phone": "0573879121",
+      "address": "936 Scott Way, Lake Betty, MT 69064",
+      "description": "Nice six scene Mrs."
+    }
+  ]
+}

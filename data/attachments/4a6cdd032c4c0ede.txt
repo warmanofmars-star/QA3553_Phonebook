@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7838bd11-8a74-421b-a06b-bf186d01f537",
+      "name": "Samantha",
+      "lastName": "Foster",
+      "email": "user_25efa5f28c@example.com",
+      "phone": "0525104728",
+      "address": "3095 Sheila Canyon Suite 136, Fletcherfort, MD 95689",
+      "description": "Town dark deep mouth forget."
+    }
+  ]
+}

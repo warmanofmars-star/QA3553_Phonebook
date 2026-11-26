@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2d1b9c66-859a-4efc-945b-1ea360e2dfc7",
+      "name": "Christopher",
+      "lastName": "Wood",
+      "email": "user_44df100b32@example.com",
+      "phone": "0526398180",
+      "address": "831 Miller Courts Apt. 523, East Madelinemouth, TN 96863",
+      "description": "Wait give crime man represent financial senior."
+    }
+  ]
+}

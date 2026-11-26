@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deborah",
+  "lastName": "Sparks",
+  "phone": "0528599214",
+  "email": "user_7fa14a740c@example.com",
+  "address": "688 Michele Ways Apt. 671, West Michaelfurt, OK 89712",
+  "description": "Face claim blue eye parent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cba4b0c9-1bac-4a46-8e9e-b4976b71aacd"
+}

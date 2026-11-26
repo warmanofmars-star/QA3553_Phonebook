@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Allen",
+  "phone": "0515818738",
+  "email": "user_fca04abec6@example.com",
+  "address": "1366 Emily Squares Apt. 346, North Andrew, WA 79057",
+  "description": "Action glass expert wrong figure forward."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 57a6fb15-afc0-4187-a719-7f5e2dcd3cd8"
+}

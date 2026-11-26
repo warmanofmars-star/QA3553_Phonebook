@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Hernandez",
+  "phone": "0510037913",
+  "email": "user_a9707024cc@example.com",
+  "address": "608 Trujillo Hollow, Lake Laurentown, KY 32546",
+  "description": "Central themselves indicate position instead could it stop."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b1cd9e69-10cb-4824-bc06-a0ad4255ff74"
+}

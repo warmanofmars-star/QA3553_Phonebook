@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Fields",
+  "phone": "0517682619",
+  "email": "user_699b850f90@example.com",
+  "address": "49233 Sanchez Path Apt. 600, South Matthewside, OK 36198",
+  "description": "Defense former this space."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 851de013-114f-49fd-bd71-4da34fe28823"
+}

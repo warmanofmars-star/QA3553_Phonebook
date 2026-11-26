@@ -1,0 +1,20 @@
+18:18:25 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+18:18:25 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+18:18:28 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (317 ms)
+18:18:28 [INFO   ] API: Токен добавлен в заголовки сессии
+18:18:28 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+18:18:28 [INFO   ] STEP: Войти как user_c286cbfdfd@example.com
+18:18:30 [INFO   ] API: POST /v1/contacts -> 200 (64 ms)
+18:18:30 [INFO   ] API: GET /v1/contacts -> 200 (64 ms)
+18:18:30 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+18:18:30 [INFO   ] STEP: Открыть карточку контакта 0524897848
+18:18:31 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+18:18:31 [INFO   ] STEP: Изменить поля формы редактирования
+18:18:31 [INFO   ] STEP: Изменить поле name на 'Kaitlyn'
+18:18:32 [INFO   ] STEP: Изменить поле last_name на 'Long'
+18:18:32 [INFO   ] STEP: Изменить поле phone на '0513574291'
+18:18:32 [INFO   ] STEP: Изменить поле email на 'user_4f9e8d2625@example.com'
+18:18:32 [INFO   ] STEP: Изменить поле address на '09800 Kathryn Pines Apt. 075, Hayesmouth, OH 53610'
+18:18:32 [INFO   ] STEP: Изменить поле description на 'Seem discover people hand itself side international.'
+18:18:38 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Seem discover people hand itself side international.', фактически '[object Undefined]'
+18:18:41 [INFO   ] DRIVER: Видео e8d8c2e0-9e32-4b11-b88e-536d63d5e646.mp4 прикреплено к отчёту

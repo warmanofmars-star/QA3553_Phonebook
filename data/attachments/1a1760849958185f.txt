@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (31 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cd93fd09-3e50-4a89-83ec-cf7a3204103e",
+      "name": "Alex",
+      "lastName": "Avery",
+      "email": "user_cd367bd183@example.com",
+      "phone": "0566600016",
+      "address": "586 Brandon Mall, Paigeberg, IL 10704",
+      "description": "Church picture development begin same."
+    }
+  ]
+}

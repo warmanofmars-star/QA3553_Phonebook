@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cc28968a-9b14-4fb6-8e2a-4c2840c419ba",
+      "name": "Stephanie",
+      "lastName": "Adkins",
+      "email": "user_95bd0e1457@example.com",
+      "phone": "0515033060",
+      "address": "0848 Neal Shores Suite 584, Smithside, IA 12343",
+      "description": "May walk why painting."
+    }
+  ]
+}

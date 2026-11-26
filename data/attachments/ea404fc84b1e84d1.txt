@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jonathan",
+  "lastName": "Wise",
+  "phone": "0546689247",
+  "email": "user_13d20ae878@example.com",
+  "address": "97722 Williams Crossroad, West Lindseyberg, CA 06279",
+  "description": "Mind reflect kind stage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e7f303f4-c293-44aa-a576-9affd7ace658"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0aa3e6d9-8731-4980-a546-94e7a1662730",
+      "name": "Brenda",
+      "lastName": "Poole",
+      "email": "user_c33d0ae693@example.com",
+      "phone": "0524901031",
+      "address": "790 Carson Isle, Jenniferchester, CT 47624",
+      "description": "Win perform letter ready left test."
+    },
+    {
+      "id": "b88cf5a1-8e7e-4f26-b573-494a01613e71",
+      "name": "Amanda",
+      "lastName": "Melton",
+      "email": "user_717cb0cbd6@example.com",
+      "phone": "0524901031",
+      "address": "2310 Miller Hill, East Melissa, AL 93780",
+      "description": "Baby guy doctor will break report."
+    }
+  ]
+}

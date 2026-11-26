@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dean",
+  "lastName": "Richardson",
+  "phone": "0557847821",
+  "email": "user_5e25c2e39d@example.com",
+  "address": "596 Melanie Parks Suite 471, South Christophershire, AZ 25301",
+  "description": "Film tough itself bad realize write."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e40df170-a76e-4d31-8d25-34b9ccc7dd2f"
+}

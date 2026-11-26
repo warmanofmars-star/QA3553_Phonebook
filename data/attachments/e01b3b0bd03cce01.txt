@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nichole",
+  "lastName": "Schroeder",
+  "phone": "0510304252",
+  "email": "user_26abc5751f@example.com",
+  "address": "1201 Rice Spur Apt. 001, South Nathanfort, AS 42623",
+  "description": "Agent new act must free place when live."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cdd4aa2e-fbb3-4fbe-af80-851d3cc72d08"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Stone",
+  "phone": "0529384319",
+  "email": "user_78a4420635@example.com",
+  "address": "700 Jennifer Estate, South Kristy, AZ 36595",
+  "description": "Future the suddenly movement always chance."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 63489773-cb81-4bba-bbaa-fa5749e52a35"
+}

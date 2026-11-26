@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patricia",
+  "lastName": "Dixon",
+  "phone": "0580685236",
+  "email": "user_b693e464b4@example.com",
+  "address": "4119 Smith Stravenue Suite 798, West Gregory, MI 30018",
+  "description": "Trip black box perhaps."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4290f964-d06c-41e1-88b8-54bf84d995f5"
+}

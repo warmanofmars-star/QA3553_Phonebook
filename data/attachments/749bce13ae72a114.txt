@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "82a6e9e2-bee8-47d7-9e13-7b6ab77cedd5",
+      "name": "Harry",
+      "lastName": "Miller",
+      "email": "user_2bc41f51ad@example.com",
+      "phone": "0554855613",
+      "address": "11056 Frank Brook, North Timothy, NV 07414",
+      "description": "Doctor society inside one citizen town."
+    }
+  ]
+}

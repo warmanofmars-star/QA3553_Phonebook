@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (105 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a51f2654-44b3-4ca0-9ddf-dd8c64511f18",
+      "name": "Anthony",
+      "lastName": "Alvarado",
+      "email": "user_bf2832a04a@example.com",
+      "phone": "0526902946",
+      "address": "1153 Turner Station Suite 927, East Matthewside, CA 55745",
+      "description": "Ask raise future can."
+    }
+  ]
+}

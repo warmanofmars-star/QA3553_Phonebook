@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gabriel",
+  "lastName": "Baker",
+  "phone": "0536286144",
+  "email": "user_d6ba0730f5@example.com",
+  "address": "3762 Montes Trace, South Ericside, ID 47961",
+  "description": "Value room somebody."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 15e4a971-ad7d-46d0-a62f-43b416242f76"
+}

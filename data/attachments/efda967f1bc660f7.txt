@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brett",
+  "lastName": "Mendoza",
+  "phone": "0531238098",
+  "email": "user_98f59da8a4@example.com",
+  "address": "963 David Center, Henryburgh, TN 53851",
+  "description": "Which enough order certainly because."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 91885135-d1de-47fa-a409-fee1fa4e8e37"
+}

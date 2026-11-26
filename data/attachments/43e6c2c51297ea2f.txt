@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e0dc57e4-9d35-4e77-b765-bfdb0df256d9",
+      "name": "Jessica",
+      "lastName": "Daniel",
+      "email": "user_84fe2d0b35@example.com",
+      "phone": "0531883728",
+      "address": "441 Morgan Row, Lake Angela, MP 84341",
+      "description": "Way fly rate everyone spend."
+    },
+    {
+      "id": "3bdc8f4d-b78f-479c-bb8d-8d352c9aa88c",
+      "name": "Lisa",
+      "lastName": "Owens",
+      "email": "user_5acded22b9@example.com",
+      "phone": "0527525398",
+      "address": "Unit 9646 Box 9317, DPO AA 49757",
+      "description": "Sound race home bag land ok various stuff."
+    }
+  ]
+}

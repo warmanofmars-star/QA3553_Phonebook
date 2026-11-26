@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Monica",
+  "lastName": "Fernandez",
+  "phone": "0528862699",
+  "email": "user_a3fdf3ab35@example.com",
+  "address": "95801 Heather Plaza Suite 206, Collinsmouth, FM 38395",
+  "description": "Attack reveal six together we involve."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a9fad1d6-b316-4f88-b302-d9f1d62e27f6"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f480718d-5964-42a3-a7f5-cbeefa428627",
+      "name": "Eric",
+      "lastName": "Bush",
+      "email": "user_7f5971ce14@example.com",
+      "phone": "0517143116",
+      "address": "USS Faulkner, FPO AA 64446",
+      "description": "Budget daughter million use result word material."
+    },
+    {
+      "id": "411d25e0-1776-4690-9cea-6115013a45e4",
+      "name": "Courtney",
+      "lastName": "Irwin",
+      "email": "user_4d1456a1fe@example.com",
+      "phone": "0517916068",
+      "address": "42322 Paige Point, Shieldston, WI 12091",
+      "description": "Station tree middle watch machine rate."
+    }
+  ]
+}

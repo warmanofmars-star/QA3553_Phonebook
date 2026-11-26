@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "71510068-35d7-49e3-8bf1-a5fffacbfdf1",
+      "name": "Melissa",
+      "lastName": "Gordon",
+      "email": "user_ad4540a00a@example.com",
+      "phone": "0527296479",
+      "address": "23107 Holmes Hollow Suite 593, East Christopher, NC 68578",
+      "description": "Evidence peace system often."
+    }
+  ]
+}

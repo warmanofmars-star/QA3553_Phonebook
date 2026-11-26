@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (82 ms)
+
+--- Тело запроса ---
+{
+  "name": "Glen",
+  "lastName": null,
+  "phone": "0570492955",
+  "email": "user_af4c03bbf7@example.com",
+  "address": "Unit 9028 Box 0434, DPO AE 23816",
+  "description": "Sport political be without learn change lawyer feeling."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T18:15:58",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

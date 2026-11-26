@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lance",
+  "lastName": "Guerra",
+  "phone": "0510225900",
+  "email": "user_c88b817fc4@example.com",
+  "address": "945 Barry Drive Apt. 796, Port Lisaburgh, IL 70490",
+  "description": "Opportunity can thousand plan thousand PM sing."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c60d0e88-c686-40b4-91b0-908c45c326e8"
+}

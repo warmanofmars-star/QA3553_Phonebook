@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brenda",
+  "lastName": "Poole",
+  "phone": "0524901031",
+  "email": "user_c33d0ae693@example.com",
+  "address": "790 Carson Isle, Jenniferchester, CT 47624",
+  "description": "Win perform letter ready left test."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0aa3e6d9-8731-4980-a546-94e7a1662730"
+}

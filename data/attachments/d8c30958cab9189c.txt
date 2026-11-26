@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (83 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Ellis",
+  "phone": "0533053569",
+  "email": "not_an_email",
+  "address": "1165 Brewer Viaduct, Daniellemouth, MO 23930",
+  "description": "Personal stock be large do paper."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T18:16:17",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

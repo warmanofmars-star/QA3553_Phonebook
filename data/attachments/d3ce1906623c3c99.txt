@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Harry",
+  "lastName": "Miller",
+  "phone": "0554855613",
+  "email": "user_0e0ea85f69@example.com",
+  "address": "11056 Frank Brook, North Timothy, NV 07414",
+  "description": "Doctor society inside one citizen town."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 82a6e9e2-bee8-47d7-9e13-7b6ab77cedd5"
+}

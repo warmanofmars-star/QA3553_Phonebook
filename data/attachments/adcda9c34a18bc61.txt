@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kristin",
+  "lastName": "Trujillo",
+  "phone": "0520822760",
+  "email": "user_fe8954ba65@example.com",
+  "address": "303 Debra Radial, Caseberg, NM 10552",
+  "description": "House economic show sometimes."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bff98daf-9d43-4c69-85c4-9a6cd3e4839f"
+}

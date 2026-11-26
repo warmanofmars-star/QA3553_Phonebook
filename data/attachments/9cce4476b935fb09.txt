@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michelle",
+  "lastName": "Hammond",
+  "phone": "0522988048",
+  "email": "user_98998bad34@example.com",
+  "address": "79715 Martinez Club Apt. 074, Lake Autumn, MT 29950",
+  "description": "Event loss give value."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7c00253b-2ac0-4f23-af6c-e9c77923d192"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Harris",
+  "phone": "0530685494",
+  "email": "user_32308bbc96@example.com",
+  "address": "Unit 4768 Box 9124, DPO AE 26955",
+  "description": "Generation late interview sense low bed under."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a891a511-187e-413f-b438-ddd104fe561b"
+}

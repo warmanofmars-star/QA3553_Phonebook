@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Rogers",
+  "phone": "0538369682",
+  "email": "user_2ce159a783@example.com",
+  "address": "129 Jennifer Glens, East Margaretshire, CT 10175",
+  "description": "Which tough minute baby exist see."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 697bb574-1ec7-438b-91c4-0505ceb94a2e"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d5fd312e-53a9-49bd-bf8f-4195306e5f2e",
+      "name": "Nicholas",
+      "lastName": "Baker",
+      "email": "user_49b2866097@example.com",
+      "phone": "0527117752",
+      "address": "64656 Andrea Circle, Port Andrea, CT 71743",
+      "description": "Doctor resource start church information grow."
+    }
+  ]
+}

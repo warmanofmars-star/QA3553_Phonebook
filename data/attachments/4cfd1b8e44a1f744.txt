@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a41501ef-a7c1-4f88-8b66-284e0b488f88",
+      "name": "Victoria",
+      "lastName": "Fletcher",
+      "email": "user_a54c7f0103@example.com",
+      "phone": "0516863058",
+      "address": "07814 Jenkins Fort Suite 825, North Jamie, NY 47235",
+      "description": "Sort check woman cause."
+    },
+    {
+      "id": "f7215191-d9d8-4442-abd3-3e2bbcc37e58",
+      "name": "Victoria",
+      "lastName": "Fletcher",
+      "email": "user_a54c7f0103@example.com",
+      "phone": "0516863058",
+      "address": "07814 Jenkins Fort Suite 825, North Jamie, NY 47235",
+      "description": "Sort check woman cause."
+    }
+  ]
+}

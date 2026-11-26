@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5131ec70-dd8b-4ab8-a06b-5af064ae24b5",
+      "name": "Jill",
+      "lastName": "12345",
+      "email": "user_f6a341b797@example.com",
+      "phone": "0519406849",
+      "address": "459 Roth Curve Apt. 889, West Melissa, GU 47176",
+      "description": "Financial manage operation notice notice management hospital."
+    }
+  ]
+}

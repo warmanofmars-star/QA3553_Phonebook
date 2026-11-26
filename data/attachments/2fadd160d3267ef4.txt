@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Carter",
+  "phone": "0573657689",
+  "email": "user_56d37591c3@example.com",
+  "address": "62260 Morris Field Apt. 757, Flowersmouth, MN 57892",
+  "description": "Election even share word not."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7169976a-c596-46a7-9718-10f3bf7d4c7c"
+}

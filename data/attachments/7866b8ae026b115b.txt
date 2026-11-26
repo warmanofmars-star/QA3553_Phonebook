@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Foster",
+  "phone": "0525104728",
+  "email": "user_25efa5f28c@example.com",
+  "address": "3095 Sheila Canyon Suite 136, Fletcherfort, MD 95689",
+  "description": "Town dark deep mouth forget."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7838bd11-8a74-421b-a06b-bf186d01f537"
+}

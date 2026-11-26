@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Phelps",
+  "phone": "0530409597",
+  "email": "user_8a6d2d8cb6@example.com",
+  "address": "073 Thomas Route, Kathymouth, NH 32596",
+  "description": "But campaign everything."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1dca6646-fbd5-4fab-b3aa-726a01707d3d"
+}

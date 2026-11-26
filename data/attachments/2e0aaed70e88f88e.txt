@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alexis",
+  "lastName": "Parsons",
+  "phone": "0513296577",
+  "email": "user_c07c6d1ed2@example.com",
+  "address": "32068 Sullivan Dam Apt. 607, Tiffanyfort, NM 55995",
+  "description": "Consider easy when finish actually detail age road."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a4c4cd6d-78a2-4b5a-8557-350245d3a199"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rickey",
+  "lastName": "Jackson",
+  "phone": "0527755128",
+  "email": "user_ea123486b3@example.com",
+  "address": "1560 Nixon Corners, West Jason, GU 83244",
+  "description": "Pick white by public sell growth green."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3aa89a01-59b7-4f9d-89ef-db2e02def4a2"
+}

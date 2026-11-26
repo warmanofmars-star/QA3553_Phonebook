@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1a47c602-009e-497b-bc93-6661d0c6a3db",
+      "name": "Richard",
+      "lastName": "Young",
+      "email": "user_c0e91176c6@example.com",
+      "phone": "0517135876",
+      "address": "24866 Harris Ridge Suite 052, Lake Seth, IL 37939",
+      "description": "Because bill become before son."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "56945326-791c-43c2-b75d-5175dcc6167e",
+      "name": "James",
+      "lastName": "Schroeder",
+      "email": "user_e3eb086c0c@example.com",
+      "phone": null,
+      "address": "4951 Sheppard Way, Maryfurt, WA 39283",
+      "description": "Suddenly trade above pick interesting."
+    }
+  ]
+}

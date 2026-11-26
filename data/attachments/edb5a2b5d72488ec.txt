@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deborah",
+  "lastName": "Salazar",
+  "phone": "0542688899",
+  "email": "user_d50999fc4e@example.com",
+  "address": "2594 Cuevas Roads, Stevenstad, MP 58216",
+  "description": "Current TV deal others everyone."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e53afbe5-0f06-4ea0-9d26-e04fb7e227ec"
+}

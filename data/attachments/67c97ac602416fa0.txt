@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nathan",
+  "lastName": "Rivera",
+  "phone": "0524281826",
+  "email": "user_5b4d2f0e99@example.com",
+  "address": "374 Susan Ports, Lake Alexa, CT 23114",
+  "description": "Picture behavior different sing network."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4ec27000-ec18-4373-bcbe-784df85d1883"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7142afa9-1a5a-462c-8a6a-413ac681916d",
+      "name": "Alan",
+      "lastName": "Armstrong",
+      "email": "user_9f213ec5d3@example.com",
+      "phone": "0512720417",
+      "address": "77707 Diana Port, Catherineshire, MI 44174",
+      "description": "But can book three."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (134 ms)
+
+--- Тело запроса ---
+{
+  "name": "Justin",
+  "lastName": "Wheeler",
+  "phone": "0530684333",
+  "email": "user_acb49caeb8@example.com",
+  "address": "7191 Davis Stream, Lake William, WA 77878",
+  "description": "Might red floor health.",
+  "id": "4a6acbc2-8214-4ab2-adb1-b3e4dfc8fd6f"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

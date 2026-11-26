@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (137 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Fletcher",
+  "phone": "059038854382525",
+  "email": "user_46c4a105b2@example.com",
+  "address": "274 Curtis Branch Apt. 370, Loriton, VA 04488",
+  "description": "Option computer for think according grow town.",
+  "id": "ac7ddcd1-691e-49f4-913e-27d77c15fa89"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

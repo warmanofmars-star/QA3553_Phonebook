@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephen",
+  "lastName": "Castro",
+  "phone": "0513635379",
+  "email": "user_7dd2bad650@example.com",
+  "address": "294 Huynh Trafficway Apt. 173, Lake Meganville, NC 01577",
+  "description": "Five prepare nothing hold station smile above."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 06748a4e-ed5f-41dd-8113-88b29d1674db"
+}

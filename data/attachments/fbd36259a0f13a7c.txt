@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Montgomery",
+  "phone": "0582515263",
+  "email": "user_61a8545f9a@example.com",
+  "address": "0383 Simpson Radial, Madelineville, VI 87991",
+  "description": "Far spring free radio.",
+  "id": "ff94e3ed-59eb-4a2d-a5a9-d07ad36f131a"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5ce6a179-6cdc-443a-aa90-0a92dc2940b6"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a4c4cd6d-78a2-4b5a-8557-350245d3a199",
+      "name": "Alexis",
+      "lastName": "Parsons",
+      "email": "user_c07c6d1ed2@example.com",
+      "phone": "0513296577",
+      "address": "32068 Sullivan Dam Apt. 607, Tiffanyfort, NM 55995",
+      "description": "Consider easy when finish actually detail age road."
+    }
+  ]
+}

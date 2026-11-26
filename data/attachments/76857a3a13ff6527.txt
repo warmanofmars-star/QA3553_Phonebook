@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "46d74fad-9a03-4074-ace2-77d52ff19594",
+      "name": "Katherine",
+      "lastName": "Ferguson",
+      "email": "user_7496d642a4@example.com",
+      "phone": "0522411159",
+      "address": "13475 John Ridge, Justinchester, MO 58978",
+      "description": "Trade south share cup act try present."
+    },
+    {
+      "id": "98e80a58-04a5-423e-9227-46dd4c3c7f66",
+      "name": "Stanley",
+      "lastName": "Frank",
+      "email": "user_7496d642a4@example.com",
+      "phone": "0521022515",
+      "address": "093 Ryan Field, Thompsonhaven, WY 19000",
+      "description": "See item discussion enter itself woman."
+    }
+  ]
+}

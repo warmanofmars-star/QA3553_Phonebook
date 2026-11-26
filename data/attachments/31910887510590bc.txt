@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Daniel",
+  "phone": "0531883728",
+  "email": "user_84fe2d0b35@example.com",
+  "address": "441 Morgan Row, Lake Angela, MP 84341",
+  "description": "Way fly rate everyone spend."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e0dc57e4-9d35-4e77-b765-bfdb0df256d9"
+}

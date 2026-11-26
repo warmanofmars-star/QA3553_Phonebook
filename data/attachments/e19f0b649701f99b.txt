@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Brown",
+  "phone": "0524996862",
+  "email": "user_bfc3bca1bb@example.com",
+  "address": "147 Sharon Grove Apt. 738, Kevinhaven, CO 81615",
+  "description": "Since response again both those through."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b3cb823f-c490-418c-a139-17ffc9c19fe5"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carlos",
+  "lastName": "Anderson",
+  "phone": "0523244022",
+  "email": "user_0f5eb01a22@example.com",
+  "address": "2658 Daniel Stravenue, Russellmouth, DC 26529",
+  "description": "Believe home event world."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 25a97644-2480-4fa2-946f-ca5fd2862a3f"
+}

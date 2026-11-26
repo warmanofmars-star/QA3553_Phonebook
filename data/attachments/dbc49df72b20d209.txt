@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "12ac9999-36bc-4592-87cc-6333e649fa1d",
+      "name": "Stacy",
+      "lastName": "Young",
+      "email": "user_8785c05246@example.com",
+      "phone": "0532918566",
+      "address": "Unit 3238 Box 6024, DPO AP 25276",
+      "description": "Record customer wrong green consumer."
+    }
+  ]
+}

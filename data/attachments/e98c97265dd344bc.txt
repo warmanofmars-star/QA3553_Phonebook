@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jose",
+  "lastName": "Morris",
+  "phone": "0533269835",
+  "email": "user_4dcbaec3da@example.com",
+  "address": "173 Stephanie Lock Apt. 542, Coleview, IN 49569",
+  "description": "Of apply agreement."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6901d7b1-53d5-4ec8-b6ed-822a64f1ef76"
+}

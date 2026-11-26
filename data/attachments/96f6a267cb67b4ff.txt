@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stacy",
+  "lastName": "Young",
+  "phone": "0532918566",
+  "email": "user_8785c05246@example.com",
+  "address": "Unit 3238 Box 6024, DPO AP 25276",
+  "description": "Record customer wrong green consumer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 12ac9999-36bc-4592-87cc-6333e649fa1d"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3aa89a01-59b7-4f9d-89ef-db2e02def4a2",
+      "name": "Rickey",
+      "lastName": "Jackson",
+      "email": "user_ea123486b3@example.com",
+      "phone": "0527755128",
+      "address": "1560 Nixon Corners, West Jason, GU 83244",
+      "description": "Pick white by public sell growth green."
+    },
+    {
+      "id": "af729c50-6bd7-4231-9ed3-b1c6349246bb",
+      "name": "Gary",
+      "lastName": "Ramirez",
+      "email": "user_f0d141d377@example.com",
+      "phone": "0527755128",
+      "address": "8382 Timothy Summit Suite 574, Houstonborough, MA 14517",
+      "description": "Time feel stuff nation goal impact wait ball."
+    }
+  ]
+}

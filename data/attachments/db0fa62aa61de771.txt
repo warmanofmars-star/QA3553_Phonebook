@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (115 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "Kelly",
+  "phone": "0515478409",
+  "email": "user_2c36999c88@example.com",
+  "address": "3516 Moore Wells Suite 938, West Davidborough, ND 79105",
+  "description": "Event father teacher born cup stand hand."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f6581002-261e-4041-8db7-bd593d6bf026"
+}

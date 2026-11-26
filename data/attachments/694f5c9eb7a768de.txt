@@ -1,0 +1,17 @@
+18:18:00 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+18:18:00 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+18:18:03 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (301 ms)
+18:18:03 [INFO   ] API: Токен добавлен в заголовки сессии
+18:18:03 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+18:18:03 [INFO   ] STEP: Войти как user_7089fdefa9@example.com
+18:18:05 [INFO   ] API: POST /v1/contacts -> 200 (65 ms)
+18:18:05 [INFO   ] API: GET /v1/contacts -> 200 (61 ms)
+18:18:05 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+18:18:05 [INFO   ] STEP: Открыть карточку контакта 0538369682
+18:18:05 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+18:18:06 [INFO   ] STEP: Изменить поля формы редактирования
+18:18:06 [INFO   ] STEP: Изменить поле address на '977 Clark Mission Apt. 346, Riveraburgh, NH 26985'
+18:18:06 [INFO   ] STEP: Нажать Save в форме редактирования
+18:18:07 [INFO   ] API: GET /v1/contacts -> 200 (63 ms)
+18:18:07 [INFO   ] API: GET /v1/contacts -> 200 (63 ms)
+18:18:10 [INFO   ] DRIVER: Видео 970cddf9-70d2-4453-be14-6999a9c5f04c.mp4 прикреплено к отчёту

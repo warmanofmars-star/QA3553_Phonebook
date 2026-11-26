@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jesse",
+  "lastName": "Butler",
+  "phone": "0576100794",
+  "email": "user_e5dc20e293@example.com",
+  "address": "2870 Gilbert Place Apt. 371, Lake Philipton, NE 74787",
+  "description": "History health everything relationship wide enter organization kid."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 62b82d1a-7f10-4dd5-be76-0997cee9ef41"
+}

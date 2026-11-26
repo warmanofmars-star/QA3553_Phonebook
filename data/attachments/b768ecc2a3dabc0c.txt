@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "00cefd05-79d7-49ed-8594-3732b7146ae2",
+      "name": "Brian",
+      "lastName": "Anderson",
+      "email": "user_0785505f8e@example.com",
+      "phone": "0521473262",
+      "address": "1935 Jenkins Plaza, West Anthony, IN 77121",
+      "description": "Under rate get director hundred consumer number."
+    }
+  ]
+}

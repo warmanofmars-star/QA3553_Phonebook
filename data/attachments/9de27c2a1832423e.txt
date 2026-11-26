@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "77e6aa0e-4b39-4057-8f5b-94042d5eedc6",
+      "name": "Tyler",
+      "lastName": "Duncan",
+      "email": "user_a82cc0bdaa@example.com",
+      "phone": "0520073361",
+      "address": "3319 Steven Tunnel, Port Randytown, CO 32950",
+      "description": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "98e83dac-92b6-41cd-bd97-e324411bc89e",
+      "name": "Nicole",
+      "lastName": "Marks",
+      "email": "user_2fb9de5c03@example.com",
+      "phone": "0522725198",
+      "address": "0564 Edwards Shore, Walshmouth, DC 33941",
+      "description": ""
+    }
+  ]
+}

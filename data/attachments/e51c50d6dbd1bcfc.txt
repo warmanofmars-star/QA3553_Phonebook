@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (77 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Khan",
+  "phone": "0510497280",
+  "email": "user_203be5cb08@example.com",
+  "address": "98780 Adrian Squares, West Richardville, MI 91646",
+  "description": "Data follow black work while first her commercial."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T18:16:23",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

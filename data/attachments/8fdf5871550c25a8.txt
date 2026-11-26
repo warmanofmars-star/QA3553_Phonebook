@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kim",
+  "lastName": "Castaneda",
+  "phone": "0531008459",
+  "email": "user_cb74e19112@example.com",
+  "address": "500 Scott Glens Apt. 632, Mirandaton, NC 45750",
+  "description": "Do sort truth difficult court."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 080c03e4-2370-47ae-8507-2e57a7f60f37"
+}

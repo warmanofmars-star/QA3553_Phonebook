@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (105 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5c1c902e-cb87-4d70-97fd-8fd3267bf380",
+      "name": "Sheila",
+      "lastName": "Brown",
+      "email": "user_1b034d7bbc@example.com",
+      "phone": "0538584259",
+      "address": "663 Amber Garden Apt. 981, Lewisbury, NJ 14762",
+      "description": "More teacher when inside."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cathy",
+  "lastName": "Oconnor",
+  "phone": "0516659018",
+  "email": "user_417e051b87@example.com",
+  "address": "35304 Morales Centers Apt. 346, Tashaside, MP 31527",
+  "description": "Several picture analysis."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 042ff505-f521-4bc5-b922-9b82bc3c1f42"
+}

@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (135 ms)
+
+--- Тело запроса ---
+{
+  "name": "Autumn",
+  "lastName": "Ochoa",
+  "phone": "0594384824",
+  "email": "",
+  "address": "USNS Burton, FPO AP 49214",
+  "description": "Cover any just defense.",
+  "id": "e9ecc534-06e8-4804-9f8c-692dbd997a8a"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sharon",
+  "lastName": "Russell",
+  "phone": "0532874871",
+  "email": "user_cc97e06516@example.com",
+  "address": "96090 Hunter Valley, Jessicatown, NH 21182",
+  "description": "Especially bed prevent another so tree or final."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a44355f6-67dc-45f0-9e5c-cbbf4aeadb9f"
+}

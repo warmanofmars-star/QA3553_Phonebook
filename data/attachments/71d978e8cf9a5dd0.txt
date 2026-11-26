@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "59b88b4c-54a7-4603-946a-976cf7f04703",
+      "name": "Richard",
+      "lastName": "Gardner",
+      "email": "user_5137db584a@example.com",
+      "phone": "0532443762",
+      "address": "Unit 3480 Box 0703, DPO AE 28441",
+      "description": "Poor ok figure might show for."
+    },
+    {
+      "id": "ffc494a3-7d66-43e7-8102-19a75e0457ae",
+      "name": "Denise",
+      "lastName": "Rubio",
+      "email": "user_d9307cf931@example.com",
+      "phone": "0518374772",
+      "address": "0482 Foster Via Suite 681, Lake Kimberlystad, KS 07906",
+      "description": "Population take pick account business box wall."
+    }
+  ]
+}

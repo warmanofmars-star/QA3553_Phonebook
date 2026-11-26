@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Courtney",
+  "lastName": "Irwin",
+  "phone": "0517916068",
+  "email": "user_4d1456a1fe@example.com",
+  "address": "42322 Paige Point, Shieldston, WI 12091",
+  "description": "Station tree middle watch machine rate."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 411d25e0-1776-4690-9cea-6115013a45e4"
+}

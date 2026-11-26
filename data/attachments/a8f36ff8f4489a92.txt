@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (133 ms)
+
+--- Тело запроса ---
+{
+  "name": "Roy",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0518603059",
+  "email": "user_f09efe17ee@example.com",
+  "address": "14825 Petersen Corner Apt. 854, Simpsonfurt, MI 43665",
+  "description": "Town check address believe common point more.",
+  "id": "9c7eeca2-32c9-4c14-98ab-dc9bf5367f7d"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kelly",
+  "lastName": "Owens",
+  "phone": "0529580244",
+  "email": "user_b8a7589c1a@example.com",
+  "address": "2040 Cook Creek, Danielfort, GA 22426",
+  "description": "Future tonight result know city growth force perform."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ee5f9e5b-da7c-4561-9d07-b01617f1a2a4"
+}

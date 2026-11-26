@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Alex",
+  "lastName": "Avery",
+  "phone": "0566600016",
+  "email": "user_cd367bd183@example.com",
+  "address": "0405 Elizabeth Knoll Suite 167, South Lindseyburgh, MH 98886",
+  "description": "Church picture development begin same."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cd93fd09-3e50-4a89-83ec-cf7a3204103e"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erin",
+  "lastName": "Sanchez",
+  "phone": "0529072210",
+  "email": "user_ebc4a58e6f@example.com",
+  "address": "4863 Livingston Route, Vasquezborough, VT 59423",
+  "description": "Both eat activity."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ff94e3ed-59eb-4a2d-a5a9-d07ad36f131a"
+}

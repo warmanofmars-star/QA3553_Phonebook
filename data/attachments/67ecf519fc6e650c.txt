@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f2f55c45-807d-4d4f-9fa0-5dbe07c7b3c2",
+      "name": "Janet",
+      "lastName": "Hamilton",
+      "email": "user_e84c9044ed@example.com",
+      "phone": "0513889916",
+      "address": "907 Joshua Junction Suite 183, Jamesmouth, OH 74466",
+      "description": "Something maintain customer some."
+    }
+  ]
+}

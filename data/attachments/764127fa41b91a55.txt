@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Eric",
+  "lastName": "Mathis",
+  "phone": "0525365958",
+  "email": "пользователь@example.com",
+  "address": "3071 Michelle Isle, Ralphfurt, AS 57435",
+  "description": "Weight sometimes best effect firm."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6465de82-7321-4af5-b0d0-36002f6c7229"
+}
