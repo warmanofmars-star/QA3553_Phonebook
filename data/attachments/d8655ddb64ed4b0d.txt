@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Vasquez",
+  "phone": "0550733703",
+  "email": "user_359041f726@example.com",
+  "address": "107 Edwards Parks, Salasfurt, OK 71971",
+  "description": "Personal yes watch the event increase."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 74bd6c19-b8f5-4ef3-8994-17b9ef226acd"
+}

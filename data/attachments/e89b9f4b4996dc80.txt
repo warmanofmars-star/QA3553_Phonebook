@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Callahan",
+  "phone": "0510493481",
+  "email": "user_f7e45e3702@example.com",
+  "address": "86469 Dylan Hills, East David, NC 96870",
+  "description": "Few year million perhaps guess."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1c841d1c-e277-4279-bb2a-5982d4c816a1"
+}

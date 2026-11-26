@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Clark",
+  "phone": "0552995978",
+  "email": "user_b97e0c3070@example.com",
+  "address": "86577 Cannon Freeway, Lindseyville, NJ 91602",
+  "description": "Project ready myself something."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 08a61b36-d99d-4b92-9970-2217d15448ff"
+}

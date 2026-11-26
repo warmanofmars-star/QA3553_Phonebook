@@ -1,0 +1,14 @@
+DELETE https://contactapp-telran-backend.herokuapp.com/v1/contacts/107f0b12-c7de-484c-a995-24fba2e58142
+Статус: 400 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T19:08:38",
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Contact with id: 107f0b12-c7de-484c-a995-24fba2e58142 not found in your contacts!",
+  "path": "/v1/contacts/107f0b12-c7de-484c-a995-24fba2e58142"
+}

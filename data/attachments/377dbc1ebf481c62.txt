@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chad",
+  "lastName": "Schroeder",
+  "phone": "0524242724",
+  "email": "user_c1e4f5edba@example.com",
+  "address": "98058 Julia Causeway, South Peggy, AK 94053",
+  "description": "At picture others lead and protect."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 85b5852f-800a-42d0-8bc9-ed04fa1f6f3e"
+}

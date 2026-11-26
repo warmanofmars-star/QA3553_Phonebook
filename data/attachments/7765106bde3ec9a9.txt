@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0867c8f2-14ef-4cd0-8dec-59e5bb12417b",
+      "name": "David",
+      "lastName": "Morales",
+      "email": "user_fd86c49122@example.com",
+      "phone": "0524969303",
+      "address": "42910 Morris Bridge Apt. 095, Sierramouth, MI 37707",
+      "description": "Prepare senior relationship force."
+    }
+  ]
+}

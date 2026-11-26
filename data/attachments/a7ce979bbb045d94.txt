@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jerry",
+  "lastName": "Fitzgerald",
+  "phone": "0532593253",
+  "email": "user_95b828741d@example.com",
+  "address": "68171 Renee Parks, North Christopher, MS 03259",
+  "description": "Her turn player career several."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 05f5c531-ea24-4e4b-bb58-8af69b0f5a1d"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tiffany",
+  "lastName": "English",
+  "phone": "0511073953",
+  "email": "user_e8a723bd77@example.com",
+  "address": "59080 Patricia Wall, Port Renee, GU 23378",
+  "description": "From rest executive third effect fish."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4b30d59d-f057-4b48-91e6-df7f5b97a856"
+}

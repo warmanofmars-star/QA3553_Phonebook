@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wyatt",
+  "lastName": "Prince",
+  "phone": "0516918316",
+  "email": "user_82be0eb71f@example.com",
+  "address": "46277 Stephen Glens Suite 619, Danielchester, NC 57079",
+  "description": "Method piece source star test play."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c901b87b-31aa-42cf-8e9a-d50cfb3eb299"
+}

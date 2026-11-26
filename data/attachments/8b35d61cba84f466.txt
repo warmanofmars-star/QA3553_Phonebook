@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Brown",
+  "phone": "0512944520",
+  "email": "user_39c17721d4@example.com",
+  "address": "376 Christian Circles, East Brianmouth, OK 57111",
+  "description": "Card range finish young news."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c796a4e5-fa87-4398-a714-c8e06e2db3ae"
+}

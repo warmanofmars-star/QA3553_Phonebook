@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shawn",
+  "lastName": "Estrada",
+  "phone": "0525674208",
+  "email": "user_5523b746f3@example.com",
+  "address": "01484 Gibson Viaduct Suite 513, West Kyle, OK 51385",
+  "description": "More travel system receive get build."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c3425672-5047-4650-92d1-23eb6172e116"
+}

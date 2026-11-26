@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "83f34e5a-4bd6-42b5-b754-d7694c400492",
+      "name": "Christine",
+      "lastName": "B",
+      "email": "user_3662dfe124@example.com",
+      "phone": "0522387608",
+      "address": "18486 Lisa Green Suite 762, West Sarah, WY 86327",
+      "description": "Road represent future degree quite thousand."
+    }
+  ]
+}

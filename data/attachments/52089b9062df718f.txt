@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wendy",
+  "lastName": "Romero",
+  "phone": "0530374392",
+  "email": "user_a0a7d5d8ba@example.com",
+  "address": "534 Leslie Route, South Curtisfurt, RI 99675",
+  "description": "Mouth return among matter three."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 25d92d61-9ab7-4729-9ad3-5f008a3db81c"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jesus",
+  "lastName": "Vazquez",
+  "phone": "0510671320",
+  "email": "user_09cbfee0cf@example.com",
+  "address": "6006 Stephanie Expressway, South Alicia, MI 81726",
+  "description": "Standard power trip data management."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dcc110c1-3ae9-4eb8-8d49-ba0918f1a9c6"
+}

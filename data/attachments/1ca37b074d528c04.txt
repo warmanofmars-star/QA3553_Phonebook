@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73620c3b-eb3d-4b2f-8fa1-5bb4c402bfd1",
+      "name": "Adrian",
+      "lastName": "Henry",
+      "email": "user_3e26b93642@example.com",
+      "phone": "0550935609",
+      "address": "0456 Lisa Fort, Tonyshire, AZ 74030",
+      "description": "American main task former build situation."
+    }
+  ]
+}

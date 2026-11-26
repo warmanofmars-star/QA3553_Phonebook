@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Johnson",
+  "phone": "0515183743",
+  "email": "user_b993f2b1db@example.com",
+  "address": "2168 Obrien Fork Suite 140, Port Roberthaven, WY 72951",
+  "description": "Among cultural thought deal follow main."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0179fa93-8686-4c34-876d-55f74845a55e"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1bf45e69-1792-431b-8dca-abcdc39cc535",
+      "name": "Tammy",
+      "lastName": "Elliott",
+      "email": "user_ab623e6a82@example.com",
+      "phone": "0574172864",
+      "address": "69497 John Prairie, North Robert, FM 44988",
+      "description": "Five source plan toward."
+    }
+  ]
+}

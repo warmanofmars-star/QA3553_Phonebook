@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f09e58a2-e08f-4b9d-91eb-14431d60065f",
+      "name": "A",
+      "lastName": "Hamilton",
+      "email": "user_5112e4d30b@example.com",
+      "phone": "0528930385",
+      "address": "37267 Harris Ranch, Joshuaton, MN 64378",
+      "description": "War security responsibility fill."
+    }
+  ]
+}

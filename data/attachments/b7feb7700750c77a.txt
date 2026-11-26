@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "Garcia",
+  "phone": "0511255534",
+  "email": "user_bc4c7bf085@example.com",
+  "address": "50315 Smith Hills Suite 401, South Robertfort, IA 68529",
+  "description": "Budget consider establish couple."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fc152e09-81ec-4362-8e1c-f2f13606b434"
+}

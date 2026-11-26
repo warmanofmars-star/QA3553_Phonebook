@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+{
+  "name": "Frederick",
+  "lastName": "Coleman",
+  "phone": "0526155305",
+  "email": "user_b1ba027dd9@example.com",
+  "address": "097 Krista Trail, Port Christianland, PA 92402",
+  "description": "Fish charge beyond economic call."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8cf6e106-f808-43ba-8db5-45d3f87d5b58"
+}

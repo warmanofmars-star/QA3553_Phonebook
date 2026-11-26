@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Garrett",
+  "lastName": "Cherry",
+  "phone": "0510304286",
+  "email": "user_f69d380d37@example.com",
+  "address": "4665 Lopez Walk, Port Maria, FM 61141",
+  "description": "Poor rather brother tough series."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 607891a0-9b88-4dd9-9da5-edab56362470"
+}

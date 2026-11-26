@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "Brown",
+  "phone": "0526971867",
+  "email": "user_7a9bacb350@example.com",
+  "address": "421 Brandon Views, Sarahmouth, MH 76296",
+  "description": "Which name necessary before."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: facc0242-bc44-4baa-9a73-6f07f86f0174"
+}

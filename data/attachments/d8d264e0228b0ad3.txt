@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "17be7a16-858d-4e73-8ae3-50e6526dabdc",
+      "name": "April",
+      "lastName": "Mendoza",
+      "email": "user_4a8e60030b@example.com",
+      "phone": "0520388592",
+      "address": "3455 Taylor Flats Apt. 044, Thompsonmouth, OH 06073",
+      "description": "Success loss from staff network worker art."
+    },
+    {
+      "id": "bfc9dbd5-ebf4-4bbd-9167-f64faf7df9d0",
+      "name": "Gary",
+      "lastName": "Hancock",
+      "email": "user_65f2c0093f@example.com",
+      "phone": "0520388592",
+      "address": "75822 Mcclain Bypass, North Christopher, NC 77579",
+      "description": "Inside get left candidate service group."
+    }
+  ]
+}

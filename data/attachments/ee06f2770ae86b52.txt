@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7dfad032-b3f9-42a8-93bf-569991cf878a",
+      "name": "Laura",
+      "lastName": "Newman",
+      "email": "user_06345c5549@example.com",
+      "phone": "0519570975",
+      "address": "3529 Smith Canyon Apt. 287, Lake Shelby, OK 75645",
+      "description": "Least term more hundred floor region."
+    }
+  ]
+}

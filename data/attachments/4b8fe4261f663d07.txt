@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Spencer",
+  "lastName": "Rodriguez",
+  "phone": "0510149431",
+  "email": "user_f5c69e8a25@example.com",
+  "address": "209 Sosa Estate, Kimberlychester, NM 43418",
+  "description": "Major free sound fast per."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a5a13a5d-d7c9-4d64-a9a4-ac43053c6004"
+}

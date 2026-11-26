@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ian",
+  "lastName": "Franklin",
+  "phone": "0515013590",
+  "email": "user_254e42f746@example.com",
+  "address": "USNS Walker, FPO AA 47398",
+  "description": "Affect mission answer kitchen member course adult."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0008805b-1391-4a0b-9037-cbbd5bf1b7e1"
+}

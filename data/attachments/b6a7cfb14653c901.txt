@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9bacd46f-74c2-4697-bdbb-c03347a09663",
+      "name": "Steven",
+      "lastName": "Walters",
+      "email": "user_7f26c0abc3@example.com",
+      "phone": "0520245497",
+      "address": "1874 Thornton Lodge, Port Robin, CA 29916",
+      "description": "Artist now sure quite large so."
+    }
+  ]
+}

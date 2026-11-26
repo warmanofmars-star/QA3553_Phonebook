@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Montgomery",
+  "phone": "0511109780",
+  "email": "user_52b0c593f3@example.com",
+  "address": "76334 Richards Ville Suite 385, Lake Katherine, CA 13847",
+  "description": "Hour personal usually reason."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 281436ed-489e-49ce-9c67-caba19aec003"
+}

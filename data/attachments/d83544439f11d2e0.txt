@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandon",
+  "lastName": "Berg",
+  "phone": "0541760389",
+  "email": "user_2c57f944e6@example.com",
+  "address": "906 Pacheco Road Suite 828, Hoganborough, DE 60177",
+  "description": "Speech senior imagine too."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d46bf8d0-2b5b-4227-a2b5-76afad6cc3ca"
+}

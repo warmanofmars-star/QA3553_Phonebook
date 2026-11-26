@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (101 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Boyle",
+  "phone": "0517241838",
+  "email": "user_910ec257b5@example.com",
+  "address": "64406 Jacob Landing Suite 235, Gordonshire, MD 39245",
+  "description": "Pm fact keep national."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 919f8301-d3c4-4dc5-aa89-c323857f5530"
+}

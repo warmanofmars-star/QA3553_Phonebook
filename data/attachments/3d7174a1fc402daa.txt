@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bbbf3c4f-962a-4f95-8333-df92807665c2",
+      "name": "Anthony",
+      "lastName": "Coleman",
+      "email": "user_e60b36ce59@example.com",
+      "phone": "0580072239",
+      "address": "337 Martin Mountain Apt. 027, South Mary, CT 04895",
+      "description": "Movie you down themselves doctor sound hit."
+    }
+  ]
+}

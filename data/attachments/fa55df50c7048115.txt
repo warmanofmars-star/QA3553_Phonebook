@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Garcia",
+  "phone": "0533435109",
+  "email": "user_66745c6c9c@example.com",
+  "address": "22199 Rhonda Corner Suite 285, Taylorburgh, SD 64954",
+  "description": "Then wear her travel."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d0ac9cbf-5641-4fbc-a3f1-79d6b3bc06bf"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Stephens",
+  "phone": "0536529697",
+  "email": "user_a74f4c0d6a@example.com",
+  "address": "9664 Samantha Bypass Apt. 350, Robertsonport, TN 12225",
+  "description": "Their person trip he recent five present specific."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4c0c208a-355b-47d2-8e1b-0b5ea6ed87db"
+}

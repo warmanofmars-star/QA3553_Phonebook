@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e12c4b95-66fc-45cd-a2e2-9a0eab87481e",
+      "name": "Erik",
+      "lastName": "Hill",
+      "email": "user_044913c468@example.com",
+      "phone": "0533871544",
+      "address": "5891 Barbara Spurs Apt. 470, North Mollyland, OR 13556",
+      "description": "Main each mouth movement find wind."
+    }
+  ]
+}

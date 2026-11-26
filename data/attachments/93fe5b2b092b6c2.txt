@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9b16c4ec-8f95-4201-9d78-ebcb9f34d5b4",
+      "name": "Jill",
+      "lastName": "Powell",
+      "email": "user_2c9055ca71@example.com",
+      "phone": "0517325062",
+      "address": "275 Tucker Port, Christopherfort, IN 33371",
+      "description": "Effort ask window research over movie."
+    }
+  ]
+}

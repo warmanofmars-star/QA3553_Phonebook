@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c3df6c9a-e307-4dad-9fcf-828aab35045c",
+      "name": "William",
+      "lastName": "Murray",
+      "email": "user_594aca5963@example.com",
+      "phone": "0519931171",
+      "address": "60440 Bradshaw Mountain, Alexandraton, DC 00739",
+      "description": "Head girl break box song window house."
+    }
+  ]
+}

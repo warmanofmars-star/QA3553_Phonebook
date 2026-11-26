@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Victor",
+  "lastName": "Rogers",
+  "phone": "0598757136",
+  "email": "user_e80f620e42@example.com",
+  "address": "243 Smith Common, Lauraview, VT 79487",
+  "description": "Though response else question star learn."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 42606905-708a-4213-beb6-3c36162a4325"
+}

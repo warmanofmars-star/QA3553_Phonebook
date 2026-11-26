@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "42606905-708a-4213-beb6-3c36162a4325",
+      "name": "Victor",
+      "lastName": "Rogers",
+      "email": "user_e80f620e42@example.com",
+      "phone": "0598757136",
+      "address": "243 Smith Common, Lauraview, VT 79487",
+      "description": "Though response else question star learn."
+    }
+  ]
+}

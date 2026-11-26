@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "93605dd4-39ed-46be-b1b3-ac9482c0d6c5",
+      "name": "Teresa",
+      "lastName": "Woods",
+      "email": "user_36a401161e@example.com",
+      "phone": null,
+      "address": "949 Lowe Crescent Suite 752, South Kristenmouth, NV 72304",
+      "description": "Sing go participant election sit green day keep."
+    }
+  ]
+}

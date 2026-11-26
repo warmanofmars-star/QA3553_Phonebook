@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0f62e59b-e2ca-4372-ae96-a9a51638026d",
+      "name": "Anthony",
+      "lastName": "Berry",
+      "email": "user_2417d9cd14@example.com",
+      "phone": "0545409548",
+      "address": "64398 Michael Ford, Moralesfurt, PA 29684",
+      "description": "Goal very store war."
+    },
+    {
+      "id": "bf94d909-5449-4f7d-833e-dfc8783257bc",
+      "name": "Penny",
+      "lastName": "Todd",
+      "email": "user_12ad6890d9@example.com",
+      "phone": "0550185407",
+      "address": "91588 Smith Tunnel, South Feliciaville, FL 06048",
+      "description": "Five tell arm head here evening specific."
+    }
+  ]
+}

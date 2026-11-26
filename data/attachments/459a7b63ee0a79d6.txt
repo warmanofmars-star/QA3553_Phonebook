@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5bbfe6bc-a9d6-4087-8676-8f8805469653",
+      "name": "Lauren",
+      "lastName": "Werner",
+      "email": "user_09183672c0@example.com",
+      "phone": "0514266978",
+      "address": "6464 Douglas Loop, Wheelerchester, LA 44128",
+      "description": "Everybody beautiful one remain will create."
+    }
+  ]
+}

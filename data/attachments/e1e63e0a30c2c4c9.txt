@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (31 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f0de4309-3dc7-435b-90ff-d0e379475b36",
+      "name": "Tara",
+      "lastName": "Mcgee",
+      "email": "user_c41e937bf6@example.com",
+      "phone": "0526508714",
+      "address": "43797 Deanna Cliffs Apt. 149, Dominguezchester, ME 08548",
+      "description": "Network line personal on on."
+    }
+  ]
+}

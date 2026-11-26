@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Garrett",
+  "lastName": "Cherry",
+  "phone": "0510304286",
+  "email": "user@",
+  "address": "4665 Lopez Walk, Port Maria, FM 61141",
+  "description": "Poor rather brother tough series.",
+  "id": "607891a0-9b88-4dd9-9da5-edab56362470"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T19:08:04",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

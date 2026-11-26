@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dcc110c1-3ae9-4eb8-8d49-ba0918f1a9c6",
+      "name": "Jesus",
+      "lastName": "Vazquez",
+      "email": "user_09cbfee0cf@example.com",
+      "phone": "0510671320",
+      "address": "6006 Stephanie Expressway, South Alicia, MI 81726",
+      "description": "Standard power trip data management."
+    },
+    {
+      "id": "d8205b19-0372-4f1f-be1d-9e10ad3472fe",
+      "name": "Tiffany",
+      "lastName": "Adams",
+      "email": "user_aea6e07a7c@example.com",
+      "phone": "0510671320",
+      "address": "73170 White Road Suite 471, Sierrafurt, KS 98049",
+      "description": "Their left participant need even again wish."
+    }
+  ]
+}

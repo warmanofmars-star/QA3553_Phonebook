@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (83 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Torres",
+  "phone": "050-1234567",
+  "email": "user_089bfd3110@example.com",
+  "address": "123 Scott Terrace Apt. 798, Baileymouth, IA 41505",
+  "description": "Might to huge century."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T19:07:59",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

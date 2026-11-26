@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0526943865",
+  "email": "user_11c9d52bf8@example.com",
+  "address": "6509 Antonio Pass, North Joseph, IL 70242",
+  "description": "Away expect down follow near chair practice."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 62c9a747-43a3-421b-a7d7-f1122900cbc6"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Johnson",
+  "phone": "0525824396",
+  "email": "user_6ed12973ff@example.com",
+  "address": "63578 Russell Ports, Mullenberg, WY 96576",
+  "description": "Coach word purpose owner trade."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0ab28baa-f601-4a97-93be-8aea5af5fe75"
+}

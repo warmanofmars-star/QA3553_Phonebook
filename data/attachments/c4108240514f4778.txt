@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Russell",
+  "phone": "0531480768",
+  "email": "user_5a34974025@example.com",
+  "address": "53469 Evans Lights Suite 538, Debraland, IN 69325",
+  "description": "Table model listen once answer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ceba3cc9-8868-44ce-8b50-8596333d6f86"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Russo",
+  "phone": "0512433322",
+  "email": "user_c15ef83602@example.com",
+  "address": "3706 Good Landing, Rangelstad, AR 62705",
+  "description": "Prevent save true officer professor entire Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eae7450f-6cb8-4cfd-a889-62a361c1929d"
+}

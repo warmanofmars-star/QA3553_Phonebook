@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "Smith",
+  "phone": "0518742918",
+  "email": "user_6692afa6f7@example.com",
+  "address": "5116 David Passage, Port Madison, IN 19907",
+  "description": "Discover what government."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6cff822f-ee67-4c09-96f6-c2e9e5fdc009"
+}

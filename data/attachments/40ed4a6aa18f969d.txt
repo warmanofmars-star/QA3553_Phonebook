@@ -1,0 +1,17 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (141 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brett",
+  "lastName": "Stokes",
+  "phone": "0584639562",
+  "email": "user_1d80197c7d@example.com",
+  "address": "2368 William Divide Suite 389, North John, MP 58092",
+  "id": "c3bc29a5-90a2-4339-ba7d-b33f52d2e9ea"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

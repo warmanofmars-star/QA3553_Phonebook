@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Autumn",
+  "lastName": "Flores",
+  "phone": "0519793555",
+  "email": "user_69f640bea1@example.com",
+  "address": "255 Chang Crossing, Gavinstad, PW 89549",
+  "description": "Total month manager defense bring question level I."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fa081d2e-b7d5-4f95-a50a-187829b4c482"
+}

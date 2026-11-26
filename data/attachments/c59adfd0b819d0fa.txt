@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tracey",
+  "lastName": "Mccoy",
+  "phone": "0527784657",
+  "email": "пользователь@example.com",
+  "address": "743 Diana Prairie, Kathrynstad, IN 61746",
+  "description": "Million same stuff sure until about training."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a7a162b6-9e17-451c-b94e-408505f3351e"
+}

@@ -1,0 +1,9 @@
+19:10:44 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+19:10:44 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+19:10:44 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (202 ms)
+19:10:44 [INFO   ] API: Токен добавлен в заголовки сессии
+19:10:44 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+19:10:45 [INFO   ] STEP: Войти как user_23bbf2033c@example.com
+19:10:46 [INFO   ] UI: Текст Alert: 'Wrong email or password'
+19:10:46 [INFO   ] STEP: Закрыть Alert (OK)
+19:10:49 [INFO   ] DRIVER: Видео d9e1b72cf27e3a7a4eb5bfa6d473fc2d.mp4 прикреплено к отчёту

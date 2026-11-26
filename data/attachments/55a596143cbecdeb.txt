@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (141 ms)
+
+--- Тело запроса ---
+{
+  "name": "Emily",
+  "lastName": "Simmons",
+  "phone": "0526698263",
+  "email": "a@b",
+  "address": "USS Brown, FPO AP 71634",
+  "description": "Source value general manage trade attorney.",
+  "id": "ab6f0dc2-5f29-4fe9-9a7a-f6b6498b00b9"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

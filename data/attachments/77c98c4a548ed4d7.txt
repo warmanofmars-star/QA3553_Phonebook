@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sandra",
+  "lastName": "Perry",
+  "phone": "0566533930",
+  "email": "user_63905aeb5b@example.com",
+  "address": "370 Rojas Freeway, Baileyport, NM 93928",
+  "description": "Laugh feeling office add."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b4e985d0-aea5-4e44-baed-b7834df08990"
+}

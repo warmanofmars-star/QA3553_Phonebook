@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Diane",
+  "lastName": "Houston",
+  "phone": "0524577484",
+  "email": "user_7d84ce592e@example.com",
+  "address": "USS Johnson, FPO AE 36064",
+  "description": "Front man necessary yet forward coach traditional."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fb396f77-356d-400c-959a-4aa7d34fe073"
+}

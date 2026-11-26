@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Manning",
+  "phone": "0513713002",
+  "email": "user_12aa51d273@example.com",
+  "address": "187 Castillo Skyway Suite 537, Keithport, CO 60178",
+  "description": "Record who imagine themselves give tell forget main."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0ff9dfd1-c1b3-4c9b-a84b-e53fd929fe18"
+}

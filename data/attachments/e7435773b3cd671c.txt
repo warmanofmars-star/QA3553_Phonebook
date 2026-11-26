@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Ferguson",
+  "phone": "0526691105",
+  "email": "user_89abef4936@example.com",
+  "address": "PSC 8215, Box 6110, APO AP 26602",
+  "description": "Cover which song with care."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d637268c-c661-44eb-b25e-f262edc5fb20"
+}

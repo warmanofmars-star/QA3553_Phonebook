@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Williams",
+  "phone": "0530341496",
+  "email": "user_cd97f7d67b@example.com",
+  "address": "Unit 0428 Box 9453, DPO AE 34034",
+  "description": "Write action conference nature physical sure six."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 238c93d3-2bc3-4553-88f5-1c6bc5bd0d51"
+}

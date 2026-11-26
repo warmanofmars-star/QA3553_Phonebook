@@ -1,0 +1,9 @@
+19:09:06 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (396 ms)
+19:09:06 [INFO   ] API: Токен добавлен в заголовки сессии
+19:09:06 [INFO   ] API: POST /v1/contacts -> 200 (108 ms)
+19:09:06 [INFO   ] API: GET /v1/contacts -> 200 (106 ms)
+19:09:06 [INFO   ] PW: Переход по ссылке: https://telranedu.pages.dev/login
+19:09:06 [INFO   ] PW: Ввод данных в поле формы...
+19:09:06 [INFO   ] PW: Ввод данных в поле формы...
+19:09:06 [INFO   ] PW: Клик по элементу: 'Login'
+19:09:06 [INFO   ] STEP: Дождаться перехода на страницу контактов

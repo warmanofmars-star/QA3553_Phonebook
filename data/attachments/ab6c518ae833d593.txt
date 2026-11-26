@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a68fb208-b4a1-4d4b-87d8-d80db4512354",
+      "name": "Jennifer",
+      "lastName": "Mccoy",
+      "email": "user_21be695837@example.com",
+      "phone": "0562289750",
+      "address": "USNV Henderson, FPO AA 77903",
+      "description": "Hear including feeling instead war point authority."
+    }
+  ]
+}

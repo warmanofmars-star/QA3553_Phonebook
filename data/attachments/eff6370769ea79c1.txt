@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kaitlyn",
+  "lastName": "Rodriguez",
+  "phone": "0511831692",
+  "email": "user_b806bab948@example.com",
+  "address": "301 Gregory Coves Apt. 799, Earlchester, MI 99011",
+  "description": "Child various according leader friend figure."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f18654f6-d8d3-479b-92db-2be6ea0ce418"
+}

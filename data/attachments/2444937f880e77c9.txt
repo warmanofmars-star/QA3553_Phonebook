@@ -1,0 +1,20 @@
+19:09:47 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+19:09:47 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+19:09:47 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (289 ms)
+19:09:47 [INFO   ] API: Токен добавлен в заголовки сессии
+19:09:47 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+19:09:48 [INFO   ] STEP: Войти как user_8597946cc3@example.com
+19:09:49 [INFO   ] API: POST /v1/contacts -> 200 (64 ms)
+19:09:49 [INFO   ] API: GET /v1/contacts -> 200 (61 ms)
+19:09:49 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+19:09:49 [INFO   ] STEP: Открыть карточку контакта 0516035114
+19:09:49 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+19:09:50 [INFO   ] STEP: Изменить поля формы редактирования
+19:09:50 [INFO   ] STEP: Изменить поле name на 'Nathan'
+19:09:50 [INFO   ] STEP: Изменить поле last_name на 'Brown'
+19:09:50 [INFO   ] STEP: Изменить поле phone на '0594933012'
+19:09:50 [INFO   ] STEP: Изменить поле email на 'user_249a202f13@example.com'
+19:09:50 [INFO   ] STEP: Изменить поле address на '6925 Summers Stravenue, Danielside, GU 41168'
+19:09:50 [INFO   ] STEP: Изменить поле description на 'Modern performance raise low.'
+19:09:56 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Modern performance raise low.', фактически '[object Undefined]'
+19:09:58 [INFO   ] DRIVER: Видео ad4a216bdfe94b278b664b8ffdb608d6.mp4 прикреплено к отчёту

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (30 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e17c0051-00fb-4716-ad02-7ce7f59b4a16",
+      "name": "Wendy",
+      "lastName": "Koch",
+      "email": "user_3edd4633ce@example.com",
+      "phone": "0522000427",
+      "address": "27026 Meyers Neck Suite 985, South Lindsayport, WA 03530",
+      "description": "Land measure agreement responsibility direction."
+    }
+  ]
+}

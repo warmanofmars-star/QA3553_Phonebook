@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "febd8d3f-c654-445c-971b-37c37d36017e",
+      "name": "Angela",
+      "lastName": "12345",
+      "email": "user_ea8b92a89a@example.com",
+      "phone": "0526880854",
+      "address": "0291 Penny Branch Apt. 079, South Robert, NE 20502",
+      "description": "We start experience relationship particularly religious."
+    }
+  ]
+}

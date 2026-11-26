@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c3bc29a5-90a2-4339-ba7d-b33f52d2e9ea",
+      "name": "Brett",
+      "lastName": "Stokes",
+      "email": "user_1d80197c7d@example.com",
+      "phone": "0584639562",
+      "address": "2368 William Divide Suite 389, North John, MP 58092",
+      "description": "Speech student know strong later eye media."
+    }
+  ]
+}

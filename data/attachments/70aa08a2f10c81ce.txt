@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7d77bb3a-c6f9-4ad7-b888-f61aaca0b4b8",
+      "name": "Daniel",
+      "lastName": "Baker",
+      "email": "user_f7378d1c26@example.com",
+      "phone": "0560836341",
+      "address": "USNS Simpson, FPO AE 83635",
+      "description": "Book speech interview."
+    }
+  ]
+}

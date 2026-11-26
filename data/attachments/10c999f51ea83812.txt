@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (106 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Clark",
+  "phone": "0518550929",
+  "email": "user_ad85a3e0aa@example.com",
+  "address": "631 Delacruz Mill, Connorville, ND 74620",
+  "description": "Safe former hard firm cut station black."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d4359600-1650-48fd-8fc9-49f36073c900"
+}

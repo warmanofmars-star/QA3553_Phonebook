@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ryan",
+  "lastName": "Delacruz",
+  "phone": "0555516002",
+  "email": "user_b8b2bfe84b@example.com",
+  "address": "4702 Zimmerman Row, West Nicole, RI 01738",
+  "description": "Listen meeting father end successful."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c3244de8-5443-44d2-bd17-1ef810a863d3"
+}

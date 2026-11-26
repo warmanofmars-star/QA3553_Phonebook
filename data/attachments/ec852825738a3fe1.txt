@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c3425672-5047-4650-92d1-23eb6172e116",
+      "name": "Shawn",
+      "lastName": "Estrada",
+      "email": "user_5523b746f3@example.com",
+      "phone": "0525674208",
+      "address": "01484 Gibson Viaduct Suite 513, West Kyle, OK 51385",
+      "description": "More travel system receive get build."
+    },
+    {
+      "id": "9f39be78-56b0-4bfe-a09b-7852aa36a767",
+      "name": "Terri",
+      "lastName": "Collins",
+      "email": "user_7e2e1ca93b@example.com",
+      "phone": "0522454389",
+      "address": "76981 Blair Loop Apt. 545, Port Courtneyland, ME 20579",
+      "description": "Mouth recent analysis left."
+    }
+  ]
+}

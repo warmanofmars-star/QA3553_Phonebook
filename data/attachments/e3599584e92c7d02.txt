@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Diana",
+  "lastName": "Conway",
+  "phone": "0514176483",
+  "email": "user_8ad3624fde@example.com",
+  "address": "7108 Reese Meadow, Thompsonberg, MA 20952",
+  "description": "Keep suffer test nation."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 227ecd7e-7f06-4661-bca6-06fb78cbc1c4"
+}

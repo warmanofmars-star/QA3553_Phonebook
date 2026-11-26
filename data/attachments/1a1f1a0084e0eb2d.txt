@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (126 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kayla",
+  "lastName": "Fox",
+  "phone": "0564551213",
+  "email": "user_2fb98594eb@example.com",
+  "address": "014 Elizabeth Court Apt. 115, New Mike, AL 50454",
+  "description": "Baby risk situation design town her.",
+  "id": "9d9e0cd6-9924-496b-abce-fdd1704e2563"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

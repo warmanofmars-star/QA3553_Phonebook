@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "211fb270-35e6-4ffa-8026-eb4665a807dc",
+      "name": "Hannah",
+      "lastName": "Lynn",
+      "email": "user_07f0a56b8a@example.com",
+      "phone": "0524943155",
+      "address": "7311 Zachary Glen, Melissaview, MI 43788",
+      "description": "Sit style development shoulder."
+    }
+  ]
+}

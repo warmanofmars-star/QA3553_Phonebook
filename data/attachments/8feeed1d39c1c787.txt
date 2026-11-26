@@ -1,5 +1,0 @@
-18:18:25 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
-18:18:25 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
-18:18:25 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
-18:18:26 [INFO   ] STEP: Зарегистрироваться как user_af722d8473@example.com
-18:18:29 [INFO   ] DRIVER: Видео 31ab4f136131da02a64b28c05d89d9c4.mp4 прикреплено к отчёту

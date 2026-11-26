@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (141 ms)
+
+--- Тело запроса ---
+{
+  "name": "Elizabeth",
+  "lastName": "Lewis",
+  "phone": "0521815078",
+  "email": "",
+  "address": "61953 White Grove Apt. 805, Harryside, ND 17758",
+  "description": "Risk onto woman themselves daughter road room ahead.",
+  "id": "7e62e197-fcda-4235-8303-cfa72c76f167"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

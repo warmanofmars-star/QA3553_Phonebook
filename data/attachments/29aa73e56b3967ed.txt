@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kayla",
+  "lastName": "Vasquez",
+  "phone": "0516035114",
+  "email": "user_b78a5763a9@example.com",
+  "address": "PSC 5098, Box 6053, APO AA 61898",
+  "description": "Compare defense international skin floor mission Democrat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e6c0aaef-2e79-4299-84ae-1b711dfccd3a"
+}

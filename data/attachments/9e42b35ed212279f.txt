@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8405a4ac-9fd0-4322-90f3-6dcb2f99bc7c",
+      "name": "Andrea",
+      "lastName": "Castillo",
+      "email": "user_93aa2244af@example.com",
+      "phone": "0523262298",
+      "address": "5450 Warren Station Suite 333, Manningfurt, GA 22221",
+      "description": "Rate figure involve forward ago individual per."
+    }
+  ]
+}

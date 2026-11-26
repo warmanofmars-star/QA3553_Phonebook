@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandi",
+  "lastName": "Smith",
+  "phone": "0577270755",
+  "email": "user_f5bb2b92cc@example.com",
+  "address": "492 Webb Hills, New Josephburgh, OK 23175",
+  "description": "Minute professional executive we."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: feb10b37-5a6e-4f47-9171-220bac86544d"
+}

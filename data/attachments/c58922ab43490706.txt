@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Phillip",
+  "lastName": "Klein",
+  "phone": "0518486487",
+  "email": "user_2a7f05ba3f@example.com",
+  "address": "53227 Michelle Path, West Oliviafurt, CA 62661",
+  "description": "Research rock wonder."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 68c6ebd5-e0b5-4600-92ab-91e7f6f50790"
+}

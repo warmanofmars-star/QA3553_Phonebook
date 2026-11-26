@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "54efb665-9d45-4570-9535-c7e7ef3d684d",
+      "name": "David",
+      "lastName": "Fowler",
+      "email": "user_22892c10fc@example.com",
+      "phone": "0542262899",
+      "address": "05291 Sweeney Port, Jonesshire, PW 30004",
+      "description": "12345"
+    }
+  ]
+}

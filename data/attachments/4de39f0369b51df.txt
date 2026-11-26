@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "60e869b9-5b3e-4ca9-9c6a-367277845a1d",
+      "name": "Kevin",
+      "lastName": "Elliott",
+      "email": "user_db06cc57eb@example.com",
+      "phone": "0515823992",
+      "address": "084 Lamb Trail, West Jessicahaven, AK 16874",
+      "description": "Detail dog sometimes police commercial call per."
+    }
+  ]
+}

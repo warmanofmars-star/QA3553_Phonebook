@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Mendoza",
+  "phone": "0520388592",
+  "email": "user_4a8e60030b@example.com",
+  "address": "3455 Taylor Flats Apt. 044, Thompsonmouth, OH 06073",
+  "description": "Success loss from staff network worker art."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 17be7a16-858d-4e73-8ae3-50e6526dabdc"
+}

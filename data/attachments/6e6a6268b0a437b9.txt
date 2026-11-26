@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Sullivan",
+  "phone": "0520207412",
+  "email": "user_769ed2a1ab@example.com",
+  "address": "30447 Sanchez Station Apt. 787, Cunninghambury, AK 64516",
+  "description": "Choice including adult stock."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6aef4597-ff32-481e-8334-1fa7da0b71d0"
+}

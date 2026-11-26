@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (83 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wanda",
+  "lastName": "Wallace",
+  "phone": "123",
+  "email": "user_5687aa4e0f@example.com",
+  "address": "922 Joshua Cliffs, Port Karen, OH 52418",
+  "description": "Research natural however coach office."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-26T19:08:31",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

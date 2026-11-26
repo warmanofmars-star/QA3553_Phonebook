@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (31 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c3feab0e-2c4f-444d-acc4-58ed3a61dff9",
+      "name": "Kenneth",
+      "lastName": "Myers",
+      "email": "user_3629819035@example.com",
+      "phone": "0566898386",
+      "address": "2117 Stephanie Cliff, Port Lisaton, PA 81990",
+      "description": "Raise catch dark some less."
+    }
+  ]
+}

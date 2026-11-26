@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ba735078-e0b7-4674-80f4-7535f5e0adbe",
+      "name": "Raymond",
+      "lastName": "Johnson",
+      "email": "user_5d6d7608ae@example.com",
+      "phone": "0510643792",
+      "address": "593 Morse Knolls, Williamsburgh, LA 21228",
+      "description": "Medical statement indeed foot talk."
+    }
+  ]
+}

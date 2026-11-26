@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Carrie",
+  "lastName": "Myers",
+  "phone": "0565004553",
+  "email": "user_2de61dcd58@example.com",
+  "address": "41198 Rebecca Trail, South Patriciabury, SD 21572",
+  "description": "Stop worry on figure form."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 625610a5-f131-4d80-a51f-0e577f3d5105"
+}

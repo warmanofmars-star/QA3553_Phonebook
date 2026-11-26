@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jill",
+  "lastName": "Powell",
+  "phone": "0517325062",
+  "email": "user_2c9055ca71@example.com",
+  "address": "275 Tucker Port, Christopherfort, IN 33371",
+  "description": "Effort ask window research over movie."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9b16c4ec-8f95-4201-9d78-ebcb9f34d5b4"
+}

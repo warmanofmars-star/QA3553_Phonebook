@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c796a4e5-fa87-4398-a714-c8e06e2db3ae",
+      "name": "Daniel",
+      "lastName": "Brown",
+      "email": "user_39c17721d4@example.com",
+      "phone": "0512944520",
+      "address": "376 Christian Circles, East Brianmouth, OK 57111",
+      "description": "Card range finish young news."
+    },
+    {
+      "id": "836ae9b4-83dc-427e-9aa5-0716674942d2",
+      "name": "Lisa",
+      "lastName": "Murphy",
+      "email": "user_37c812687b@example.com",
+      "phone": "0512944520",
+      "address": "976 Austin Views Apt. 221, West Debbie, NC 07930",
+      "description": "You over gas trial local occur."
+    }
+  ]
+}

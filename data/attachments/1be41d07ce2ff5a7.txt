@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Natasha",
+  "lastName": "Mitchell",
+  "phone": "0523457379",
+  "email": "user_66deff1b93@example.com",
+  "address": "86224 Melissa Unions Suite 787, Lake Robertview, VA 88502",
+  "description": "Kind heart ten type."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 56a02e2d-f750-4b34-a415-a7e19b2330e1"
+}

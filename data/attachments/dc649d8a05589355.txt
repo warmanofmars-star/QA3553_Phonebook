@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3eead6df-4ca9-421b-ad90-9d5d80d38174",
+      "name": "Rebecca",
+      "lastName": "Goodwin",
+      "email": "",
+      "phone": "0534004143",
+      "address": "2256 Tony Crossroad, Port Beckychester, OH 90980",
+      "description": "You pretty hair surface."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8eff53f7-fff8-4770-b3d6-fce0b8f3d5fc",
+      "name": "Travis",
+      "lastName": "Shaw",
+      "email": "user_671dff75a3@example.com",
+      "phone": "0592868855",
+      "address": "65422 Laura Mission, Port Michael, CT 91180",
+      "description": ""
+    }
+  ]
+}

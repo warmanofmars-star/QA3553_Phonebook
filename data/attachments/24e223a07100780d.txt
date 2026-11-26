@@ -1,0 +1,15 @@
+19:09:43 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+19:09:43 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+19:09:44 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (206 ms)
+19:09:44 [INFO   ] API: Токен добавлен в заголовки сессии
+19:09:44 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+19:09:44 [INFO   ] STEP: Войти как user_c02b227707@example.com
+19:09:45 [INFO   ] API: POST /v1/contacts -> 200 (34 ms)
+19:09:45 [INFO   ] API: GET /v1/contacts -> 200 (32 ms)
+19:09:45 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+19:09:45 [INFO   ] STEP: Открыть карточку контакта 0516112124
+19:09:46 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+19:09:46 [INFO   ] STEP: Изменить поля формы редактирования
+19:09:46 [INFO   ] STEP: Изменить поле description на 'Involve help young more near.'
+19:09:52 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Involve help young more near.', фактически '[object Undefined]'
+19:09:54 [INFO   ] DRIVER: Видео dfd3491e23670cf2a2d5710b294a270f.mp4 прикреплено к отчёту

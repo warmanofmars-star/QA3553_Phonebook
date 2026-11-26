@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gary",
+  "lastName": "Pittman",
+  "phone": "0521584128",
+  "email": "user_3395f6bbf0@example.com",
+  "address": "5116 Rodriguez Unions Apt. 497, Port Davidberg, FM 54345",
+  "description": "Factor must cold feeling yourself president people."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b41d87f0-0bb0-447f-b121-7d062148876b"
+}

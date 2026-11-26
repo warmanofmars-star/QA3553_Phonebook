@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b0fd9678-4312-4220-9132-e7ca2007f654",
+      "name": "Amy",
+      "lastName": "Warren",
+      "email": "user_594e15cb63@example.com",
+      "phone": "0516112124",
+      "address": "34500 Julia Plaza Apt. 714, Kevinmouth, MH 26544",
+      "description": "Night kind keep none."
+    }
+  ]
+}

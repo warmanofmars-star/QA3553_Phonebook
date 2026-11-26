@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (105 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4bae6acf-d0e1-496d-bb13-c99f952bb2aa",
+      "name": "Jeremy",
+      "lastName": "Fitzgerald",
+      "email": "user_1d1b53f5cb@example.com",
+      "phone": "0528545987",
+      "address": "67611 Becker Mews, Port Jeremiah, MN 99507",
+      "description": "Radio answer who subject new few quite reduce."
+    }
+  ]
+}

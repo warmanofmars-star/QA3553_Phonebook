@@ -1,0 +1,17 @@
+19:09:36 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+19:09:36 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+19:09:36 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (195 ms)
+19:09:36 [INFO   ] API: Токен добавлен в заголовки сессии
+19:09:36 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+19:09:37 [INFO   ] STEP: Войти как user_642f3c7b09@example.com
+19:09:38 [INFO   ] API: POST /v1/contacts -> 200 (34 ms)
+19:09:38 [INFO   ] API: GET /v1/contacts -> 200 (30 ms)
+19:09:38 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+19:09:38 [INFO   ] STEP: Открыть карточку контакта 0518932358
+19:09:39 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+19:09:39 [INFO   ] STEP: Изменить поля формы редактирования
+19:09:39 [INFO   ] STEP: Изменить поле address на '323 Collin Plaza, East Brittany, IN 04953'
+19:09:39 [INFO   ] STEP: Нажать Save в форме редактирования
+19:09:40 [INFO   ] API: GET /v1/contacts -> 200 (31 ms)
+19:09:40 [INFO   ] API: GET /v1/contacts -> 200 (31 ms)
+19:09:43 [INFO   ] DRIVER: Видео 267920e18bb59719dd353a006d013398.mp4 прикреплено к отчёту

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "56a02e2d-f750-4b34-a415-a7e19b2330e1",
+      "name": "Natasha",
+      "lastName": "Mitchell",
+      "email": "user_66deff1b93@example.com",
+      "phone": "0523457379",
+      "address": "86224 Melissa Unions Suite 787, Lake Robertview, VA 88502",
+      "description": "Kind heart ten type."
+    }
+  ]
+}

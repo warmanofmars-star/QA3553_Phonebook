@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Fowler",
+  "phone": "0542262899",
+  "email": "user_22892c10fc@example.com",
+  "address": "05291 Sweeney Port, Jonesshire, PW 30004",
+  "description": "Everyone wide fill test peace."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 54efb665-9d45-4570-9535-c7e7ef3d684d"
+}
