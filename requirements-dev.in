@@ -4,7 +4,7 @@
 # а -c выше не даёт общим транзитивным пакетам разойтись с версиями из requirements.txt.
 # В Docker-образ с тестами они не попадают — там нужен только requirements.txt.
 # requirements-dev.txt генерирует ci/lock_requirements.sh — руками его не правят.
-ruff==0.17.1
+ruff==0.17.4
 pre-commit==4.7.0
 PyYAML==6.0.3                 # справочник требований для ci/coverage_matrix.py
 check-jsonschema==0.39.0      # конфиги GitHub по JSON-схемам: dependabot.yml и workflow (хуки и job Lint)
