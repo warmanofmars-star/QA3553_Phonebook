@@ -7,3 +7,4 @@
 ruff==0.17.1
 pre-commit==4.7.0
 PyYAML==6.0.3                 # справочник требований для ci/coverage_matrix.py
+check-jsonschema==0.39.0      # конфиги GitHub по JSON-схемам: dependabot.yml и workflow (хуки и job Lint)

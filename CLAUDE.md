@@ -20,7 +20,7 @@ Selenium, Playwright, Allure, Docker, GitHub Actions, Jenkins. Подробно�
 pytest -n 4 --alluredir=allure-results       # весь набор локально (USE_GRID=false в .env)
 pytest -m api                                # только API-тесты
 pytest --collect-only -q                     # сколько тестов собирается
-pre-commit run --all-files                   # ruff, проверки файлов, gitleaks
+pre-commit run --all-files                   # ruff, проверки файлов, схемы конфигов GitHub, теги Selenium, gitleaks
 ruff check . && ruff format --check .        # только линтер и форматирование
 ```
 
@@ -67,6 +67,15 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
   `vX.Y.Z` — красный шаг); Python для Docker — точный тег в `FROM` в `Dockerfile` (команды пересборки
   lock-файлов в `commands.md` читают его оттуда). Дубли версий не заводи. Коммить из активированного
   `.venv` — иначе хуки ruff не найдут ruff.
+- **Dependabot** (`.github/dependabot.yml`): одна группа на все экосистемы, раз в месяц, выдержка 14 дней,
+  Python — только патчи, Jenkins и Selenium 5 — вручную. **PR Dependabot ревьюит и сливает пользователь —
+  агент их не сливает.** `dependabot.yml` меняется только по задаче. Как ревьюить и версии вне Dependabot —
+  `commands.md`, раздел про Dependabot.
+- **Конфиги GitHub проверяются по JSON-схемам**, встроенным в check-jsonschema (версия — только
+  `requirements-dev.in`, сеть не нужна): хуки `check-dependabot` и `check-github-workflows`
+  (`repo: local`, `language: system`) и те же шаги job Lint. Образы `selenium/*` в `docker-compose*.yml`
+  — на одном теге Grid 4 `4.x.y-<дата>` (`ci/check_selenium_images.py`: хук и шаг job Lint); мажор
+  Selenium меняется вручную вместе с правилом `ignore` в `dependabot.yml`.
 - Совместимость кода — Python 3.12+ (`target-version` в `pyproject.toml`), запуск — на 3.14.
   Локальный venv — `py -3.14 -m venv .venv` (Windows) или `python3.14 -m venv .venv`: просто `python`
   может оказаться другой версией.
