@@ -3,7 +3,8 @@
 # Версия Python совпадает с локальной (3.14), чтобы не было ситуации
 # "у меня локально работает, а в Docker падает".
 # bookworm (Debian 12) выбран явно: под него Playwright гарантированно ставит
-# системные зависимости браузера (--with-deps).
+# системные зависимости браузера (--with-deps). Библиотеку для самого установщика
+# (libatomic1) --with-deps не поставит — она ставится отдельным слоем ниже.
 # Тег точный, вплоть до патч-версии: плавающий python:3.14-slim-bookworm менял образ
 # (и Python в нём) без единого изменения в репозитории — сборки одного коммита могли
 # отличаться. Новую патч-версию берём осознанно: правкой этой строки.
@@ -19,6 +20,16 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
 
 WORKDIR /app
+
+# libatomic1 — для Node.js внутри драйвера Playwright: с Playwright 1.65 там Node 26,
+# слинкованный с libatomic.so.1, а в slim-образе этой библиотеки нет. --with-deps её
+# не поставит: зависимости ставит сам этот Node, и без библиотеки он не стартует
+# (exit 127, «libatomic.so.1: cannot open shared object file»). С Playwright 1.63
+# (Node 24) строка безвредна. Отдельный слой до pip install: системные пакеты
+# кэшируются независимо от зависимостей Python.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libatomic1 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Сначала ТОЛЬКО зависимости: этот слой Docker кэширует и пересобирает,
 # лишь когда меняется requirements.txt. Правка кода тестов его не трогает.
