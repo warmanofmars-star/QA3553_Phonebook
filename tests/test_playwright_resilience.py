@@ -13,8 +13,11 @@ SRS о поведении при сбоях ничего не говорит (н
   * известный баг (data/known_bugs.py) — нарушение требования SRS: двойная отправка
     создаёт дубль, а SRS T45 запрещает повторять телефон.
 
-Негативные проверки ("значение НЕ изменилось", "ошибки НЕТ") ждут SETTLE_MS после
-ответа на перехваченный запрос: даём приложению время "сделать плохое".
+Негативные проверки ("значение НЕ изменилось", "ошибки НЕТ") синхронизируются по состоянию:
+сначала ответ на перехваченный запрос доходит до страницы (faults.wait_for_delivery), затем
+DOM не меняется QUIET_MS подряд (wait_dom_quiet) — приложение успело "сделать плохое".
+"Лишнего запроса нет" — то же окно тишины по перехваченным запросам (wait_requests_quiet).
+Реакцию позже окна такие проверки не видят — как не видела и прежняя фиксированная пауза.
 """
 
 from collections.abc import Callable
@@ -40,10 +43,11 @@ pytestmark = [
     allure.feature("Backend failures"),
 ]
 
-SETTLE_MS = 2000  # время приложению отреагировать на ответ (для негативных проверок)
+# Окно тишины для негативных проверок. Замер 9f-0 (25 прогонов): после доставки ответа
+# DOM меняется не позже чем через 2 мс, повторных запросов и таймеров нет — запас x250
+QUIET_MS = 500
 ERROR_WAIT_MS = 5000  # сколько ждём сообщения об ошибке
 LOADING_LIMIT_MS = 10000  # "разумное время" загрузки списка
-SECOND_CLICK_MS = 1000  # время, за которое второй клик успел бы отправить второй запрос
 
 
 def _login(page: Page, temp_user) -> PwContactsPage:
@@ -97,8 +101,8 @@ def test_put_failure_keeps_old_value(page: Page, temp_user, created_contact, aut
     contacts.open_details(created_contact.phone)
 
     contacts.edit_name("Changed" + created_contact.name)
-    faults.wait_for_requests(puts)
-    page.wait_for_timeout(SETTLE_MS)
+    faults.wait_for_delivery(puts)
+    contacts.wait_dom_quiet(QUIET_MS)
 
     shown = contacts.card_name(created_contact.phone)
     assert shown == created_contact.name, f"После сбоя PUT карточка показывает {shown!r}, ожидалось старое имя"
@@ -116,8 +120,8 @@ def test_delete_failure_keeps_contact(page: Page, temp_user, created_contact, au
     contacts.open_details(created_contact.phone)
 
     contacts.remove()
-    faults.wait_for_requests(deletes)
-    page.wait_for_timeout(SETTLE_MS)
+    faults.wait_for_delivery(deletes)
+    contacts.wait_dom_quiet(QUIET_MS)
 
     assert contacts.card_shown(created_contact.phone), "После сбоя DELETE карточка исчезла из списка"
     assert _stored(auth_api, created_contact.id), "Контакт пропал с бэкенда, хотя DELETE получил 500"
@@ -129,8 +133,8 @@ def test_post_failure_keeps_form_data(page: Page, temp_user, auth_api):
     faults = NetworkFaults(page)
     posts = faults.respond(CONTACTS, "POST", 500)
     contact, add_page = _add_contact_via_form(page, temp_user)
-    faults.wait_for_requests(posts)
-    page.wait_for_timeout(SETTLE_MS)
+    faults.wait_for_delivery(posts)
+    add_page.wait_dom_quiet(QUIET_MS)
 
     assert auth_api.get_contacts_list() == [], "Контакт создан, хотя POST получил 500"
     entered = {field: getattr(contact, field) for field in PwAddContactPage.FIELD_NAMES}
@@ -234,8 +238,8 @@ def test_edit_form_stays_open_on_put_failure(page: Page, temp_user, created_cont
     new_name = "Changed" + created_contact.name
 
     contacts.edit_name(new_name)
-    faults.wait_for_requests(puts)
-    page.wait_for_timeout(SETTLE_MS)
+    faults.wait_for_delivery(puts)
+    contacts.wait_dom_quiet(QUIET_MS)
 
     assert contacts.is_edit_form_open(), "После сбоя PUT форма редактирования закрылась"
     assert contacts.edit_name_value() == new_name, f"Введённое имя потеряно: {contacts.edit_name_value()!r}"
@@ -281,8 +285,8 @@ def test_double_click_sends_one_post(page: Page, temp_user):
     # Первый POST висит без ответа (как при медленной сети) — второй клик приходится на него
     held = faults.hold(CONTACTS, "POST")
     _add_contact_via_form(page, temp_user, double_click=True)
-    faults.wait_for_requests(held.requests)
-    page.wait_for_timeout(SECOND_CLICK_MS)
+    faults.wait_for_requests(held.requests)  # предусловие: хотя бы один POST ушёл
+    faults.wait_requests_quiet(held.requests, QUIET_MS)
 
     assert len(held) == 1, f"Двойной клик по Save отправил {len(held)} запросов POST /v1/contacts"
 
@@ -295,9 +299,9 @@ def test_network_error_is_handled(page: Page, temp_user):
     faults = NetworkFaults(page)
     feedback = PwFeedback(page)
     posts = faults.abort(CONTACTS, "POST")
-    _add_contact_via_form(page, temp_user)
-    faults.wait_for_requests(posts)
-    page.wait_for_timeout(SETTLE_MS)
+    _, add_page = _add_contact_via_form(page, temp_user)
+    faults.wait_for_delivery(posts)
+    add_page.wait_dom_quiet(QUIET_MS)
 
     assert not feedback.page_errors, f"Необработанные исключения страницы: {feedback.page_errors}"
 
@@ -314,7 +318,8 @@ def test_double_click_creates_one_contact(page: Page, temp_user, auth_api):
     held = faults.hold(CONTACTS, "POST")
     contact, add_page = _add_contact_via_form(page, temp_user, double_click=True)
     faults.wait_for_requests(held.requests)
-    page.wait_for_timeout(SECOND_CLICK_MS)
+    # Паузы перед release() не нужно: после него и поздние POST сразу уходят на сервер,
+    # а wait_until ниже их дождётся. Замер 9f-0: второй POST уходит ещё до возврата dblclick
     held.release()  # все удержанные POST уходят на настоящий сервер
 
     def same_phone() -> list[dict]:
