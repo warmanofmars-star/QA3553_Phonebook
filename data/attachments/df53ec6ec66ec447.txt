@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (31 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "73932f4f-8298-44a0-97cf-d6ed0792f22e",
+      "name": "Rebecca",
+      "lastName": "Wilson",
+      "email": "user_cf1eda0d2d@example.com",
+      "phone": "0519040236",
+      "address": "2276 Nathan Landing Apt. 832, Richardsside, OK 54180",
+      "description": "Fund ahead officer conference control popular throughout idea."
+    }
+  ]
+}

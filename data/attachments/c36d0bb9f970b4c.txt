@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jose",
+  "lastName": "Bailey",
+  "phone": "0518323635",
+  "email": "user_497fe3bdb4@example.com",
+  "address": "31038 Rachel Walk, Lake Jim, CT 22980",
+  "description": "Piece customer drug training voice."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0c480014-6a8a-421a-a3a1-872194a2e552"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kenneth",
+  "lastName": "Gallagher",
+  "phone": "0523304731",
+  "email": "user_de4a35743d@example.com",
+  "address": "40448 Guerra Circle, Jamiemouth, TX 98186",
+  "description": "Huge check player find tax represent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e98ec154-0b2c-409b-b23b-d5463b76c4c8"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e49a118a-29a7-4c4b-8f8e-4443aab2546c",
+      "name": "Seth",
+      "lastName": "!@#$%^&*()_+-=",
+      "email": "user_e787138fe8@example.com",
+      "phone": "0521139438",
+      "address": "874 Curry View Apt. 688, Lake Wanda, NV 16854",
+      "description": "Civil out right."
+    }
+  ]
+}

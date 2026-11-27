@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Reeves",
+  "phone": "0527297118",
+  "email": "user_4eb5939dca@example.com",
+  "address": "108 Dyer Lakes, East Margaretshire, NY 43876",
+  "description": "American history try president onto."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0145f655-6893-4efd-ae39-86c6befed54d"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a28a37ea-39bb-4972-9d19-acb6b4c56fbe",
+      "name": "Jason",
+      "lastName": "Johnson",
+      "email": "user_f8393ab3ae@example.com",
+      "phone": "0512109411",
+      "address": "117 Mary Harbors Apt. 780, Evelynbury, GA 33212",
+      "description": "Yourself road your evidence also remain letter call."
+    }
+  ]
+}

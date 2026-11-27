@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "cd95f7d2-68c0-407f-962e-2022e79082dd",
+      "name": "Kristina",
+      "lastName": "Walker",
+      "email": "user_bd64e4e514@example.com",
+      "phone": "0524438517",
+      "address": "5272 Juan Harbors, Mckeeville, PR 03929",
+      "description": "Little choose if memory benefit especially."
+    }
+  ]
+}

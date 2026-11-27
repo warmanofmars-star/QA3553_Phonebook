@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Julia",
+  "lastName": "Blair",
+  "phone": "0523469564",
+  "email": "user_d05cef75b7@example.com",
+  "address": "2501 Emily Burgs Suite 525, North Melissaview, GA 41459",
+  "description": "Economy view account necessary."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2d6da1ce-8c84-4e46-9e67-18e4c7a06877"
+}

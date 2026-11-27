@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Turner",
+  "phone": "0512409401",
+  "email": "@example.com",
+  "address": "6825 Chapman Avenue Suite 438, New Kerry, CT 49051",
+  "description": "Drop behind debate suggest later produce push."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T08:43:06",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Guzman",
+  "phone": "0529322924",
+  "email": "user_b9ceb0325f@example.com",
+  "address": "2597 Christie Oval, Millshaven, CA 81991",
+  "description": "Feeling economic land development."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 942d083c-1cb8-4b7e-b2e0-77557099dc0a"
+}

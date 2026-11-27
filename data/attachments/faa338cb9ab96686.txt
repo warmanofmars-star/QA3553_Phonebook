@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Salas",
+  "phone": "0522524392",
+  "email": "user_b3ff13fd31@example.com",
+  "address": "264 Cox Tunnel Suite 624, East Andreafurt, SC 52704",
+  "description": "Week born role already order camera."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eb63f80a-e6a0-44ed-9276-995a0a1537e7"
+}

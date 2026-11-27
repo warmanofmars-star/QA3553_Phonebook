@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Lewis",
+  "phone": "0515149463",
+  "email": "user_73fb4717e5@example.com",
+  "address": "96778 Lopez Rapid Apt. 933, New Rhonda, ID 58147",
+  "description": "Friend similar evening marriage break."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c7c1a3fc-0b7c-432f-b77b-6b161a996138"
+}

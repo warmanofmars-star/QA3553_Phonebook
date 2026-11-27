@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brian",
+  "lastName": "Sullivan",
+  "phone": "0573040735",
+  "email": "user_ea12b392ef@example.com",
+  "address": "94477 Phillip Parkway, Jenkinsbury, WV 08717",
+  "description": "Instead lawyer have give."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5acd522e-0266-4019-9f64-e06bec4cbc4f"
+}

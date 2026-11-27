@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "82623d44-939c-4812-8180-0b53be283b2d",
+      "name": "Elizabeth",
+      "lastName": "Spencer",
+      "email": "user_0fb6097b8d@example.com",
+      "phone": "0517405889",
+      "address": "012 Harvey Gateway, Williamsburgh, SD 89784",
+      "description": "Particularly feel enter matter degree."
+    }
+  ]
+}

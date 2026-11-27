@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "API_UPDATED_NAME",
+  "lastName": "Chambers",
+  "phone": "0526863345",
+  "email": "user_a012f75352@example.com",
+  "address": "USCGC Conner, FPO AA 68386",
+  "description": "This contact was updated via API",
+  "id": "e26f9a14-28cc-447d-8d91-c3ceaedb405e"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

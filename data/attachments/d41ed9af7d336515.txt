@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ebc0c619-aaa8-4e7c-8d41-4c8927629275",
+      "name": "Benjamin",
+      "lastName": "Bryant",
+      "email": "user_98115aa3a1@example.com",
+      "phone": "0532864559",
+      "address": "0832 Sanders Walk, Mayland, MI 63492",
+      "description": "Successful month edge usually."
+    },
+    {
+      "id": "af48ff52-81be-492d-8e9e-db368a9f57f9",
+      "name": "Michael",
+      "lastName": "Wilson",
+      "email": "user_ebcd7f227f@example.com",
+      "phone": "0532864559",
+      "address": "2975 Joshua Corner, West Trevorfort, CO 60835",
+      "description": "Enjoy return play present become."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Pacheco",
+  "phone": "0558456421",
+  "email": "",
+  "address": "298 Matthew Estate, Port Aaronchester, NC 26552",
+  "description": "Husband think computer do hour may go."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f65d6857-812b-4cae-aacd-48b2dcc28bda"
+}

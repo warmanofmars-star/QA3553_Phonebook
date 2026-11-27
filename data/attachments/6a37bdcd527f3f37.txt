@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8cd9c501-8b72-4879-97a1-91e455c98fea",
+      "name": "Kathy",
+      "lastName": "Romero",
+      "email": "a@b",
+      "phone": "0510010651",
+      "address": "35769 Tony Tunnel Suite 536, North Michael, MI 72016",
+      "description": "Tonight season effort include staff ago eye."
+    }
+  ]
+}

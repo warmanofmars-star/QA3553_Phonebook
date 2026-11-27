@@ -1,0 +1,20 @@
+08:44:56 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+08:44:56 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+08:44:58 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (262 ms)
+08:44:58 [INFO   ] API: Токен добавлен в заголовки сессии
+08:44:58 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+08:44:59 [INFO   ] STEP: Войти как user_1c572d0547@example.com
+08:45:00 [INFO   ] API: POST /v1/contacts -> 200 (59 ms)
+08:45:00 [INFO   ] API: GET /v1/contacts -> 200 (56 ms)
+08:45:00 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+08:45:01 [INFO   ] STEP: Открыть карточку контакта 0513494265
+08:45:01 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+08:45:01 [INFO   ] STEP: Изменить поля формы редактирования
+08:45:01 [INFO   ] STEP: Изменить поле name на 'Russell'
+08:45:01 [INFO   ] STEP: Изменить поле last_name на 'Contreras'
+08:45:02 [INFO   ] STEP: Изменить поле phone на '0527559976'
+08:45:02 [INFO   ] STEP: Изменить поле email на 'user_996ff16727@example.com'
+08:45:02 [INFO   ] STEP: Изменить поле address на '1187 Hannah Crossroad Suite 700, West Davidborough, KS 90585'
+08:45:02 [INFO   ] STEP: Изменить поле description на 'Sure respond yes law.'
+08:45:07 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Sure respond yes law.', фактически '[object Undefined]'
+08:45:10 [INFO   ] DRIVER: Видео e133ee8c-314a-4c8f-9c72-a524d5e0d242.mp4 прикреплено к отчёту

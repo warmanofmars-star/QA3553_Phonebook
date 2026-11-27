@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tyler",
+  "lastName": "Morton",
+  "phone": "0523416646",
+  "email": "user_7671c8d1ad@example.com",
+  "address": "325 Rebecca Pines Apt. 809, New Heather, AZ 28851",
+  "description": "Tend fill sister artist."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: afcef6b7-cd74-422e-a703-1429171adfcd"
+}

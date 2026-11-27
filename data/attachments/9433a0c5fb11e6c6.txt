@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "Salazar",
+  "phone": "0566767829",
+  "email": "user_1162710fbd@example.com",
+  "address": "7238 George Orchard, North Tammyfurt, MP 25131",
+  "description": "Recent word hard day heart skill."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c8c93243-6e3e-4c5b-8248-b5485cca14de"
+}

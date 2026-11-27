@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "02efd3f0-9f91-4b92-83aa-bfa0ad2e17a5",
+      "name": "Laura",
+      "lastName": "Walker",
+      "email": "user_311abc9a25@example.com",
+      "phone": "0518812910",
+      "address": "695 Warren Lane Apt. 909, Spencerchester, KS 91248",
+      "description": "Every might white act."
+    }
+  ]
+}

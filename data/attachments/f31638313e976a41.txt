@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bradley",
+  "lastName": "White",
+  "phone": "0529499015",
+  "email": "user_891761aa7d@example.com",
+  "address": "8619 Katherine Knoll, North David, DC 76950",
+  "description": "Environmental recognize consider serve throw."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e666e68e-61bc-4d15-bcb5-e5abd543c400"
+}

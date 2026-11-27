@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Randy",
+  "lastName": "Greene",
+  "phone": "0527363650",
+  "email": "user_102b6bfd6c@example.com",
+  "address": "3617 Brown Circle, Georgetown, GA 59436",
+  "description": "Capital investment turn hair safe care.",
+  "id": "2eb2925c-30d4-4bb8-af0f-77c506284b0a"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 302bca16-d24f-495c-b91a-b5c097d240fb"
+}

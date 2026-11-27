@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0d33549d-dcf1-4c2a-8f52-a61e3ad72261",
+      "name": "Stephanie",
+      "lastName": "Robinson",
+      "email": "user_6dd53b4fd4@example.com",
+      "phone": "0587180837",
+      "address": "3362 Smith Club Suite 503, East Charles, NE 07689",
+      "description": "Industry officer here."
+    }
+  ]
+}

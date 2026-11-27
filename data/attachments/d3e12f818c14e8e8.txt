@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d3de68a0-5ae7-4d32-aa7b-924f25f9bde1",
+      "name": "Mark",
+      "lastName": "Cox",
+      "email": "user_202dc57f11@example.com",
+      "phone": "0524985504",
+      "address": "5628 King Vista Suite 787, Ballardshire, DC 08014",
+      "description": "Five type couple."
+    }
+  ]
+}

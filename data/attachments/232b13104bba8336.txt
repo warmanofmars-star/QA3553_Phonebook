@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Yesenia",
+  "lastName": "Hernandez",
+  "phone": "0526200940",
+  "email": "user_34fa75784d@example.com",
+  "address": "PSC 4012, Box 1212, APO AE 55613",
+  "description": "Discussion world take down partner resource."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 464e794a-ab24-438a-ab7a-8ed31a356319"
+}

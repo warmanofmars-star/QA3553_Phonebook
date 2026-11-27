@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "10a31df0-9da2-45eb-a1d9-d4f9b0591521",
+      "name": "Emma",
+      "lastName": "Butler",
+      "email": "user_4b8db21df5@example.com",
+      "phone": "0525018730",
+      "address": "561 Hendricks Roads Apt. 204, Jamesborough, NV 32485",
+      "description": "Year then law you break while plant."
+    }
+  ]
+}

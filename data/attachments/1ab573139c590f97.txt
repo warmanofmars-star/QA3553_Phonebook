@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Lawson",
+  "phone": "0525276278",
+  "email": "user@",
+  "address": "57411 Wyatt Flat, Avilaland, PW 56605",
+  "description": "Four fact officer finally clearly result difficult.",
+  "id": "6e4d31d4-84ee-4dc5-a11c-3e5b76b03e8c"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T08:43:11",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

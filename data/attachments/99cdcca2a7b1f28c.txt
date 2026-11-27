@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Perez",
+  "phone": "0523270030",
+  "email": "user_16c8b81025@example.com",
+  "address": "6278 Bridget Junction Apt. 378, West William, NH 97928",
+  "description": "Partner realize Congress bag."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 05e9b3ea-e3fa-4b6e-896c-bfae7ad5f77e"
+}

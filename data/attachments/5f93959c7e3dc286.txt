@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Richardson",
+  "phone": "0529098442",
+  "email": "user_8e605f210c@example.com",
+  "address": "40482 Bond Inlet Apt. 249, Port Alexanderborough, NM 11418",
+  "description": "Only if during toward mean peace."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ffecbb7c-2df6-412e-915e-c9fbee1b8037"
+}

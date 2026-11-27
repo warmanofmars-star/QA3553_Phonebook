@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+{
+  "name": "Allison",
+  "lastName": "Bennett",
+  "phone": "0571611349",
+  "email": "user_f28bfb7384@example.com",
+  "address": "9707 Vasquez Pines, Michaelland, IN 18608",
+  "description": "Population now environment financial age those."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2b1979f5-80e4-46ec-a9ff-d3457767f08d"
+}

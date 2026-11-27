@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kristina",
+  "lastName": "Walker",
+  "phone": "0524438517",
+  "email": "user_bd64e4e514@example.com",
+  "address": "5272 Juan Harbors, Mckeeville, PR 03929",
+  "description": "Little choose if memory benefit especially."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cd95f7d2-68c0-407f-962e-2022e79082dd"
+}

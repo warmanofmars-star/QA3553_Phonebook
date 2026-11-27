@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4059a62b-fb67-4584-bcc1-cee99b7271e6",
+      "name": "Grant",
+      "lastName": "Petersen",
+      "email": "user_b09794cd76@example.com",
+      "phone": "0598303689",
+      "address": "6840 Bob Street Suite 824, Buchananside, MO 94261",
+      "description": "There avoid information be store able."
+    }
+  ]
+}

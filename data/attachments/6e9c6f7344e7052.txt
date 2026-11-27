@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/user/login/usernamepassword
+Статус: 401 (240 ms)
+
+--- Тело запроса ---
+{
+  "username": "e8e7134e55@mail@example.com",
+  "password": "********"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T08:43:19",
+  "status": 401,
+  "error": "Unauthorized",
+  "message": "Login or Password incorrect",
+  "path": "/v1/user/login/usernamepassword"
+}

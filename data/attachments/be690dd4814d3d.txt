@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christian",
+  "lastName": "Hughes",
+  "phone": "0507669331",
+  "email": "user_0fc4836d5f@example.com",
+  "address": "09303 Jennifer Viaduct, Robertborough, MN 20841",
+  "description": "This summer human to themselves medical."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 50bb2a1a-64c0-4749-ac06-14d4209da525"
+}

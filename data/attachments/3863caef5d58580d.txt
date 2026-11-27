@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brittany",
+  "lastName": "James",
+  "phone": "0527917217",
+  "email": "user_e0f0c00fe4@example.com",
+  "address": "7303 Miguel Rest, New Lisamouth, SD 77296",
+  "description": "Will whether who sign attorney responsibility."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4a11a3c6-28ae-4d7c-bea8-bf7557a9bdb9"
+}

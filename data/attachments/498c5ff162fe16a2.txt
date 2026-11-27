@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wendy",
+  "lastName": "Mckinney",
+  "phone": "0512659293",
+  "email": "user_8e1d347835@example.com",
+  "address": "USNV Hardy, FPO AP 05380",
+  "description": "Process free kitchen federal line point another light."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 07344fce-a45c-4f9f-a676-9bc2ddf06913"
+}

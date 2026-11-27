@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (16 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Smith",
+  "phone": "0592748552",
+  "email": "@example.com",
+  "address": "92911 Espinoza Shore Suite 120, Port Francisview, TN 54069",
+  "description": "Drive soon me she all newspaper game.",
+  "id": "1c710a80-f7ea-4c69-b66f-c813321a9b90"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T08:43:11",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

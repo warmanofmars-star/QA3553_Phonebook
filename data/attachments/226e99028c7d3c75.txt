@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+{
+  "name": "Grant",
+  "lastName": "Petersen",
+  "phone": "0598303689",
+  "email": "user_b09794cd76@example.com",
+  "address": "6840 Bob Street Suite 824, Buchananside, MO 94261",
+  "description": "There avoid information be store able."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4059a62b-fb67-4584-bcc1-cee99b7271e6"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+{
+  "name": "Laurie",
+  "lastName": "Morgan",
+  "phone": "0582397505",
+  "email": "user_da00e12d55@example.com",
+  "address": "15732 Dustin Views Suite 141, South Jeffreyfort, MI 55694",
+  "description": "Someone nothing want ability career hotel yourself."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4abca813-ef78-4304-8455-c9fdcf114aaa"
+}

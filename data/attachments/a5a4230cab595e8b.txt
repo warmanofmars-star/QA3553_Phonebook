@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (16 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Nicholson",
+  "phone": "0526313169",
+  "email": "user_57868cacb4@example.com",
+  "address": "9961 Michael Fords, South Jamesport, IA 54808",
+  "description": "Blood sense box business girl."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T08:43:17",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

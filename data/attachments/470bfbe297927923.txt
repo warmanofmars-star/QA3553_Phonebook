@@ -1,8 +1,0 @@
-19:11:05 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
-19:11:05 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
-19:11:06 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (233 ms)
-19:11:06 [INFO   ] API: Токен добавлен в заголовки сессии
-19:11:06 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
-19:11:06 [INFO   ] STEP: Войти как user_5a07abd331@example.com
-19:11:07 [INFO   ] STEP: Нажать Sign Out
-19:11:11 [INFO   ] DRIVER: Видео 3f38564a582f797f89bf29c081e365fb.mp4 прикреплено к отчёту

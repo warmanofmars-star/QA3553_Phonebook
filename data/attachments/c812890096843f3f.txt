@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Floyd",
+  "phone": "0520432604",
+  "email": "user_f2bdc62d2d@example.com",
+  "address": "902 Mann Groves, Port Laurenmouth, WI 34737",
+  "description": "Whose owner power clear option financial."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 651fd644-ee4e-4c47-91ec-25f6505fab35"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b182e8e9-50a6-4cc8-9ad7-45182467f84d",
+      "name": "Meghan",
+      "lastName": "Haney",
+      "email": "user_797aad950e@example.com",
+      "phone": "0518727844",
+      "address": "PSC 1251, Box 2374, APO AE 56394",
+      "description": "Threat firm teacher view mouth."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Thomas",
+  "phone": "0532546740",
+  "email": "user_61e6911243@example.com",
+  "address": "319 Nancy Prairie Suite 537, New Sheilaburgh, AK 67573",
+  "description": "Mother laugh know guy despite recognize sign."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b59d60c4-a769-4b35-9004-f6448fa57fe8"
+}

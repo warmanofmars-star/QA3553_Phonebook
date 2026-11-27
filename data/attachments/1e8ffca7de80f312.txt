@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "548f8287-b660-401e-813e-0ad52338b7ca",
+      "name": "Gary",
+      "lastName": "Price",
+      "email": "user_06183d49da@example.com",
+      "phone": "0522272197",
+      "address": "11427 Carrillo Union Suite 420, Hollyberg, AL 02301",
+      "description": "As toward four cultural."
+    }
+  ]
+}

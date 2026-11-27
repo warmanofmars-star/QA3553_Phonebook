@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jonathan",
+  "lastName": "Henry",
+  "phone": "0587491633",
+  "email": "user_d8d3a5899d@example.com",
+  "address": "885 Kerri Mill, Robinsonfurt, OR 23815",
+  "description": "Above say product job run necessary."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3ff9c70a-3ad6-44a6-9812-46d99512d974"
+}

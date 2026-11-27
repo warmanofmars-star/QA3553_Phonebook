@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "495cb8e0-1f86-424b-b119-b4f03baabf47",
+      "name": "Sandra",
+      "lastName": "Mcclure",
+      "email": "user_bea12dd0cc@example.com",
+      "phone": "0532213512",
+      "address": "9688 Patton Mission Apt. 362, Lake Alexander, UT 09987",
+      "description": "Apply goal difference report technology piece see."
+    }
+  ]
+}

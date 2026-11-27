@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a36456b3-df60-4573-8332-92ac7eb9e32d",
+      "name": "Emily",
+      "lastName": "Brown",
+      "email": "user_6a19d46e3d@example.com",
+      "phone": "0517501495",
+      "address": "046 Donna Fields Suite 738, Lorifort, WA 57889",
+      "description": "How sound hair price model it quickly."
+    }
+  ]
+}

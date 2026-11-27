@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "888834d4-7189-426e-b110-4b5bb3566dba",
+      "name": "Olivia",
+      "lastName": "Spencer",
+      "email": "user_6d0e15fb77@example.com",
+      "phone": "0530718556",
+      "address": "84542 Luis Mission, Feliciashire, DE 97045",
+      "description": "Reason usually contain consider billion forget these sort."
+    }
+  ]
+}

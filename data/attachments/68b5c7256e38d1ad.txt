@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (73 ms)
+
+--- Тело запроса ---
+{
+  "name": "Seth",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0521139438",
+  "email": "user_e787138fe8@example.com",
+  "address": "874 Curry View Apt. 688, Lake Wanda, NV 16854",
+  "description": "Civil out right.",
+  "id": "e49a118a-29a7-4c4b-8f8e-4443aab2546c"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

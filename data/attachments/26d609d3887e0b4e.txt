@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Katherine",
+  "lastName": "Anderson",
+  "phone": "0511866606",
+  "email": "user_cc4d998c46@example.com",
+  "address": "6653 Ross Islands, Laurenhaven, KY 11587",
+  "description": "Between minute direction friend finally arm."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 68284d58-1592-49c6-abe5-1f346792b6b5"
+}

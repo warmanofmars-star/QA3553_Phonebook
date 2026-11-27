@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Haley",
+  "lastName": "James",
+  "phone": "0518646122",
+  "email": "user_d6aeee3007@example.com",
+  "address": "53667 Sarah Heights, Clarkmouth, AK 91818",
+  "description": "Dark style hold possible."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 19f26dc2-6152-47fe-b138-0c5698b9f9f1"
+}

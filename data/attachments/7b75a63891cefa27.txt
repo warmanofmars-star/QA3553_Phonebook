@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6e4d31d4-84ee-4dc5-a11c-3e5b76b03e8c",
+      "name": "Thomas",
+      "lastName": "Lawson",
+      "email": "user_b0eebdd3aa@example.com",
+      "phone": "0525276278",
+      "address": "57411 Wyatt Flat, Avilaland, PW 56605",
+      "description": "Four fact officer finally clearly result difficult."
+    }
+  ]
+}

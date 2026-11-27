@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patrick",
+  "lastName": "Wilson",
+  "phone": "0530873575",
+  "email": "user_48f9649c8d@example.com",
+  "address": "32122 Melanie Brook, Port Molly, NC 85043",
+  "description": "!@#$%^&*()_+-=12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6b5716cb-8225-4109-80a7-19a609daaa67"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+{
+  "name": "Crystal",
+  "lastName": "Hayes",
+  "phone": "0521172104",
+  "email": "user_d7b2ed8d24@example.com",
+  "address": "617 Sanchez Common Suite 971, Port William, MT 30389",
+  "description": "Answer body area leave effort son consumer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5f4d57ac-6766-4786-a513-6169cc4e2321"
+}

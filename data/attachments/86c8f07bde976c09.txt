@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e666e68e-61bc-4d15-bcb5-e5abd543c400",
+      "name": "12345",
+      "lastName": "White",
+      "email": "user_891761aa7d@example.com",
+      "phone": "0529499015",
+      "address": "8619 Katherine Knoll, North David, DC 76950",
+      "description": "Environmental recognize consider serve throw."
+    }
+  ]
+}

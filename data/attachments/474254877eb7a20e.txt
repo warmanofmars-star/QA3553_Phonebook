@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Woods",
+  "phone": "0591179885",
+  "email": "user_6a55ac18cf@example.com",
+  "address": "965 Williams Expressway, Valentinefurt, VA 06126",
+  "description": "Crime our all pressure democratic of once."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2bfc7246-98f1-4108-a2c3-a10ffc0bf24b"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Benjamin",
+  "lastName": "Bryant",
+  "phone": "0532864559",
+  "email": "user_98115aa3a1@example.com",
+  "address": "0832 Sanders Walk, Mayland, MI 63492",
+  "description": "Successful month edge usually."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ebc0c619-aaa8-4e7c-8d41-4c8927629275"
+}

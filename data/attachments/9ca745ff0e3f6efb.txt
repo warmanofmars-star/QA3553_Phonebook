@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b3dc15cf-2986-45a7-8b4c-89e1226e7a51",
+      "name": "William",
+      "lastName": "Chambers",
+      "email": "a@b",
+      "phone": "0520286747",
+      "address": "051 Heather Underpass Apt. 519, Mcdonaldmouth, TX 09406",
+      "description": "Let see customer check enjoy culture."
+    }
+  ]
+}

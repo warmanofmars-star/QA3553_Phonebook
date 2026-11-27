@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2a3af360-a938-49fc-a5c6-9f212e6bd59a",
+      "name": "Ashley",
+      "lastName": "Jennings",
+      "email": "user_d1b08716a7@example.com",
+      "phone": "0518275418",
+      "address": "7718 Murray Vista, Hoffmanborough, AZ 31708",
+      "description": "Store pattern old spend either save."
+    }
+  ]
+}

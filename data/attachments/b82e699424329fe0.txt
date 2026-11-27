@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tanner",
+  "lastName": "Sherman",
+  "phone": "0513411540",
+  "email": null,
+  "address": "37224 Santana Ports Apt. 765, Heathside, OR 40691",
+  "description": "Little civil remain friend per attack environmental west.",
+  "id": "138ba9a2-f809-4c08-9d25-08a79bb122ca"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

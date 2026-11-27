@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3ff9c70a-3ad6-44a6-9812-46d99512d974",
+      "name": "Jonathan",
+      "lastName": "Henry",
+      "email": "user_d8d3a5899d@example.com",
+      "phone": "0587491633",
+      "address": "885 Kerri Mill, Robinsonfurt, OR 23815",
+      "description": "Above say product job run necessary."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Odonnell",
+  "phone": "0522444120",
+  "email": "user_e8b488a7b4@example.com",
+  "address": "8072 Brittany River, West Williamborough, AZ 68606",
+  "description": "Show cell room fly win."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: efed7a21-24b9-4d8e-a818-4ae96584ca2e"
+}

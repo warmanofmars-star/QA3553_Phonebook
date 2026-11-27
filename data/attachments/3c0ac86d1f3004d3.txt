@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (47 ms)
+
+--- Тело запроса ---
+{
+  "name": "Clinton",
+  "lastName": "12345",
+  "phone": "0515870954",
+  "email": "user_2ccd69e697@example.com",
+  "address": "107 Ryan Corner Apt. 809, Lake Ronaldchester, SD 03498",
+  "description": "Country bed natural book set ground shoulder believe."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8d9ef852-17eb-48cb-a42b-a91e1d034ba5"
+}

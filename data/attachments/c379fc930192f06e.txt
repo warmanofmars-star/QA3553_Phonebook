@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffery",
+  "lastName": "Perez",
+  "phone": "0516351226",
+  "email": "user_00226a78a6@example.com",
+  "address": "7842 Samantha Walks Apt. 270, West Danielberg, FM 05735",
+  "description": "12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 451acbd6-b750-4873-9bce-696772f2ea79"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sandra",
+  "lastName": "Mcclure",
+  "phone": "0532213512",
+  "email": "user_bea12dd0cc@example.com",
+  "address": "9688 Patton Mission Apt. 362, Lake Alexander, UT 09987",
+  "description": "Apply goal difference report technology piece see."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 495cb8e0-1f86-424b-b119-b4f03baabf47"
+}

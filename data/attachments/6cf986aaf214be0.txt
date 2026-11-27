@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Ashley",
+  "lastName": "Matthews",
+  "phone": "0532539298",
+  "email": "user_dea1fe2a8b@example.com",
+  "address": "05313 James Avenue Suite 227, South Caitlinland, PA 11210",
+  "description": "Care fine picture health animal value."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: aab175e9-ad04-4462-a59d-7c21b38b7ad1"
+}

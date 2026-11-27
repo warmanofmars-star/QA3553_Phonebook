@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "16167838-88a2-41d7-85ad-16a3d17e18a7",
+      "name": "Andrew",
+      "lastName": "Johnson",
+      "email": "user_cd75ab233f@example.com",
+      "phone": "0522416992",
+      "address": "39910 Sanchez Hollow Apt. 127, Port Autumn, NJ 30735",
+      "description": ""
+    }
+  ]
+}

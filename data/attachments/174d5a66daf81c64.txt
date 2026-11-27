@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ea2cdcbf-056d-441f-b891-e5014ece01fd",
+      "name": "Diana",
+      "lastName": "Roman",
+      "email": "user_4e21b8bac3@example.com",
+      "phone": "0513555548",
+      "address": "7085 Emily Grove Suite 963, West Thomasland, WA 25018",
+      "description": "Eat picture unit I I market."
+    }
+  ]
+}

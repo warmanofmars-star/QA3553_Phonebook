@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Angie",
+  "lastName": "Harris",
+  "phone": "0511003604",
+  "email": "user_685fd90956@example.com",
+  "address": "272 Phillips View Apt. 078, South Vincentberg, MP 67444",
+  "description": "Management shoulder expect near picture school media provide."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eb8154ea-7f7f-44a1-b5a6-f8defccbea5b"
+}

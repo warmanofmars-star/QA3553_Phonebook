@@ -1,0 +1,15 @@
+08:44:43 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+08:44:43 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+08:44:45 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (410 ms)
+08:44:45 [INFO   ] API: Токен добавлен в заголовки сессии
+08:44:45 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+08:44:46 [INFO   ] STEP: Войти как user_4dfbcdd8b9@example.com
+08:44:47 [INFO   ] API: POST /v1/contacts -> 200 (64 ms)
+08:44:47 [INFO   ] API: GET /v1/contacts -> 200 (58 ms)
+08:44:47 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+08:44:47 [INFO   ] STEP: Открыть карточку контакта 0528399043
+08:44:48 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+08:44:48 [INFO   ] STEP: Изменить поля формы редактирования
+08:44:48 [INFO   ] STEP: Изменить поле description на 'Other city remember personal town.'
+08:44:53 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Other city remember personal town.', фактически '[object Undefined]'
+08:44:56 [INFO   ] DRIVER: Видео 1c96c3a1-61d3-4d99-a32f-62ed9541aee4.mp4 прикреплено к отчёту

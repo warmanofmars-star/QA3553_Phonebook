@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4abca813-ef78-4304-8455-c9fdcf114aaa",
+      "name": "Laurie",
+      "lastName": "Morgan",
+      "email": "user_da00e12d55@example.com",
+      "phone": "0582397505",
+      "address": "15732 Dustin Views Suite 141, South Jeffreyfort, MI 55694",
+      "description": "Someone nothing want ability career hotel yourself."
+    }
+  ]
+}

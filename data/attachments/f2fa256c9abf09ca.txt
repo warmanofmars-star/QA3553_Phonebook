@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "52cd5fd4-2ace-478f-9820-43fe5b27cd30",
+      "name": "William",
+      "lastName": "Navarro",
+      "email": "user_92c60f703f@example.com",
+      "phone": "0532593869",
+      "address": "630 Robertson Tunnel Suite 587, Medinaberg, MS 37294",
+      "description": "Prove soon second girl."
+    }
+  ]
+}

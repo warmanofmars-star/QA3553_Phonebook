@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gary",
+  "lastName": "Price",
+  "phone": "0522272197",
+  "email": "user_33371b0813@example.com",
+  "address": "11427 Carrillo Union Suite 420, Hollyberg, AL 02301",
+  "description": "As toward four cultural."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 548f8287-b660-401e-813e-0ad52338b7ca"
+}

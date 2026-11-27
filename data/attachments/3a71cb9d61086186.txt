@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (100 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Fox",
+  "phone": "0527260614",
+  "email": "user_0ae275dd4b@example.com",
+  "address": "7851 Peters Brooks, Garrettfort, IL 21078",
+  "description": "Somebody summer whole issue catch campaign gun."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0e0c55cf-252e-44db-8597-ca6985666d45"
+}

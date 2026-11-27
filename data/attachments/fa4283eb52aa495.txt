@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "75474347-eefc-48a9-a0fe-cbb9036ef52b",
+      "name": "Dustin",
+      "lastName": "Andrews",
+      "email": "user_c83577e155@example.com",
+      "phone": "0520014475",
+      "address": "4034 Richard Creek, East Cameronfort, MD 87767",
+      "description": "Center industry response alone within senior."
+    }
+  ]
+}

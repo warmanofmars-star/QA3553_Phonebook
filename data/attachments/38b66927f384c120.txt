@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tiffany",
+  "lastName": "Castillo",
+  "phone": "0535873264",
+  "email": "not_an_email",
+  "address": "PSC 2788, Box 3802, APO AE 85602",
+  "description": "Resource event mean network myself interest attorney."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T08:43:16",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

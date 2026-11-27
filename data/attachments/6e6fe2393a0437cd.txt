@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Escobar",
+  "phone": "0532467629",
+  "email": "user_d766f3e9f8@example.com",
+  "address": "167 Gray Isle, Browntown, WA 80615",
+  "description": "Stay professor international support stuff."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 42837e0f-ef87-4b14-bfe9-c8e8c048f95c"
+}

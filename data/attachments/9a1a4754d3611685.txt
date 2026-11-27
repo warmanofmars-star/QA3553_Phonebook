@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7011457a-2b20-4f02-82c8-95501aaa3c84",
+      "name": "Dominique",
+      "lastName": "Medina",
+      "email": "user_5de79ab16c@example.com",
+      "phone": "0527926363",
+      "address": "1225 Wiley Ramp Apt. 522, Phillipsfort, VT 24816",
+      "description": "Opportunity former most lay show fast inside."
+    }
+  ]
+}

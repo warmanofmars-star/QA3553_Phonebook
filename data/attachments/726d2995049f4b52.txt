@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Mccullough",
+  "phone": "0519157235",
+  "email": "user_c23434b62a@example.com",
+  "address": "9304 Yolanda View, Thomasfort, MT 27168",
+  "description": "Admit world oil yet home prevent.",
+  "id": "72feaabe-4da2-4447-b87f-fbc58b8178c5"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

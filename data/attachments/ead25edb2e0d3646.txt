@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "08addb39-fbd8-4a75-b9aa-1b6810447402",
+      "name": "Thomas",
+      "lastName": "Mercado",
+      "email": "user_8eaeca9704@example.com",
+      "phone": "0531145843",
+      "address": "3665 Conway Crossroad, Amyborough, NJ 53170",
+      "description": "Evidence under idea respond glass especially join author."
+    }
+  ]
+}

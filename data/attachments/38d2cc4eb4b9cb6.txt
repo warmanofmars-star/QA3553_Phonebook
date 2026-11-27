@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Johnson",
+  "phone": "0513936672",
+  "email": "",
+  "address": "8060 Vaughn Mews Apt. 719, New Christina, MP 56187",
+  "description": "Rule police exist factor whatever record.",
+  "id": "07c3126e-8d57-4c41-8896-7b2907e06463"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

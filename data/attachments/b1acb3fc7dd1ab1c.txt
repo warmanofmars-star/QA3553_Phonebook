@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Craig",
+  "phone": "0593850802",
+  "email": "user_f14cb5f3d9@example.com",
+  "address": "72798 Michael Fields Apt. 593, South Jonathanside, GA 76089",
+  "description": "Understand ability hit side concern arrive radio."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: bcf21283-aecc-4059-b9e4-5c3e1209dc0b"
+}

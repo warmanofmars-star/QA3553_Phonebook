@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (31 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3cfccdcd-fa66-45a7-b1e3-5df267736e20",
+      "name": "Susan",
+      "lastName": "Taylor",
+      "email": "user_83c833bfcf@example.com",
+      "phone": "0543263324",
+      "address": "699 Fisher Park, East Bryanborough, RI 62347",
+      "description": "Rock mission age."
+    }
+  ]
+}

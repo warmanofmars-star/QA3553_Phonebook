@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c01e1e61-1a64-4267-90b6-5d8a9281d9bf",
+      "name": "Amber",
+      "lastName": "Carrillo",
+      "email": "user_d89444fd2f@example.com",
+      "phone": "0520609338",
+      "address": "74279 Mccullough Walk, Gillespieton, MH 23598",
+      "description": "When kid same decide face manager doctor central."
+    }
+  ]
+}

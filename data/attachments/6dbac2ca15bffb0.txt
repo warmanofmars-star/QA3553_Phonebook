@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicholas",
+  "lastName": "Hill",
+  "phone": "0517957464",
+  "email": "user_580af2ea6b@example.com",
+  "address": "7524 Gardner Land, South John, KS 97177",
+  "description": "Chair education air investment."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ac022dac-21c5-4d8d-a86b-e368324b3135"
+}

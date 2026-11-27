@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samuel",
+  "lastName": "Wong",
+  "phone": "0585799926",
+  "email": "user_7bfd6a991f@example.com",
+  "address": "252 Drake Centers Suite 712, West Stephenside, VI 97810",
+  "description": "Start our ever fact."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 35b60984-2475-4e1f-b085-acff88fcfa92"
+}

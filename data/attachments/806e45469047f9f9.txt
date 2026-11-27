@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "April",
+  "lastName": "Marks",
+  "phone": "0518154295",
+  "email": "user_de26f0a87c@example.com",
+  "address": "479 Rodriguez Stravenue Apt. 856, Port Sandra, ID 36055",
+  "description": "Better at determine degree usually."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dd920bf4-db5d-48e1-aa68-59ece2c767a9"
+}

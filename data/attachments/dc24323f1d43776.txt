@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erica",
+  "lastName": "Dickson",
+  "phone": "0511224584",
+  "email": "user_e158bf0d8b@example.com",
+  "address": "9528 Kelly Port, Shauntown, AS 87244",
+  "description": "Summer show position model rate there technology."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ed287ec2-e09e-44c2-ba9f-d75904857125"
+}

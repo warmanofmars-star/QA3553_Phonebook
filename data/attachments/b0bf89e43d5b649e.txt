@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Hill",
+  "phone": "0518502596",
+  "email": "user_c1c744c12a@example.com",
+  "address": "52831 Watson Squares Apt. 943, Brooksmouth, FM 81489",
+  "description": "Agreement growth stand suggest control available."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 526602a8-7271-434a-8c4d-68cdceef9b14"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Murphy",
+  "phone": "0592650942",
+  "email": "user_65d20c2f3d@example.com",
+  "address": "706 Jones Flats, Victorfurt, VA 66806",
+  "description": "Establish TV just yourself pick notice."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e72eee5e-444b-4837-8d92-ee8eaf23cd34"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Sharp",
+  "phone": "0552001484",
+  "email": "user_a6df27c4e9@example.com",
+  "address": "2366 Schmidt Radial Apt. 622, New Jenniferchester, CO 38893",
+  "description": "Water modern region young store in."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 45a6c45e-65ee-4bd5-b9c4-4219073faf20"
+}

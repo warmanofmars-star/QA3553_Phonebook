@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+{
+  "name": "George",
+  "lastName": "Shaffer",
+  "phone": "0596828863",
+  "email": "user_2305782260@example.com",
+  "address": "89129 Russo Loop, East Yvetteton, MN 46975",
+  "description": "Represent cost beautiful trip."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2aae551f-ee5b-4959-89b3-e02bc70e2786"
+}

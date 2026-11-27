@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (6 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Reed",
+  "phone": "   ",
+  "email": "user_cc33f40259@example.com",
+  "address": "0845 Arroyo Plains Suite 372, North Jordantown, MP 71972",
+  "description": "Right especially herself bank."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T08:43:16",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

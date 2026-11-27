@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tom",
+  "lastName": "Blackburn",
+  "phone": "0528774689",
+  "email": "user_58c1127932@example.com",
+  "address": "!@#$%^&*()_+-=",
+  "description": "Against at occur house machine attorney."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f2f5f7e7-d62f-46d3-9ef4-63e904e2eb42"
+}

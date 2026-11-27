@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Timothy",
+  "lastName": "Tucker",
+  "phone": "0539999479",
+  "email": "user_f3931a7fe4@example.com",
+  "address": "200 James Manors, Lake Patriciastad, PW 07321",
+  "description": "Notice full per southern."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e5f66bb1-15ef-440d-9a58-fb2dec6c6661"
+}

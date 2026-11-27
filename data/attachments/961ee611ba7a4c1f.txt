@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Hannah",
+  "lastName": "Ruiz",
+  "phone": "0535522846",
+  "email": "user_96658890eb@example.com",
+  "address": "60242 Brian Island, East Derek, NV 50477",
+  "description": "Store between figure let computer art clear."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 965e1603-6c3c-4ab6-876d-a14b2ca7bce9"
+}
