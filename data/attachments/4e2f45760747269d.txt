@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Austin",
+  "lastName": "Norton",
+  "phone": "0512037597",
+  "email": "user_b2c59db126@example.com",
+  "address": "26980 Katie Parkways Apt. 663, Glennview, DE 07021",
+  "description": "Machine treatment civil five very."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2232c6d9-5a59-452f-9dd0-1f68e7114b45"
+}

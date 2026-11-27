@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a478bf2b-71c9-4d2b-b789-96f4baa793d6",
+      "name": "Daniel",
+      "lastName": "Owens",
+      "email": "user_e82576818a@example.com",
+      "phone": null,
+      "address": "14955 Benjamin Corners, West Haley, VT 51042",
+      "description": "Car listen somebody relationship computer while on charge."
+    }
+  ]
+}

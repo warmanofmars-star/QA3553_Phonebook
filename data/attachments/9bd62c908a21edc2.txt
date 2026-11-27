@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c805d353-697e-41d1-a9d5-faaf5c6e09fc",
+      "name": "Kara",
+      "lastName": "Martinez",
+      "email": "user_2cd5f7330f@example.com",
+      "phone": "0538577732",
+      "address": "869 Evan Neck Suite 380, Lake Grace, NM 05444",
+      "description": "Mean always fall eye."
+    }
+  ]
+}

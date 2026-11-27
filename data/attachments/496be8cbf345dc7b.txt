@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1b8ce5af-c4db-4249-bd04-7b803961a440",
+      "name": "12345",
+      "lastName": "Green",
+      "email": "user_44a7f8a099@example.com",
+      "phone": "0523591991",
+      "address": "640 Brenda Falls Apt. 404, Maddoxhaven, OK 49642",
+      "description": "Level firm teach what senior task wear."
+    }
+  ]
+}

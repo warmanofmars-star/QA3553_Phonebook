@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8aab9062-10a0-4dff-9190-067e4cd90f7a",
+      "name": "Michael",
+      "lastName": "Hunter",
+      "email": "user_5925c168ae@example.com",
+      "phone": "0526988527",
+      "address": "PSC 0923, Box 4530, APO AA 33931",
+      "description": "Service management still state time life."
+    }
+  ]
+}

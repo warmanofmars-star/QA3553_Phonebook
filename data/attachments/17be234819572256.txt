@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "56ce18e8-8de0-43d8-8f84-9da7b32332c8",
+      "name": "Alicia",
+      "lastName": "Ward",
+      "email": "user_820d4111ec@example.com",
+      "phone": "0526636914",
+      "address": "9203 Jessica Passage, Cynthiamouth, CT 22899",
+      "description": "White right more former."
+    }
+  ]
+}

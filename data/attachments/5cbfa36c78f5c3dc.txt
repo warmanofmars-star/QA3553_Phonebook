@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Higgins",
+  "phone": "0537759472",
+  "email": "user_cf49569df7@example.com",
+  "address": "680 Romero Fields Suite 545, New Christinaborough, PW 58306",
+  "description": "Five position themselves visit society operation arm."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 123973d7-e58f-4a8d-a61f-eaf61cb298e1"
+}

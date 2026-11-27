@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Robinson",
+  "phone": "0523843921",
+  "email": "user_0075977579@example.com",
+  "address": "921 Petty Hills, Bassmouth, WI 35251",
+  "description": "Guess side police personal."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b62a2b8f-9387-4681-84ee-10e1d5e71262"
+}

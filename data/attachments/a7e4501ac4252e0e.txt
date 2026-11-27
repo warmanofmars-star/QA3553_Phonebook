@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Torres",
+  "phone": "0556651070",
+  "email": "user_61607250a7@example.com",
+  "address": "1324 Jason Bridge, North Thomasview, CA 48603",
+  "description": "Nation case member matter return when under."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c75a04d3-e417-4839-b7ca-7f511b1ce62f"
+}

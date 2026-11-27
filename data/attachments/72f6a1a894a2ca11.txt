@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "29503b7d-2c25-49a5-a872-7ed7e0403d26",
+      "name": "Mary",
+      "lastName": "Graham",
+      "email": "user_e527a1e2a4@example.com",
+      "phone": "0529074918",
+      "address": "3354 Johnson Green Apt. 550, Emilyberg, ND 23829",
+      "description": "Official true race beautiful seem together."
+    }
+  ]
+}

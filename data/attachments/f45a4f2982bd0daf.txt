@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Caitlyn",
+  "lastName": "Camacho",
+  "phone": "0525340960",
+  "email": "user_15e978cb55@example.com",
+  "address": "41761 Martinez Spurs, Lake Christinechester, MD 13896",
+  "description": "Despite fall black share."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dcaf8ff1-cb9d-4d9c-bdeb-bc23d896e431"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "11a11f92-65d3-467b-a3ed-b5ca80396efc",
+      "name": "Matthew",
+      "lastName": "Lewis",
+      "email": "user_d07e59aade@example.com",
+      "phone": "0528443679",
+      "address": "4308 Erika Loop, Kellyfort, AS 90319",
+      "description": "Bank doctor scientist least treatment."
+    }
+  ]
+}

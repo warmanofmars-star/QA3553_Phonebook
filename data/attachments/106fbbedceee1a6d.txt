@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2b6e5798-bac9-4a69-8bc7-9acf76f8b1b9",
+      "name": "Shaun",
+      "lastName": "Velazquez",
+      "email": "user_94a6e95ee5@example.com",
+      "phone": "0529408474",
+      "address": "168 Smith Tunnel, Washingtonport, DC 20420",
+      "description": "That degree later customer at assume sort."
+    }
+  ]
+}

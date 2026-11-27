@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Donald",
+  "lastName": "Figueroa",
+  "email": "user_e5cda19857@example.com",
+  "address": "7219 Dean Spur, Amymouth, SC 26419",
+  "description": "Alone mention challenge learn break cut his."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eaa30032-f737-4abd-853f-7a5361a9c3d4"
+}

@@ -1,0 +1,5 @@
+10:03:08 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+10:03:08 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+10:03:09 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+10:03:10 [INFO   ] STEP: Зарегистрироваться как user_8b5348fd3a@example.com
+10:03:13 [INFO   ] DRIVER: Видео 9ffb5f65881f602cc45715c2a380ea06.mp4 прикреплено к отчёту

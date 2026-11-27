@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Parrish",
+  "phone": "0527891789",
+  "email": "user_d650cfccaa@example.com",
+  "address": "578 Allen Rue Apt. 201, Michellemouth, CO 41164",
+  "description": "Series land she senior."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7c6c73d3-bcd4-49aa-af5a-73248ce74b9a"
+}

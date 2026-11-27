@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ba787ddf-b5d2-4c12-86e2-eeffd8dc1d07",
+      "name": "Chad",
+      "lastName": "Barnes",
+      "email": "user_7644fc76e8@example.com",
+      "phone": "051206446463086",
+      "address": "36242 Haynes Plaza, North Michael, VA 09831",
+      "description": "Smile effect really raise energy hard bag realize."
+    }
+  ]
+}

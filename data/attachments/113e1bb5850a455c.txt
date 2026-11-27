@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "670cf026-81d7-4fb0-bf20-0c71166ee224",
+      "name": "Kimberly",
+      "lastName": "Powers",
+      "email": "user_1363acaf3f@example.com",
+      "phone": "0515304760",
+      "address": "71264 Thomas Pine Suite 672, Lake Margaret, OK 90167",
+      "description": "Public bill summer data group coach."
+    }
+  ]
+}

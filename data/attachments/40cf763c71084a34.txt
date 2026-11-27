@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "43396579-7d14-43bd-a3b8-accdcbf13529",
+      "name": "Christopher",
+      "lastName": "12345",
+      "email": "user_01518919b7@example.com",
+      "phone": "0528652509",
+      "address": "2677 Lewis Causeway, Peckhaven, OH 82289",
+      "description": "Data situation above issue might Republican."
+    }
+  ]
+}

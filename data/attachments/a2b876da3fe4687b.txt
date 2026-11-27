@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bca720ea-4763-4be8-846d-8c4ba2fcd5ab",
+      "name": "Megan",
+      "lastName": "Shaffer",
+      "email": "user_0b485751f0@example.com",
+      "phone": "0525857923",
+      "address": "07033 Schultz Creek Apt. 551, West Erinmouth, NC 52732",
+      "description": "Office off loss similar discover at special."
+    }
+  ]
+}

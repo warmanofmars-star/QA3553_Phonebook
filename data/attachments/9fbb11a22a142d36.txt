@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "83de6a19-a1cf-4926-977d-08cfeead3cc8",
+      "name": "Alexandra",
+      "lastName": "Flores",
+      "email": "user_dc1850cdaa@example.com",
+      "phone": "0533856405",
+      "address": "9705 Lori River Apt. 973, West Patriciaport, MO 25695",
+      "description": "Hotel hospital tough should article."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (107 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "90303f2e-c3ea-49b4-8851-28a61d47daaf",
+      "name": "Jennifer",
+      "lastName": "Smith",
+      "email": "user_4defbea6d4@example.com",
+      "phone": "0528797607",
+      "address": "99591 Gutierrez Summit Apt. 218, Butlerside, KS 11697",
+      "description": "House treatment sometimes yeah feeling boy president."
+    }
+  ]
+}

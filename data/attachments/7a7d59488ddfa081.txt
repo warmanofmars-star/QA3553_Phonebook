@@ -1,0 +1,15 @@
+10:02:08 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+10:02:08 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+10:02:11 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (265 ms)
+10:02:11 [INFO   ] API: Токен добавлен в заголовки сессии
+10:02:11 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+10:02:11 [INFO   ] STEP: Войти как user_21b6906bcb@example.com
+10:02:13 [INFO   ] API: POST /v1/contacts -> 200 (52 ms)
+10:02:13 [INFO   ] API: GET /v1/contacts -> 200 (50 ms)
+10:02:13 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+10:02:13 [INFO   ] STEP: Открыть карточку контакта 0521488509
+10:02:14 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+10:02:14 [INFO   ] STEP: Изменить поля формы редактирования
+10:02:14 [INFO   ] STEP: Изменить поле description на 'Whole cup indeed team professor subject well.'
+10:02:20 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Whole cup indeed team professor subject well.', фактически '[object Undefined]'
+10:02:23 [INFO   ] DRIVER: Видео 6def2962-2d0c-4a60-b9e0-cd0fa840bad9.mp4 прикреплено к отчёту

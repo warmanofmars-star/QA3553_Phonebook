@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2232c6d9-5a59-452f-9dd0-1f68e7114b45",
+      "name": "Austin",
+      "lastName": "Norton",
+      "email": "user_b2c59db126@example.com",
+      "phone": "0512037597",
+      "address": "26980 Katie Parkways Apt. 663, Glennview, DE 07021",
+      "description": "Machine treatment civil five very."
+    }
+  ]
+}

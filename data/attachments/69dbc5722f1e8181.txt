@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Laura",
+  "lastName": "Christensen",
+  "phone": "0518100988",
+  "email": "user_b4d7006136@example.com",
+  "address": "USS Landry, FPO AE 58877",
+  "description": "Line move floor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 99386042-6b88-4d45-b3be-fcb5631136ee"
+}

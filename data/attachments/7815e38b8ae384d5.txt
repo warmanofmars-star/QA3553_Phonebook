@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "afa9d100-9a64-407e-b428-06ed01ffb703",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Pacheco",
+      "email": "user_ad6b2fec3b@example.com",
+      "phone": "0524491381",
+      "address": "182 Hawkins Overpass, North Brett, CA 26933",
+      "description": "National couple I rock government forward."
+    }
+  ]
+}

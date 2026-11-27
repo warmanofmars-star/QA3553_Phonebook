@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ed59c1e4-23c9-4609-951a-2a6b4aa49e61",
+      "name": "John",
+      "lastName": "Young",
+      "email": "user_146c9878de@example.com",
+      "phone": "0513758136",
+      "address": "C",
+      "description": "Hot away head study suffer black."
+    }
+  ]
+}

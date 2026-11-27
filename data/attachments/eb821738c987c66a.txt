@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Samantha",
+  "lastName": "Watson",
+  "phone": "0532029193",
+  "email": "user_02ddc4cc1f@example.com",
+  "address": "058 Holly Camp Apt. 788, Lake Maryburgh, NC 72783",
+  "description": "Beat gas consumer face should."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c8203127-e584-493a-a909-101f9cafcdee"
+}

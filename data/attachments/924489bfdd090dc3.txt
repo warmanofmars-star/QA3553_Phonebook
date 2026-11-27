@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5fb1c2f7-a801-492f-a14f-14da69ac8f2a",
+      "name": "Connie",
+      "lastName": "Brown",
+      "email": "user_4141c5a47b@example.com",
+      "phone": "0595709580",
+      "address": "52329 Gonzalez Streets, South Danielstad, MO 78469",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Keller",
+  "phone": "0512936111",
+  "email": "user_eb5a98bddd@example.com",
+  "address": "9763 Tiffany Landing, North Lauraton, NE 65132",
+  "description": "Best personal up around morning country class threat."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a653b9c1-c9a3-4818-a8d3-f31da720dc55"
+}

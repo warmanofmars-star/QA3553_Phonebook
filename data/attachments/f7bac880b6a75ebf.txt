@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Aaron",
+  "lastName": "Spencer",
+  "phone": "0515072787",
+  "email": "user_199da1c9d8@example.com",
+  "address": "Unit 2339 Box 5643, DPO AP 67329",
+  "description": "Education assume chair meeting."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: df084a34-d494-4351-87f2-93dd66782ce9"
+}

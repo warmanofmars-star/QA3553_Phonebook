@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Aguilar",
+  "phone": "0520187792",
+  "email": "user_ff7a870b3b@example.com",
+  "address": "20853 Cooley Oval Suite 275, North Mitchell, MS 61788",
+  "description": "Chair reality remember possible step.",
+  "id": "410a09ad-ad9a-46b3-a8e6-3d634ada1b4d"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

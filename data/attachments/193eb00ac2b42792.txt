@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Mendoza",
+  "phone": "0528872652",
+  "email": "user_b772c79852@example.com",
+  "address": "1443 Torres Circles, Lake Dustinport, AL 39719",
+  "description": "Move society kid sign decide sing."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 14a97090-f179-4f32-b2f0-1f6904d0ad47"
+}

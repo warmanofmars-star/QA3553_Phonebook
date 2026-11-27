@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f5ec0aeb-71fc-4ceb-893f-dc86b7e2bed4",
+      "name": "Francisco",
+      "lastName": "Moore",
+      "email": "user_0906bc42b5@example.com",
+      "phone": "0571927974",
+      "address": "0239 Davis Mountain Apt. 669, Port Jeff, VI 93205",
+      "description": "Put himself behind."
+    }
+  ]
+}

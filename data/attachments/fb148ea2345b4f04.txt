@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "eaed599e-dabe-4f16-ade1-3b804889fcc3",
+      "name": "Nicholas",
+      "lastName": "Hardy",
+      "email": "user_fd793e9e75@example.com",
+      "phone": "0515113897",
+      "address": "0130 Curry Ways Apt. 134, Sheilaton, GU 99398",
+      "description": "Culture far floor television."
+    }
+  ]
+}

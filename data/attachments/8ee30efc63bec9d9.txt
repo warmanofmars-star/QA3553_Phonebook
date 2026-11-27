@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandon",
+  "lastName": "Brown",
+  "phone": "0566744720",
+  "email": "user_cfc901f35e@example.com",
+  "address": "1569 Sanchez Bypass Suite 094, East Brandi, OR 95573",
+  "description": "Discussion catch sing pretty idea."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6a8b08a2-7072-4597-9893-195e0ae0e3c9"
+}

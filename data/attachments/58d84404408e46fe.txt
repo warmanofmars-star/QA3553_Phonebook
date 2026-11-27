@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kayla",
+  "lastName": "Dennis",
+  "phone": "0512358105",
+  "email": "user_98bb665553@example.com",
+  "address": "36927 Ruben Vista, East Natasha, PR 23264",
+  "description": "Nice throw because that challenge real."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3039ae12-07a2-4d59-8386-1b334edf16e3"
+}

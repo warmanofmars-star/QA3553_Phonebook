@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dcc9019a-f774-4000-88fc-60555526b6c4",
+      "name": "Taylor",
+      "lastName": "Charles",
+      "email": "user_c9143d9935@example.com",
+      "phone": "0514004991",
+      "address": "5058 Graves Port Apt. 154, North Rhondaton, MO 05184",
+      "description": "Trade message recent protect key must behavior issue."
+    }
+  ]
+}

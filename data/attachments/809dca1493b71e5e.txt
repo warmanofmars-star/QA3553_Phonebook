@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "Collins",
+  "phone": "0527522041",
+  "email": "user_83efc0ad0f@example.com",
+  "address": "422 Ellis Club, Wellston, MS 25689",
+  "description": "Fly number item heavy one."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 11c00f8a-e9e3-40f3-8f64-403787abca7a"
+}

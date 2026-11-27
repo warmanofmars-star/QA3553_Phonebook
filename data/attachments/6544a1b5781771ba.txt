@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (85 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "605e23f6-aec1-4da8-af52-79b8e6575483",
+      "name": "Katherine",
+      "lastName": "Butler",
+      "email": "user_5acb365148@example.com",
+      "phone": "0530781492",
+      "address": "38637 Boyd Ranch, Hillfurt, OR 63767",
+      "description": ""
+    }
+  ]
+}

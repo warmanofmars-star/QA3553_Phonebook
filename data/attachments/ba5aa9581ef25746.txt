@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5a8ae2be-2b6d-4837-ad48-1723e3edd31c",
+      "name": "Karen",
+      "lastName": "Palmer",
+      "email": "user_64ba0d6ed8@example.com",
+      "phone": "0517808996",
+      "address": "919 Andrea Field Apt. 834, Cooleyberg, PA 45266",
+      "description": "Movement least people election."
+    }
+  ]
+}

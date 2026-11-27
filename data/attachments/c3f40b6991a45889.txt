@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Erik",
+  "lastName": "Salazar",
+  "phone": "0522495717",
+  "email": "user_008f245684@example.com",
+  "address": "3947 Rodriguez Mills, Coopershire, WY 21521",
+  "description": "Attention stand particularly mind short through dinner."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c409f647-80c8-49b3-9b50-e9efc44ec94e"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "Washington",
+  "phone": "0527864697",
+  "email": "user_a6edda5fee@example.com",
+  "address": "11794 Johnson Estates Suite 938, Hughesshire, CT 24722",
+  "description": "She road vote soldier."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ddedd6f8-5d17-4a12-ac94-6276190eaa09"
+}

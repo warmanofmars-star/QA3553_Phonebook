@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fa3f84a4-c37a-4669-8b18-30003ee613f1",
+      "name": "Jason",
+      "lastName": "Hughes",
+      "email": "user_a70c79c0df@example.com",
+      "phone": "0520765873",
+      "address": "320 House Shoals Apt. 570, Robertomouth, VA 78617",
+      "description": "Civil thought theory."
+    }
+  ]
+}

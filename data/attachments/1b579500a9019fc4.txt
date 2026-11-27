@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (41 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lisa",
+  "lastName": "Wagner",
+  "phone": "0531440572",
+  "email": "user_eb335380df@example.com",
+  "address": "601 Jo Bridge, South Jessica, MP 47155",
+  "description": "Sport important character according."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a159ed59-f1e7-450b-bb98-79d5616af003"
+}

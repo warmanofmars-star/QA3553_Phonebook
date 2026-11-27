@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "B",
+  "phone": "0522438929",
+  "email": "user_cb1560d8ad@example.com",
+  "address": "3819 Vasquez Course, North Sherry, OK 85894",
+  "description": "Friend speak believe amount."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 66264926-6fe6-4a5c-8d08-5a073a89000d"
+}

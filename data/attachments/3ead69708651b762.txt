@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Courtney",
+  "lastName": "Strong",
+  "phone": "0521716868",
+  "email": "user_204a0e6455@example.com",
+  "address": "3839 Sheila Corner Apt. 308, Pennyland, CT 56487",
+  "description": "Huge model today record thank evidence movie onto."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c804bb70-a556-4570-a11d-f0dfd21ef803"
+}

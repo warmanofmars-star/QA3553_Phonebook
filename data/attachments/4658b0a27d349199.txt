@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patricia",
+  "lastName": "Johnson",
+  "phone": "0532790708",
+  "email": null,
+  "address": "55234 Lindsay Ville Suite 643, Lake Antonioland, NC 36381",
+  "description": "Person like respond move law trouble."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7c4b529c-9cb0-437c-9182-acc53d2660c6"
+}

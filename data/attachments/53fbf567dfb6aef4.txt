@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (8 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brent",
+  "lastName": "Chan",
+  "phone": "0528956703",
+  "email": "not_an_email",
+  "address": "553 Craig Forge, Wilsonmouth, AR 78354",
+  "description": "Significant pull respond easy southern inside."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T10:00:19",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

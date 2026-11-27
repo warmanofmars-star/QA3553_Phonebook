@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "670cf026-81d7-4fb0-bf20-0c71166ee224",
+      "name": "John",
+      "lastName": "Gonzalez",
+      "email": "user_dacfba4bfc@example.com",
+      "phone": "0529702406",
+      "address": "748 Timothy Ranch Apt. 143, Valdezview, GA 38627",
+      "description": "Project condition beautiful foreign discussion hit letter."
+    }
+  ]
+}

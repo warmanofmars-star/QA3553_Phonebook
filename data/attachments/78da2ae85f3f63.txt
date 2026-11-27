@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8879f690-2b31-4f66-a2ec-693fd5c5d752",
+      "name": "Cheryl",
+      "lastName": "Lewis",
+      "email": "user_f45381fa2a@example.com",
+      "phone": "0526842343",
+      "address": "8996 Rios Heights Suite 625, Chadton, NE 88051",
+      "description": "Power suffer take listen smile."
+    },
+    {
+      "id": "ab9b5dfd-cd9b-4a06-aed1-9b4ccefc44e6",
+      "name": "Vanessa",
+      "lastName": "Rodriguez",
+      "email": "user_dd1a841088@example.com",
+      "phone": "0523082727",
+      "address": "Unit 7396 Box 8318, DPO AE 10464",
+      "description": "Voice news account tonight decade role many wait."
+    },
+    {
+      "id": "031cb4ec-0f4f-4d26-9176-8d77b2bbccbb",
+      "name": "Stephen",
+      "lastName": "Baxter",
+      "email": "user_61e8094889@example.com",
+      "phone": "0525190765",
+      "address": "317 Alexandria Parkway, Daniellebury, CO 16418",
+      "description": "Stage structure hotel method."
+    }
+  ]
+}

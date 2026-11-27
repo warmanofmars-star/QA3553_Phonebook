@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Angela",
+  "lastName": "Williamson",
+  "phone": "0521163103",
+  "email": "user_3673e9dff0@example.com",
+  "address": "084 Nicole Gardens Apt. 545, Port Sylvia, ME 41632",
+  "description": "Meeting church ball."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7253c7a9-dccd-4ce3-a3bf-07af7a976a3c"
+}

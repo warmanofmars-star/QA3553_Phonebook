@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d1b8c1a5-51ab-4d84-878e-e71964ce2504",
+      "name": "Andrew",
+      "lastName": "Miller",
+      "email": "user_fa38e1593e@example.com",
+      "phone": "0530643587",
+      "address": "83036 Johnson Landing, Watersshire, NV 20327",
+      "description": "Born dog newspaper art every action."
+    }
+  ]
+}

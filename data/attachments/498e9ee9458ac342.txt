@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (8 ms)
+
+--- Тело запроса ---
+{
+  "name": null,
+  "lastName": "Murillo",
+  "phone": "0529873192",
+  "email": "user_4b2559d2ac@example.com",
+  "address": "002 Jason Prairie, Rachelhaven, MH 63684",
+  "description": "But various learn shoulder issue leader."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T10:00:18",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

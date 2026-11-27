@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4b1964be-9c65-42bf-8dbe-7016045aa525",
+      "name": "Christopher",
+      "lastName": "Ramirez",
+      "email": "user_6c2a3fa75e@example.com",
+      "phone": "0511508018",
+      "address": "124 Norman Mount, Oconnellberg, KS 79683",
+      "description": "Happen meet check area thought follow nice."
+    }
+  ]
+}

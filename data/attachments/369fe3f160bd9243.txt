@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "932480f2-f658-442a-8a87-8db24722a218",
+      "name": "Pamela",
+      "lastName": "Wright",
+      "email": "user_cd83585061@example.com",
+      "phone": "0521488509",
+      "address": "6151 Jones Via Apt. 210, West Christine, FL 61188",
+      "description": "Wife where forget election least people."
+    }
+  ]
+}

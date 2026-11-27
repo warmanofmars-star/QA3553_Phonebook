@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Stokes",
+  "phone": "0522845233",
+  "email": "user_ba9008d522@example.com",
+  "address": "5500 Anthony Cliffs, South Alisonton, AZ 23664",
+  "description": "Others speech room kid."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b17e043d-e85d-4662-bb5e-36d97b75b74a"
+}

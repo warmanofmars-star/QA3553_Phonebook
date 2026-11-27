@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+{
+  "name": "Karen",
+  "lastName": "Palmer",
+  "phone": "0517808996",
+  "email": "user_64ba0d6ed8@example.com",
+  "address": "919 Andrea Field Apt. 834, Cooleyberg, PA 45266",
+  "description": "Movement least people election."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5a8ae2be-2b6d-4837-ad48-1723e3edd31c"
+}

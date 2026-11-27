@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "64c89f05-ec49-4d94-8762-284004e02a89",
+      "name": "Wanda",
+      "lastName": "Brewer",
+      "email": "user_5b5fa1bc04@example.com",
+      "phone": "0527992140",
+      "address": "8831 William Hill, North Cristian, MS 20651",
+      "description": "Between science question stuff."
+    },
+    {
+      "id": "a653b9c1-c9a3-4818-a8d3-f31da720dc55",
+      "name": "Michael",
+      "lastName": "Keller",
+      "email": "user_eb5a98bddd@example.com",
+      "phone": "0512936111",
+      "address": "9763 Tiffany Landing, North Lauraton, NE 65132",
+      "description": "Best personal up around morning country class threat."
+    }
+  ]
+}

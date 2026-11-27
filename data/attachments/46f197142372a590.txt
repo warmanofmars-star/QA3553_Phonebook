@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Scott",
+  "lastName": "Anderson",
+  "phone": "0586508494",
+  "email": "user_7d5c671b7a@example.com",
+  "address": "446 Cody Shores, Julieborough, MI 53767",
+  "description": "Manage politics authority reduce bad hold down."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: df8f89c8-c4d8-4af6-b703-cc883cf92acb"
+}

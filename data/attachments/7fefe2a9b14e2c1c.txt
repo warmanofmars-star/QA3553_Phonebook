@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "17ee77a8-488b-4318-8780-97050da30fb8",
+      "name": "Robert",
+      "lastName": "Tucker",
+      "email": "user_614bbfa9a2@example.com",
+      "phone": "0526343215",
+      "address": "27393 Stephanie Springs Suite 509, Timothymouth, SD 73907",
+      "description": "Green summer speak involve Republican blood board rock."
+    }
+  ]
+}

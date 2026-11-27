@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joseph",
+  "lastName": "Carr",
+  "phone": "0525340960",
+  "email": "user_4fb4b05bbf@example.com",
+  "address": "7611 Jones Via Suite 440, North Donnatown, NJ 27867",
+  "description": "Reveal tax husband this."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 73269595-e57a-4cf6-b79f-b4ac1c1344ec"
+}

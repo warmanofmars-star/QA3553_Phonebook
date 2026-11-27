@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (10 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Simon",
+  "phone": "+972501234567",
+  "email": "user_128c8cae8c@example.com",
+  "address": "829 Claudia Plains, Mendozashire, SD 12846",
+  "description": "Same several practice."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T10:00:07",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

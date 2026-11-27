@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "beee4d52-efc2-419f-bc46-15fe5a067690",
+      "name": "Faith",
+      "lastName": "Munoz",
+      "email": "user_1893602e4e@example.com",
+      "phone": "0529326676",
+      "address": "46575 Aaron Mill, Port Marymouth, WV 19911",
+      "description": "Organization another stock Mrs."
+    }
+  ]
+}

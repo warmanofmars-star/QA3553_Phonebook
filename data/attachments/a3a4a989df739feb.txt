@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kenneth",
+  "lastName": "Johnson",
+  "phone": "0516336475",
+  "email": "user_0ef9b55110@example.com",
+  "address": "64965 Weaver Squares Suite 646, East Austin, CO 24736",
+  "description": "Increase simple place brother."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 15fac744-39b9-4676-ad2e-db988a882629"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+{
+  "name": "Vanessa",
+  "lastName": "Rodriguez",
+  "phone": "0523082727",
+  "email": "user_dd1a841088@example.com",
+  "address": "Unit 7396 Box 8318, DPO AE 10464",
+  "description": "Voice news account tonight decade role many wait."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ab9b5dfd-cd9b-4a06-aed1-9b4ccefc44e6"
+}

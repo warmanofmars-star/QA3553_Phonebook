@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tracy",
+  "lastName": "Hendrix",
+  "phone": "0511193991",
+  "email": "user_24a60f2617@example.com",
+  "address": "PSC 0178, Box 2441, APO AE 62268",
+  "description": "Other sign occur leave.",
+  "id": "1601dd6d-547b-4a91-ae28-d06f6f669300"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c8e14d3d-da08-4741-820d-8b1d0c37472b"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b4575129-c488-4d70-a38b-b7a3dd48e926",
+      "name": "Carla",
+      "lastName": "Huber",
+      "email": "user_ae8003654e@example.com",
+      "phone": "0529791283",
+      "address": "3340 Silva Knoll Apt. 386, Lake Terri, NE 70678",
+      "description": "Various in culture somebody scientist research let study."
+    }
+  ]
+}

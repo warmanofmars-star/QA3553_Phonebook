@@ -1,0 +1,17 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (72 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jason",
+  "lastName": "Clay",
+  "phone": "0533269436",
+  "address": "243 Adrian Mission, Hughesport, VA 97327",
+  "description": "Through raise military remember safe.",
+  "id": "9a90f79f-0a5b-498f-aa44-e135c5c132dd"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

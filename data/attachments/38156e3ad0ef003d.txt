@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6df7d47d-0e37-41be-aabb-880ba4b19297",
+      "name": "Roger",
+      "lastName": "Davis",
+      "email": "user_95e241735c@example.com",
+      "phone": "0522972417",
+      "address": "14953 Williams Streets Apt. 513, Lopezchester, TX 39634",
+      "description": "Help artist teacher."
+    }
+  ]
+}

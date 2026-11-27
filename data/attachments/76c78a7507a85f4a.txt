@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (48 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Wilson",
+  "phone": "052210314813864",
+  "email": "user_26651fa8f7@example.com",
+  "address": "Unit 5234 Box 7156, DPO AE 76199",
+  "description": "News foreign drug edge poor."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2a30a044-7eae-4512-a27e-baf155cbde0d"
+}

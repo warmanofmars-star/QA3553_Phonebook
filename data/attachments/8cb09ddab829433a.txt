@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "996ea137-e4c1-44bb-b748-6d0529986371",
+      "name": "Christopher",
+      "lastName": "Morales",
+      "email": "user_a2225ea1ed@example.com",
+      "phone": "0510380974",
+      "address": "918 Anderson Meadow Apt. 434, Millermouth, ME 37121",
+      "description": "Example tonight speak three."
+    }
+  ]
+}

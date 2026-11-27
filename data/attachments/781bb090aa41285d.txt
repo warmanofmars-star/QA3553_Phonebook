@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Roger",
+  "lastName": "Davis",
+  "phone": "0522972417",
+  "email": "user_95e241735c@example.com",
+  "address": "14953 Williams Streets Apt. 513, Lopezchester, TX 39634",
+  "description": "Help artist teacher."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6df7d47d-0e37-41be-aabb-880ba4b19297"
+}

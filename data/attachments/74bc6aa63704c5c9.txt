@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+{
+  "name": "William",
+  "lastName": "Sanchez",
+  "phone": "0526177444",
+  "email": "user_a00a1a6275@example.com",
+  "address": "089 Alexander Squares Suite 526, Vincentville, AK 48294",
+  "description": "All poor home but some despite feeling memory."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ea1fef3d-437f-44c0-be4d-f13330ac10c4"
+}

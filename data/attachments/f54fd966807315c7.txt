@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8e7220de-3fd0-4318-9898-ba6769d80b8b",
+      "name": "Barbara",
+      "lastName": "Brown",
+      "email": "user_99104a1ace@example.com",
+      "phone": "0564695199",
+      "address": "3195 King Center, Port Samanthafurt, NC 29459",
+      "description": "Now use put put."
+    },
+    {
+      "id": "624808ac-e867-4b23-83b5-9592b8650ff2",
+      "name": "Robert",
+      "lastName": "Phillips",
+      "email": "user_1ac624966a@example.com",
+      "phone": "0564695199",
+      "address": "Unit 6547 Box 8240, DPO AP 71468",
+      "description": "Writer loss decide Mrs east."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b17e043d-e85d-4662-bb5e-36d97b75b74a",
+      "name": "Melissa",
+      "lastName": "Stokes",
+      "email": "user_ba9008d522@example.com",
+      "phone": "0522845233",
+      "address": "5500 Anthony Cliffs, South Alisonton, AZ 23664",
+      "description": "Others speech room kid."
+    },
+    {
+      "id": "b5a9a3bc-c661-4514-b55e-9a19350b7795",
+      "name": "Tina",
+      "lastName": "Chavez",
+      "email": "user_2f8b20bc05@example.com",
+      "phone": "0517163253",
+      "address": "536 Dunlap Prairie, Rodriguezville, CA 54068",
+      "description": "Dark fact west street hospital cover."
+    }
+  ]
+}

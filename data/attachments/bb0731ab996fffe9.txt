@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "aa1caaa5-b41e-4510-b340-b7f0c3c9258c",
+      "name": "Jorge",
+      "lastName": "Gregory",
+      "email": "user_e9de5af73e@example.com",
+      "phone": "0520299508",
+      "address": "53156 Davis Court Suite 442, East Jason, NH 49101",
+      "description": "Thank analysis way team appear name meeting begin."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "543d1610-9afc-42fa-a0c1-2287da4ea3ee",
+      "name": "Ann",
+      "lastName": "Nixon",
+      "email": "user_2b6bb288b2@example.com",
+      "phone": "0511107101",
+      "address": "761 Daugherty Crossroad Apt. 919, Port David, OR 44541",
+      "description": "Pay much explain white kind."
+    }
+  ]
+}

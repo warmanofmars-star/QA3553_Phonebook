@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Palmer",
+  "phone": "0531451783",
+  "email": "user_6282f6f903@example.com",
+  "address": "11017 Kelly Lights, East Jodi, AK 00884",
+  "description": "Car create race future I conference billion child."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4f86c57b-579f-49f9-9b14-c6ba0d8ade2e"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (87 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Barrett",
+  "phone": "0532219424",
+  "email": "user_8edf3d9049@example.com",
+  "address": "14077 Scott Parks Suite 339, New Zacharybury, NY 25183",
+  "description": "Ready table individual east."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c5da36d7-3fea-49a8-bd44-caf00508938c"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (110 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "74501145-752f-428c-91b1-cc74c4cffd75",
+      "name": "Adam",
+      "lastName": "Stone",
+      "email": "user_d49702003f@example.com",
+      "phone": "0516536698",
+      "address": "9603 Parks Parkway, West Robert, VA 39968",
+      "description": "Fish those thousand day size."
+    }
+  ]
+}

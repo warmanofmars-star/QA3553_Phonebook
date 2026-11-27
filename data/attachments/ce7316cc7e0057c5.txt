@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lance",
+  "lastName": "Crawford",
+  "phone": "0518296594",
+  "email": "user_2fcc51213a@example.com",
+  "address": "427 Stewart Square, Michaelfurt, MP 69152",
+  "description": "Industry hospital back he business piece employee."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 76d82bf9-71da-43a6-9c8e-7495b196aa05"
+}

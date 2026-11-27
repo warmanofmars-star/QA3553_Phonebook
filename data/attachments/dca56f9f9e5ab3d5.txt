@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Matthew",
+  "lastName": "Beard",
+  "phone": "0519185544",
+  "email": "user_0fe9522e5a@example.com",
+  "address": "35555 Howard Inlet, Villastad, TN 41093",
+  "description": "Realize conference recently crime."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3499ff6f-a032-4f0b-ba8d-021a53a789f3"
+}

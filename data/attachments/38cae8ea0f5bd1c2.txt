@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Morales",
+  "phone": null,
+  "email": "user_a2225ea1ed@example.com",
+  "address": "918 Anderson Meadow Apt. 434, Millermouth, ME 37121",
+  "description": "Example tonight speak three.",
+  "id": "996ea137-e4c1-44bb-b748-6d0529986371"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

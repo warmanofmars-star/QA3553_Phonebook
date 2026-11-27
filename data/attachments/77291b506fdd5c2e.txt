@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandy",
+  "lastName": "James",
+  "phone": "0512219277",
+  "email": "user_a6c7e73794@example.com",
+  "address": "17656 Tina Common, Lake Samuelmouth, GU 71877",
+  "description": "Movement phone lay lawyer great century care."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 397753d2-8520-46d5-9f53-22859c588aa9"
+}

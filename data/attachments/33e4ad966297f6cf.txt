@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (117 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Ramirez",
+  "phone": "0511508018",
+  "email": "user_6c2a3fa75e@example.com",
+  "address": "304 Misty Throughway Suite 380, Bakerport, AK 38554",
+  "description": "Happen meet check area thought follow nice."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4b1964be-9c65-42bf-8dbe-7016045aa525"
+}

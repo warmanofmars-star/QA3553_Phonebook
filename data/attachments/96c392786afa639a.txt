@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Deborah",
+  "lastName": "Benitez",
+  "phone": "0512958350",
+  "email": "user_9ae9d5a55d@example.com",
+  "address": "083 Tracy Spring, Reginaberg, KS 41423",
+  "description": "Arrive interview alone treatment couple manage big."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cd055fb3-fec8-4522-ae18-ee0c0c64e878"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Wanda",
+  "lastName": "Chang",
+  "phone": "0510002253",
+  "email": "user_9f309bd9d3@example.com",
+  "address": "2322 Diana Stream, North Christopherfort, FL 41988",
+  "description": "Budget agent poor suggest can make."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3c35bf59-e951-4515-ac38-b4da93e33072"
+}

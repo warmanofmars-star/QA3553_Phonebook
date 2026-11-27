@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (40 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Vargas",
+  "phone": "0528652509",
+  "email": "user_01518919b7@example.com",
+  "address": "2677 Lewis Causeway, Peckhaven, OH 82289",
+  "description": "Data situation above issue might Republican."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 43396579-7d14-43bd-a3b8-accdcbf13529"
+}

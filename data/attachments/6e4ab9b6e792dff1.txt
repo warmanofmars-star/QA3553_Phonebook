@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+{
+  "name": "Robert",
+  "lastName": "Bray",
+  "phone": "0539812803",
+  "email": "user_9ae7825a41@example.com",
+  "address": "4339 Robinson Locks Suite 438, South Elizabeth, ME 20164",
+  "description": "His indicate power evening."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 799b0fed-fe1a-4a7a-b05e-bcfebef91155"
+}

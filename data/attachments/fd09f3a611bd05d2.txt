@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bryan",
+  "lastName": "Fernandez",
+  "phone": "0513826473",
+  "email": "user_ff667c0129@example.com",
+  "address": "8483 Pittman Wells Suite 654, Lake Shannon, MT 92171",
+  "description": "Though possible kind."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 817aa878-e988-48c7-828d-3f885fd51528"
+}

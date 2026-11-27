@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+{
+  "name": "Linda",
+  "lastName": "Robinson",
+  "phone": "0511226285",
+  "email": "user_6937be66cf@example.com",
+  "address": "20668 Maria Alley, East Stephaniefort, MO 07025",
+  "description": "Not rest forget wish wind."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1e639e86-ec9f-4beb-a57f-acadc99154a3"
+}

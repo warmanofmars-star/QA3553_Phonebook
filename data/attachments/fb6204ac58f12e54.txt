@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Wright",
+  "phone": "0521488509",
+  "email": "user_cd83585061@example.com",
+  "address": "6151 Jones Via Apt. 210, West Christine, FL 61188",
+  "description": "Wife where forget election least people."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 932480f2-f658-442a-8a87-8db24722a218"
+}

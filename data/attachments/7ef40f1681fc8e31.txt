@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (86 ms)
+
+--- Тело запроса ---
+{
+  "name": "Barbara",
+  "lastName": "Jackson",
+  "phone": "0528513336",
+  "email": "user_78cba20a8f@example.com",
+  "address": "9169 David Flat, Richardchester, NM 94927",
+  "description": "Nature Mr across sell condition nature."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c4ac48e3-2cb4-4a71-b4a4-4724a3c8d978"
+}

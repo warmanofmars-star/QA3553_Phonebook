@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "638b0d94-af15-4431-bd92-c595202b9d2a",
+      "name": "Vanessa",
+      "lastName": "Stewart",
+      "email": "",
+      "phone": "0514380591",
+      "address": "8611 Mark Crossroad, East Jacobberg, FM 08132",
+      "description": "Almost under item store."
+    }
+  ]
+}

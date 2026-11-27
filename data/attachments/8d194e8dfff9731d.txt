@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "76d82bf9-71da-43a6-9c8e-7495b196aa05",
+      "name": "Lance",
+      "lastName": "Crawford",
+      "email": "user_2fcc51213a@example.com",
+      "phone": "0518296594",
+      "address": "427 Stewart Square, Michaelfurt, MP 69152",
+      "description": "Industry hospital back he business piece employee."
+    }
+  ]
+}

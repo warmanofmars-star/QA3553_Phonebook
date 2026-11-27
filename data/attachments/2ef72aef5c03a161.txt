@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cody",
+  "lastName": "Tapia",
+  "phone": "0527988303",
+  "email": "user_216f7d4025@example.com",
+  "address": "04413 Johnson Pine, New Jameschester, NH 33415",
+  "description": "Them large senior off paper."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cc59f4ea-54cf-4710-829b-f65880ff9d9a"
+}

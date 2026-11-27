@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmine",
+  "lastName": "Hicks",
+  "phone": "0513329778",
+  "email": "user_c0a90af41e@example.com",
+  "address": "16868 Kenneth Plaza, South Williamtown, DC 24405",
+  "description": "Hundred anyone value foreign."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5008b267-572c-4087-ac45-b8c98d931e7a"
+}

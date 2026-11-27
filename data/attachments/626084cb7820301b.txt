@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Garcia",
+  "phone": "0511614723",
+  "email": "user_dded4a9135@example.com",
+  "address": "034 Megan Mill Suite 123, New Soniaville, OR 62763",
+  "description": "Each argue would but."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 98125f75-c1a2-4740-8e15-3791aec93213"
+}

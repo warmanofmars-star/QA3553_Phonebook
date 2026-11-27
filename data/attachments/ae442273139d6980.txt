@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (102 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6c5cb0c6-c34a-49cf-8dca-ba13337f1351",
+      "name": "Janice",
+      "lastName": "Smith",
+      "email": "user_b874e39da6@example.com",
+      "phone": "0517791306",
+      "address": "0893 Rebecca Forest Suite 903, New John, AK 09023",
+      "description": "Dog challenge chance red particularly eat."
+    }
+  ]
+}

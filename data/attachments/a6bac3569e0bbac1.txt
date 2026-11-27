@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (42 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Watts",
+  "phone": "0523435967",
+  "email": "user_a6c102f154@example.com",
+  "address": "6133 Soto Bypass Apt. 651, New Dwayne, OR 79182",
+  "description": "Member take buy head television write."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 677e79ad-d251-4b6f-ba9f-4f1dae563ac8"
+}

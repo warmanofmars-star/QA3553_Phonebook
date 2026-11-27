@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicholas",
+  "lastName": "Hardy",
+  "phone": "0515113897",
+  "email": "user_fd793e9e75@example.com",
+  "address": "0130 Curry Ways Apt. 134, Sheilaton, GU 99398",
+  "description": "Culture far floor television."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: eaed599e-dabe-4f16-ade1-3b804889fcc3"
+}
