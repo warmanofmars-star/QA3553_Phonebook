@@ -90,8 +90,19 @@ class NetworkFaults:
         return intercepted
 
     def respond(self, url: str, method: str, status: int, body: dict | None = None) -> list[Request]:
-        """Ответ с заданным статусом и телом (по умолчанию — типичное тело ошибки)."""
-        payload = body if body is not None else ERROR_BODIES.get(status, {})
+        """Ответ с заданным статусом и телом.
+
+        Без тела — только для статусов из ERROR_BODIES (подставится типичное тело ошибки).
+        Для остальных статусов тело передаётся явно, иначе ValueError.
+        """
+        # Закрыто по умолчанию: молчаливое {} для 200 превращает "успешный ответ" в сломанные
+        # данные (у фронтенда нет поля contacts), а для 404/502 — в ответ, которого настоящий
+        # сервер не присылает. Тест проверял бы не тот сценарий, который описывает
+        if body is None and status not in ERROR_BODIES:
+            raise ValueError(
+                f"Для статуса {status} нет тела по умолчанию (есть для {sorted(ERROR_BODIES)}): передайте body явно"
+            )
+        payload = body if body is not None else ERROR_BODIES[status]
         return self._intercept(url, method, lambda route: route.fulfill(status=status, json=payload))
 
     def abort(self, url: str, method: str) -> list[Request]:
