@@ -1,23 +1,22 @@
 import allure
 import pytest
-from playwright.sync_api import Page, Route, expect
+from playwright.sync_api import Page
 
+from models.contact import Contact
+from pages.pw_contacts_page import PwContactsPage
 from pages.pw_login_page import PwLoginPage
+from utils.network_faults import CONTACTS, NetworkFaults
 
-# Ответ бэкенда, который увидит браузер вместо реальных данных
-FAKE_CONTACTS = {
-    "contacts": [
-        {
-            "id": "mocked-uuid-12345",
-            "name": "Terminator",
-            "lastName": "T-800",
-            "email": "skynet@example.com",
-            "phone": "0501234567",
-            "address": "Cyberdyne Systems",
-            "description": "I'll be back",
-        }
-    ]
-}
+# Контакт, которого нет на бэкенде: браузер увидит его вместо реальных данных
+FAKE = Contact(
+    id="mocked-uuid-12345",
+    name="Terminator",
+    last_name="T-800",
+    email="skynet@example.com",
+    phone="0501234567",
+    address="Cyberdyne Systems",
+    description="I'll be back",
+)
 
 
 @pytest.mark.regression
@@ -32,29 +31,23 @@ def test_mock_contacts_list(page: Page, temp_user):
     Ответ на GET /v1/contacts подменяется, поэтому тест проверяет только
     отрисовку и не зависит от реальных данных пользователя.
     """
-
-    def handle_route(route: Route):
-        if route.request.method == "GET":
-            route.fulfill(json=FAKE_CONTACTS, status=200)
-        else:
-            route.continue_()  # POST/PUT/DELETE уходят на настоящий сервер
-
-    # Перехват включаем ДО логина: после него фронтенд сразу запросит список контактов
-    page.route("**/v1/contacts", handle_route)
+    # Перехват включаем ДО логина: после него фронтенд сразу запросит список контактов.
+    # Остальные методы (POST/PUT/DELETE) NetworkFaults пропускает на настоящий сервер
+    faults = NetworkFaults(page)
+    gets = faults.respond(CONTACTS, "GET", 200, {"contacts": [FAKE.to_api_payload()]})
 
     login_page = PwLoginPage(page)
     login_page.open()
     login_page.login(temp_user.user.email, temp_user.user.password)
+    contacts = PwContactsPage(page)
+    contacts.wait_opened()
+    # Подмена реально сработала: без неё карточки FAKE не было бы, и тест упал бы на проверке
+    # отрисовки, а не на причине — поэтому неприменённый перехват ловим как предусловие
+    faults.wait_for_delivery(gets)
 
-    fake = FAKE_CONTACTS["contacts"][0]
-    with allure.step("Проверка компактной карточки в списке"):
-        expect(page.get_by_text(fake["name"])).to_be_visible()
-        expect(page.get_by_text(fake["phone"])).to_be_visible()
+    contacts.check_card_visible(FAKE)
+    shown = contacts.card_name(FAKE.phone)
+    assert shown == FAKE.name, f"Карточка подменённого контакта показывает {shown!r}, в ответе бэкенда {FAKE.name!r}"
 
-    with allure.step("Открытие деталей контакта"):
-        page.get_by_text(fake["name"]).click()
-
-    with allure.step("Проверка детальной информации"):
-        # expect() сам ждёт появления элемента (по умолчанию до 5 с) — wait_for() не нужен
-        for value in (fake["lastName"], fake["email"], fake["address"], fake["description"]):
-            expect(page.get_by_text(value, exact=False)).to_be_visible()
+    contacts.open_details(FAKE.phone)
+    contacts.check_details_show(FAKE)

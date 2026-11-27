@@ -78,6 +78,14 @@ class PwContactsPage(PwBasePage):
     def check_card_visible(self, contact: Contact) -> None:
         expect(self._card(contact.phone)).to_be_visible(timeout=self.expect_timeout)
 
+    @step("Проверить: в деталях контакта {contact.phone} показаны его данные")
+    def check_details_show(self, contact: Contact) -> None:
+        # Имя и телефон уже проверены на компактной карточке; здесь — поля, которые видны
+        # только в деталях. Пустые поля не проверяем: пустая строка содержится в любом тексте
+        for value in (contact.last_name, contact.email, contact.address, contact.description):
+            if value:
+                expect(self._details).to_contain_text(value, timeout=self.expect_timeout)
+
     @step("Проверить: видно сообщение о пустом списке")
     def check_empty_message_visible(self) -> None:
         expect(self._empty).to_be_visible(timeout=self.expect_timeout)

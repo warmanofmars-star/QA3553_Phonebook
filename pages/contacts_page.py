@@ -70,6 +70,11 @@ class ContactsPage(BasePage):
         После каждого удаления React перерисовывает список, поэтому карточки ищем
         заново на каждой итерации (иначе StaleElementReferenceException).
         Лимит итераций защищает от бесконечного цикла, если удаление сломано.
+
+        Исключения — по соглашению из edit_contact: Remove нажат, а карточек не стало
+        меньше — это результат действия (AssertionError, его может поймать строгий xfail
+        известного бага). Исчерпан лимит итераций — цикл разошёлся с интерфейсом
+        (UiStateError, по умолчанию в _fail): за известным багом это прятаться не должно.
         """
         max_iterations = self.cards_count() + 5
         for _ in range(max_iterations):
@@ -80,8 +85,12 @@ class ContactsPage(BasePage):
             self._click(self._REMOVE_BTN)
             # before=count_before фиксирует значение на ЭТОЙ итерации. Лямбда без этого
             # видела бы переменную цикла, а не её значение (ловушка "позднего связывания")
-            self._wait().until(lambda _driver, before=count_before: self.cards_count() < before)
-        raise AssertionError(f"Не удалось удалить все контакты за {max_iterations} попыток")
+            if not self._wait_for(lambda before=count_before: self.cards_count() < before):
+                self._fail(
+                    f"После Remove карточек не стало меньше: было {count_before}, сейчас {self.cards_count()}",
+                    AssertionError,
+                )
+        self._fail(f"Не удалось удалить все контакты за {max_iterations} попыток")
 
     # ==========================================
     # Редактирование
