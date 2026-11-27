@@ -95,6 +95,10 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
 - **Обычный запуск pytest удаляет `logs/*.log` прошлого прогона** (`pytest_configure`
   в `conftest.py`). Нужные логи сохрани до запуска. `--collect-only` и `ci/coverage_matrix.py`
   (и его хук pre-commit) логи не трогают.
+- **Матрица покрытия:** после изменения тегов тестов, `data/known_bugs.py`, `data/observations.py`
+  или `docs/requirements_index.yml` — `python ci/coverage_matrix.py`, и `docs/coverage.md` в тот же
+  коммит (хук pre-commit `coverage-matrix` и job Lint проверят `--check`). Справочник проверяется
+  закрыто: неизвестный ключ или флаг не bool — ошибка; новый ключ — сначала в константы генератора.
 - **Упавшие тесты и XPASS не «чини» навешиванием xfail и не ослабляй проверки.** Собери данные
   (тест, браузер, текст ошибки, воспроизводится ли повторно) и сообщи — решение принимает пользователь.
 - Инфраструктурные проблемы (Docker, Grid, зависимости) можно чинить самостоятельно, но каждое
