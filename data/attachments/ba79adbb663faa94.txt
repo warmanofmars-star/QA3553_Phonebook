@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lauren",
+  "lastName": "Gonzalez",
+  "phone": "0526676272",
+  "email": "user_b98b68b097@example.com",
+  "address": "PSC 3628, Box 9086, APO AE 21793",
+  "description": "Music drug green modern allow process."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 627d8079-0457-4f86-88a4-07eac89dcc1a"
+}

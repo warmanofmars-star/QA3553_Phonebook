@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Wiggins",
+  "phone": null,
+  "email": "user_b3e008665e@example.com",
+  "address": "928 Nicholas Well Suite 711, Martinezchester, NE 28128",
+  "description": "Boy side sell pick."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e8a5d127-0b36-4bb2-af3a-8687221e15c8"
+}

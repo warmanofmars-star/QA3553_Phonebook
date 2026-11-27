@@ -1,0 +1,15 @@
+16:11:16 [INFO   ] DRIVER: Ожидание узла edge в Selenium Grid: http://selenium-hub:4444/status
+16:11:16 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: edge
+16:11:17 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (400 ms)
+16:11:17 [INFO   ] API: Токен добавлен в заголовки сессии
+16:11:17 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+16:11:17 [INFO   ] STEP: Войти как user_aac6723920@example.com
+16:11:18 [INFO   ] API: POST /v1/contacts -> 200 (118 ms)
+16:11:18 [INFO   ] API: GET /v1/contacts -> 200 (108 ms)
+16:11:18 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+16:11:19 [INFO   ] STEP: Открыть карточку контакта 0581011561
+16:11:19 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+16:11:19 [INFO   ] STEP: Изменить поля формы редактирования
+16:11:19 [INFO   ] STEP: Изменить поле description на 'Visit however last Republican send on development out.'
+16:11:25 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Visit however last Republican send on development out.', фактически '[object Undefined]'
+16:11:28 [INFO   ] DRIVER: Видео 75699a2423f240133d6c49b0aadf11fe.mp4 прикреплено к отчёту

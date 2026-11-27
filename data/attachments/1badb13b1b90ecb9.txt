@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrea",
+  "lastName": "Manning",
+  "phone": "0512676025",
+  "email": "user_f076b9f213@example.com",
+  "address": "05502 John Cove, New Cynthiafurt, VA 77861",
+  "description": "Despite management main yet nature foreign above admit."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fc75bc07-6879-4897-9b0b-451ed4f1fdb7"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d9fe38c7-d6e0-4e3e-85e4-8f9f520d9979",
+      "name": "Tamara",
+      "lastName": "Patterson",
+      "email": "user_da0dc9a208@example.com",
+      "phone": "0523722512",
+      "address": "9418 Scott Square, West Maryfort, WA 86731",
+      "description": "Compare trial main picture."
+    }
+  ]
+}

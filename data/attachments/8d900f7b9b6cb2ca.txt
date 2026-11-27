@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5ef72951-82d7-48d0-afdb-022d667a2346",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Sloan",
+      "email": "user_f1670650f3@example.com",
+      "phone": "0528555428",
+      "address": "373 Michelle Extension Apt. 905, South George, WV 37758",
+      "description": "Ago action some out."
+    }
+  ]
+}

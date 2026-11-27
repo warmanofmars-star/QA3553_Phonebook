@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Richardson",
+  "email": "user_eb159d72b0@example.com",
+  "address": "PSC 0060, Box 9365, APO AP 33765",
+  "description": "Answer deal operation fear."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d0e8574b-8d6b-4bd7-b7c6-96f140b37acd"
+}

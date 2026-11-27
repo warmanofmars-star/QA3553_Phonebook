@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brent",
+  "lastName": "Neal",
+  "phone": "0540828646",
+  "email": "user_56edbabda8@example.com",
+  "address": "2588 Bradley Row Apt. 210, Doughertybury, HI 89085",
+  "description": "Page party free good nice rather."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ae1d28d4-a7a0-4c04-b03a-cd22bebbc863"
+}

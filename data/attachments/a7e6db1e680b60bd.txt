@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "505b401e-a2d5-43da-b4b7-9585c7aa9e15",
+      "name": "Henry",
+      "lastName": "Pugh",
+      "email": "user_6c5c3b025b@example.com",
+      "phone": "0511320583",
+      "address": "382 Boyle Ranch, Dixonshire, WA 73658",
+      "description": "Discover mind deep maintain painting."
+    }
+  ]
+}

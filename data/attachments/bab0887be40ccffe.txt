@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7a8fc953-59ca-4535-a95b-6d88ce3a504f",
+      "name": "Crystal",
+      "lastName": "Whitaker",
+      "email": "user_b169c944a2@example.com",
+      "phone": "0511858461",
+      "address": "170 Amanda Prairie Suite 424, New Amanda, VT 31533",
+      "description": "Staff member much fund."
+    }
+  ]
+}

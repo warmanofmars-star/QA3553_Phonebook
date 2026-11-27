@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e042dea6-5cc0-4325-86ba-717d919c54b2",
+      "name": "Jeremy",
+      "lastName": "Jones",
+      "email": "user_cab2e5e76e@example.com",
+      "phone": "0532737897",
+      "address": "256 Thomas Turnpike, Johnsmouth, PR 02662",
+      "description": "Month find yard necessary answer."
+    }
+  ]
+}

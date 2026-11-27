@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (76 ms)
+
+--- Тело запроса ---
+{
+  "name": "Frances",
+  "lastName": "Yu",
+  "phone": "0528623542",
+  "email": "пользователь@example.com",
+  "address": "995 Rebecca Corners Suite 028, New Alexandrafort, NY 02332",
+  "description": "Hour manager shoulder evening.",
+  "id": "52d2aa09-ee5f-4138-a200-4f007d038350"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

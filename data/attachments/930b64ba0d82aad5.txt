@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "84e99833-aa89-452e-b6dc-d4f569dce2a0",
+      "name": "Charles",
+      "lastName": "Harris",
+      "email": "user_f02d12097d@example.com",
+      "phone": "0510830885",
+      "address": "18860 Wallace Grove, Kellyland, AL 01032",
+      "description": "Follow man determine style term pressure great."
+    },
+    {
+      "id": "81282bea-834e-4154-b226-82b08e6f7261",
+      "name": "James",
+      "lastName": "Franklin",
+      "email": "user_a130245e3e@example.com",
+      "phone": "0565717983",
+      "address": "8769 Rios Drives Apt. 101, Johnnymouth, AK 14375",
+      "description": "Lot crime student friend might author consider source."
+    }
+  ]
+}

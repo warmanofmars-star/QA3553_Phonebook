@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bda0f644-d3ef-4db3-ad5a-9468c5afaea9",
+      "name": "Dustin",
+      "lastName": "Johnson",
+      "email": "user_379a45e79f@example.com",
+      "phone": "0532906733",
+      "address": "8274 Bradley Mills, Lisabury, OK 28535",
+      "description": "If culture later perhaps talk particularly born."
+    }
+  ]
+}

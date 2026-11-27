@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dfed21cf-1790-42cf-8cc4-49f8f2897115",
+      "name": "Kathryn",
+      "lastName": "Fischer",
+      "email": "user_57027cb9bd@example.com",
+      "phone": "0553233499",
+      "address": "USCGC Paul, FPO AA 18032",
+      "description": "Woman boy structure interest seem."
+    }
+  ]
+}

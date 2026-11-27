@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c8f08b4f-8340-4a0e-a535-0cd8ca37e084",
+      "name": "Vincent",
+      "lastName": "Ferrell",
+      "email": "user_8fd11f4575@example.com",
+      "phone": "0575234640",
+      "address": "3668 Wagner Orchard Apt. 380, New Joside, SC 13307",
+      "description": "Eye owner authority spring leave."
+    }
+  ]
+}

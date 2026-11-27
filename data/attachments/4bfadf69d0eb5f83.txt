@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Sloan",
+  "phone": "0528555428",
+  "email": "user_f1670650f3@example.com",
+  "address": "373 Michelle Extension Apt. 905, South George, WV 37758",
+  "description": "Ago action some out."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5ef72951-82d7-48d0-afdb-022d667a2346"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "588e86d1-be3b-43ee-8288-7df6a035e5ec",
+      "name": "Erika",
+      "lastName": "Black",
+      "email": "user_03b2cdeaa7@example.com",
+      "phone": "0526231622",
+      "address": "1310 Joann Mountains, Danielbury, MS 99941",
+      "description": "Throughout somebody different training us measure laugh."
+    }
+  ]
+}

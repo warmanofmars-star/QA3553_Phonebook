@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (26 ms)
+
+--- Тело запроса ---
+{
+  "name": "Geoffrey",
+  "phone": "0515459646",
+  "email": "user_cf9f3c00a8@example.com",
+  "address": "4814 Elizabeth Station, Seanville, MN 89880",
+  "description": "Wind himself when.",
+  "id": "58ae83e4-69f0-4d2d-b1da-919170858599"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T16:09:30",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

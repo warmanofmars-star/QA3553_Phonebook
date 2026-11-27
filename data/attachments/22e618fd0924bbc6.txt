@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (113 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Berg",
+  "phone": "0518076518",
+  "email": "user_e69991bccf@example.com",
+  "address": "57774 Duncan Port Suite 322, Fordfort, GU 25674",
+  "description": "Car unit life."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0c3fdc3d-b47f-4553-a1a8-981ecbe06ff0"
+}

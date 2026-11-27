@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "de953225-a4c6-4798-bb6d-672cec9d550b",
+      "name": "Joseph",
+      "lastName": "Johnson",
+      "email": "user_721ae3bead@example.com",
+      "phone": "0521327615",
+      "address": "3469 Jessica Circle Apt. 255, New Elizabeth, AS 09286",
+      "description": "Ground science the history detail generation left."
+    },
+    {
+      "id": "5f8b728d-7c38-458d-adcd-ad25b0dcb887",
+      "name": "Mary",
+      "lastName": "Nelson",
+      "email": "user_3de0134739@example.com",
+      "phone": "0521327615",
+      "address": "937 Brown Forest Apt. 165, Phillipton, PR 15849",
+      "description": "Firm represent him likely."
+    }
+  ]
+}

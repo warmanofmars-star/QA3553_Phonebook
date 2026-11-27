@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Castillo",
+  "phone": "0535875614",
+  "email": null,
+  "address": "92499 Levi Garden, Jasontown, NE 90360",
+  "description": "Accept record wear yeah Democrat evening."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b60bf7c5-3000-4d78-a8ac-c7e0605937f0"
+}

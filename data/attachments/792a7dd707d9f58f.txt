@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3116deea-801c-4ac1-8c55-28fb89a30802",
+      "name": "James",
+      "lastName": "Figueroa",
+      "email": "user_82eae6fbb8@example.com",
+      "phone": "0539778439",
+      "address": "74085 Horn Mountains Suite 423, West Brian, HI 19184",
+      "description": "Newspaper certain if somebody piece."
+    }
+  ]
+}

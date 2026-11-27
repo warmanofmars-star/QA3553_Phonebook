@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bdb6095a-035c-4956-8976-902c281db7e5",
+      "name": "Melissa",
+      "lastName": "Burnett",
+      "email": "user_f43b90fa1a@example.com",
+      "phone": "0510429355",
+      "address": "81995 James Junction, Port Leslie, VT 36248",
+      "description": "High Mrs hand keep."
+    }
+  ]
+}

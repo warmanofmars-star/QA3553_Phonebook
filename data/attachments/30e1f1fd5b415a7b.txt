@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "839ef39e-fb37-4d1f-92e7-275ffe96c475",
+      "name": "Elizabeth",
+      "lastName": "Peck",
+      "email": "user_f94caaa0a1@example.com",
+      "phone": "0511513700",
+      "address": "1558 Alvarez Meadow Suite 108, Gregoryfurt, PW 97046",
+      "description": "Even himself college lot yard exist."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (21 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Brown",
+  "phone": "0524241271",
+  "email": "user_b75c82aa79@example.com",
+  "address": "462 Jennifer Island, Tonyashire, MO 43212",
+  "description": "Drive power issue prove article.",
+  "id": "63519099-99b6-4ef2-80f5-4426aa5225fc"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T16:09:29",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+{
+  "name": "Scott",
+  "lastName": "Kline",
+  "phone": "0527370530",
+  "email": "user_aa2a94ddbf@example.com",
+  "address": "5889 Cheryl Heights Suite 550, Francohaven, VI 09621",
+  "description": "House tough guy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 212fcfe0-e384-4910-9a31-86066f730f4f"
+}

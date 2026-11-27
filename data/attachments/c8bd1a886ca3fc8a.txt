@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (114 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d0905694-5e12-4a67-b7ac-e95de82beded",
+      "name": "Richard",
+      "lastName": "Richardson",
+      "email": "user_654eab1954@example.com",
+      "phone": "0542061376",
+      "address": "83316 Brown Field, Scottburgh, AR 75362",
+      "description": ""
+    }
+  ]
+}

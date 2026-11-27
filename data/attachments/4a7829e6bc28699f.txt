@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d22a03f5-8908-4aae-adbe-e64597557363",
+      "name": "Matthew",
+      "lastName": "Coleman",
+      "email": "user_160d3b44ba@example.com",
+      "phone": "0510761350",
+      "address": "633 Anthony Motorway, North Caitlin, WV 78119",
+      "description": "Probably bag role usually avoid control."
+    },
+    {
+      "id": "36ed461d-36b3-400f-89a6-002517474e6c",
+      "name": "Kimberly",
+      "lastName": "Henderson",
+      "email": "user_1fa6404774@example.com",
+      "phone": "0598292152",
+      "address": "8622 Acosta Plaza Suite 779, Lake Kelseyview, NY 16641",
+      "description": "Indicate study appear father charge."
+    }
+  ]
+}

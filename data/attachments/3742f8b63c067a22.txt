@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7275b3ed-3c56-41bf-a5a5-2e018de8f482",
+      "name": "Kimberly",
+      "lastName": "!@#$%^&*()_+-=",
+      "email": "user_fe0da03d08@example.com",
+      "phone": "0519368427",
+      "address": "5455 Jose Parkways, Catherineville, NH 83122",
+      "description": "Surface people nature."
+    }
+  ]
+}

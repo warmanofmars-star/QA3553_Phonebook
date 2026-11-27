@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "25c1c51a-7e09-4b70-a3d4-4f1362d4a96d",
+      "name": "James",
+      "lastName": "Parker",
+      "email": "user_cda7d4d024@example.com",
+      "phone": "0513229783",
+      "address": "11332 Brenda Club, Anthonyborough, DC 96145",
+      "description": "Person gas finally determine region person."
+    },
+    {
+      "id": "48b9b18c-f167-4ed5-a8d5-397ca5887dd7",
+      "name": "Don",
+      "lastName": "Phillips",
+      "email": "user_6e628035e1@example.com",
+      "phone": "0513229783",
+      "address": "684 Sheppard Drive Apt. 510, Josephstad, KY 03672",
+      "description": "Site room ago."
+    }
+  ]
+}

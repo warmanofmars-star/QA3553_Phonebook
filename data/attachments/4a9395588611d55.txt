@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4c188989-300c-49e1-94fe-7646ad02fa6a",
+      "name": "Brandi",
+      "lastName": "Miller",
+      "email": "user_f8b8add286@example.com",
+      "phone": "0515696000",
+      "address": "76163 Michael Greens, East Marcfort, SD 23971",
+      "description": "Music deal guess great movement."
+    }
+  ]
+}

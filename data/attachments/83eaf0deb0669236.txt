@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+{
+  "name": "Emily",
+  "lastName": "Miller",
+  "phone": "0531448323",
+  "email": "user_9e0b73d367@example.com",
+  "address": "USNV Harding, FPO AP 88202",
+  "description": "Seven collection program which woman."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5633a129-9dc3-4e49-a61e-e2bf6f0e0652"
+}

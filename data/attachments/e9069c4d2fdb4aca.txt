@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Woods",
+  "phone": "0533471191",
+  "email": "user_7f2715ce9c@example.com",
+  "address": "9302 Andrew Falls Apt. 421, North Janiceton, AR 37485",
+  "description": "Move require unit about."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 72f46fe5-b561-4df2-b220-3a63cc4021ef"
+}

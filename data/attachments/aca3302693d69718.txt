@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0b5ee737-a346-4435-8ca2-d349ba5cb551",
+      "name": "Tammy",
+      "lastName": "Garcia",
+      "email": "user_98aa81f905@example.com",
+      "phone": "0521713428",
+      "address": "31630 Robert Mountain Suite 534, New Nancyville, ID 96123",
+      "description": "Record may control life feel may."
+    }
+  ]
+}

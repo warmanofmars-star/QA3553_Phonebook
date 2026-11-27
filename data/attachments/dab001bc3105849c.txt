@@ -1,0 +1,11 @@
+16:10:50 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+16:10:50 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+16:10:51 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (382 ms)
+16:10:51 [INFO   ] API: Токен добавлен в заголовки сессии
+16:10:51 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+16:10:52 [INFO   ] STEP: Войти как user_ec2e1642b4@example.com
+16:10:53 [INFO   ] API: POST /v1/contacts -> 200 (100 ms)
+16:10:53 [INFO   ] API: GET /v1/contacts -> 200 (97 ms)
+16:10:53 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+16:10:53 [INFO   ] STEP: Открыть карточку контакта 0515810993
+16:10:56 [INFO   ] DRIVER: Видео 83df0785bab2177c82efdb37ae92496a.mp4 прикреплено к отчёту

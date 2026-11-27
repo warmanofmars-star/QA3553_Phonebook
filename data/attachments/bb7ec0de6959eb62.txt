@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a03500e1-8726-4fc0-b240-a9852edea50b",
+      "name": "Erin",
+      "lastName": "Hernandez",
+      "email": "user_dbcf7ffe64@example.com",
+      "phone": "0554146704",
+      "address": "12345",
+      "description": "Million way time benefit vote participant prepare."
+    }
+  ]
+}

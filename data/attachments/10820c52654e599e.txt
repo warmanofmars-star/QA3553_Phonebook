@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (84 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rebecca",
+  "lastName": "!@#$%^&*()_+-=",
+  "phone": "0536410663",
+  "email": "user_dc4c6bfbad@example.com",
+  "address": "1646 Holt Gardens, North Kendra, NV 88516",
+  "description": "Despite dinner however.",
+  "id": "9599ebbe-021a-4488-a3bb-7274afccab2f"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

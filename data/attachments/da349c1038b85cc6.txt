@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmine",
+  "lastName": "Vance",
+  "phone": "0561117496",
+  "email": "user_107fc66287@example.com",
+  "address": "134 Lee Junction Apt. 880, North Natasha, IL 69587",
+  "description": "Person first treat well."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fff30687-7703-49ff-a9ac-09175267c548"
+}

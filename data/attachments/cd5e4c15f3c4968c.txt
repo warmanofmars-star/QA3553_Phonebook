@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (22 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmine",
+  "lastName": "Vance",
+  "phone": "0561117496",
+  "email": "user@",
+  "address": "134 Lee Junction Apt. 880, North Natasha, IL 69587",
+  "description": "Person first treat well.",
+  "id": "fff30687-7703-49ff-a9ac-09175267c548"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T16:09:25",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

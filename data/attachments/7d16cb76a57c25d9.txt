@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3060a4a1-e3ee-4e00-9977-a3f7ff48b83e",
+      "name": "Natalie",
+      "lastName": "Velasquez",
+      "email": "user_f0fe36baa0@example.com",
+      "phone": "0523182811",
+      "address": "248 Francis Freeway Apt. 383, Ellenmouth, MP 96980",
+      "description": "Under man upon meet my war."
+    }
+  ]
+}

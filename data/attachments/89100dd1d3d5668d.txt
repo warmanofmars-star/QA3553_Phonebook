@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "295530e4-4e1b-4ac8-8429-5d5024a9c8a6",
+      "name": "Kimberly",
+      "lastName": "Gomez",
+      "email": "user_c824ad55f5@example.com",
+      "phone": "0522574364",
+      "address": "44399 Donna Roads, Parkerchester, WA 70952",
+      "description": "Sea read open room site season phone born."
+    }
+  ]
+}

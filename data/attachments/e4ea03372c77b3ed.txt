@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "William",
+  "lastName": "Steele",
+  "phone": "0528276413",
+  "email": "user_9b3a991701@example.com",
+  "address": "8242 Martin Mission Apt. 854, Barbaratown, PA 27891",
+  "description": "Enough amount middle wall glass phone."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 46803e43-4081-4b5d-90bc-4a1860adcf35"
+}

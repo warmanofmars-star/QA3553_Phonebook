@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2c8435e0-30db-4a30-aeb8-89878431c0ba",
+      "name": "Nicole",
+      "lastName": "Franklin",
+      "email": "user_89930121a9@example.com",
+      "phone": "0559670410",
+      "address": "319 Julia Falls, Amyfurt, PW 65623",
+      "description": "Audience never audience learn time."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (53 ms)
+
+--- Тело запроса ---
+{
+  "name": "Maurice",
+  "lastName": "Cruz",
+  "phone": "0528110877",
+  "email": "user_bb2746e945@example.com",
+  "address": "57721 Holmes Shore, Jaredview, NE 20157",
+  "description": "Boy kid describe believe candidate."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a7edd5bb-799b-4216-8f54-5fbb13ec04c9"
+}

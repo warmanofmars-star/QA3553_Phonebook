@@ -1,0 +1,15 @@
+16:11:21 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+16:11:21 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+16:11:23 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (204 ms)
+16:11:23 [INFO   ] API: Токен добавлен в заголовки сессии
+16:11:23 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+16:11:24 [INFO   ] STEP: Войти как user_cc167a78ab@example.com
+16:11:25 [INFO   ] API: POST /v1/contacts -> 200 (38 ms)
+16:11:25 [INFO   ] API: GET /v1/contacts -> 200 (36 ms)
+16:11:25 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+16:11:25 [INFO   ] STEP: Открыть карточку контакта 0511513700
+16:11:26 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+16:11:26 [INFO   ] STEP: Изменить поля формы редактирования
+16:11:26 [INFO   ] STEP: Изменить поле description на 'Still data increase close administration size law.'
+16:11:32 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Still data increase close administration size law.', фактически '[object Undefined]'
+16:11:35 [INFO   ] DRIVER: Видео 226f301b-3344-4233-8dbe-24562340143a.mp4 прикреплено к отчёту

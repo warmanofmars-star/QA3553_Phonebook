@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+{
+  "name": "Charles",
+  "lastName": "Harris",
+  "phone": "0510830885",
+  "email": "user_f02d12097d@example.com",
+  "address": "18860 Wallace Grove, Kellyland, AL 01032",
+  "description": "Follow man determine style term pressure great."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 84e99833-aa89-452e-b6dc-d4f569dce2a0"
+}

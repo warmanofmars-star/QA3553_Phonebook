@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (55 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Cameron",
+  "phone": "0555336372",
+  "email": "user_732a619c93@example.com",
+  "address": "79674 Melinda Causeway, New Kimberly, MP 40058",
+  "description": "Officer whatever century particularly music eight."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b0546261-c2d6-4be7-ad78-ab1332c9a5df"
+}

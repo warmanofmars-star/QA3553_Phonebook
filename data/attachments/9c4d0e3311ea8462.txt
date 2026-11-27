@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "815900a9-12a3-466c-860d-86675bdffbe2",
+      "name": "Todd",
+      "lastName": "Scott",
+      "email": "user_f407a69a10@example.com",
+      "phone": "0517768367",
+      "address": "605 English Plain Suite 918, Changborough, CO 79834",
+      "description": "Ask phone finish mind together person similar."
+    },
+    {
+      "id": "b1fdcd3d-0f1b-48d3-9769-44f9b44a694a",
+      "name": "Todd",
+      "lastName": "Scott",
+      "email": "user_f407a69a10@example.com",
+      "phone": "0517768367",
+      "address": "605 English Plain Suite 918, Changborough, CO 79834",
+      "description": "Ask phone finish mind together person similar."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "84e99833-aa89-452e-b6dc-d4f569dce2a0",
+      "name": "Charles",
+      "lastName": "Harris",
+      "email": "user_f02d12097d@example.com",
+      "phone": "0510830885",
+      "address": "18860 Wallace Grove, Kellyland, AL 01032",
+      "description": "Follow man determine style term pressure great."
+    }
+  ]
+}

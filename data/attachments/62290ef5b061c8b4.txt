@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michaela",
+  "lastName": "Baldwin",
+  "phone": "0527304381",
+  "email": "user_86e627cabc@example.com",
+  "address": "Unit 7786 Box 3964, DPO AP 96240",
+  "description": "Page push first skin medical."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: de67ea64-c428-42a8-85c2-555baed146e5"
+}

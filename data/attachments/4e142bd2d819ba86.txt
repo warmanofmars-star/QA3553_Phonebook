@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ad56a2f5-ac06-4ef6-8551-179c0a2feb38",
+      "name": "Timothy",
+      "lastName": "Walter",
+      "email": "user_9cb566e248@example.com",
+      "phone": "0568724362",
+      "address": "7278 Williamson Prairie, Christinafort, AK 94055",
+      "description": "Before provide city five behind."
+    }
+  ]
+}

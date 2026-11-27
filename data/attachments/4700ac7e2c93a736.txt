@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": true,
+  "lastName": "Ellis",
+  "phone": "0581280266",
+  "email": "user_da1d493ce0@example.com",
+  "address": "05018 Morrison Groves Suite 179, Port Jamesmouth, UT 10889",
+  "description": "Table Congress eye fly career take suddenly."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f0bc5684-ebdd-4772-8a4e-15b6e94923b3"
+}

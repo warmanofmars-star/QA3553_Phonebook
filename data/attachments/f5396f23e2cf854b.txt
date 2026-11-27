@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4585f92d-b966-45c3-acd6-e2564bc14c06",
+      "name": "Austin",
+      "lastName": "Bird",
+      "email": "user_b18f082297@example.com",
+      "phone": "0554426786",
+      "address": "5218 Ronald Prairie Suite 984, West Michaelshire, OH 41930",
+      "description": "Scientist north once technology camera against term."
+    }
+  ]
+}

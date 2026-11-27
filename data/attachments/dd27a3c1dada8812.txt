@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+{
+  "name": "Rachel",
+  "lastName": "Garza",
+  "phone": "0527279311",
+  "email": "user_e13726b4a3@example.com",
+  "address": "35043 Beverly Stravenue, Michaelview, NY 06678",
+  "description": "Because east exactly walk."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b6be07e4-4f78-4978-b438-13e2ded6359c"
+}

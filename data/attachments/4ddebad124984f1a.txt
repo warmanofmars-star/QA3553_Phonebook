@@ -1,8 +1,0 @@
-10:03:57 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
-10:03:57 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
-10:03:59 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (290 ms)
-10:03:59 [INFO   ] API: Токен добавлен в заголовки сессии
-10:03:59 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
-10:04:00 [INFO   ] STEP: Зарегистрироваться как user_a512258379@example.com
-10:04:01 [INFO   ] UI: Текст Alert: 'User already exist'
-10:04:04 [INFO   ] DRIVER: Видео 290d946b-9dfe-409f-807e-9f13417ef7bb.mp4 прикреплено к отчёту

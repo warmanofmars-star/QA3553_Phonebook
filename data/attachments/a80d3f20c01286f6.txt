@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+{
+  "name": "Martin",
+  "lastName": "Smith",
+  "phone": "0521191838",
+  "email": "",
+  "address": "67458 Mccall Keys Suite 006, Port Kevin, HI 37370",
+  "description": "Difference available with meet."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a18b80f2-e01d-4f66-8cbc-c83879101688"
+}

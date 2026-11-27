@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Scott",
+  "phone": "0517048004",
+  "email": "user_a1a9ca2637@example.com",
+  "address": "95553 Timothy Crest, Lake William, RI 14843",
+  "description": "Hear another phone recent."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 40ce23a5-3283-420e-ae02-2dc5a3992a44"
+}

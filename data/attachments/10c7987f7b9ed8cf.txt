@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7042ff89-b7f0-43c0-a854-2fa1b41d69e4",
+      "name": "Michael",
+      "lastName": "Wheeler",
+      "email": "user_d2c0d5d58e@example.com",
+      "phone": "0513646436",
+      "address": "102 Hudson Green Suite 906, East Michealtown, MP 40106",
+      "description": "Teacher term better learn commercial."
+    }
+  ]
+}

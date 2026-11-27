@@ -1,0 +1,4 @@
+16:09:33 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (240 ms)
+16:09:33 [INFO   ] API: Токен добавлен в заголовки сессии
+16:09:33 [INFO   ] API: POST /v1/user/login/usernamepassword -> 200 (186 ms)
+16:09:33 [INFO   ] API: Токен добавлен в заголовки сессии

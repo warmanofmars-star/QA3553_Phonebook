@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c3dc5fb6-077d-44f1-8da5-9939f4f8d8a9",
+      "name": "Jennifer",
+      "lastName": "Martinez",
+      "email": "user_352cb0a54c@example.com",
+      "phone": "0511176476",
+      "address": "73186 Copeland Pike Suite 618, East James, MI 60136",
+      "description": "Result air room up join city hot."
+    }
+  ]
+}

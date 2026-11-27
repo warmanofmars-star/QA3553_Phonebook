@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (50 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "abaf645b-ec66-450e-9adb-91a0a3388a8d",
+      "name": "Kenneth",
+      "lastName": "Day",
+      "email": "user_9e8ff0f845@example.com",
+      "phone": "0522629185",
+      "address": "36761 Young Knoll, Gregoryfort, IN 86703",
+      "description": "Customer table impact we guy subject account."
+    }
+  ]
+}

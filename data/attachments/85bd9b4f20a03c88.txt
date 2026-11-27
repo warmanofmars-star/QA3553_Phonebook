@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (99 ms)
+
+--- Тело запроса ---
+{
+  "name": "Pamela",
+  "lastName": "Romero",
+  "phone": "0549932036",
+  "email": "user_1a475d6db4@example.com",
+  "address": "090 Salazar Underpass Apt. 601, North Jamie, MD 33781",
+  "description": "Point his movie good floor across."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 66219272-515a-434a-b5a6-f99556a26a16"
+}

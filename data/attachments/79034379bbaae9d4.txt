@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (108 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ff3cf2eb-3208-4fcd-a242-d4bf3a7c6e43",
+      "name": "Beth",
+      "lastName": "Carter",
+      "email": "user_df3d821ee7@example.com",
+      "phone": "0581011561",
+      "address": "1307 Michelle Lights Suite 733, West Lisa, ID 70810",
+      "description": "Themselves artist single whether represent economy type."
+    }
+  ]
+}

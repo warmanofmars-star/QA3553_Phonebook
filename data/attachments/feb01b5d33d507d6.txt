@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Patrick",
+  "phone": "0526658571",
+  "email": "user_9bf2c07dbe@example.com",
+  "address": "9562 Samuel Row, Port Caitlynchester, MP 80734",
+  "description": "Respond bill executive part several onto and mention."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 86dcf52e-b2ef-4ac0-a352-5511a5292195"
+}

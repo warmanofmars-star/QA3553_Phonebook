@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (103 ms)
+
+--- Тело запроса ---
+{
+  "name": "Yvonne",
+  "lastName": "Campbell",
+  "phone": "0526140367",
+  "email": "user_e0abc644bc@example.com",
+  "address": "5907 Davis Fall Suite 675, Tiffanyfurt, HI 92729",
+  "description": "System soldier character along everything also very."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ce81d6d6-1076-4537-bd44-650de0fa0395"
+}

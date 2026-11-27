@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (52 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "679bebc6-0a02-40df-9d8b-628ff6da5d0e",
+      "name": "Shane",
+      "lastName": "12345",
+      "email": "user_82ff499857@example.com",
+      "phone": "0528730965",
+      "address": "1517 Austin Key, Carrollfort, NJ 36212",
+      "description": "Care why my reality attack individual response."
+    }
+  ]
+}

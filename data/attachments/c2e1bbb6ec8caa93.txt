@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (111 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8ed993ab-2c66-4c59-93f3-a53e81dfc74d",
+      "name": "Laura",
+      "lastName": "Martinez",
+      "email": "user_e0f7f35af5@example.com",
+      "phone": "0541054050",
+      "address": "605 Jason Canyon, Mcconnellview, NJ 21093",
+      "description": "Hot their mouth resource."
+    },
+    {
+      "id": "5633a129-9dc3-4e49-a61e-e2bf6f0e0652",
+      "name": "Emily",
+      "lastName": "Miller",
+      "email": "user_9e0b73d367@example.com",
+      "phone": "0531448323",
+      "address": "USNV Harding, FPO AP 88202",
+      "description": "Seven collection program which woman."
+    }
+  ]
+}

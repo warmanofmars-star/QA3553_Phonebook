@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (54 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Palmer",
+  "phone": "0513996765",
+  "email": "user_8a9b99235a@example.com",
+  "address": "9497 Moore Crossroad Apt. 236, Crystaltown, VI 62364",
+  "description": "Performance price serious hundred.",
+  "id": "f4063caf-8b83-46e6-9d31-5a04e74e36a6"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 074f6fc8-a859-4a54-9039-03463dd0785a"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (49 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "653ec0e7-6e37-4452-8df5-f85cc944e9bd",
+      "name": "Derrick",
+      "lastName": "Rios",
+      "email": "user_b9e66ef880@example.com",
+      "phone": "0531365767",
+      "address": "8752 Lee Mall Suite 383, Freyland, MH 77891",
+      "description": "Rise course president executive."
+    }
+  ]
+}

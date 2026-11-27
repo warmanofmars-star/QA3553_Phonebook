@@ -1,0 +1,4 @@
+16:13:11 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+16:13:11 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+16:13:13 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+16:13:16 [INFO   ] DRIVER: Видео e21d47f9-ec3f-4759-8eaa-6744b46d9610.mp4 прикреплено к отчёту

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tyler",
+  "lastName": "Davis",
+  "phone": "0527934316",
+  "email": "user_43f9c5c85b@example.com",
+  "address": "54536 Jones Roads Apt. 889, New Christy, MD 03409",
+  "description": "Accept Congress hour painting hospital best."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b971b081-23f9-44ef-8e4b-b312ff9ba299"
+}

@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (109 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dd4c93e1-5e0d-4989-abd0-472633f4c934",
+      "name": "Michael",
+      "lastName": "Smith",
+      "email": "user_951dcd69f0@example.com",
+      "phone": "0551983114",
+      "address": "462 Melissa Throughway Apt. 782, East Michaelberg, AZ 27255",
+      "description": "Management face consider north marriage."
+    },
+    {
+      "id": "cd9cfa21-1087-417d-8df6-dfb4d3818056",
+      "name": "Jesse",
+      "lastName": "Keith",
+      "email": "user_2697ffb0ed@example.com",
+      "phone": "0581406855",
+      "address": "7611 Burke Gateway, New David, MS 65369",
+      "description": "Simple western food."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (98 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3df788af-fb1c-4f20-b6dd-1c5c5e8dbc31",
+      "name": "Deborah",
+      "lastName": "Scott",
+      "email": "user_3a60523784@example.com",
+      "phone": "0524793757",
+      "address": "59651 Duncan Fields Suite 425, Jefferyshire, OR 28782",
+      "description": "Up case price four lead leave."
+    }
+  ]
+}

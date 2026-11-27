@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+{
+  "name": "Daniel",
+  "lastName": "Bennett",
+  "phone": "0568549909",
+  "email": "user_367b7f19df@example.com",
+  "address": "9316 Jackson Wells Suite 143, North Jeremy, AZ 00747",
+  "description": "International effort bring very."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 655bddce-4429-4854-b6e8-921581cc23d5"
+}

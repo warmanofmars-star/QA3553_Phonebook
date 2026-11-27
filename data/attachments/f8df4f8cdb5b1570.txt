@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (112 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "36a4a61e-6df8-4a69-8dfa-6ba8bf143d89",
+      "name": "Jeremy",
+      "lastName": "Phillips",
+      "email": "user_ad9901f17c@example.com",
+      "phone": "0529666517",
+      "address": "USNV Parks, FPO AA 82020",
+      "description": "Head within rate game fish improve."
+    }
+  ]
+}

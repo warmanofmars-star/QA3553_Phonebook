@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (104 ms)
+
+--- Тело запроса ---
+{
+  "name": "Austin",
+  "lastName": "Bird",
+  "phone": "0554426786",
+  "email": "user_b18f082297@example.com",
+  "address": "5218 Ronald Prairie Suite 984, West Michaelshire, OH 41930",
+  "description": "Scientist north once technology camera against term."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4585f92d-b966-45c3-acd6-e2564bc14c06"
+}

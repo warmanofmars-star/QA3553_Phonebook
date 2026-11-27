@@ -1,0 +1,38 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "967d4aba-b654-4c0f-8c86-aab9b7568baa",
+      "name": "Stephanie",
+      "lastName": "Gonzalez",
+      "email": "user_fb45315ccb@example.com",
+      "phone": "0525153640",
+      "address": "027 Anthony Roads Apt. 998, Robertbury, NE 73418",
+      "description": "Name military art both."
+    },
+    {
+      "id": "0622d263-9820-47fa-8d9c-3b4df5e5281a",
+      "name": "Patricia",
+      "lastName": "Ramirez",
+      "email": "user_36b0225235@example.com",
+      "phone": "0558004088",
+      "address": "05984 Mcdowell Ways Apt. 466, South Sarahside, GA 91793",
+      "description": "Expect throughout place look night individual."
+    },
+    {
+      "id": "d45c22a6-7c98-456f-abdf-9345582ae82f",
+      "name": "Sarah",
+      "lastName": "Clark",
+      "email": "user_18d3155a54@example.com",
+      "phone": "0566351084",
+      "address": "2021 Sheila Ports, Lisaton, MN 36994",
+      "description": "Guess heavy guess door majority house executive."
+    }
+  ]
+}

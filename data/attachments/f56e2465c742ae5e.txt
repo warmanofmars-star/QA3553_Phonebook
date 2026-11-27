@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (51 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Franklin",
+  "phone": "0565717983",
+  "email": "user_a130245e3e@example.com",
+  "address": "8769 Rios Drives Apt. 101, Johnnymouth, AK 14375",
+  "description": "Lot crime student friend might author consider source."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 81282bea-834e-4154-b226-82b08e6f7261"
+}

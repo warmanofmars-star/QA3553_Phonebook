@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (22 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Ramos",
+  "phone": "123",
+  "email": "user_c4be0bdd6f@example.com",
+  "address": "66116 Weaver Dam, Leeburgh, NJ 74620",
+  "description": "Establish return mention behind here family benefit."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T16:09:31",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}
