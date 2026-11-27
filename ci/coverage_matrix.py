@@ -20,7 +20,8 @@
     поведение без требования. Они идут отдельным разделом и в покрытие SRS не входят.
 
 Опечатка в теге (SRS-T50, TC-0099) или тег на непроверяемом пункте — ошибка генерации:
-иначе такой тест молча выпал бы из матрицы.
+иначе такой тест молча выпал бы из матрицы. Так же и справочник: неизвестный ключ,
+флаг не bool, reason без флага false — ошибка (см. validate_index).
 """
 
 import argparse
@@ -158,15 +159,99 @@ class Item:
         return "bug" if self.bugs else "covered"
 
 
+# ==========================================
+# Проверка справочника
+# ==========================================
+# Справочник проверяется «закрыто»: допустимо только перечисленное здесь. Генератор читает
+# ключи через get(), и опечатка (testabel), флаг строкой ("false") или partial не на том
+# уровне иначе молча игнорировались бы — а это меняет статус пункта в матрице. После
+# перегенерации автор закоммитил бы неверную матрицу, так и не узнав причины.
+# Новый ключ в справочнике — сначала сюда, потом в код, который его читает.
+ROOT_KEYS = frozenset({"srs", "std", "api_checks"})
+SRS_KEYS = frozenset({"document", "sections", "numbering_gaps", "requirements"})
+SECTION_KEYS = frozenset({"id", "title"})
+GAP_KEYS = frozenset({"ids", "note"})
+REQUIREMENT_KEYS = frozenset({"id", "section", "summary", "note", "testable", "reason"})
+STD_KEYS = frozenset({"document", "numbering_gaps", "cases"})
+CASE_KEYS = frozenset({"id", "title", "note", "testable", "reason"})
+API_CHECK_KEYS = frozenset({"id", "title", "note", "applicable", "partial", "reason"})
+
+
+def _check_keys(entry: object, allowed: frozenset[str], place: str, problems: list[str]) -> bool:
+    """Неизвестные ключи — в problems. False, если entry вообще не словарь."""
+    if not isinstance(entry, dict):
+        problems.append(f"{place}: ожидался словарь, а не {type(entry).__name__}")
+        return False
+    problems.extend(f"{place}: неизвестный ключ {key!r}" for key in sorted(set(entry) - allowed, key=str))
+    return True
+
+
+def _check_flag(entry: dict, flag: str, place: str, problems: list[str]) -> None:
+    """Флаг (testable / applicable) — строго bool; reason — только при флаге false и обязателен при нём."""
+    value = entry.get(flag)
+    if flag in entry and not isinstance(value, bool):
+        # "false" строкой — истинное значение: пункт молча стал бы проверяемым
+        problems.append(f"{place}: {flag} должен быть true или false, а не {value!r}")
+        return
+    if value is False and not entry.get("reason"):
+        problems.append(f"{place}: {flag}: false без reason")
+    if value is not False and "reason" in entry:
+        problems.append(f"{place}: reason без {flag}: false (причина ни на что не влияет)")
+
+
+def _entries(container: dict, key: str, place: str, problems: list[str]) -> list:
+    value = container.get(key, [])
+    if not isinstance(value, list):
+        problems.append(f"{place}: ожидался список, а не {type(value).__name__}")
+        return []
+    return value
+
+
+def validate_index(index: object) -> None:
+    """Все нарушения схемы справочника — одной ошибкой, чтобы чинить за один проход."""
+    problems: list[str] = []
+    if not _check_keys(index, ROOT_KEYS, INDEX_PATH.name, problems):
+        raise CoverageError("Справочник требований некорректен:\n  " + "\n  ".join(problems))
+
+    for part, part_keys, items_key, item_keys in (
+        ("srs", SRS_KEYS, "requirements", REQUIREMENT_KEYS),
+        ("std", STD_KEYS, "cases", CASE_KEYS),
+    ):
+        block = index.get(part, {})
+        if not _check_keys(block, part_keys, part, problems):
+            continue
+        if part == "srs":
+            for section in _entries(block, "sections", "srs.sections", problems):
+                place = f"srs.sections, раздел {section.get('id') if isinstance(section, dict) else section}"
+                _check_keys(section, SECTION_KEYS, place, problems)
+        for gap in _entries(block, "numbering_gaps", f"{part}.numbering_gaps", problems):
+            place = f"{part}.numbering_gaps, пропуск {gap.get('ids') if isinstance(gap, dict) else gap}"
+            _check_keys(gap, GAP_KEYS, place, problems)
+        for entry in _entries(block, items_key, f"{part}.{items_key}", problems):
+            place = f"{part}.{items_key}, {entry.get('id') if isinstance(entry, dict) else entry}"
+            if _check_keys(entry, item_keys, place, problems):
+                _check_flag(entry, "testable", place, problems)
+
+    for entry in _entries(index, "api_checks", "api_checks", problems):
+        place = f"api_checks, проверка {entry.get('id') if isinstance(entry, dict) else entry}"
+        if not _check_keys(entry, API_CHECK_KEYS, place, problems):
+            continue
+        _check_flag(entry, "applicable", place, problems)
+        if entry.get("applicable") is False and "partial" in entry:
+            # Неприменимая проверка не может быть покрыта частично: одно из двух — ошибка
+            problems.append(f"{place}: partial вместе с applicable: false — противоречие")
+
+    if problems:
+        raise CoverageError("Справочник требований некорректен:\n  " + "\n  ".join(problems))
+
+
 def load_items() -> tuple[dict, dict[str, list[Item]]]:
     index = yaml.safe_load(INDEX_PATH.read_text(encoding="utf-8"))
+    validate_index(index)
 
     def reason(entry: dict, flag: str) -> str | None:
-        if entry.get(flag, True) is False:
-            if not entry.get("reason"):
-                raise CoverageError(f"{entry['id']}: {flag}: false без reason")
-            return entry["reason"]
-        return None
+        # Схема уже проверена validate_index: флаг — bool, при false есть reason
+        return entry["reason"] if entry.get(flag) is False else None
 
     srs = [
         Item(
