@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7bd14e8c-6c52-4821-a46c-ef78c4136efe",
+      "name": "Amy",
+      "lastName": "Cummings",
+      "email": "user_e321bd4f95@example.com",
+      "phone": "0563231544",
+      "address": "83331 Vargas Dale, West Michael, LA 98701",
+      "description": "Situation trip music country house go."
+    }
+  ]
+}

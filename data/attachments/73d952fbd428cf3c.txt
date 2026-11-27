@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mary",
+  "lastName": "Hill",
+  "phone": "0516223270",
+  "email": "user_e995c352f2@example.com",
+  "address": "6300 Daniel Bridge, Tiffanymouth, MH 56348",
+  "description": "Allow bed movement have safe site."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d999d90e-e650-4341-bd2e-2598e75da4d1"
+}

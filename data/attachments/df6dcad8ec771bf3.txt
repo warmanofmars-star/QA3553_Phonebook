@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Linda",
+  "lastName": "Jones",
+  "phone": "0515522955",
+  "email": "",
+  "address": "43655 Jeff Rest, South Travishaven, AS 75713",
+  "description": "Worry power memory game."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5551345a-5e56-4142-bf91-1a8b988ebd3e"
+}

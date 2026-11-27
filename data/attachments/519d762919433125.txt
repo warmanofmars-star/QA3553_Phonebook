@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7f808b9a-6be4-4202-b75c-5a44dd5f4eb2",
+      "name": "12345",
+      "lastName": "Cook",
+      "email": "user_f990b7a68a@example.com",
+      "phone": "0532667561",
+      "address": "56106 Sarah Green, Wellstown, WI 05855",
+      "description": "Between yard part method example fact require."
+    }
+  ]
+}

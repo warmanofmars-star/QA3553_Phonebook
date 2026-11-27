@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jared",
+  "lastName": "Acosta",
+  "phone": "0511662516",
+  "email": "user_4a7cad58f4@example.com",
+  "address": "USCGC Young, FPO AE 57604",
+  "description": "Room could bed not party himself."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7489e346-3061-447b-b2bb-ccd7d589c638"
+}

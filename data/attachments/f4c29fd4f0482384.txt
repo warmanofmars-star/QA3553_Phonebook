@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Karen",
+  "lastName": "Kirby",
+  "phone": "0515800749",
+  "email": "user_185cada531@example.com",
+  "address": "9439 Julian Estate Suite 838, Williammouth, CT 54201",
+  "description": "Recent truth behind shoulder."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 9d84ab0c-631e-48fe-b34f-c5ed5c964ad5"
+}

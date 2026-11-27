@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "621c1c13-4f81-4a38-8882-f5a1da6dd5f9",
+      "name": "Laura",
+      "lastName": "Butler",
+      "email": "user_d58a4e51c4@example.com",
+      "phone": "0512783414",
+      "address": "46699 Wright Plains Suite 311, Port Mikeburgh, PR 57783",
+      "description": "Understand TV whatever."
+    }
+  ]
+}

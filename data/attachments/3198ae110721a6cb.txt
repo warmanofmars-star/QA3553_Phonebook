@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6d904d41-ee78-4882-982a-b7344dfe59ed",
+      "name": "Jeffrey",
+      "lastName": "Shea",
+      "email": "user_756848d0c3@example.com",
+      "phone": "0539538847",
+      "address": "3249 Bush Branch, Mccormickburgh, MI 36087",
+      "description": "Away public indeed."
+    },
+    {
+      "id": "1b1f2111-bed5-4606-b7da-fe8d7451a30c",
+      "name": "Joshua",
+      "lastName": "Hartman",
+      "email": "user_12c7f835ce@example.com",
+      "phone": "0539538847",
+      "address": "662 Danielle Plaza, Danielfurt, AK 29363",
+      "description": "My after whom no artist factor organization."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "b86d7633-9ef5-45e0-8003-b300d80e1ac3",
+      "name": "Beverly",
+      "lastName": "Howell",
+      "email": "user_7f4ac0516a@example.com",
+      "phone": "0533546467",
+      "address": "544 Maxwell Course, Onealbury, MN 77322",
+      "description": "Thus add factor actually should easy enter order."
+    }
+  ]
+}

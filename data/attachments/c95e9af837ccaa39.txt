@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Patrick",
+  "lastName": "Wilson",
+  "phone": "0529567971",
+  "email": "user_588e5bbb6c@example.com",
+  "address": "57763 Kristin Club, Villegasbury, NH 61255",
+  "description": "Building address yet everyone peace."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 79fdee8c-7919-4f95-a1ac-f4f7c7addd10"
+}

@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (4 ms)
+
+--- Тело запроса ---
+{
+  "name": "James",
+  "lastName": "Stevens",
+  "phone": "0532868064",
+  "email": "not_an_email",
+  "address": "54797 Roberson Stream, East Karen, GA 88410",
+  "description": "Pressure friend public.",
+  "id": "5c6bf891-b421-4ce9-83ab-45b32c45d8db"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:06",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

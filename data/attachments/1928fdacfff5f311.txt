@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Duane",
+  "lastName": "Jones",
+  "phone": "0513159776",
+  "email": "user_0b4117eeda@example.com",
+  "address": "40678 Mathews Common Suite 424, New Nancyport, MI 68762",
+  "description": "Thus artist administration."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ad1ea285-5150-449a-907d-f4243478ce4a"
+}

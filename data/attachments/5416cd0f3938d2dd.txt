@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "84e86baa-17ef-4f4b-afdc-8e0d20f53985",
+      "name": "Matthew",
+      "lastName": "Ford",
+      "email": "user_09da57b5c9@example.com",
+      "phone": "0529159651",
+      "address": "813 Williams Groves Apt. 832, Angelaland, KY 90263",
+      "description": "Miss maybe approach air everything."
+    }
+  ]
+}

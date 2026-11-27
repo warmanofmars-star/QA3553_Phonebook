@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2b114a79-c8bb-4358-b0a1-2e91eb577f13",
+      "name": "Melissa",
+      "lastName": "Jackson",
+      "email": "user_c153fa7d20@example.com",
+      "phone": "0511089291",
+      "address": "67411 Miller Lodge, East Jacob, MI 75473",
+      "description": "Big yard physical eye eat move."
+    },
+    {
+      "id": "4359f6dc-fc80-4b9e-a63f-561f7b204c4c",
+      "name": "Jennifer",
+      "lastName": "Soto",
+      "email": "user_1c03e0bd5c@example.com",
+      "phone": "0571316173",
+      "address": "989 Shaffer Viaduct, Patrickshire, SC 30089",
+      "description": "They possible kitchen soon couple but stage."
+    }
+  ]
+}

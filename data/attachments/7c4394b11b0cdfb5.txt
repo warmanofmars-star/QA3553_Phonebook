@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Schmidt",
+  "phone": "0528533000",
+  "email": "user_3259afac21@example.com",
+  "address": "95731 Klein Springs, Allenburgh, IN 28091",
+  "description": "Never still Mr happy."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ba27500f-c707-45bd-a06f-e96ef6df17cb"
+}

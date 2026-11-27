@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Elizabeth",
+  "lastName": "Kelly",
+  "phone": null,
+  "email": "user_7ff3a1ce12@example.com",
+  "address": "25295 Caitlin Dam, Michaeltown, OR 53183",
+  "description": "Really still specific however true agree politics."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2985f39d-e291-47c4-8fb6-e467201c1c09"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Clifford",
+  "lastName": "Stevens",
+  "phone": "0519518447",
+  "email": "user_6d935058bd@example.com",
+  "address": "995 Megan Ranch, East Jenniferton, IL 76878",
+  "description": "Modern person study list drop entire."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8c2add53-7b8e-47fa-b984-2a5ffdfd6322"
+}

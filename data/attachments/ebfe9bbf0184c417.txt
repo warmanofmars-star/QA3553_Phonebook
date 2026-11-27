@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicholas",
+  "lastName": "Barnett",
+  "phone": "0550213525",
+  "email": "user_6f76ccd992@example.com",
+  "address": "0424 Keith Wall Suite 357, Arnoldton, SC 15830",
+  "description": "!@#$%^&*()_+-=12345",
+  "id": "73d2a711-8f52-450f-9e6b-68f5ca41ae58"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

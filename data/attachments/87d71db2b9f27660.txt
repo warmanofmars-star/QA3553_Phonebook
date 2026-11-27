@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ba27500f-c707-45bd-a06f-e96ef6df17cb",
+      "name": "Jennifer",
+      "lastName": "Schmidt",
+      "email": "user_3259afac21@example.com",
+      "phone": "0528533000",
+      "address": "95731 Klein Springs, Allenburgh, IN 28091",
+      "description": "Never still Mr happy."
+    }
+  ]
+}

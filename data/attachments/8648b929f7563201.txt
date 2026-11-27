@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nicole",
+  "lastName": "Collins",
+  "phone": "0527557981",
+  "email": "user_0612704089@example.com",
+  "address": "1623 Jasmine Hill, Antonioton, TN 54691",
+  "description": "Stage lay tonight current attorney."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e80d6d16-ef52-4b74-801a-126339b8bd01"
+}

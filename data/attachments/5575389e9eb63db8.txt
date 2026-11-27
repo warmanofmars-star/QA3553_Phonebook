@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c64fe677-3d7b-49ae-b375-3092249c1701",
+      "name": "Adam",
+      "lastName": "Stevens",
+      "email": "user_6f5745bac7@example.com",
+      "phone": "0533108746",
+      "address": "1956 Jonathan Junctions Apt. 217, Lake Adammouth, NE 61851",
+      "description": "Break music six interest long hit."
+    }
+  ]
+}

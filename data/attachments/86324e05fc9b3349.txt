@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brandi",
+  "lastName": "Thompson",
+  "phone": "0513603566",
+  "email": "user_b6a2f712ac@example.com",
+  "address": "46708 Jensen Village Apt. 723, Lake Elizabeth, NH 79670",
+  "description": "Theory miss particular consumer stop."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2413a8a0-77dd-4c76-826e-7de14061bd82"
+}

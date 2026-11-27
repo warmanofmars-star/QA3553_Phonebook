@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4dafdfac-6359-4905-8f9a-de1bb7be094d",
+      "name": "Melissa",
+      "lastName": "Summers",
+      "email": "user_ed39f998c7@example.com",
+      "phone": "0517633828",
+      "address": "040 Miller Pines Suite 058, Martinfort, SC 91045",
+      "description": "Citizen operation sound network serious music artist."
+    }
+  ]
+}

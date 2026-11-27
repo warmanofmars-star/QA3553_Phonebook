@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f281c421-aacf-4eb5-9a41-ff93c5ded5e9",
+      "name": "David",
+      "lastName": "Mcmahon",
+      "email": "user_27ee44aec5@example.com",
+      "phone": "0518411475",
+      "address": "500 Rojas Ranch Suite 311, Johnsonville, ME 03236",
+      "description": "Fact so seem exist official."
+    },
+    {
+      "id": "84463335-3871-41cb-b214-07d443e3e09a",
+      "name": "Christina",
+      "lastName": "Lee",
+      "email": "user_d015d14a2e@example.com",
+      "phone": "0518411475",
+      "address": "689 Davis Drive, Cruzfurt, AZ 58847",
+      "description": "Sing find plan network recent suffer."
+    }
+  ]
+}

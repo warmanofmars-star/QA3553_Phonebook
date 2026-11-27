@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8d49d21f-129a-4b20-b4a3-ec40f51c4712",
+      "name": "Paul",
+      "lastName": "Walker",
+      "email": "user_e3f933a928@example.com",
+      "phone": "0526771002",
+      "address": "0944 Gomez Forges, Dennisfurt, NV 17808",
+      "description": "Land modern suggest sea."
+    }
+  ]
+}

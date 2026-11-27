@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3111edba-e110-408c-b74c-2c43892fafc0",
+      "name": "Edwin",
+      "lastName": "Martinez",
+      "email": "user_5444b944f1@example.com",
+      "phone": "0511724716",
+      "address": "8872 Stephanie Land, Wolfton, NY 66741",
+      "description": "Talk sell investment one special light."
+    }
+  ]
+}

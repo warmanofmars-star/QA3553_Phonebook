@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Nancy",
+  "lastName": "Koch",
+  "phone": "0521342654",
+  "email": "user_e64aa09d1e@example.com",
+  "address": "Unit 4784 Box 8350, DPO AE 19568",
+  "description": "Deal car beautiful think."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b2a621d3-3b46-4958-86f2-0154fcd946e7"
+}

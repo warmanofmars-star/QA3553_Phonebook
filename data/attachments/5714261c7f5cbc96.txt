@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d999d90e-e650-4341-bd2e-2598e75da4d1",
+      "name": "Mary",
+      "lastName": "Hill",
+      "email": "user_e995c352f2@example.com",
+      "phone": "0516223270",
+      "address": "6300 Daniel Bridge, Tiffanymouth, MH 56348",
+      "description": "Allow bed movement have safe site."
+    }
+  ]
+}

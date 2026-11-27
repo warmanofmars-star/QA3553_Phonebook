@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (4 ms)
+
+--- Тело запроса ---
+{
+  "name": "Duane",
+  "lastName": "Jones",
+  "phone": "0513159776",
+  "email": "@example.com",
+  "address": "40678 Mathews Common Suite 424, New Nancyport, MI 68762",
+  "description": "Thus artist administration.",
+  "id": "ad1ea285-5150-449a-907d-f4243478ce4a"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:06",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

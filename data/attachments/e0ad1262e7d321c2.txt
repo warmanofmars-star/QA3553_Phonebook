@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (68 ms)
+
+--- Тело запроса ---
+{
+  "name": "Thomas",
+  "lastName": "Jones",
+  "phone": "0511567891",
+  "email": "user_64919af040@example.com",
+  "address": "4557 Lopez Mills, Castroton, DC 50259",
+  "description": "Card final herself clearly paper."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 97da4f9d-22e1-49e3-b3af-57cb6614b6bc"
+}

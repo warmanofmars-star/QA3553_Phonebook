@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sarah",
+  "lastName": "Fowler",
+  "phone": "0519105641",
+  "email": "user_c29ddb57e6@example.com",
+  "address": "50445 Sarah Squares Suite 188, Franklinfurt, CT 19270",
+  "description": "Too my show happen cell test security several."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: af2dd3da-cb09-4148-b34d-b815ffc920d2"
+}

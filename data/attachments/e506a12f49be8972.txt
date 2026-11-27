@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Karen",
+  "lastName": "Griffith",
+  "phone": "0527919020",
+  "email": "user_6243d5729c@example.com",
+  "address": "112 Brewer Squares Suite 292, South Michele, OR 23949",
+  "description": "Charge four production."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 02ec2cee-695c-4ef5-a8d4-f2542f83b36a"
+}

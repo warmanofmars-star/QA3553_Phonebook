@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Mcmahon",
+  "phone": "0518411475",
+  "email": "user_27ee44aec5@example.com",
+  "address": "500 Rojas Ranch Suite 311, Johnsonville, ME 03236",
+  "description": "Fact so seem exist official."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f281c421-aacf-4eb5-9a41-ff93c5ded5e9"
+}

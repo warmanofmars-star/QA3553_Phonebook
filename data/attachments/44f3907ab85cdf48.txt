@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e14da969-cc40-4da0-87f0-02d5a1bf79c2",
+      "name": "Emily",
+      "lastName": "Stewart",
+      "email": "user_210dccc391@example.com",
+      "phone": "051000619315685",
+      "address": "5023 Chad Flats Apt. 340, Shawmouth, TN 26367",
+      "description": "Actually that party join involve speech."
+    }
+  ]
+}

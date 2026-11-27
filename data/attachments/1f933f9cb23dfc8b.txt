@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "bb670c7f-2cf2-4b6f-8063-3361fe64ba8a",
+      "name": "Adam",
+      "lastName": "Palmer",
+      "email": "user_8efafb2a2e@example.com",
+      "phone": "0529653349",
+      "address": "9496 Simpson Forge, Cruzburgh, NV 26193",
+      "description": "Morning offer toward look policy reach scene own."
+    },
+    {
+      "id": "6a31de84-3ba8-4336-8af9-b86b4ae8e23c",
+      "name": "David",
+      "lastName": "Holland",
+      "email": "user_8efafb2a2e@example.com",
+      "phone": "0525271389",
+      "address": "PSC 4978, Box 3726, APO AP 34328",
+      "description": "Reflect vote work food."
+    }
+  ]
+}

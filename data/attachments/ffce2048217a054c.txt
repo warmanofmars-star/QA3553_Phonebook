@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d8fc9d93-be1c-4322-8b4b-1ec2167f1c96",
+      "name": "Lynn",
+      "lastName": "Cummings",
+      "email": "user_d5a86f6f0c@example.com",
+      "phone": "0522391874",
+      "address": "886 Davis Branch Suite 408, North Michaela, PW 44121",
+      "description": "Might someone week still from water modern on."
+    }
+  ]
+}

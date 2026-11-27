@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6d83b5c5-29e4-480b-8fa2-c91e6845711b",
+      "name": "Gabriela",
+      "lastName": "Sanchez",
+      "email": "user_068f70d587@example.com",
+      "phone": "0523962985",
+      "address": "1929 Martin Rapid, South Thomasport, SD 99383",
+      "description": "Either thank base page few perform box."
+    }
+  ]
+}

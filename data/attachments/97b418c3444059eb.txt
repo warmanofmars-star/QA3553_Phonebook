@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "92694e3e-fdb4-4922-9afb-e530af9ab569",
+      "name": "Emily",
+      "lastName": "Gilbert",
+      "email": "user_843c539fba@example.com",
+      "phone": "0523444749",
+      "address": "734 Timothy Motorway Apt. 398, Lake Anneside, MN 86181",
+      "description": "Seek growth task now cause."
+    },
+    {
+      "id": "3639c6a8-604a-407a-9baa-1ef7fed0a195",
+      "name": "Kyle",
+      "lastName": "Andrade",
+      "email": "user_147bc1e6a0@example.com",
+      "phone": "0524661666",
+      "address": "2260 Williams Isle Suite 517, East Tiffanychester, CA 15734",
+      "description": "Impact everybody military play."
+    }
+  ]
+}

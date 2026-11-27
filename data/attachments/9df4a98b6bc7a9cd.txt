@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (4 ms)
+
+--- Тело запроса ---
+{
+  "name": "Stephanie",
+  "lastName": "Thompson",
+  "phone": "123",
+  "email": "user_c9700fbc49@example.com",
+  "address": "3367 Dean Prairie Suite 067, East Karenfurt, AZ 23257",
+  "description": "I store call sell discover hotel."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:11",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

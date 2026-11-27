@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4ca1cd96-aafd-4d66-9043-0daced4d8ea9",
+      "name": "Matthew",
+      "lastName": "Rodriguez",
+      "email": "user_b86c7cdf88@example.com",
+      "phone": "0573041863",
+      "address": "077 Weaver Flat Apt. 033, North Scottfort, LA 12539",
+      "description": "Beautiful write child receive protect teacher."
+    }
+  ]
+}

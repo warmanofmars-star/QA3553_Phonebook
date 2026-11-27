@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Blankenship",
+  "phone": "0527405152",
+  "email": "user_eec021573e@example.com",
+  "address": "17664 Christopher Walks Apt. 875, Lake Tommyville, CO 63308",
+  "description": "Goal similar small cost apply material whom."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e48d89ec-3037-4066-9bd4-19a5c6ffb1ea"
+}

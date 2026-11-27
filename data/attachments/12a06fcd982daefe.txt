@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Cynthia",
+  "phone": "0555918693",
+  "email": "user_a9a56b5634@example.com",
+  "address": "46617 Wheeler Flats Suite 637, Meganmouth, WA 35279",
+  "description": "Best summer mind success.",
+  "id": "e7d4a5bd-bce5-448f-9ec3-75c07293c40a"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:10",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

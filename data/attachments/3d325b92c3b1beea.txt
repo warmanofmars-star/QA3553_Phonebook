@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Lynn",
+  "lastName": "Cummings",
+  "phone": "0522391874",
+  "email": "user_d5a86f6f0c@example.com",
+  "address": "886 Davis Branch Suite 408, North Michaela, PW 44121",
+  "description": "Might someone week still from water modern on.",
+  "id": "d8fc9d93-be1c-4322-8b4b-1ec2167f1c96"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

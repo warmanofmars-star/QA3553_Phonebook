@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Brown",
+  "phone": "0574728495",
+  "email": "user_d22750e44e@example.com",
+  "address": "189 Connor Knolls Suite 562, Jenniferstad, MN 05407",
+  "description": "More answer white early growth."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 16239024-e5d6-475b-a999-087b6847b1b4"
+}

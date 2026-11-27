@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Montgomery",
+  "phone": "0525477730",
+  "email": "user_55020d29bf@example.com",
+  "address": "61018 Jeffrey Circle Apt. 005, Stephanieshire, KS 21676",
+  "description": "Really imagine act."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 24f8438d-b2a9-46b6-9a13-f57d914c5ec6"
+}

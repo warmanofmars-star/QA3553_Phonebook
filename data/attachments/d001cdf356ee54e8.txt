@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "323047b3-d3bf-4508-abe9-eb8f19c3e373",
+      "name": "Catherine",
+      "lastName": "Ibarra",
+      "email": "user_aad953bb30@example.com",
+      "phone": "0518050025",
+      "address": "C",
+      "description": "Real partner oil."
+    }
+  ]
+}

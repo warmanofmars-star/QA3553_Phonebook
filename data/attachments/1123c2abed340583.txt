@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Richard",
+  "lastName": "Gregory",
+  "phone": "0522780689",
+  "email": "user_6768c9df4b@example.com",
+  "address": "5836 Thomas Pine, South Jonathanstad, NE 65078",
+  "description": "Chance magazine garden middle soon yard."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7ad68d4e-309f-43e2-be69-d69d75d67f46"
+}

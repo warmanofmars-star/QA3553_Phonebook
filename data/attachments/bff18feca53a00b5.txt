@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e562b4a8-b9e7-4343-be8b-218830447524",
+      "name": "Zachary",
+      "lastName": "Mitchell",
+      "email": "user_af4a062188@example.com",
+      "phone": "0525000742",
+      "address": "974 Lindsey Squares, New Daniel, GU 14802",
+      "description": "Tax take eye."
+    }
+  ]
+}

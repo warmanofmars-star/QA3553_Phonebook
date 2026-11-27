@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "95a4ee49-3d79-4361-b2f0-2bf94a4bc3dd",
+      "name": "Corey",
+      "lastName": "Mack",
+      "email": "user_6849e9c065@example.com",
+      "phone": "0518505678",
+      "address": "PSC 2858, Box 9577, APO AA 67643",
+      "description": "Education read think special administration."
+    },
+    {
+      "id": "80f30268-3df6-4067-85ff-ba15a77e61ae",
+      "name": "David",
+      "lastName": "Graham",
+      "email": "user_b5a0129060@example.com",
+      "phone": "0519546965",
+      "address": "7776 Henderson Stravenue, Port Timothy, MN 28749",
+      "description": "Customer stage southern both machine everyone my traditional."
+    }
+  ]
+}

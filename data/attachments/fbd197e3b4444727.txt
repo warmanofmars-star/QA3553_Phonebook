@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gregory",
+  "lastName": "Flynn",
+  "phone": "0528235737",
+  "email": "user_94a6a3d59f@example.com",
+  "address": "6709 Dennis Ways, Daviesburgh, DE 74040",
+  "description": "Hear kid recent stock lot lose occur."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c814979c-74b6-4bfd-b54c-7568a08b032c"
+}

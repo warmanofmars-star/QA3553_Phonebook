@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Silva",
+  "phone": "0531406450",
+  "email": "user_3d9500a10d@example.com",
+  "address": "8049 Beard Haven Apt. 542, Kimberlyhaven, MH 03242",
+  "description": "Machine note first pull."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 30c77a1c-e1ad-4497-a4ce-00b9903139da"
+}

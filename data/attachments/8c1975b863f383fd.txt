@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "30cb9841-dc03-4bc0-9977-32e299c82dfa",
+      "name": "Alyssa",
+      "lastName": "Nguyen",
+      "email": "user_91274018d6@example.com",
+      "phone": "0563556888",
+      "address": "524 Veronica Meadow Apt. 318, South Henry, NM 26542",
+      "description": "Build even outside performance choice most research."
+    }
+  ]
+}

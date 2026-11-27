@@ -1,0 +1,23 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (4 ms)
+
+--- Тело запроса ---
+{
+  "lastName": "Collins",
+  "phone": "0527557981",
+  "email": "user_0612704089@example.com",
+  "address": "1623 Jasmine Hill, Antonioton, TN 54691",
+  "description": "Stage lay tonight current attorney.",
+  "id": "e80d6d16-ef52-4b74-801a-126339b8bd01"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:09",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

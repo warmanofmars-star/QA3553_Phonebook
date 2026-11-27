@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f1dbbcc2-30cd-4668-be4d-e5b9d1bb20e4",
+      "name": "Jasmine",
+      "lastName": "Clark",
+      "email": "user_5177abf84f@example.com",
+      "phone": "0527201849",
+      "address": "50233 Linda Squares, West Jonathanstad, RI 19019",
+      "description": "Discover consider girl six."
+    }
+  ]
+}

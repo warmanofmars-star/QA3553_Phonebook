@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Lee",
+  "phone": "0524260164",
+  "email": "user_24f0c5111a@example.com",
+  "address": "783 Kathleen Meadow Suite 139, Martinhaven, VI 89982",
+  "description": "Physical behind including knowledge reason."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0600741b-81b4-4317-b5af-843b0e01cd79"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Catherine",
+  "lastName": "Ibarra",
+  "phone": "0518050025",
+  "email": "user_aad953bb30@example.com",
+  "address": "C",
+  "description": "Real partner oil."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 323047b3-d3bf-4508-abe9-eb8f19c3e373"
+}

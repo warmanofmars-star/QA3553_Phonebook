@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e8339a6e-afbe-4884-bf77-6a74ab8df067",
+      "name": "Martha",
+      "lastName": "Sanchez",
+      "email": "user_8caf386f8b@example.com",
+      "phone": "0527030098",
+      "address": "68036 Amy Vista, New Adamfort, NH 47270",
+      "description": "At we movement."
+    }
+  ]
+}

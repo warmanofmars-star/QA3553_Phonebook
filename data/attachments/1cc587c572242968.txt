@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Roy",
+  "lastName": "B",
+  "phone": "0522149121",
+  "email": "user_27f103d34e@example.com",
+  "address": "99648 Poole Tunnel, Brookeshire, CO 04181",
+  "description": "Event particularly gas guy arm knowledge court.",
+  "id": "8e41c657-4ced-4ac7-8f0f-771f72dad157"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

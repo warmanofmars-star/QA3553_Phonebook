@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dennis",
+  "lastName": "Burns",
+  "phone": "0582136525",
+  "email": "user_30f2e480f0@example.com",
+  "address": "3554 Nancy Mount Suite 929, Philipberg, MT 13202",
+  "description": "Production wait easy style affect analysis."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7fb8e61e-ebd3-4db5-b4ed-b39311582d4b"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "House",
+  "phone": "0519559096",
+  "email": "user_2db250fd31@example.com",
+  "address": "656 Robert Dam Suite 527, Hannahfort, NC 84602",
+  "description": "Phone no policy financial throughout share."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: a0363d89-65f2-4c5d-8650-b111a3ec6b31"
+}

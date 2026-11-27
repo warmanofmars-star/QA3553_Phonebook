@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gary",
+  "lastName": "Castillo",
+  "phone": "0532449487",
+  "email": "user_75e3d92680@example.com",
+  "address": "35925 Darren Trail Apt. 563, Moralesville, NY 52726",
+  "description": "Figure during use director order create."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 08bbe0b7-a7a3-4b32-8408-472dce1f099e"
+}

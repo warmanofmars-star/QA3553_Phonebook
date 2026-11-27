@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "9c003f67-f3c7-433b-b5be-affd5ac83995",
+      "name": "Laura",
+      "lastName": "Garrett",
+      "email": "user_e870ed2b1f@example.com",
+      "phone": "0523838341",
+      "address": "3427 Luke Village, Angelmouth, UT 06626",
+      "description": "Turn executive international nation ok."
+    }
+  ]
+}

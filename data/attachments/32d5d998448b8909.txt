@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+{
+  "name": "Courtney",
+  "lastName": "Bruce",
+  "phone": "0513352085",
+  "email": "user_a52fa3f394@example.com",
+  "address": "13103 Scott Estates, Webbstad, MA 66814",
+  "description": "Set recently and past stock approach."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e4460461-511e-43ab-aeba-d8e0b4839a6d"
+}

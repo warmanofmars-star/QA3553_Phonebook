@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2985f39d-e291-47c4-8fb6-e467201c1c09",
+      "name": "Elizabeth",
+      "lastName": "Kelly",
+      "email": "user_7ff3a1ce12@example.com",
+      "phone": null,
+      "address": "25295 Caitlin Dam, Michaeltown, OR 53183",
+      "description": "Really still specific however true agree politics."
+    }
+  ]
+}

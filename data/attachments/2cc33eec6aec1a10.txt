@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chad",
+  "lastName": "Wilson",
+  "phone": "0529855931",
+  "email": "user_83781064c5@example.com",
+  "address": "276 Potter River Suite 408, West David, NV 03724",
+  "description": "Blood last compare player research several red change."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fa29c6d2-36c5-414a-8660-04191d918297"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (96 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jacqueline",
+  "lastName": "Robinson",
+  "phone": "0516007969",
+  "email": "user_ea224b41e0@example.com",
+  "address": "USCGC Collins, FPO AA 88115",
+  "description": "Sure report including information anything seven allow government."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 643021b4-b8e4-4a3b-8257-240f3b99018a"
+}

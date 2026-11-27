@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e80d6d16-ef52-4b74-801a-126339b8bd01",
+      "name": "Nicole",
+      "lastName": "Collins",
+      "email": "user_0612704089@example.com",
+      "phone": "0527557981",
+      "address": "1623 Jasmine Hill, Antonioton, TN 54691",
+      "description": "Stage lay tonight current attorney."
+    }
+  ]
+}

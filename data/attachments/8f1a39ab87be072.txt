@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7ab56534-2f58-4e6e-b318-c3147f90b94a",
+      "name": "Sally",
+      "lastName": "Macdonald",
+      "email": "user_9733d41e79@example.com",
+      "phone": "0533477946",
+      "address": "USS Vincent, FPO AP 43466",
+      "description": "Without point theory do college look total."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+{
+  "name": "Melissa",
+  "lastName": "Jackson",
+  "phone": "0511089291",
+  "email": "user_c153fa7d20@example.com",
+  "address": "67411 Miller Lodge, East Jacob, MI 75473",
+  "description": "Big yard physical eye eat move."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 2b114a79-c8bb-4358-b0a1-2e91eb577f13"
+}

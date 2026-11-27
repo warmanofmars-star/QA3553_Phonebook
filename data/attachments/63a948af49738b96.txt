@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Andrew",
+  "lastName": "Webb",
+  "phone": "0521658116",
+  "email": "user_40e8844061@example.com",
+  "address": "Unit 1841 Box 6563, DPO AP 64604",
+  "description": "From themselves might president hot good."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f4a6de8e-d815-4438-aaac-9b2a0b9bae3c"
+}

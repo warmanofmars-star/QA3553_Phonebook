@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (97 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Reynolds",
+  "phone": "0531198606",
+  "email": "user_5afbc01289@example.com",
+  "address": "1753 Cathy Circles Suite 120, Wilsonmouth, WA 13419",
+  "description": "Daughter pattern single."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 71dffe88-1de5-4e11-91dd-aa77ad47c11c"
+}

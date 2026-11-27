@@ -1,0 +1,11 @@
+19:37:33 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+19:37:33 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+19:37:35 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (280 ms)
+19:37:35 [INFO   ] API: Токен добавлен в заголовки сессии
+19:37:35 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+19:37:36 [INFO   ] STEP: Войти как user_58ab6ef648@example.com
+19:37:36 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/add
+19:37:37 [INFO   ] STEP: Заполнить форму контакта (телефон 0501234567)
+19:37:37 [INFO   ] STEP: Нажать Save
+19:37:38 [INFO   ] UI: Текст Alert: 'Email not valid: must be a well-formed email address'
+19:37:40 [INFO   ] DRIVER: Видео e02d2035-d68c-4256-9fcf-eaf903ce1df4.mp4 прикреплено к отчёту

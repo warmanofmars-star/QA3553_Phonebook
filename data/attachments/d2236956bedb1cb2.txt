@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Denise",
+  "lastName": "Adams",
+  "phone": "0516387122",
+  "email": "пользователь@example.com",
+  "address": "PSC 9871, Box 4737, APO AP 76911",
+  "description": "Product drop sell dinner always serious watch."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 492dbb3d-d303-4d35-b53e-58d7d1c06a30"
+}

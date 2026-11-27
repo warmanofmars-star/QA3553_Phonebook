@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Gomez",
+  "phone": "0516728255",
+  "email": "user_bd1f4377ed@example.com",
+  "address": "575 Ashley Estates, Oscartown, MS 99671",
+  "description": "Against purpose article suffer whether."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e1b5afd3-a0cb-4b58-983e-836bef02496a"
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "24f8438d-b2a9-46b6-9a13-f57d914c5ec6",
+      "name": "Jennifer",
+      "lastName": "Montgomery",
+      "email": "user_55020d29bf@example.com",
+      "phone": "0525477730",
+      "address": "61018 Jeffrey Circle Apt. 005, Stephanieshire, KS 21676",
+      "description": "Really imagine act."
+    }
+  ]
+}

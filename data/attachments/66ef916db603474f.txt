@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shane",
+  "lastName": "House",
+  "phone": "0533212520",
+  "email": "user_bacd82e708@example.com",
+  "address": "USNV Kline, FPO AE 87464",
+  "description": "Pass degree everyone without."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0ce2bb74-6bc0-4aba-b972-d49c8a80835a"
+}

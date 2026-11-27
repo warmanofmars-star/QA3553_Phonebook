@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Zachary",
+  "lastName": "Mitchell",
+  "phone": "0525000742",
+  "email": "user_af4a062188@example.com",
+  "address": "974 Lindsey Squares, New Daniel, GU 14802",
+  "description": "Tax take eye."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e562b4a8-b9e7-4343-be8b-218830447524"
+}

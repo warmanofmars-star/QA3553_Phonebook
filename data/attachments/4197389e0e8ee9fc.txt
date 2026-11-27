@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Chad",
+  "lastName": "Smith",
+  "phone": "0539042970",
+  "email": "user_086e61ff75@example.com",
+  "address": "09026 Lee Port Apt. 158, East Andrew, GA 51147",
+  "description": "Beautiful nor suggest reality rate police."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 598ba6f1-3efe-41cd-a1f3-09d90ba17b02"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (66 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kyle",
+  "lastName": "Andrade",
+  "phone": "0524661666",
+  "email": "user_147bc1e6a0@example.com",
+  "address": "2260 Williams Isle Suite 517, East Tiffanychester, CA 15734",
+  "description": "Impact everybody military play."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3639c6a8-604a-407a-9baa-1ef7fed0a195"
+}

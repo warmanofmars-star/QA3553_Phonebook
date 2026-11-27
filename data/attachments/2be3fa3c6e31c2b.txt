@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kimberly",
+  "lastName": "Evans",
+  "phone": "0520005320",
+  "email": "user_c45fe29961@example.com",
+  "address": "59324 Emily Club Suite 505, Phillipsshire, ID 31287",
+  "description": "Those card speak experience mission."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: db54ecc8-4b45-4fce-98ea-4437d87d5f41"
+}

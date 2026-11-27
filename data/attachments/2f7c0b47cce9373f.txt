@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a3bfc7b8-0f22-4cf7-8aa4-76b7bc1f5e02",
+      "name": "Andrea",
+      "lastName": "Waller",
+      "email": "user_1a81fdf215@example.com",
+      "phone": "0519673493",
+      "address": "900 Davis Hollow, Garciafort, AL 59402",
+      "description": "Either evidence senior mother be agree."
+    },
+    {
+      "id": "598ba6f1-3efe-41cd-a1f3-09d90ba17b02",
+      "name": "Chad",
+      "lastName": "Smith",
+      "email": "user_086e61ff75@example.com",
+      "phone": "0539042970",
+      "address": "09026 Lee Port Apt. 158, East Andrew, GA 51147",
+      "description": "Beautiful nor suggest reality rate police."
+    }
+  ]
+}

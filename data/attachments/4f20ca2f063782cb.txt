@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmine",
+  "lastName": "Jones",
+  "phone": "0519270073",
+  "email": "user_11fd9a59dd@example.com",
+  "address": "437 Matthew Valleys Suite 724, Brownville, RI 85493",
+  "description": "American dog dream article hard brother."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5c40e65e-e945-4303-adc5-d8b86b29835d"
+}

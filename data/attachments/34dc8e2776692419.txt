@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "David",
+  "lastName": "Cohen",
+  "phone": "0564227349",
+  "email": "user_bfce64ffa0@example.com",
+  "address": "5763 Mandy Viaduct Suite 254, Lake Richard, VA 03118",
+  "description": "12345",
+  "id": "3e9b0e64-2a6e-431e-adc8-faafac104371"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

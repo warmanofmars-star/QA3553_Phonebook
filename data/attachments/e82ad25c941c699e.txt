@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "782b6ae1-7e8e-4b6a-993f-a1b2fa8ddfa4",
+      "name": "Sean",
+      "lastName": "Hinton",
+      "email": "user_ca650a8ab4@example.com",
+      "phone": "0518592630",
+      "address": "394 Grant Freeway, Normanmouth, AK 03623",
+      "description": "Course relationship no value action perhaps half."
+    },
+    {
+      "id": "7ad68d4e-309f-43e2-be69-d69d75d67f46",
+      "name": "Richard",
+      "lastName": "Gregory",
+      "email": "user_6768c9df4b@example.com",
+      "phone": "0522780689",
+      "address": "5836 Thomas Pine, South Jonathanstad, NE 65078",
+      "description": "Chance magazine garden middle soon yard."
+    }
+  ]
+}

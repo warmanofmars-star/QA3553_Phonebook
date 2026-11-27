@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Paul",
+  "lastName": "Walker",
+  "phone": "0526771002",
+  "email": "user_e3f933a928@example.com",
+  "address": "0944 Gomez Forges, Dennisfurt, NV 17808",
+  "description": "Land modern suggest sea."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8d49d21f-129a-4b20-b4a3-ec40f51c4712"
+}

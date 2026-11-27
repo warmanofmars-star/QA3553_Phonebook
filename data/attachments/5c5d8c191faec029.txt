@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "12345",
+  "lastName": "Chen",
+  "phone": "0510140595",
+  "email": "user_eb14bff54f@example.com",
+  "address": "03760 Miller Loaf Suite 463, East Kevin, HI 06358",
+  "description": "Color look me simply energy officer success."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 10e822c2-5d60-49f2-b3b5-57a04577ea46"
+}

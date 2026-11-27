@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dakota",
+  "lastName": "Lee",
+  "phone": "0579609169",
+  "email": "user_bd1f4377ed@example.com",
+  "address": "380 Melissa Manor, Port Barrymouth, VI 48452",
+  "description": "Thing voice fill back rise different event wrong."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ee9142b9-c9e0-41c4-9242-0e1b43c393e3"
+}

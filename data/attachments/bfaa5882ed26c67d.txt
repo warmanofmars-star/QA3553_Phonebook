@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3b830883-26e5-45ac-9691-8f16a06ccc14",
+      "name": "Melissa",
+      "lastName": "Allen",
+      "email": "user_02930f8b4b@example.com",
+      "phone": "0512072842",
+      "address": "13157 Brian Center Suite 607, Normatown, MT 68794",
+      "description": "Last Mr heavy fall all."
+    }
+  ]
+}

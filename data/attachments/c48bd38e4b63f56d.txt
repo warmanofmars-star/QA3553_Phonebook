@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "66538be4-18c4-464e-baa0-3f15e1e1db52",
+      "name": "Emily",
+      "lastName": "Horton",
+      "email": "user_0c53c6015a@example.com",
+      "phone": "0515472312",
+      "address": "84622 Krista Cliffs, New Christopherville, VT 88082",
+      "description": "Available her describe hundred why debate."
+    }
+  ]
+}

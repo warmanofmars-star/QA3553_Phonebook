@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "   ",
+  "phone": "0513213868",
+  "email": "user_de2c975269@example.com",
+  "address": "7779 Hernandez Bridge, North Laurenmouth, ME 90214",
+  "description": "Food real skin lead two clear television.",
+  "id": "cbe2cc37-616e-47e2-8191-fd2acd0aa4e1"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:03",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "lastName": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

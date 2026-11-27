@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "875e6745-4ba9-4cb2-9a32-27199fa6f52b",
+      "name": "Justin",
+      "lastName": "Gomez",
+      "email": "user_7e0e032183@example.com",
+      "phone": "0585357261",
+      "address": "49823 Carrie Camp Suite 858, Tylerstad, MN 05146",
+      "description": "Since agency bad range still film region."
+    }
+  ]
+}

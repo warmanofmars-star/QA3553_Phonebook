@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tracy",
+  "lastName": "Jones",
+  "phone": "0515335122",
+  "email": "user_5a2c15e3ef@example.com",
+  "address": "3004 Morrison Stream Suite 155, East Daniel, MP 18646",
+  "description": "Prove because join prepare tree."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dd0c8342-fbcb-4143-a6a4-4aa8d4361fc7"
+}

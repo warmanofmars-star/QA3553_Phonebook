@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f2c2d975-92cb-40af-85b7-7ec86842e237",
+      "name": "!@#$%^&*()_+-=",
+      "lastName": "Haynes",
+      "email": "user_0bbe2bba10@example.com",
+      "phone": "0525265723",
+      "address": "08242 Robert Fields, Dariusmouth, NC 37850",
+      "description": "Member positive his training."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Park",
+  "phone": "0531823054",
+  "email": "user_5b25bb6084@example.com",
+  "address": "84102 Fernandez Mountains, Boydshire, IL 86469",
+  "description": "Upon in movement through offer here."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 457904ea-8435-4f12-b1ba-7e7525bd81d7"
+}

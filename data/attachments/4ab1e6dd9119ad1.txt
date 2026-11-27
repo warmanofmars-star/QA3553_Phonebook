@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e48d89ec-3037-4066-9bd4-19a5c6ffb1ea",
+      "name": "Amber",
+      "lastName": "Blankenship",
+      "email": "user_eec021573e@example.com",
+      "phone": "0527405152",
+      "address": "17664 Christopher Walks Apt. 875, Lake Tommyville, CO 63308",
+      "description": "Goal similar small cost apply material whom."
+    }
+  ]
+}

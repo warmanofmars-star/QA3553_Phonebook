@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a6d58541-3dab-4887-917a-5c20eb5462f2",
+      "name": "Christy",
+      "lastName": "Mason",
+      "email": "user_abc27c3629@example.com",
+      "phone": "0532447696",
+      "address": "8899 Robbins Heights, Rebeccaside, MI 91535",
+      "description": "Politics growth election movement no while agree."
+    }
+  ]
+}

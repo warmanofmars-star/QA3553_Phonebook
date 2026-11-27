@@ -1,0 +1,16 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Raven",
+  "lastName": "Horton",
+  "email": "user_6d0af0f569@example.com",
+  "address": "13022 Robert Rest Suite 755, West Davidport, MI 33642",
+  "description": "Rise instead response coach its rise station."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7c472f80-1eed-4030-8879-4b3475b3b8de"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (67 ms)
+
+--- Тело запроса ---
+{
+  "name": "Taylor",
+  "lastName": "Garner",
+  "phone": "0529505332",
+  "email": "user_2ef6ccf4a2@example.com",
+  "address": "7042 Justin Lock Suite 195, Boyleton, OH 77825",
+  "description": "Not skin message music."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 5049afc8-1eed-41fe-926a-abc395317a3b"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (58 ms)
+
+--- Тело запроса ---
+{
+  "name": "Michael",
+  "lastName": "Kelley",
+  "phone": "0510476165",
+  "email": "user_759d6c0e63@example.com",
+  "address": "9876 Wright Fork Apt. 942, Weaverside, PR 21351",
+  "description": "Everything yes face stand."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ceffe199-4956-405c-b15f-0f4017ba1130"
+}

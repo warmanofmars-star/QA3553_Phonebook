@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sharon",
+  "lastName": "Adams",
+  "phone": "0514847340",
+  "email": "user_a391aee51e@example.com",
+  "address": "6171 Ortiz Unions Suite 205, Mcdonaldfurt, LA 01862",
+  "description": "Water person wall news western."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d0a62e54-44e4-4864-91ff-297d035f2b51"
+}

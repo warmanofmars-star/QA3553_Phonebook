@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "!@#$%^&*()_+-=",
+  "lastName": "Haynes",
+  "phone": "0525265723",
+  "email": "user_0bbe2bba10@example.com",
+  "address": "08242 Robert Fields, Dariusmouth, NC 37850",
+  "description": "Member positive his training."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: f2c2d975-92cb-40af-85b7-7ec86842e237"
+}

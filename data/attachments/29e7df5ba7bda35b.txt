@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e0868970-7f8c-4935-8821-4ca7bf863c0d",
+      "name": "Mary",
+      "lastName": "Carter",
+      "email": "user_084294910b@example.com",
+      "phone": "0532110515",
+      "address": "092 Michael Cliffs, Ashleyburgh, AL 77464",
+      "description": "Maintain cause analysis direction require national choice plant."
+    }
+  ]
+}

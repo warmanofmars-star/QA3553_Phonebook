@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7489e346-3061-447b-b2bb-ccd7d589c638",
+      "name": "Jared",
+      "lastName": "Acosta",
+      "email": "user_4a7cad58f4@example.com",
+      "phone": "0511662516",
+      "address": "USCGC Young, FPO AE 57604",
+      "description": "Room could bed not party himself."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "ae8bd81c-4e67-46a8-b9b5-51d9b0f9229d",
+      "name": "Steven",
+      "lastName": "Kane",
+      "email": "user_511965fe8f@example.com",
+      "phone": "0566521913",
+      "address": "83094 Elizabeth Mall, South Christopherstad, NH 19333",
+      "description": "Story room modern woman imagine effect whatever."
+    }
+  ]
+}

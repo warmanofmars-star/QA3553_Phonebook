@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "f0cea89f-7896-4fce-b93f-fd0b9c0b89d4",
+      "name": "Crystal",
+      "lastName": "Mitchell",
+      "email": null,
+      "phone": "0511902056",
+      "address": "24474 Roberts Village, Powellstad, KS 11370",
+      "description": "Garden national and science."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brittany",
+  "lastName": "Hernandez",
+  "phone": "0538903714",
+  "email": "user_d54bdc1391@example.com",
+  "address": "199 Matthew Centers, Jackiehaven, FM 02998",
+  "description": "Face fly art culture board political eye remain."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c344c827-cac0-4263-984f-313a5451ddfd"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Smith",
+  "phone": "0565774485",
+  "email": "user_382a2b31fb@example.com",
+  "address": "995 Andrea Pass Apt. 225, East Riley, VI 73975",
+  "description": "!@#$%^&*()_+-=12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8de186b8-1d90-4252-a76f-2fd2cd49ab43"
+}

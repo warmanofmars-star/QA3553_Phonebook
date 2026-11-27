@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Yesenia",
+  "lastName": "Franklin",
+  "phone": "0513627733",
+  "email": "user_19f461f8ad@example.com",
+  "address": "711 Waller Shores, North Philipmouth, CO 11711",
+  "description": "Everything stage summer sit hour drop hand."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 645c06b6-da50-4747-9b08-c097b299672a"
+}

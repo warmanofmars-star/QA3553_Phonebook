@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "Penny",
+  "lastName": "Sanchez",
+  "phone": "0559161656",
+  "email": "user@",
+  "address": "18494 April Turnpike, Newmanhaven, MI 81281",
+  "description": "Suggest network wear himself color."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:01",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+{
+  "name": "Sally",
+  "lastName": "Macdonald",
+  "phone": "0533477946",
+  "email": "user_9733d41e79@example.com",
+  "address": "USS Vincent, FPO AP 43466",
+  "description": "Without point theory do college look total."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7ab56534-2f58-4e6e-b318-c3147f90b94a"
+}

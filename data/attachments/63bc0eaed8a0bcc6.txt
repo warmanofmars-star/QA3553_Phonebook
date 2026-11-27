@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (4 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Powell",
+  "phone": "0527561623",
+  "email": "user_82e6ee4d24@example.com",
+  "address": "74862 Wiggins Circle, Dawsonshire, WV 13994",
+  "description": "Boy read true smile way relationship."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:10",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

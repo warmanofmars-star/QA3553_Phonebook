@@ -1,0 +1,20 @@
+19:38:42 [INFO   ] DRIVER: Ожидание узла chrome в Selenium Grid: http://selenium-hub:4444/status
+19:38:42 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: chrome
+19:38:43 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (269 ms)
+19:38:43 [INFO   ] API: Токен добавлен в заголовки сессии
+19:38:43 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+19:38:43 [INFO   ] STEP: Войти как user_b283ebb04d@example.com
+19:38:45 [INFO   ] API: POST /v1/contacts -> 200 (58 ms)
+19:38:45 [INFO   ] API: GET /v1/contacts -> 200 (56 ms)
+19:38:45 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+19:38:45 [INFO   ] STEP: Открыть карточку контакта 0585382319
+19:38:45 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+19:38:46 [INFO   ] STEP: Изменить поля формы редактирования
+19:38:46 [INFO   ] STEP: Изменить поле name на 'Lorraine'
+19:38:46 [INFO   ] STEP: Изменить поле last_name на 'Combs'
+19:38:46 [INFO   ] STEP: Изменить поле phone на '0520587975'
+19:38:46 [INFO   ] STEP: Изменить поле email на 'user_afadaf336e@example.com'
+19:38:46 [INFO   ] STEP: Изменить поле address на 'Unit 1360 Box 7669, DPO AA 23299'
+19:38:46 [INFO   ] STEP: Изменить поле description на 'Open seat could create should place senior.'
+19:38:52 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Open seat could create should place senior.', фактически '[object Undefined]'
+19:38:54 [INFO   ] DRIVER: Видео f3533aa823d7a726eefc0bc718dcb75c.mp4 прикреплено к отчёту

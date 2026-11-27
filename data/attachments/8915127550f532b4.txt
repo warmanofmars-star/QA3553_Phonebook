@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Adam",
+  "lastName": "Mack",
+  "phone": "0520303793",
+  "email": "user_10904b6a5b@example.com",
+  "address": "58767 Donna Fort, Leeberg, NE 37980",
+  "description": "Remember college cup hour."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d0a68e54-8ef1-46e5-9c46-1975a8cda6d9"
+}

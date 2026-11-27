@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "4bb44eb5-38b7-4a5f-b8aa-6c497a6fd9ae",
+      "name": "Nicole",
+      "lastName": "Taylor",
+      "email": "user_1b8975d327@example.com",
+      "phone": "0510018791",
+      "address": "37472 Luis Inlet Suite 893, Dannyhaven, UT 91398",
+      "description": "Director material employee."
+    }
+  ]
+}

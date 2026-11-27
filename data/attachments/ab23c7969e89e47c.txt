@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "54569e59-25df-4d2a-9355-d4ce3015da65",
+      "name": "Sandra",
+      "lastName": "Robertson",
+      "email": "user_18e1a41bb3@example.com",
+      "phone": "0536822305",
+      "address": "8733 Hunter Avenue, Lake Joseburgh, WI 13416",
+      "description": "Leader method class human book movement agree."
+    }
+  ]
+}

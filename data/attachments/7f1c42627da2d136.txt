@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Mark",
+  "lastName": "Franklin",
+  "phone": "0512509384",
+  "email": "a@b",
+  "address": "Unit 9168 Box 0534, DPO AA 52963",
+  "description": "Seat raise song specific."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 8c6610f7-b1c8-4ec4-9042-9493318df5ca"
+}

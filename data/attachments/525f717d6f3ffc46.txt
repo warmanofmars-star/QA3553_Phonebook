@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "c1086d75-1c59-410f-b061-6014af46a319",
+      "name": "Mitchell",
+      "lastName": "Adams",
+      "email": "user_dfc205a25f@example.com",
+      "phone": "0523742750",
+      "address": "1410 Stacy Rue, Abbottville, OR 23883",
+      "description": "Their country return hard."
+    },
+    {
+      "id": "a0363d89-65f2-4c5d-8650-b111a3ec6b31",
+      "name": "Michael",
+      "lastName": "House",
+      "email": "user_2db250fd31@example.com",
+      "phone": "0519559096",
+      "address": "656 Robert Dam Suite 527, Hannahfort, NC 84602",
+      "description": "Phone no policy financial throughout share."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dave",
+  "lastName": "Butler",
+  "phone": "0527874764",
+  "email": "user_fdde24addb@example.com",
+  "address": "477 King Pines, West Stephenport, OR 96779",
+  "description": "Occur Mrs it sing."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ccb9677b-443f-4be2-bc33-a0e7444bd087"
+}

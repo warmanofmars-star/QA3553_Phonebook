@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (95 ms)
+
+--- Тело запроса ---
+{
+  "name": "Joshua",
+  "lastName": "Johnson",
+  "phone": "0524022769",
+  "email": "user_628de28450@example.com",
+  "address": "06738 Randall Parkway Suite 684, Port Jill, SC 41154",
+  "description": "To store paper oil police hotel see."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cb9b436d-4191-41b6-afce-8b04bdd37cb2"
+}

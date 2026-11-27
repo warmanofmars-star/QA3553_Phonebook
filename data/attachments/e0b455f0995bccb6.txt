@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a8b26c07-0809-4a26-8afd-e1dc757f6284",
+      "name": "Lori",
+      "lastName": "Ball",
+      "email": "user_617cd090c7@example.com",
+      "phone": "0527392134",
+      "address": "430 Kelsey Islands, Cannonside, AR 62356",
+      "description": "Tend consumer every magazine site future region."
+    }
+  ]
+}

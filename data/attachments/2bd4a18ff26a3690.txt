@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (37 ms)
+
+--- Тело запроса ---
+{
+  "name": "John",
+  "lastName": "Wall",
+  "phone": "0517776394",
+  "email": "user_d5ab7d3879@example.com",
+  "address": "5620 Kelsey Glen, Kennethshire, FL 69673",
+  "description": "Reflect far pretty fund friend paper exist someone."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e85e841b-55e8-49e0-ab5a-03c95a4df5ca"
+}

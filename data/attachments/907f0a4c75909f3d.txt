@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5010f11c-76f6-43cf-bef1-1282994be804",
+      "name": "API_UPDATED_NAME",
+      "lastName": "Ross",
+      "email": "user_27c88a3186@example.com",
+      "phone": "0538023525",
+      "address": "3904 Neal Village Apt. 278, East Derek, MS 23069",
+      "description": "This contact was updated via API"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (39 ms)
+
+--- Тело запроса ---
+{
+  "name": "Bridget",
+  "lastName": "Montoya",
+  "phone": "0517408160",
+  "email": "user_50f9506f12@example.com",
+  "address": "659 Jennifer Loaf Suite 857, Roberthaven, MN 01299",
+  "description": "Military close trouble stage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 40af196e-1182-4a15-a77c-abbb00f08836"
+}

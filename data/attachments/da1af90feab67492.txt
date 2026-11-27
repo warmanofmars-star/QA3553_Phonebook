@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Brittany",
+  "lastName": "Byrd",
+  "phone": "0532564043",
+  "email": "user_7464a79d25@example.com",
+  "address": "6891 Francis Groves Suite 942, East Patricialand, NJ 51901",
+  "description": "Gun might dream tree stop institution."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: c29dc6d0-08d8-4938-841d-523cce181a34"
+}

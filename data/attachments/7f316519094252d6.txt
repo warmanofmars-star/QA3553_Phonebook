@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (5 ms)
+
+--- Тело запроса ---
+{
+  "name": "   ",
+  "lastName": "Stevens",
+  "phone": "0533108746",
+  "email": "user_6f5745bac7@example.com",
+  "address": "1956 Jonathan Junctions Apt. 217, Lake Adammouth, NE 61851",
+  "description": "Break music six interest long hit.",
+  "id": "c64fe677-3d7b-49ae-b375-3092249c1701"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:05",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

@@ -1,0 +1,15 @@
+19:38:30 [INFO   ] DRIVER: Ожидание узла firefox в Selenium Grid: http://selenium-hub:4444/status
+19:38:30 [INFO   ] DRIVER: Создание сессии в Selenium Grid, браузер: firefox
+19:38:32 [INFO   ] API: POST /v1/user/registration/usernamepassword -> 200 (320 ms)
+19:38:32 [INFO   ] API: Токен добавлен в заголовки сессии
+19:38:32 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/login
+19:38:32 [INFO   ] STEP: Войти как user_4423e9995d@example.com
+19:38:33 [INFO   ] API: POST /v1/contacts -> 200 (62 ms)
+19:38:33 [INFO   ] API: GET /v1/contacts -> 200 (60 ms)
+19:38:33 [INFO   ] UI: Открываем страницу: https://telranedu.pages.dev/contacts
+19:38:33 [INFO   ] STEP: Открыть карточку контакта 0517476410
+19:38:34 [INFO   ] STEP: Нажать Edit и дождаться формы с данными контакта
+19:38:34 [INFO   ] STEP: Изменить поля формы редактирования
+19:38:34 [INFO   ] STEP: Изменить поле description на 'Least nature left box line mother strong.'
+19:38:39 [ERROR  ] UI: Приложение изменило введённое значение: поле description: ожидалось 'Least nature left box line mother strong.', фактически '[object Undefined]'
+19:38:42 [INFO   ] DRIVER: Видео 1fa08c2c-d7e5-4f2d-9719-8f8e120d1a2e.mp4 прикреплено к отчёту

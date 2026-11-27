@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Simon",
+  "phone": "0513213868",
+  "email": "user_de2c975269@example.com",
+  "address": "7779 Hernandez Bridge, North Laurenmouth, ME 90214",
+  "description": "Food real skin lead two clear television."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: cbe2cc37-616e-47e2-8191-fd2acd0aa4e1"
+}

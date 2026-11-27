@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "92694e3e-fdb4-4922-9afb-e530af9ab569",
+      "name": "Emily",
+      "lastName": "Gilbert",
+      "email": "user_843c539fba@example.com",
+      "phone": "0523444749",
+      "address": "734 Timothy Motorway Apt. 398, Lake Anneside, MN 86181",
+      "description": "Seek growth task now cause."
+    }
+  ]
+}

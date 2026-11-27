@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (93 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "3b289855-df26-481b-800b-8a5c557f4909",
+      "name": "Melody",
+      "lastName": "Dean",
+      "email": "",
+      "phone": "0518846606",
+      "address": "704 Becker Ways, Travisbury, CO 75337",
+      "description": "Author technology speak likely three TV."
+    }
+  ]
+}

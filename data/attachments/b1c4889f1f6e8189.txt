@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (44 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "8c6610f7-b1c8-4ec4-9042-9493318df5ca",
+      "name": "Mark",
+      "lastName": "Franklin",
+      "email": "a@b",
+      "phone": "0512509384",
+      "address": "Unit 9168 Box 0534, DPO AA 52963",
+      "description": "Seat raise song specific."
+    }
+  ]
+}

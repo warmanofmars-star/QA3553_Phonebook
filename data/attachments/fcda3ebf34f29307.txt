@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Brown",
+  "phone": "0513375534",
+  "email": "user_60bc7ceb02@example.com",
+  "address": "049 Kenneth Valley, Longstad, KS 57718",
+  "description": "Try news maintain notice college."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7f8920ca-9055-4349-a464-b0e6e184840d"
+}

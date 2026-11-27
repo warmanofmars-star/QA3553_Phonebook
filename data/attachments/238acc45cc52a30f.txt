@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (56 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "5b826d2f-30d4-4df8-9255-3b67daed3329",
+      "name": "Dawn",
+      "lastName": "Hughes",
+      "email": "user_337e30cf53@example.com",
+      "phone": "0575622615",
+      "address": "328 Warren Spurs, Teresaside, NY 38902",
+      "description": "Capital realize hair beat."
+    }
+  ]
+}

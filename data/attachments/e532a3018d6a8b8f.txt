@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (60 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "dd0c8342-fbcb-4143-a6a4-4aa8d4361fc7",
+      "name": "Tracy",
+      "lastName": "Jones",
+      "email": "user_5a2c15e3ef@example.com",
+      "phone": "0515335122",
+      "address": "3004 Morrison Stream Suite 155, East Daniel, MP 18646",
+      "description": "Prove because join prepare tree."
+    }
+  ]
+}

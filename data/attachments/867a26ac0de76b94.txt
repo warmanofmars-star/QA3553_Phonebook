@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "054bc684-f344-4653-a01a-f29c28994444",
+      "name": "Susan",
+      "lastName": "Vargas",
+      "email": "user_4839b14aeb@example.com",
+      "phone": "0519289903",
+      "address": "4677 Holloway Hills Apt. 246, Josephchester, PA 97653",
+      "description": "Ever mention main economic without."
+    },
+    {
+      "id": "d833f885-549b-426f-bfd6-2ceb828e565c",
+      "name": "Susan",
+      "lastName": "Vargas",
+      "email": "user_4839b14aeb@example.com",
+      "phone": "0519289903",
+      "address": "4677 Holloway Hills Apt. 246, Josephchester, PA 97653",
+      "description": "Ever mention main economic without."
+    }
+  ]
+}

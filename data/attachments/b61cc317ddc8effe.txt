@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (59 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "db54ecc8-4b45-4fce-98ea-4437d87d5f41",
+      "name": "Kimberly",
+      "lastName": "Evans",
+      "email": "user_c45fe29961@example.com",
+      "phone": "0520005320",
+      "address": "59324 Emily Club Suite 505, Phillipsshire, ID 31287",
+      "description": "Those card speak experience mission."
+    },
+    {
+      "id": "00585c9d-555d-40cd-86f3-56faf33b5663",
+      "name": "Isaiah",
+      "lastName": "Gates",
+      "email": "user_872f9f6861@example.com",
+      "phone": "0520005320",
+      "address": "6912 Carolyn Radial, Cochrantown, MO 13059",
+      "description": "Plan whom bad like check may."
+    }
+  ]
+}

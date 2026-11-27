@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "1909ca06-a587-4399-acb1-cd62548d03b2",
+      "name": "Walter",
+      "lastName": "Garrett",
+      "email": "user_a7ec9b4c01@example.com",
+      "phone": "0565585582",
+      "address": "00881 Lewis Place Suite 102, Davidsonberg, CT 36433",
+      "description": "Front whole significant same offer."
+    }
+  ]
+}

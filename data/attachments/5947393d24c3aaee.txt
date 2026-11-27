@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (38 ms)
+
+--- Тело запроса ---
+{
+  "name": "A",
+  "lastName": "Lopez",
+  "phone": "0512778438",
+  "email": "user_4c39c0be5f@example.com",
+  "address": "711 Moreno Union, Rodgersport, NJ 91455",
+  "description": "Through PM other billion."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: b0509741-5c6c-405e-8c7d-b135695e84e2"
+}

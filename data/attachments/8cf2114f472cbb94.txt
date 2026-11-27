@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a0e753a1-a421-4104-95fc-83b63f130955",
+      "name": "Louis",
+      "lastName": "Ford",
+      "email": "user_168554a5ed@example.com",
+      "phone": "0510419544",
+      "address": "8105 Raymond Walk, Brittneyshire, KS 55933",
+      "description": "Then idea work be across."
+    }
+  ]
+}

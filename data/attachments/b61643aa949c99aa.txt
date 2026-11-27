@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (34 ms)
+
+--- Тело запроса ---
+{
+  "name": "Frank",
+  "lastName": "12345",
+  "phone": "0524756576",
+  "email": "user_014d83208c@example.com",
+  "address": "1350 Sullivan Road, North Tracy, ID 18527",
+  "description": "Dream them chair reality child attorney challenge."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 0ae2caf7-f545-4cf1-b63a-57ff01f8a07b"
+}

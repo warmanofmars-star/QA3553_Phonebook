@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Suzanne",
+  "lastName": "Miller",
+  "phone": "0525604303",
+  "email": "user_fb3649e622@example.com",
+  "address": "717 Mason Falls, Daniellefurt, CO 31504",
+  "description": "Itself leave factor relationship black others."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dc9e141c-28f6-4627-a31b-25f1d0d64296"
+}

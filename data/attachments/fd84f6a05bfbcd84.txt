@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Dustin",
+  "lastName": "Maddox",
+  "phone": "0519105641",
+  "email": "user_9503b8a9b6@example.com",
+  "address": "5328 Soto Plaza Suite 892, Nathanfurt, CO 78522",
+  "description": "Plan wish others."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 7aaccdb7-f4f0-4e9b-8636-b32e4c8f3d6b"
+}

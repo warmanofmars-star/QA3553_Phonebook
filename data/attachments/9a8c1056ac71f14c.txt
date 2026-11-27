@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Tanya",
+  "lastName": "Obrien",
+  "phone": "0517060281",
+  "email": "user_026ad93c3a@example.com",
+  "address": "Unit 7694 Box 8620, DPO AP 68152",
+  "description": "Identify water establish quite current she guess."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: dbe2f1ea-7ce5-44df-b3f3-9c8eea574de3"
+}

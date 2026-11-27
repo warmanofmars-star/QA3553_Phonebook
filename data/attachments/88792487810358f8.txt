@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "d0a62e54-44e4-4864-91ff-297d035f2b51",
+      "name": "Sharon",
+      "lastName": "Adams",
+      "email": "user_a391aee51e@example.com",
+      "phone": "0514847340",
+      "address": "6171 Ortiz Unions Suite 205, Mcdonaldfurt, LA 01862",
+      "description": "Water person wall news western."
+    },
+    {
+      "id": "d5b6e309-d10b-4db0-b38c-8c4752c0ab87",
+      "name": "Christina",
+      "lastName": "Johnson",
+      "email": "user_8fcef8ba9a@example.com",
+      "phone": "0516314143",
+      "address": "5659 Austin Expressway, Port Wendybury, TN 52269",
+      "description": "Than owner main enjoy food."
+    }
+  ]
+}

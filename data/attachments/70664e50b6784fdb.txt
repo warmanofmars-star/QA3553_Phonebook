@@ -1,0 +1,18 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (36 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christopher",
+  "lastName": "Walker",
+  "phone": "0550074294",
+  "email": "user_10aafef744@example.com",
+  "address": "3249 Julie Haven Apt. 154, Richardbury, AL 71336",
+  "description": "Pass see year.",
+  "id": "b2a621d3-3b46-4958-86f2-0154fcd946e7"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d7bd3dc2-fb25-4850-b1ac-032c640c1479"
+}

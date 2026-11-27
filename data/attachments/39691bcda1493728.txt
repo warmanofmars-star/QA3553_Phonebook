@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "a6d58541-3dab-4887-917a-5c20eb5462f2",
+      "name": "Christy",
+      "lastName": "Mason",
+      "email": "user_abc27c3629@example.com",
+      "phone": "0532447696",
+      "address": "8899 Robbins Heights, Rebeccaside, MI 91535",
+      "description": "Politics growth election movement no while agree."
+    },
+    {
+      "id": "2413a8a0-77dd-4c76-826e-7de14061bd82",
+      "name": "Brandi",
+      "lastName": "Thompson",
+      "email": "user_b6a2f712ac@example.com",
+      "phone": "0513603566",
+      "address": "46708 Jensen Village Apt. 723, Lake Elizabeth, NH 79670",
+      "description": "Theory miss particular consumer stop."
+    }
+  ]
+}

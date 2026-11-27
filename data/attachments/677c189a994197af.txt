@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "97da4f9d-22e1-49e3-b3af-57cb6614b6bc",
+      "name": "Tammy",
+      "lastName": "Jones",
+      "email": "user_64919af040@example.com",
+      "phone": "0511567891",
+      "address": "4557 Lopez Mills, Castroton, DC 50259",
+      "description": "Card final herself clearly paper."
+    }
+  ]
+}

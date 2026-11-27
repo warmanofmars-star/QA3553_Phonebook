@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amanda",
+  "lastName": "Clark",
+  "phone": "0524385504",
+  "email": "user_df3828518c@example.com",
+  "address": "719 Stephanie Inlet Suite 859, Port Keithtown, AZ 12380",
+  "description": "Contain kitchen culture bring past member."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 413967a2-8d65-4d94-932d-1e3939789ffb"
+}

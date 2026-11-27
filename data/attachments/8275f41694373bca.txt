@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Amber",
+  "lastName": "Bradshaw",
+  "phone": "0511656371",
+  "email": "",
+  "address": "8380 Torres Plaza, South Paul, MI 68698",
+  "description": "Adult someone up task really chance similar.",
+  "id": "6a412a79-36e6-439a-9310-8251fce5dbcd"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

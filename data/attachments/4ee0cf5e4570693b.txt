@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jeffrey",
+  "lastName": "Shea",
+  "phone": "0539538847",
+  "email": "user_756848d0c3@example.com",
+  "address": "3249 Bush Branch, Mccormickburgh, MI 36087",
+  "description": "Away public indeed."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6d904d41-ee78-4882-982a-b7344dfe59ed"
+}

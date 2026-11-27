@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (15 ms)
+
+--- Тело запроса ---
+{
+  "name": "",
+  "lastName": "Phillips",
+  "phone": "0525198980",
+  "email": "user_99da97a250@example.com",
+  "address": "628 Waters Oval, Nelsonmouth, NE 80796",
+  "description": "Possible miss test before glass."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:11",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "name": "must not be blank"
+  },
+  "path": "/v1/contacts"
+}

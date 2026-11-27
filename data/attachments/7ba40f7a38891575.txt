@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (64 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anthony",
+  "lastName": "Gray",
+  "phone": "0520548035",
+  "email": "user_9d8134a716@example.com",
+  "address": "705 Scott Crest, Hutchinsonchester, CO 62731",
+  "description": "Television smile suggest somebody vote dog result."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 3df2b1eb-7caf-4b3a-b173-6c6a9703c5e8"
+}

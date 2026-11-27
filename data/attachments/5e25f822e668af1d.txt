@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "643021b4-b8e4-4a3b-8257-240f3b99018a",
+      "name": "Jacqueline",
+      "lastName": "Robinson",
+      "email": "user_0a2717c274@example.com",
+      "phone": "0516007969",
+      "address": "USCGC Collins, FPO AA 88115",
+      "description": "Sure report including information anything seven allow government."
+    }
+  ]
+}

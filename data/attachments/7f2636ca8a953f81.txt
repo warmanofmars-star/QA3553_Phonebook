@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "2e4c04c6-91ed-47ec-ae73-65a095a800e9",
+      "name": "Steven",
+      "lastName": "Schultz",
+      "email": "user_f66e03d3c7@example.com",
+      "phone": "0517152902",
+      "address": "2810 Evan Roads, Luisside, WI 02557",
+      "description": "Most their laugh us data."
+    }
+  ]
+}

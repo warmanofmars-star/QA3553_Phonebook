@@ -1,0 +1,18 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Shelby",
+  "lastName": "Anthony",
+  "phone": "0530308831",
+  "email": "user_310caca662@example.com",
+  "address": "32589 Ward Lake, South Kelly, NH 56123",
+  "description": "Modern visit challenge sister.",
+  "id": "6d95f15c-c281-41d7-8490-2ddbffac43e2"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

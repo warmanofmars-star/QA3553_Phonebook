@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (43 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "af2dd3da-cb09-4148-b34d-b815ffc920d2",
+      "name": "Sarah",
+      "lastName": "Fowler",
+      "email": "user_c29ddb57e6@example.com",
+      "phone": "0519105641",
+      "address": "50445 Sarah Squares Suite 188, Franklinfurt, CT 19270",
+      "description": "Too my show happen cell test security several."
+    },
+    {
+      "id": "7aaccdb7-f4f0-4e9b-8636-b32e4c8f3d6b",
+      "name": "Dustin",
+      "lastName": "Maddox",
+      "email": "user_9503b8a9b6@example.com",
+      "phone": "0519105641",
+      "address": "5328 Soto Plaza Suite 892, Nathanfurt, CO 78522",
+      "description": "Plan wish others."
+    }
+  ]
+}

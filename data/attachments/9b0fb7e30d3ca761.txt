@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (91 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "39c836b7-e6a0-4157-95dd-40dac88aba0d",
+      "name": "Kevin",
+      "lastName": "Lewis",
+      "email": "user_e492834eeb@example.com",
+      "phone": "0514406852",
+      "address": "PSC 1882, Box 9460, APO AA 17986",
+      "description": "Join upon toward third floor feel player."
+    },
+    {
+      "id": "9e8b3f4c-667e-4ad0-a042-1c70d803f367",
+      "name": "Valerie",
+      "lastName": "Sanchez",
+      "email": "user_d32b0175a0@example.com",
+      "phone": "0514406852",
+      "address": "42938 Anderson Street, Justinborough, AS 20148",
+      "description": "No executive hard might your eat generation good."
+    }
+  ]
+}

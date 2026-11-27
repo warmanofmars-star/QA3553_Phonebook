@@ -1,0 +1,23 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (4 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jessica",
+  "lastName": "Baker",
+  "phone": "050-1234567",
+  "email": "user_7951fe81d5@example.com",
+  "address": "23593 Gina Canyon, Michaelmouth, CO 25496",
+  "description": "Picture although wait billion."
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:00",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "phone": "Phone number must contain only digits! And length min 10, max 15!"
+  },
+  "path": "/v1/contacts"
+}

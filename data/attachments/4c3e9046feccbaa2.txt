@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (92 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "e60a695f-9aff-48cc-9198-8ddbc1a1f040",
+      "name": "Lisa",
+      "lastName": "Woods",
+      "email": "user_c1aef8731a@example.com",
+      "phone": "0512727530",
+      "address": "20235 Laura Island, North Kayla, WI 68140",
+      "description": "Would material message."
+    }
+  ]
+}

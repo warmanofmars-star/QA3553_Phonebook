@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (32 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "eb3da900-08cf-43e4-b2ba-a3a1e5b98f66",
+      "name": "Jenny",
+      "lastName": "Jennings",
+      "email": "user_20c5ed5f71@example.com",
+      "phone": "0525937783",
+      "address": "949 Christina Meadow Suite 792, Benjaminborough, MS 32174",
+      "description": "Operation camera size detail blue dinner movie."
+    }
+  ]
+}

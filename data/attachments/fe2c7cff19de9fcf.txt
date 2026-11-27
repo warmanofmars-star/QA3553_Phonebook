@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (90 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "db1f4430-09e9-46c3-9cd8-c5bc319860a9",
+      "name": "Jeremy",
+      "lastName": "Ramirez",
+      "email": "user_0c99d93280@example.com",
+      "phone": "0526611058",
+      "address": "6565 Black Isle Apt. 839, East Heatherstad, SC 42133",
+      "description": ""
+    }
+  ]
+}

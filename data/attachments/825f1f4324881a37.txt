@@ -1,0 +1,17 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (74 ms)
+
+--- Тело запроса ---
+{
+  "name": "Suzanne",
+  "lastName": "Miller",
+  "phone": "0525604303",
+  "address": "717 Mason Falls, Daniellefurt, CO 31504",
+  "description": "Itself leave factor relationship black others.",
+  "id": "dc9e141c-28f6-4627-a31b-25f1d0d64296"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was updated"
+}

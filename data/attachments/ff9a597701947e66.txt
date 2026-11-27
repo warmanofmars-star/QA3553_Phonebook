@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Gabriela",
+  "lastName": "Sanchez",
+  "phone": "0527232284",
+  "email": "user_068f70d587@example.com",
+  "address": "1929 Martin Rapid, South Thomasport, SD 99383",
+  "description": "Either thank base page few perform box."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 6d83b5c5-29e4-480b-8fa2-c91e6845711b"
+}

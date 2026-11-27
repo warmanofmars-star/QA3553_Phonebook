@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Micheal",
+  "lastName": "Payne",
+  "phone": "0512271786",
+  "email": "user_c02d1a8681@example.com",
+  "address": "989 Bowers Trail Suite 046, Port Michaelburgh, MI 99360",
+  "description": "12345"
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: e534b98d-ef35-4709-8619-c68d50ac9a60"
+}

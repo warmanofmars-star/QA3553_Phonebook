@@ -1,0 +1,29 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (94 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "7df22746-df60-4e83-9181-de1b32ecd064",
+      "name": "Rachel",
+      "lastName": "Miller",
+      "email": "user_ace5d345a2@example.com",
+      "phone": "0519217940",
+      "address": "886 Jamie Dam Apt. 734, New Derrickstad, NM 02244",
+      "description": "Return especially series fact stay."
+    },
+    {
+      "id": "f26f8f1d-a2b1-4e5e-bbf6-51c13402fbe7",
+      "name": "Jonathan",
+      "lastName": "Turner",
+      "email": "user_ace5d345a2@example.com",
+      "phone": "0519468328",
+      "address": "3455 Greer Mall, West Austin, WV 84911",
+      "description": "Step mean two approach."
+    }
+  ]
+}

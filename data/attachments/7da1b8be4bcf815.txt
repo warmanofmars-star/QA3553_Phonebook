@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Walter",
+  "lastName": "Garrett",
+  "phone": "0565585582",
+  "email": "user_a7ec9b4c01@example.com",
+  "address": "00881 Lewis Place Suite 102, Davidsonberg, CT 36433",
+  "description": "Front whole significant same offer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 1909ca06-a587-4399-acb1-cd62548d03b2"
+}

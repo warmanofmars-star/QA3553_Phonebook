@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (45 ms)
+
+--- Тело запроса ---
+{
+  "name": "Christina",
+  "lastName": "Johnson",
+  "phone": "0516314143",
+  "email": "user_8fcef8ba9a@example.com",
+  "address": "5659 Austin Expressway, Port Wendybury, TN 52269",
+  "description": "Than owner main enjoy food."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d5b6e309-d10b-4db0-b38c-8c4752c0ab87"
+}

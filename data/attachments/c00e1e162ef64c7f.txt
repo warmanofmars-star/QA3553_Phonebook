@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (33 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "87bf3a05-8323-4e51-aad3-259fd0a414a3",
+      "name": "Julia",
+      "lastName": "Roy",
+      "email": "user_c81481c5c9@example.com",
+      "phone": "0531556111",
+      "address": "12184 Cummings Coves, West Crystal, AR 19500",
+      "description": "Imagine sister our ahead beat."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "0600741b-81b4-4317-b5af-843b0e01cd79",
+      "name": "Kevin",
+      "lastName": "Lee",
+      "email": "user_24f0c5111a@example.com",
+      "phone": "0524260164",
+      "address": "783 Kathleen Meadow Suite 139, Martinhaven, VI 89982",
+      "description": "Physical behind including knowledge reason."
+    }
+  ]
+}

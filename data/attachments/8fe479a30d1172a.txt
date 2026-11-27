@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (46 ms)
+
+--- Тело запроса ---
+{
+  "name": "Anita",
+  "lastName": "Barnes",
+  "phone": "0547823039",
+  "email": "user_dfac7cc50b@example.com",
+  "address": "491 Madison Ridges Suite 384, Port Meghanville, AZ 23221",
+  "description": "Challenge per collection seven."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d77b3797-d72a-4d49-9701-2adc0c55abe7"
+}

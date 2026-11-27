@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (63 ms)
+
+--- Тело запроса ---
+{
+  "name": "Isaiah",
+  "lastName": "Gilbert",
+  "phone": "0581591361",
+  "email": "user_6a39470793@example.com",
+  "address": "6248 Wendy Track Apt. 077, Caldwellstad, ME 45665",
+  "description": "Fire however read involve catch."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fb024462-18e0-496b-849c-1a59a071051f"
+}

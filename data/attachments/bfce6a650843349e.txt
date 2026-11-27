@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (65 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Walton",
+  "phone": "0532564764",
+  "email": "user_23a9e475b8@example.com",
+  "address": "866 John Camp Apt. 406, Port Markborough, IA 36240",
+  "description": "Art small conference system want."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: fa7fa453-9555-42f5-9db8-0d33ecb70b26"
+}

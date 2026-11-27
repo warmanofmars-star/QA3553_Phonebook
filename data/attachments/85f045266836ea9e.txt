@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (62 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "fa7fa453-9555-42f5-9db8-0d33ecb70b26",
+      "name": "Jennifer",
+      "lastName": "Walton",
+      "email": "user_23a9e475b8@example.com",
+      "phone": "0532564764",
+      "address": "866 John Camp Apt. 406, Port Markborough, IA 36240",
+      "description": "Art small conference system want."
+    }
+  ]
+}

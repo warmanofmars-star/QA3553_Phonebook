@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Steven",
+  "lastName": "Kane",
+  "phone": "0566521913",
+  "email": "user_511965fe8f@example.com",
+  "address": "83094 Elizabeth Mall, South Christopherstad, NH 19333",
+  "description": "Story room modern woman imagine effect whatever."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: ae8bd81c-4e67-46a8-b9b5-51d9b0f9229d"
+}

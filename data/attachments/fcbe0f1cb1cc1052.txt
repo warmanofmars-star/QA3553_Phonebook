@@ -1,0 +1,24 @@
+PUT https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 400 (15 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jasmine",
+  "lastName": "Clark",
+  "phone": "0527201849",
+  "email": "user@",
+  "address": "50233 Linda Squares, West Jonathanstad, RI 19019",
+  "description": "Discover consider girl six.",
+  "id": "f1dbbcc2-30cd-4668-be4d-e5b9d1bb20e4"
+}
+
+--- Тело ответа ---
+{
+  "timestamp": "2026-11-27T19:37:06",
+  "status": 400,
+  "error": "Bad Request",
+  "message": {
+    "email": "must be a well-formed email address"
+  },
+  "path": "/v1/contacts"
+}

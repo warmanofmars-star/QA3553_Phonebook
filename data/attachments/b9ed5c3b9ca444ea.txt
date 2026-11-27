@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (61 ms)
+
+--- Тело запроса ---
+{
+  "name": "Jennifer",
+  "lastName": "Soto",
+  "phone": "0571316173",
+  "email": "user_1c03e0bd5c@example.com",
+  "address": "989 Shaffer Viaduct, Patrickshire, SC 30089",
+  "description": "They possible kitchen soon couple but stage."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: 4359f6dc-fc80-4b9e-a63f-561f7b204c4c"
+}

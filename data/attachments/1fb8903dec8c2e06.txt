@@ -1,0 +1,20 @@
+GET https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (57 ms)
+
+--- Тело запроса ---
+<пусто>
+
+--- Тело ответа ---
+{
+  "contacts": [
+    {
+      "id": "6b198aff-c9cc-4cc8-ab6c-5281856d427b",
+      "name": "John",
+      "lastName": "Hart",
+      "email": "user_17c11b212c@example.com",
+      "phone": "0523066332",
+      "address": "Unit 8507 Box 8598, DPO AP 69553",
+      "description": "Set ground course difficult upon part real personal."
+    }
+  ]
+}

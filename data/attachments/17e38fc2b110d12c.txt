@@ -1,0 +1,17 @@
+POST https://contactapp-telran-backend.herokuapp.com/v1/contacts
+Статус: 200 (35 ms)
+
+--- Тело запроса ---
+{
+  "name": "Kevin",
+  "lastName": "Bradford",
+  "phone": "0514396380",
+  "email": "user_a7fd14cc21@example.com",
+  "address": "0172 Mckinney Brooks, Courtneyborough, MI 71664",
+  "description": "Note thought tough listen officer."
+}
+
+--- Тело ответа ---
+{
+  "message": "Contact was added! ID: d8fc9d93-be1c-4322-8b4b-1ec2167f1c96"
+}
