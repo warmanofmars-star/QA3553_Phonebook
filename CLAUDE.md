@@ -51,6 +51,11 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
   точный код ответа — отдельным тестом.
 - **UI-тесты:** предусловия через API (фикстуры `create_contact`, `created_contact`, `temp_user`),
   действие через UI, результат — через API. Негативные асинхронные проверки — через `eventually()`.
+- **Сбои бэкенда в Playwright-тестах (`utils/network_faults.py`) — только через фикстуру
+  `network_faults`**, не `NetworkFaults(page)`: на teardown она проверяет, что каждый установленный
+  сбой перехватил хотя бы один запрос (иначе ERROR — его не спрячет строгий xfail).
+- **`respond()` без тела — только для статусов из `ERROR_BODIES`;** для остальных (200, 404, 502...)
+  тело передаётся явно, иначе `ValueError`.
 - **Page Objects:** публичные методы — действия пользователя с декоратором `@step`; локаторы и
   ожидания — приватные (`_click`, `_is_visible`...). В тестах нет локаторов и `WebDriverWait`.
 - **Каждому тесту — свой временный пользователь** (`temp_user`). Постоянный аккаунт из `.env`
