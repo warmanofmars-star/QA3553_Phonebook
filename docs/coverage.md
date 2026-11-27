@@ -239,7 +239,7 @@
 |---|---|---|---|
 | `DOUBLE_SUBMIT` | Общие принципы UX: защита формы от повторной отправки | `test_double_click_sends_one_post` | 👁 наблюдается — Кнопка Save не блокируется на время запроса: двойной клик отправляет два POST /v1/contacts |
 | `SILENT_FAILURE` | Общие принципы UX: видимость состояния системы, сообщение об ошибке | `test_failure_is_shown_to_user` | 👁 наблюдается — При 500 или обрыве сети на добавление, редактирование и удаление интерфейс ничего не сообщает |
-| `EDIT_FORM_CLOSES_ON_FAILURE` | Общие принципы UX: не терять введённые пользователем данные | `test_edit_form_stays_open_on_put_failure` | 👁 наблюдается — При сбое PUT /v1/contacts форма редактирования закрывается, введённые значения пропадают |
+| `EDIT_FORM_CLOSES_ON_FAILURE` | Общие принципы UX: не терять введённые пользователем данные | `test_edit_form_stays_open_on_put_failure` | 👁 наблюдается — Форма редактирования закрывается сразу при нажатии Save, ещё до ответа сервера, поэтому при сбое PUT /v1/contacts введённые значения пропадают |
 | `ENDLESS_LOADING` | Общие принципы UX: у загрузки есть конец — данные, пустое состояние или ошибка | `test_list_failure_does_not_load_forever` | 👁 наблюдается — При 500 на GET /v1/contacts список навсегда остаётся в состоянии 'Loading...' |
 | `EXPIRED_SESSION_NO_REDIRECT` | Семантика HTTP 401 (RFC 9110): запрос требует аутентификации | `test_expired_session_redirects_to_login` | 👁 наблюдается — При 401 на GET /v1/contacts интерфейс остаётся на /contacts с 'Loading...' и кнопкой Sign Out |
 | `UNHANDLED_NETWORK_ERROR` | Общие практики фронтенда: сетевые ошибки fetch перехватываются | `test_network_error_is_handled` | 👁 наблюдается — При обрыве сети на POST /v1/contacts на странице необработанное исключение 'Failed to fetch' |
