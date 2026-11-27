@@ -103,7 +103,7 @@ Observations by importance:
 |---:|---|---|---|
 | 1 | `DOUBLE_SUBMIT` | Save is not disabled while the request is pending: a double click sends two `POST /v1/contacts` and creates two identical contacts (the duplicate itself is the known bug `DUPLICATE_CONTACT`, SRS T45) | UX: protect forms from double submission |
 | 2 | `SILENT_FAILURE` | A 500 or a dropped connection on add, edit or delete shows no message at all | UX: visibility of system status |
-| 3 | `EDIT_FORM_CLOSES_ON_FAILURE` | On a failed `PUT` the edit form closes as if saved; the entered values are lost | UX: do not lose user input |
+| 3 | `EDIT_FORM_CLOSES_ON_FAILURE` | The edit form closes as soon as Save is clicked, before the server responds, so on a failed `PUT /v1/contacts` the entered values are lost | UX: do not lose user input |
 | 4 | `ENDLESS_LOADING` | A 500 on the contact list leaves `Loading...` forever | UX: loading ends with data, an empty state or an error |
 | 5 | `EXPIRED_SESSION_NO_REDIRECT` | A 401 on the contact list keeps the user on `/contacts` with `Loading...` and *Sign Out* | HTTP 401 semantics (RFC 9110) |
 | 6 | `UNHANDLED_NETWORK_ERROR` | A dropped connection on `POST` raises an unhandled `Failed to fetch` in the page | Frontend practice: fetch errors are handled |

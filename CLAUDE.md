@@ -84,6 +84,11 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
 - Совместимость кода — Python 3.12+ (`target-version` в `pyproject.toml`), запуск — на 3.14.
   Локальный venv — `py -3.14 -m venv .venv` (Windows) или `python3.14 -m venv .venv`: просто `python`
   может оказаться другой версией.
+- **В Git Bash не активируй `.venv` через `source .venv/Scripts/activate`.** Если сессия запущена
+  из терминала с уже активированным venv (PyCharm/PowerShell), в окружении есть `_OLD_VIRTUAL_PATH`
+  в формате Windows (`C:\...;C:\...`); `activate` восстанавливает из неё PATH, и пропадают
+  `grep`, `tail`, `uname`. Вместо этого — `.venv/Scripts/python.exe -m ...` или
+  `PATH="$PWD/.venv/Scripts:$PATH"` (так же для коммита, чтобы хуки нашли ruff).
 - **Требования проекта — в `docs/requirements/`** (SRS в PDF, лежит только локально,
   в git не попадает). Ожидаемые результаты тестов берутся оттуда; номера требований
   (T1–T86, F1–F16) используются в тегах тестов, например `@allure.tag("SRS-T41")`.
