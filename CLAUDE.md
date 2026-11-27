@@ -84,6 +84,11 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
 - Совместимость кода — Python 3.12+ (`target-version` в `pyproject.toml`), запуск — на 3.14.
   Локальный venv — `py -3.14 -m venv .venv` (Windows) или `python3.14 -m venv .venv`: просто `python`
   может оказаться другой версией.
+- **В Git Bash не активируй `.venv` через `source .venv/Scripts/activate`.** Если сессия запущена
+  из терминала с уже активированным venv (PyCharm/PowerShell), в окружении есть `_OLD_VIRTUAL_PATH`
+  в формате Windows (`C:\...;C:\...`); `activate` восстанавливает из неё PATH, и пропадают
+  `grep`, `tail`, `uname`. Вместо этого — `.venv/Scripts/python.exe -m ...` или
+  `PATH="$PWD/.venv/Scripts:$PATH"` (так же для коммита, чтобы хуки нашли ruff).
 - **Требования проекта — в `docs/requirements/`** (SRS в PDF, лежит только локально,
   в git не попадает). Ожидаемые результаты тестов берутся оттуда; номера требований
   (T1–T86, F1–F16) используются в тегах тестов, например `@allure.tag("SRS-T41")`.
@@ -92,8 +97,13 @@ COMPOSE_PROFILES=chrome BROWSER=chrome docker compose up --build --exit-code-fro
 
 - Работай в той ветке, на которой ты запущен; если это `main` — остановись и спроси.
   Исключение: если задача явно в режиме «только чтение», на `main` работать можно, ничего не меняя.
-- **Любой запуск pytest, включая `--collect-only`, удаляет `logs/*.log` прошлого прогона**
-  (`pytest_configure` в `conftest.py`). Нужные логи сохрани до запуска.
+- **Обычный запуск pytest удаляет `logs/*.log` прошлого прогона** (`pytest_configure`
+  в `conftest.py`). Нужные логи сохрани до запуска. `--collect-only` и `ci/coverage_matrix.py`
+  (и его хук pre-commit) логи не трогают.
+- **Матрица покрытия:** после изменения тегов тестов, `data/known_bugs.py`, `data/observations.py`
+  или `docs/requirements_index.yml` — `python ci/coverage_matrix.py`, и `docs/coverage.md` в тот же
+  коммит (хук pre-commit `coverage-matrix` и job Lint проверят `--check`). Справочник проверяется
+  закрыто: неизвестный ключ или флаг не bool — ошибка; новый ключ — сначала в константы генератора.
 - **Упавшие тесты и XPASS не «чини» навешиванием xfail и не ослабляй проверки.** Собери данные
   (тест, браузер, текст ошибки, воспроизводится ли повторно) и сообщи — решение принимает пользователь.
 - Инфраструктурные проблемы (Docker, Grid, зависимости) можно чинить самостоятельно, но каждое

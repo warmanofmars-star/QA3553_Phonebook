@@ -62,9 +62,16 @@ def pytest_configure(config):
       * воркер xdist (gw0, gw1...) -> logs/pytest_gw0.log, logs/pytest_gw1.log, ...
       * главный процесс xdist      -> файла нет: сам он тесты не выполняет
     Явно переданный --log-file из командной строки имеет приоритет.
+    При --collect-only логи прошлого прогона не трогаются (см. ниже).
     """
     for name in NOISY_LOGGERS:
         logging.getLogger(name).setLevel(logging.WARNING)
+
+    if config.option.collectonly:
+        # Тесты только собираются — их собирают ci/coverage_matrix.py и хук pre-commit на каждом
+        # коммите. Удаление логов стёрло бы последний настоящий прогон. log_file тоже не задаём:
+        # pytest открывает этот файл на запись и обнуляет его, даже если ничего не пишет.
+        return
 
     worker_id = os.environ.get("PYTEST_XDIST_WORKER")  # есть только внутри воркера xdist
     is_xdist_controller = worker_id is None and config.getoption("numprocesses", default=None)

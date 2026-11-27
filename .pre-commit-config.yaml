@@ -87,3 +87,17 @@ repos:
         language: system
         pass_filenames: false
         files: (^docker-compose.*\.ya?ml$|^ci/check_selenium_images\.py$)
+
+      # docs/coverage.md актуален: та же проверка, что в job Lint, но до коммита — иначе
+      # устаревшая матрица всплыла бы только в CI. Тесты не запускаются, только собираются
+      # (логи logs/*.log при этом не трогаются, см. pytest_configure в conftest.py).
+      # pass_filenames: false — матрица строится по всему набору тестов сразу.
+      # files — всё, от чего зависит матрица: теги тестов, реестры багов и наблюдений,
+      # справочник требований, сам генератор и настройки сбора pytest.
+      # language: system — нужны pytest и pyyaml из .venv, как и хукам ruff
+      - id: coverage-matrix
+        name: coverage matrix docs/coverage.md is up to date
+        entry: python ci/coverage_matrix.py --check
+        language: system
+        pass_filenames: false
+        files: (^(tests|api_tests|data)/|^docs/(requirements_index\.yml|coverage\.md)$|^ci/coverage_matrix\.py$|^conftest\.py$|^pytest\.ini$)
