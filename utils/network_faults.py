@@ -65,6 +65,16 @@ class HeldRequests:
 class NetworkFaults:
     def __init__(self, page: Page):
         self.page = page
+        # Запросы, ответ (или сетевая ошибка) по которым дошёл до страницы: fulfill даёт
+        # "requestfinished", abort — "requestfailed". Список, а не set: Request сравнивается по `is`
+        self._delivered: list[Request] = []
+        # Обработчик — метод, а не list.append: Playwright помечает функцию-обработчик
+        # атрибутом, а у встроенного метода атрибутов нет (AttributeError при подписке)
+        page.on("requestfinished", self._on_delivered)
+        page.on("requestfailed", self._on_delivered)
+
+    def _on_delivered(self, request: Request) -> None:
+        self._delivered.append(request)
 
     def _intercept(self, url: str, method: str, action: Callable[[Route], None]) -> list[Request]:
         intercepted: list[Request] = []
@@ -115,3 +125,44 @@ class NetworkFaults:
             if time.monotonic() >= deadline:
                 raise PreconditionError(f"За {timeout_ms} мс перехвачено {len(requests)} запросов из {count}")
             self.page.wait_for_timeout(100)
+
+    def wait_for_delivery(self, requests, count: int = 1, timeout_ms: int | None = None) -> None:
+        """Ждёт, пока ответ (или сетевая ошибка) на первые count перехваченных запросов дошёл до страницы.
+
+        wait_for_requests ловит момент перехвата, а ответ доходит до страницы позже
+        (замер 9f-0: на 8–12 мс). Проверка состояния сразу после перехвата — гонка:
+        приложение ещё не видело ответа и не успело "сделать плохое".
+        Удержанный (hold) запрос ответа не получит — это PreconditionError, а не провал проверки.
+        """
+        timeout_ms = timeout_ms or settings.pw_timeout_ms
+        deadline = time.monotonic() + timeout_ms / 1000
+        self.wait_for_requests(requests, count, timeout_ms)
+        while True:
+            waiting = [r for r in requests[:count] if not any(r is d for d in self._delivered)]
+            if not waiting:
+                return
+            if time.monotonic() >= deadline:
+                pending = ", ".join(f"{r.method} {r.url}" for r in waiting)
+                raise PreconditionError(f"За {timeout_ms} мс ответ не дошёл до страницы: {pending}")
+            self.page.wait_for_timeout(100)
+
+    def wait_requests_quiet(self, requests, quiet_ms: int, timeout_ms: int | None = None) -> None:
+        """Ждёт, пока число перехваченных запросов не меняется quiet_ms подряд.
+
+        Для негативной проверки "лишнего запроса нет": у отсутствия запроса нет сигнала,
+        поэтому ждём окно тишины. Каждый новый запрос сбрасывает отсчёт. Запрос, ушедший
+        позже окна, проверка не увидит — как не видела и фиксированная пауза.
+        """
+        timeout_ms = timeout_ms or settings.pw_timeout_ms
+        deadline = time.monotonic() + timeout_ms / 1000
+        seen = len(requests)
+        quiet_since = time.monotonic()
+        while time.monotonic() - quiet_since < quiet_ms / 1000:
+            if time.monotonic() >= deadline:
+                raise PreconditionError(
+                    f"За {timeout_ms} мс запросы не утихли на {quiet_ms} мс: перехвачено {len(requests)}"
+                )
+            self.page.wait_for_timeout(50)
+            if len(requests) != seen:
+                seen = len(requests)
+                quiet_since = time.monotonic()
