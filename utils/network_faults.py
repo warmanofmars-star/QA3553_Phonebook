@@ -17,10 +17,14 @@
 
 Запросы с другим методом уходят дальше (route.fallback): на один адрес можно
 навесить несколько сбоев для разных методов.
+
+В тестах NetworkFaults берётся из фикстуры network_faults (conftest.py): после теста она
+вызывает verify_all_applied() — сбой, не перехвативший ни одного запроса, роняет тест.
 """
 
 import time
 from collections.abc import Callable
+from dataclasses import dataclass, field
 
 from playwright.sync_api import Page, Request, Route
 
@@ -62,9 +66,23 @@ class HeldRequests:
             self.routes.pop(0).fallback()
 
 
+@dataclass
+class InstalledFault:
+    """Установленный сбой и запросы, которые он перехватил."""
+
+    kind: str  # respond <статус> / abort / hold
+    method: str
+    url: str
+    requests: list[Request] = field(default_factory=list)
+
+    def __str__(self) -> str:
+        return f"{self.kind} {self.method} {self.url}"
+
+
 class NetworkFaults:
     def __init__(self, page: Page):
         self.page = page
+        self.installed: list[InstalledFault] = []
         # Запросы, ответ (или сетевая ошибка) по которым дошёл до страницы: fulfill даёт
         # "requestfinished", abort — "requestfailed". Список, а не set: Request сравнивается по `is`
         self._delivered: list[Request] = []
@@ -76,8 +94,10 @@ class NetworkFaults:
     def _on_delivered(self, request: Request) -> None:
         self._delivered.append(request)
 
-    def _intercept(self, url: str, method: str, action: Callable[[Route], None]) -> list[Request]:
-        intercepted: list[Request] = []
+    def _intercept(self, kind: str, url: str, method: str, action: Callable[[Route], None]) -> list[Request]:
+        fault = InstalledFault(kind, method, url)
+        self.installed.append(fault)
+        intercepted = fault.requests
 
         def handler(route: Route) -> None:
             if route.request.method != method:
@@ -90,13 +110,26 @@ class NetworkFaults:
         return intercepted
 
     def respond(self, url: str, method: str, status: int, body: dict | None = None) -> list[Request]:
-        """Ответ с заданным статусом и телом (по умолчанию — типичное тело ошибки)."""
-        payload = body if body is not None else ERROR_BODIES.get(status, {})
-        return self._intercept(url, method, lambda route: route.fulfill(status=status, json=payload))
+        """Ответ с заданным статусом и телом.
+
+        Без тела — только для статусов из ERROR_BODIES (подставится типичное тело ошибки).
+        Для остальных статусов тело передаётся явно, иначе ValueError.
+        """
+        # Закрыто по умолчанию: молчаливое {} для 200 превращает "успешный ответ" в сломанные
+        # данные (у фронтенда нет поля contacts), а для 404/502 — в ответ, которого настоящий
+        # сервер не присылает. Тест проверял бы не тот сценарий, который описывает
+        if body is None and status not in ERROR_BODIES:
+            raise ValueError(
+                f"Для статуса {status} нет тела по умолчанию (есть для {sorted(ERROR_BODIES)}): передайте body явно"
+            )
+        payload = body if body is not None else ERROR_BODIES[status]
+        return self._intercept(
+            f"respond {status}", url, method, lambda route: route.fulfill(status=status, json=payload)
+        )
 
     def abort(self, url: str, method: str) -> list[Request]:
         """Обрыв сети: браузер получает сетевую ошибку, ответа нет."""
-        return self._intercept(url, method, lambda route: route.abort())
+        return self._intercept("abort", url, method, lambda route: route.abort())
 
     def hold(self, url: str, method: str) -> HeldRequests:
         """Запрос висит без ответа до held.release(), затем уходит на настоящий сервер."""
@@ -108,8 +141,20 @@ class NetworkFaults:
             else:
                 held.routes.append(route)
 
-        held.requests = self._intercept(url, method, action)
+        held.requests = self._intercept("hold", url, method, action)
         return held
+
+    def verify_all_applied(self) -> None:
+        """Каждый установленный сбой перехватил хотя бы один запрос, иначе PreconditionError.
+
+        Сбой, который не применился, выглядит как устойчивость: приложение "пережило" 500,
+        которого не было. Это предусловие, а не провал проверки — PreconditionError
+        не спрячется за строгим xfail (raises=AssertionError).
+        """
+        missed = [fault for fault in self.installed if not fault.requests]
+        if missed:
+            listed = "; ".join(str(fault) for fault in missed)
+            raise PreconditionError(f"Сбой не сработал — тест ничего не проверил. Ни одного запроса: {listed}")
 
     def wait_for_requests(self, requests, count: int = 1, timeout_ms: int | None = None) -> None:
         """Ждёт, пока перехвачено не меньше count запросов.

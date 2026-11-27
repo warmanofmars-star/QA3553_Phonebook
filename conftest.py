@@ -41,6 +41,7 @@ from models.contact import Contact
 from models.user import User
 from pages.login_page import LoginPage
 from utils.listener import PhonebookListener
+from utils.network_faults import NetworkFaults
 from utils.preconditions import require
 
 # ==========================================
@@ -230,6 +231,21 @@ def page(context):
             name="Видео Playwright",
             attachment_type=allure.attachment_type.MP4,
         )
+
+
+@pytest.fixture
+def network_faults(page):
+    """Сбои бэкенда для теста (utils/network_faults.py); после теста — проверка, что каждый сработал.
+
+    Сбой, не перехвативший ни одного запроса, выглядит как устойчивость: приложение "пережило"
+    ошибку, которой не было. Поэтому проверка не держится на дисциплине автора теста, а идёт
+    на teardown для всех сбоев сразу. Почему именно teardown: у строгого xfail
+    (raises=AssertionError) провал проверки при неприменённом сбое ушёл бы в ожидаемый xfail,
+    а ошибка teardown (ERROR) за xfail не прячется.
+    """
+    faults = NetworkFaults(page)
+    yield faults
+    faults.verify_all_applied()
 
 
 # ==========================================

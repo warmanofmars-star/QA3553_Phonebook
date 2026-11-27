@@ -34,7 +34,7 @@ from pages.pw_add_contact_page import PwAddContactPage
 from pages.pw_contacts_page import PwContactsPage
 from pages.pw_feedback import PwFeedback
 from pages.pw_login_page import PwLoginPage
-from utils.network_faults import CONTACT_BY_ID, CONTACTS, NetworkFaults
+from utils.network_faults import CONTACT_BY_ID, CONTACTS
 
 pytestmark = [
     pytest.mark.playwright,
@@ -94,8 +94,8 @@ def _add_contact_via_form(
 # ==========================================
 @allure.story("Good behaviour")
 @allure.title("Сбой PUT: карточка и бэкенд хранят старое значение")
-def test_put_failure_keeps_old_value(page: Page, temp_user, created_contact, auth_api):
-    faults = NetworkFaults(page)
+def test_put_failure_keeps_old_value(page: Page, network_faults, temp_user, created_contact, auth_api):
+    faults = network_faults
     puts = faults.respond(CONTACTS, "PUT", 500)
     contacts = _login(page, temp_user)
     contacts.open_details(created_contact.phone)
@@ -113,8 +113,8 @@ def test_put_failure_keeps_old_value(page: Page, temp_user, created_contact, aut
 
 @allure.story("Good behaviour")
 @allure.title("Сбой DELETE: карточка осталась, контакт на бэкенде на месте")
-def test_delete_failure_keeps_contact(page: Page, temp_user, created_contact, auth_api):
-    faults = NetworkFaults(page)
+def test_delete_failure_keeps_contact(page: Page, network_faults, temp_user, created_contact, auth_api):
+    faults = network_faults
     deletes = faults.respond(CONTACT_BY_ID, "DELETE", 500)
     contacts = _login(page, temp_user)
     contacts.open_details(created_contact.phone)
@@ -129,8 +129,8 @@ def test_delete_failure_keeps_contact(page: Page, temp_user, created_contact, au
 
 @allure.story("Good behaviour")
 @allure.title("Сбой POST: контакт не создан, введённые данные остались в форме")
-def test_post_failure_keeps_form_data(page: Page, temp_user, auth_api):
-    faults = NetworkFaults(page)
+def test_post_failure_keeps_form_data(page: Page, network_faults, temp_user, auth_api):
+    faults = network_faults
     posts = faults.respond(CONTACTS, "POST", 500)
     contact, add_page = _add_contact_via_form(page, temp_user)
     faults.wait_for_delivery(posts)
@@ -144,17 +144,19 @@ def test_post_failure_keeps_form_data(page: Page, temp_user, auth_api):
 
 @allure.story("Good behaviour")
 @allure.title("Пустой список: видно сообщение о пустом списке")
-def test_empty_list_shows_message(page: Page, temp_user, created_contact):
+def test_empty_list_shows_message(page: Page, network_faults, temp_user, created_contact):
     # Настоящий контакт на бэкенде есть: сообщение появляется именно из-за ответа сервера
-    NetworkFaults(page).respond(CONTACTS, "GET", 200, {"contacts": []})
+    gets = network_faults.respond(CONTACTS, "GET", 200, {"contacts": []})
     contacts = _login(page, temp_user)
+    # Подмена сработала: иначе сообщение о пустом списке не из-за ответа сервера
+    network_faults.wait_for_delivery(gets)
     contacts.check_empty_message_visible()
 
 
 @allure.story("Good behaviour")
 @allure.title("Медленный список: сначала индикатор загрузки, потом контакты")
-def test_slow_list_shows_loading_then_contacts(page: Page, temp_user, created_contact):
-    faults = NetworkFaults(page)
+def test_slow_list_shows_loading_then_contacts(page: Page, network_faults, temp_user, created_contact):
+    faults = network_faults
     held = faults.hold(CONTACTS, "GET")
     contacts = _login(page, temp_user)
     faults.wait_for_requests(held.requests)
@@ -217,8 +219,8 @@ def _fail_delete(page, temp_user, created_contact, faults, feedback):
         pytest.param("DELETE 500", _fail_delete, id="delete-500"),
     ],
 )
-def test_failure_is_shown_to_user(page: Page, temp_user, created_contact, action, perform):
-    faults = NetworkFaults(page)
+def test_failure_is_shown_to_user(page: Page, network_faults, temp_user, created_contact, action, perform):
+    faults = network_faults
     feedback = PwFeedback(page)
     requests = perform(page, temp_user, created_contact, faults, feedback)
     faults.wait_for_requests(requests)
@@ -230,8 +232,8 @@ def test_failure_is_shown_to_user(page: Page, temp_user, created_contact, action
 @allure.title("Сбой PUT: форма редактирования не закрывается, введённое не теряется")
 @allure.tag("OBS-EDIT_FORM_CLOSES_ON_FAILURE")
 @observation("EDIT_FORM_CLOSES_ON_FAILURE")
-def test_edit_form_stays_open_on_put_failure(page: Page, temp_user, created_contact):
-    faults = NetworkFaults(page)
+def test_edit_form_stays_open_on_put_failure(page: Page, network_faults, temp_user, created_contact):
+    faults = network_faults
     puts = faults.respond(CONTACTS, "PUT", 500)
     contacts = _login(page, temp_user)
     contacts.open_details(created_contact.phone)
@@ -249,8 +251,8 @@ def test_edit_form_stays_open_on_put_failure(page: Page, temp_user, created_cont
 @allure.title("Сбой списка: нет вечной загрузки")
 @allure.tag("OBS-ENDLESS_LOADING")
 @observation("ENDLESS_LOADING")
-def test_list_failure_does_not_load_forever(page: Page, temp_user, created_contact):
-    faults = NetworkFaults(page)
+def test_list_failure_does_not_load_forever(page: Page, network_faults, temp_user, created_contact):
+    faults = network_faults
     gets = faults.respond(CONTACTS, "GET", 500)
     contacts = _login(page, temp_user)
     faults.wait_for_requests(gets)
@@ -264,9 +266,9 @@ def test_list_failure_does_not_load_forever(page: Page, temp_user, created_conta
 @allure.title("401 на список: переход на страницу входа")
 @allure.tag("OBS-EXPIRED_SESSION_NO_REDIRECT")
 @observation("EXPIRED_SESSION_NO_REDIRECT")
-def test_expired_session_redirects_to_login(page: Page, temp_user, created_contact):
+def test_expired_session_redirects_to_login(page: Page, network_faults, temp_user, created_contact):
     # 403 намеренно не проверяется: для отсутствующей авторизации Swagger обещает 401
-    faults = NetworkFaults(page)
+    faults = network_faults
     gets = faults.respond(CONTACTS, "GET", 401)
     contacts = _login(page, temp_user)  # сначала приложение переходит на /contacts — это предусловие
     faults.wait_for_requests(gets)
@@ -280,8 +282,8 @@ def test_expired_session_redirects_to_login(page: Page, temp_user, created_conta
 @allure.title("Двойной клик по Save: ровно один POST")
 @allure.tag("OBS-DOUBLE_SUBMIT")
 @observation("DOUBLE_SUBMIT")
-def test_double_click_sends_one_post(page: Page, temp_user):
-    faults = NetworkFaults(page)
+def test_double_click_sends_one_post(page: Page, network_faults, temp_user):
+    faults = network_faults
     # Первый POST висит без ответа (как при медленной сети) — второй клик приходится на него
     held = faults.hold(CONTACTS, "POST")
     _add_contact_via_form(page, temp_user, double_click=True)
@@ -295,8 +297,8 @@ def test_double_click_sends_one_post(page: Page, temp_user):
 @allure.title("Обрыв сети: нет необработанных исключений страницы")
 @allure.tag("OBS-UNHANDLED_NETWORK_ERROR")
 @observation("UNHANDLED_NETWORK_ERROR")
-def test_network_error_is_handled(page: Page, temp_user):
-    faults = NetworkFaults(page)
+def test_network_error_is_handled(page: Page, network_faults, temp_user):
+    faults = network_faults
     feedback = PwFeedback(page)
     posts = faults.abort(CONTACTS, "POST")
     _, add_page = _add_contact_via_form(page, temp_user)
@@ -313,8 +315,8 @@ def test_network_error_is_handled(page: Page, temp_user):
 @allure.title("Двойной клик по Save: на бэкенде ровно один контакт")
 @allure.tag("SRS-T45")
 @known_bug("DUPLICATE_CONTACT")
-def test_double_click_creates_one_contact(page: Page, temp_user, auth_api):
-    faults = NetworkFaults(page)
+def test_double_click_creates_one_contact(page: Page, network_faults, temp_user, auth_api):
+    faults = network_faults
     held = faults.hold(CONTACTS, "POST")
     contact, add_page = _add_contact_via_form(page, temp_user, double_click=True)
     faults.wait_for_requests(held.requests)

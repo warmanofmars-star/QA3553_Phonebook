@@ -5,7 +5,7 @@ from playwright.sync_api import Page
 from models.contact import Contact
 from pages.pw_contacts_page import PwContactsPage
 from pages.pw_login_page import PwLoginPage
-from utils.network_faults import CONTACTS, NetworkFaults
+from utils.network_faults import CONTACTS
 
 # Контакт, которого нет на бэкенде: браузер увидит его вместо реальных данных
 FAKE = Contact(
@@ -25,7 +25,7 @@ FAKE = Contact(
 @allure.feature("Network Interception")
 @allure.story("Mocking Contacts List")
 @allure.title("Изоляция UI: подмена ответа бэкенда (Mocking)")
-def test_mock_contacts_list(page: Page, temp_user):
+def test_mock_contacts_list(page: Page, network_faults, temp_user):
     """UI корректно отрисовывает данные, которые вернул бэкенд.
 
     Ответ на GET /v1/contacts подменяется, поэтому тест проверяет только
@@ -33,7 +33,7 @@ def test_mock_contacts_list(page: Page, temp_user):
     """
     # Перехват включаем ДО логина: после него фронтенд сразу запросит список контактов.
     # Остальные методы (POST/PUT/DELETE) NetworkFaults пропускает на настоящий сервер
-    faults = NetworkFaults(page)
+    faults = network_faults
     gets = faults.respond(CONTACTS, "GET", 200, {"contacts": [FAKE.to_api_payload()]})
 
     login_page = PwLoginPage(page)
