@@ -52,7 +52,10 @@ OBSERVATIONS: dict[str, Observation] = {
     ),
     "EDIT_FORM_CLOSES_ON_FAILURE": Observation(
         source="Общие принципы UX: не терять введённые пользователем данные",
-        description="При сбое PUT /v1/contacts форма редактирования закрывается, введённые значения пропадают",
+        description=(
+            "Форма редактирования закрывается сразу при нажатии Save, ещё до ответа сервера, "
+            "поэтому при сбое PUT /v1/contacts введённые значения пропадают"
+        ),
         rationale="Закрытие формы выглядит как успешное сохранение, а исправить и повторить уже нечего",
     ),
     "ENDLESS_LOADING": Observation(
